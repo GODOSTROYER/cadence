@@ -332,6 +332,74 @@ Design brief lives in `ui/DESIGN.md`. Routes: `/` Overview, `/agent` Playground,
 - Judge agreement: human ratings on a stratified 60-example subset (20 per system, blind) → quadratic-weighted Cohen's κ, Spearman ρ, exact & within-1 agreement on `overall`; per-dimension κ.
 - Baselines: intent → majority class, keyword rules, TF-IDF+LogisticRegression (5-fold stratified CV over golden; predictions are out-of-fold), LLM zero-shot (no retrieval, batched 10 messages/call); escalation → always/never escalate, keyword rules; reply → most-common brand template, nearest-neighbour historical reply (BM25 top-1's first brand reply).
 
+## 15. Cross-module interfaces (the seams between independently built parts)
+
+### 15.1 Systems (final list)
+`SYSTEMS = ("agent", "trivial", "simple", "simple_keyword", "llm_zero_shot")`
+- `agent`: full pipeline (rules + BM25 retrieval + Gemini structured call).
+- `trivial`: intent = majority class of golden gold labels; decision = always `escalate` (reason `low_confidence`, reason text "trivial baseline escalates everything"); reply = most common brand template (`reply_templates.json[0]`).
+- `simple`: intent = TF-IDF + LogisticRegression, 5-fold stratified out-of-fold predictions over the golden set; decision = deterministic rules only (`cadence.agent.rules`), auto_handle when nothing fires; reply = nearest-neighbour historical reply (BM25 top-1 thread's `first_reply_text`, excluding the example's own thread).
+- `simple_keyword`: intent only, from `keywords` in `config/intents.yaml` (first intent whose keyword count is highest; ties → earlier intent; no hit → `other`). Other fields copy `simple`.
+- `llm_zero_shot`: intent + decision from the zero-shot model with taxonomy + policy in the prompt, **no retrieval**, batched 10 messages per call; reply_draft empty string.
+Reply-quality judging covers `agent`, `simple`, `trivial`. "nn" in `eval_summary.headline.judge_overall_mean_nn` refers to `simple`.
+
+### 15.2 Retriever (`cadence.retrieval.index`)
+```python
+@dataclass
+class Hit:
+    thread_id: str
+    score: float
+    thread: dict          # full processed thread object (§3)
+
+class Retriever:
+    @classmethod
+    def build(cls, threads: list[dict]) -> "Retriever": ...
+    @classmethod
+    def load(cls, path: Path = Paths.BM25_INDEX) -> "Retriever": ...
+    def save(self, path: Path = Paths.BM25_INDEX) -> None: ...
+    def search(self, query: str, k: int = 6, exclude_thread_ids: set[str] | None = None) -> list[Hit]: ...
+    def get(self, thread_id: str) -> dict | None: ...
+    def __len__(self) -> int: ...
+```
+`exclude_thread_ids` MUST be used when evaluating a golden example (exclude its own `thread_id`) to avoid leakage.
+
+### 15.3 Agent (`cadence.agent.pipeline`)
+```python
+class SupportAgent:
+    def __init__(self, client: LLMClient, retriever: Retriever, k: int = 6, threshold: float | None = None): ...
+    def handle(self, text: str, *, id: str | None = None, exclude_thread_ids: set[str] | None = None) -> AgentResponse: ...
+```
+`cadence.agent.rules.apply_rules(text: str) -> RuleResult` where
+`RuleResult{flags: list[str], soft_flags: list[str], force_escalate: bool, reason_code: str | None, reason: str | None}`.
+`cadence.agent.models.AgentResponse` is the pydantic model of §6 (`.model_dump()` → JSON row of predictions.jsonl).
+
+### 15.4 Baselines (`cadence.baselines`)
+```python
+def run_baselines(golden_rows: list[dict], retriever: Retriever, *, zero_shot_client: LLMClient | None = None,
+                  systems: tuple[str, ...] = ("trivial", "simple", "simple_keyword", "llm_zero_shot")) -> dict[str, list[AgentResponse]]
+```
+Each returned list is aligned with `golden_rows` (same order, `id` copied from the golden row).
+
+### 15.5 Judge (`cadence.eval.judge`)
+```python
+def run_judge(golden_rows: list[dict], predictions: dict[str, list[AgentResponse | dict]], client: LLMClient,
+              systems: tuple[str, ...] = ("agent", "simple", "trivial")) -> list[dict]   # JudgeScore rows (§7)
+```
+One comparative call per golden example; replies shuffled/anonymised as A/B/C with `random.Random(SEED + index)`.
+
+### 15.6 Decision log format (`DECISION_LOG.md`, parsed by the API)
+```
+## 1. Title of the decision
+**Decision:** what was decided (one or two sentences).
+**Why:** the reasoning (one to three sentences).
+```
+Repeated for each decision; numbers ascending.
+
+### 15.7 Brand voice notes
+`docs/BRAND_VOICE.md` (written by the taxonomy pass) describes SpotifyCares' reply style with measured facts
+(greetings, sign-offs, emoji rate, length distribution, common phrases, per-intent resolution patterns).
+`cadence.agent.prompts` loads it into the system prompt when present and falls back to a built-in summary otherwise.
+
 ## 14. Deviations (append-only)
 
 - (none yet)

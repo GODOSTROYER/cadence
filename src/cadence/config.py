@@ -70,7 +70,10 @@ class Paths:
 SPOTIFY_HANDLES: tuple[str, ...] = ("@SpotifyCares", "@spotifycares", "@115888", "@117168", "@117153")
 """Anonymised + real handles that all refer to Spotify accounts (CONTRACT.md §2)."""
 
-SYSTEMS: tuple[str, ...] = ("agent", "trivial", "simple", "nn_reply", "llm_zero_shot")
+SYSTEMS: tuple[str, ...] = ("agent", "trivial", "simple", "simple_keyword", "llm_zero_shot")
+"""All prediction systems (CONTRACT.md §15.1)."""
+JUDGED_SYSTEMS: tuple[str, ...] = ("agent", "simple", "trivial")
+"""Systems whose reply drafts are scored by the LLM judge."""
 DECISIONS: tuple[str, ...] = ("auto_handle", "escalate")
 SENTIMENTS: tuple[str, ...] = ("positive", "neutral", "frustrated", "angry")
 JUDGE_DIMENSIONS: tuple[str, ...] = ("grounded", "resolves", "tone", "safe", "overall")
@@ -84,6 +87,7 @@ __all__ = [
     "Paths",
     "SPOTIFY_HANDLES",
     "SYSTEMS",
+    "JUDGED_SYSTEMS",
     "DECISIONS",
     "SENTIMENTS",
     "JUDGE_DIMENSIONS",
