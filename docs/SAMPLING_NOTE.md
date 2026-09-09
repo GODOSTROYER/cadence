@@ -53,38 +53,40 @@ and a message is skipped when (a) it was already drawn or (b) its text is a **ne
 `text`, `text_raw`, the first brand reply (`historical_brand_reply`) and the full public thread
 (`historical_thread`) for context.
 
-## Result (v0 keywords, 2026-09 run)
+## Result (v1 keywords, final run: `--per-bucket 25 --min-random-share 0.28`)
 
-493 candidates from 493 distinct threads (the 30-per-bucket rule fills every bucket, and the 30 % floor
-then lifts the random slice from 75 to 148; `--per-bucket 25` yields exactly 420).
+The v0 run (30 per bucket, 11 intents) produced 493 candidates; after the taxonomy pass added a twelfth
+intent and rewrote the keywords, the script was re-run with 25 per bucket to land near the contract's ~420:
+**438 candidates from 438 distinct threads.**
 
 | bucket | count | share |
 |---|---:|---:|
-| random | 148 | 30.0 % |
-| kw:account_hacked_or_security | 30 | 6.1 % |
-| kw:billing_or_charge | 30 | 6.1 % |
-| kw:content_or_availability | 30 | 6.1 % |
-| kw:download_or_offline | 30 | 6.1 % |
-| kw:feature_request_or_feedback | 30 | 6.1 % |
-| kw:login_or_password | 30 | 6.1 % |
-| kw:non_english | 30 | 6.1 % |
-| kw:other | 30 | 6.1 % |
-| kw:playback_or_app_bug | 30 | 6.1 % |
-| kw:playlist_or_library | 30 | 6.1 % |
-| kw:subscription_or_plan | 30 | 6.1 % |
-| short_or_media | 15 | 3.0 % |
+| random | 123 | 28.1 % |
+| kw:\<intent\> × 12 (account_hacked_or_security, billing_or_charge, content_or_availability, download_or_offline, feature_request_or_feedback, login_or_password, metadata_or_artist_issue, non_english, other, playback_or_app_bug, playlist_or_library, subscription_or_plan) | 25 each = 300 | 5.7 % each |
+| short_or_media | 15 | 3.4 % |
 
-Spread: 19 calendar months (Aug 2015 – Dec 2017); 135 / 133 / 120 candidates in Oct / Nov / Dec 2017, 49 in
-Sep 2017, 56 earlier. 14.0 % of candidates contain a link (openers overall: 14.6 %); 33.7 % come from
-multi-turn threads (overall: 28.1 %).
+Spread: 19 calendar months; 115 / 116 / 103 candidates in Oct / Nov / Dec 2017, 48 in Sep 2017, 56 earlier.
+12.1 % of candidates contain a link (openers overall: 14.6 %); 45 % come from threads with more than one
+public exchange (a deliberate side effect of the usefulness of multi-turn threads for context).
+
+## Labelling subset (`scripts/make_label_chunks.py --n 250 --chunks 5 --non-english 10`)
+
+Two annotators cannot label 438 messages in the time available, and the assignment caps the golden set at
+250, so a stratified subset was drawn from the candidates with the same seed: every bucket keeps a floor of
+12 and the rest is proportional, giving **13 per keyword bucket (156), 72 random (30 %), 12 short_or_media**
+= 240, plus **10 genuinely non-English openers** (`language == "other"`, ≥ 3 words, with a brand reply) that
+the English-only sampler could not reach, so that the `non_english` intent and the language-redirect policy
+have real support. The 250 rows were shuffled and cut into five chunks of 50; each chunk was labelled
+independently by two annotators and adjudicated (see `LABELLING_GUIDE.md` §7 and `golden_stats.json`).
 
 ## Known caveats
 
-- The pool is English-only by design; the `kw:non_english` bucket is therefore filled with English texts
-  that happen to contain a foreign keyword — 22 of its 30 draws match `conta` (Portuguese) as a substring
-  of "contact". Improving the keyword (e.g. `minha conta`) in `config/intents.yaml` and re-running the
-  script fixes this; genuinely non-English openers (571, 2.1 %) are labelled `language == "other"` in the
-  parquet and can be added to the golden set separately if the `non_english` intent needs support.
+- The pool is English-only by design (the stopword heuristic classifies 97.9 % of openers as English), so
+  the `kw:non_english` bucket holds mixed-language tweets (Taglish, Indonesian, Spanish fragments). The
+  v0 `conta`/"contact" substring bug was fixed in the v1 keywords; the 10 `language == "other"` rows above
+  are the genuinely non-English support.
 - Keyword buckets are sampling strata, not labels. Annotators label every candidate from scratch; the
   `sampling_bucket` field is kept only so the report can describe the stratification.
 - Exact-duplicate removal keeps the earliest tweet, so campaign tweets ("UPDATE IPHONE X") survive once.
+- Because rare intents are over-sampled, the golden set's intent distribution is **not** the natural
+  distribution; the `random` slice (30 %) is the unbiased estimate of it (see `docs/TAXONOMY.md` §4).
