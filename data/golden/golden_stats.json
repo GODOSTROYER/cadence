@@ -1,0 +1,41 @@
+{
+  "n_golden": 250,
+  "n_dev": 50,
+  "n_test": 200,
+  "n_dropped": 0,
+  "dropped": [],
+  "n_adjudicated": 19,
+  "intent_agreement_raw": 0.964,
+  "escalation_agreement_raw": 0.976,
+  "intent_distribution": {
+    "feature_request_or_feedback": 40,
+    "other": 37,
+    "playback_or_app_bug": 29,
+    "account_hacked_or_security": 22,
+    "subscription_or_plan": 19,
+    "content_or_availability": 19,
+    "billing_or_charge": 16,
+    "login_or_password": 16,
+    "non_english": 15,
+    "playlist_or_library": 14,
+    "download_or_offline": 12,
+    "metadata_or_artist_issue": 11
+  },
+  "escalate_share": 0.412,
+  "reason_code_distribution": {
+    "ambiguous_or_media_only": 29,
+    "needs_account_lookup": 23,
+    "account_security": 22,
+    "billing_dispute": 16,
+    "high_frustration_or_churn": 10,
+    "out_of_scope": 2,
+    "legal_or_safety": 1
+  },
+  "sentiment_distribution": {
+    "neutral": 144,
+    "frustrated": 91,
+    "positive": 9,
+    "angry": 6
+  },
+  "media_only": 14
+}
