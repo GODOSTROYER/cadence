@@ -1,0 +1,125 @@
+/*
+ * Cadence design tokens (ui/DESIGN.md). Dark only.
+ * Every colour in the UI resolves to one of these variables; components never hardcode hex.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Ground and surfaces */
+  --bg: #0b0c0f;
+  --surface: #12141a;
+  --surface-2: #191c24;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Text */
+  --text: #ecedef;
+  --muted: #8b8f98;
+  --faint: #5b5f69;
+
+  /* Semantic accents */
+  --green: #1ed760; /* auto_handle, success, primary CTA */
+  --amber: #f5b841; /* escalate, warnings */
+  --rose: #ff5c77; /* failures, reject, missed escalations */
+  --sky: #6cb6ff; /* judge / information */
+  --violet: #a78bfa; /* baselines */
+
+  /* Translucent tints for fills behind semantic text (kept low so AA contrast holds on --text). */
+  --green-tint: rgba(30, 215, 96, 0.12);
+  --amber-tint: rgba(245, 184, 65, 0.12);
+  --rose-tint: rgba(255, 92, 119, 0.12);
+  --sky-tint: rgba(108, 182, 255, 0.12);
+  --violet-tint: rgba(167, 139, 250, 0.12);
+
+  /* Type */
+  --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: "Geist", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-20: 20px;
+  --fs-28: 28px;
+  --fs-40: 40px;
+  --fs-64: 64px;
+  --fs-96: 96px;
+
+  /* Layout */
+  --sidebar-w: 240px;
+  --rail-w: 64px;
+  --content-max: 1280px;
+  --page-pad: 32px;
+  --gap: 24px;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-hover: 120ms;
+  --dur-enter: 200ms;
+
+  /* Grain: tiled SVG turbulence noise at 3.5% opacity, painted on the page ground behind every panel. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.6 0 0 0 0 0.6 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: var(--bg);
+  background-image: var(--grain);
+  background-size: 180px 180px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Focus: 2px green ring, offset so it never clips against hairlines. */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: rgba(30, 215, 96, 0.3);
+  color: var(--text);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--faint) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--faint);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

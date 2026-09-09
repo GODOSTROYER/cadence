@@ -1,0 +1,282 @@
+[
+  {
+    "template": "hey there! can you dm us your account's email address? we'll take a look",
+    "example_raw": "@142711 Hey there! Can you DM us your account's email address? We'll take a look /RB https://t.co/ldFdZRiNAt",
+    "count": 191,
+    "share": 0.006914,
+    "asks_dm": true
+  },
+  {
+    "template": "hi there! can you dm us your account's email address or username? we'll take a look backstage",
+    "example_raw": "@116391 Hi there! Can you DM us your account's email address or username? We'll take a look backstage /NQ https://t.co/ldFdZRiNAt",
+    "count": 170,
+    "share": 0.006153,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! can you dm us your account's email address or username? we'll take a look",
+    "example_raw": "@144801 Hey there! Can you DM us your account's email address or username? We'll take a look /NS https://t.co/ldFdZRiNAt",
+    "count": 160,
+    "share": 0.005791,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! fingers crossed we'll be able to have it soon, but there's info about spotify content here:",
+    "example_raw": "@120106 Hey! Fingers crossed we'll be able to have it soon, but there's info about Spotify content here: https://t.co/0i8GpimuDa /RH",
+    "count": 143,
+    "share": 0.005176,
+    "asks_dm": false
+  },
+  {
+    "template": "hey there! fingers crossed we'll be able to have it soon, but there's info about spotify content here:",
+    "example_raw": "@133617 Hey there! Fingers crossed we'll be able to have it soon, but there's info about Spotify content here: https://t.co/1dgftcFtzc /AC",
+    "count": 126,
+    "share": 0.004561,
+    "asks_dm": false
+  },
+  {
+    "template": "hey! we can help out in english via twitter, but we also have indonesian support via email at",
+    "example_raw": "@118265 Hey! We can help out in English via Twitter, but we also have Indonesian support via email at https://t.co/ZgU70TbP8M /JS",
+    "count": 101,
+    "share": 0.003656,
+    "asks_dm": false
+  },
+  {
+    "template": "hi! we've just sent a dm your way. let's carry on chatting there",
+    "example_raw": "@134381 Hi! We've just sent a DM your way. Let's carry on chatting there /JN",
+    "count": 82,
+    "share": 0.002968,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! we've just sent a dm your way. let's carry on chatting there",
+    "example_raw": "@120105 Hey! We've just sent a DM your way. Let's carry on chatting there /NQ",
+    "count": 81,
+    "share": 0.002932,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! we're launching in new countries as often as possible. be sure to add your email at",
+    "example_raw": "@151629 Hey there! We're launching in new countries as often as possible. Be sure to add your email at https://t.co/X8DVSX9QgM /KL",
+    "count": 79,
+    "share": 0.00286,
+    "asks_dm": false
+  },
+  {
+    "template": "hey there! could you dm us your account's username and email address? we'll take a look backstage",
+    "example_raw": "@138412 Hey there! Could you DM us your account's username and email address? We'll take a look backstage /DF https://t.co/ldFdZRiNAt",
+    "count": 78,
+    "share": 0.002823,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! we’d love to have all of their stuff available, but we have some info about content here:",
+    "example_raw": "@126137 Hey there! We’d love to have all of their stuff available, but we have some info about content here: https://t.co/0i8GpimuDa /GU",
+    "count": 74,
+    "share": 0.002679,
+    "asks_dm": false
+  },
+  {
+    "template": "hey there, help's here! can you dm us your account's email address and username? we'll take a look backstage 🙂",
+    "example_raw": "@473577 Hey there, help's here! Can you DM us your account's email address and username? We'll take a look backstage 🙂 /CG https://t.co/ldFdZRiNAt",
+    "count": 73,
+    "share": 0.002642,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! we don't have any info on this right now, but we'll let the right team know it's something you'd like to see",
+    "example_raw": "@153874 Hey there! We don't have any info on this right now, but we'll let the right team know it's something you'd like to see /MX",
+    "count": 67,
+    "share": 0.002425,
+    "asks_dm": false
+  },
+  {
+    "template": "hey there! we’ll have it available to you as soon as it’s available to us.",
+    "example_raw": "@133624 Hey there! We’ll have it available to you as soon as it’s available to us. https://t.co/1dgftcFtzc /GK",
+    "count": 67,
+    "share": 0.002425,
+    "asks_dm": false
+  },
+  {
+    "template": "hey! the cavalry's here. can you dm us your account's username or email address? we'll take a look under the hood",
+    "example_raw": "@253016 Hey! The cavalry's here. Can you DM us your account's username or email address? We'll take a look under the hood /JS https://t.co/ldFdZRiNAt",
+    "count": 67,
+    "share": 0.002425,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! could you send us a dm with your account's email address or username? we'll take a look backstage",
+    "example_raw": "@188361 Hey there! Could you send us a DM with your account's email address or username? We'll take a look backstage /LO https://t.co/ldFdZRiNAt",
+    "count": 65,
+    "share": 0.002353,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! can you dm us your account's email address? we'll see what we can suggest",
+    "example_raw": "@123206 Hey! Can you DM us your account's email address? We'll see what we can suggest /CB https://t.co/ldFdZRiNAt",
+    "count": 65,
+    "share": 0.002353,
+    "asks_dm": true
+  },
+  {
+    "template": "hi there! we've just sent a dm your way. let's carry on chatting there",
+    "example_raw": "@122507 Hi there! We've just sent a DM your way. Let's carry on chatting there /PL",
+    "count": 65,
+    "share": 0.002353,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! don't worry, we're on it. our developers are looking into this, and we'll keep everyone updated",
+    "example_raw": "@235570 Hey! Don't worry, we're on it. Our developers are looking into this, and we'll keep everyone updated /CM",
+    "count": 63,
+    "share": 0.00228,
+    "asks_dm": false
+  },
+  {
+    "template": "hey! sometimes content gets temporarily removed because of licensing changes. hopefully we'll have it available again soon",
+    "example_raw": "@162918 Hey! Sometimes content gets temporarily removed because of licensing changes. Hopefully we'll have it available again soon /SJ",
+    "count": 60,
+    "share": 0.002172,
+    "asks_dm": false
+  },
+  {
+    "template": "hi! taylor swift's 'reputation' isn't available to stream just yet – stay tuned! for now, check out the singles:",
+    "example_raw": "@393483 Hi! Taylor Swift's 'Reputation' isn't available to stream just yet – stay tuned! For now, check out the singles: https://t.co/3h0TnPWP0c /BM",
+    "count": 59,
+    "share": 0.002136,
+    "asks_dm": false
+  },
+  {
+    "template": "hey, help's here! can you dm us your account's email address? we'll check backstage",
+    "example_raw": "@131452 Hey, help's here! Can you DM us your account's email address? We'll check backstage /GK https://t.co/ldFdZRiNAt",
+    "count": 55,
+    "share": 0.001991,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! we're launching in new countries as often as possible. be sure to add your email at",
+    "example_raw": "@117529 Hey! We're launching in new countries as often as possible. Be sure to add your email at https://t.co/X8DVSX9QgM /CB",
+    "count": 54,
+    "share": 0.001955,
+    "asks_dm": false
+  },
+  {
+    "template": "hey, that doesn't sound good! did the app crash at any point during the 30 minutes? that can cause the ad-free time to reset",
+    "example_raw": "@127775 Hey, that doesn't sound good! Did the app crash at any point during the 30 minutes? That can cause the ad-free time to reset /JX",
+    "count": 54,
+    "share": 0.001955,
+    "asks_dm": false
+  },
+  {
+    "template": "hey there! can you dm us your account's username or email address? we'll take a look backstage",
+    "example_raw": "@133057 Hey there! Can you DM us your account's username or email address? We'll take a look backstage /MS https://t.co/ldFdZRiNAt",
+    "count": 53,
+    "share": 0.001918,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! we have more info about this here: . give us a shout if you have any questions",
+    "example_raw": "@116885 Hey! We have more info about this here: https://t.co/pXBCq8GlsI. Give us a shout if you have any questions /RH",
+    "count": 51,
+    "share": 0.001846,
+    "asks_dm": false
+  },
+  {
+    "template": "hi there! we've just sent you a bit more info over dm. we'll carry on helping out there",
+    "example_raw": "@124333 Hi there! We've just sent you a bit more info over DM. We'll carry on helping out there /MA",
+    "count": 50,
+    "share": 0.00181,
+    "asks_dm": true
+  },
+  {
+    "template": "hi! we've just sent you a bit more info over dm. we'll carry on helping out there",
+    "example_raw": "@160419 Hi! We've just sent you a bit more info over DM. We'll carry on helping out there /AR",
+    "count": 50,
+    "share": 0.00181,
+    "asks_dm": true
+  },
+  {
+    "template": "hey, help's here! can you dm us your account's username or email address? we'll take a look under the hood",
+    "example_raw": "@134378 Hey, help's here! Can you DM us your account's username or email address? We'll take a look under the hood /RS https://t.co/ldFdZRiNAt",
+    "count": 49,
+    "share": 0.001774,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! sometimes content gets temporarily removed because of licensing changes. hopefully we'll have it available again soon",
+    "example_raw": "@139984 Hey there! Sometimes content gets temporarily removed because of licensing changes. Hopefully we'll have it available again soon /MX",
+    "count": 48,
+    "share": 0.001737,
+    "asks_dm": false
+  },
+  {
+    "template": "hi there! can you dm us your account's username or email address? we'll take a look under the hood",
+    "example_raw": "@165022 Hi there! Can you DM us your account's username or email address? We'll take a look under the hood /JM https://t.co/ldFdZRiNAt",
+    "count": 47,
+    "share": 0.001701,
+    "asks_dm": true
+  },
+  {
+    "template": "hey, help's here! can you dm us your account's email address? we'll take a look backstage",
+    "example_raw": "@118153 Hey, help's here! Can you DM us your account's email address? We'll take a look backstage /MG https://t.co/ldFdZRiNAt",
+    "count": 45,
+    "share": 0.001629,
+    "asks_dm": true
+  },
+  {
+    "template": "sorry to hear that! check out the steps under “downloads unexpectedly removed” at . they should help with this",
+    "example_raw": "@126763 Sorry to hear that! Check out the steps under “Downloads unexpectedly removed” at https://t.co/38J7tFlIBF. They should help with this /PB",
+    "count": 45,
+    "share": 0.001629,
+    "asks_dm": false
+  },
+  {
+    "template": "taylor swift's 'reputation' isn't available to stream just yet – stay tuned! for now, check out the singles:",
+    "example_raw": "@393486 Taylor Swift's 'Reputation' isn't available to stream just yet – stay tuned! For now, check out the singles: https://t.co/3h0TnPWP0c /CG",
+    "count": 45,
+    "share": 0.001629,
+    "asks_dm": false
+  },
+  {
+    "template": "we can see how that’d be handy. thanks for taking the time to reach out – your feedback's been noted 📝",
+    "example_raw": "@129061 We can see how that’d be handy. Thanks for taking the time to reach out – your feedback's been noted 📝 /DF",
+    "count": 45,
+    "share": 0.001629,
+    "asks_dm": false
+  },
+  {
+    "template": "hey! we've just sent you a bit more info over dm. we'll carry on helping out there",
+    "example_raw": "@136354 Hey! We've just sent you a bit more info over DM. We'll carry on helping out there /CO",
+    "count": 44,
+    "share": 0.001593,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! can you dm us your account's email address and username? we'll take a look backstage",
+    "example_raw": "@137383 Hey there! Can you DM us your account's email address and username? We'll take a look backstage /AQ https://t.co/ldFdZRiNAt",
+    "count": 42,
+    "share": 0.00152,
+    "asks_dm": true
+  },
+  {
+    "template": "hey there! could you send us a dm with your account's email address? we'll take a look backstage",
+    "example_raw": "@116381 Hey there! Could you send us a DM with your account's email address? We'll take a look backstage /MA https://t.co/ldFdZRiNAt",
+    "count": 42,
+    "share": 0.00152,
+    "asks_dm": true
+  },
+  {
+    "template": "hey! don’t worry, we can help. what’s happening exactly? can you let us know the device/os you’re using?",
+    "example_raw": "@139086 Hey! Don’t worry, we can help. What’s happening exactly? Can you let us know the device/OS you’re using? /TB",
+    "count": 42,
+    "share": 0.00152,
+    "asks_dm": false
+  },
+  {
+    "template": "we've just sent a dm your way. let's carry on chatting there",
+    "example_raw": "@136864 We've just sent a DM your way. Let's carry on chatting there /CG",
+    "count": 42,
+    "share": 0.00152,
+    "asks_dm": true
+  }
+]

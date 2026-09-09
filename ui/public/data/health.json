@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "has_api_key": false,
+  "cache_only": true,
+  "agent_model": "gemini-2.5-flash",
+  "judge_model": "gemini-2.5-pro",
+  "cache_entries": 1412,
+  "index_size": 26068,
+  "n_golden": 200
+}

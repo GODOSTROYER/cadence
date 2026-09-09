@@ -51,7 +51,7 @@ rules:
     reason_code: legal_or_safety
     reason: "Legal, safety or press language detected; requires human handling."
     patterns:
-      - '\b(lawyer|attorney|sue|suing|lawsuit|legal action|gdpr|data protection|police|press|journalist|kill myself|suicide|self[- ]harm|harass(ed|ment)?|discriminat(e|ion|ory))\b'
+      - '\b(lawyer|attorney|sue|suing|lawsuit|legal action|gdpr|data protection|police|press (enquiry|inquiry|office|team|release)|the press|journalist|kill myself|suicide|self[- ]harm|harass(ed|ment)?|discriminat(e|ion|ory))\b'
   - flag: churn_or_abuse
     force_escalate: true
     reason_code: high_frustration_or_churn

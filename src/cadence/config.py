@@ -6,7 +6,7 @@ Every module imports paths from here so that the on-disk layout in CONTRACT.md Â
 from __future__ import annotations
 
 import os
-from functools import lru_cache
+from functools import cache
 from pathlib import Path
 from typing import Any
 
@@ -109,7 +109,7 @@ __all__ = [
 # ---------------------------------------------------------------------------
 # YAML configs
 # ---------------------------------------------------------------------------
-@lru_cache(maxsize=None)
+@cache
 def load_yaml(path: Path) -> dict[str, Any]:
     """Load a YAML file as a dict (cached)."""
     with open(path, encoding="utf-8") as f:

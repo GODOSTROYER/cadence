@@ -1,0 +1,74 @@
+[
+  {
+    "n": 1,
+    "title": "Judge with a different model than the agent",
+    "decision": "Replies are scored by gemini-2.5-pro while the agent runs on gemini-2.5-flash.",
+    "why": "Models rate their own writing style higher; using a different judge removes the most obvious self-preference bias at the cost of a slower, rate-limited judge pass."
+  },
+  {
+    "n": 2,
+    "title": "Treat escalate as the positive class and optimise recall first",
+    "decision": "The headline escalation metric is recall of gold escalations; precision is reported but not optimised.",
+    "why": "A missed escalation means an auto-posted reply to a hacked or over-charged customer; an unnecessary one costs a human a few minutes. The costs are asymmetric, so the metric should be too."
+  },
+  {
+    "n": 3,
+    "title": "Rules override the LLM, never the reverse",
+    "decision": "Deterministic keyword rules can force escalation; the LLM cannot un-escalate a rule hit.",
+    "why": "Money, security and legal language are cheap to detect and catastrophic to miss. The price is a cluster of unnecessary escalations on plan questions, which is tracked as a failure mode rather than hidden."
+  },
+  {
+    "n": 4,
+    "title": "Tune the confidence threshold on the dev split only",
+    "decision": "The 0.60 intent-confidence threshold was chosen on 50 dev examples; every reported number uses the remaining 150.",
+    "why": "Reporting metrics on the same examples used to pick the threshold would quietly inflate recall. Fifty examples is a coarse dial, so the sweep is shown rather than just the chosen point."
+  },
+  {
+    "n": 5,
+    "title": "BM25 over embeddings for retrieval",
+    "decision": "Historical threads are retrieved with BM25 over cleaned customer text; no embedding model is used.",
+    "why": "Support tweets are short and vocabulary-driven (error codes, product names); BM25 matched them well, builds in seconds, runs offline and keeps the pipeline reproducible without another API."
+  },
+  {
+    "n": 6,
+    "title": "Exclude the example's own thread from retrieval",
+    "decision": "When evaluating a golden example, its own thread id is removed from the BM25 candidates.",
+    "why": "Every golden message exists in the corpus with its real brand reply. Without exclusion the agent would copy the answer key and the grounding scores would be meaningless."
+  },
+  {
+    "n": 7,
+    "title": "Commit the LLM cache so results replay without a key",
+    "decision": "Every Gemini call is stored in cache/llm_cache.sqlite keyed by a hash of model, prompt and schema; the file is committed.",
+    "why": "A reviewer should reproduce the headline numbers in minutes without an API key or quota. It also makes the evaluation deterministic across runs."
+  },
+  {
+    "n": 8,
+    "title": "Judge all three replies in one comparative call",
+    "decision": "The judge sees the agent, nearest-neighbour and template replies together, shuffled and labelled A/B/C.",
+    "why": "Absolute 1 to 5 scores drift between calls; comparing side by side anchors the scale, and shuffling removes the position bias that would otherwise favour whichever reply appears first."
+  },
+  {
+    "n": 9,
+    "title": "Sign every drafted reply with /AI",
+    "decision": "Reply drafts end with the signature /AI instead of a human agent's initials.",
+    "why": "SpotifyCares signs with agent initials; copying them would impersonate a person. The brand pattern is preserved while making the author honest."
+  },
+  {
+    "n": 10,
+    "title": "Stratify the golden sample by keyword bucket plus a random slice",
+    "decision": "Candidates were sampled per intent-keyword bucket, with a quarter drawn uniformly at random.",
+    "why": "Pure random sampling gives a handful of security or billing cases; pure keyword sampling hides messages the keywords miss. The random slice keeps an honest estimate of the long tail."
+  },
+  {
+    "n": 11,
+    "title": "Label twice and adjudicate, even with one author",
+    "decision": "Every golden example was labelled in two separate passes a week apart, with disagreements adjudicated and recorded.",
+    "why": "It is not independent inter-annotator agreement, and the report says so, but it surfaces genuinely ambiguous examples (31 of 200) that a single pass would have silently guessed."
+  },
+  {
+    "n": 12,
+    "title": "Ship the UI with a static mode fed by exported JSON",
+    "decision": "The dashboard reads public/data/*.json when VITE_STATIC=1 and only calls the API in live mode.",
+    "why": "Reviewers can open the results on GitHub Pages without running Python, and the same UI works against the FastAPI server for the live playground and human rating flow."
+  }
+]

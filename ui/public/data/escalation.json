@@ -1,0 +1,104 @@
+{
+  "confidence_threshold": 0.6,
+  "min_words_for_auto_handle": 3,
+  "reason_codes": [
+    {
+      "id": "billing_dispute",
+      "name": "Billing dispute",
+      "description": "Any money movement or failure — charges, refunds, double billing, payment failures, price disputes."
+    },
+    {
+      "id": "account_security",
+      "name": "Account security",
+      "description": "Hacked account, unknown device, unauthorized changes, identity questions."
+    },
+    {
+      "id": "needs_account_lookup",
+      "name": "Needs account lookup",
+      "description": "Resolution requires looking at the account backstage — login recovery, missing purchase, eligibility for this user."
+    },
+    {
+      "id": "high_frustration_or_churn",
+      "name": "High frustration / churn risk",
+      "description": "Explicit churn threat, profanity aimed at the brand, repeated contact, public-relations risk."
+    },
+    {
+      "id": "legal_or_safety",
+      "name": "Legal or safety",
+      "description": "Legal threats, harassment, self-harm, discrimination, press enquiries."
+    },
+    {
+      "id": "ambiguous_or_media_only",
+      "name": "Ambiguous or media-only",
+      "description": "Issue cannot be determined from text — screenshot-only, \"help\", truncated, no detail."
+    },
+    {
+      "id": "low_confidence",
+      "name": "Low model confidence",
+      "description": "The model's intent confidence is below the tuned threshold."
+    },
+    {
+      "id": "out_of_scope",
+      "name": "Out of scope",
+      "description": "Not a support request the brand can act on — politics, spam, other companies."
+    }
+  ],
+  "rules": [
+    {
+      "flag": "money_keywords",
+      "force_escalate": true,
+      "reason_code": "billing_dispute",
+      "reason": "Customer mentions a charge, payment or refund; billing actions need a human with account access.",
+      "n_patterns": 2
+    },
+    {
+      "flag": "security_keywords",
+      "force_escalate": true,
+      "reason_code": "account_security",
+      "reason": "Possible unauthorized account access; security cases must be handled by a human.",
+      "n_patterns": 1
+    },
+    {
+      "flag": "legal_keywords",
+      "force_escalate": true,
+      "reason_code": "legal_or_safety",
+      "reason": "Legal, safety or press language detected; requires human handling.",
+      "n_patterns": 1
+    },
+    {
+      "flag": "churn_or_abuse",
+      "force_escalate": true,
+      "reason_code": "high_frustration_or_churn",
+      "reason": "Explicit churn threat or abusive language toward the brand; a human should own the response.",
+      "n_patterns": 1
+    },
+    {
+      "flag": "media_only_or_too_short",
+      "force_escalate": true,
+      "reason_code": "ambiguous_or_media_only",
+      "reason": "Message has no describable issue (screenshot/link only or too short) — a human needs to look.",
+      "n_patterns": 2
+    },
+    {
+      "flag": "password_or_card_shared",
+      "force_escalate": true,
+      "reason_code": "account_security",
+      "reason": "Customer appears to have posted credentials or card details publicly; a human must intervene.",
+      "n_patterns": 1
+    }
+  ],
+  "soft_flags": [
+    {
+      "flag": "profanity",
+      "n_patterns": 1
+    },
+    {
+      "flag": "repeated_contact",
+      "n_patterns": 1
+    },
+    {
+      "flag": "asks_for_human",
+      "n_patterns": 1
+    }
+  ]
+}

@@ -1,0 +1,2243 @@
+{
+  "meta": {
+    "brand": "SpotifyCares",
+    "n_golden": 200,
+    "n_dev": 50,
+    "n_test": 150,
+    "generated_at": "2026-09-08T21:14:03Z",
+    "agent_model": "gemini-2.5-flash",
+    "judge_model": "gemini-2.5-pro",
+    "zero_shot_model": "gemini-2.5-flash-lite",
+    "git_sha": "mock-data",
+    "cache_hit_rate": 0.97,
+    "threshold": 0.6,
+    "caveats": [
+      "Both label passes were done by the same person a week apart. κ = 0.79 measures self-consistency, not independent agreement, and probably overstates label reliability.",
+      "The test split has 150 examples. The 95% CI on macro-F1 is 14 points wide, so the agent's lead over the LLM zero-shot baseline is real but its size is not settled.",
+      "The judge is a Gemini model scoring another Gemini model. On the 60 human-rated pairs it agreed moderately (κ = 0.69) and scored the agent's replies about 0.1 points higher than the human did.",
+      "Escalation recall of 0.94 is bought with 14 unnecessary escalations, 11 of them from the money-keyword rule firing on plan questions. Without that rule the auto-handle rate would be 0.59.",
+      "Grounding means 'matches what SpotifyCares said in 2017'. Several replies scored well while pointing at help articles that have since moved, and the agent inherits every policy the brand had then."
+    ],
+    "dataset": {
+      "n_openers": 26068,
+      "n_brand_tweets": 43265,
+      "n_rows_total": 2811774,
+      "n_brands": 108,
+      "date_from": "2017-04-07",
+      "date_to": "2017-12-13",
+      "share_english": 0.93,
+      "share_with_link": 0.14,
+      "share_single_reply": 0.72,
+      "n_resolved_links": 150
+    }
+  },
+  "headline": {
+    "intent_macro_f1": 0.7916,
+    "escalation_recall": 0.9355,
+    "auto_handle_rate": 0.52,
+    "judge_overall_mean": 4.1,
+    "judge_overall_mean_nn": 2.633,
+    "ci95": {
+      "intent_macro_f1": [
+        0.7059,
+        0.8499
+      ],
+      "escalation_recall": [
+        0.8689,
+        0.9851
+      ],
+      "auto_handle_rate": [
+        0.44,
+        0.6067
+      ],
+      "judge_overall_mean": [
+        3.94,
+        4.24
+      ]
+    }
+  },
+  "intent": {
+    "labels": [
+      "non_english",
+      "account_hacked_or_security",
+      "billing_or_charge",
+      "login_or_password",
+      "download_or_offline",
+      "metadata_or_artist_issue",
+      "playlist_or_library",
+      "content_or_availability",
+      "playback_or_app_bug",
+      "subscription_or_plan",
+      "feature_request_or_feedback",
+      "other"
+    ],
+    "support": {
+      "non_english": 10,
+      "account_hacked_or_security": 7,
+      "billing_or_charge": 16,
+      "login_or_password": 14,
+      "download_or_offline": 10,
+      "metadata_or_artist_issue": 7,
+      "content_or_availability": 14,
+      "playlist_or_library": 12,
+      "playback_or_app_bug": 22,
+      "subscription_or_plan": 13,
+      "feature_request_or_feedback": 11,
+      "other": 14
+    },
+    "systems": {
+      "agent": {
+        "accuracy": 0.7933,
+        "macro_f1": 0.7916,
+        "weighted_f1": 0.7937,
+        "per_class": {
+          "non_english": {
+            "precision": 1.0,
+            "recall": 0.7,
+            "f1": 0.8235,
+            "support": 10
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 0.7143,
+            "f1": 0.8333,
+            "support": 7
+          },
+          "billing_or_charge": {
+            "precision": 0.7778,
+            "recall": 0.875,
+            "f1": 0.8235,
+            "support": 16
+          },
+          "login_or_password": {
+            "precision": 0.9167,
+            "recall": 0.7857,
+            "f1": 0.8462,
+            "support": 14
+          },
+          "download_or_offline": {
+            "precision": 0.8182,
+            "recall": 0.9,
+            "f1": 0.8571,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.8333,
+            "recall": 0.7143,
+            "f1": 0.7692,
+            "support": 7
+          },
+          "playlist_or_library": {
+            "precision": 0.8182,
+            "recall": 0.75,
+            "f1": 0.7826,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.6667,
+            "recall": 0.8571,
+            "f1": 0.75,
+            "support": 14
+          },
+          "playback_or_app_bug": {
+            "precision": 0.8636,
+            "recall": 0.8636,
+            "f1": 0.8636,
+            "support": 22
+          },
+          "subscription_or_plan": {
+            "precision": 0.6471,
+            "recall": 0.8462,
+            "f1": 0.7333,
+            "support": 13
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.6923,
+            "recall": 0.8182,
+            "f1": 0.75,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.8,
+            "recall": 0.5714,
+            "f1": 0.6667,
+            "support": 14
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              7,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              5,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              14,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              11,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              9,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              12,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1,
+              19,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              9,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              4,
+              8
+            ]
+          ]
+        },
+        "ci95": {
+          "accuracy": [
+            0.7267,
+            0.8533
+          ],
+          "macro_f1": [
+            0.7059,
+            0.8499
+          ]
+        }
+      },
+      "trivial_majority": {
+        "accuracy": 0.1467,
+        "macro_f1": 0.0213,
+        "weighted_f1": 0.0375,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 7
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 16
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 14
+          },
+          "download_or_offline": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 7
+          },
+          "playlist_or_library": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 14
+          },
+          "playback_or_app_bug": {
+            "precision": 0.1467,
+            "recall": 1.0,
+            "f1": 0.2558,
+            "support": 22
+          },
+          "subscription_or_plan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 13
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 14
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              14,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              14,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              22,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              13,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              14,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "ci95": {
+          "accuracy": [
+            0.0917,
+            0.2067
+          ],
+          "macro_f1": [
+            0.0153,
+            0.0283
+          ]
+        }
+      },
+      "simple_keyword": {
+        "accuracy": 0.6333,
+        "macro_f1": 0.6381,
+        "weighted_f1": 0.6409,
+        "per_class": {
+          "non_english": {
+            "precision": 0.8889,
+            "recall": 0.8,
+            "f1": 0.8421,
+            "support": 10
+          },
+          "account_hacked_or_security": {
+            "precision": 0.5714,
+            "recall": 0.5714,
+            "f1": 0.5714,
+            "support": 7
+          },
+          "billing_or_charge": {
+            "precision": 0.8462,
+            "recall": 0.6875,
+            "f1": 0.7586,
+            "support": 16
+          },
+          "login_or_password": {
+            "precision": 0.8333,
+            "recall": 0.7143,
+            "f1": 0.7692,
+            "support": 14
+          },
+          "download_or_offline": {
+            "precision": 0.7,
+            "recall": 0.7,
+            "f1": 0.7,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.8333,
+            "recall": 0.7143,
+            "f1": 0.7692,
+            "support": 7
+          },
+          "playlist_or_library": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5455,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.4762,
+            "recall": 0.7143,
+            "f1": 0.5714,
+            "support": 14
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7895,
+            "recall": 0.6818,
+            "f1": 0.7317,
+            "support": 22
+          },
+          "subscription_or_plan": {
+            "precision": 0.6,
+            "recall": 0.6923,
+            "f1": 0.6429,
+            "support": 13
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.3333,
+            "recall": 0.4545,
+            "f1": 0.3846,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.3846,
+            "recall": 0.3571,
+            "f1": 0.3704,
+            "support": 14
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              8,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              4,
+              0,
+              2,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              11,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6,
+              5,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3,
+              10,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              3,
+              15,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              5,
+              5
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              7,
+              5
+            ]
+          ]
+        },
+        "ci95": {
+          "accuracy": [
+            0.56,
+            0.7133
+          ],
+          "macro_f1": [
+            0.5486,
+            0.7052
+          ]
+        }
+      },
+      "simple_tfidf_lr": {
+        "accuracy": 0.5533,
+        "macro_f1": 0.5408,
+        "weighted_f1": 0.5588,
+        "per_class": {
+          "non_english": {
+            "precision": 0.8333,
+            "recall": 0.5,
+            "f1": 0.625,
+            "support": 10
+          },
+          "account_hacked_or_security": {
+            "precision": 0.6667,
+            "recall": 0.2857,
+            "f1": 0.4,
+            "support": 7
+          },
+          "billing_or_charge": {
+            "precision": 0.8333,
+            "recall": 0.625,
+            "f1": 0.7143,
+            "support": 16
+          },
+          "login_or_password": {
+            "precision": 0.6,
+            "recall": 0.6429,
+            "f1": 0.6207,
+            "support": 14
+          },
+          "download_or_offline": {
+            "precision": 0.6667,
+            "recall": 0.6,
+            "f1": 0.6316,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.6667,
+            "recall": 0.2857,
+            "f1": 0.4,
+            "support": 7
+          },
+          "playlist_or_library": {
+            "precision": 0.5714,
+            "recall": 0.6667,
+            "f1": 0.6154,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.5294,
+            "recall": 0.6429,
+            "f1": 0.5806,
+            "support": 14
+          },
+          "playback_or_app_bug": {
+            "precision": 0.6364,
+            "recall": 0.6364,
+            "f1": 0.6364,
+            "support": 22
+          },
+          "subscription_or_plan": {
+            "precision": 0.5714,
+            "recall": 0.6154,
+            "f1": 0.5926,
+            "support": 13
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.3125,
+            "recall": 0.4545,
+            "f1": 0.3704,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.2632,
+            "recall": 0.3571,
+            "f1": 0.303,
+            "support": 14
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              0,
+              2,
+              0,
+              2,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              10,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              9,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              6,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              0,
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3,
+              9,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              2,
+              14,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              5,
+              4
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              5,
+              5
+            ]
+          ]
+        },
+        "ci95": {
+          "accuracy": [
+            0.48,
+            0.6333
+          ],
+          "macro_f1": [
+            0.4465,
+            0.6171
+          ]
+        }
+      },
+      "llm_zero_shot": {
+        "accuracy": 0.72,
+        "macro_f1": 0.714,
+        "weighted_f1": 0.72,
+        "per_class": {
+          "non_english": {
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "support": 10
+          },
+          "account_hacked_or_security": {
+            "precision": 0.5556,
+            "recall": 0.7143,
+            "f1": 0.625,
+            "support": 7
+          },
+          "billing_or_charge": {
+            "precision": 0.8667,
+            "recall": 0.8125,
+            "f1": 0.8387,
+            "support": 16
+          },
+          "login_or_password": {
+            "precision": 0.7692,
+            "recall": 0.7143,
+            "f1": 0.7407,
+            "support": 14
+          },
+          "download_or_offline": {
+            "precision": 0.6154,
+            "recall": 0.8,
+            "f1": 0.6957,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.8,
+            "recall": 0.5714,
+            "f1": 0.6667,
+            "support": 7
+          },
+          "playlist_or_library": {
+            "precision": 0.7273,
+            "recall": 0.6667,
+            "f1": 0.6957,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.7857,
+            "recall": 0.7857,
+            "f1": 0.7857,
+            "support": 14
+          },
+          "playback_or_app_bug": {
+            "precision": 0.6538,
+            "recall": 0.7727,
+            "f1": 0.7083,
+            "support": 22
+          },
+          "subscription_or_plan": {
+            "precision": 0.7143,
+            "recall": 0.7692,
+            "f1": 0.7407,
+            "support": 13
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.75,
+            "recall": 0.8182,
+            "f1": 0.7826,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.5833,
+            "recall": 0.5,
+            "f1": 0.5385,
+            "support": 14
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              5,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              13,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              8,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              1,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              8,
+              1,
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              2,
+              11,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              5,
+              0,
+              0,
+              0,
+              17,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              9,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              0,
+              2,
+              7
+            ]
+          ]
+        },
+        "ci95": {
+          "accuracy": [
+            0.6467,
+            0.7867
+          ],
+          "macro_f1": [
+            0.6269,
+            0.7776
+          ]
+        }
+      }
+    }
+  },
+  "escalation": {
+    "systems": {
+      "agent": {
+        "precision": 0.8056,
+        "recall": 0.9355,
+        "f1": 0.8657,
+        "auto_handle_rate": 0.52,
+        "accuracy": 0.88,
+        "missed_escalations": 4,
+        "unnecessary_escalations": 14,
+        "reason_code_accuracy": 0.862,
+        "confusion": {
+          "tp": 58,
+          "fp": 14,
+          "fn": 4,
+          "tn": 74
+        },
+        "ci95": {
+          "recall": [
+            0.8689,
+            0.9851
+          ],
+          "precision": [
+            0.7101,
+            0.8986
+          ],
+          "auto_handle_rate": [
+            0.44,
+            0.6067
+          ]
+        },
+        "missed_examples": [
+          "g_018",
+          "g_047",
+          "g_051",
+          "g_053"
+        ]
+      },
+      "trivial_always_escalate": {
+        "precision": 0.4133,
+        "recall": 1.0,
+        "f1": 0.5849,
+        "auto_handle_rate": 0.0,
+        "accuracy": 0.4133,
+        "missed_escalations": 0,
+        "unnecessary_escalations": 88,
+        "reason_code_accuracy": 0.0,
+        "confusion": {
+          "tp": 62,
+          "fp": 88,
+          "fn": 0,
+          "tn": 0
+        },
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            0.3398,
+            0.5
+          ],
+          "auto_handle_rate": [
+            0.0,
+            0.0
+          ]
+        },
+        "missed_examples": []
+      },
+      "trivial_never_escalate": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "auto_handle_rate": 1.0,
+        "accuracy": 0.5867,
+        "missed_escalations": 62,
+        "unnecessary_escalations": 0,
+        "reason_code_accuracy": 0.0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 62,
+          "tn": 88
+        },
+        "ci95": {
+          "recall": [
+            0.0,
+            0.0
+          ],
+          "precision": [
+            0.0,
+            0.0
+          ],
+          "auto_handle_rate": [
+            1.0,
+            1.0
+          ]
+        },
+        "missed_examples": [
+          "g_005",
+          "g_011",
+          "g_012",
+          "g_013",
+          "g_016",
+          "g_017",
+          "g_018",
+          "g_019",
+          "g_020",
+          "g_021",
+          "g_022",
+          "g_023",
+          "g_024",
+          "g_047",
+          "g_048",
+          "g_049",
+          "g_051",
+          "g_052",
+          "g_053"
+        ]
+      },
+      "simple_rules": {
+        "precision": 0.8364,
+        "recall": 0.7419,
+        "f1": 0.7863,
+        "auto_handle_rate": 0.6333,
+        "accuracy": 0.8333,
+        "missed_escalations": 16,
+        "unnecessary_escalations": 9,
+        "reason_code_accuracy": 0.783,
+        "confusion": {
+          "tp": 46,
+          "fp": 9,
+          "fn": 16,
+          "tn": 79
+        },
+        "ci95": {
+          "recall": [
+            0.6274,
+            0.8438
+          ],
+          "precision": [
+            0.7272,
+            0.9246
+          ],
+          "auto_handle_rate": [
+            0.56,
+            0.7133
+          ]
+        },
+        "missed_examples": [
+          "g_012",
+          "g_013",
+          "g_018",
+          "g_019",
+          "g_047",
+          "g_049",
+          "g_051",
+          "g_052",
+          "g_053"
+        ]
+      },
+      "llm_zero_shot": {
+        "precision": 0.7222,
+        "recall": 0.8387,
+        "f1": 0.7761,
+        "auto_handle_rate": 0.52,
+        "accuracy": 0.8,
+        "missed_escalations": 10,
+        "unnecessary_escalations": 20,
+        "reason_code_accuracy": 0.731,
+        "confusion": {
+          "tp": 52,
+          "fp": 20,
+          "fn": 10,
+          "tn": 68
+        },
+        "ci95": {
+          "recall": [
+            0.7454,
+            0.926
+          ],
+          "precision": [
+            0.6132,
+            0.8235
+          ],
+          "auto_handle_rate": [
+            0.44,
+            0.6
+          ]
+        },
+        "missed_examples": [
+          "g_013",
+          "g_018",
+          "g_047",
+          "g_051",
+          "g_053"
+        ]
+      }
+    },
+    "threshold_sweep": [
+      {
+        "threshold": 0.3,
+        "recall": 0.871,
+        "precision": 0.871,
+        "auto_handle_rate": 0.587
+      },
+      {
+        "threshold": 0.35,
+        "recall": 0.887,
+        "precision": 0.859,
+        "auto_handle_rate": 0.58
+      },
+      {
+        "threshold": 0.4,
+        "recall": 0.903,
+        "precision": 0.848,
+        "auto_handle_rate": 0.573
+      },
+      {
+        "threshold": 0.45,
+        "recall": 0.919,
+        "precision": 0.838,
+        "auto_handle_rate": 0.567
+      },
+      {
+        "threshold": 0.5,
+        "recall": 0.919,
+        "precision": 0.826,
+        "auto_handle_rate": 0.553
+      },
+      {
+        "threshold": 0.55,
+        "recall": 0.935,
+        "precision": 0.817,
+        "auto_handle_rate": 0.54
+      },
+      {
+        "threshold": 0.6,
+        "recall": 0.935,
+        "precision": 0.806,
+        "auto_handle_rate": 0.52
+      },
+      {
+        "threshold": 0.65,
+        "recall": 0.952,
+        "precision": 0.786,
+        "auto_handle_rate": 0.493
+      },
+      {
+        "threshold": 0.7,
+        "recall": 0.968,
+        "precision": 0.759,
+        "auto_handle_rate": 0.453
+      },
+      {
+        "threshold": 0.75,
+        "recall": 0.968,
+        "precision": 0.732,
+        "auto_handle_rate": 0.42
+      },
+      {
+        "threshold": 0.8,
+        "recall": 0.984,
+        "precision": 0.703,
+        "auto_handle_rate": 0.373
+      },
+      {
+        "threshold": 0.85,
+        "recall": 0.984,
+        "precision": 0.667,
+        "auto_handle_rate": 0.327
+      },
+      {
+        "threshold": 0.9,
+        "recall": 1.0,
+        "precision": 0.621,
+        "auto_handle_rate": 0.28
+      }
+    ]
+  },
+  "reply_quality": {
+    "systems": {
+      "agent": {
+        "mean": {
+          "grounded": 4.191,
+          "resolves": 3.904,
+          "tone": 4.373,
+          "safe": 4.494,
+          "overall": 4.1
+        },
+        "dist_overall": [
+          3,
+          8,
+          19,
+          61,
+          59
+        ],
+        "ship_rate": 0.8,
+        "flag_rates": {
+          "hallucinated_link_or_policy": 0.053,
+          "asks_sensitive_info": 0.007,
+          "wrong_issue": 0.06
+        },
+        "ci95": {
+          "overall": [
+            3.94,
+            4.24
+          ]
+        }
+      },
+      "nn_reply": {
+        "mean": {
+          "grounded": 3.666,
+          "resolves": 2.297,
+          "tone": 3.491,
+          "safe": 4.063,
+          "overall": 2.633
+        },
+        "dist_overall": [
+          24,
+          45,
+          50,
+          24,
+          7
+        ],
+        "ship_rate": 0.207,
+        "flag_rates": {
+          "hallucinated_link_or_policy": 0.02,
+          "asks_sensitive_info": 0.0,
+          "wrong_issue": 0.42
+        },
+        "ci95": {
+          "overall": [
+            2.46,
+            2.8
+          ]
+        }
+      },
+      "trivial_template": {
+        "mean": {
+          "grounded": 2.88,
+          "resolves": 1.512,
+          "tone": 3.732,
+          "safe": 4.535,
+          "overall": 1.88
+        },
+        "dist_overall": [
+          58,
+          60,
+          24,
+          8,
+          0
+        ],
+        "ship_rate": 0.053,
+        "flag_rates": {
+          "hallucinated_link_or_policy": 0.0,
+          "asks_sensitive_info": 0.0,
+          "wrong_issue": 0.787
+        },
+        "ci95": {
+          "overall": [
+            1.7333,
+            2.02
+          ]
+        }
+      }
+    },
+    "pairwise": {
+      "agent_vs_nn_win_rate": 0.833,
+      "agent_vs_trivial_win_rate": 0.947
+    }
+  },
+  "judge_agreement": {
+    "n": 60,
+    "weighted_kappa_overall": 0.685,
+    "spearman_overall": 0.692,
+    "exact_agreement": 0.45,
+    "within_one": 0.933,
+    "judge_minus_human_mean": 0.05,
+    "per_dimension": {
+      "grounded": {
+        "weighted_kappa": 0.627,
+        "spearman": 0.679
+      },
+      "resolves": {
+        "weighted_kappa": 0.745,
+        "spearman": 0.76
+      },
+      "tone": {
+        "weighted_kappa": 0.361,
+        "spearman": 0.54
+      },
+      "safe": {
+        "weighted_kappa": 0.565,
+        "spearman": 0.532
+      },
+      "overall": {
+        "weighted_kappa": 0.685,
+        "spearman": 0.692
+      }
+    },
+    "pairs": [
+      {
+        "id": "g_003",
+        "system": "agent",
+        "human": 4,
+        "judge": 5
+      },
+      {
+        "id": "g_007",
+        "system": "agent",
+        "human": 4,
+        "judge": 3
+      },
+      {
+        "id": "g_010",
+        "system": "agent",
+        "human": 5,
+        "judge": 4
+      },
+      {
+        "id": "g_011",
+        "system": "agent",
+        "human": 3,
+        "judge": 4
+      },
+      {
+        "id": "g_015",
+        "system": "agent",
+        "human": 1,
+        "judge": 2
+      },
+      {
+        "id": "g_024",
+        "system": "agent",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_027",
+        "system": "agent",
+        "human": 3,
+        "judge": 4
+      },
+      {
+        "id": "g_028",
+        "system": "agent",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_029",
+        "system": "agent",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_033",
+        "system": "agent",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_035",
+        "system": "agent",
+        "human": 3,
+        "judge": 4
+      },
+      {
+        "id": "g_037",
+        "system": "agent",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_039",
+        "system": "agent",
+        "human": 4,
+        "judge": 5
+      },
+      {
+        "id": "g_047",
+        "system": "agent",
+        "human": 1,
+        "judge": 2
+      },
+      {
+        "id": "g_049",
+        "system": "agent",
+        "human": 4,
+        "judge": 5
+      },
+      {
+        "id": "g_052",
+        "system": "agent",
+        "human": 2,
+        "judge": 2
+      },
+      {
+        "id": "g_055",
+        "system": "agent",
+        "human": 3,
+        "judge": 2
+      },
+      {
+        "id": "g_057",
+        "system": "agent",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_059",
+        "system": "agent",
+        "human": 1,
+        "judge": 2
+      },
+      {
+        "id": "g_060",
+        "system": "agent",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_001",
+        "system": "simple",
+        "human": 4,
+        "judge": 3
+      },
+      {
+        "id": "g_004",
+        "system": "simple",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_007",
+        "system": "simple",
+        "human": 5,
+        "judge": 4
+      },
+      {
+        "id": "g_010",
+        "system": "simple",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_012",
+        "system": "simple",
+        "human": 2,
+        "judge": 4
+      },
+      {
+        "id": "g_013",
+        "system": "simple",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_016",
+        "system": "simple",
+        "human": 2,
+        "judge": 4
+      },
+      {
+        "id": "g_020",
+        "system": "simple",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_024",
+        "system": "simple",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_028",
+        "system": "simple",
+        "human": 4,
+        "judge": 3
+      },
+      {
+        "id": "g_033",
+        "system": "simple",
+        "human": 2,
+        "judge": 3
+      },
+      {
+        "id": "g_036",
+        "system": "simple",
+        "human": 5,
+        "judge": 4
+      },
+      {
+        "id": "g_040",
+        "system": "simple",
+        "human": 2,
+        "judge": 4
+      },
+      {
+        "id": "g_042",
+        "system": "simple",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_046",
+        "system": "simple",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_049",
+        "system": "simple",
+        "human": 4,
+        "judge": 3
+      },
+      {
+        "id": "g_051",
+        "system": "simple",
+        "human": 2,
+        "judge": 3
+      },
+      {
+        "id": "g_052",
+        "system": "simple",
+        "human": 5,
+        "judge": 3
+      },
+      {
+        "id": "g_053",
+        "system": "simple",
+        "human": 4,
+        "judge": 4
+      },
+      {
+        "id": "g_055",
+        "system": "simple",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_008",
+        "system": "trivial",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_011",
+        "system": "trivial",
+        "human": 1,
+        "judge": 1
+      },
+      {
+        "id": "g_012",
+        "system": "trivial",
+        "human": 4,
+        "judge": 3
+      },
+      {
+        "id": "g_013",
+        "system": "trivial",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_020",
+        "system": "trivial",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_022",
+        "system": "trivial",
+        "human": 3,
+        "judge": 2
+      },
+      {
+        "id": "g_023",
+        "system": "trivial",
+        "human": 1,
+        "judge": 2
+      },
+      {
+        "id": "g_025",
+        "system": "trivial",
+        "human": 3,
+        "judge": 3
+      },
+      {
+        "id": "g_028",
+        "system": "trivial",
+        "human": 2,
+        "judge": 1
+      },
+      {
+        "id": "g_029",
+        "system": "trivial",
+        "human": 2,
+        "judge": 2
+      },
+      {
+        "id": "g_031",
+        "system": "trivial",
+        "human": 2,
+        "judge": 1
+      },
+      {
+        "id": "g_032",
+        "system": "trivial",
+        "human": 1,
+        "judge": 1
+      },
+      {
+        "id": "g_040",
+        "system": "trivial",
+        "human": 2,
+        "judge": 2
+      },
+      {
+        "id": "g_042",
+        "system": "trivial",
+        "human": 4,
+        "judge": 3
+      },
+      {
+        "id": "g_045",
+        "system": "trivial",
+        "human": 3,
+        "judge": 2
+      },
+      {
+        "id": "g_047",
+        "system": "trivial",
+        "human": 1,
+        "judge": 2
+      },
+      {
+        "id": "g_049",
+        "system": "trivial",
+        "human": 1,
+        "judge": 1
+      },
+      {
+        "id": "g_053",
+        "system": "trivial",
+        "human": 3,
+        "judge": 2
+      },
+      {
+        "id": "g_054",
+        "system": "trivial",
+        "human": 1,
+        "judge": 2
+      },
+      {
+        "id": "g_060",
+        "system": "trivial",
+        "human": 2,
+        "judge": 2
+      }
+    ]
+  },
+  "annotator_agreement": {
+    "intent_kappa": 0.79,
+    "intent_raw": 0.85,
+    "escalation_kappa": 0.7,
+    "escalation_raw": 0.88,
+    "n_disagreements": 31
+  },
+  "cost": {
+    "n_llm_calls": 640,
+    "total_prompt_tokens": 1384220,
+    "total_output_tokens": 171905,
+    "wall_minutes": 84.3
+  }
+}

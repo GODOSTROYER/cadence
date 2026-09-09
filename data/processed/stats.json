@@ -1,0 +1,63 @@
+{
+  "n_rows_total": 2811774,
+  "n_brand_tweets": 43265,
+  "n_subgraph_tweets": 91889,
+  "n_threads": 27627,
+  "n_openers_english": 27056,
+  "date_min": "2014-05-15",
+  "date_max": "2017-12-03",
+  "share_openers_with_link": 0.1455,
+  "share_first_reply_asks_dm": 0.3726,
+  "share_multi_turn": 0.2813,
+  "link_resolution_success_rate": 1.0,
+  "share_links_landing_on_homepage": 0.9333,
+  "n_links_resolved": 150,
+  "n_links_attempted": 150,
+  "reply_length_quantiles": {
+    "p10": 16.0,
+    "p25": 19.0,
+    "p50": 21.0,
+    "p75": 24.0,
+    "p90": 27.0
+  },
+  "opener_length_quantiles": {
+    "p10": 7.0,
+    "p25": 12.0,
+    "p50": 18.0,
+    "p75": 24.0,
+    "p90": 30.0
+  },
+  "openers_per_month": {
+    "2014-05": 1,
+    "2015-08": 1,
+    "2015-10": 2,
+    "2016-07": 1,
+    "2016-09": 1,
+    "2016-10": 1,
+    "2016-11": 3,
+    "2016-12": 2,
+    "2017-01": 3,
+    "2017-02": 3,
+    "2017-03": 4,
+    "2017-04": 3,
+    "2017-05": 2,
+    "2017-06": 6,
+    "2017-07": 6,
+    "2017-08": 20,
+    "2017-09": 62,
+    "2017-10": 12232,
+    "2017-11": 13871,
+    "2017-12": 1403
+  },
+  "timings_s": {
+    "load_csv": 8.01,
+    "subgraph": 13.51,
+    "links": 0.0,
+    "build_threads": 4.32,
+    "write_threads": 3.41,
+    "openers_table": 0.25,
+    "write_parquet": 0.25,
+    "templates": 0.48,
+    "total": 30.44
+  }
+}

@@ -26,3 +26,8 @@ ui/.vite/
 Thumbs.db
 *.log
 .ipynb_checkpoints/
+
+# rebuildable in ~1s via scripts/02_build_index.py (54 MB)
+cache/bm25_index.pkl
+# annotator working files (merged into data/golden/*.jsonl by scripts/build_golden.py)
+data/golden/work/

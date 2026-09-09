@@ -1,0 +1,202 @@
+[
+  {
+    "id": "fm1",
+    "title": "Screenshot-only messages get confidently classified",
+    "count": 5,
+    "share": 0.033,
+    "hypothesis": "When the message is a few words plus an image, the model anchors on whatever word survives ('do', 'this', 'seriously') and the retrieved neighbours, then invents a concrete issue. The media-only rule only fires on a bare <url>, so anything with a stray word slips past it.",
+    "examples": [
+      {
+        "golden_id": "g_047",
+        "text": "ummm what am I supposed to do? <url>",
+        "gold_intent": "other",
+        "pred_intent": "playback_or_app_bug",
+        "gold_decision": "escalate",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! That error usually clears with a quick restart of the app. If it comes back, try a clean reinstall: https://support.spotify.com/article/reinstall-spotify/ /AI",
+        "why": "Nothing in the text names an issue; the model borrowed 'restart the app' from the retrieved crash threads."
+      },
+      {
+        "golden_id": "g_051",
+        "text": "this 🙃 <url>",
+        "gold_intent": "other",
+        "pred_intent": "content_or_availability",
+        "gold_decision": "escalate",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! Greyed-out tracks usually aren't available in your country yet. If it's a new release, it should unlock at midnight local time /AI",
+        "why": "A single emoji and a link became a greyed-out-track answer because two neighbours were about new releases."
+      },
+      {
+        "golden_id": "g_052",
+        "text": "seriously?? <url>",
+        "gold_intent": "other",
+        "pred_intent": "playback_or_app_bug",
+        "gold_decision": "escalate",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Sorry about that. Can you tell us what you're seeing and which device you're on? We'll take a look /AI",
+        "why": "Guessed playback again, but confidence fell to 0.52 so the threshold rescued the decision, not the model."
+      }
+    ],
+    "proposed_fix": "Extend the media-only rule to '<url> plus fewer than 4 content words', and add a judge-style self-check prompt field: 'what in the text supports this intent?' that must quote the message."
+  },
+  {
+    "id": "fm2",
+    "title": "Login, security and library problems blur together",
+    "count": 6,
+    "share": 0.04,
+    "hypothesis": "The same symptom (signed out, playlists missing, unfamiliar activity) has three different causes with three different decisions. The model classifies the symptom, not the cause, so it over-escalates harmless sign-outs and under-escalates real account takeovers.",
+    "examples": [
+      {
+        "golden_id": "g_015",
+        "text": "I keep getting logged out every few hours on the app, is that normal?",
+        "gold_intent": "login_or_password",
+        "pred_intent": "account_hacked_or_security",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Being signed out repeatedly can be a sign someone else is using the account. Can you DM us your username so we can check recent activity? /AI",
+        "why": "A routine sign-out was read as account sharing; escalating it costs a human 10 minutes for nothing."
+      },
+      {
+        "golden_id": "g_018",
+        "text": "there's a playlist called 'Reggaeton Mix' in my library that I never made and my Discover Weekly is all in Spanish now. did someone get into my account?",
+        "gold_intent": "account_hacked_or_security",
+        "pred_intent": "playlist_or_library",
+        "gold_decision": "escalate",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! Discover Weekly reflects what's been played on the account recently. Remove the playlist and hit 'don't like' on the tracks in Discover Weekly, and it'll rebalance next Monday /AI",
+        "why": "The customer literally asks 'did someone get into my account' and the model answered a playlist question. This is the costly miss."
+      },
+      {
+        "golden_id": "g_053",
+        "text": "logged in this morning and all my playlists are gone and it says I'm on Free, I've had premium for years. what happened?",
+        "gold_intent": "login_or_password",
+        "pred_intent": "playlist_or_library",
+        "gold_decision": "escalate",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! Try restoring them at spotify.com/account under Recover playlists, deleted playlists can be brought back for 90 days. Let us know if any are missing after that /AI",
+        "why": "'Playlists gone + on Free' is the textbook wrong-account login; the model went straight to playlist recovery."
+      }
+    ],
+    "proposed_fix": "Add a rule for 'someone ... my account' phrasing, and give the prompt a decision table that lists the three causes side by side with their tell-tale phrases and the escalation each one needs."
+  },
+  {
+    "id": "fm3",
+    "title": "Money words in plan questions force needless escalations",
+    "count": 11,
+    "share": 0.073,
+    "hypothesis": "The money-keyword rule was written for disputes ('charged twice', 'refund') but also fires on prices and hypotheticals ('$9.99', 'don't want to get charged'). Because rules override the LLM, a correct intent and a good reply still end up in the human queue.",
+    "examples": [
+      {
+        "golden_id": "g_027",
+        "text": "is premium still $9.99 a month or did the price go up? thinking about upgrading from free",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Premium is $9.99 a month in the US and there's a 30-day free trial to start with: https://www.spotify.com/premium/ /AI",
+        "why": "'$9.99' matched the currency pattern; the intent and the reply were both right."
+      },
+      {
+        "golden_id": "g_028",
+        "text": "does the free trial auto renew? don't want to get charged if I forget to cancel",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Yes, the trial rolls into Premium unless you cancel before it ends. You can cancel any time at spotify.com/account and keep listening until the trial's up /AI",
+        "why": "'get charged' is a hypothetical, not a dispute, but the rule cannot tell tense."
+      },
+      {
+        "golden_id": "g_054",
+        "text": "if I upgrade to family plan do I pay the difference or the full £14.99?",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! You pay the full £14.99 from your next billing date, and any remaining days on your current Premium carry over rather than being lost. More here: https://support.spotify.com/article/premium-family/ /AI",
+        "why": "'£14.99' fired; this is the single largest source of unnecessary escalations (11 of 14)."
+      }
+    ],
+    "proposed_fix": "Split the rule: currency + 'charged/billed/refund' in past tense forces escalation; a bare price or 'how much / still $' becomes a soft flag the LLM can weigh. Re-tune the threshold on dev afterwards."
+  },
+  {
+    "id": "fm4",
+    "title": "Non-English messages with English product words get an English fix",
+    "count": 7,
+    "share": 0.047,
+    "hypothesis": "Brand nouns (Discover Weekly, Alexa, Spotify Connect, premium) are the same in every language, so BM25 retrieves English troubleshooting threads and the model follows the evidence instead of noticing the customer wrote in Spanish or Indonesian.",
+    "examples": [
+      {
+        "golden_id": "g_045",
+        "text": "spotify premium tidak bisa dibayar pakai kartu saya, tolong bantu",
+        "gold_intent": "non_english",
+        "pred_intent": "billing_or_charge",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Sorry about that. Card payments need a look at the account. Can you DM us your username and the card type? We'll check what's blocking it /AI",
+        "why": "'premium' and 'kartu' (card) pulled billing neighbours; a billing escalation for a language redirect."
+      },
+      {
+        "golden_id": "g_046",
+        "text": "el spotify connect no funciona con mi alexa desde la actualización",
+        "gold_intent": "non_english",
+        "pred_intent": "playback_or_app_bug",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! Make sure both the Spotify and Alexa apps are up to date, then unlink and relink Spotify in the Alexa app under Skills. Let us know if Connect still doesn't show up /AI",
+        "why": "'connect' and 'alexa' dominate the tokens; the reply is correct troubleshooting in the wrong language."
+      },
+      {
+        "golden_id": "g_055",
+        "text": "mi discover weekly no se actualiza desde hace 3 semanas 😢",
+        "gold_intent": "non_english",
+        "pred_intent": "playlist_or_library",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! Try unfollowing Discover Weekly, restarting the app, then following it again from Browse. It refreshes every Monday /AI",
+        "why": "Right diagnosis, wrong language: the customer gets an English answer the historical brand never gave."
+      }
+    ],
+    "proposed_fix": "Run a cheap language check before retrieval (stopword ratio already exists in the data layer) and short-circuit to the language-redirect template when English stopwords are under 15%."
+  },
+  {
+    "id": "fm5",
+    "title": "Replies promise what the evidence never did",
+    "count": 8,
+    "share": 0.053,
+    "hypothesis": "When the retrieved replies are vague ('DM us'), the model fills the gap with plausible policy: a refund, a device limit, a help-article URL. The judge caught these as hallucinated policy; they read fine and would embarrass the brand.",
+    "examples": [
+      {
+        "golden_id": "g_024",
+        "text": "my student discount ended and I got billed full price without warning",
+        "gold_intent": "billing_or_charge",
+        "pred_intent": "billing_or_charge",
+        "gold_decision": "escalate",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Sorry for the surprise. Student pricing needs re-verifying every 12 months. Do that at spotify.com/student and we'll refund the difference for this month. DM us your username /AI",
+        "why": "'We'll refund the difference' commits the brand to money it never promised in any thread."
+      },
+      {
+        "golden_id": "g_033",
+        "text": "the new Taylor Swift album shows up but every track is greyed out. I have premium",
+        "gold_intent": "content_or_availability",
+        "pred_intent": "content_or_availability",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! New releases go live at midnight local time, so it may need a few more hours. In the meantime check the region-lock guide: https://support.spotify.com/article/greyed-out-release-windows/ /AI",
+        "why": "The help-article URL does not exist in the evidence or the link map; it was composed."
+      },
+      {
+        "golden_id": "g_007",
+        "text": "all my downloaded albums got removed AGAIN. this is the 4th time this month, 30GB gone",
+        "gold_intent": "download_or_offline",
+        "pred_intent": "download_or_offline",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey! Sorry about that, it's frustrating. Downloads get removed if the app hasn't gone online in 30 days or you've hit the 3,333-song limit per device. Check both, then re-download, and let us know if it happens again /AI",
+        "why": "'3,333-song limit' is a 2017 fact from the model's memory, not from the cited thread."
+      }
+    ],
+    "proposed_fix": "Constrain links to the resolved_links of cited evidence (post-validate and strip unknown URLs), and add 'never promise refunds or credits' to the safety section of the system prompt."
+  }
+]
