@@ -1,0 +1,134 @@
+# Cadence intent taxonomy for @SpotifyCares.
+# DRAFT v0 — derived from a first read of ~26k conversation openers; validated/refined by the taxonomy pass
+# (see docs/TAXONOMY.md once it exists). Ids are stable snake_case strings used everywhere in code and data.
+#
+# default_decision: what the escalation policy expects when nothing else fires (rules/LLM can override).
+# keywords: seeds for the keyword baseline classifier and stratified sampling ONLY (not used by the LLM).
+version: 0
+brand: SpotifyCares
+intents:
+  - id: playback_or_app_bug
+    name: Playback / app malfunction
+    description: >
+      The app or web player misbehaves: crashes, freezes, songs will not play or skip, buffering,
+      error codes, lost audio, Spotify Connect / speaker / car / console device problems, update broke things.
+    examples:
+      - "app keeps crashing every time I open it since the update"
+      - "web player just stops playing or doesn't even play to begin with"
+      - "can't connect to my Sonos anymore, keeps disconnecting"
+    default_decision: auto_handle
+    keywords: [crash, crashing, crashes, freez, won't play, wont play, not playing, stops playing, skipping, skips, buffer, error, glitch, bug, broken, not working, doesn't work, doesnt work, web player, connect, sonos, alexa, chromecast, carplay, android auto, xbox, ps4, playstation, update, lag, stutter, no sound]
+
+  - id: download_or_offline
+    name: Downloads / offline mode
+    description: >
+      Downloaded music disappears or will not download, offline mode problems, storage / SD card issues.
+    examples:
+      - "all my downloaded albums got removed AGAIN"
+      - "offline mode says songs unavailable even though I downloaded them"
+    default_decision: auto_handle
+    keywords: [download, downloaded, downloads, offline, sd card, storage, redownload]
+
+  - id: login_or_password
+    name: Login / password / account access
+    description: >
+      Cannot log in, forgot password, reset email never arrives, Facebook-linked login broken,
+      lost access to the sign-up email, two accounts confusion.
+    examples:
+      - "deleted my Facebook without unlinking Spotify first and now I can't log in"
+      - "my mum can't remember her password and the email she used no longer exists"
+    default_decision: escalate
+    default_reason_code: needs_account_lookup
+    keywords: [log in, login, logged out, sign in, signin, password, reset, facebook, fb, username, can't access, cant access, locked out, email address, verification]
+
+  - id: account_hacked_or_security
+    name: Account security
+    description: >
+      Signs of unauthorized access: music playing on a device the customer does not own, email or
+      password changed by someone else, hacked account, suspicious activity.
+    examples:
+      - "spotify is being played on a device I do not own, has there been a security issue?"
+      - "someone changed my email and I'm locked out, my account got hacked"
+    default_decision: escalate
+    default_reason_code: account_security
+    keywords: [hacked, hack, hacker, someone else, unauthorized, unauthorised, not me, device i don't own, device i dont own, security, breach, compromised, stolen]
+
+  - id: billing_or_charge
+    name: Billing / charges / refunds
+    description: >
+      Money moved or failed to move: unexpected or double charges, charged after cancelling, payment
+      declined, gift card / checkout failing, refund requests, price disputes.
+    examples:
+      - "why is my credit card getting charged yet I keep getting emails saying I haven't paid"
+      - "I am not able to pay for my 3 month subscription, tried 3 times"
+    default_decision: escalate
+    default_reason_code: billing_dispute
+    keywords: [charge, charged, charging, refund, refunded, billed, billing, payment, pay, paid, invoice, credit card, debit, double, twice, money, gift card, checkout, paypal, £, $, €]
+
+  - id: subscription_or_plan
+    name: Plans / eligibility / upgrade / cancel
+    description: >
+      Questions about Premium, Student, Family, trials, telco or Hulu bundles, eligibility, how to
+      upgrade, downgrade or cancel, free-tier limits (ads, shuffle). Not about a specific charge.
+    examples:
+      - "I'm a student but UNiDAYS doesn't cover my course, can I still get the discount?"
+      - "how do I add my sister to the family plan if she lives at another address?"
+    default_decision: auto_handle
+    keywords: [premium, student, family plan, family, trial, free trial, bundle, hulu, vodafone, unidays, upgrade, downgrade, cancel, subscription, subscribe, plan, discount, ads, shuffle, free account]
+
+  - id: content_or_availability
+    name: Missing content / greyed-out / region
+    description: >
+      An artist, album, song or podcast is missing or greyed out, content differs by region,
+      requests to add music, Spotify not available in the customer's country.
+    examples:
+      - "why tf is Garth Brooks not on Spotify"
+      - "getting 'this song is not available' for many popular artists on desktop"
+      - "can we have Spotify in Egypt please"
+    default_decision: auto_handle
+    keywords: [not on spotify, not available, unavailable, greyed, grayed, missing, removed, add, album, artist, song, track, podcast, region, country, egypt, india, launch, release, catalog, catalogue, explicit]
+
+  - id: playlist_or_library
+    name: Playlists / saved music / personalisation
+    description: >
+      Playlists or saved songs disappeared or changed, playlist limits, Discover Weekly / Daily Mix /
+      Release Radar / Wrapped questions, recommendations, followers, collaborative playlists.
+    examples:
+      - "why did lots of songs in my playlist stop reproducing?"
+      - "are you going to release the Your Top Songs of 2017 playlist?"
+    default_decision: auto_handle
+    keywords: [playlist, playlists, library, saved, your music, liked, discover weekly, daily mix, release radar, wrapped, top songs, year in music, recommend, follow, collaborative]
+
+  - id: feature_request_or_feedback
+    name: Product feedback & suggestions
+    description: >
+      Suggestions or opinions about the product: new features, UI complaints, platform requests,
+      design changes, missing genre, requests for beta access. Nothing is broken.
+    examples:
+      - "please introduce beatmatching when crossfade is enabled"
+      - "any chance of a Spotify app for the Nintendo Switch?"
+    default_decision: auto_handle
+    keywords: [feature, suggestion, suggest, please add, would be nice, should, wish, idea, ui, design, dark mode, lyrics, nintendo, switch, apple watch, please make, bring back, why did you change]
+
+  - id: non_english
+    name: Non-English message
+    description: >
+      The message is not written in English (Spanish, Portuguese, Indonesian, etc.). SpotifyCares
+      historically redirects to a language-specific channel.
+    examples:
+      - "hola no puedo iniciar sesión en mi cuenta"
+      - "não consigo ouvir músicas offline"
+    default_decision: auto_handle
+    keywords: [hola, gracias, por favor, não, nao, obrigado, ayuda, ajuda, minha, cuenta, conta, aplicativo, saya, tidak, bisa, mi cuenta]
+
+  - id: other
+    name: Praise, thanks, unclear, spam, media-only, off-topic
+    description: >
+      Everything else: gratitude, jokes, party invites, marketing questions, messages with only a
+      screenshot or link and no describable issue, generic "help" with no detail.
+    examples:
+      - "ummm what am I supposed to do? <url>"
+      - "may I pls come to the nyc holiday party?"
+    default_decision: escalate
+    default_reason_code: ambiguous_or_media_only
+    keywords: [thanks, thank you, love you, awesome, lol, party, hi, hello, help, <url>]

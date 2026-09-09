@@ -1,0 +1,28 @@
+# data
+data/raw/
+*.csv.zip
+
+# secrets
+.env
+.env.local
+
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+
+# node / ui
+ui/node_modules/
+ui/dist/
+ui/.vite/
+
+# misc
+.DS_Store
+Thumbs.db
+*.log
+.ipynb_checkpoints/

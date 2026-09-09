@@ -1,0 +1,18 @@
+# Gemini models used by Cadence (Google AI Studio free tier). Override with env
+# CADENCE_AGENT_MODEL / CADENCE_JUDGE_MODEL / CADENCE_ZERO_SHOT_MODEL.
+# The judge deliberately uses a different model than the agent to reduce self-preference bias.
+agent_model: gemini-2.5-flash
+judge_model: gemini-2.5-pro
+zero_shot_model: gemini-2.5-flash-lite
+
+temperature: 0.2
+judge_temperature: 0.0
+max_output_tokens: 1024
+
+# Conservative free-tier limits (requests per minute / per day). The rate limiter never exceeds these.
+limits:
+  gemini-2.5-flash:      { rpm: 8,  rpd: 240 }
+  gemini-2.5-flash-lite: { rpm: 12, rpd: 900 }
+  gemini-2.5-pro:        { rpm: 4,  rpd: 90 }
+  gemini-2.0-flash:      { rpm: 12, rpd: 180 }
+  default:               { rpm: 5,  rpd: 100 }

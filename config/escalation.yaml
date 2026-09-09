@@ -1,0 +1,82 @@
+# Cadence escalation policy for @SpotifyCares (see CONTRACT.md §5).
+# decision ∈ {auto_handle, escalate}. Exactly one primary reason_code when escalating.
+version: 0
+confidence_threshold: 0.60     # intent_confidence below this -> escalate(low_confidence). Tuned on dev split.
+min_words_for_auto_handle: 3   # shorter messages (e.g. "help", "<url>") are ambiguous_or_media_only
+
+reason_codes:
+  - id: billing_dispute
+    name: Billing dispute
+    description: Any money movement or failure — charges, refunds, double billing, payment failures, price disputes.
+  - id: account_security
+    name: Account security
+    description: Hacked account, unknown device, unauthorized changes, identity questions.
+  - id: needs_account_lookup
+    name: Needs account lookup
+    description: Resolution requires looking at the account backstage — login recovery, missing purchase, eligibility for this user.
+  - id: high_frustration_or_churn
+    name: High frustration / churn risk
+    description: Explicit churn threat, profanity aimed at the brand, repeated contact, public-relations risk.
+  - id: legal_or_safety
+    name: Legal or safety
+    description: Legal threats, harassment, self-harm, discrimination, press enquiries.
+  - id: ambiguous_or_media_only
+    name: Ambiguous or media-only
+    description: Issue cannot be determined from text — screenshot-only, "help", truncated, no detail.
+  - id: low_confidence
+    name: Low model confidence
+    description: The model's intent confidence is below the tuned threshold.
+  - id: out_of_scope
+    name: Out of scope
+    description: Not a support request the brand can act on — politics, spam, other companies.
+
+# Deterministic rules (cadence.agent.rules). Each rule: flag name, pattern list (case-insensitive regex),
+# whether it forces escalation, and the reason_code it asserts. Patterns are Python `re` syntax.
+rules:
+  - flag: money_keywords
+    force_escalate: true
+    reason_code: billing_dispute
+    reason: "Customer mentions a charge, payment or refund; billing actions need a human with account access."
+    patterns:
+      - '\b(charg(e|ed|es|ing)|refund(ed|s)?|bill(ed|ing)?|invoice|double[- ]?charg|took (my )?money|payment (failed|declined|didn.?t)|card (was )?declined)\b'
+      - '(\$|£|€)\s?\d'
+  - flag: security_keywords
+    force_escalate: true
+    reason_code: account_security
+    reason: "Possible unauthorized account access; security cases must be handled by a human."
+    patterns:
+      - '\b(hack(ed|er|ers)?|compromised|unauthori[sz]ed|someone (else )?(is|has been|changed|logged)|device (i|that i) (don.?t|do not) own|not me|stolen)\b'
+  - flag: legal_keywords
+    force_escalate: true
+    reason_code: legal_or_safety
+    reason: "Legal, safety or press language detected; requires human handling."
+    patterns:
+      - '\b(lawyer|attorney|sue|suing|lawsuit|legal action|gdpr|data protection|police|press|journalist|kill myself|suicide|self[- ]harm|harass(ed|ment)?|discriminat(e|ion|ory))\b'
+  - flag: churn_or_abuse
+    force_escalate: true
+    reason_code: high_frustration_or_churn
+    reason: "Explicit churn threat or abusive language toward the brand; a human should own the response."
+    patterns:
+      - "\\b(cancel(l)?ing my (premium|subscription|account)|switch(ing)? to (apple music|tidal|deezer|youtube|amazon)|worst (app|service|company)|fuck(ing)? (you|spotify|this)|f\\*+k|useless|worthless|pathetic|scam(mers)?)\\b"
+  - flag: media_only_or_too_short
+    force_escalate: true
+    reason_code: ambiguous_or_media_only
+    reason: "Message has no describable issue (screenshot/link only or too short) — a human needs to look."
+    patterns:
+      - '^\s*(<url>\s*)+$'
+      - '^\s*(help|hello|hi|hey|please help|pls help|\?+)\s*(<url>)?\s*$'
+  - flag: password_or_card_shared
+    force_escalate: true
+    reason_code: account_security
+    reason: "Customer appears to have posted credentials or card details publicly; a human must intervene."
+    patterns:
+      - '\b(my password is|password:|card number|cvv)\b'
+
+# Soft flags: recorded but never force a decision on their own.
+soft_flags:
+  - flag: profanity
+    patterns: ['\b(fuck|shit|damn|wtf|tf|bs)\b']
+  - flag: repeated_contact
+    patterns: ['\b(again|still (not|no)|third time|3rd time|second time|2nd time|asking again|no reply|no response|ignored)\b']
+  - flag: asks_for_human
+    patterns: ['\b(speak to (a|some)(one|body)|human|real person|phone|call me|customer service number)\b']
