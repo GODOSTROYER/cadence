@@ -54,6 +54,14 @@ The non-obvious calls I made while building Cadence, and why. Format is parsed b
 **Decision:** The taxonomy came from TF-IDF clustering plus reading several hundred openers, was written down with boundary rules, and was not changed once golden labelling started.
 **Why:** Changing labels mid-way silently invalidates earlier annotations and agreement statistics. The boundary rules ("charged but no Premium" is billing, not plans) are what make two annotators agree.
 
-## 14. The UI puts the caveats next to the headline numbers
+## 14. Models chosen by probing the free tier, not by reputation
+**Decision:** Agent and zero-shot baseline = `gemini-3.5-flash-lite`; judge = `gemini-3.1-flash-lite`.
+**Why:** On the day of the run, new free-tier keys could not call any `gemini-2.5-*` model ("no longer available to new users"), every Pro model answered 429 before the first request, and the thinking Flash models (3.5, 3.6, 3.8) turned out to carry a free-tier cap of about 20 requests per day per key per model: the first agent run on `gemini-3.5-flash` died after 79 calls across five keys. A 475-call evaluation therefore has to run on the Lite models, which have far higher daily headroom. Using the same Lite model for the agent and the no-retrieval zero-shot baseline makes that comparison a clean ablation of retrieval plus the policy layer; the judge is a different model so it does not grade its own style. The 85 thinking-model predictions are kept as `results/ablation_agent_gemini-3.5-flash_partial.jsonl` and discussed, not reported as a headline.
+
+## 15. Pool several free keys instead of waiting a day between runs
+**Decision:** The client takes a list of keys, keeps a per-key rate limiter and daily counter, puts a key on cooldown when it answers 429 and tries the next one; runners use one worker thread per key.
+**Why:** The full evaluation is roughly 250 agent calls, 25 zero-shot calls and 200 judge calls. One free key at ~5 requests/minute makes that a multi-hour, possibly multi-day job; five keys run it in well under an hour. Every response is cached by prompt hash, so the pooling changes throughput, never results.
+
+## 16. The UI puts the caveats next to the headline numbers
 **Decision:** The overview page renders "What is misleading about these numbers" directly under the metric tiles, from the same results file.
 **Why:** A dashboard that shows only favourable numbers is marketing. The assignment asks for the proof more than the system; the caveats are part of the proof.

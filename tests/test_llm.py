@@ -525,8 +525,8 @@ def test_get_client_mock_and_gemini(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(llm_pkg, "GeminiClient", RecordingGemini)
     get_client("judge")
     get_client("agent")
-    assert built[0] == {"model": "gemini-3.6-flash", "rpm": 5, "rpd": 200, "temperature": 0.0}
-    assert built[1] == {"model": "gemini-3.5-flash", "rpm": 5, "rpd": 200, "temperature": 0.2}
+    assert built[0] == {"model": "gemini-3.1-flash-lite", "rpm": 12, "rpd": 800, "temperature": 0.0}
+    assert built[1] == {"model": "gemini-3.5-flash-lite", "rpm": 12, "rpd": 800, "temperature": 0.2}
 
     monkeypatch.setenv("CADENCE_AGENT_MODEL", "gemini-2.0-flash")
     get_client("agent")
