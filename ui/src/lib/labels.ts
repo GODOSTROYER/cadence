@@ -29,6 +29,36 @@ export function systemShort(id: string): string {
   return SYSTEM_LABELS[id]?.short ?? titleCase(id);
 }
 
+export type SystemTask = "intent" | "escalation" | "reply";
+
+/**
+ * The CONTRACT §15.1 ids `simple` and `trivial` name a family of baselines whose meaning depends on the
+ * task: TF-IDF + LR / majority class for intent, keyword rules / always-escalate for escalation, the
+ * nearest-neighbour reply / the most common template for reply quality. These labels say which.
+ */
+const TASK_LABELS: Record<SystemTask, Record<string, { name: string; short: string }>> = {
+  intent: {
+    simple: { name: "TF-IDF + logistic regression (out-of-fold)", short: "TF-IDF + LR" },
+    trivial: { name: "Majority class", short: "Majority class" },
+  },
+  escalation: {
+    simple: { name: "Keyword rules only", short: "Keyword rules" },
+    trivial: { name: "Always escalate", short: "Always escalate" },
+  },
+  reply: {
+    simple: { name: "Nearest-neighbour historical reply (BM25 top-1)", short: "Nearest neighbour" },
+    trivial: { name: "Most common brand template", short: "Template" },
+  },
+};
+
+export function systemLabelFor(task: SystemTask, id: string): string {
+  return TASK_LABELS[task][id]?.name ?? systemLabel(id);
+}
+
+export function systemShortFor(task: SystemTask, id: string): string {
+  return TASK_LABELS[task][id]?.short ?? systemShort(id);
+}
+
 export function isBaseline(id: string): boolean {
   return (SYSTEM_LABELS[id]?.kind ?? "baseline") === "baseline";
 }

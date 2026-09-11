@@ -3,7 +3,8 @@
  * filtered view (and an open drawer) is a shareable link. Pure functions only; the page owns the
  * `useSearchParams` plumbing.
  */
-import type { AgentResponse, Decision, IntentId, MergedGoldenExample, Split, SystemId } from "@/lib/types";
+import { applyThreshold, type GuardedResponse } from "@/lib/threshold";
+import type { Decision, IntentId, MergedGoldenExample, Split, SystemId } from "@/lib/types";
 
 /** Systems that may appear in `predictions`, in display order (CONTRACT §15.1). */
 export const SYSTEM_ORDER: readonly SystemId[] = ["agent", "llm_zero_shot", "simple", "simple_keyword", "trivial"];
@@ -97,7 +98,8 @@ export type DecisionError = "missed" | "unnecessary" | null;
 
 /** One system's prediction set against the gold labels of a row. */
 export interface Comparison {
-  pred: AgentResponse | undefined;
+  /** The prediction with its decision re-derived at the evaluated threshold (`guard` says whether that changed it). */
+  pred: GuardedResponse | undefined;
   goldDecision: Decision;
   /** null when the system produced no prediction for the row. */
   intentCorrect: boolean | null;
@@ -105,10 +107,16 @@ export interface Comparison {
   decisionError: DecisionError;
 }
 
-export function compareRow(row: MergedGoldenExample, system: SystemId): Comparison {
-  const pred = row.predictions[system];
+/**
+ * Compare a system's prediction with gold. `threshold` is `eval_summary.meta.threshold`; when given,
+ * the agent's decision is re-derived at it exactly as the evaluation does, so the explorer's
+ * missed / unnecessary counts match the Evaluation page.
+ */
+export function compareRow(row: MergedGoldenExample, system: SystemId, threshold?: number | null): Comparison {
+  const raw = row.predictions[system];
   const goldDecision: Decision = row.gold.should_escalate ? "escalate" : "auto_handle";
-  if (!pred) return { pred, goldDecision, intentCorrect: null, decisionError: null };
+  if (!raw) return { pred: undefined, goldDecision, intentCorrect: null, decisionError: null };
+  const pred = applyThreshold(raw, threshold);
   const decisionError: DecisionError = pred.decision === goldDecision ? null : goldDecision === "escalate" ? "missed" : "unnecessary";
   return { pred, goldDecision, intentCorrect: pred.intent === row.gold.intent, decisionError };
 }

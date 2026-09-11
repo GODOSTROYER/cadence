@@ -7,7 +7,7 @@ import { F1Bars, type F1Row } from "@/components/F1Bars";
 import { IntentBadge } from "@/components/IntentBadge";
 import { SegmentedControl } from "@/components/SegmentedControl";
 import { ci as formatCi, fixed, int, pct } from "@/lib/format";
-import { systemLabel } from "@/lib/labels";
+import { systemLabelFor } from "@/lib/labels";
 import type { CI95, EvalSummary, IntentId, IntentSystemMetrics, MergedGoldenExample, PerClassMetrics } from "@/lib/types";
 
 import { BOOTSTRAP_RESAMPLES, perClassCiFromRows } from "./bootstrap";
@@ -126,9 +126,9 @@ export function IntentTab({ summary, golden, system, onSystemChange }: IntentTab
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <SegmentedControl label="Intent system" options={systemOptions(keys)} value={key} onChange={onSystemChange} />
+        <SegmentedControl label="Intent system" options={systemOptions(keys, "intent")} value={key} onChange={onSystemChange} />
         <p className="text-[12px] text-faint">
-          {systemLabel(key)} · {int(total)} test tweets · {block.labels.length} intents
+          {systemLabelFor("intent", key)} · {int(total)} test tweets · {block.labels.length} intents
         </p>
       </div>
 
@@ -141,7 +141,7 @@ export function IntentTab({ summary, golden, system, onSystemChange }: IntentTab
 
       <section className="region px-5 py-5" aria-label="Confusion matrix">
         <ConfusionMatrix
-          title={`Confusion matrix · ${systemLabel(key)}`}
+          title={`Confusion matrix · ${systemLabelFor("intent", key)}`}
           labels={metrics.confusion.labels}
           matrix={metrics.confusion.matrix}
           examples={(gold, pred) => examples.get(`${gold}→${pred}`)}
@@ -154,7 +154,7 @@ export function IntentTab({ summary, golden, system, onSystemChange }: IntentTab
         <F1Bars title="F1 per intent" subtitle={ciNote} rows={f1Rows} macroF1={metrics.macro_f1} />
         <section className="flex min-w-0 flex-col gap-3" aria-label="Per-class metrics">
           <h3 className="t-display-20 text-text">Per-class precision, recall and F1</h3>
-          <DataTable columns={columns} rows={rows} rowKey={(r) => r.id} initialSort={{ id: "f1", dir: "desc" }} density="compact" caption={`Per-class metrics for ${systemLabel(key)}`} maxHeight={420} />
+          <DataTable columns={columns} rows={rows} rowKey={(r) => r.id} initialSort={{ id: "f1", dir: "desc" }} density="compact" caption={`Per-class metrics for ${systemLabelFor("intent", key)}`} maxHeight={420} />
         </section>
       </div>
     </div>

@@ -7,7 +7,7 @@ import { EmptyState } from "@/components/EmptyState";
 import { IntentBadge } from "@/components/IntentBadge";
 import { cx } from "@/lib/cx";
 import { fixed, int } from "@/lib/format";
-import { reasonLabel, systemShort } from "@/lib/labels";
+import { reasonLabel, systemShortFor } from "@/lib/labels";
 import type { MergedGoldenExample, SystemId } from "@/lib/types";
 
 export interface ExampleListProps {
@@ -46,7 +46,7 @@ export function ExampleList({ ids, golden, systemKey, predictionSystem, tone, ti
       </header>
 
       {ids.length === 0 ? (
-        <EmptyState compact icon={<Check />} title={missed ? "No missed escalations" : "No unnecessary escalations"} description={`${systemShort(systemKey)} made none of these on the test split.`} />
+        <EmptyState compact icon={<Check />} title={missed ? "No missed escalations" : "No unnecessary escalations"} description={`${systemShortFor("escalation", systemKey)} made none of these on the test split.`} />
       ) : (
         <ol className={cx("flex flex-col divide-y divide-border rounded-lg border", TONE_BORDER[tone])}>
           {shown.map((id) => {
@@ -67,7 +67,7 @@ export function ExampleList({ ids, golden, systemKey, predictionSystem, tone, ti
                           <IntentBadge id={row.gold.intent} size="sm" compact showName={false} />
                           {pred && (
                             <span className="text-muted">
-                              {systemShort(systemKey)} said{" "}
+                              {systemShortFor("escalation", systemKey)} said{" "}
                               <span className={missed ? "text-green" : "text-amber"}>{missed ? "auto-handle" : reasonLabel(pred.escalation?.reason_code) || "escalate"}</span>
                               {pred.intent !== row.gold.intent && <span> · read it as {pred.intent}</span>}
                               {typeof pred.intent_confidence === "number" && <span className="t-mono"> · conf {fixed(pred.intent_confidence, 2)}</span>}

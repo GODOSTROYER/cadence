@@ -2,7 +2,7 @@ import { Chip } from "@/components/Chip";
 import { EmptyState } from "@/components/EmptyState";
 import { cx } from "@/lib/cx";
 import { formatDateTime } from "@/lib/format";
-import { JUDGE_DIMENSION_HINTS, JUDGE_DIMENSION_LABELS, JUDGE_FLAG_LABELS, JUDGE_FLAGS, systemLabel, systemShort, VERDICT_LABELS } from "@/lib/labels";
+import { JUDGE_DIMENSION_HINTS, JUDGE_DIMENSION_LABELS, JUDGE_FLAG_LABELS, JUDGE_FLAGS, systemLabelFor, systemShortFor, VERDICT_LABELS } from "@/lib/labels";
 import { systemColor } from "@/lib/palette";
 import type { JudgedSystemId, MergedGoldenExample } from "@/lib/types";
 
@@ -35,8 +35,8 @@ export function JudgePanel({ row }: JudgePanelProps) {
             <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
               <span className="flex min-w-0 items-center gap-2">
                 <span aria-hidden="true" className="size-2 shrink-0 rounded-full" style={{ background: systemColor(s) }} />
-                <span className="text-[13px] font-medium text-text">{systemShort(s)}</span>
-                <span className="hidden truncate text-[12px] text-faint sm:inline">{systemLabel(s)}</span>
+                <span className="text-[13px] font-medium text-text">{systemShortFor("reply", s)}</span>
+                <span className="hidden truncate text-[12px] text-faint sm:inline">{systemLabelFor("reply", s)}</span>
               </span>
               <span className="flex items-center gap-3">
                 <Chip size="sm" tone={verdictTone(j.verdict)} dot>

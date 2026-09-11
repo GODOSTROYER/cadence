@@ -64,6 +64,8 @@ export function F1Bars({ rows, title, subtitle, sort = true, macroF1, className 
       err: r.ci ? [Math.max(0, r.f1 - r.ci[0]), Math.max(0, r.ci[1] - r.f1)] : [0, 0],
     }));
   const height = Math.max(200, data.length * 28 + 40);
+  // Whiskers only when at least one row carries a CI; an all-zero ErrorBar renders duplicate-keyed caps.
+  const hasCi = data.some((d) => d.err[0] > 0 || d.err[1] > 0);
 
   return (
     <ChartFrame
@@ -82,7 +84,7 @@ export function F1Bars({ rows, title, subtitle, sort = true, macroF1, className 
               {data.map((d) => (
                 <Cell key={d.id} fill={intentColor(d.id)} fillOpacity={0.85} />
               ))}
-              <ErrorBar dataKey="err" direction="x" width={4} strokeWidth={1} stroke="#ECEDEF" />
+              {hasCi && <ErrorBar dataKey="err" direction="x" width={4} strokeWidth={1} stroke="#ECEDEF" strokeOpacity={0.7} />}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
@@ -95,7 +97,7 @@ export function F1Bars({ rows, title, subtitle, sort = true, macroF1, className 
               <th scope="col" className="num">F1</th>
               {data.some((d) => d.precision !== undefined) && <th scope="col" className="num">Precision</th>}
               {data.some((d) => d.recall !== undefined) && <th scope="col" className="num">Recall</th>}
-              <th scope="col" className="num">95% CI</th>
+              {hasCi && <th scope="col" className="num">95% CI</th>}
               <th scope="col" className="num">Support</th>
             </tr>
           </thead>
@@ -108,7 +110,7 @@ export function F1Bars({ rows, title, subtitle, sort = true, macroF1, className 
                 <td className="num">{fixed(d.f1, 3)}</td>
                 {data.some((x) => x.precision !== undefined) && <td className="num">{d.precision !== undefined ? fixed(d.precision, 3) : "—"}</td>}
                 {data.some((x) => x.recall !== undefined) && <td className="num">{d.recall !== undefined ? fixed(d.recall, 3) : "—"}</td>}
-                <td className="num">{d.err[0] || d.err[1] ? `${fixed(d.f1 - d.err[0], 2)} – ${fixed(d.f1 + d.err[1], 2)}` : "—"}</td>
+                {hasCi && <td className="num">{d.err[0] || d.err[1] ? `${fixed(d.f1 - d.err[0], 2)} – ${fixed(d.f1 + d.err[1], 2)}` : "—"}</td>}
                 <td className="num">{d.support}</td>
               </tr>
             ))}

@@ -21,6 +21,7 @@ import { cx } from "@/lib/cx";
 import { compact, int, ms as formatMs, truncate } from "@/lib/format";
 import { intentColor } from "@/lib/intents";
 import { reasonLabel, ruleFlagLabel, SENTIMENT_LABELS } from "@/lib/labels";
+import { applyThreshold, describeGuard } from "@/lib/threshold";
 import type { AgentResponse, MergedGoldenExample } from "@/lib/types";
 
 type Phase = "idle" | "running" | "done" | "error";
@@ -28,12 +29,23 @@ type Phase = "idle" | "running" | "done" | "error";
 const STEP_IDS = ["rules", "retrieve", "llm", "decide"] as const;
 type StepId = (typeof STEP_IDS)[number];
 
-/** Six chips that span the taxonomy: preferred gold intents, first recorded example of each. */
-const CHIP_INTENTS = ["billing_or_charge", "playback_or_app_bug", "account_hacked_or_security", "subscription_or_plan", "non_english", "other"];
+/**
+ * Six recorded runs chosen by hand from the golden set to span intents, decisions and mechanisms:
+ * a rule-forced billing escalation, a self-served playback bug, a rule-forced security escalation,
+ * a self-served download question carrying a soft flag, a plan question the model itself escalated,
+ * and a non-English tweet. Missing ids fall back to the first example of each preferred intent.
+ */
+const CHIP_IDS = ["g_038", "g_034", "g_017", "g_027", "g_066", "g_092"];
+const CHIP_INTENTS = ["billing_or_charge", "playback_or_app_bug", "account_hacked_or_security", "download_or_offline", "subscription_or_plan", "non_english"];
 
 function pickExamples(rows: MergedGoldenExample[]): MergedGoldenExample[] {
   const picked: MergedGoldenExample[] = [];
+  for (const id of CHIP_IDS) {
+    const row = rows.find((r) => r.id === id && r.predictions.agent);
+    if (row) picked.push(row);
+  }
   for (const intent of CHIP_INTENTS) {
+    if (picked.length >= 6) break;
     const row = rows.find((r) => r.gold.intent === intent && r.predictions.agent && !picked.includes(r) && r.text.length > 12);
     if (row) picked.push(row);
   }
@@ -121,7 +133,7 @@ export default function AgentPlayground() {
   const reduced = useReducedMotion();
   const golden = useAsync(getGolden, []);
   const results = useAsync(getResults, []);
-  const threshold = results.data?.meta.threshold ?? 0.6;
+  const threshold = results.data?.meta.threshold;
   const examples = useMemo(() => (golden.data ? pickExamples(golden.data) : []), [golden.data]);
 
   const [text, setText] = useState("");
@@ -220,7 +232,10 @@ export default function AgentPlayground() {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run reads current state at call time
   }, [canRun, text]);
 
-  const steps = buildSteps(statuses, result);
+  // Show the decision the evaluated policy makes at the dev-chosen threshold, flagged when it differs
+  // from what the recorded run decided, so the playground never contradicts the Evaluation page.
+  const shown = result ? applyThreshold(result, IS_STATIC ? threshold : undefined) : null;
+  const steps = buildSteps(statuses, shown);
 
   return (
     <PageTransition>
@@ -276,7 +291,7 @@ export default function AgentPlayground() {
             placeholder={IS_STATIC ? "Free text is off in this build. Pick a recorded message above." : "@SpotifyCares my app keeps crashing since the update…"}
             aria-describedby="composer-count"
             className={cx(
-              "w-full resize-y rounded-md border bg-bg px-4 py-3 text-[16px] leading-relaxed text-text placeholder:text-faint disabled:cursor-not-allowed disabled:opacity-80",
+              "w-full resize-y rounded-md border bg-bg px-4 pt-3 pb-8 text-[16px] leading-relaxed text-text placeholder:text-faint disabled:cursor-not-allowed disabled:opacity-80",
               over ? "border-rose" : "border-border-strong",
             )}
           />
@@ -338,35 +353,43 @@ export default function AgentPlayground() {
           </div>
         )}
 
-        {phase === "done" && result && (
+        {phase === "done" && result && shown && (
           <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
             <div className="flex min-w-0 flex-col gap-4">
               <div className="region flex flex-col gap-4 px-5 py-5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <IntentBadge id={result.intent} />
+                  <IntentBadge id={shown.intent} />
                   <span className="flex items-center gap-2">
-                    {result.secondary_intent && (
+                    {shown.secondary_intent && (
                       <Chip size="sm" mono title="secondary intent">
-                        + {result.secondary_intent}
+                        + {shown.secondary_intent}
                       </Chip>
                     )}
-                    <Chip size="sm" tone={result.sentiment === "angry" ? "rose" : result.sentiment === "frustrated" ? "amber" : result.sentiment === "positive" ? "green" : "neutral"} dot>
-                      {SENTIMENT_LABELS[result.sentiment]}
+                    <Chip size="sm" tone={shown.sentiment === "angry" ? "rose" : shown.sentiment === "frustrated" ? "amber" : shown.sentiment === "positive" ? "green" : "neutral"} dot>
+                      {SENTIMENT_LABELS[shown.sentiment]}
                     </Chip>
                   </span>
                 </div>
-                <ConfidenceBar value={result.intent_confidence} threshold={threshold} />
+                <ConfidenceBar value={shown.intent_confidence} threshold={threshold} />
                 <div className="hairline-t flex flex-col gap-2 pt-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <DecisionPill decision={result.decision} reasonCode={result.escalation?.reason_code ?? null} showReason />
-                    {result.trace?.forced_by_rules && (
+                    <DecisionPill decision={shown.decision} reasonCode={shown.escalation?.reason_code ?? null} showReason />
+                    {shown.trace?.forced_by_rules && (
                       <Chip size="sm" tone="amber" mono title="A deterministic rule forced this decision">
                         forced by rules
                       </Chip>
                     )}
+                    {shown.guard?.changed && (
+                      <Chip size="sm" tone="amber" mono title={describeGuard(shown.guard)}>
+                        {shown.guard.threshold.toFixed(2)} guard · run said {shown.guard.recorded === "escalate" ? "escalate" : "auto-handle"}
+                      </Chip>
+                    )}
                   </div>
                   <p className="text-[14px] leading-relaxed text-muted">
-                    {result.escalation?.reason ?? "Grounded self-serve reply; no rule fired and confidence cleared the threshold, so it can post without review."}
+                    {shown.escalation?.reason ??
+                      (typeof threshold === "number"
+                        ? `Grounded self-serve reply; no rule fired and confidence cleared the ${threshold.toFixed(2)} guard, so it can post without review.`
+                        : "Grounded self-serve reply; no rule fired and confidence cleared the threshold, so it can post without review.")}
                   </p>
                   {result.rule_flags.length > 0 && (
                     <ul className="mt-1 flex flex-wrap gap-1.5" aria-label="Rule flags">
@@ -404,8 +427,8 @@ export default function AgentPlayground() {
                     {result.cached ? "cached" : "live call"}
                   </Chip>
                   <Chip size="sm" mono>{formatMs(result.latency_ms)} total</Chip>
-                  {result.escalation?.reason_code && (
-                    <span className="ml-auto text-[12px] text-faint">{reasonLabel(result.escalation.reason_code)}</span>
+                  {shown.escalation?.reason_code && (
+                    <span className="ml-auto text-[12px] text-faint">{reasonLabel(shown.escalation.reason_code)}</span>
                   )}
                 </div>
               </div>

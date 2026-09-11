@@ -53,15 +53,15 @@ export function ReplyPreview({ text, animate = false, onTyped, replyingTo = "@cu
   }
 
   return (
-    <div className={cx("region-plain flex flex-col bg-surface", className)}>
-      <div className="flex items-center gap-2 px-4 pt-3 text-[12px] text-muted">
-        <span aria-hidden="true" className="flex size-5 items-center justify-center rounded-full bg-green text-[10px] font-semibold text-bg">
+    <div className={cx("region-plain flex min-w-0 flex-col bg-surface", className)}>
+      <div className="flex min-w-0 items-center gap-2 px-4 pt-3 text-[12px] text-muted">
+        <span aria-hidden="true" className="flex size-5 shrink-0 items-center justify-center rounded-full bg-green text-[10px] font-semibold text-bg">
           S
         </span>
-        <span className="font-medium text-text">SpotifyCares</span>
-        <span className="t-mono text-green">@SpotifyCares</span>
-        <span className="text-faint">·</span>
-        <span className="truncate">Replying to {replyingTo}</span>
+        <span className="shrink-0 font-medium text-text">SpotifyCares</span>
+        <span className="t-mono shrink-0 text-green">@SpotifyCares</span>
+        <span className="shrink-0 text-faint">·</span>
+        <span className="min-w-0 flex-1 truncate">Replying to {replyingTo}</span>
       </div>
       <p
         onClick={typing ? skip : undefined}

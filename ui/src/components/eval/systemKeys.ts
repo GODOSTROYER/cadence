@@ -7,7 +7,7 @@
  * (`trivial_majority`, `simple_tfidf_lr`, `simple_rules`, `nn_reply`, `trivial_template`) also
  * appear in older exports and the mock data. Both spellings resolve here.
  */
-import { systemLabel, systemShort } from "@/lib/labels";
+import { systemLabel, systemLabelFor, systemShort, systemShortFor, type SystemTask } from "@/lib/labels";
 import type { JudgedSystemId, SystemId } from "@/lib/types";
 
 const PREDICTION_SYSTEM: Record<string, SystemId> = {
@@ -74,9 +74,13 @@ export interface SystemOption {
   hint: string;
 }
 
-/** Options for a SegmentedControl over summary system keys. */
-export function systemOptions(keys: readonly string[]): SystemOption[] {
-  return orderSystems(keys).map((k) => ({ value: k, label: systemShort(k), hint: systemLabel(k) }));
+/** Options for a SegmentedControl over summary system keys, labelled for the task they are scored on. */
+export function systemOptions(keys: readonly string[], task?: SystemTask): SystemOption[] {
+  return orderSystems(keys).map((k) => ({
+    value: k,
+    label: task ? systemShortFor(task, k) : systemShort(k),
+    hint: task ? systemLabelFor(task, k) : systemLabel(k),
+  }));
 }
 
 /** The requested key when present, else the first ordered key (agent when available). */

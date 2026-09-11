@@ -27,6 +27,14 @@ const DATASET_FALLBACK: DatasetFacts = {
   n_resolved_links: 150,
 };
 
+const MONTH = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+
+/** "2017-10" → "Oct 2017". */
+function monthLabel(ym: string): string {
+  const d = new Date(`${ym}-01T00:00:00Z`);
+  return Number.isNaN(d.getTime()) ? ym : MONTH.format(d);
+}
+
 const REPRODUCE_STEPS: { cmd: string; what: string; time: string }[] = [
   { cmd: "make setup", what: "Install the Python package and the UI dependencies.", time: "2 min" },
   { cmd: "make reproduce", what: "Rebuild the BM25 index, replay every agent, baseline and judge call from the committed LLM cache, recompute metrics, CIs and failure modes, export the UI data.", time: "6–8 min" },
@@ -161,7 +169,14 @@ function MethodContent({ summary, intents, policy }: { summary: EvalSummary; int
         <dl className="region-plain grid gap-x-8 gap-y-3 px-6 py-5 text-[13px] sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <dt className="text-faint">Period</dt>
-            <dd className="t-mono text-text">{formatDate(data.date_from)} → {formatDate(data.date_to)}</dd>
+            <dd className="t-mono text-text">
+              {formatDate(data.date_from)} → {formatDate(data.date_to)}
+              {data.bulk_from && data.bulk_to && typeof data.bulk_share === "number" && (
+                <span className="block font-sans text-muted">
+                  {pct(data.bulk_share, 1)} of openers fall in {monthLabel(data.bulk_from)} – {monthLabel(data.bulk_to)}; the earlier tail is a handful of stray threads.
+                </span>
+              )}
+            </dd>
           </div>
           <div>
             <dt className="text-faint">Cleaning</dt>
@@ -290,7 +305,16 @@ function MethodContent({ summary, intents, policy }: { summary: EvalSummary; int
         </div>
       </Section>
 
-      <Section id="judge" eyebrow="05 · reply quality" title="How replies are judged" lede={`${summary.meta.judge_model} scores the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge is a different model from the agent (${summary.meta.agent_model}). A human rated ${summary.judge_agreement.n} pairs blind to calibrate it.`}>
+      <Section
+        id="judge"
+        eyebrow="05 · reply quality"
+        title="How replies are judged"
+        lede={`${summary.meta.judge_model} scores the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge is a different model from the agent (${summary.meta.agent_model}). ${
+          summary.judge_agreement && summary.judge_agreement.n > 0
+            ? `A human rated ${int(summary.judge_agreement.n)} pairs blind to calibrate it.`
+            : "No human ratings exist yet, so the judge is uncalibrated: its scores are LLM opinion until pairs are rated on the Rate page and the evaluation re-runs."
+        }`}
+      >
         <div className="table-wrap">
           <table className="table">
             <thead>

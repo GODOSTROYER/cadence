@@ -4,7 +4,7 @@ import { EmptyState } from "@/components/EmptyState";
 import { ThresholdChart } from "@/components/ThresholdChart";
 import { cx } from "@/lib/cx";
 import { ciPct, fixed, int, pct } from "@/lib/format";
-import { systemLabel, systemShort } from "@/lib/labels";
+import { systemLabelFor, systemShortFor } from "@/lib/labels";
 import type { EscalationSystemMetrics, EvalSummary, MergedGoldenExample } from "@/lib/types";
 
 import { ExampleList } from "./ExampleList";
@@ -68,8 +68,8 @@ function SystemTile({ systemKey, metrics, selected, onSelect, tabIndex, register
     >
       {agent && <span aria-hidden="true" className="absolute top-4 bottom-4 left-0 w-px bg-green" />}
       <header className="flex items-baseline justify-between gap-2">
-        <span className={cx("truncate text-[14px] font-medium", agent ? "text-text" : "text-muted")} title={systemLabel(systemKey)}>
-          {systemShort(systemKey)}
+        <span className={cx("truncate text-[14px] font-medium", agent ? "text-text" : "text-muted")} title={systemLabelFor("escalation", systemKey)}>
+          {systemShortFor("escalation", systemKey)}
         </span>
         <span className="t-mono shrink-0 text-[11px] text-faint">F1 {fmtMaybe(metrics.f1, (v) => fixed(v, 2))}</span>
       </header>
@@ -85,10 +85,24 @@ function SystemTile({ systemKey, metrics, selected, onSelect, tabIndex, register
   );
 }
 
+function dedupeByConfusion(keys: string[], systems: Record<string, EscalationSystemMetrics>): string[] {
+  const seen = new Set<string>();
+  return keys.filter((k) => {
+    const c = systems[k]?.confusion;
+    if (!c) return false;
+    const sig = `${c.tp}/${c.fp}/${c.fn}/${c.tn}`;
+    if (seen.has(sig)) return false;
+    seen.add(sig);
+    return true;
+  });
+}
+
 /** Per-system tiles, the threshold sweep with the chosen threshold, and the missed / unnecessary escalation lists. */
 export function EscalationTab({ summary, golden, system, onSystemChange }: EscalationTabProps) {
   const block = summary.escalation;
-  const keys = orderSystems(Object.keys(block.systems));
+  // The eval module writes both the §15.1 ids and the computed baselines; when two keys carry the same
+  // confusion counts (simple = simple_keyword, trivial = trivial_always_escalate) show only the first.
+  const keys = dedupeByConfusion(orderSystems(Object.keys(block.systems)), block.systems);
   const key = resolveSystem(keys, system);
   const metrics = key ? block.systems[key] : undefined;
   const threshold = extra<number>(block, "threshold") ?? summary.meta.threshold;
@@ -151,7 +165,7 @@ export function EscalationTab({ summary, golden, system, onSystemChange }: Escal
             sweep={block.threshold_sweep}
             chosen={threshold}
             title="Recall against auto-handle rate as the confidence threshold moves"
-            subtitle={`Agent only. Below the threshold the intent confidence forces an escalation (low_confidence); the marked value was picked on the ${chosenOn} split and never touched again.`}
+            subtitle={`Agent only. Intent confidence below the threshold forces an escalation (low_confidence); the marked value was picked on the ${chosenOn} split and never touched again. The curve is flat on the left because the model almost never reports low confidence, then recall climbs steeply once the guard reaches the narrow band where most of its confidences sit, and auto-handle collapses with it.`}
           />
         ) : (
           <EmptyState compact title="No threshold sweep" description="The agent produced no dev-split predictions, so the sweep was not computed." />
@@ -180,7 +194,7 @@ export function EscalationTab({ summary, golden, system, onSystemChange }: Escal
         )}
       </div>
 
-      <dl className="region-plain grid gap-x-8 gap-y-3 px-5 py-4 text-[13px] sm:grid-cols-2 lg:grid-cols-4" aria-label={`Confusion counts for ${systemLabel(key)}`}>
+      <dl className="region-plain grid gap-x-8 gap-y-3 px-5 py-4 text-[13px] sm:grid-cols-2 lg:grid-cols-4" aria-label={`Confusion counts for ${systemLabelFor("escalation", key)}`}>
         <div>
           <dt className="text-faint">True positives</dt>
           <dd className="t-mono text-text">{int(c.tp)} escalated, needed it</dd>

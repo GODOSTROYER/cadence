@@ -60,7 +60,7 @@ GROUNDING_RULES = (
 CALIBRATION = (
     "`intent_confidence` is the probability that `intent` is right. Use >= 0.8 only when the issue is explicit "
     "and matches one intent; 0.6-0.8 when plausible but underspecified; < 0.6 when the message is ambiguous, "
-    "very short, media-only, or two intents fit equally. Confidence below the threshold is escalated automatically."
+    "very short, media-only, or two intents fit equally. Confidence below the tuned threshold is escalated automatically."
 )
 
 OUTPUT_CONTRACT = (
@@ -101,7 +101,6 @@ def taxonomy_block(intents: Sequence[dict] | None = None) -> str:
 def policy_block(config: dict | None = None) -> str:
     """Render the escalation policy: decision semantics plus every reason code with its description."""
     cfg = config if config is not None else escalation_config()
-    threshold = cfg.get("confidence_threshold", 0.6)
     lines = [
         "auto_handle: the reply can be posted without human review — only when it is fully grounded in "
         "historical brand practice (self-serve steps, help-article link, acknowledgement, language redirect) "
@@ -111,8 +110,8 @@ def policy_block(config: dict | None = None) -> str:
     for code in cfg.get("reason_codes", []):
         lines.append(f"- {code['id']}: {normalize_ws(code.get('description', ''))}")
     lines.append(
-        f"Deterministic rules run alongside you and can force escalation; intent_confidence < {threshold} "
-        "also escalates (low_confidence)."
+        "Deterministic rules run alongside you and can force escalation; intent_confidence below a tuned "
+        "threshold also escalates (low_confidence)."
     )
     return "\n".join(lines)
 

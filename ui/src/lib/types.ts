@@ -189,6 +189,8 @@ export interface MergedGoldenExample extends GoldenExample {
 
 export interface DatasetFacts {
   n_openers: number;
+  /** English openers (the retrieval corpus); optional in older exports. */
+  n_openers_english?: number;
   n_brand_tweets: number;
   n_rows_total: number;
   n_brands: number;
@@ -198,7 +200,18 @@ export interface DatasetFacts {
   share_with_link: number;
   share_single_reply: number;
   n_resolved_links: number;
+  /** "YYYY-MM" bounds of the months that hold the bulk of openers, and their share. */
+  bulk_from?: string;
+  bulk_to?: string;
+  bulk_share?: number;
 }
+
+/**
+ * The eval module writes `null` (never NaN) for any statistic that is undefined on the data: a mean
+ * with no scores, Spearman on constant ratings, a CI on an empty set, or a whole block before its
+ * inputs exist (`judge_agreement` until human ratings are saved).
+ */
+export type Nullable<T> = T | null;
 
 export interface EvalMeta {
   brand: string;
@@ -212,8 +225,10 @@ export interface EvalMeta {
   git_sha: string;
   cache_hit_rate: number;
   threshold: number;
-  /** Honest bullets for the "What is misleading about these numbers" callout. */
+  /** Honest bullets for the "What is misleading about these numbers" callout (results/caveats.json). */
   caveats?: string[];
+  /** Run notes from the eval module, e.g. which blocks were skipped and why. */
+  notes?: string[];
   /** Corpus facts for the Method page; falls back to CONTRACT §2 constants when absent. */
   dataset?: DatasetFacts;
 }
@@ -222,13 +237,13 @@ export interface Headline {
   intent_macro_f1: number;
   escalation_recall: number;
   auto_handle_rate: number;
-  judge_overall_mean: number;
-  judge_overall_mean_nn: number;
+  judge_overall_mean: Nullable<number>;
+  judge_overall_mean_nn: Nullable<number>;
   ci95: {
-    intent_macro_f1: CI95;
-    escalation_recall: CI95;
-    auto_handle_rate: CI95;
-    judge_overall_mean: CI95;
+    intent_macro_f1: Nullable<CI95>;
+    escalation_recall: Nullable<CI95>;
+    auto_handle_rate: Nullable<CI95>;
+    judge_overall_mean: Nullable<CI95>;
   };
 }
 
@@ -263,17 +278,20 @@ export interface IntentBlock {
 }
 
 export interface EscalationSystemMetrics {
-  precision: number;
+  precision: Nullable<number>;
   recall: number;
-  f1: number;
+  f1: Nullable<number>;
   auto_handle_rate: number;
   accuracy: number;
   missed_escalations: number;
   unnecessary_escalations: number;
-  reason_code_accuracy: number;
+  /** Null when the system never escalated correctly (no true positives to score). */
+  reason_code_accuracy: Nullable<number>;
   confusion: { tp: number; fp: number; fn: number; tn: number };
-  ci95: Partial<Record<"recall" | "precision" | "auto_handle_rate" | "f1", CI95>>;
+  ci95: Partial<Record<"recall" | "precision" | "auto_handle_rate" | "f1", Nullable<CI95>>>;
   missed_examples: string[];
+  /** Additive: golden ids of the false positives. */
+  unnecessary_examples?: string[];
 }
 
 export type EscalationSystemKey = "agent" | "trivial_always_escalate" | "trivial_never_escalate" | "simple_rules";
@@ -291,19 +309,22 @@ export interface EscalationBlock {
 }
 
 export interface ReplyQualitySystem {
-  mean: JudgeScores;
+  /** Per-dimension means; a dimension is null when no reply was scored on it. */
+  mean: Record<JudgeDimension, Nullable<number>>;
   /** Counts of overall = 1..5. */
   dist_overall: [number, number, number, number, number];
-  ship_rate: number;
-  flag_rates: Record<JudgeFlag, number>;
-  ci95: { overall: CI95 };
+  ship_rate: Nullable<number>;
+  flag_rates: Record<JudgeFlag, Nullable<number>>;
+  ci95: Nullable<{ overall: Nullable<CI95> }>;
+  /** Additive: number of judged replies. */
+  n?: number;
 }
 
 export type ReplySystemKey = "agent" | "trivial_template" | "nn_reply";
 
 export interface ReplyQualityBlock {
   systems: Record<string, ReplyQualitySystem>;
-  pairwise: { agent_vs_nn_win_rate: number; agent_vs_trivial_win_rate: number };
+  pairwise: Nullable<{ agent_vs_nn_win_rate: Nullable<number>; agent_vs_trivial_win_rate: Nullable<number> }>;
 }
 
 export interface AgreementPair {
@@ -315,12 +336,12 @@ export interface AgreementPair {
 
 export interface JudgeAgreementBlock {
   n: number;
-  weighted_kappa_overall: number;
-  spearman_overall: number;
-  exact_agreement: number;
-  within_one: number;
-  judge_minus_human_mean?: number;
-  per_dimension: Record<string, { weighted_kappa: number; spearman: number }>;
+  weighted_kappa_overall: Nullable<number>;
+  spearman_overall: Nullable<number>;
+  exact_agreement: Nullable<number>;
+  within_one: Nullable<number>;
+  judge_minus_human_mean?: Nullable<number>;
+  per_dimension: Record<string, { weighted_kappa: Nullable<number>; spearman: Nullable<number>; n?: number }>;
   pairs: AgreementPair[];
 }
 
@@ -344,8 +365,10 @@ export interface EvalSummary {
   headline: Headline;
   intent: IntentBlock;
   escalation: EscalationBlock;
-  reply_quality: ReplyQualityBlock;
-  judge_agreement: JudgeAgreementBlock;
+  /** Null until the judge has run. */
+  reply_quality: Nullable<ReplyQualityBlock>;
+  /** Null until human ratings exist and `evaluate` has been re-run. */
+  judge_agreement: Nullable<JudgeAgreementBlock>;
   annotator_agreement: AnnotatorAgreement;
   cost: CostBlock;
 }

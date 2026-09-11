@@ -36,18 +36,24 @@ export function JudgeAgreementTab({ summary }: JudgeAgreementTabProps) {
     return (
       <EmptyState
         icon={<UserRoundCheck />}
-        title="Human ratings are pending"
+        title="No human ratings yet"
         description={
           <>
-            Judge agreement compares {judge}'s scores with a person's blind ratings of the same replies. No rated pairs exist yet, so κ, ρ and the scatter cannot be computed. The protocol: {int(60)} (message, reply) pairs, 20 per system, system identity hidden behind an A/B/C alias, scored on the same five dimensions; the block fills in once ratings are saved and the evaluation re-runs.
+            <p>
+              Judge agreement compares {judge}'s scores with a person's blind ratings of the same replies. No rated pairs exist, so weighted κ,
+              Spearman ρ, exact and within-one agreement cannot be computed and the reply-quality numbers stand uncalibrated.
+            </p>
+            <p className="mt-3">
+              Ratings are collected on the <Link to="/rate" className="link">Rate page</Link>: {int(60)} (message, reply) pairs, 20 per system, system
+              identity hidden behind an A/B/C alias, scored on the same five dimensions. κ and ρ appear here after the next{" "}
+              <code className="t-mono text-text">evaluate</code> run (<code className="t-mono text-text">make eval</code>) and re-export.
+            </p>
           </>
         }
         action={
-          IS_STATIC ? undefined : (
-            <Link to="/rate" className="btn btn-primary">
-              Rate replies
-            </Link>
-          )
+          <Link to="/rate" className={IS_STATIC ? "btn" : "btn btn-primary"}>
+            {IS_STATIC ? "Read the rating protocol" : "Rate replies"}
+          </Link>
         }
       />
     );

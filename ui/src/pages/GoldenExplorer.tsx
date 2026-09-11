@@ -164,7 +164,9 @@ export default function GoldenExplorer() {
     [setParams, systems],
   );
 
-  const entries = useMemo<Entry[]>(() => rows.map((row) => ({ row, cmp: compareRow(row, query.system) })), [rows, query.system]);
+  // Decisions are re-derived at the evaluated threshold so the table agrees with the Evaluation page.
+  const threshold = results.data?.meta.threshold;
+  const entries = useMemo<Entry[]>(() => rows.map((row) => ({ row, cmp: compareRow(row, query.system, threshold) })), [rows, query.system, threshold]);
   const filtered = useMemo(() => entries.filter(({ row, cmp }) => matchesQuery(row, query, cmp)), [entries, query]);
   const stats = useMemo(() => summarize(filtered), [filtered]);
   const columns = useMemo(() => buildColumns(query.system), [query.system]);
@@ -283,7 +285,9 @@ export default function GoldenExplorer() {
             <span className="flex items-center gap-1">
               <Kbd>esc</Kbd> close
             </span>
-            <span className="ml-auto">Predicted intent and decision are {systemShort(query.system)}'s; switch the compared system above.</span>
+            <span className="ml-auto">
+              Predicted intent and decision are {systemShort(query.system)}'s{typeof threshold === "number" ? `, with the decision re-derived at the evaluated ${threshold.toFixed(2)} confidence guard` : ""}; switch the compared system above.
+            </span>
           </p>
 
           <GoldenDrawer row={selected} requestedId={query.id} onClose={close} onStep={step} position={position} system={query.system} threshold={results.data?.meta.threshold} />

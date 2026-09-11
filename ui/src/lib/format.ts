@@ -109,10 +109,18 @@ export function plural(n: number, singular: string, pluralForm = `${singular}s`)
   return `${int(n)} ${n === 1 ? singular : pluralForm}`;
 }
 
-/** Truncate to `n` characters with an ellipsis. */
+const GRAPHEMES: Intl.Segmenter | null = typeof Intl !== "undefined" && "Segmenter" in Intl ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+
+/** Split into user-perceived characters, so an emoji or a two-code-point flag is never cut in half. */
+function graphemes(text: string): string[] {
+  return GRAPHEMES ? Array.from(GRAPHEMES.segment(text), (s) => s.segment) : Array.from(text);
+}
+
+/** Truncate to `n` user-perceived characters with an ellipsis. */
 export function truncate(text: string, n = 120): string {
-  if (text.length <= n) return text;
-  return `${text.slice(0, Math.max(0, n - 1)).trimEnd()}…`;
+  const chars = graphemes(text);
+  if (chars.length <= n) return text;
+  return `${chars.slice(0, Math.max(0, n - 1)).join("").trimEnd()}…`;
 }
 
 /** Title-case a snake_case id as a last-resort label. */

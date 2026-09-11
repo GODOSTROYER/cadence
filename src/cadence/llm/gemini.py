@@ -295,6 +295,14 @@ class GeminiClient:
             raise LLMError(f"Gemini rejected the request ({exc.code} {exc.status}): {exc.message}") from exc
         except genai_errors.ServerError as exc:
             raise _Retryable(exc) from exc
+        except RuntimeError as exc:
+            # httpx raises "Cannot send a request, as the client has been closed" when a transport is torn
+            # down under a concurrent caller; drop this key's client so the next attempt rebuilds it.
+            if "closed" not in str(exc).lower():
+                raise
+            with self._lock:
+                slot._genai = None
+            raise _Retryable(exc, rotate=True) from exc
         except (json.JSONDecodeError, ValidationError, ValueError) as exc:
             raise _Retryable(exc) from exc
         latency_ms = int(round((self._clock() - started) * 1000))

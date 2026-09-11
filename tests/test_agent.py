@@ -138,6 +138,7 @@ def make_agent(
     payload: dict[str, Any], retriever: FakeRetriever | None = None, **kwargs: Any
 ) -> SupportAgent:
     client = _mock_client_class()(responder=lambda prompt, schema: payload)
+    kwargs.setdefault("threshold", 0.6)  # tests pin the guard; the config value is tuned on dev and may move
     return SupportAgent(client, retriever or FakeRetriever(), **kwargs)
 
 
@@ -386,7 +387,7 @@ def test_rule_forced_escalation_overrides_llm_auto_handle() -> None:
 
 
 def test_low_confidence_escalates_with_threshold_message() -> None:
-    agent = make_agent(decision_payload(intent_confidence=0.42))
+    agent = make_agent(decision_payload(intent_confidence=0.42), threshold=None)  # None -> config default
     assert agent.threshold == pytest.approx(escalation_config()["confidence_threshold"])
     resp = agent.handle("something is off with the thing", id="g_003")
     assert resp.decision == "escalate"

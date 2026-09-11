@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { Callout } from "@/components/Callout";
 import { ErrorState } from "@/components/ErrorState";
+import { isNum } from "@/components/eval/maybe";
+import { StatTile } from "@/components/eval/StatTile";
 import { MetricTile } from "@/components/MetricTile";
 import { PageTransition, Reveal } from "@/components/PageTransition";
 import { Skeleton, SkeletonText } from "@/components/Skeleton";
@@ -15,11 +17,35 @@ import { getResults } from "@/lib/api";
 import { cx } from "@/lib/cx";
 import { ciPct, fixed, int, pct } from "@/lib/format";
 import { intentMeta } from "@/lib/intents";
-import { systemShort } from "@/lib/labels";
+import { systemLabelFor, systemShortFor, type SystemTask } from "@/lib/labels";
 import { systemColor } from "@/lib/palette";
-import type { EvalSummary } from "@/lib/types";
+import type { DatasetFacts, EvalSummary } from "@/lib/types";
 
-const DATASET_FALLBACK = { n_openers: 26068, date_from: "2017-04-07", date_to: "2017-12-13" };
+const DATASET_FALLBACK: Pick<DatasetFacts, "n_openers" | "date_from" | "date_to"> = { n_openers: 26068, date_from: "2017-04-07", date_to: "2017-12-13" };
+
+const MONTH = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+
+/** "2017-10" → "Oct 2017". */
+function monthLabel(ym: string): string {
+  const d = new Date(`${ym}-01T00:00:00Z`);
+  return Number.isNaN(d.getTime()) ? ym : MONTH.format(d);
+}
+
+/**
+ * When the corpus is quoted, say when it is from. The dump spans 2014–2017 but 99% of openers fall in
+ * three months, so the bulk period is the honest phrase; the full range is the fallback.
+ */
+function corpusPeriod(dataset: Partial<DatasetFacts>): string {
+  if (dataset.bulk_from && dataset.bulk_to) {
+    const from = monthLabel(dataset.bulk_from);
+    const to = monthLabel(dataset.bulk_to);
+    const sameYear = dataset.bulk_from.slice(0, 4) === dataset.bulk_to.slice(0, 4);
+    return from === to ? from : sameYear ? `${from.slice(0, 3)}–${to}` : `${from} – ${to}`;
+  }
+  const yFrom = (dataset.date_from ?? "").slice(0, 4);
+  const yTo = (dataset.date_to ?? "").slice(0, 4);
+  return yFrom && yTo && yFrom !== yTo ? `${yFrom}–${yTo}` : yFrom || "2017";
+}
 
 /** The hero ornament: the test set's intent mix, one bar per intent, like a level meter. Data, not decoration. */
 function IntentMeter({ support, labels }: { support: Record<string, number>; labels: string[] }) {
@@ -65,7 +91,7 @@ interface CompareRow {
 }
 
 /** Agent vs baselines on one task: horizontal bars, agent green, baselines violet. */
-function CompareStrip({ title, rows, format, note }: { title: string; rows: CompareRow[]; format: (v: number) => string; note?: string }) {
+function CompareStrip({ title, task, rows, format, note }: { title: string; task: SystemTask; rows: CompareRow[]; format: (v: number) => string; note?: string }) {
   const max = Math.max(...rows.map((r) => r.value), 1e-9);
   return (
     <div className="flex min-w-0 flex-col gap-3">
@@ -73,8 +99,8 @@ function CompareStrip({ title, rows, format, note }: { title: string; rows: Comp
       <ul className="flex flex-col gap-2">
         {rows.map((r) => (
           <li key={r.id} className="grid grid-cols-[minmax(0,128px)_1fr_48px] items-center gap-3 text-[13px]">
-            <span className={cx("truncate", r.id === "agent" ? "font-medium text-text" : "text-muted")} title={systemShort(r.id)}>
-              {systemShort(r.id)}
+            <span className={cx("truncate", r.id === "agent" ? "font-medium text-text" : "text-muted")} title={systemLabelFor(task, r.id)}>
+              {systemShortFor(task, r.id)}
             </span>
             <span className="relative h-1.5 overflow-hidden rounded-full bg-surface-2">
               <span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${(r.value / max) * 100}%`, background: systemColor(r.id) }} />
@@ -119,11 +145,12 @@ function OverviewSkeleton() {
 
 function OverviewContent({ summary }: { summary: EvalSummary }) {
   const { meta, headline, intent, escalation, reply_quality: reply } = summary;
-  const dataset = meta.dataset ?? DATASET_FALLBACK;
-  const yearFrom = dataset.date_from.slice(0, 4);
-  const nnGap = headline.judge_overall_mean - headline.judge_overall_mean_nn;
+  const dataset: Partial<DatasetFacts> = meta.dataset ?? DATASET_FALLBACK;
+  const period = corpusPeriod(dataset);
+  const nnGap = isNum(headline.judge_overall_mean) && isNum(headline.judge_overall_mean_nn) ? headline.judge_overall_mean - headline.judge_overall_mean_nn : null;
   const caveats = meta.caveats ?? [];
   const escalate = escalation.systems.agent;
+  const pairwise = reply?.pairwise;
 
   return (
     <PageTransition className="flex flex-col gap-12">
@@ -133,7 +160,7 @@ function OverviewContent({ summary }: { summary: EvalSummary }) {
             <h1 className="t-display t-display-96 t-italic text-text">Cadence</h1>
             <p className="mt-4 text-[20px] leading-snug text-text sm:text-[24px]">An evaluated AI support agent for @SpotifyCares.</p>
             <p className="measure mt-4 text-[15px] leading-relaxed text-muted">
-              It drafts public replies grounded in {int(dataset.n_openers)} real SpotifyCares conversations from {yearFrom}, decides whether a
+              It drafts public replies grounded in {int(dataset.n_openers ?? DATASET_FALLBACK.n_openers)} real SpotifyCares conversations from {period}, decides whether a
               human must take over, and reports how often it gets both wrong. Every number below comes from {int(meta.n_test)} held-out,
               hand-labelled tweets; {int(meta.n_dev)} more were used only to tune the threshold.
             </p>
@@ -157,14 +184,14 @@ function OverviewContent({ summary }: { summary: EvalSummary }) {
               label="intent macro-F1"
               value={headline.intent_macro_f1}
               format={(v) => fixed(v, 2)}
-              ci={headline.ci95.intent_macro_f1}
+              ci={headline.ci95.intent_macro_f1 ?? undefined}
               hint="Unweighted mean of per-intent F1 across every intent, so rare intents count as much as common ones."
             />
             <MetricTile
               label="escalation recall"
               value={headline.escalation_recall}
               format={(v) => pct(v)}
-              ci={headline.ci95.escalation_recall}
+              ci={headline.ci95.escalation_recall ?? undefined}
               ciFormat={ciPct}
               tone="amber"
               hint="Share of tweets a human should handle that the agent did escalate. The costly error is the miss, so this is the number to watch."
@@ -174,19 +201,19 @@ function OverviewContent({ summary }: { summary: EvalSummary }) {
               label="auto-handle rate"
               value={headline.auto_handle_rate}
               format={(v) => pct(v)}
-              ci={headline.ci95.auto_handle_rate}
+              ci={headline.ci95.auto_handle_rate ?? undefined}
               ciFormat={ciPct}
               tone="green"
               hint="Share of tweets the agent would post a reply to without human review."
             />
-            <MetricTile
+            <StatTile
               label="judge overall · 1–5"
               value={headline.judge_overall_mean}
               format={(v) => fixed(v, 2)}
-              ci={headline.ci95.judge_overall_mean}
+              ci={headline.ci95.judge_overall_mean ?? undefined}
               tone="sky"
-              delta={{ value: nnGap, label: "vs nearest-neighbour reply" }}
-              hint={`Mean holistic score from ${meta.judge_model} across grounded, resolves, tone and safe. The nearest-neighbour baseline reuses the closest historical brand reply verbatim.`}
+              delta={isNum(nnGap) ? { value: nnGap, label: "vs nearest-neighbour reply" } : undefined}
+              hint={`Mean holistic score from ${meta.judge_model} across grounded, resolves, tone and safe. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. No human has calibrated the judge yet.`}
             />
           </div>
         </section>
@@ -212,22 +239,38 @@ function OverviewContent({ summary }: { summary: EvalSummary }) {
           <div className="region grid gap-8 px-6 py-6 md:grid-cols-3 md:gap-10">
             <CompareStrip
               title="Intent macro-F1"
+              task="intent"
               format={(v) => fixed(v, 2)}
-              rows={pickRows(intent.systems, ["agent", "llm_zero_shot", "simple_tfidf_lr", "simple_keyword", "trivial_majority"], (s) => s.macro_f1)}
+              rows={pickRows(intent.systems, ["agent", "llm_zero_shot", "simple", "simple_tfidf_lr", "simple_keyword", "trivial", "trivial_majority"], (s) => s.macro_f1)}
               note="Zero-shot uses the same taxonomy in the prompt but no retrieval; TF-IDF is out-of-fold over the golden set."
             />
             <CompareStrip
               title="Escalation recall"
+              task="escalation"
               format={(v) => pct(v)}
-              rows={pickRows(escalation.systems, ["agent", "llm_zero_shot", "simple_rules", "trivial_always_escalate", "trivial_never_escalate"], (s) => s.recall)}
-              note={`Always-escalate is perfect recall with a ${pct(escalation.systems.trivial_always_escalate?.auto_handle_rate ?? 0)} auto-handle rate; the agent keeps ${pct(headline.auto_handle_rate)} of tweets self-served.`}
+              rows={pickRows(escalation.systems, ["agent", "llm_zero_shot", "simple", "simple_rules", "trivial_always_escalate", "trivial_never_escalate"], (s) => s.recall)}
+              note={`Always-escalate is perfect recall with a ${pct((escalation.systems.trivial_always_escalate ?? escalation.systems.trivial)?.auto_handle_rate ?? 0)} auto-handle rate; the agent keeps ${pct(headline.auto_handle_rate)} of tweets self-served.`}
             />
-            <CompareStrip
-              title="Reply quality · judge overall"
-              format={(v) => fixed(v, 2)}
-              rows={Object.entries(reply.systems).map(([id, s]) => ({ id, value: s.mean.overall })).sort((a, b) => b.value - a.value)}
-              note={`Agent wins ${pct(reply.pairwise.agent_vs_nn_win_rate)} of head-to-heads against the nearest-neighbour reply and ${pct(reply.pairwise.agent_vs_trivial_win_rate)} against the template.`}
-            />
+            {reply ? (
+              <CompareStrip
+                title="Reply quality · judge overall"
+                task="reply"
+                format={(v) => fixed(v, 2)}
+                rows={Object.entries(reply.systems)
+                  .flatMap(([id, s]) => (isNum(s.mean.overall) ? [{ id, value: s.mean.overall }] : []))
+                  .sort((a, b) => b.value - a.value)}
+                note={
+                  pairwise && isNum(pairwise.agent_vs_nn_win_rate) && isNum(pairwise.agent_vs_trivial_win_rate)
+                    ? `Agent wins ${pct(pairwise.agent_vs_nn_win_rate)} of head-to-heads against the nearest-neighbour reply and ${pct(pairwise.agent_vs_trivial_win_rate)} against the template. Scored by ${meta.judge_model}, not yet by a human.`
+                    : `Scored by ${meta.judge_model}, not yet by a human.`
+                }
+              />
+            ) : (
+              <div className="flex min-w-0 flex-col gap-3">
+                <h3 className="t-display-20 text-text">Reply quality · judge overall</h3>
+                <p className="text-[13px] leading-relaxed text-faint">Not judged yet. Run the judge (make judge) and re-export to compare reply quality.</p>
+              </div>
+            )}
           </div>
         </section>
       </Reveal>

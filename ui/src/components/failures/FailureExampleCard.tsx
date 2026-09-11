@@ -16,7 +16,7 @@ export function FailureExampleCard({ example, index }: FailureExampleCardProps) 
       <p className="t-mono text-[12px] text-faint">
         example {index + 1} · <span className="text-muted">{example.golden_id}</span>
       </p>
-      <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-2 lg:gap-5">
         <div className="flex min-w-0 flex-col gap-4">
           <TweetBubble text={example.text} compact />
           <GoldVsPredicted example={example} />

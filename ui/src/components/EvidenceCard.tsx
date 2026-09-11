@@ -54,12 +54,12 @@ export function EvidenceCard({ evidence, rank, highlighted, compact = false, cla
       <ArrowDown className="size-3.5 text-faint" aria-hidden="true" />
       <p className={cx("text-text", compact ? "text-[13px]" : "text-[14px] leading-relaxed")}>{evidence.brand_reply}</p>
       {evidence.resolved_links.length > 0 && (
-        <ul className="flex flex-wrap gap-1.5" aria-label="Resolved links">
-          {evidence.resolved_links.map((url) => (
-            <li key={url}>
-              <a href={url} target="_blank" rel="noreferrer noopener" className="tag gap-1 hover:border-border-strong hover:text-text" title={url}>
-                <ExternalLink className="size-3" aria-hidden="true" />
-                {hostOf(url)}
+        <ul className="flex min-w-0 flex-wrap gap-1.5" aria-label="Resolved links">
+          {evidence.resolved_links.map((url, i) => (
+            <li key={`${url}-${i}`} className="min-w-0 max-w-full">
+              <a href={url} target="_blank" rel="noreferrer noopener" className="tag max-w-full gap-1 hover:border-border-strong hover:text-text" title={url}>
+                <ExternalLink className="size-3 shrink-0" aria-hidden="true" />
+                <span className="min-w-0 truncate">{hostOf(url)}</span>
               </a>
             </li>
           ))}

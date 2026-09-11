@@ -3,19 +3,19 @@
     "id": "fm1",
     "kind": "confidently_wrong",
     "title": "Confidently wrong intent (confidence >= 0.8)",
-    "count": 33,
-    "share": 0.165,
+    "count": 35,
+    "share": 0.175,
     "hypothesis": "Confidence is poorly calibrated: the model reports high certainty on examples it misreads, so the low-confidence escalation safety net never triggers for them.",
     "examples": [
       {
         "golden_id": "g_003",
         "text": "Just to inform everyone, I got the Spotify/Hulu student discount. So no one will probably see me these next few days.",
         "gold_intent": "other",
-        "pred_intent": "feature_request_or_feedback",
+        "pred_intent": "subscription_or_plan",
         "gold_decision": "auto_handle",
         "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! Enjoy the music and the shows 💚 /AI",
-        "why": "confidence 0.90 but intent wrong"
+        "reply_draft": "Hey! Enjoy the tunes and your Hulu streaming! Let us know if you need anything else. /AI",
+        "why": "confidence 0.99 but intent wrong"
       },
       {
         "golden_id": "g_004",
@@ -24,8 +24,8 @@
         "pred_intent": "playlist_or_library",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device and OS you're using, and whether you're seeing this on the app or web player? /AI",
-        "why": "confidence 0.85 but intent wrong"
+        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device, OS, and Spotify version you're using so we can take a closer look? /AI",
+        "why": "confidence 0.90 but intent wrong"
       },
       {
         "golden_id": "g_012",
@@ -34,8 +34,8 @@
         "pred_intent": "content_or_availability",
         "gold_decision": "escalate",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Mind sharing a bit more info on what's going on with the availability so we can take a look? /AI",
-        "why": "confidence 0.85 but intent wrong"
+        "reply_draft": "Hey there! Could you let us know what device and Spotify version you're using, and which specific tracks are giving you trouble? /AI",
+        "why": "confidence 0.82 but intent wrong"
       }
     ],
     "proposed_fix": "Calibrate confidence against dev accuracy (e.g. temperature scaling or a stricter rubric for reporting confidence) and route high-confidence disagreements with the rules to review."
@@ -44,8 +44,8 @@
     "id": "fm2",
     "kind": "unnecessary_escalation",
     "title": "Unnecessary escalation with reason 'low_confidence'",
-    "count": 29,
-    "share": 0.145,
+    "count": 24,
+    "share": 0.12,
     "hypothesis": "The 'low_confidence' trigger fires on benign mentions (e.g. a keyword used in a different sense), so self-serve cases are pushed to humans and the auto-handle rate suffers.",
     "examples": [
       {
@@ -55,27 +55,27 @@
         "pred_intent": "playlist_or_library",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device and OS you're using, and whether you're seeing this on the app or web player? /AI",
+        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device, OS, and Spotify version you're using so we can take a closer look? /AI",
         "why": "agent escalated with low_confidence; gold says auto-handle"
       },
       {
         "golden_id": "g_019",
         "text": "us independent Artists are having issues to log in and check our stats. Green button not working on log in page. Thanks",
         "gold_intent": "login_or_password",
-        "pred_intent": "login_or_password",
+        "pred_intent": "metadata_or_artist_issue",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Don't worry, we're on it. Our developers are looking into this, and we'll keep everyone updated 🙂 /AI",
+        "reply_draft": "Hey there! This sounds like something for our Artist Services team. You can reach out to them here: 🙂 /AI",
         "why": "agent escalated with low_confidence; gold says auto-handle"
       },
       {
-        "golden_id": "g_028",
-        "text": "hi. Every time I open the Spotify app on my iPad it redownloads all my songs again. Is there a way to fix this?",
-        "gold_intent": "download_or_offline",
-        "pred_intent": "download_or_offline",
+        "golden_id": "g_029",
+        "text": ", you need to fix your SignUp web site. You're losing $$$: <url>",
+        "gold_intent": "login_or_password",
+        "pred_intent": "login_or_password",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Sorry to hear that. We suggest checking out the steps under “Downloads unexpectedly removed” in the help article. Let us know how it goes 💚 https://open.spotify.com/ /AI",
+        "reply_draft": "Hey there! That's not cool. Just to check, are you getting any error messages? If so, a screenshot will come in handy 🙂 /AI",
         "why": "agent escalated with low_confidence; gold says auto-handle"
       }
     ],
@@ -85,39 +85,39 @@
     "id": "fm3",
     "kind": "judge_flag",
     "title": "Reply invents a link or policy (judge flag)",
-    "count": 10,
-    "share": 0.05,
+    "count": 8,
+    "share": 0.04,
     "hypothesis": "The draft reaches beyond retrieved evidence, inventing help links or promises the brand never made historically.",
     "examples": [
       {
-        "golden_id": "g_019",
-        "text": "us independent Artists are having issues to log in and check our stats. Green button not working on log in page. Thanks",
-        "gold_intent": "login_or_password",
-        "pred_intent": "login_or_password",
-        "gold_decision": "auto_handle",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! Don't worry, we're on it. Our developers are looking into this, and we'll keep everyone updated 🙂 /AI",
-        "why": "The reply makes an unverified claim that developers are currently working on the issue, which is not a standard support response."
+        "golden_id": "g_105",
+        "text": "I've got the \"Get a year of Premium\" offer splash screen on my iOs app, but there wasn't any CTA to apply just a button to open a webpage... and there is no button, link or anything... How can I appl…",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "escalate",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey there, help's here! Can you try heading to? Let us know how it goes 💚 /AI",
+        "why": "The reply is incomplete, missing the actual link, and fails to provide any actionable assistance."
       },
       {
-        "golden_id": "g_026",
-        "text": "please go accept my artist request to get access",
-        "gold_intent": "metadata_or_artist_issue",
-        "pred_intent": "metadata_or_artist_issue",
+        "golden_id": "g_108",
+        "text": "if you really cared, you'd fix your Roku app. Not being able to access my playlists is really getting in the way of my Xmas spirit.",
+        "gold_intent": "playback_or_app_bug",
+        "pred_intent": "playback_or_app_bug",
         "gold_decision": "auto_handle",
         "pred_decision": "auto_handle",
-        "reply_draft": "Hey! You can access your artist profile with Spotify for Artists. If you don't have access yet, request it at the help article. Let us know how it goes 🙂 https://open.spotify.com/ /AI",
-        "why": "The link provided is broken and the reply ignores the user's specific request for help with an existing application by redirecting them to the start of the process."
+        "reply_draft": "Hey there! We have some info about the Spotify app on Roku here:. Give us a shout if there's anything else 🙂 /AI",
+        "why": "The reply is broken because it references a help article link that is missing from the message."
       },
       {
-        "golden_id": "g_088",
-        "text": "how many times do I have to tell you that I hate Modest Mouse",
-        "gold_intent": "other",
-        "pred_intent": "feature_request_or_feedback",
-        "gold_decision": "escalate",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey! We hear you. This isn't possible right now, but you can share your feedback or vote for the idea on our Community: https://open.spotify.com/ /AI",
-        "why": "The provided URL is malformed and clearly hallucinated, making the reply unreliable."
+        "golden_id": "g_137",
+        "text": "why you gotta delete my downloaded library like that. Now it’s redownloading the couple thousands of songs I have 🙃",
+        "gold_intent": "download_or_offline",
+        "pred_intent": "download_or_offline",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey there! Sorry to hear that. Check out the steps under \"Downloads unexpectedly removed\" at. Let us know how it goes. /AI",
+        "why": "The reply references a help article but fails to provide the actual URL, making the instruction useless."
       }
     ],
     "proposed_fix": "Constrain replies to links present in the evidence (post-generation link whitelist) and instruct the model to ask for a DM instead of stating policy."
@@ -131,23 +131,13 @@
     "hypothesis": "Messages about other share surface vocabulary with feature_request_or_feedback; the model latches onto the more frequent reading instead of the customer's actual ask.",
     "examples": [
       {
-        "golden_id": "g_003",
-        "text": "Just to inform everyone, I got the Spotify/Hulu student discount. So no one will probably see me these next few days.",
-        "gold_intent": "other",
-        "pred_intent": "feature_request_or_feedback",
-        "gold_decision": "auto_handle",
-        "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! Enjoy the music and the shows 💚 /AI",
-        "why": "gold intent other, predicted feature_request_or_feedback"
-      },
-      {
         "golden_id": "g_033",
         "text": "Your new app looks great on iPhone x! Thanks for the update!",
         "gold_intent": "other",
         "pred_intent": "feature_request_or_feedback",
         "gold_decision": "auto_handle",
         "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! Thanks for the kind words, we really appreciate it. Let us know if you need anything else! /AI",
+        "reply_draft": "Hey there! Thanks for the lovely feedback—we're so glad you're enjoying it. Let us know if you need anything else! /AI",
         "why": "gold intent other, predicted feature_request_or_feedback"
       },
       {
@@ -158,6 +148,16 @@
         "gold_decision": "escalate",
         "pred_decision": "escalate",
         "reply_draft": "Hey! We're afraid we don't have any info to share, but rest assured we’re working on it as we speak. Stay tuned 🙂 /AI",
+        "why": "gold intent other, predicted feature_request_or_feedback"
+      },
+      {
+        "golden_id": "g_052",
+        "text": "wyd people have been telling you this is happening so can you fix it lmao <url>",
+        "gold_intent": "other",
+        "pred_intent": "feature_request_or_feedback",
+        "gold_decision": "escalate",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! Can you tell us more about what's happening? What device/OS and Spotify version are you using? /AI",
         "why": "gold intent other, predicted feature_request_or_feedback"
       }
     ],
@@ -188,17 +188,17 @@
         "pred_intent": "subscription_or_plan",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! We accept various payment methods depending on your country, like debit cards or PayPal. Can you DM us your account's email or username? We'll take a look backstage /AI",
+        "reply_draft": "Hey! Can you DM us your account's email or username? We'll take a look backstage. /AI",
         "why": "agent escalated with needs_account_lookup; gold says auto-handle"
       },
       {
-        "golden_id": "g_138",
-        "text": "Hi guys I already have a Premium acc but as a Vodafone customer have premium included in my phone package, how can I redeem this?",
+        "golden_id": "g_126",
+        "text": "how do I even sign up to pay for a account?!? It used the free one and now I'd like to give you money and I can't 😐",
         "gold_intent": "subscription_or_plan",
         "pred_intent": "subscription_or_plan",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Could you DM us your account's email address? We'll take a look backstage /AI",
+        "reply_draft": "Hey there! Can you DM us your account's email address? We'll take a look backstage 🔍 /AI",
         "why": "agent escalated with needs_account_lookup; gold says auto-handle"
       }
     ],

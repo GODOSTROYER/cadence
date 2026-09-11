@@ -283,15 +283,27 @@ def choose_threshold(
     Rule: among thresholds whose escalation recall on dev is ``>= min_recall``, take the one with
     the highest auto-handle rate; ties go to the *highest* threshold (identical dev decisions, so
     prefer the safer setting — a missed escalation is the costly error). If no threshold reaches
-    ``min_recall``, fall back to the highest-recall threshold (ties broken by auto-handle rate, then
-    highest threshold). With no dev rows the ``config/escalation.yaml`` default is returned.
+    ``min_recall``, fall back to the threshold with the best recall-weighted F2 on dev (ties → higher
+    threshold). ``threshold >= 1.0`` is never chosen: it escalates every message, i.e. it *is* the
+    trivial always-escalate baseline. With no dev rows the ``config/escalation.yaml`` default is returned.
     """
     if not dev_rows:
         return default_threshold()
-    sweep = threshold_sweep(dev_rows, dev_gold, thresholds)
+    sweep = [s for s in threshold_sweep(dev_rows, dev_gold, thresholds) if s["threshold"] < 1.0]
+    if not sweep:
+        return default_threshold()
     eligible = [s for s in sweep if s["recall"] >= min_recall]
     if eligible:
         best = max(eligible, key=lambda s: (s["auto_handle_rate"], s["threshold"]))
     else:
-        best = max(sweep, key=lambda s: (s["recall"], s["auto_handle_rate"], s["threshold"]))
+        best = max(sweep, key=lambda s: (_f_beta(s["precision"], s["recall"], beta=2.0), s["threshold"]))
     return float(best["threshold"])
+
+
+def _f_beta(precision: float, recall: float, beta: float = 2.0) -> float:
+    """F-beta score (beta > 1 weights recall more, matching the cost of a missed escalation)."""
+    if precision <= 0 and recall <= 0:
+        return 0.0
+    b2 = beta * beta
+    denominator = b2 * precision + recall
+    return (1 + b2) * precision * recall / denominator if denominator else 0.0

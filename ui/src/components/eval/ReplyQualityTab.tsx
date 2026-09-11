@@ -6,7 +6,7 @@ import { ScoreDistribution, type ScoreSeries } from "@/components/ScoreDistribut
 import { SegmentedControl } from "@/components/SegmentedControl";
 import { cx } from "@/lib/cx";
 import { ci as formatCi, fixed, int, pct } from "@/lib/format";
-import { JUDGE_DIMENSION_HINTS, JUDGE_DIMENSION_LABELS, JUDGE_DIMENSIONS, JUDGE_FLAG_LABELS, JUDGE_FLAGS, systemLabel, systemShort } from "@/lib/labels";
+import { JUDGE_DIMENSION_HINTS, JUDGE_DIMENSION_LABELS, JUDGE_DIMENSIONS, JUDGE_FLAG_LABELS, JUDGE_FLAGS, systemLabelFor, systemShortFor } from "@/lib/labels";
 import type { EvalSummary, JudgeDimension, JudgeFlag, MergedGoldenExample, ReplyQualityBlock, ReplyQualitySystem } from "@/lib/types";
 
 import { ciOf, extra, fmtMaybe, isNum, type Maybe } from "./maybe";
@@ -71,7 +71,7 @@ export function ReplyQualityTab({ summary, golden }: ReplyQualityTabProps) {
     const s = block.systems[k];
     const dist: Dist = dimension === "overall" ? (s?.dist_overall ?? EMPTY_DIST) : tallyDimension(judgedRows, judgedSystem(k), dimension);
     const mean = s ? meanOf(s, dimension) : null;
-    return { id: k, label: systemShort(k), dist, mean: isNum(mean) ? mean : undefined };
+    return { id: k, label: systemShortFor("reply", k), dist, mean: isNum(mean) ? mean : undefined };
   });
 
   const pairwise = block.pairwise ?? { agent_vs_nn_win_rate: null, agent_vs_trivial_win_rate: null };
@@ -92,11 +92,11 @@ export function ReplyQualityTab({ summary, golden }: ReplyQualityTabProps) {
             <StatTile
               key={k}
               size="md"
-              label={`ship rate · ${systemShort(k)}`}
+              label={`ship rate · ${systemShortFor("reply", k)}`}
               value={s.ship_rate}
               format={(v) => pct(v)}
               tone={k === "agent" ? "green" : "violet"}
-              hint={`${systemLabel(k)}: share of judged replies the judge would post as-is.`}
+              hint={`${systemLabelFor("reply", k)}: share of judged replies the judge would post as-is.`}
               sub={
                 <span>
                   mean overall <span className="t-mono text-text">{fmtMaybe(meanOf(s, "overall"), (v) => fixed(v, 2))}</span>
@@ -166,8 +166,8 @@ export function ReplyQualityTab({ summary, golden }: ReplyQualityTabProps) {
                   if (!s) return null;
                   return (
                     <tr key={k}>
-                      <td className={cx("whitespace-nowrap", k === "agent" ? "font-medium text-text" : "text-muted")} title={systemLabel(k)}>
-                        {systemShort(k)}
+                      <td className={cx("whitespace-nowrap", k === "agent" ? "font-medium text-text" : "text-muted")} title={systemLabelFor("reply", k)}>
+                        {systemShortFor("reply", k)}
                       </td>
                       {JUDGE_DIMENSIONS.map((d) => (
                         <td key={d} className={cx("num", d === "overall" && "text-text")}>
@@ -203,8 +203,8 @@ export function ReplyQualityTab({ summary, golden }: ReplyQualityTabProps) {
                   if (!s) return null;
                   return (
                     <tr key={k}>
-                      <td className={cx("whitespace-nowrap", k === "agent" ? "font-medium text-text" : "text-muted")} title={systemLabel(k)}>
-                        {systemShort(k)}
+                      <td className={cx("whitespace-nowrap", k === "agent" ? "font-medium text-text" : "text-muted")} title={systemLabelFor("reply", k)}>
+                        {systemShortFor("reply", k)}
                       </td>
                       {JUDGE_FLAGS.map((f) => {
                         const rate = (s.flag_rates as Partial<Record<string, Maybe<number>>>)[f];

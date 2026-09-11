@@ -1,4 +1,4 @@
-import { CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, ReferenceDot, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 import { AXIS, ChartFrame, DefaultChartTip, GRID } from "@/components/ChartFrame";
 import { fixed, pct } from "@/lib/format";
@@ -37,15 +37,21 @@ export function ThresholdChart({ sweep, chosen, title, subtitle, showPrecision =
       }
       chart={
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 12, right: 16, bottom: 4, left: 0 }}>
+          <LineChart data={data} margin={{ top: 12, right: 16, bottom: 14, left: 0 }}>
             <CartesianGrid {...GRID} vertical={false} />
-            <XAxis dataKey="threshold" type="number" domain={["dataMin", "dataMax"]} tickFormatter={(v: number) => fixed(v, 2)} {...AXIS} />
+            <XAxis dataKey="threshold" type="number" domain={["dataMin", "dataMax"]} ticks={[0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]} tickFormatter={(v: number) => fixed(v, 1, true)} label={{ value: "confidence threshold", position: "insideBottomRight", fill: TOKENS.faint, fontSize: 11, fontFamily: "var(--font-mono)", dy: 12 }} {...AXIS} />
             <YAxis domain={[0, 1]} ticks={[0, 0.25, 0.5, 0.75, 1]} tickFormatter={(v: number) => pct(v)} width={44} {...AXIS} />
             <Tooltip content={<DefaultChartTip valueFormatter={(v) => pct(v, 1)} />} labelFormatter={(v) => `threshold ${fixed(Number(v), 2)}`} />
-            <ReferenceLine x={chosen} stroke={TOKENS.amber} strokeDasharray="2 3" label={{ value: `chosen ${fixed(chosen, 2)}`, position: "top", fill: TOKENS.amber, fontSize: 11, fontFamily: "var(--font-mono)" }} />
-            <Line type="monotone" dataKey="recall" name="recall" stroke={TOKENS.green} strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 0 }} isAnimationActive={false} />
-            <Line type="monotone" dataKey="auto_handle_rate" name="auto-handle rate" stroke={TOKENS.sky} strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 0 }} isAnimationActive={false} />
-            {showPrecision && <Line type="monotone" dataKey="precision" name="precision" stroke={TOKENS.violet} strokeWidth={1.5} strokeDasharray="4 4" dot={false} activeDot={{ r: 4, strokeWidth: 0 }} isAnimationActive={false} />}
+            <ReferenceLine x={chosen} stroke={TOKENS.amber} strokeDasharray="2 3" label={{ value: `chosen ${fixed(chosen, 2)}`, position: chosen > 0.7 ? "insideTopRight" : "insideTopLeft", fill: TOKENS.amber, fontSize: 11, fontFamily: "var(--font-mono)", dx: chosen > 0.7 ? -6 : 6 }} />
+            <Line type="linear" dataKey="recall" name="recall" stroke={TOKENS.green} strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 0 }} isAnimationActive={false} />
+            <Line type="linear" dataKey="auto_handle_rate" name="auto-handle rate" stroke={TOKENS.sky} strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 0 }} isAnimationActive={false} />
+            {showPrecision && <Line type="linear" dataKey="precision" name="precision" stroke={TOKENS.violet} strokeWidth={1.5} strokeDasharray="4 4" dot={false} activeDot={{ r: 4, strokeWidth: 0 }} isAnimationActive={false} />}
+            {at && (
+              <>
+                <ReferenceDot x={chosen} y={at.recall} r={4} fill={TOKENS.green} stroke={TOKENS.bg} strokeWidth={1.5} label={{ value: `recall ${pct(at.recall)}`, position: "left", fill: TOKENS.green, fontSize: 11, fontFamily: "var(--font-mono)", dx: -4, dy: at.recall > 0.85 ? 12 : 0 }} />
+                <ReferenceDot x={chosen} y={at.auto_handle_rate} r={4} fill={TOKENS.sky} stroke={TOKENS.bg} strokeWidth={1.5} label={{ value: `auto-handle ${pct(at.auto_handle_rate)}`, position: "left", fill: TOKENS.sky, fontSize: 11, fontFamily: "var(--font-mono)", dx: -4, dy: at.auto_handle_rate < 0.1 ? -10 : 0 }} />
+              </>
+            )}
           </LineChart>
         </ResponsiveContainer>
       }

@@ -12,6 +12,8 @@ import { intentShort } from "@/lib/intents";
 import { ruleFlagLabel, SENTIMENT_LABELS, systemShort } from "@/lib/labels";
 import type { MergedGoldenExample, SystemId } from "@/lib/types";
 
+import { describeGuard } from "@/lib/threshold";
+
 import { compareRow } from "./query";
 import { sentimentTone } from "./sentiment";
 
@@ -28,7 +30,7 @@ const EMPTY_REPLY: Partial<Record<SystemId, string>> = {
 
 /** One system's full output for the row: intent vs gold, confidence, decision and reason, reply, evidence, trace. */
 export function PredictionPanel({ row, system, threshold }: PredictionPanelProps) {
-  const cmp = compareRow(row, system);
+  const cmp = compareRow(row, system, threshold);
   const pred = cmp.pred;
 
   if (!pred) {
@@ -69,6 +71,11 @@ export function PredictionPanel({ row, system, threshold }: PredictionPanelProps
           {pred.trace?.forced_by_rules && (
             <Chip size="sm" tone="amber" mono title="A deterministic rule forced this decision; the model could not override it">
               forced by rules
+            </Chip>
+          )}
+          {pred.guard?.changed && (
+            <Chip size="sm" tone="amber" mono title={describeGuard(pred.guard)}>
+              {pred.guard.threshold.toFixed(2)} guard · run said {pred.guard.recorded === "escalate" ? "escalate" : "auto-handle"}
             </Chip>
           )}
           {cmp.decisionError === null ? (

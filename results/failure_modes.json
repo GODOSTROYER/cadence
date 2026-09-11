@@ -1,195 +1,21 @@
 [
   {
     "id": "fm1",
-    "kind": "missed_escalation",
-    "title": "Churn threats, brand-directed profanity and account-specific asks auto-handled: 8 missed escalations",
-    "count": 8,
-    "share": 0.04,
-    "hypothesis": "The LLM on its own auto-handled 28 of the 83 gold-escalate rows (raw recall 0.66); the 0.9 confidence guard rescued 19 of them because they happened to score 0.85, but the 8 survivors are cases the model is confident about and the deterministic rules do not cover. Four are high_frustration_or_churn: the churn regex only matches 'switch(ing) to apple music|tidal|...' and 'fuck(ing) (you|spotify|this)', so 'Switching to @user', 'move to Apple Music', 'change to AM' and 'fucking atrocious' all pass, and the LLM treats them as ordinary feedback. Three are needs_account_lookup (offer not applied, upgrade failing): the historical brand reply for all three asks for a DM, but the agent drafted generic steps (a link, 'upgrade through our site') instead, so it neither escalated nor asked for the account. llm_zero_shot escalated 7 of the 8, so the failure is retrieval-plus-prompt (evidence full of grounded self-serve replies pulls the decision toward auto_handle), not model capability.",
+    "kind": "confidently_wrong",
+    "title": "Confidently wrong intent (confidence >= 0.8)",
+    "count": 35,
+    "share": 0.175,
+    "hypothesis": "Confidence is poorly calibrated: the model reports high certainty on examples it misreads, so the low-confidence escalation safety net never triggers for them.",
     "examples": [
       {
-        "golden_id": "g_104",
-        "text": "so i cannot use abroad for more than 14 days? Switching to @user",
-        "gold_intent": "subscription_or_plan",
-        "pred_intent": "subscription_or_plan",
-        "gold_decision": "escalate",
-        "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! For licensing reasons, Free users can only listen abroad for 14 days. Just to check, what country are you currently in? 🙂 /AI",
-        "why": "'Switching to @user' is an explicit churn threat but the handle is scrubbed to @user so the 'switching to (apple music|...)' regex never fires; the model copied the public 14-day rule from evidence and scored 0.9."
-      },
-      {
-        "golden_id": "g_240",
-        "text": "I've been premium for the last 2 years, lately DWeekly is terrible at suggesting me music, I'm about change to AM. Do something!",
-        "gold_intent": "playlist_or_library",
-        "pred_intent": "playlist_or_library",
-        "gold_decision": "escalate",
-        "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! Sorry to hear that your Discover Weekly hasn't been hitting the mark. Recommendations adapt over time as you listen, so keep saving tracks you love! /AI",
-        "why": "'I'm about change to AM' is a churn threat in abbreviated form; no rule pattern covers 'change to' or 'AM', and the LLM answered with the Discover Weekly tip from the top thread at confidence 0.9."
-      },
-      {
-        "golden_id": "g_222",
-        "text": "unable to upgrade to premium",
-        "gold_intent": "subscription_or_plan",
-        "pred_intent": "subscription_or_plan",
-        "gold_decision": "escalate",
-        "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! At this time, you can upgrade to Premium through our site. Let us know how it goes 🙂 /AI",
-        "why": "Gold reason needs_account_lookup (historical reply: 'We've just sent a DM your way'); the agent auto-handled with a generic 'upgrade through our site' at 0.9 and never asked for the account email."
-      }
-    ],
-    "proposed_fix": "(1) Extend churn_or_abuse with competitor abbreviations and verbs: '\\b(switch(ing)?|mov(e|ing)|chang(e|ing)|go(ing)?) to (apple music|am|tidal|deezer|youtube( music)?|amazon( music)?|@user)\\b' and brand-directed profanity '\\b(fucking|absolutely) (atrocious|awful|terrible|garbage|trash)\\b'; re-run: g_104, g_159, g_199, g_240 must flip to escalate with zero new FPs on the 117 gold auto_handle rows. (2) Add a post-hoc consistency rule: if the top-2 cited threads' brand replies both ask for a DM/email (regex 'dm us|send us a dm|email address'), force decision=escalate(needs_account_lookup) unless the LLM already escalated; measure on g_105/g_164/g_222 and report the change in unnecessary escalations."
-  },
-  {
-    "id": "fm2",
-    "kind": "hallucinated_link_or_policy",
-    "title": "Agent fills the <url> placeholder with a fake link or promises engineers are 'on the case' (20 replies)",
-    "count": 20,
-    "share": 0.1,
-    "hypothesis": "Retrieved brand replies contain '<url>' where the original link was scrubbed. In 16 test replies the agent substituted the literal 'https://open.spotify.com/' (the app home page) for that placeholder, once it inserted an x.com DM-compose link (g_228), and 29 further replies emitted '<url>' verbatim. The judge flagged 6 of the 16 fake links as hallucinated_link_or_policy (5 rejects) and shipped the other 7 only because it did not check them. A second sub-pattern is copying evidence sentences that state a live status: 'our tech folks are investigating this as we speak' (g_131, g_217) and 'our developers are looking into this' (g_019) were lifted from cited threads about other incidents, so the reply promises work that nobody is doing. Both are prompt/post-processing gaps, not retrieval errors: the cited evidence was topically right in 18 of the 20 cases.",
-    "examples": [
-      {
-        "golden_id": "g_152",
-        "text": "Please make available for #India",
-        "gold_intent": "content_or_availability",
-        "pred_intent": "content_or_availability",
-        "gold_decision": "auto_handle",
-        "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! We're launching in new countries as often as possible. Be sure to add your email at https://open.spotify.com/ 💚 /AI",
-        "why": "Cited thread t_2572199 says 'add your email at <url>'; the agent replaced the scrubbed link with the app home page, which is not a launch-notification page."
-      },
-      {
-        "golden_id": "g_088",
-        "text": "how many times do I have to tell you that I hate Modest Mouse",
-        "gold_intent": "other",
-        "pred_intent": "feature_request_or_feedback",
-        "gold_decision": "escalate",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey! We hear you. This isn't possible right now, but you can share your feedback or vote for the idea on our Community: https://open.spotify.com/ /AI",
-        "why": "Reply is a near-verbatim copy of t_367087 with the Community idea link replaced by 'https://open.spotify.com/'; judge: URL malformed and hallucinated, verdict reject."
-      },
-      {
-        "golden_id": "g_217",
-        "text": "should fix their description for BTS, they're not known as \"Beyond The Scenes\", they're still known as \"Bangtan Sonyeondan\"...",
-        "gold_intent": "metadata_or_artist_issue",
-        "pred_intent": "metadata_or_artist_issue",
-        "gold_decision": "auto_handle",
-        "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! Thanks for reporting. Our best tech folks are on the case as we speak. Hopefully we'll have a fix soon /AI",
-        "why": "'Our best tech folks are on the case as we speak' is copied from a different thread's live-incident reply; no one is fixing the BTS description, and the judge flagged it as an unverified policy claim."
-      }
-    ],
-    "proposed_fix": "(1) In the reply post-processor, reject any reply containing 'https://open.spotify.com/', 'x.com/', or '<url>' and regenerate with the instruction 'do not include a link; say there is a help article for this and offer to DM it'; unit-test with the 16+1+29 test ids and confirm hallucinated_link_or_policy drops below 0.02 on re-judge. (2) Add a denylist of status-claim phrases ('investigating as we speak', 'developers are looking into', 'on the case') that may only be emitted when the customer text matches the cited thread's issue tokens; re-judge g_019, g_131, g_217."
-  },
-  {
-    "id": "fm3",
-    "kind": "unnecessary_escalation",
-    "title": "Confidence guard at 0.9 escalates 29 correct auto-handles to compensate for the LLM's under-escalation",
-    "count": 29,
-    "share": 0.145,
-    "hypothesis": "config/escalation.yaml sets the threshold at 0.60, but the reported run uses 0.90 (eval_summary.meta.threshold=0.9, min_recall=0.9) because the LLM alone reaches only 0.66 escalation recall. Confidence is effectively a 5-value ordinal scale (0.85/0.9/0.95/0.99 cover 168 of 200 rows), and intent accuracy is 0.67 at 0.85 versus 0.74 at 0.90, so the 0.9 cut is not separating 'unsure' from 'sure'; it happens to catch 19 of the 28 LLM under-escalations because vague or venting tweets land at 0.85. The price is 29 of the 35 unnecessary escalations: 23 sit exactly at 0.85, 17 of the 29 have the correct intent, and 10 are ordinary playback_or_app_bug troubleshooting that the drafted reply already handles. It also corrupts the reason code: 15 of 24 gold ambiguous_or_media_only escalations are reported as low_confidence (reason_code accuracy 0.64). Only 5 of the 35 were LLM-chosen needs_account_lookup escalations and 1 was rule-forced (a '$99' offer question), so the story is not that the LLM over-asks for lookups; it is that the guard is doing the escalation policy's job crudely.",
-    "examples": [
-      {
-        "golden_id": "g_070",
-        "text": "Hi, after updating to iOS 11 my iphone 7 won’t recognise when Spotify is playing. Have tried restarting and reinstalling.",
-        "gold_intent": "playback_or_app_bug",
-        "pred_intent": "playback_or_app_bug",
-        "gold_decision": "auto_handle",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey! Can you try logging out, restarting your device, and logging back in? Let us know how it plays out 🙂 /AI",
-        "why": "Correct intent, grounded log-out/restart steps, but confidence 0.85 < 0.9 so the reported decision is escalate(low_confidence); predictions.jsonl still shows the raw auto_handle decision."
-      },
-      {
-        "golden_id": "g_028",
-        "text": "hi. Every time I open the Spotify app on my iPad it redownloads all my songs again. Is there a way to fix this?",
-        "gold_intent": "download_or_offline",
-        "pred_intent": "download_or_offline",
-        "gold_decision": "auto_handle",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! Sorry to hear that. We suggest checking out the steps under “Downloads unexpectedly removed” in the help article. Let us know how it goes 💚 https://open.spotify.com/ /AI",
-        "why": "Correct intent and the exact 'Downloads unexpectedly removed' help-article step the brand used historically; escalated only because confidence was 0.85."
-      },
-      {
-        "golden_id": "g_114",
-        "text": "Hey what do I have to do to get \"You Should Be My Girl\" by @user ?? #illwritealetter @user",
-        "gold_intent": "content_or_availability",
-        "pred_intent": "content_or_availability",
-        "gold_decision": "auto_handle",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! We’d love to have all of their stuff available, but we have some info about content here: <url> /AI",
-        "why": "Correct content_or_availability intent with the standard 'info about content here' template; escalated at 0.85 while a 3-word 'Check your DMs' (g_151) scored 0.9 and slipped through."
-      }
-    ],
-    "proposed_fix": "Replace the scalar guard with targeted rules and measure the sweep again: (a) an ambiguity rule 'text has < 6 non-mention tokens OR contains <url> with no product noun OR matches (check|answer|reply to) (your|my|ya) dms?' -> escalate(ambiguous_or_media_only); (b) the churn patterns from fm1; (c) the DM-consistency rule from fm1. Target: recall >= 0.90 at threshold 0.6 with unnecessary_escalations <= 12 (llm_zero_shot achieves 11), and reason_code_accuracy >= 0.85. Also ask the model for a 1-5 integer confidence instead of a float so the calibration table has meaningful bins."
-  },
-  {
-    "id": "fm4",
-    "kind": "wrong_intent",
-    "title": "'other' recall 0.55: chit-chat, presale codes and screenshot captions take the intent of the nearest thread",
-    "count": 13,
-    "share": 0.065,
-    "hypothesis": "13 of the 29 gold 'other' rows were pushed into a product intent (6 feature_request_or_feedback, 3 subscription_or_plan, 2 content_or_availability, 1 login, 1 metadata). Reading the evidence shows the mechanism: the retriever matches on the caption's nouns and the classifier adopts the matched thread's intent. 'Andorra != Switzerland :) <url>' retrieves a Switzerland availability thread and becomes content_or_availability; 'How do I fix this? They all have different names. <url>' retrieves an artist-profile thread and becomes metadata_or_artist_issue; two presale-code tweets retrieve presale threads filed under subscription_or_plan; 'hire me to make playlists' becomes feature_request_or_feedback. llm_zero_shot, with no evidence, labelled 8 of the 13 correctly, so this is retrieval-induced bias rather than a taxonomy gap. It is costly because 9 of the 13 are gold escalate (ambiguous_or_media_only or out_of_scope): the fabricated product intent lets the LLM draft a confident, specific reply to an issue that exists only in a screenshot.",
-    "examples": [
-      {
-        "golden_id": "g_012",
-        "text": "Andorra != Switzerland :) <url>",
-        "gold_intent": "other",
-        "pred_intent": "content_or_availability",
-        "gold_decision": "escalate",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! Mind sharing a bit more info on what's going on with the availability so we can take a look? /AI",
-        "why": "Three-word caption to a screenshot; the top retrieved thread is about a Swiss listener's unavailable album, so the agent predicted content_or_availability at 0.85 and asked about 'the availability'."
-      },
-      {
-        "golden_id": "g_182",
-        "text": "where tf is my presale code for @user tix? I listen to her more than any other artist.",
+        "golden_id": "g_003",
+        "text": "Just to inform everyone, I got the Spotify/Hulu student discount. So no one will probably see me these next few days.",
         "gold_intent": "other",
         "pred_intent": "subscription_or_plan",
         "gold_decision": "auto_handle",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! Pre-sale codes are sent by email to some of the artist's top listeners on Spotify. Hopefully you're one of them! /AI",
-        "why": "A presale-code question; all six retrieved threads are presale threads that the brand answered with a public template, and the model labelled it subscription_or_plan while zero-shot said other."
-      },
-      {
-        "golden_id": "g_091",
-        "text": "How do I fix this? They all have different names. <url>",
-        "gold_intent": "other",
-        "pred_intent": "metadata_or_artist_issue",
-        "gold_decision": "escalate",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! Not a problem. We'd recommend reaching out to our Artist Services team at <url>. They should be able to help with this 💚 /AI",
-        "why": "'They all have different names' is meaningless without the image; the retriever surfaced an artist-profile naming thread and the reply sends the customer to Artist Services."
-      }
-    ],
-    "proposed_fix": "Add two items to the classifier prompt and re-measure per-class recall for 'other': (1) 'If the tweet's only concrete content is in an attachment (<url> with fewer than 8 content words), label other and set media_only=true regardless of the retrieved threads'; (2) a short 'other' example list (praise, jokes, presale codes, hire-me, check-DMs). Also gate retrieval: skip evidence injection into the classification step when the text has fewer than 8 content words. Success: 'other' recall from 0.55 to >= 0.8 on test with no drop in the other 11 classes' macro F1."
-  },
-  {
-    "id": "fm5",
-    "kind": "wrong_intent",
-    "title": "playlist_or_library F1 0.52: 'limit' complaints read as feature requests and the noun 'playlist' overrides what is broken",
-    "count": 11,
-    "share": 0.055,
-    "hypothesis": "11 of the 37 intent errors involve playlist_or_library, and 7 of them are made identically by llm_zero_shot, so the boundary itself is unclear in the prompt. Two sub-mechanisms: (a) five gold playlist_or_library rows about the 10k Your Music save limit or the 3,333 download limit are phrased as demands ('Remove my music limits!', 'any thoughts of expanding this limit') and both models file the demand as feature_request_or_feedback or download_or_offline, even though the taxonomy puts existing library limits under playlist_or_library; in g_141 the agent then quoted the wrong limit (download 3,333 instead of library 10k), the only wrong_issue flag in the run. (b) five rows where 'playlist' is merely the object of a bug or plan question ('the app keeps creating new playlists', 'anytime I make a playlist it plays random music', 'why cant i see everyones playlist') are labelled playlist_or_library instead of playback_or_app_bug or subscription_or_plan; the model keys on the noun rather than on the failing surface.",
-    "examples": [
-      {
-        "golden_id": "g_141",
-        "text": "wtf is this ? Why is there a song limit on premium? I guess I can't add anymore songs :-( <url>",
-        "gold_intent": "playlist_or_library",
-        "pred_intent": "download_or_offline",
-        "gold_decision": "auto_handle",
-        "pred_decision": "escalate",
-        "reply_draft": "Hey there! Right now, there's a limit of 3,333 songs you can download per offline device. More info here: <url>. Let us know how it goes 💚 /AI",
-        "why": "The 10k Your Music limit (gold playlist_or_library) was labelled download_or_offline and the reply quoted the 3,333 offline-download limit; the top retrieved thread (t_2246038) actually had the right 10k answer but was not cited."
-      },
-      {
-        "golden_id": "g_162",
-        "text": "I have reached my 10,000 song limit on a playlist that I’ve been working on for years now. Is there any work around for this? If not, are there any thoughts of expanding this limit. Expanding limits are in right now. Ask Twitter #Limitless",
-        "gold_intent": "playlist_or_library",
-        "pred_intent": "feature_request_or_feedback",
-        "gold_decision": "auto_handle",
         "pred_decision": "auto_handle",
-        "reply_draft": "Hey there! We don't have any info on expanding this right now, but we'll be sure to pass your feedback on to the right folks. Let us know if you need anything else! /AI",
-        "why": "A saved-song limit question with a 'thoughts of expanding' tail; both the agent and zero-shot labelled it feature_request_or_feedback at 0.95, so the limit-vs-feature boundary is unspecified in the prompt."
+        "reply_draft": "Hey! Enjoy the tunes and your Hulu streaming! Let us know if you need anything else. /AI",
+        "why": "confidence 0.99 but intent wrong"
       },
       {
         "golden_id": "g_004",
@@ -198,10 +24,184 @@
         "pred_intent": "playlist_or_library",
         "gold_decision": "auto_handle",
         "pred_decision": "escalate",
-        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device and OS you're using, and whether you're seeing this on the app or web player? /AI",
-        "why": "The app spawning stray 'tracks' playlists is a bug (gold playback_or_app_bug), but the noun 'playlists' pulled both models to playlist_or_library; the reply still asked for device/OS, so the intent error cost nothing here."
+        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device, OS, and Spotify version you're using so we can take a closer look? /AI",
+        "why": "confidence 0.90 but intent wrong"
+      },
+      {
+        "golden_id": "g_012",
+        "text": "Andorra != Switzerland :) <url>",
+        "gold_intent": "other",
+        "pred_intent": "content_or_availability",
+        "gold_decision": "escalate",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! Could you let us know what device and Spotify version you're using, and which specific tracks are giving you trouble? /AI",
+        "why": "confidence 0.82 but intent wrong"
       }
     ],
-    "proposed_fix": "Add two boundary lines to the intent descriptions in config/intents.yaml (they are embedded verbatim in the prompt): playlist_or_library: 'includes questions and complaints about the Your Music save limit or playlist size limit, even when phrased as a demand to raise it'; playback_or_app_bug: 'if the app malfunctions while handling playlists (creates, deletes, plays wrong songs), it is a bug, not playlist_or_library'. Re-run intent eval on dev and test; success is playlist_or_library F1 >= 0.7 and no wrong_issue flags on limit questions."
+    "proposed_fix": "Calibrate confidence against dev accuracy (e.g. temperature scaling or a stricter rubric for reporting confidence) and route high-confidence disagreements with the rules to review."
+  },
+  {
+    "id": "fm2",
+    "kind": "unnecessary_escalation",
+    "title": "Unnecessary escalation with reason 'low_confidence'",
+    "count": 24,
+    "share": 0.12,
+    "hypothesis": "The 'low_confidence' trigger fires on benign mentions (e.g. a keyword used in a different sense), so self-serve cases are pushed to humans and the auto-handle rate suffers.",
+    "examples": [
+      {
+        "golden_id": "g_004",
+        "text": "I need help! The app keeps creating new playlists labelled \"tracks\" with only one song in each one. How do I stop this?",
+        "gold_intent": "playback_or_app_bug",
+        "pred_intent": "playlist_or_library",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! Sorry to hear that. Could you let us know what device, OS, and Spotify version you're using so we can take a closer look? /AI",
+        "why": "agent escalated with low_confidence; gold says auto-handle"
+      },
+      {
+        "golden_id": "g_019",
+        "text": "us independent Artists are having issues to log in and check our stats. Green button not working on log in page. Thanks",
+        "gold_intent": "login_or_password",
+        "pred_intent": "metadata_or_artist_issue",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! This sounds like something for our Artist Services team. You can reach out to them here: 🙂 /AI",
+        "why": "agent escalated with low_confidence; gold says auto-handle"
+      },
+      {
+        "golden_id": "g_029",
+        "text": ", you need to fix your SignUp web site. You're losing $$$: <url>",
+        "gold_intent": "login_or_password",
+        "pred_intent": "login_or_password",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! That's not cool. Just to check, are you getting any error messages? If so, a screenshot will come in handy 🙂 /AI",
+        "why": "agent escalated with low_confidence; gold says auto-handle"
+      }
+    ],
+    "proposed_fix": "Narrow the 'low_confidence' trigger (negative look-arounds, require co-occurring intent) or let the LLM overrule it when the message is clearly self-serve."
+  },
+  {
+    "id": "fm3",
+    "kind": "judge_flag",
+    "title": "Reply invents a link or policy (judge flag)",
+    "count": 8,
+    "share": 0.04,
+    "hypothesis": "The draft reaches beyond retrieved evidence, inventing help links or promises the brand never made historically.",
+    "examples": [
+      {
+        "golden_id": "g_105",
+        "text": "I've got the \"Get a year of Premium\" offer splash screen on my iOs app, but there wasn't any CTA to apply just a button to open a webpage... and there is no button, link or anything... How can I appl…",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "escalate",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey there, help's here! Can you try heading to? Let us know how it goes 💚 /AI",
+        "why": "The reply is incomplete, missing the actual link, and fails to provide any actionable assistance."
+      },
+      {
+        "golden_id": "g_108",
+        "text": "if you really cared, you'd fix your Roku app. Not being able to access my playlists is really getting in the way of my Xmas spirit.",
+        "gold_intent": "playback_or_app_bug",
+        "pred_intent": "playback_or_app_bug",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey there! We have some info about the Spotify app on Roku here:. Give us a shout if there's anything else 🙂 /AI",
+        "why": "The reply is broken because it references a help article link that is missing from the message."
+      },
+      {
+        "golden_id": "g_137",
+        "text": "why you gotta delete my downloaded library like that. Now it’s redownloading the couple thousands of songs I have 🙃",
+        "gold_intent": "download_or_offline",
+        "pred_intent": "download_or_offline",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey there! Sorry to hear that. Check out the steps under \"Downloads unexpectedly removed\" at. Let us know how it goes. /AI",
+        "why": "The reply references a help article but fails to provide the actual URL, making the instruction useless."
+      }
+    ],
+    "proposed_fix": "Constrain replies to links present in the evidence (post-generation link whitelist) and instruct the model to ask for a DM instead of stating policy."
+  },
+  {
+    "id": "fm4",
+    "kind": "intent_confusion",
+    "title": "Gold intent 'other' predicted as 'feature_request_or_feedback'",
+    "count": 6,
+    "share": 0.03,
+    "hypothesis": "Messages about other share surface vocabulary with feature_request_or_feedback; the model latches onto the more frequent reading instead of the customer's actual ask.",
+    "examples": [
+      {
+        "golden_id": "g_033",
+        "text": "Your new app looks great on iPhone x! Thanks for the update!",
+        "gold_intent": "other",
+        "pred_intent": "feature_request_or_feedback",
+        "gold_decision": "auto_handle",
+        "pred_decision": "auto_handle",
+        "reply_draft": "Hey there! Thanks for the lovely feedback—we're so glad you're enjoying it. Let us know if you need anything else! /AI",
+        "why": "gold intent other, predicted feature_request_or_feedback"
+      },
+      {
+        "golden_id": "g_042",
+        "text": ". Any ETA on solving this issue?: <url>",
+        "gold_intent": "other",
+        "pred_intent": "feature_request_or_feedback",
+        "gold_decision": "escalate",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! We're afraid we don't have any info to share, but rest assured we’re working on it as we speak. Stay tuned 🙂 /AI",
+        "why": "gold intent other, predicted feature_request_or_feedback"
+      },
+      {
+        "golden_id": "g_052",
+        "text": "wyd people have been telling you this is happening so can you fix it lmao <url>",
+        "gold_intent": "other",
+        "pred_intent": "feature_request_or_feedback",
+        "gold_decision": "escalate",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! Can you tell us more about what's happening? What device/OS and Spotify version are you using? /AI",
+        "why": "gold intent other, predicted feature_request_or_feedback"
+      }
+    ],
+    "proposed_fix": "Add contrastive examples of 'other' vs 'feature_request_or_feedback' to the taxonomy description and sharpen the boundary rule in the classification prompt."
+  },
+  {
+    "id": "fm5",
+    "kind": "unnecessary_escalation",
+    "title": "Unnecessary escalation with reason 'needs_account_lookup'",
+    "count": 5,
+    "share": 0.025,
+    "hypothesis": "The 'needs_account_lookup' trigger fires on benign mentions (e.g. a keyword used in a different sense), so self-serve cases are pushed to humans and the auto-handle rate suffers.",
+    "examples": [
+      {
+        "golden_id": "g_025",
+        "text": "I opened up Spotify last night and a bunch of artists/albums I had saved to my Library are completely missing, including ones downloaded to my iPhone 8 Plus. Can someone help me out?",
+        "gold_intent": "download_or_offline",
+        "pred_intent": "playlist_or_library",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there, help's here! Could you send us a DM with your account's username or email address? We'll take a look backstage 🔍 /AI",
+        "why": "agent escalated with needs_account_lookup; gold says auto-handle"
+      },
+      {
+        "golden_id": "g_066",
+        "text": "Please tell me how to buy Spotify in CANADA 🇨🇦. I don't want to use a credit card, so instructions on that Would help. Thanks",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey! Can you DM us your account's email or username? We'll take a look backstage. /AI",
+        "why": "agent escalated with needs_account_lookup; gold says auto-handle"
+      },
+      {
+        "golden_id": "g_126",
+        "text": "how do I even sign up to pay for a account?!? It used the free one and now I'd like to give you money and I can't 😐",
+        "gold_intent": "subscription_or_plan",
+        "pred_intent": "subscription_or_plan",
+        "gold_decision": "auto_handle",
+        "pred_decision": "escalate",
+        "reply_draft": "Hey there! Can you DM us your account's email address? We'll take a look backstage 🔍 /AI",
+        "why": "agent escalated with needs_account_lookup; gold says auto-handle"
+      }
+    ],
+    "proposed_fix": "Narrow the 'needs_account_lookup' trigger (negative look-arounds, require co-occurring intent) or let the LLM overrule it when the message is clearly self-serve."
   }
 ]
