@@ -103,6 +103,7 @@ __all__ = [
     "model_limits",
     "cache_only",
     "api_key",
+    "api_keys",
 ]
 
 
@@ -156,4 +157,20 @@ def cache_only() -> bool:
 
 
 def api_key() -> str | None:
-    return os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY") or None
+    """The primary key: GEMINI_API_KEY, GOOGLE_API_KEY, or the first entry of GEMINI_API_KEYS."""
+    keys = api_keys()
+    return keys[0] if keys else None
+
+
+def api_keys() -> list[str]:
+    """Every configured key, de-duplicated and in order: GEMINI_API_KEY / GOOGLE_API_KEY first, then GEMINI_API_KEYS.
+
+    Free-tier quotas are per key, so `cadence.llm.gemini.GeminiClient` rotates across all of them.
+    """
+    ordered: list[str] = []
+    for raw in (os.environ.get("GEMINI_API_KEY"), os.environ.get("GOOGLE_API_KEY"), os.environ.get("GEMINI_API_KEYS")):
+        for key in (raw or "").split(","):
+            key = key.strip()
+            if key and key not in ordered:
+                ordered.append(key)
+    return ordered

@@ -352,10 +352,10 @@ def test_mock_rejects_unsupported_types() -> None:
 
 
 def test_gemini_defaults_come_from_config(tmp_path: Path, offline: None) -> None:
-    client = GeminiClient("gemini-2.5-pro", cache_path=tmp_path / "c.sqlite")
-    assert (client.rpm, client.rpd) == (4, 90)
+    client = GeminiClient("gemini-2.5-flash", cache_path=tmp_path / "c.sqlite")
+    assert (client.rpm, client.rpd) == (8, 240)  # per-key limits from config/models.yaml
     assert client.temperature == 0.2
-    assert client.max_output_tokens == 1024
+    assert client.max_output_tokens == 4096
     custom = GeminiClient("unknown-model", rpm=1, rpd=2, temperature=0.7, cache_path=tmp_path / "d.sqlite",
                           max_output_tokens=64)
     assert (custom.rpm, custom.rpd, custom.temperature, custom.max_output_tokens) == (1, 2, 0.7, 64)
@@ -418,7 +418,7 @@ def test_gemini_retries_429_then_parses_fenced_text(tmp_path: Path, offline: Non
     assert cfg.response_schema is Ping
     assert cfg.system_instruction == "sys"
     assert cfg.temperature == 0.2
-    assert cfg.max_output_tokens == 1024
+    assert cfg.max_output_tokens == 4096
 
     # Backoff: server hint (7s + jitter) then the schedule's second step (4s + jitter <= 25 %).
     assert 7.5 <= clock.sleeps[0] <= 8.5
@@ -525,12 +525,12 @@ def test_get_client_mock_and_gemini(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(llm_pkg, "GeminiClient", RecordingGemini)
     get_client("judge")
     get_client("agent")
-    assert built[0] == {"model": "gemini-2.5-pro", "rpm": 4, "rpd": 90, "temperature": 0.0}
-    assert built[1] == {"model": "gemini-2.5-flash", "rpm": 8, "rpd": 240, "temperature": 0.2}
+    assert built[0] == {"model": "gemini-3.6-flash", "rpm": 5, "rpd": 200, "temperature": 0.0}
+    assert built[1] == {"model": "gemini-3.5-flash", "rpm": 5, "rpd": 200, "temperature": 0.2}
 
     monkeypatch.setenv("CADENCE_AGENT_MODEL", "gemini-2.0-flash")
     get_client("agent")
-    assert built[2] == {"model": "gemini-2.0-flash", "rpm": 12, "rpd": 180, "temperature": 0.2}
+    assert built[2] == {"model": "gemini-2.0-flash", "rpm": 5, "rpd": 100, "temperature": 0.2}  # falls back to `default` limits
 
     with pytest.raises(ValueError, match="unknown LLM role"):
         get_client("oracle")

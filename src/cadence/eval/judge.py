@@ -8,6 +8,7 @@ mitigation) and de-anonymised into one ``JudgeScore`` row per ``(id, system)``.
 from __future__ import annotations
 
 import random
+import threading
 from collections.abc import Callable, Iterable, Sequence
 from datetime import UTC, datetime
 from typing import Any, Literal
@@ -253,6 +254,7 @@ def run_judge(
     skip_ids: Iterable[str] | None = None,
     sink: Callable[[list[dict[str, Any]]], None] | None = None,
     temperature: float | None = None,
+    workers: int = 1,
 ) -> list[dict[str, Any]]:
     """Judge the reply drafts of ``systems`` for every golden row with one comparative call each.
 
@@ -278,14 +280,14 @@ def run_judge(
         if system in systems:
             by_system[system] = {str(_as_dict(r).get("id")): _as_dict(r) for r in rows}
     results: list[dict[str, Any]] = []
-    for index, golden in enumerate(golden_rows):
+    emit_lock = threading.Lock()
+
+    def judge_one(index: int, golden: dict[str, Any]) -> list[dict[str, Any]]:
         gid = str(golden.get("id"))
-        if gid in skip:
-            continue
         candidates = [(s, by_system[s][gid]) for s in systems if gid in by_system.get(s, {})]
         if not candidates:
             log.warning("no predictions to judge for %s; skipping", gid)
-            continue
+            return []
         order = list(range(len(candidates)))
         random.Random(SEED + index).shuffle(order)
         labelled = [(LABELS[i], candidates[j][1]) for i, j in enumerate(order)]
@@ -299,8 +301,21 @@ def run_judge(
             rater=_rater_name(llm, meta),
             rated_at=datetime.now(UTC).isoformat(timespec="seconds"),
         )
-        results.extend(rows)
-        if sink is not None and rows:
-            sink(rows)
+        with emit_lock:
+            results.extend(rows)
+            if sink is not None and rows:
+                sink(rows)
         log.info("judged %s (%d candidates, cached=%s)", gid, len(rows), getattr(meta, "cached", None))
+        return rows
+
+    todo = [(index, golden) for index, golden in enumerate(golden_rows) if str(golden.get("id")) not in skip]
+    if workers <= 1:
+        for index, golden in todo:
+            judge_one(index, golden)
+    else:
+        from concurrent.futures import ThreadPoolExecutor
+
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for future in [pool.submit(judge_one, index, golden) for index, golden in todo]:
+                future.result()
     return results

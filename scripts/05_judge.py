@@ -46,7 +46,17 @@ def _parse(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--golden", type=Path, default=None, help="override golden_set.jsonl path")
     parser.add_argument("--predictions", type=Path, default=None, help="override predictions.jsonl path")
     parser.add_argument("--out", type=Path, default=None, help="override judge_scores.jsonl path")
-    return parser.parse_args(argv)
+    parser.add_argument(
+        "--workers", type=int, default=None,
+        help="concurrent judge calls (default: one per configured API key, 1 in cache-only/mock mode)",
+    )
+    args = parser.parse_args(argv)
+    if args.workers is None:
+        from cadence.config import api_keys, cache_only
+
+        args.workers = 1 if (cache_only() or os.environ.get("CADENCE_LLM") == "mock") else max(1, len(api_keys()))
+    args.workers = max(1, int(args.workers))
+    return args
 
 
 def _group_predictions(rows: list[dict]) -> dict[str, list[dict]]:
@@ -100,7 +110,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     def sink(rows: list[dict]) -> None:
         write_jsonl(out_path, rows, append=True)
 
-    rows = run_judge(pending, predictions, None, systems, sink=sink)
+    rows = run_judge(pending, predictions, None, systems, sink=sink, workers=args.workers)
     log.info("wrote %d judge rows to %s (total now %d)", len(rows), out_path, len(existing) + len(rows))
     return 0
 

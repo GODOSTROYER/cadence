@@ -109,21 +109,42 @@ def load_retriever() -> Any:
 
 
 # ----------------------------------------------------------------------------- runners
-def run_agent(rows: Sequence[dict[str, Any]], retriever: Any, mock: bool, done: set[str]) -> SystemStats:
-    """Run ``SupportAgent`` over ``rows`` not yet predicted, appending one row per example."""
+def run_agent(
+    rows: Sequence[dict[str, Any]], retriever: Any, mock: bool, done: set[str], workers: int = 1
+) -> SystemStats:
+    """Run ``SupportAgent`` over ``rows`` not yet predicted, appending one row per example.
+
+    With ``workers > 1`` examples are handled concurrently (one thread per API key is a good default);
+    rows are appended as they complete, so the file order may differ from the golden order (align by id).
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from threading import Lock
+
     from cadence.agent.pipeline import SupportAgent
 
     agent = SupportAgent(make_client("agent", mock), retriever)
     stats = SystemStats()
     started = time.perf_counter()
-    for row in track(rows, description="agent", console=console):
-        if row["id"] in done:
-            stats.skipped += 1
-            continue
+    pending = [row for row in rows if row["id"] not in done]
+    stats.skipped = len(rows) - len(pending)
+    write_lock = Lock()
+
+    def handle(row: dict[str, Any]) -> dict[str, Any]:
         response = agent.handle(row["text"], id=row["id"], exclude_thread_ids={row["thread_id"]} - {""})
         payload = response.model_dump()
-        write_jsonl(Paths.PREDICTIONS, [payload], append=True)
-        stats.add(payload)
+        with write_lock:
+            write_jsonl(Paths.PREDICTIONS, [payload], append=True)
+            stats.add(payload)
+        return payload
+
+    if workers <= 1:
+        for row in track(pending, description="agent", console=console):
+            handle(row)
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {pool.submit(handle, row): row["id"] for row in pending}
+            for future in track(as_completed(futures), total=len(futures), description=f"agent x{workers}", console=console):
+                future.result()  # re-raise worker errors
     stats.seconds = time.perf_counter() - started
     return stats
 
@@ -187,7 +208,16 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument(
         "--mock", action="store_true", help="use cadence.llm.mock.MockClient (no API key needed)"
     )
+    parser.add_argument(
+        "--workers", type=int, default=None,
+        help="concurrent agent calls (default: one per configured API key, 1 for mock/cache-only)",
+    )
     args = parser.parse_args(argv)
+    if args.workers is None:
+        from cadence.config import api_keys, cache_only
+
+        args.workers = 1 if (args.mock or cache_only()) else max(1, len(api_keys()))
+    args.workers = max(1, int(args.workers))
     systems = tuple(s.strip() for s in args.systems.split(",") if s.strip())
     unknown = sorted(set(systems) - set(SYSTEMS))
     if unknown:
@@ -204,7 +234,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     retriever = load_retriever()
     stats: dict[str, SystemStats] = {}
     if "agent" in args.systems:
-        stats["agent"] = run_agent(rows, retriever, args.mock, done["agent"])
+        stats["agent"] = run_agent(rows, retriever, args.mock, done["agent"], workers=args.workers)
     baselines = tuple(s for s in args.systems if s in BASELINE_SYSTEMS)
     if baselines:
         stats.update(run_baseline_systems(rows, retriever, baselines, args.mock, done))
