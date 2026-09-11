@@ -1,0 +1,9 @@
+[
+  "Both golden-set annotation passes were done by AI agents working from the same written guide, then adjudicated. Their agreement (kappa 0.96 intent, 0.95 escalation) is therefore an upper bound on what two humans would reach, and the labels share the guide's blind spots.",
+  "The test split has 200 examples, so every headline number carries a wide interval: intent macro-F1 is 0.82 with a 95% CI of 0.77 to 0.87, and the least frequent intents have around ten test examples each.",
+  "Escalation recall of 0.90 comes from a confidence threshold of 0.9 chosen on 50 dev examples. Without that guard the same model's recall is 0.66, and the guard costs 35 unnecessary escalations on 200 messages. The number is a policy setting, not a property of the model.",
+  "Retrieval does not improve intent classification: the zero-shot baseline with no evidence ties the agent at 0.82 macro-F1 and escalates with better precision. What retrieval buys is reply quality (4.33 vs 3.24 for the nearest historical reply).",
+  "The judge is an LLM from the same model family as the agent (Gemini 3.1 Flash-Lite grading Gemini 3.5 Flash-Lite). Judge-versus-human agreement is measured only once ratings are entered on the Rate page; until then the reply-quality scores are LLM opinion.",
+  "The corpus is English SpotifyCares tweets from 2017, conversation openers only. Multi-turn threads, images and DMs are not modelled; 'grounded' is judged against the retrieved evidence, so a reply that faithfully follows a wrong retrieval still scores as grounded.",
+  "Models were chosen by what the free tier allowed on the day: newer thinking models had a ~20 request per day cap per key, so the evaluation ran on Flash-Lite models. Results on a stronger model would differ in both directions."
+]
