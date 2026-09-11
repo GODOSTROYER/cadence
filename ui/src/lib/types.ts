@@ -62,6 +62,8 @@ export interface AgentTrace {
   llm_decision: Decision | null;
   llm_reason_code: ReasonCode | null;
   forced_by_rules: boolean;
+  /** Policy default (security/billing → human) overrode an LLM auto_handle. Optional: older runs lack it. */
+  enforced_default?: boolean;
 }
 
 export interface AgentResponse {

@@ -32,6 +32,7 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
+import httpx
 from google import genai
 from google.genai import errors as genai_errors
 from google.genai import types as genai_types
@@ -300,6 +301,11 @@ class GeminiClient:
             # down under a concurrent caller; drop this key's client so the next attempt rebuilds it.
             if "closed" not in str(exc).lower():
                 raise
+            with self._lock:
+                slot._genai = None
+            raise _Retryable(exc, rotate=True) from exc
+        except (httpx.HTTPError, ConnectionError, TimeoutError, OSError) as exc:
+            # Transport-level failures (server disconnected, reset, DNS, timeouts): rebuild the client and retry.
             with self._lock:
                 slot._genai = None
             raise _Retryable(exc, rotate=True) from exc

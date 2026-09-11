@@ -502,6 +502,9 @@ def test_scrub_reply_removes_dangling_link_clause() -> None:
     kept = "Hey! Check it out here: https://support.spotify.com/article/reinstall/ /AI"
     assert scrub_reply(kept) == kept
     assert scrub_reply("Hey there! Let us know how it goes /AI") == "Hey there! Let us know how it goes /AI"
+    assert scrub_reply("Hey there! Help's here. Can you try heading to this link:? Let us know how it goes 🧐 /AI") == "Hey there! Help's here. Let us know how it goes 🧐 /AI"
+    assert scrub_reply("Hey there! You can check for job opportunities here: 🙂 /AI") == "Hey there! 🙂 /AI"
+    assert scrub_reply("Hey there, help's here: what's happening exactly? /AI") == "Hey there, help's here: what's happening exactly? /AI"
 
 
 def test_enforced_default_decision_overrides_llm_auto_handle() -> None:
@@ -510,7 +513,7 @@ def test_enforced_default_decision_overrides_llm_auto_handle() -> None:
     resp = agent.handle("weird playlists appeared and my email was changed", id="g_sec")
     assert resp.decision == "escalate" and resp.escalation is not None
     assert resp.escalation.reason_code == "account_security"
-    assert resp.trace.policy_conflict is False
+    assert resp.trace.enforced_default is True and resp.trace.policy_conflict is False
     agent = make_agent(decision_payload(intent="playlist_or_library", intent_confidence=0.98, decision="auto_handle"))
     resp = agent.handle("my playlist order changed", id="g_pl")
     assert resp.decision == "auto_handle"

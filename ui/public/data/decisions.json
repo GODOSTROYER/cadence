@@ -91,9 +91,9 @@
   },
   {
     "n": 16,
-    "title": "One round of failure-driven fixes, with the \"before\" kept on disk",
-    "decision": "After the first full evaluation I read every error, fixed three concrete defects (the agent copied `<url>` placeholders and bare home-page links from the evidence into public replies; the judge was docking points for the policy-mandated ` /AI` signature; the churn rule missed \"switching to @user\"-style threats), archived the first run under `results/v1/`, and re-ran the agent and judge. The report shows both rows.",
-    "why": "The assignment values the proof over the system, and a failure analysis that never changes anything is just a list. Keeping v1 makes the effect of each fix measurable rather than asserted, and stops the iteration from quietly becoming test-set tuning: every change is a specific bug with a named cause, not a prompt tweak chasing a number."
+    "title": "Failure-driven fixes in two rounds, with every earlier run kept on disk",
+    "decision": "After the first full evaluation I read every error and fixed three concrete defects (the agent copied `<url>` placeholders and bare home-page links from the evidence into public replies; the judge was docking points for the policy-mandated ` /AI` signature; the churn rule missed \"switching to @user\"-style threats). Reading the second run's errors found two more, both consequences of my own fixes or omissions (the link scrub left a dangling \"More info here:\" in 33 replies, and the pipeline only *logged* a policy conflict when the model auto-handled a hacked-account tweet), plus a money-rule gap (\"paid\", \"payments\"). Runs 1 and 2 are archived under `results/v1/` and `results/v2/`; the report shows all three rows.",
+    "why": "The assignment values the proof over the system, and a failure analysis that never changes anything is just a list. Keeping every run makes the effect of each fix measurable rather than asserted, and the second round is the honest part: a fix that moved a defect instead of removing it only shows up if you read the errors again. Every change is a specific bug with a named cause, not a prompt tweak chasing a number, and the report says which run the numbers come from."
   },
   {
     "n": 17,

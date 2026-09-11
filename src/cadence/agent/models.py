@@ -99,6 +99,8 @@ class Trace(BaseModel):
     llm_decision: str | None = None
     llm_reason_code: str | None = None
     forced_by_rules: bool = False
+    enforced_default: bool = False
+    """True when the intent's enforced policy default (security/billing → human) overrode an LLM auto_handle."""
     policy_conflict: bool = False
     """True when the final decision is auto_handle but the intent's default_decision is escalate."""
 

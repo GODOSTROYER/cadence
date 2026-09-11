@@ -28,13 +28,13 @@ export type GuardedResponse = AgentResponse & { guard: Guard | null };
 
 function hasLlmTrace(pred: AgentResponse): boolean {
   const trace = pred.trace;
-  return trace !== null && trace !== undefined && ("llm_decision" in trace || "forced_by_rules" in trace);
+  return trace !== null && trace !== undefined && ("llm_decision" in trace || "forced_by_rules" in trace || "enforced_default" in trace);
 }
 
 function triggerAt(pred: AgentResponse, threshold: number): GuardTrigger | null {
   const trace = pred.trace;
   if (!trace) return null;
-  if (trace.forced_by_rules) return "rules";
+  if (trace.forced_by_rules || trace.enforced_default) return "rules";
   if (trace.llm_decision === "escalate") return "model";
   if (typeof pred.intent_confidence === "number" && pred.intent_confidence < threshold) return "threshold";
   return null;

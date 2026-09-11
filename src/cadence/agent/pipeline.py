@@ -57,11 +57,8 @@ _PLACEHOLDER_OR_BARE_LINK = re.compile(
 )
 """Placeholder tokens and useless links that must never appear in a public reply."""
 _DANGLING_LINK_CLAUSE = re.compile(
-    r"[,;:]?\s*(?:(?:you can )?(?:find|read|check(?: it)?(?: out)?|see|get|grab)\s+(?:more|the full|all the|the)?\s*"
-    r"(?:info(?:rmation)?|details?|steps|guide|tips)?\s*(?:here|at|on|below|via|in this article|in the article)?"
-    r"|(?:for )?more (?:info(?:rmation)?|details?)(?: is| are)?\s*(?:here|at|on|below|via)?"
-    r"|(?:full|the|all the) (?:steps|details?|info(?:rmation)?)\s*(?:here|at|on|below)?"
-    r"|(?:here|at|on|via))\s*:(?=\s*(?:/AI\s*)?$)",
+    r"[^.!?\n]*\b(?:link|page|article|guide|here|at|on|below|via|steps|details?|info(?:rmation)?)\s*:"
+    r"(?!\s*https?://)\s*(?:[?.!]+|(?=\s*(?:[\U0001F300-\U0001FAFF\u2600-\u27BF\u2B50\u2764]\s*)*(?:/AI\s*)?$))",
     re.IGNORECASE,
 )
 """A link-introducing clause left dangling ("More info here:", "at:") after its link was scrubbed."""
@@ -75,7 +72,7 @@ def is_useful_link(url: str) -> bool:
 def scrub_reply(text: str) -> str:
     """Remove ``<url>`` placeholders (copied from evidence) and bare home-page / DM / t.co links from a draft."""
     cleaned = _PLACEHOLDER_OR_BARE_LINK.sub("", text)
-    cleaned = _DANGLING_LINK_CLAUSE.sub("", cleaned)
+    cleaned = _DANGLING_LINK_CLAUSE.sub(" ", cleaned)
     cleaned = re.sub(r"\(\s*\)", "", cleaned)  # empty parentheses left behind
     cleaned = re.sub(r"\s+([.,;:!?])", r"\1", cleaned)
     return normalize_ws(cleaned)
@@ -181,23 +178,26 @@ class SupportAgent:
         )
         return Escalation(reason_code=code, reason=reason)
 
-    def _decide(self, rules: RuleResult, decision: Any) -> tuple[str, Escalation | None]:
-        """CONTRACT §5: rules force → LLM escalate → low confidence → auto_handle."""
+    def _decide(self, rules: RuleResult, decision: Any) -> tuple[str, Escalation | None, bool]:
+        """CONTRACT §5: rules force → LLM escalate → enforced policy default → low confidence → auto_handle.
+
+        Returns (decision, escalation, enforced_default).
+        """
         if rules.force_escalate and rules.reason_code:
             return "escalate", Escalation(
                 reason_code=rules.reason_code, reason=rules.reason or "Forced by rules."
-            )
+            ), False
         if decision.decision == "escalate":
-            return "escalate", self._llm_escalation(decision)
+            return "escalate", self._llm_escalation(decision), False
         enforced = self._enforced_default(decision.intent)
         if enforced is not None:
-            return "escalate", enforced
+            return "escalate", enforced, True
         if decision.intent_confidence < self.threshold:
             return "escalate", Escalation(
                 reason_code="low_confidence",
                 reason=f"intent confidence {decision.intent_confidence:.2f} below threshold {self.threshold:.2f}",
-            )
-        return "auto_handle", None
+            ), False
+        return "auto_handle", None, False
 
     def _enforced_default(self, intent: str) -> Escalation | None:
         """Intents flagged ``enforce_default_decision`` in intents.yaml always escalate, whatever the model said.
@@ -231,7 +231,7 @@ class SupportAgent:
         user_prompt = build_user_prompt(text, evidence, rules)
         decision, meta = self.client.generate_json(user_prompt, LLMDecision, system=self.system_prompt)
 
-        final_decision, escalation = self._decide(rules, decision)
+        final_decision, escalation, enforced_default = self._decide(rules, decision)
         citations = filter_citations(decision.citations, evidence)
         for ev in evidence:
             ev.cited = ev.thread_id in citations
@@ -245,6 +245,7 @@ class SupportAgent:
             llm_decision=decision.decision,
             llm_reason_code=decision.escalation_reason_code,
             forced_by_rules=bool(rules.force_escalate),
+            enforced_default=enforced_default,
             policy_conflict=self._policy_conflict(decision.intent, final_decision),
         )
         if trace.policy_conflict:

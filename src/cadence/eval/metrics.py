@@ -177,20 +177,21 @@ def auto_handle_rate(pred_bool: Sequence[bool]) -> float:
 # ---------------------------------------------------------------------------
 def _has_llm_trace(row: dict[str, Any]) -> bool:
     trace = row.get("trace") or {}
-    return "llm_decision" in trace or "forced_by_rules" in trace
+    return "llm_decision" in trace or "forced_by_rules" in trace or "enforced_default" in trace
 
 
 def decision_at_threshold(row: dict[str, Any], threshold: float) -> str:
     """Recompute the final decision of an agent row for a new confidence ``threshold``.
 
-    Per §5: ``escalate`` if ``trace.forced_by_rules`` OR ``trace.llm_decision == "escalate"`` OR
+    Per §5: ``escalate`` if ``trace.forced_by_rules`` OR ``trace.enforced_default`` (policy default for
+    security/billing intents) OR ``trace.llm_decision == "escalate"`` OR
     ``intent_confidence < threshold``; otherwise ``auto_handle``. Rows without an LLM trace
     (baselines) keep their recorded decision unchanged, so the function is safe on any system.
     """
     if not _has_llm_trace(row):
         return str(row.get("decision") or "auto_handle")
     trace = row.get("trace") or {}
-    if trace.get("forced_by_rules"):
+    if trace.get("forced_by_rules") or trace.get("enforced_default"):
         return "escalate"
     if trace.get("llm_decision") == "escalate":
         return "escalate"
@@ -212,7 +213,7 @@ def reason_code_at_threshold(row: dict[str, Any], threshold: float) -> str | Non
     if not _has_llm_trace(row):
         return recorded
     trace = row.get("trace") or {}
-    if trace.get("forced_by_rules"):
+    if trace.get("forced_by_rules") or trace.get("enforced_default"):
         return trace.get("rule_reason_code") or recorded
     if trace.get("llm_decision") == "escalate":
         return trace.get("llm_reason_code") or recorded
