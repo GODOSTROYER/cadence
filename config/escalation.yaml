@@ -1,7 +1,7 @@
 # Cadence escalation policy for @SpotifyCares (see CONTRACT.md §5).
 # decision ∈ {auto_handle, escalate}. Exactly one primary reason_code when escalating.
 version: 0
-confidence_threshold: 0.95     # intent_confidence below this -> escalate(low_confidence). Chosen on the dev split by cadence.eval.metrics.choose_threshold.
+confidence_threshold: 0.90     # intent_confidence below this -> escalate(low_confidence). Chosen on the dev split by cadence.eval.metrics.choose_threshold.
 min_words_for_auto_handle: 3   # shorter messages (e.g. "help", "<url>") are ambiguous_or_media_only
 
 reason_codes:

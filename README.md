@@ -8,11 +8,11 @@ Built by Arnav Bule for the Hiver SDE Intern take-home. Report: [REPORT.md](REPO
 
 | | Agent | Best simple baseline | Trivial baseline |
 |---|---|---|---|
-| Intent macro-F1 (12 intents) | **0.82** [0.77–0.87] | 0.61 (keyword rules) | 0.02 (majority class) |
-| Escalation recall / auto-handle rate | **0.90** [0.84–0.96] / **45%** | 0.36 / 84% (rules only) | 1.00 / 0% (always escalate) |
-| Reply quality, blind LLM judge (1–5) | **4.33** [4.21–4.45] | 3.24 (nearest historical reply) | 2.65 (brand template) |
+| Intent macro-F1 (12 intents) | **0.82** [0.76–0.86] | 0.61 (keyword rules) | 0.02 (majority class) |
+| Escalation recall / auto-handle rate | **0.93** [0.87–0.98] / **44%** | 0.41 / 82% (rules only) | 1.00 / 0% (always escalate) |
+| Reply quality, blind LLM judge (1–5) | **4.50** [4.37–4.63] | 3.31 (nearest historical reply) | 2.56 (brand template) |
 
-Read [REPORT.md §5 "What is misleading about my headline number"](REPORT.md#5-what-is-misleading-about-my-headline-number) before quoting any of these: the recall figure is a threshold setting (0.66 without the confidence guard), the golden set was labelled by two AI passes, and no human judge-agreement ratings exist yet. The same caveats are printed on the dashboard's overview page.
+Read [REPORT.md §5 "What is misleading about my headline number"](REPORT.md#5-what-is-misleading-about-my-headline-number) before quoting any of these: the recall figure is a threshold setting (0.73 without the confidence guard), these are second-run numbers after fixing three defects found in the first run (kept under `results/v1/`), the golden set was labelled by two AI passes, and no human judge-agreement ratings exist yet. The same caveats are printed on the dashboard's overview page.
 
 ## Reproduce the headline results in under 15 minutes
 

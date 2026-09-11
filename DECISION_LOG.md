@@ -62,6 +62,14 @@ The non-obvious calls I made while building Cadence, and why. Format is parsed b
 **Decision:** The client takes a list of keys, keeps a per-key rate limiter and daily counter, puts a key on cooldown when it answers 429 and tries the next one; runners use one worker thread per key.
 **Why:** The full evaluation is roughly 250 agent calls, 25 zero-shot calls and 200 judge calls. One free key at ~5 requests/minute makes that a multi-hour, possibly multi-day job; five keys run it in well under an hour. Every response is cached by prompt hash, so the pooling changes throughput, never results.
 
-## 16. The UI puts the caveats next to the headline numbers
+## 16. One round of failure-driven fixes, with the "before" kept on disk
+**Decision:** After the first full evaluation I read every error, fixed three concrete defects (the agent copied `<url>` placeholders and bare home-page links from the evidence into public replies; the judge was docking points for the policy-mandated ` /AI` signature; the churn rule missed "switching to @user"-style threats), archived the first run under `results/v1/`, and re-ran the agent and judge. The report shows both rows.
+**Why:** The assignment values the proof over the system, and a failure analysis that never changes anything is just a list. Keeping v1 makes the effect of each fix measurable rather than asserted, and stops the iteration from quietly becoming test-set tuning: every change is a specific bug with a named cause, not a prompt tweak chasing a number.
+
+## 17. The dev-set threshold rule may never pick "escalate everything"
+**Decision:** `choose_threshold` picks the highest auto-handle rate whose dev recall is ≥ 0.9; if no threshold below 1.0 qualifies it falls back to the best recall-weighted F2 on dev. A threshold of 1.0 is excluded outright, and the numeric threshold is not embedded in the prompt (so changing it never invalidates the replay cache).
+**Why:** With only 50 dev examples the original "highest recall" fallback selected 1.0 on the second run, which escalates every message: perfect recall, 2% auto-handle, and literally the trivial baseline. A rule that can degenerate into a baseline is not a rule. The F2 fallback still favours recall (a missed escalation is the costly error) but keeps the agent doing work.
+
+## 18. The UI puts the caveats next to the headline numbers
 **Decision:** The overview page renders "What is misleading about these numbers" directly under the metric tiles, from the same results file.
 **Why:** A dashboard that shows only favourable numbers is marketing. The assignment asks for the proof more than the system; the caveats are part of the proof.

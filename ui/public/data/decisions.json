@@ -91,6 +91,18 @@
   },
   {
     "n": 16,
+    "title": "One round of failure-driven fixes, with the \"before\" kept on disk",
+    "decision": "After the first full evaluation I read every error, fixed three concrete defects (the agent copied `<url>` placeholders and bare home-page links from the evidence into public replies; the judge was docking points for the policy-mandated ` /AI` signature; the churn rule missed \"switching to @user\"-style threats), archived the first run under `results/v1/`, and re-ran the agent and judge. The report shows both rows.",
+    "why": "The assignment values the proof over the system, and a failure analysis that never changes anything is just a list. Keeping v1 makes the effect of each fix measurable rather than asserted, and stops the iteration from quietly becoming test-set tuning: every change is a specific bug with a named cause, not a prompt tweak chasing a number."
+  },
+  {
+    "n": 17,
+    "title": "The dev-set threshold rule may never pick \"escalate everything\"",
+    "decision": "`choose_threshold` picks the highest auto-handle rate whose dev recall is ≥ 0.9; if no threshold below 1.0 qualifies it falls back to the best recall-weighted F2 on dev. A threshold of 1.0 is excluded outright, and the numeric threshold is not embedded in the prompt (so changing it never invalidates the replay cache).",
+    "why": "With only 50 dev examples the original \"highest recall\" fallback selected 1.0 on the second run, which escalates every message: perfect recall, 2% auto-handle, and literally the trivial baseline. A rule that can degenerate into a baseline is not a rule. The F2 fallback still favours recall (a missed escalation is the costly error) but keeps the agent doing work."
+  },
+  {
+    "n": 18,
     "title": "The UI puts the caveats next to the headline numbers",
     "decision": "The overview page renders \"What is misleading about these numbers\" directly under the metric tiles, from the same results file.",
     "why": "A dashboard that shows only favourable numbers is marketing. The assignment asks for the proof more than the system; the caveats are part of the proof."
