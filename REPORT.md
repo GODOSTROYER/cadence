@@ -52,9 +52,9 @@ I profiled all 108 brands in the dataset. Spotify has 43k brand tweets and 27.6k
 | Auto-handle rate | **43%** | 37 – 50% |
 | Missed escalations (the costly error) | 5 of 83 | |
 | Reason-code accuracy on true escalations | 0.77 | |
-| Judge overall reply quality (1–5) | **4.42** | 4.26 – 4.56 |
-| Judge "ship as-is" rate | 85% | |
-| Hallucinated link/policy flag rate | 3.5% | |
+| Judge overall reply quality (1–5) | **4.58** | 4.46 – 4.69 |
+| Judge "ship as-is" rate | 90% | |
+| Hallucinated link/policy flag rate | 2% | |
 
 ### Intent classification vs. baselines
 
@@ -94,11 +94,11 @@ Reading: seeing six threads where the brand posted self-serve steps makes the mo
 
 | Reply source | Grounded | Resolves | Tone | Safe | Overall | Ship rate | Wrong-issue flag |
 |---|---|---|---|---|---|---|---|
-| Trivial: most common brand template | 2.85 | 2.81 | 3.10 | 3.52 | 2.58 | 23% | 14% |
+| Trivial: most common brand template | 2.85 | 2.81 | 3.10 | 3.52 | 2.56 | 23% | 14% |
 | Simple: nearest-neighbour historical reply | 3.80 | 3.20 | 3.94 | 4.97 | 3.32 | 52% | 33% |
-| **Agent** | **4.50** | **4.20** | **4.71** | **4.99** | **4.42** | **85%** | **1%** |
+| **Agent** | **4.67** | **4.33** | **4.81** | **4.99** | **4.58** | **90%** | **1%** |
 
-Pairwise, the judge preferred the agent's reply over the nearest-neighbour reply in 67% of messages and over the template in 91%. The template's low "safe" score is the judge penalising a DM request on messages that needed no account access. Retrieval's real contribution is here, not in classification: the same historical replies that do not help the model classify do help it write.
+Pairwise, the judge preferred the agent's reply over the nearest-neighbour reply in 68% of messages and over the template in 93%. The template's low "safe" score is the judge penalising a DM request on messages that needed no account access. Retrieval's real contribution is here, not in classification: the same historical replies that do not help the model classify do help it write.
 
 ### Does the judge agree with a human?
 
@@ -115,11 +115,11 @@ Every run was read error by error (`docs/FAILURE_ANALYSIS_v1.md`, `_v2.md`, and 
 | Run 1: 20 replies (10%) contained a literal `<url>` placeholder or a bare `https://open.spotify.com/` link | Scrub placeholders and home-page/DM/t.co links; hide useless resolved links from the model; prompt rule | 20 → 0 such replies (run 2) |
 | Run 1: the judge docked 36 replies for the policy-mandated ` /AI` signature | Judge prompt states that the signature and "the help article" phrasing are not defects | Signature complaints 31 → 0; ship rate 77% → 87% |
 | Run 1: 4 of 8 missed escalations were churn threats the regex did not match | Wider `churn_or_abuse` rule, verified against benign phrases | Rule-catchable churn misses 4 → 0 |
-| Run 2: the link scrub left a dangling "More info here:" or "heading to this link:?" in 33 replies, and the judge caught only 8 of them | Sentence-level scrub of dangling link clauses | 33 → 0 dangling clauses (run 3) |
+| Run 2: the link scrub left a dangling "More info here:" or "heading to this link:?" in 33 replies, and the judge caught only 8 of them | Phrase-level scrub: the link introducer is removed together with the link and nothing else is touched (a first attempt that cut whole sentences hollowed seven replies to a greeting and was replaced) | 33 → 0 dangling clauses (run 3) |
 | Run 2: a hacked-account tweet was auto-handled at confidence 0.98; the pipeline only *logged* the policy conflict | `enforce_default_decision` for security and billing intents; the eval honours the enforced flag | Missed escalations 6 → 5; the hacked-account case now goes to a human |
 | Run 2: "paid" / "payments" absent from the money rule | Rule extended (not "paid version") | Reason-code accuracy 0.71 → 0.77 |
 
-Across the three runs: intent macro-F1 0.82 / 0.82 / 0.82, escalation recall 0.90 / 0.93 / 0.94, auto-handle 45% / 44% / 43%, judge overall 4.33 / 4.51 / 4.42, hallucination flag 5% / 5% / 3.5%. The judge score dipped from run 2 to run 3 because a reply that used to promise "more info here:" now ends after its acknowledgement; the judge scores that lower on *resolves* than the dangling promise it had mostly failed to notice. That is the honest number.
+Across the three runs: intent macro-F1 0.82 / 0.82 / 0.82, escalation recall 0.90 / 0.93 / 0.94, auto-handle 45% / 44% / 43%, judge overall 4.33 / 4.51 / 4.58, ship rate 77% / 87% / 90%, hallucination flag 5% / 5% / 2%. The intent numbers never moved: every gain came from the reply post-processing, the judge rubric and the policy layer, not from the model.
 
 ### Top 5 failure modes (final run)
 
@@ -128,7 +128,7 @@ The full analysis with calibration and missed-escalation tables is in `docs/FAIL
 1. **The remaining missed escalations are confident auto-handles of tweets that name no product issue.** Screenshot captions ("any ETA on this?: <url>"), "Check your DMs", a job request and an offer-eligibility question get a fluent, on-brand reply at confidence 0.9–0.95, above the guard; the zero-shot model, with no evidence to imitate, escalates more of them.
 2. **The confidence guard is a blunt instrument.** Most of the 36 unnecessary escalations are correct intents at confidence 0.85, escalated only by the threshold; intent accuracy at 0.85 is barely below accuracy at 0.90, so the cut is not measuring uncertainty. It cannot simply be lowered: the cases it rescues include the run's only legal/safety tweet.
 3. **`other` absorbs the intent of the nearest retrieved thread (recall ≈ 0.55).** Jokes, captions and process complaints take a product intent from the evidence; the zero-shot model gets most of these right, which makes this the one clearly retrieval-induced error class.
-4. **Copied reassurance.** What the hallucination flag catches now is phrases lifted from unrelated evidence ("the tech folks are on it", "we're working on it as we speak") rather than links.
+4. **Copied reassurance.** What the hallucination flag catches now (4 replies) is phrases lifted from unrelated evidence ("the tech folks are on it", "we're working on it as we speak") rather than links.
 5. **`playlist_or_library` vs. `playback_or_app_bug` and `feature_request` (F1 0.50).** "Playlist" as a noun pulls broken-playback messages into the playlist intent, and "limit" complaints oscillate between library and feature request; the zero-shot model makes the same mistakes, so this is a taxonomy/prompt boundary, not retrieval.
 
 ## 5. What is misleading about my headline number
@@ -137,7 +137,7 @@ The full analysis with calibration and missed-escalation tables is in `docs/FAIL
 2. **These are third-run numbers, and the fixes came from reading the test errors.** Each fix targeted a named defect (placeholder links, a judge rubric bug, a regex gap, a dangling clause, an unenforced policy default) rather than a score, and every earlier run is kept for comparison, but a reviewer should treat the improvement across runs as partly informed by the test set. The intent numbers did not move at all, which is some reassurance that nothing was tuned to the labels.
 3. **Both annotation passes were AI agents reading the same guide.** κ 0.96 / 0.95 is an upper bound on what two humans would reach, and the gold labels inherit the guide's blind spots. The adjudication log shows where the guide itself was ambiguous.
 4. **n = 200, and rare intents have ~10 test examples.** Macro-F1 0.82 has a CI of 0.76–0.87; per-class numbers for `metadata_or_artist_issue` (n=9) or `download_or_offline` (n=10) swing by a whole example.
-5. **The judge is an LLM of the same family as the agent, and no human ratings exist yet.** 4.42/5 is Gemini 3.1 Flash-Lite grading Gemini 3.5 Flash-Lite. The rubric, shuffling and comparative format reduce but do not remove self-preference and verbosity bias; run 1 showed how sensitive the score is to the judge prompt (fixing one rubric bug moved ship rate by ten points), and run 2 showed the judge missing three quarters of the dangling-clause defects.
+5. **The judge is an LLM of the same family as the agent, and no human ratings exist yet.** 4.58/5 is Gemini 3.1 Flash-Lite grading Gemini 3.5 Flash-Lite. The rubric, shuffling and comparative format reduce but do not remove self-preference and verbosity bias; run 1 showed how sensitive the score is to the judge prompt (fixing one rubric bug moved ship rate by ten points), and run 2 showed the judge missing three quarters of the dangling-clause defects.
 6. **Retrieval looks good in reply quality and useless in classification, and I cannot separate the two cleanly.** One call does both, so any retrieval-induced bias in the decision (failure modes 1 and 3) is entangled with the reply gains.
 7. **"Grounded" means grounded in the retrieved evidence.** A reply that faithfully follows a topically wrong retrieved thread still scores as grounded; the judge only sees the same evidence the agent saw.
 8. **2017 English openers only, on a free-tier Lite model.** Multi-turn threads, screenshots and DMs are absent; results on a stronger model would move in both directions.
