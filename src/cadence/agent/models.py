@@ -68,7 +68,7 @@ def fit_reply(text: str, limit: int = REPLY_MAX_CHARS, signature: str = REPLY_SI
 class Escalation(BaseModel):
     """Why a case is handed to a human (exactly one primary reason code)."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict()
 
     reason_code: str = Field(description="One of the reason codes in config/escalation.yaml.")
     reason: str = Field(description="One-sentence human-readable justification.")
@@ -77,7 +77,7 @@ class Escalation(BaseModel):
 class EvidenceItem(BaseModel):
     """One retrieved historical thread shown to the model as grounding evidence."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict()
 
     thread_id: str
     score: float = 0.0
@@ -90,7 +90,7 @@ class EvidenceItem(BaseModel):
 class Trace(BaseModel):
     """Timing, token and decision provenance for one agent call."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict()
 
     retrieval_ms: int = 0
     llm_ms: int = 0
@@ -106,7 +106,7 @@ class Trace(BaseModel):
 class AgentResponse(BaseModel):
     """Per-example output of every system (CONTRACT.md §6). ``.model_dump()`` is one predictions.jsonl row."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict()
 
     id: str
     system: str
@@ -163,7 +163,7 @@ def build_llm_decision_model(
     code_t = _literal(list(codes) if codes is not None else reason_codes())
     return create_model(
         "LLMDecision",
-        __config__=ConfigDict(extra="forbid"),
+        __config__=ConfigDict(),
         __doc__="The agent's structured decision for one customer message.",
         intent=(intent_t, Field(description="Primary intent id from the taxonomy.")),
         intent_confidence=(
