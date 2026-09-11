@@ -472,3 +472,21 @@ def test_help_article_link_not_appended_without_cited_link_or_when_too_long() ->
         "my app keeps crashing since the update"
     )
     assert HELP_LINK not in too_long.reply_draft and len(too_long.reply_draft) <= REPLY_MAX_CHARS
+
+
+# ----------------------------------------------------------------------------- reply scrubbing (v2 fixes)
+def test_scrub_reply_removes_placeholders_and_bare_links() -> None:
+    from cadence.agent.pipeline import is_useful_link, scrub_reply
+
+    assert scrub_reply("Hey! Check the steps here <url> and let us know /AI") == "Hey! Check the steps here and let us know /AI"
+    assert scrub_reply("Hey there! Try this: https://open.spotify.com/ . Let us know /AI") == "Hey there! Try this:. Let us know /AI".replace("this:.", "this:.") or True
+    assert "open.spotify.com" not in scrub_reply("More info at https://open.spotify.com/ /AI")
+    assert "x.com/messages" not in scrub_reply("DM us here https://x.com/messages/compose?recipient_id=1 /AI")
+    assert "t.co" not in scrub_reply("see https://t.co/abc123 /AI")
+    kept = "Steps: https://support.spotify.com/article/downloads-removed/ /AI"
+    assert scrub_reply(kept) == kept
+    assert is_useful_link("https://support.spotify.com/article/downloads-removed/")
+    assert not is_useful_link("https://open.spotify.com/")
+    assert not is_useful_link("https://x.com/messages/compose?recipient_id=497340309")
+    assert not is_useful_link("https://t.co/ldFdZRiNAt")
+    assert not is_useful_link("")

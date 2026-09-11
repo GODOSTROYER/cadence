@@ -52,8 +52,8 @@ GROUNDING_RULES = (
     "- Put the thread_ids you relied on in `citations` (only ids present in EVIDENCE).\n"
     "- If the evidence does not cover the issue, say so in `grounding_notes` and keep the reply to safe generic "
     "next steps (clarifying question, device/OS/app version, or a DM request when account access is needed).\n"
-    '- Never invent URLs. Say "the help article" only when a cited evidence thread has a resolved link; the '
-    "pipeline appends that link for you.\n"
+    '- Never invent URLs; never write "<url>" or a bare home-page link. Say "the help article" only when a '
+    "cited evidence thread lists a resolved link; the pipeline appends it.\n"
     "- When several evidence threads agree, follow the brand's proven pattern."
 )
 

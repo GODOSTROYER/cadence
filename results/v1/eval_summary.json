@@ -1,0 +1,2416 @@
+{
+  "meta": {
+    "brand": "SpotifyCares",
+    "n_golden": 250,
+    "n_dev": 50,
+    "n_test": 200,
+    "generated_at": "2026-09-11T10:44:25+00:00",
+    "agent_model": "gemini-3.5-flash-lite",
+    "judge_model": "gemini-3.1-flash-lite",
+    "git_sha": "c7466ac01cd225a20b53f44a617da066cb1cbb29",
+    "cache_hit_rate": 0.0,
+    "threshold": 0.9,
+    "min_recall": 0.9,
+    "n_boot": 1000,
+    "systems": [
+      "agent",
+      "trivial",
+      "simple",
+      "simple_keyword",
+      "llm_zero_shot"
+    ],
+    "notes": [
+      "human_ratings.jsonl missing or empty; judge_agreement is null"
+    ]
+  },
+  "headline": {
+    "intent_macro_f1": 0.823838901774021,
+    "escalation_recall": 0.9036144578313253,
+    "auto_handle_rate": 0.45,
+    "judge_overall_mean": 4.335,
+    "judge_overall_mean_nn": 3.24,
+    "ci95": {
+      "intent_macro_f1": [
+        0.7692547086651742,
+        0.8730557245776523
+      ],
+      "escalation_recall": [
+        0.8378221244500315,
+        0.9605637908061292
+      ],
+      "auto_handle_rate": [
+        0.38,
+        0.515
+      ],
+      "judge_overall_mean": [
+        4.21,
+        4.450125
+      ]
+    }
+  },
+  "intent": {
+    "labels": [
+      "non_english",
+      "account_hacked_or_security",
+      "billing_or_charge",
+      "login_or_password",
+      "download_or_offline",
+      "metadata_or_artist_issue",
+      "playlist_or_library",
+      "content_or_availability",
+      "playback_or_app_bug",
+      "subscription_or_plan",
+      "feature_request_or_feedback",
+      "other"
+    ],
+    "support": {
+      "non_english": 12,
+      "account_hacked_or_security": 18,
+      "billing_or_charge": 13,
+      "login_or_password": 13,
+      "download_or_offline": 10,
+      "metadata_or_artist_issue": 9,
+      "playlist_or_library": 12,
+      "content_or_availability": 15,
+      "playback_or_app_bug": 23,
+      "subscription_or_plan": 15,
+      "feature_request_or_feedback": 31,
+      "other": 29
+    },
+    "systems": {
+      "agent": {
+        "accuracy": 0.815,
+        "macro_f1": 0.823838901774021,
+        "weighted_f1": 0.8123903242577896,
+        "per_class": {
+          "non_english": {
+            "precision": 0.9090909090909091,
+            "recall": 0.8333333333333334,
+            "f1": 0.8695652173913043,
+            "support": 12
+          },
+          "account_hacked_or_security": {
+            "precision": 0.9473684210526315,
+            "recall": 1.0,
+            "f1": 0.972972972972973,
+            "support": 18
+          },
+          "billing_or_charge": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "f1": 0.96,
+            "support": 13
+          },
+          "login_or_password": {
+            "precision": 0.8571428571428571,
+            "recall": 0.9230769230769231,
+            "f1": 0.8888888888888888,
+            "support": 13
+          },
+          "download_or_offline": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8,
+            "f1": 0.8421052631578947,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.8181818181818182,
+            "recall": 1.0,
+            "f1": 0.9,
+            "support": 9
+          },
+          "playlist_or_library": {
+            "precision": 0.5454545454545454,
+            "recall": 0.5,
+            "f1": 0.5217391304347826,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.7777777777777778,
+            "recall": 0.9333333333333333,
+            "f1": 0.8484848484848485,
+            "support": 15
+          },
+          "playback_or_app_bug": {
+            "precision": 0.9047619047619048,
+            "recall": 0.8260869565217391,
+            "f1": 0.8636363636363636,
+            "support": 23
+          },
+          "subscription_or_plan": {
+            "precision": 0.6842105263157895,
+            "recall": 0.8666666666666667,
+            "f1": 0.7647058823529411,
+            "support": 15
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.6666666666666666,
+            "recall": 0.8387096774193549,
+            "f1": 0.7428571428571429,
+            "support": 31
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.5517241379310345,
+            "f1": 0.7111111111111111,
+            "support": 29
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              18,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              12,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              12,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              8,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              6,
+              0,
+              0,
+              1,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              14,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              2,
+              1,
+              19,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              13,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              26,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              2,
+              0,
+              3,
+              6,
+              16
+            ]
+          ]
+        },
+        "n": 200,
+        "ci95": {
+          "accuracy": [
+            0.765,
+            0.8651249999999999
+          ],
+          "macro_f1": [
+            0.7692547086651742,
+            0.8730557245776523
+          ],
+          "per_class_f1": {
+            "non_english": [
+              0.6666666666666666,
+              1.0
+            ],
+            "account_hacked_or_security": [
+              0.9090909090909091,
+              1.0
+            ],
+            "billing_or_charge": [
+              0.8571428571428571,
+              1.0
+            ],
+            "login_or_password": [
+              0.7058823529411765,
+              1.0
+            ],
+            "download_or_offline": [
+              0.6,
+              1.0
+            ],
+            "metadata_or_artist_issue": [
+              0.6991666666666667,
+              1.0
+            ],
+            "playlist_or_library": [
+              0.26059782608695653,
+              0.75
+            ],
+            "content_or_availability": [
+              0.6896551724137931,
+              0.9655728587319243
+            ],
+            "playback_or_app_bug": [
+              0.7407004830917874,
+              0.9545454545454546
+            ],
+            "subscription_or_plan": [
+              0.5714285714285714,
+              0.9032258064516129
+            ],
+            "feature_request_or_feedback": [
+              0.6100938256658596,
+              0.8421052631578947
+            ],
+            "other": [
+              0.5488076311605724,
+              0.8500265957446808
+            ]
+          }
+        }
+      },
+      "trivial": {
+        "accuracy": 0.155,
+        "macro_f1": 0.022366522366522368,
+        "weighted_f1": 0.041601731601731605,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 12
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 18
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 13
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 13
+          },
+          "download_or_offline": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 9
+          },
+          "playlist_or_library": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15
+          },
+          "playback_or_app_bug": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 23
+          },
+          "subscription_or_plan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.155,
+            "recall": 1.0,
+            "f1": 0.2683982683982684,
+            "support": 31
+          },
+          "other": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 29
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              18,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              23,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              31,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              29,
+              0
+            ]
+          ]
+        },
+        "n": 200,
+        "ci95": {
+          "accuracy": [
+            0.11,
+            0.205
+          ],
+          "macro_f1": [
+            0.016516516516516516,
+            0.028354080221300138
+          ]
+        }
+      },
+      "simple": {
+        "accuracy": 0.52,
+        "macro_f1": 0.5169700005691196,
+        "weighted_f1": 0.5149900373197248,
+        "per_class": {
+          "non_english": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 12
+          },
+          "account_hacked_or_security": {
+            "precision": 0.7727272727272727,
+            "recall": 0.9444444444444444,
+            "f1": 0.85,
+            "support": 18
+          },
+          "billing_or_charge": {
+            "precision": 0.8,
+            "recall": 0.6153846153846154,
+            "f1": 0.6956521739130435,
+            "support": 13
+          },
+          "login_or_password": {
+            "precision": 0.8,
+            "recall": 0.6153846153846154,
+            "f1": 0.6956521739130435,
+            "support": 13
+          },
+          "download_or_offline": {
+            "precision": 0.6666666666666666,
+            "recall": 0.4,
+            "f1": 0.5,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.6666666666666666,
+            "recall": 0.2222222222222222,
+            "f1": 0.3333333333333333,
+            "support": 9
+          },
+          "playlist_or_library": {
+            "precision": 0.2857142857142857,
+            "recall": 0.16666666666666666,
+            "f1": 0.21052631578947367,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.7,
+            "recall": 0.4666666666666667,
+            "f1": 0.56,
+            "support": 15
+          },
+          "playback_or_app_bug": {
+            "precision": 0.34782608695652173,
+            "recall": 0.34782608695652173,
+            "f1": 0.34782608695652173,
+            "support": 23
+          },
+          "subscription_or_plan": {
+            "precision": 0.08333333333333333,
+            "recall": 0.06666666666666667,
+            "f1": 0.07407407407407407,
+            "support": 15
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.34615384615384615,
+            "recall": 0.5806451612903226,
+            "f1": 0.43373493975903615,
+            "support": 31
+          },
+          "other": {
+            "precision": 0.5428571428571428,
+            "recall": 0.6551724137931034,
+            "f1": 0.59375,
+            "support": 29
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              8,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              0,
+              8,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              1,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1,
+              0,
+              4,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              2,
+              0,
+              2,
+              2,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              7,
+              2,
+              0,
+              2,
+              3
+            ],
+            [
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              3,
+              0,
+              8,
+              0,
+              8,
+              1
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2,
+              0,
+              1,
+              1,
+              5,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              6,
+              2,
+              18,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              3,
+              4,
+              19
+            ]
+          ]
+        },
+        "n": 200,
+        "ci95": {
+          "accuracy": [
+            0.45,
+            0.59
+          ],
+          "macro_f1": [
+            0.4398873048777174,
+            0.5733686180208597
+          ]
+        }
+      },
+      "simple_keyword": {
+        "accuracy": 0.6,
+        "macro_f1": 0.6065294678782742,
+        "weighted_f1": 0.5966302562263883,
+        "per_class": {
+          "non_english": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 12
+          },
+          "account_hacked_or_security": {
+            "precision": 0.9333333333333333,
+            "recall": 0.7777777777777778,
+            "f1": 0.8484848484848485,
+            "support": 18
+          },
+          "billing_or_charge": {
+            "precision": 0.6875,
+            "recall": 0.8461538461538461,
+            "f1": 0.7586206896551724,
+            "support": 13
+          },
+          "login_or_password": {
+            "precision": 0.6363636363636364,
+            "recall": 0.5384615384615384,
+            "f1": 0.5833333333333334,
+            "support": 13
+          },
+          "download_or_offline": {
+            "precision": 0.7142857142857143,
+            "recall": 1.0,
+            "f1": 0.8333333333333334,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.5,
+            "recall": 0.5555555555555556,
+            "f1": 0.5263157894736842,
+            "support": 9
+          },
+          "playlist_or_library": {
+            "precision": 0.26666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.2962962962962963,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.6428571428571429,
+            "recall": 0.6,
+            "f1": 0.6206896551724138,
+            "support": 15
+          },
+          "playback_or_app_bug": {
+            "precision": 0.5,
+            "recall": 0.5217391304347826,
+            "f1": 0.5106382978723404,
+            "support": 23
+          },
+          "subscription_or_plan": {
+            "precision": 0.3888888888888889,
+            "recall": 0.4666666666666667,
+            "f1": 0.42424242424242425,
+            "support": 15
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.6111111111111112,
+            "recall": 0.3548387096774194,
+            "f1": 0.4489795918367347,
+            "support": 31
+          },
+          "other": {
+            "precision": 0.6363636363636364,
+            "recall": 0.7241379310344828,
+            "f1": 0.6774193548387096,
+            "support": 29
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              9,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              14,
+              0,
+              3,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              11,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              7,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              4,
+              0,
+              0,
+              1,
+              4,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              1,
+              1,
+              1,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              2,
+              0,
+              12,
+              1,
+              2,
+              4
+            ],
+            [
+              1,
+              0,
+              4,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0,
+              2,
+              1,
+              5,
+              1,
+              5,
+              1,
+              11,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              3,
+              2,
+              0,
+              21
+            ]
+          ]
+        },
+        "n": 200,
+        "ci95": {
+          "accuracy": [
+            0.53,
+            0.665
+          ],
+          "macro_f1": [
+            0.5276275193946509,
+            0.6595712785197636
+          ]
+        }
+      },
+      "llm_zero_shot": {
+        "accuracy": 0.82,
+        "macro_f1": 0.8200360747824491,
+        "weighted_f1": 0.823191415183537,
+        "per_class": {
+          "non_english": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 12
+          },
+          "account_hacked_or_security": {
+            "precision": 0.9473684210526315,
+            "recall": 1.0,
+            "f1": 0.972972972972973,
+            "support": 18
+          },
+          "billing_or_charge": {
+            "precision": 0.9230769230769231,
+            "recall": 0.9230769230769231,
+            "f1": 0.9230769230769231,
+            "support": 13
+          },
+          "login_or_password": {
+            "precision": 0.9090909090909091,
+            "recall": 0.7692307692307693,
+            "f1": 0.8333333333333334,
+            "support": 13
+          },
+          "download_or_offline": {
+            "precision": 1.0,
+            "recall": 0.7,
+            "f1": 0.8235294117647058,
+            "support": 10
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 9
+          },
+          "playlist_or_library": {
+            "precision": 0.4375,
+            "recall": 0.5833333333333334,
+            "f1": 0.5,
+            "support": 12
+          },
+          "content_or_availability": {
+            "precision": 0.8235294117647058,
+            "recall": 0.9333333333333333,
+            "f1": 0.875,
+            "support": 15
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7692307692307693,
+            "recall": 0.8695652173913043,
+            "f1": 0.8163265306122449,
+            "support": 23
+          },
+          "subscription_or_plan": {
+            "precision": 0.7647058823529411,
+            "recall": 0.8666666666666667,
+            "f1": 0.8125,
+            "support": 15
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.7419354838709677,
+            "recall": 0.7419354838709677,
+            "f1": 0.7419354838709677,
+            "support": 31
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.7931034482758621,
+            "f1": 0.8846153846153846,
+            "support": 29
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              8,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              18,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              12,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              10,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0,
+              2,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              14,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              13,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3,
+              0,
+              3,
+              1,
+              23,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              23
+            ]
+          ]
+        },
+        "n": 200,
+        "ci95": {
+          "accuracy": [
+            0.765,
+            0.87
+          ],
+          "macro_f1": [
+            0.7542852996580439,
+            0.8674287930945156
+          ]
+        }
+      }
+    }
+  },
+  "escalation": {
+    "systems": {
+      "agent": {
+        "precision": 0.6818181818181818,
+        "recall": 0.9036144578313253,
+        "f1": 0.77720207253886,
+        "accuracy": 0.785,
+        "auto_handle_rate": 0.45,
+        "missed_escalations": 8,
+        "unnecessary_escalations": 35,
+        "reason_code_accuracy": 0.64,
+        "confusion": {
+          "tp": 75,
+          "fp": 35,
+          "fn": 8,
+          "tn": 82
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            0.8378221244500315,
+            0.9605637908061292
+          ],
+          "precision": [
+            0.5954828423929548,
+            0.7719298245614035
+          ],
+          "auto_handle_rate": [
+            0.38,
+            0.515
+          ]
+        },
+        "missed_examples": [
+          "g_104",
+          "g_105",
+          "g_151",
+          "g_159",
+          "g_199",
+          "g_211",
+          "g_222",
+          "g_240"
+        ],
+        "unnecessary_examples": [
+          "g_004",
+          "g_019",
+          "g_025",
+          "g_028",
+          "g_029",
+          "g_039",
+          "g_041",
+          "g_043",
+          "g_045",
+          "g_051",
+          "g_056",
+          "g_066",
+          "g_070",
+          "g_079",
+          "g_082",
+          "g_100",
+          "g_114",
+          "g_122",
+          "g_126",
+          "g_130",
+          "g_131",
+          "g_138",
+          "g_141",
+          "g_144",
+          "g_145",
+          "g_175",
+          "g_182",
+          "g_188",
+          "g_195",
+          "g_198",
+          "g_202",
+          "g_205",
+          "g_219",
+          "g_228",
+          "g_234"
+        ]
+      },
+      "trivial": {
+        "precision": 0.415,
+        "recall": 1.0,
+        "f1": 0.5865724381625441,
+        "accuracy": 0.415,
+        "auto_handle_rate": 0.0,
+        "missed_escalations": 0,
+        "unnecessary_escalations": 117,
+        "reason_code_accuracy": 0.0,
+        "confusion": {
+          "tp": 83,
+          "fp": 117,
+          "fn": 0,
+          "tn": 0
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "precision": [
+            0.345,
+            0.485
+          ],
+          "auto_handle_rate": [
+            0.0,
+            0.0
+          ]
+        },
+        "missed_examples": [],
+        "unnecessary_examples": [
+          "g_003",
+          "g_004",
+          "g_010",
+          "g_015",
+          "g_019",
+          "g_025",
+          "g_026",
+          "g_027",
+          "g_028",
+          "g_029",
+          "g_031",
+          "g_033",
+          "g_034",
+          "g_035",
+          "g_037",
+          "g_039",
+          "g_041",
+          "g_043",
+          "g_044",
+          "g_045",
+          "g_048",
+          "g_051",
+          "g_055",
+          "g_056",
+          "g_058",
+          "g_063",
+          "g_066",
+          "g_069",
+          "g_070",
+          "g_073",
+          "g_079",
+          "g_080",
+          "g_082",
+          "g_085",
+          "g_092",
+          "g_093",
+          "g_094",
+          "g_097",
+          "g_100",
+          "g_101",
+          "g_102",
+          "g_107",
+          "g_108",
+          "g_112",
+          "g_114",
+          "g_115",
+          "g_117",
+          "g_118",
+          "g_119",
+          "g_120",
+          "g_122",
+          "g_123",
+          "g_126",
+          "g_127",
+          "g_129",
+          "g_130",
+          "g_131",
+          "g_132",
+          "g_135",
+          "g_136",
+          "g_137",
+          "g_138",
+          "g_141",
+          "g_142",
+          "g_144",
+          "g_145",
+          "g_146",
+          "g_147",
+          "g_148",
+          "g_150",
+          "g_152",
+          "g_153",
+          "g_154",
+          "g_156",
+          "g_157",
+          "g_158",
+          "g_162",
+          "g_163",
+          "g_166",
+          "g_172",
+          "g_173",
+          "g_175",
+          "g_177",
+          "g_179",
+          "g_180",
+          "g_181",
+          "g_182",
+          "g_185",
+          "g_187",
+          "g_188",
+          "g_194",
+          "g_195",
+          "g_196",
+          "g_198",
+          "g_200",
+          "g_201",
+          "g_202",
+          "g_203",
+          "g_205",
+          "g_207",
+          "g_208",
+          "g_209",
+          "g_213",
+          "g_217",
+          "g_219",
+          "g_221",
+          "g_224",
+          "g_226",
+          "g_228",
+          "g_230",
+          "g_232",
+          "g_234",
+          "g_241",
+          "g_243",
+          "g_244",
+          "g_245",
+          "g_250"
+        ]
+      },
+      "simple": {
+        "precision": 0.967741935483871,
+        "recall": 0.3614457831325301,
+        "f1": 0.5263157894736842,
+        "accuracy": 0.73,
+        "auto_handle_rate": 0.845,
+        "missed_escalations": 53,
+        "unnecessary_escalations": 1,
+        "reason_code_accuracy": 0.9666666666666667,
+        "confusion": {
+          "tp": 30,
+          "fp": 1,
+          "fn": 53,
+          "tn": 116
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            0.26502714153316564,
+            0.46581844980058945
+          ],
+          "precision": [
+            0.8856868131868132,
+            1.0
+          ],
+          "auto_handle_rate": [
+            0.795,
+            0.89
+          ]
+        },
+        "missed_examples": [
+          "g_001",
+          "g_007",
+          "g_008",
+          "g_012",
+          "g_013",
+          "g_014",
+          "g_016",
+          "g_018",
+          "g_020",
+          "g_022",
+          "g_023",
+          "g_030",
+          "g_036",
+          "g_040",
+          "g_042",
+          "g_052",
+          "g_053",
+          "g_054",
+          "g_057",
+          "g_068",
+          "g_072",
+          "g_074",
+          "g_078",
+          "g_081",
+          "g_083",
+          "g_088",
+          "g_091",
+          "g_099",
+          "g_103",
+          "g_104",
+          "g_105",
+          "g_111",
+          "g_125",
+          "g_151",
+          "g_159",
+          "g_164",
+          "g_167",
+          "g_170",
+          "g_186",
+          "g_199",
+          "g_204",
+          "g_211",
+          "g_215",
+          "g_220",
+          "g_222",
+          "g_225",
+          "g_231",
+          "g_233",
+          "g_235",
+          "g_240",
+          "g_246",
+          "g_248",
+          "g_249"
+        ],
+        "unnecessary_examples": [
+          "g_198"
+        ]
+      },
+      "simple_keyword": {
+        "precision": 0.967741935483871,
+        "recall": 0.3614457831325301,
+        "f1": 0.5263157894736842,
+        "accuracy": 0.73,
+        "auto_handle_rate": 0.845,
+        "missed_escalations": 53,
+        "unnecessary_escalations": 1,
+        "reason_code_accuracy": 0.9666666666666667,
+        "confusion": {
+          "tp": 30,
+          "fp": 1,
+          "fn": 53,
+          "tn": 116
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            0.26502714153316564,
+            0.46581844980058945
+          ],
+          "precision": [
+            0.8856868131868132,
+            1.0
+          ],
+          "auto_handle_rate": [
+            0.795,
+            0.89
+          ]
+        },
+        "missed_examples": [
+          "g_001",
+          "g_007",
+          "g_008",
+          "g_012",
+          "g_013",
+          "g_014",
+          "g_016",
+          "g_018",
+          "g_020",
+          "g_022",
+          "g_023",
+          "g_030",
+          "g_036",
+          "g_040",
+          "g_042",
+          "g_052",
+          "g_053",
+          "g_054",
+          "g_057",
+          "g_068",
+          "g_072",
+          "g_074",
+          "g_078",
+          "g_081",
+          "g_083",
+          "g_088",
+          "g_091",
+          "g_099",
+          "g_103",
+          "g_104",
+          "g_105",
+          "g_111",
+          "g_125",
+          "g_151",
+          "g_159",
+          "g_164",
+          "g_167",
+          "g_170",
+          "g_186",
+          "g_199",
+          "g_204",
+          "g_211",
+          "g_215",
+          "g_220",
+          "g_222",
+          "g_225",
+          "g_231",
+          "g_233",
+          "g_235",
+          "g_240",
+          "g_246",
+          "g_248",
+          "g_249"
+        ],
+        "unnecessary_examples": [
+          "g_198"
+        ]
+      },
+      "llm_zero_shot": {
+        "precision": 0.8705882352941177,
+        "recall": 0.891566265060241,
+        "f1": 0.880952380952381,
+        "accuracy": 0.9,
+        "auto_handle_rate": 0.575,
+        "missed_escalations": 9,
+        "unnecessary_escalations": 11,
+        "reason_code_accuracy": 0.8918918918918919,
+        "confusion": {
+          "tp": 74,
+          "fp": 11,
+          "fn": 9,
+          "tn": 106
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            0.8163206661975135,
+            0.9555637254901961
+          ],
+          "precision": [
+            0.7921828171828172,
+            0.9375192901234568
+          ],
+          "auto_handle_rate": [
+            0.505,
+            0.6401249999999999
+          ]
+        },
+        "missed_examples": [
+          "g_018",
+          "g_078",
+          "g_081",
+          "g_088",
+          "g_167",
+          "g_204",
+          "g_211",
+          "g_246",
+          "g_249"
+        ],
+        "unnecessary_examples": [
+          "g_019",
+          "g_025",
+          "g_026",
+          "g_092",
+          "g_126",
+          "g_130",
+          "g_138",
+          "g_182",
+          "g_198",
+          "g_234",
+          "g_250"
+        ]
+      },
+      "trivial_always_escalate": {
+        "precision": 0.415,
+        "recall": 1.0,
+        "f1": 0.5865724381625441,
+        "accuracy": 0.415,
+        "auto_handle_rate": 0.0,
+        "missed_escalations": 0,
+        "unnecessary_escalations": 117,
+        "reason_code_accuracy": null,
+        "confusion": {
+          "tp": 83,
+          "fp": 117,
+          "fn": 0,
+          "tn": 0
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            1.0,
+            1.0
+          ]
+        },
+        "missed_examples": []
+      },
+      "trivial_never_escalate": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.585,
+        "auto_handle_rate": 1.0,
+        "missed_escalations": 83,
+        "unnecessary_escalations": 0,
+        "reason_code_accuracy": null,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 83,
+          "tn": 117
+        },
+        "n": 200,
+        "ci95": {
+          "recall": [
+            0.0,
+            0.0
+          ]
+        },
+        "missed_examples": [
+          "g_001",
+          "g_002",
+          "g_007",
+          "g_008",
+          "g_012",
+          "g_013",
+          "g_014",
+          "g_016",
+          "g_017",
+          "g_018",
+          "g_020",
+          "g_022",
+          "g_023",
+          "g_030",
+          "g_032",
+          "g_036",
+          "g_038",
+          "g_040",
+          "g_042",
+          "g_046",
+          "g_049",
+          "g_052",
+          "g_053",
+          "g_054",
+          "g_057",
+          "g_062",
+          "g_065",
+          "g_067",
+          "g_068",
+          "g_071",
+          "g_072",
+          "g_074",
+          "g_075",
+          "g_076",
+          "g_078",
+          "g_081",
+          "g_083",
+          "g_088",
+          "g_089",
+          "g_091",
+          "g_099",
+          "g_103",
+          "g_104",
+          "g_105",
+          "g_110",
+          "g_111",
+          "g_125",
+          "g_134",
+          "g_143",
+          "g_151",
+          "g_159",
+          "g_160",
+          "g_161",
+          "g_164",
+          "g_167",
+          "g_168",
+          "g_170",
+          "g_171",
+          "g_184",
+          "g_186",
+          "g_189",
+          "g_190",
+          "g_193",
+          "g_199",
+          "g_204",
+          "g_211",
+          "g_212",
+          "g_214",
+          "g_215",
+          "g_218",
+          "g_220",
+          "g_222",
+          "g_223",
+          "g_225",
+          "g_231",
+          "g_233",
+          "g_235",
+          "g_238",
+          "g_239",
+          "g_240",
+          "g_246",
+          "g_248",
+          "g_249"
+        ]
+      }
+    },
+    "threshold": 0.9,
+    "threshold_chosen_on": "dev",
+    "threshold_sweep": [
+      {
+        "threshold": 0.0,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.05,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.1,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.15,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.2,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.25,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.3,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.35,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.4,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.45,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.5,
+        "recall": 0.6626506024096386,
+        "precision": 0.9016393442622951,
+        "f1": 0.7638888888888888,
+        "auto_handle_rate": 0.695,
+        "missed_escalations": 28,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.55,
+        "recall": 0.6746987951807228,
+        "precision": 0.9032258064516129,
+        "f1": 0.7724137931034482,
+        "auto_handle_rate": 0.69,
+        "missed_escalations": 27,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.6,
+        "recall": 0.6746987951807228,
+        "precision": 0.9032258064516129,
+        "f1": 0.7724137931034482,
+        "auto_handle_rate": 0.69,
+        "missed_escalations": 27,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.65,
+        "recall": 0.6987951807228916,
+        "precision": 0.90625,
+        "f1": 0.7891156462585034,
+        "auto_handle_rate": 0.68,
+        "missed_escalations": 25,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.7,
+        "recall": 0.7108433734939759,
+        "precision": 0.9076923076923077,
+        "f1": 0.7972972972972974,
+        "auto_handle_rate": 0.675,
+        "missed_escalations": 24,
+        "unnecessary_escalations": 6
+      },
+      {
+        "threshold": 0.75,
+        "recall": 0.7349397590361446,
+        "precision": 0.8840579710144928,
+        "f1": 0.8026315789473685,
+        "auto_handle_rate": 0.655,
+        "missed_escalations": 22,
+        "unnecessary_escalations": 8
+      },
+      {
+        "threshold": 0.8,
+        "recall": 0.7349397590361446,
+        "precision": 0.8714285714285714,
+        "f1": 0.7973856209150327,
+        "auto_handle_rate": 0.65,
+        "missed_escalations": 22,
+        "unnecessary_escalations": 9
+      },
+      {
+        "threshold": 0.85,
+        "recall": 0.7710843373493976,
+        "precision": 0.8421052631578947,
+        "f1": 0.8050314465408805,
+        "auto_handle_rate": 0.62,
+        "missed_escalations": 19,
+        "unnecessary_escalations": 12
+      },
+      {
+        "threshold": 0.9,
+        "recall": 0.9036144578313253,
+        "precision": 0.6818181818181818,
+        "f1": 0.77720207253886,
+        "auto_handle_rate": 0.45,
+        "missed_escalations": 8,
+        "unnecessary_escalations": 35
+      },
+      {
+        "threshold": 0.95,
+        "recall": 0.9759036144578314,
+        "precision": 0.5664335664335665,
+        "f1": 0.7168141592920354,
+        "auto_handle_rate": 0.285,
+        "missed_escalations": 2,
+        "unnecessary_escalations": 62
+      },
+      {
+        "threshold": 1.0,
+        "recall": 1.0,
+        "precision": 0.41919191919191917,
+        "f1": 0.5907473309608541,
+        "auto_handle_rate": 0.01,
+        "missed_escalations": 0,
+        "unnecessary_escalations": 115
+      }
+    ]
+  },
+  "reply_quality": {
+    "systems": {
+      "agent": {
+        "n": 200,
+        "mean": {
+          "grounded": 4.63,
+          "resolves": 4.405,
+          "tone": 4.4,
+          "safe": 4.975,
+          "overall": 4.335
+        },
+        "dist_overall": [
+          2,
+          6,
+          26,
+          55,
+          111
+        ],
+        "ship_rate": 0.77,
+        "flag_rates": {
+          "hallucinated_link_or_policy": 0.05,
+          "asks_sensitive_info": 0.0,
+          "wrong_issue": 0.005
+        },
+        "ci95": {
+          "overall": [
+            4.21,
+            4.450125
+          ]
+        }
+      },
+      "simple": {
+        "n": 200,
+        "mean": {
+          "grounded": 3.795,
+          "resolves": 3.2,
+          "tone": 3.815,
+          "safe": 4.955,
+          "overall": 3.24
+        },
+        "dist_overall": [
+          48,
+          24,
+          27,
+          34,
+          67
+        ],
+        "ship_rate": 0.5,
+        "flag_rates": {
+          "hallucinated_link_or_policy": 0.03,
+          "asks_sensitive_info": 0.0,
+          "wrong_issue": 0.33
+        },
+        "ci95": {
+          "overall": [
+            3.005,
+            3.450125
+          ]
+        }
+      },
+      "trivial": {
+        "n": 200,
+        "mean": {
+          "grounded": 2.985,
+          "resolves": 2.935,
+          "tone": 3.16,
+          "safe": 3.575,
+          "overall": 2.645
+        },
+        "dist_overall": [
+          46,
+          56,
+          35,
+          49,
+          14
+        ],
+        "ship_rate": 0.26,
+        "flag_rates": {
+          "hallucinated_link_or_policy": 0.01,
+          "asks_sensitive_info": 0.255,
+          "wrong_issue": 0.16
+        },
+        "ci95": {
+          "overall": [
+            2.48,
+            2.815
+          ]
+        }
+      }
+    },
+    "pairwise": {
+      "agent_vs_nn_win_rate": 0.65,
+      "agent_vs_trivial_win_rate": 0.82
+    }
+  },
+  "judge_agreement": null,
+  "annotator_agreement": {
+    "n": 250,
+    "intent_kappa": 0.9599985777272081,
+    "intent_raw": 0.964,
+    "escalation_kappa": 0.9506189096655254,
+    "escalation_raw": 0.976,
+    "n_disagreements": 14
+  },
+  "cost": {
+    "n_llm_calls": 500,
+    "n_llm_rows": 500,
+    "total_prompt_tokens": 980945,
+    "total_output_tokens": 197020,
+    "wall_minutes": 31.27,
+    "cache_hit_rate": 0.0
+  }
+}

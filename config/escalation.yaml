@@ -1,7 +1,7 @@
 # Cadence escalation policy for @SpotifyCares (see CONTRACT.md §5).
 # decision ∈ {auto_handle, escalate}. Exactly one primary reason_code when escalating.
 version: 0
-confidence_threshold: 0.60     # intent_confidence below this -> escalate(low_confidence). Tuned on dev split.
+confidence_threshold: 0.90     # intent_confidence below this -> escalate(low_confidence). Chosen on the dev split (recall >= 0.9).
 min_words_for_auto_handle: 3   # shorter messages (e.g. "help", "<url>") are ambiguous_or_media_only
 
 reason_codes:
@@ -57,7 +57,7 @@ rules:
     reason_code: high_frustration_or_churn
     reason: "Explicit churn threat or abusive language toward the brand; a human should own the response."
     patterns:
-      - "\\b(cancel(l)?ing my (premium|subscription|account)|switch(ing)? to (apple music|tidal|deezer|youtube|amazon)|worst (app|service|company)|fuck(ing)? (you|spotify|this)|f\\*+k|useless|worthless|pathetic|scam(mers)?)\\b"
+      - '\b(cancel(l)?ing my (premium|subscription|account)|(switch(ing)?|mov(e|ing)|chang(e|ing)|go(ing)?) (over )?to (apple music|apple|tidal|deezer|youtube( music)?|amazon|am|pandora|soundcloud|@user)|worst (app|service|company)|fuck(ing)? (you|spotify|this|atrocious|terrible|awful|useless|broken|joke)|f\*+k|useless|worthless|pathetic|scam(mers)?|(is|are) (a )?(joke|garbage|trash))\b'
   - flag: media_only_or_too_short
     force_escalate: true
     reason_code: ambiguous_or_media_only

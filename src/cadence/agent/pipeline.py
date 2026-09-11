@@ -5,6 +5,7 @@ See CONTRACT.md §5 (decision policy), §6 (output schema) and §15.3 (interface
 
 from __future__ import annotations
 
+import re
 import time
 from collections.abc import Iterable, Sequence
 from typing import TYPE_CHECKING, Any
@@ -46,13 +47,41 @@ def _thread_field(thread: dict[str, Any], key: str, default: Any = "") -> Any:
     return default if value is None else value
 
 
+_USELESS_LINK = re.compile(
+    r"^https?://(?:(?:www\.|open\.|play\.)?spotify\.com/?|(?:x|twitter)\.com/messages/.*|t\.co/.*)$", re.IGNORECASE
+)
+"""Links that carry no resolution: a bare Spotify home page, the DM-compose card, or an unresolved t.co."""
+_PLACEHOLDER_OR_BARE_LINK = re.compile(
+    r"\s*(?:<url>|https?://(?:(?:www\.|open\.|play\.)?spotify\.com/?|(?:x|twitter)\.com/messages/\S*|t\.co/\S*))(?=[\s.,;:!?)]|$)",
+    re.IGNORECASE,
+)
+"""Placeholder tokens and useless links that must never appear in a public reply."""
+
+
+def is_useful_link(url: str) -> bool:
+    """True when ``url`` points at an actual article/page rather than a home page, DM card or t.co stub."""
+    return bool(url) and not _USELESS_LINK.match(url.strip())
+
+
+def scrub_reply(text: str) -> str:
+    """Remove ``<url>`` placeholders (copied from evidence) and bare home-page / DM / t.co links from a draft."""
+    cleaned = _PLACEHOLDER_OR_BARE_LINK.sub("", text)
+    cleaned = re.sub(r"\(\s*\)", "", cleaned)  # empty parentheses left behind
+    cleaned = re.sub(r"\s+([.,;:!?])", r"\1", cleaned)
+    return normalize_ws(cleaned)
+
+
 def evidence_from_hit(hit: Any) -> EvidenceItem:
-    """Convert a retriever ``Hit`` (thread_id, score, thread dict — §15.2) into an :class:`EvidenceItem`."""
+    """Convert a retriever ``Hit`` (thread_id, score, thread dict — §15.2) into an :class:`EvidenceItem`.
+
+    Only useful resolved links (real article paths) are kept; bare home-page and DM-card links are dropped so
+    the model never sees, cites or copies them.
+    """
     thread: dict[str, Any] = getattr(hit, "thread", None) or {}
     replies = _thread_field(thread, "brand_replies", [])
     first_reply = replies[0] if replies else {}
     brand_reply = _thread_field(thread, "first_reply_text", "") or _thread_field(first_reply, "text", "")
-    links = [str(u) for u in (_thread_field(first_reply, "resolved_links", []) or []) if u]
+    links = [str(u) for u in (_thread_field(first_reply, "resolved_links", []) or []) if u and is_useful_link(str(u))]
     return EvidenceItem(
         thread_id=str(getattr(hit, "thread_id", None) or _thread_field(thread, "thread_id", "")),
         score=float(getattr(hit, "score", 0.0) or 0.0),
@@ -94,8 +123,8 @@ def append_link(reply: str, link: str, limit: int = REPLY_MAX_CHARS) -> str:
 
 
 def finalize_reply(reply: str, citations: Sequence[str], evidence: Sequence[EvidenceItem]) -> str:
-    """Trim the draft to 280 chars (sentence boundary, signature kept) and attach the cited help link if referenced."""
-    text = fit_reply(normalize_ws(reply))
+    """Scrub placeholders/bare links, trim to 280 chars (sentence boundary, signature kept), attach the cited help link if referenced."""
+    text = fit_reply(scrub_reply(reply))
     if any(trigger in text.lower() for trigger in LINK_TRIGGERS):
         link = _first_cited_link(citations, evidence)
         if link and link not in text:
@@ -222,5 +251,7 @@ __all__ = [
     "filter_citations",
     "finalize_reply",
     "append_link",
+    "scrub_reply",
+    "is_useful_link",
     "LINK_TRIGGERS",
 ]
