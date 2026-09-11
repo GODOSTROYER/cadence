@@ -8,7 +8,7 @@
   "index_size": 27627,
   "n_golden": 250,
   "static": true,
-  "generated_at": "2026-09-11T12:14:58+00:00",
+  "generated_at": "2026-09-11T12:22:32+00:00",
   "models": {
     "agent": "gemini-3.5-flash-lite",
     "judge": "gemini-3.1-flash-lite",
