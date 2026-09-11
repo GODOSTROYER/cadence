@@ -491,3 +491,35 @@ def test_scrub_reply_removes_placeholders_and_bare_links() -> None:
     assert not is_useful_link("https://x.com/messages/compose?recipient_id=497340309")
     assert not is_useful_link("https://t.co/ldFdZRiNAt")
     assert not is_useful_link("")
+
+
+# ----------------------------------------------------------------------------- run-3 fixes
+def test_scrub_reply_removes_dangling_link_clause() -> None:
+    from cadence.agent.pipeline import scrub_reply
+
+    assert scrub_reply("Hey there! Try a clean reinstall. More info here: /AI") == "Hey there! Try a clean reinstall. /AI"
+    assert scrub_reply("Hey there! You can find the steps here: /AI") == "Hey there! /AI"
+    kept = "Hey! Check it out here: https://support.spotify.com/article/reinstall/ /AI"
+    assert scrub_reply(kept) == kept
+    assert scrub_reply("Hey there! Let us know how it goes /AI") == "Hey there! Let us know how it goes /AI"
+
+
+def test_enforced_default_decision_overrides_llm_auto_handle() -> None:
+    """Security and billing intents escalate by policy even when the model proposes auto_handle."""
+    agent = make_agent(decision_payload(intent="account_hacked_or_security", intent_confidence=0.98, decision="auto_handle"))
+    resp = agent.handle("weird playlists appeared and my email was changed", id="g_sec")
+    assert resp.decision == "escalate" and resp.escalation is not None
+    assert resp.escalation.reason_code == "account_security"
+    assert resp.trace.policy_conflict is False
+    agent = make_agent(decision_payload(intent="playlist_or_library", intent_confidence=0.98, decision="auto_handle"))
+    resp = agent.handle("my playlist order changed", id="g_pl")
+    assert resp.decision == "auto_handle"
+
+
+def test_money_rule_catches_paid_but_not_paid_plan() -> None:
+    from cadence.agent.rules import apply_rules
+
+    assert apply_rules("I paid but I'm still on free").force_escalate is True
+    assert apply_rules("payments keep failing on my card").force_escalate is True
+    assert apply_rules("is there a paid version without ads?").force_escalate is False
+    assert apply_rules("how do I pay for premium").force_escalate is False

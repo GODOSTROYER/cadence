@@ -38,7 +38,7 @@ rules:
     reason_code: billing_dispute
     reason: "Customer mentions a charge, payment or refund; billing actions need a human with account access."
     patterns:
-      - '\b(charg(e|ed|es|ing)|refund(ed|s)?|bill(ed|ing)?|invoice|double[- ]?charg|took (my )?money|payment (failed|declined|didn.?t)|card (was )?declined)\b'
+      - '\b(charg(e|ed|es|ing)|refund(ed|s)?|bill(ed|ing)?|invoice|double[- ]?charg|took (my )?money|payment (failed|declined|didn.?t)|paid(?! (version|plan|account|subscription|tier|features?|users?|a compliment))|payments?|card (was )?declined)\b'
       - '(\$|£|€)\s?\d'
   - flag: security_keywords
     force_escalate: true

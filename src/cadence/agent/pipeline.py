@@ -56,6 +56,15 @@ _PLACEHOLDER_OR_BARE_LINK = re.compile(
     re.IGNORECASE,
 )
 """Placeholder tokens and useless links that must never appear in a public reply."""
+_DANGLING_LINK_CLAUSE = re.compile(
+    r"[,;:]?\s*(?:(?:you can )?(?:find|read|check(?: it)?(?: out)?|see|get|grab)\s+(?:more|the full|all the|the)?\s*"
+    r"(?:info(?:rmation)?|details?|steps|guide|tips)?\s*(?:here|at|on|below|via|in this article|in the article)?"
+    r"|(?:for )?more (?:info(?:rmation)?|details?)(?: is| are)?\s*(?:here|at|on|below|via)?"
+    r"|(?:full|the|all the) (?:steps|details?|info(?:rmation)?)\s*(?:here|at|on|below)?"
+    r"|(?:here|at|on|via))\s*:(?=\s*(?:/AI\s*)?$)",
+    re.IGNORECASE,
+)
+"""A link-introducing clause left dangling ("More info here:", "at:") after its link was scrubbed."""
 
 
 def is_useful_link(url: str) -> bool:
@@ -66,6 +75,7 @@ def is_useful_link(url: str) -> bool:
 def scrub_reply(text: str) -> str:
     """Remove ``<url>`` placeholders (copied from evidence) and bare home-page / DM / t.co links from a draft."""
     cleaned = _PLACEHOLDER_OR_BARE_LINK.sub("", text)
+    cleaned = _DANGLING_LINK_CLAUSE.sub("", cleaned)
     cleaned = re.sub(r"\(\s*\)", "", cleaned)  # empty parentheses left behind
     cleaned = re.sub(r"\s+([.,;:!?])", r"\1", cleaned)
     return normalize_ws(cleaned)
@@ -179,12 +189,29 @@ class SupportAgent:
             )
         if decision.decision == "escalate":
             return "escalate", self._llm_escalation(decision)
+        enforced = self._enforced_default(decision.intent)
+        if enforced is not None:
+            return "escalate", enforced
         if decision.intent_confidence < self.threshold:
             return "escalate", Escalation(
                 reason_code="low_confidence",
                 reason=f"intent confidence {decision.intent_confidence:.2f} below threshold {self.threshold:.2f}",
             )
         return "auto_handle", None
+
+    def _enforced_default(self, intent: str) -> Escalation | None:
+        """Intents flagged ``enforce_default_decision`` in intents.yaml always escalate, whatever the model said.
+
+        Security and money cases go to a human by policy (CONTRACT §5); the model's opinion cannot override that.
+        """
+        cfg = self._intent_defaults.get(intent, {})
+        if cfg.get("default_decision") == "escalate" and cfg.get("enforce_default_decision"):
+            code = cfg.get("default_reason_code") or FALLBACK_LLM_REASON_CODE
+            return Escalation(
+                reason_code=code,
+                reason=f"{cfg.get('name', intent)} cases always go to a human (policy default enforced).",
+            )
+        return None
 
     def _policy_conflict(self, intent: str, final_decision: str) -> bool:
         default = self._intent_defaults.get(intent, {}).get("default_decision")

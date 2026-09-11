@@ -132,6 +132,7 @@ intents:
     music not mine.
   default_decision: escalate
   default_reason_code: account_security
+  enforce_default_decision: true   # policy: always a human, whatever the model proposes
   keywords:
   - hacked
   - hack
@@ -194,6 +195,7 @@ intents:
   - hi I subscribed and the payment was done on my credit card, but I still appear with a free account!
   default_decision: escalate
   default_reason_code: billing_dispute
+  enforce_default_decision: true   # policy: always a human, whatever the model proposes
   keywords:
   - charg
   - charge
