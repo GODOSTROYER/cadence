@@ -4,10 +4,10 @@
     "n_golden": 250,
     "n_dev": 50,
     "n_test": 200,
-    "generated_at": "2026-09-11T11:54:06+00:00",
+    "generated_at": "2026-09-11T12:12:43+00:00",
     "agent_model": "gemini-3.5-flash-lite",
     "judge_model": "gemini-3.1-flash-lite",
-    "git_sha": "2b74e5ef9b92518153182c3be794e3e76518461d",
+    "git_sha": "27312f710f3587edb07cfd43b34d4eb0f85bf82d",
     "cache_hit_rate": 0.5,
     "threshold": 0.9,
     "min_recall": 0.9,
@@ -53,8 +53,8 @@
     "intent_macro_f1": 0.8214832060840876,
     "escalation_recall": 0.9397590361445783,
     "auto_handle_rate": 0.43,
-    "judge_overall_mean": 4.425,
-    "judge_overall_mean_nn": 3.32,
+    "judge_overall_mean": 4.58,
+    "judge_overall_mean_nn": 3.315,
     "ci95": {
       "intent_macro_f1": [
         0.7644447630230675,
@@ -69,8 +69,8 @@
         0.49512499999999987
       ],
       "judge_overall_mean": [
-        4.265,
-        4.56
+        4.46,
+        4.685
       ]
     }
   },
@@ -2328,49 +2328,49 @@
       "agent": {
         "n": 200,
         "mean": {
-          "grounded": 4.5,
-          "resolves": 4.2,
-          "tone": 4.715,
+          "grounded": 4.67,
+          "resolves": 4.33,
+          "tone": 4.81,
           "safe": 4.985,
-          "overall": 4.425
+          "overall": 4.58
         },
         "dist_overall": [
-          9,
-          10,
+          1,
           8,
-          33,
-          140
+          7,
+          42,
+          142
         ],
-        "ship_rate": 0.855,
+        "ship_rate": 0.895,
         "flag_rates": {
-          "hallucinated_link_or_policy": 0.035,
+          "hallucinated_link_or_policy": 0.02,
           "asks_sensitive_info": 0.0,
-          "wrong_issue": 0.015
+          "wrong_issue": 0.01
         },
         "ci95": {
           "overall": [
-            4.265,
-            4.56
+            4.46,
+            4.685
           ]
         }
       },
       "simple": {
         "n": 200,
         "mean": {
-          "grounded": 3.8,
-          "resolves": 3.2,
-          "tone": 3.94,
-          "safe": 4.97,
-          "overall": 3.32
+          "grounded": 3.81,
+          "resolves": 3.185,
+          "tone": 3.92,
+          "safe": 4.965,
+          "overall": 3.315
         },
         "dist_overall": [
-          44,
+          43,
           29,
-          21,
-          31,
-          75
+          23,
+          32,
+          73
         ],
-        "ship_rate": 0.52,
+        "ship_rate": 0.515,
         "flag_rates": {
           "hallucinated_link_or_policy": 0.03,
           "asks_sensitive_info": 0.0,
@@ -2378,44 +2378,44 @@
         },
         "ci95": {
           "overall": [
-            3.12,
-            3.54
+            3.115,
+            3.545
           ]
         }
       },
       "trivial": {
         "n": 200,
         "mean": {
-          "grounded": 2.855,
-          "resolves": 2.81,
-          "tone": 3.105,
-          "safe": 3.525,
-          "overall": 2.575
+          "grounded": 2.835,
+          "resolves": 2.79,
+          "tone": 3.075,
+          "safe": 3.505,
+          "overall": 2.56
         },
         "dist_overall": [
-          48,
-          56,
+          47,
+          59,
           35,
-          55,
+          53,
           6
         ],
-        "ship_rate": 0.235,
+        "ship_rate": 0.225,
         "flag_rates": {
-          "hallucinated_link_or_policy": 0.03,
-          "asks_sensitive_info": 0.27,
-          "wrong_issue": 0.145
+          "hallucinated_link_or_policy": 0.02,
+          "asks_sensitive_info": 0.26,
+          "wrong_issue": 0.15
         },
         "ci95": {
           "overall": [
-            2.414875,
-            2.73
+            2.394875,
+            2.72
           ]
         }
       }
     },
     "pairwise": {
-      "agent_vs_nn_win_rate": 0.665,
-      "agent_vs_trivial_win_rate": 0.905
+      "agent_vs_nn_win_rate": 0.675,
+      "agent_vs_trivial_win_rate": 0.93
     }
   },
   "judge_agreement": null,
@@ -2432,7 +2432,7 @@
     "n_llm_rows": 500,
     "total_prompt_tokens": 969368,
     "total_output_tokens": 200212,
-    "wall_minutes": 15.106,
+    "wall_minutes": 15.105,
     "cache_hit_rate": 0.5
   }
 }

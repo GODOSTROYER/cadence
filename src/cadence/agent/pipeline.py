@@ -52,15 +52,37 @@ _USELESS_LINK = re.compile(
 )
 """Links that carry no resolution: a bare Spotify home page, the DM-compose card, or an unresolved t.co."""
 _PLACEHOLDER_OR_BARE_LINK = re.compile(
+    r"(?:\s*\b(?:at|via|here|below)\s*:?|\s*:)?"
     r"\s*(?:<url>|https?://(?:(?:www\.|open\.|play\.)?spotify\.com/?|(?:x|twitter)\.com/messages/\S*|t\.co/\S*))(?=[\s.,;:!?)]|$)",
     re.IGNORECASE,
 )
 """Placeholder tokens and useless links that must never appear in a public reply."""
+_EMOJI = r"[\U0001F300-\U0001FAFF☀-➿⭐❤\U0001F900-\U0001F9FF]"
+_END = r"(?=\s*(?:" + _EMOJI + r"\s*)*(?:/AI\s*)?$)"
+"""End of the reply body: optional emoji, optional signature, end of string (lookahead, nothing consumed)."""
+_TAIL = r"\s*(?::\s*[?.!]*(?!\s*https?://)|" + _END + r")"
+"""What makes a link introducer dangling: a colon with no URL after it (consumed with junk punctuation), or the end."""
 _DANGLING_LINK_CLAUSE = re.compile(
-    r"[^.!?\n]*\b(?:link|page|article|guide|here|at|on|below|via|steps|details?|info(?:rmation)?)\s*:"
-    r"(?!\s*https?://)\s*(?:[?.!]+|(?=\s*(?:[\U0001F300-\U0001FAFF\u2600-\u27BF\u2B50\u2764]\s*)*(?:/AI\s*)?$))",
+    r"(?:,?\s*\b(?:but|and|so)\s+)?(?:\b(?:can|could) you\s+(?:try\s+)?|\bplease\s+|\bjust\s+|\bthere(?:'s|’s| is)\s+)?"
+    r"\b(?:"
+    # "we have some more info about the app on Roku here:", "full steps here:", "more details at:"
+    r"(?:we(?:'ve|’ve| have)?\s+(?:got\s+)?)?(?:some\s+|more\s+|full\s+|the\s+|all the\s+)*"
+    r"(?:info(?:rmation)?|details?|steps|tips|guide|help article|article)(?:'s|’s)?(?:\s+(?:about|on|for)\s+(?:\w+\s+){0,5}\w+)?(?:\s+(?:is|are))?"
+    r"\s*(?:here|at|below|via|on)?"
+    # "you can find/read/check it (out) here:", "check for job opportunities here:", "take a look at:"
+    r"|(?:you can\s+)?(?:find|read|check|see|get|grab|take a look|have a look)(?:\s+(?:it|them|more|out|for|the|all)(?:\s+\w+){0,4})?\s*(?:here|at|below|via|on)"
+    # "try heading to this link:", "go to the page:"
+    r"|(?:head(?:ing)?|go(?:ing)?)\s+(?:over\s+)?to\s+(?:this|the)\s+(?:link|page|article)"
+    # "this link:", "the article:"
+    r"|(?:this|the)\s+(?:link|page|article)"
+    r")" + _TAIL
+    # bare "here:"/"below:" with a colon and nothing useful after it, or a bare trailing "at"/"via"
+    + r"|\b(?:here|below)\s*:\s*(?:[?.!]+(?!\s*https?://)|" + _END + r")"
+    + r"|\b(?:at|via)\s*:?\s*[?.!]*" + _END,
     re.IGNORECASE,
 )
+_TRAILING_COLON = re.compile(r"\s*:\s*[?.!]*" + _END)
+"""A colon left at the very end of the body ("...you'd like to see:") after its link was removed."""
 """A link-introducing clause left dangling ("More info here:", "at:") after its link was scrubbed."""
 
 
@@ -73,8 +95,11 @@ def scrub_reply(text: str) -> str:
     """Remove ``<url>`` placeholders (copied from evidence) and bare home-page / DM / t.co links from a draft."""
     cleaned = _PLACEHOLDER_OR_BARE_LINK.sub("", text)
     cleaned = _DANGLING_LINK_CLAUSE.sub(" ", cleaned)
+    cleaned = _TRAILING_COLON.sub(" ", cleaned)
+    cleaned = re.sub(r"[,;]?\s*\b(?:but|and|so)\s*(?=(?:[.!?]\s*)?(?:%s\s*)*(?:/AI\s*)?$)" % _EMOJI, "", cleaned)  # ", but" left hanging
+    cleaned = re.sub(r"\s*,\s*(?=[.!?]|(?:%s\s*)*(?:/AI\s*)?$)" % _EMOJI, "", cleaned)  # trailing comma
     cleaned = re.sub(r"\(\s*\)", "", cleaned)  # empty parentheses left behind
-    cleaned = re.sub(r"\s+([.,;:!?])", r"\1", cleaned)
+    cleaned = re.sub(r"\s+([.,;!?])", r"\1", cleaned)  # no colon: keep " :)" emoticons intact
     return normalize_ws(cleaned)
 
 
