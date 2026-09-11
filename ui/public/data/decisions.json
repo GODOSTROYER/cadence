@@ -1,74 +1,98 @@
 [
   {
     "n": 1,
-    "title": "Judge with a different model than the agent",
-    "decision": "Replies are scored by gemini-2.5-pro while the agent runs on gemini-2.5-flash.",
-    "why": "Models rate their own writing style higher; using a different judge removes the most obvious self-preference bias at the cost of a slower, rate-limited judge pass."
+    "title": "Brand: @SpotifyCares, not the biggest account",
+    "decision": "Build for SpotifyCares (43k brand tweets, 26k conversation openers) rather than AmazonHelp or AppleSupport.",
+    "why": "Spotify's public replies contain real resolutions (clean-reinstall steps, \"log out everywhere\", help-article links) instead of an immediate \"please DM us\", so \"grounded in how the brand historically resolved it\" is testable. The product domain is bounded enough for a 10–12 intent taxonomy, and the auto-handle vs. escalate split is natural: how-to fixes are safe to automate, billing and hacked accounts are not."
   },
   {
     "n": 2,
-    "title": "Treat escalate as the positive class and optimise recall first",
-    "decision": "The headline escalation metric is recall of gold escalations; precision is reported but not optimised.",
-    "why": "A missed escalation means an auto-posted reply to a hacked or over-charged customer; an unnecessary one costs a human a few minutes. The costs are asymmetric, so the metric should be too."
+    "title": "One structured LLM call does classify + draft + decide",
+    "decision": "Retrieval runs first (BM25, no LLM), then a single Gemini call with a JSON schema returns intent, confidence, reply, citations and a decision proposal.",
+    "why": "The free tier is ~250 requests/day on the main model; a three-call design would triple the cost and add three points of failure. Sharing one context also keeps the reply consistent with the intent the model actually committed to. The trade-off is that intent classification cannot be evaluated free of retrieval noise, which I accept and measure via the zero-shot baseline."
   },
   {
     "n": 3,
-    "title": "Rules override the LLM, never the reverse",
-    "decision": "Deterministic keyword rules can force escalation; the LLM cannot un-escalate a rule hit.",
-    "why": "Money, security and legal language are cheap to detect and catastrophic to miss. The price is a cluster of unnecessary escalations on plan questions, which is tracked as a failure mode rather than hidden."
+    "title": "Escalation is a hybrid: deterministic rules can veto the model, never the other way round",
+    "decision": "Regex rules for money, security, legal, churn/abuse and media-only messages force `escalate`; the LLM can only add escalations, and a confidence threshold adds a third guard.",
+    "why": "Missed escalations are the expensive error for a brand (a public promise about a refund is a policy commitment). Rules are auditable and cheap; the model handles the long tail. The stated reason is always the rule's when a rule fires, so reviewers can see exactly why a case was routed."
   },
   {
     "n": 4,
-    "title": "Tune the confidence threshold on the dev split only",
-    "decision": "The 0.60 intent-confidence threshold was chosen on 50 dev examples; every reported number uses the remaining 150.",
-    "why": "Reporting metrics on the same examples used to pick the threshold would quietly inflate recall. Fifty examples is a coarse dial, so the sweep is shown rather than just the chosen point."
+    "title": "\"Auto-handle\" means \"post without a human reading it\"",
+    "decision": "Define the decision strictly: auto-handle only when the drafted public reply is complete, grounded, and needs no account access, money movement, policy exception or PR judgement.",
+    "why": "A looser definition (\"the bot drafted something\") would inflate the auto-handle rate and make the headline number meaningless. The strict definition also makes gold labelling reproducible because it maps to written policy, not taste."
   },
   {
     "n": 5,
-    "title": "BM25 over embeddings for retrieval",
-    "decision": "Historical threads are retrieved with BM25 over cleaned customer text; no embedding model is used.",
-    "why": "Support tweets are short and vocabulary-driven (error codes, product names); BM25 matched them well, builds in seconds, runs offline and keeps the pipeline reproducible without another API."
+    "title": "Judge model differs from agent model, and judging is comparative",
+    "decision": "The judge is a different Gemini model than the agent, and one judge call scores all three candidate replies (agent, nearest-neighbour, template) for the same message with anonymised, shuffled labels.",
+    "why": "Same-model judging inflates scores (self-preference). Comparative scoring on one rubric gives consistent calibration across systems and cuts the call count by two thirds; shuffling counters position bias. The remaining risk (same model family) is disclosed in the report."
   },
   {
     "n": 6,
-    "title": "Exclude the example's own thread from retrieval",
-    "decision": "When evaluating a golden example, its own thread id is removed from the BM25 candidates.",
-    "why": "Every golden message exists in the corpus with its real brand reply. Without exclusion the agent would copy the answer key and the grounding scores would be meaningless."
+    "title": "Ship the LLM cache so the headline reproduces without an API key",
+    "decision": "Every Gemini call is cached in a committed SQLite file keyed by model + prompts + schema + temperature; `make reproduce` replays it.",
+    "why": "\"Reproduce in under 15 minutes\" is impossible if reproduction means 600 rate-limited free-tier calls. Replay makes the numbers auditable byte-for-byte; a `--fresh` flag re-runs live for anyone who wants to."
   },
   {
     "n": 7,
-    "title": "Commit the LLM cache so results replay without a key",
-    "decision": "Every Gemini call is stored in cache/llm_cache.sqlite keyed by a hash of model, prompt and schema; the file is committed.",
-    "why": "A reviewer should reproduce the headline numbers in minutes without an API key or quota. It also makes the evaluation deterministic across runs."
+    "title": "Dev/test split inside the golden set",
+    "decision": "Hold out ~50 golden examples as `dev` for threshold tuning and prompt iteration; report every number on the remaining `test` examples only.",
+    "why": "Tuning the confidence threshold on the same examples you report is silent overfitting. With only ~200 examples the split costs statistical power, so all headline metrics carry bootstrap confidence intervals."
   },
   {
     "n": 8,
-    "title": "Judge all three replies in one comparative call",
-    "decision": "The judge sees the agent, nearest-neighbour and template replies together, shuffled and labelled A/B/C.",
-    "why": "Absolute 1 to 5 scores drift between calls; comparing side by side anchors the scale, and shuffling removes the position bias that would otherwise favour whichever reply appears first."
+    "title": "Retrieval is lexical (BM25), with a \"usefulness\" re-rank",
+    "decision": "BM25 over customer messages with a multiplier for threads whose brand reply is substantive (has a resolved help link or real steps) and a penalty for DM-only replies; no dense embeddings.",
+    "why": "Tweets are short and vocabulary-driven (\"offline\", \"family plan\", \"web player\"), where BM25 is strong, deterministic and dependency-free. The re-rank matters more than the embedding model: the point is to surface threads that show how the issue was resolved, not just similar complaints. Dense hybrid retrieval is the first item on the next-week list."
   },
   {
     "n": 9,
-    "title": "Sign every drafted reply with /AI",
-    "decision": "Reply drafts end with the signature /AI instead of a human agent's initials.",
-    "why": "SpotifyCares signs with agent initials; copying them would impersonate a person. The brand pattern is preserved while making the author honest."
+    "title": "The example's own thread is excluded from retrieval during evaluation",
+    "decision": "When evaluating a golden example, its historical thread is removed from the retrieval candidates.",
+    "why": "Otherwise the agent would see the actual brand reply to the exact tweet it is answering — a leak that would inflate groundedness and reply-quality scores."
   },
   {
     "n": 10,
-    "title": "Stratify the golden sample by keyword bucket plus a random slice",
-    "decision": "Candidates were sampled per intent-keyword bucket, with a quarter drawn uniformly at random.",
-    "why": "Pure random sampling gives a handful of security or billing cases; pure keyword sampling hides messages the keywords miss. The random slice keeps an honest estimate of the long tail."
+    "title": "Golden labels via two independent passes plus adjudication",
+    "decision": "Every candidate is labelled twice from the same written guide; disagreements are adjudicated and recorded; inter-annotator kappa is reported next to model accuracy.",
+    "why": "A single labeller's accuracy ceiling is unknown. Kappa tells the reader how much of the model's error is label noise, and the adjudication log doubles as documentation of the hard boundary cases."
   },
   {
     "n": 11,
-    "title": "Label twice and adjudicate, even with one author",
-    "decision": "Every golden example was labelled in two separate passes a week apart, with disagreements adjudicated and recorded.",
-    "why": "It is not independent inter-annotator agreement, and the report says so, but it surfaces genuinely ambiguous examples (31 of 200) that a single pass would have silently guessed."
+    "title": "Resolve the brand's t.co links once and store them",
+    "decision": "Follow the top ~150 shortened links from brand replies to their final URLs and page titles, and attach them to threads.",
+    "why": "Opaque t.co links make grounding impossible to verify. With resolved titles (\"Downloads unexpectedly removed\") the agent can cite a real help article and the judge can check that the cited article exists in the evidence rather than being invented."
   },
   {
     "n": 12,
-    "title": "Ship the UI with a static mode fed by exported JSON",
-    "decision": "The dashboard reads public/data/*.json when VITE_STATIC=1 and only calls the API in live mode.",
-    "why": "Reviewers can open the results on GitHub Pages without running Python, and the same UI works against the FastAPI server for the live playground and human rating flow."
+    "title": "Anonymised handles are normalised, Spotify's own handles removed",
+    "decision": "`@115888`, `@117168`, `@117153` and `@SpotifyCares` are stripped; every other handle becomes `@user`; agent initials like ` /JI` are captured and removed from reply text.",
+    "why": "The dataset anonymised customers to numbers and Spotify's own accounts to a few fixed ids; leaving them in would let the classifier and retriever learn artefacts. Initials are brand voice signal, but the agent must sign as ` /AI`, never as a human agent."
+  },
+  {
+    "n": 13,
+    "title": "Intents are defined from the data, then frozen before labelling",
+    "decision": "The taxonomy came from TF-IDF clustering plus reading several hundred openers, was written down with boundary rules, and was not changed once golden labelling started.",
+    "why": "Changing labels mid-way silently invalidates earlier annotations and agreement statistics. The boundary rules (\"charged but no Premium\" is billing, not plans) are what make two annotators agree."
+  },
+  {
+    "n": 14,
+    "title": "Models chosen by probing the free tier, not by reputation",
+    "decision": "Agent and zero-shot baseline = `gemini-3.5-flash-lite`; judge = `gemini-3.1-flash-lite`.",
+    "why": "On the day of the run, new free-tier keys could not call any `gemini-2.5-*` model (\"no longer available to new users\"), every Pro model answered 429 before the first request, and the thinking Flash models (3.5, 3.6, 3.8) turned out to carry a free-tier cap of about 20 requests per day per key per model: the first agent run on `gemini-3.5-flash` died after 79 calls across five keys. A 475-call evaluation therefore has to run on the Lite models, which have far higher daily headroom. Using the same Lite model for the agent and the no-retrieval zero-shot baseline makes that comparison a clean ablation of retrieval plus the policy layer; the judge is a different model so it does not grade its own style. The 85 thinking-model predictions are kept as `results/ablation_agent_gemini-3.5-flash_partial.jsonl` and discussed, not reported as a headline."
+  },
+  {
+    "n": 15,
+    "title": "Pool several free keys instead of waiting a day between runs",
+    "decision": "The client takes a list of keys, keeps a per-key rate limiter and daily counter, puts a key on cooldown when it answers 429 and tries the next one; runners use one worker thread per key.",
+    "why": "The full evaluation is roughly 250 agent calls, 25 zero-shot calls and 200 judge calls. One free key at ~5 requests/minute makes that a multi-hour, possibly multi-day job; five keys run it in well under an hour. Every response is cached by prompt hash, so the pooling changes throughput, never results."
+  },
+  {
+    "n": 16,
+    "title": "The UI puts the caveats next to the headline numbers",
+    "decision": "The overview page renders \"What is misleading about these numbers\" directly under the metric tiles, from the same results file.",
+    "why": "A dashboard that shows only favourable numbers is marketing. The assignment asks for the proof more than the system; the caveats are part of the proof."
   }
 ]
