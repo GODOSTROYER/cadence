@@ -4,6 +4,8 @@
 
 Built by Arnav Bule for the Hiver SDE Intern take-home. Report: [REPORT.md](REPORT.md). Decisions: [DECISION_LOG.md](DECISION_LOG.md).
 
+**Live demo:** [cadence-hiver.vercel.app](https://cadence-hiver.vercel.app) (also at [arnavbule.in/hiver-assignment](https://www.arnavbule.in/hiver-assignment)). The dashboard is the static export of the committed results; the playground runs the real agent through a serverless function (`api/index.py`) with the same models and keys used for the evaluation. The blind human-rating flow needs the local server because it writes to disk.
+
 ## Headline (200 held-out test examples, 95% bootstrap CIs)
 
 | | Agent | Best simple baseline | Trivial baseline |
