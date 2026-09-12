@@ -14,3 +14,10 @@ scripts
 docs/taxonomy_calibration.jsonl
 .claude
 .git
+pyproject.toml
+Makefile
+results
+uv.lock
+docs/FAILURE_ANALYSIS*.md
+docs/TAXONOMY.md
+docs/SAMPLING_NOTE.md

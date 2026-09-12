@@ -5,16 +5,30 @@
   "outputDirectory": "ui/dist",
   "functions": {
     "api/index.py": {
-      "memory": 1024,
       "maxDuration": 60,
       "includeFiles": "{src/**,config/**,docs/BRAND_VOICE.md,data/processed/spotify_threads.jsonl.gz,data/processed/link_map.json,data/golden/golden_set.jsonl,cache/llm_cache.sqlite}"
     }
   },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index" },
-    { "source": "/((?!api/|assets/|data/|favicon).*)", "destination": "/index.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/((?!api/|assets/|data/|favicon).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
-    { "source": "/data/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }] }
-  ]
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300"
+        }
+      ]
+    }
+  ],
+  "framework": "vite"
 }
