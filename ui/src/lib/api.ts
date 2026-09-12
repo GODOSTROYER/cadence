@@ -23,6 +23,11 @@ import type {
 } from "./types";
 
 export const IS_STATIC: boolean = import.meta.env.VITE_STATIC === "1";
+/**
+ * Hybrid deployment (Vercel): evaluation data comes from the static JSON export, but the agent itself is live
+ * behind `/api/agent/handle` (a serverless function with the Gemini keys). Set `VITE_LIVE_HANDLE=1`.
+ */
+export const LIVE_AGENT: boolean = IS_STATIC && import.meta.env.VITE_LIVE_HANDLE === "1";
 
 export class ApiError extends Error {
   readonly status: number;
@@ -124,7 +129,7 @@ function normaliseText(text: string): string {
 // ---------------------------------------------------------------------------- public API
 
 export function getHealth(): Promise<Health> {
-  return cachedGet<Health>(IS_STATIC ? staticUrl("health") : "/api/health");
+  return cachedGet<Health>(IS_STATIC && !LIVE_AGENT ? staticUrl("health") : "/api/health");
 }
 
 export function getResults(): Promise<EvalSummary> {
@@ -154,7 +159,7 @@ export async function getGoldenById(id: string): Promise<MergedGoldenExample> {
  * message (exact text match after whitespace normalisation) and throws `StaticModeError` otherwise.
  */
 export async function handle(text: string, mode?: HandleMode): Promise<AgentResponse> {
-  if (IS_STATIC) {
+  if (IS_STATIC && !LIVE_AGENT) {
     const wanted = normaliseText(text);
     const rows = await getGolden();
     const row = rows.find((r) => normaliseText(r.text) === wanted);

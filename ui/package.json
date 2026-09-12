@@ -9,6 +9,7 @@
     "dev:static": "vite --mode static",
     "build": "tsc -b && vite build",
     "build:static": "tsc -b && vite build --mode static",
+    "build:vercel": "tsc -b && vite build --mode vercel",
     "preview": "vite preview",
     "typecheck": "tsc -b"
   },

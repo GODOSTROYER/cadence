@@ -1,0 +1,12 @@
+# Runtime dependencies of the Vercel serverless function (api/index.py). Deliberately slim: the live agent
+# needs retrieval (numpy/scipy/rapidfuzz), the Gemini client (google-genai/pydantic) and config loading.
+# The full project (pandas, scikit-learn, matplotlib, ...) is declared in pyproject.toml.
+fastapi>=0.115
+pydantic>=2.7
+pyyaml>=6
+python-dotenv>=1.0
+numpy>=1.26
+scipy>=1.12
+rapidfuzz>=3.9
+google-genai>=1.30
+rich>=13

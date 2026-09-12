@@ -16,7 +16,10 @@ import { StepTimeline, type StepStatus, type TimelineStep } from "@/components/S
 import { useAsync } from "@/hooks/useAsync";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { describeError, getGolden, getResults, handle, IS_STATIC, isStaticModeError } from "@/lib/api";
+import { describeError, getGolden, getResults, handle, IS_STATIC, isStaticModeError, LIVE_AGENT } from "@/lib/api";
+
+/** Recorded runs only: static build without a live agent endpoint. */
+const RECORDED_ONLY = IS_STATIC && !LIVE_AGENT;
 import { cx } from "@/lib/cx";
 import { compact, int, ms as formatMs, truncate } from "@/lib/format";
 import { intentColor } from "@/lib/intents";
@@ -148,7 +151,7 @@ export default function AgentPlayground() {
 
   const selected = examples.find((e) => e.id === selectedId) ?? null;
   const over = text.length > TWEET_LIMIT;
-  const canRun = phase !== "running" && text.trim().length > 0 && !over && (!IS_STATIC || selected !== null);
+  const canRun = phase !== "running" && text.trim().length > 0 && !over && (!RECORDED_ONLY || selected !== null);
 
   const reset = useCallback(() => {
     runId.current += 1;
@@ -163,7 +166,7 @@ export default function AgentPlayground() {
     reset();
     setSelectedId(row.id);
     setText(row.text);
-    if (!IS_STATIC) textarea.current?.focus();
+    if (!RECORDED_ONLY) textarea.current?.focus();
   };
 
   const clear = () => {
@@ -234,16 +237,16 @@ export default function AgentPlayground() {
 
   // Show the decision the evaluated policy makes at the dev-chosen threshold, flagged when it differs
   // from what the recorded run decided, so the playground never contradicts the Evaluation page.
-  const shown = result ? applyThreshold(result, IS_STATIC ? threshold : undefined) : null;
+  const shown = result ? applyThreshold(result, RECORDED_ONLY ? threshold : undefined) : null;
   const steps = buildSteps(statuses, shown);
 
   return (
     <PageTransition>
       <PageHeader
-        eyebrow={IS_STATIC ? "playground · recorded runs" : "playground · live agent"}
+        eyebrow={RECORDED_ONLY ? "playground · recorded runs" : "playground · live agent"}
         title="Agent playground"
         description={
-          IS_STATIC
+          RECORDED_ONLY
             ? "Replay how the agent handled real customer tweets: which rules fired, what it retrieved, and the reply it drafted."
             : "Paste a customer tweet and watch the agent classify it, retrieve precedent, draft a reply and decide whether a human should take over."
         }
@@ -253,7 +256,7 @@ export default function AgentPlayground() {
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between gap-3">
             <label htmlFor="composer" className="eyebrow">
-              {IS_STATIC ? "recorded messages · pick one" : "try one of these, or write your own"}
+              {RECORDED_ONLY ? "recorded messages · pick one" : "try one of these, or write your own"}
             </label>
             {golden.data && <span className="t-mono text-[12px] text-faint">{examples.length} of {golden.data.length} golden tweets</span>}
           </div>
@@ -286,9 +289,9 @@ export default function AgentPlayground() {
               if (selectedId && examples.find((x) => x.id === selectedId)?.text !== e.target.value) setSelectedId(null);
               if (phase !== "idle") reset();
             }}
-            disabled={IS_STATIC}
+            disabled={RECORDED_ONLY}
             rows={3}
-            placeholder={IS_STATIC ? "Free text is off in this build. Pick a recorded message above." : "@SpotifyCares my app keeps crashing since the update…"}
+            placeholder={RECORDED_ONLY ? "Free text is off in this build. Pick a recorded message above." : "@SpotifyCares my app keeps crashing since the update…"}
             aria-describedby="composer-count"
             className={cx(
               "w-full resize-y rounded-md border bg-bg px-4 pt-3 pb-8 text-[16px] leading-relaxed text-text placeholder:text-faint disabled:cursor-not-allowed disabled:opacity-80",
@@ -302,7 +305,7 @@ export default function AgentPlayground() {
 
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-[12px] text-faint">
-            {IS_STATIC ? "Recorded runs replay the agent's exact output, evidence and latencies." : "⌘/Ctrl + Enter runs. Replies are drafts; nothing is posted."}
+            {RECORDED_ONLY ? "Recorded runs replay the agent's exact output, evidence and latencies." : "⌘/Ctrl + Enter runs. Replies are drafts; nothing is posted."}
           </p>
           <div className="flex items-center gap-2">
             <button type="button" className="btn btn-ghost" onClick={clear} disabled={!text && phase === "idle"}>
@@ -311,14 +314,14 @@ export default function AgentPlayground() {
             </button>
             <button type="submit" className="btn btn-primary" disabled={!canRun}>
               <Play className="size-4" aria-hidden="true" />
-              {phase === "running" ? "Running…" : IS_STATIC ? "Replay run" : "Run agent"}
+              {phase === "running" ? "Running…" : RECORDED_ONLY ? "Replay run" : "Run agent"}
             </button>
           </div>
         </div>
       </form>
 
       <section className="mt-8" aria-live="polite" aria-label="Agent result">
-        {phase === "idle" && IS_STATIC && !selected && (
+        {phase === "idle" && RECORDED_ONLY && !selected && (
           <EmptyState
             icon={<TerminalSquare />}
             title="Free text needs the live server"
@@ -330,11 +333,11 @@ export default function AgentPlayground() {
             }
           />
         )}
-        {phase === "idle" && (!IS_STATIC || selected) && (
+        {phase === "idle" && (!RECORDED_ONLY || selected) && (
           <EmptyState
             icon={<Sparkles />}
             title={selected ? "Ready to run" : "Pick or write a message"}
-            description={selected ? `Press ${IS_STATIC ? "Replay run" : "Run agent"} to see how the agent handled this tweet.` : "The decision, the evidence and the drafted reply appear here."}
+            description={selected ? `Press ${RECORDED_ONLY ? "Replay run" : "Run agent"} to see how the agent handled this tweet.` : "The decision, the evidence and the drafted reply appear here."}
           />
         )}
 

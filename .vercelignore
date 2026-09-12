@@ -1,0 +1,16 @@
+# Keep the deployment bundle small: the function includes only what vercel.json's includeFiles lists.
+data/raw
+data/processed/spotify_openers.parquet
+data/processed/reply_templates.json
+data/golden/work
+cache/bm25_index.pkl
+results/v1
+results/v2
+results/figures
+ui/node_modules
+ui/mock
+tests
+scripts
+docs/taxonomy_calibration.jsonl
+.claude
+.git
