@@ -31,3 +31,6 @@ Thumbs.db
 cache/bm25_index.pkl
 # annotator working files (merged into data/golden/*.jsonl by scripts/build_golden.py)
 data/golden/work/
+
+.vercel
+.env*
