@@ -11,17 +11,25 @@
   },
   "rewrites": [
     {
+      "source": "/hiver-assignment/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/index"
     },
     {
-      "source": "/((?!api/|assets/|data/|favicon).*)",
-      "destination": "/index.html"
+      "source": "/hiver-assignment",
+      "destination": "/hiver-assignment/index.html"
+    },
+    {
+      "source": "/hiver-assignment/((?!api/|assets/|data/|favicon).*)",
+      "destination": "/hiver-assignment/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/data/(.*)",
+      "source": "/hiver-assignment/data/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -30,5 +38,12 @@
       ]
     }
   ],
-  "framework": "vite"
+  "framework": "vite",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://www.arnavbule.in/hiver-assignment/",
+      "permanent": false
+    }
+  ]
 }

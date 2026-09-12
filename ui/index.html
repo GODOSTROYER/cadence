@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en" class="dark">
   <head>
+    <script>
+      // Canonical host: the app is served at www.arnavbule.in/hiver-assignment/ through a proxy; direct
+      // visits to the *.vercel.app address are moved there so the address bar always shows the domain.
+      if (location.hostname.endsWith('.vercel.app')) {
+        location.replace('https://www.arnavbule.in' + location.pathname + location.search + location.hash);
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />

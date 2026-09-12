@@ -1,7 +1,7 @@
 /**
  * Data layer (ui/DESIGN.md "Data layer", CONTRACT §10).
  *
- * Static mode (`VITE_STATIC === "1"`) reads `${BASE_URL}data/<name>.json`; live mode calls `/api/*`.
+ * Static mode (`VITE_STATIC === "1"`) reads `${BASE_URL}data/<name>.json`; live mode calls apiUrl(`/api/*`).
  * GET responses are cached in memory for the session. Errors are typed: `ApiError` carries the HTTP
  * status and server `detail`; `StaticModeError` marks features that need the live server.
  */
@@ -25,8 +25,14 @@ import type {
 export const IS_STATIC: boolean = import.meta.env.VITE_STATIC === "1";
 /**
  * Hybrid deployment (Vercel): evaluation data comes from the static JSON export, but the agent itself is live
- * behind `/api/agent/handle` (a serverless function with the Gemini keys). Set `VITE_LIVE_HANDLE=1`.
+ * behind apiUrl(`/api/agent/handle`) (a serverless function with the Gemini keys). Set `VITE_LIVE_HANDLE=1`.
  */
+/** Live endpoints live under the app base (e.g. /hiver-assignment/api/...) so a path proxy covers them. */
+const API_BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+function apiUrl(path: string): string {
+  return `${API_BASE}${path}`;
+}
+
 export const LIVE_AGENT: boolean = IS_STATIC && import.meta.env.VITE_LIVE_HANDLE === "1";
 
 export class ApiError extends Error {
@@ -129,19 +135,19 @@ function normaliseText(text: string): string {
 // ---------------------------------------------------------------------------- public API
 
 export function getHealth(): Promise<Health> {
-  return cachedGet<Health>(IS_STATIC && !LIVE_AGENT ? staticUrl("health") : "/api/health");
+  return cachedGet<Health>(IS_STATIC && !LIVE_AGENT ? staticUrl("health") : apiUrl("/api/health"));
 }
 
 export function getResults(): Promise<EvalSummary> {
-  return cachedGet<EvalSummary>(IS_STATIC ? staticUrl("eval_summary") : "/api/results");
+  return cachedGet<EvalSummary>(IS_STATIC ? staticUrl("eval_summary") : apiUrl("/api/results"));
 }
 
 export function getFailures(): Promise<FailureMode[]> {
-  return cachedGet<FailureMode[]>(IS_STATIC ? staticUrl("failure_modes") : "/api/failures");
+  return cachedGet<FailureMode[]>(IS_STATIC ? staticUrl("failure_modes") : apiUrl("/api/failures"));
 }
 
 export function getGolden(): Promise<MergedGoldenExample[]> {
-  return cachedGet<MergedGoldenExample[]>(IS_STATIC ? staticUrl("golden_merged") : "/api/golden");
+  return cachedGet<MergedGoldenExample[]>(IS_STATIC ? staticUrl("golden_merged") : apiUrl("/api/golden"));
 }
 
 export async function getGoldenById(id: string): Promise<MergedGoldenExample> {
@@ -151,7 +157,7 @@ export async function getGoldenById(id: string): Promise<MergedGoldenExample> {
     if (!row) throw new ApiError(staticUrl("golden_merged"), 404, `No golden example with id ${id}.`);
     return row;
   }
-  return cachedGet<MergedGoldenExample>(`/api/golden/${encodeURIComponent(id)}`);
+  return cachedGet<MergedGoldenExample>(apiUrl(`/api/golden/${encodeURIComponent(id)}`));
 }
 
 /**
@@ -173,7 +179,7 @@ export async function handle(text: string, mode?: HandleMode): Promise<AgentResp
     return recorded;
   }
   const body: { text: string; mode?: HandleMode } = mode ? { text, mode } : { text };
-  return fetchJson<AgentResponse>("/api/agent/handle", {
+  return fetchJson<AgentResponse>(apiUrl("/api/agent/handle"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -182,27 +188,27 @@ export async function handle(text: string, mode?: HandleMode): Promise<AgentResp
 
 export function getRatingQueue(): Promise<RatingQueueItem[]> {
   if (IS_STATIC) return Promise.reject(new StaticModeError("Human rating"));
-  return fetchJson<RatingQueueItem[]>("/api/rating-queue");
+  return fetchJson<RatingQueueItem[]>(apiUrl("/api/rating-queue"));
 }
 
 export function getRatings(): Promise<RatingRecord[]> {
   if (IS_STATIC) return Promise.reject(new StaticModeError("Human rating"));
-  return fetchJson<RatingRecord[]>("/api/ratings");
+  return fetchJson<RatingRecord[]>(apiUrl("/api/ratings"));
 }
 
 export async function postRating(rating: RatingSubmission): Promise<RatingRecord> {
   if (IS_STATIC) throw new StaticModeError("Human rating");
-  const saved = await fetchJson<RatingRecord>("/api/ratings", {
+  const saved = await fetchJson<RatingRecord>(apiUrl("/api/ratings"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(rating),
   });
-  invalidate("/api/rating");
+  invalidate(apiUrl("/api/rating"));
   return saved;
 }
 
 export function getDecisions(): Promise<DecisionEntry[]> {
-  return cachedGet<DecisionEntry[]>(IS_STATIC ? staticUrl("decisions") : "/api/decisions");
+  return cachedGet<DecisionEntry[]>(IS_STATIC ? staticUrl("decisions") : apiUrl("/api/decisions"));
 }
 
 /** Processed thread (§3). Static mode rebuilds a thread view from the golden example's recorded turns. */
@@ -240,7 +246,7 @@ export async function getThread(threadId: string): Promise<ProcessedThread> {
       first_reply_asks_dm: first ? /\b(dm|direct message|dms)\b/i.test(first.text) : false,
     };
   }
-  return cachedGet<ProcessedThread>(`/api/threads/${encodeURIComponent(threadId)}`);
+  return cachedGet<ProcessedThread>(apiUrl(`/api/threads/${encodeURIComponent(threadId)}`));
 }
 
 /** Intent taxonomy (always static: derived from config/intents.yaml at export time). */

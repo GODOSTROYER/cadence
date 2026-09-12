@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from "node:url";
 
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 
 /**
  * Vite configuration for the Cadence UI.
@@ -11,8 +11,13 @@ import { defineConfig } from "vite";
  * - In dev, `/api/*` is proxied to the FastAPI server on 127.0.0.1:8000 (CONTRACT.md §10).
  * - `--mode static` loads `.env.static`, which sets `VITE_STATIC=1` (reads public/data/*.json).
  */
-export default defineConfig({
-  base: process.env.VITE_BASE ?? "/",
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+  const base = process.env.VITE_BASE ?? env.VITE_BASE ?? "/";
+  // Emit into dist/<base> so a host can serve the app at that sub-path with a plain filesystem lookup.
+  const outDir = base === "/" ? "dist" : `dist${base.replace(/\/$/, "")}`;
+  return {
+  base,
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
@@ -25,6 +30,8 @@ export default defineConfig({
     },
   },
   build: {
+    outDir,
+    emptyOutDir: true,
     target: "es2022",
     sourcemap: false,
     chunkSizeWarningLimit: 900,
@@ -38,4 +45,5 @@ export default defineConfig({
       },
     },
   },
+  };
 });

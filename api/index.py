@@ -19,7 +19,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from fastapi import FastAPI, HTTPException  # noqa: E402
+from fastapi import APIRouter, FastAPI, HTTPException  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
 
 from cadence import __version__  # noqa: E402
@@ -29,6 +29,7 @@ from cadence.utils.io import read_jsonl  # noqa: E402
 TMP_CACHE = Path(os.environ.get("CADENCE_TMP_DIR", "/tmp")) / "llm_cache.sqlite"
 
 app = FastAPI(title="Cadence live agent", version=__version__)
+router = APIRouter()
 _lock = threading.Lock()
 _state: dict[str, Any] = {}
 
@@ -62,7 +63,7 @@ def _agent():
         return _state["agent"]
 
 
-@app.get("/api/health")
+@router.get("/api/health")
 def health() -> dict[str, Any]:
     n_golden = sum(1 for _ in read_jsonl(Paths.GOLDEN)) if Paths.GOLDEN.exists() else 0
     return {
@@ -78,7 +79,7 @@ def health() -> dict[str, Any]:
     }
 
 
-@app.post("/api/agent/handle")
+@router.post("/api/agent/handle")
 def handle(req: HandleRequest) -> dict[str, Any]:
     if not api_keys():
         raise HTTPException(status_code=503, detail="No Gemini key is configured on this deployment (GEMINI_API_KEYS).")
@@ -91,3 +92,8 @@ def handle(req: HandleRequest) -> dict[str, Any]:
     except LLMError as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     return response.model_dump()
+
+
+# The same routes at the root and under the proxied sub-path (www.arnavbule.in/hiver-assignment/api/...).
+app.include_router(router)
+app.include_router(router, prefix="/hiver-assignment")
