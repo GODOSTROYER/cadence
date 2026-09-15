@@ -16,7 +16,6 @@ import { Skeleton } from "@/components/Skeleton";
 import { StepTimeline, type StepStatus, type TimelineStep } from "@/components/StepTimeline";
 import { useAsync } from "@/hooks/useAsync";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { describeError, getGolden, getPublicSummary, getResults, handle, IS_STATIC, isApiError, isStaticModeError, LIVE_AGENT } from "@/lib/api";
 import { recordedAsGolden } from "@/lib/recorded";
 
@@ -61,22 +60,6 @@ function pickExamples(rows: MergedGoldenExample[]): MergedGoldenExample[] {
   return picked.slice(0, 6);
 }
 
-function sleep(msec: number): Promise<void> {
-  return new Promise((resolve) => window.setTimeout(resolve, msec));
-}
-
-/** Display durations for the step animation, derived from the trace but clamped so each step is visible. */
-function stepDurations(r: AgentResponse): Record<StepId, number> {
-  const retrieval = r.trace?.retrieval_ms ?? 15;
-  const llm = r.trace?.llm_ms ?? Math.max(400, r.latency_ms - retrieval);
-  return {
-    rules: 220,
-    retrieve: Math.min(700, Math.max(320, retrieval * 20)),
-    llm: Math.min(1300, Math.max(600, llm * 0.55)),
-    decide: 260,
-  };
-}
-
 function buildSteps(statuses: Record<StepId, StepStatus>, result: AgentResponse | null): TimelineStep[] {
   const forced = result?.trace?.forced_by_rules ?? false;
   const flags = result?.rule_flags ?? [];
@@ -85,7 +68,7 @@ function buildSteps(statuses: Record<StepId, StepStatus>, result: AgentResponse 
       id: "rules",
       label: "Rules",
       status: statuses.rules,
-      ms: statuses.rules === "done" ? 1 : null,
+      ms: null,
       detail: statuses.rules === "done" ? (flags.length ? `${flags.length} flag${flags.length === 1 ? "" : "s"}${forced ? ", forced" : ""}` : "no flags") : undefined,
     },
     {
@@ -106,7 +89,7 @@ function buildSteps(statuses: Record<StepId, StepStatus>, result: AgentResponse 
       id: "decide",
       label: "Decide",
       status: statuses.decide,
-      ms: statuses.decide === "done" ? 0 : null,
+      ms: null,
       detail: statuses.decide === "done" && result ? (result.decision === "escalate" ? "escalate" : "auto-handle") : undefined,
     },
   ];
@@ -135,7 +118,6 @@ function ResultSkeleton() {
 
 export default function AgentPlayground() {
   useDocumentTitle("Playground");
-  const reduced = useReducedMotion();
   const golden = useAsync(getGolden, []);
   // The threshold comes from the public summary on static builds (the full results need the admin session).
   const results = useAsync(async (): Promise<{ threshold: number }> => {
@@ -195,40 +177,20 @@ export default function AgentPlayground() {
     setTyped(false);
     setStatuses({ ...PENDING, rules: "active" });
 
-    const wait = (msec: number) => (reduced ? Promise.resolve() : sleep(msec));
-    const request = handle(text);
-    // While the request is in flight, walk the first steps so the user sees progress on real latency.
-    const staging = (async () => {
-      await wait(260);
-      if (alive()) setStatuses({ rules: "done", retrieve: "active", llm: "pending", decide: "pending" });
-      await wait(420);
-      if (alive()) setStatuses({ rules: "done", retrieve: "done", llm: "active", decide: "pending" });
-    })();
-
+    // The API returns one completed response, not streamed stage events.
+    // Show results as soon as it resolves; never replay model latency as an animation delay.
     let response: AgentResponse;
     try {
-      response = await request;
+      response = await handle(text);
     } catch (err) {
       if (!alive()) return;
-      await staging;
-      setStatuses((s) => ({ ...s, ...(s.llm === "active" ? { llm: "error" } : s.retrieve === "active" ? { retrieve: "error" } : { rules: "error" }) }));
+      setStatuses({ ...PENDING, llm: "error" });
       setError(err);
       setPhase("error");
       return;
     }
-    await staging;
     if (!alive()) return;
 
-    const d = stepDurations(response);
-    setStatuses({ rules: "done", retrieve: "active", llm: "pending", decide: "pending" });
-    await wait(Math.max(0, d.retrieve - 420));
-    if (!alive()) return;
-    setStatuses({ rules: "done", retrieve: "done", llm: "active", decide: "pending" });
-    await wait(d.llm);
-    if (!alive()) return;
-    setStatuses({ rules: "done", retrieve: "done", llm: "done", decide: "active" });
-    await wait(d.decide);
-    if (!alive()) return;
     setStatuses({ rules: "done", retrieve: "done", llm: "done", decide: "done" });
     setResult(response);
     setPhase("done");
@@ -251,7 +213,7 @@ export default function AgentPlayground() {
   return (
     <PageTransition>
       <PageHeader
-        eyebrow={RECORDED_ONLY ? "playground · recorded runs" : "playground · live agent"}
+        eyebrow={RECORDED_ONLY ? "playground · recorded runs" : "playground · API agent"}
         title="Agent playground"
         description={
           RECORDED_ONLY

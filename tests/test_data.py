@@ -218,7 +218,7 @@ def test_build_threads_multi_turn_and_cycle():
     assert t1["customer_author_id"] == "c1"
     assert t1["customer_text"] == "app crashing since update <url>"
     assert t1["has_link"] is True
-    assert t1["n_words"] == 5
+    assert t1["n_words"] == 4  # URL placeholders carry no issue information.
     assert t1["language"] == "en"
     assert [turn["tweet_id"] for turn in t1["turns"]] == [1, 2, 3, 4, 5]
     assert [turn["role"] for turn in t1["turns"]] == ["customer", "brand", "customer", "brand", "customer"]

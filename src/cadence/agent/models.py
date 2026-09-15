@@ -103,6 +103,9 @@ class Trace(BaseModel):
     """True when the intent's enforced policy default (security/billing → human) overrode an LLM auto_handle."""
     policy_conflict: bool = False
     """True when the final decision is auto_handle but the intent's default_decision is escalate."""
+    integrity_flags: list[str] = Field(default_factory=list)
+    integrity_blocked: bool = False
+    attempts: int = 0
 
 
 class AgentResponse(BaseModel):

@@ -64,6 +64,9 @@ export interface AgentTrace {
   forced_by_rules: boolean;
   /** Policy default (security/billing → human) overrode an LLM auto_handle. Optional: older runs lack it. */
   enforced_default?: boolean;
+  integrity_blocked?: boolean;
+  integrity_flags?: string[];
+  attempts?: number;
 }
 
 export interface AgentResponse {

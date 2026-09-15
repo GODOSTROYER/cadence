@@ -34,7 +34,7 @@ function hasLlmTrace(pred: AgentResponse): boolean {
 function triggerAt(pred: AgentResponse, threshold: number): GuardTrigger | null {
   const trace = pred.trace;
   if (!trace) return null;
-  if (trace.forced_by_rules || trace.enforced_default) return "rules";
+  if (trace.forced_by_rules || trace.enforced_default || trace.integrity_blocked) return "rules";
   if (trace.llm_decision === "escalate") return "model";
   if (typeof pred.intent_confidence === "number" && pred.intent_confidence < threshold) return "threshold";
   return null;

@@ -1,0 +1,31 @@
+{
+  "kind": "AI-reviewed benchmark; no human ground truth",
+  "model_calls": 0,
+  "execution_commit": "c774b960737c82439804636c65aea39cd32a9c68",
+  "status": "incomplete",
+  "n_labels": 200,
+  "prediction_counts": {
+    "agent": 31,
+    "agent_no_evidence": 31,
+    "trivial": 31,
+    "simple_keyword": 31
+  },
+  "human_agreement": null,
+  "input_hashes": {
+    "ai_reviewed_set.jsonl": "343568ff22aef2ed267cc328452645ffbd5cca381e4976d9b099ebaaafb5a4a8",
+    "predictions.jsonl": "36d3c679337c1e75931ca6c97055422e65f061795467f1cfa09880fcae13f792",
+    "manifest.json": "dbe690ecc9372c854eb4eab2553803b8d8e179e63048c9123bc4a9c4cd7bb081"
+  },
+  "judge": {
+    "status": "not_run",
+    "human_agreement": null
+  },
+  "successful_call_receipts": 69,
+  "usage": {
+    "gemini-3.5-flash-lite": {
+      "calls": 69,
+      "input_tokens": 151241,
+      "output_tokens": 12604
+    }
+  }
+}

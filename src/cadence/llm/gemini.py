@@ -6,13 +6,11 @@ the test-suite never need an API key.
 
 Key pool
 --------
-Free-tier quotas are enforced per API key, so the client accepts several keys (env `GEMINI_API_KEYS`,
-comma-separated, or a single `GEMINI_API_KEY`). Each key gets its own `RateLimiter` (per-minute window
-and a persisted per-day counter under `model#k<i>`). A call picks the key with the most remaining daily
-quota that is not cooling down; a 429 puts that key on cooldown (server hint or 30 s) and the next key is
-tried immediately, so five free keys behave like one key with five times the quota. `QuotaExhausted` is
-raised only when every key has used its daily allowance. All of this is thread-safe, so runners may call
-`generate_json` from several threads (one per key is a good default).
+Provider quotas are per project, not per key. The client accepts several keys (env `GEMINI_API_KEYS`,
+comma-separated, or a single `GEMINI_API_KEY`) with conservative local scheduling budgets. Keys in the
+same project share provider quotas. Local counters use UTC days; provider resets use Pacific time.
+A 429 cools the key before another credential is tried. Deadlines bound waits and retries; adding keys
+does not imply extra quota. The client supports concurrent callers, subject to these local budgets.
 
 Thinking models
 ---------------
@@ -113,7 +111,7 @@ class _KeySlot:
 
     def client(self) -> genai.Client:
         if self._genai is None:
-            self._genai = genai.Client(api_key=self.key)
+            self._genai = genai.Client(api_key=self.key, http_options=genai_types.HttpOptions(timeout=12000, retry_options=genai_types.HttpRetryOptions(attempts=1)))
         return self._genai
 
 
@@ -139,6 +137,8 @@ class GeminiClient:
         thinking_budget: int | None = None,
         clock: Callable[[], float] = time.monotonic,
         sleeper: Callable[[float], None] = time.sleep,
+        deadline_s: float = 45.0,
+        persist_responses: bool = True,
     ) -> None:
         cfg = models_config()
         default_rpm, default_rpd = model_limits(model)
@@ -164,6 +164,9 @@ class GeminiClient:
         keys = list(api_keys) if api_keys else ([api_key] if api_key else None)
         self._explicit_keys = keys
         self._slots: list[_KeySlot] | None = None
+        self.deadline_s = deadline_s
+        self.persist_responses = persist_responses
+        self._request = threading.local()
 
     # ------------------------------------------------------------ key pool
     def _make_limiter(self, model_id: str) -> RateLimiter:
@@ -209,6 +212,8 @@ class GeminiClient:
                         "Wait for the UTC day to roll over, lower the workload, or run with CADENCE_CACHE_ONLY=1."
                     )
                 wait = max(min(s.cooldown_until for s in cooling) - now, 0.1)
+                if now + wait >= getattr(self._request, "deadline", float("inf")):
+                    raise QuotaExhausted("All configured keys are cooling down; retry later.")
             log.info("all %d key(s) for %s cooling down; sleeping %.1fs", len(slots), self.model, wait)
             self._sleep(wait)
 
@@ -228,10 +233,15 @@ class GeminiClient:
 
     # ------------------------------------------------------------- request
     def _config(self, schema: type[BaseModel], system: str | None, temperature: float) -> Any:
+        remaining_ms = int((getattr(self._request, "deadline", self._clock() + 12) - self._clock()) * 1000)
+        # Gemini rejects short server deadlines. Fail before network rather than extending our budget.
+        if remaining_ms < 11000:
+            raise QuotaExhausted("Insufficient request time remains after queueing; retry later.")
         thinking = None
         if self.thinking_budget is not None and self._thinking_supported:
             thinking = genai_types.ThinkingConfig(thinking_budget=self.thinking_budget)
         return genai_types.GenerateContentConfig(
+            http_options=genai_types.HttpOptions(timeout=min(12000, remaining_ms)),
             system_instruction=system,
             temperature=temperature,
             max_output_tokens=self.max_output_tokens,
@@ -278,7 +288,9 @@ class GeminiClient:
     ) -> tuple[SchemaT, int, int, int]:
         """One rate-limited network call on the best key. Returns (object, prompt_tokens, output_tokens, latency_ms)."""
         slot = self._pick_slot()
-        slot.limiter.acquire()
+        deadline = getattr(self._request, "deadline", None)
+        # Reserve a full provider request window after any local rate-limit wait.
+        slot.limiter.acquire(deadline=deadline - 12 if deadline is not None else None)
         started = self._clock()
         try:
             response = slot.client().models.generate_content(
@@ -293,7 +305,7 @@ class GeminiClient:
                 log.warning("gemini %s rejected thinking_config; retrying without it", self.model)
                 self._thinking_supported = False
                 raise _Retryable(exc, rotate=True) from exc
-            raise LLMError(f"Gemini rejected the request ({exc.code} {exc.status}): {exc.message}") from exc
+            raise LLMError(f"Gemini rejected the request (HTTP {exc.code}); check model availability and credentials.") from exc
         except genai_errors.ServerError as exc:
             raise _Retryable(exc) from exc
         except RuntimeError as exc:
@@ -324,6 +336,8 @@ class GeminiClient:
         self, prompt: str, schema: type[SchemaT], system: str | None, temperature: float
     ) -> tuple[SchemaT, CallMeta]:
         last_error: BaseException | None = None
+        self._request.deadline = self._clock() + self.deadline_s
+        started = self._clock()
         for attempt in range(1, MAX_ATTEMPTS + 1):
             try:
                 obj, prompt_tokens, output_tokens, latency_ms = self._attempt(prompt, schema, system, temperature)
@@ -335,6 +349,8 @@ class GeminiClient:
                     log.info("gemini %s attempt %d/%d: switching key", self.model, attempt, MAX_ATTEMPTS)
                     continue
                 delay = self._backoff(attempt, str(retryable.cause))
+                if self._clock() + delay >= self._request.deadline:
+                    break
                 log.warning(
                     "gemini %s attempt %d/%d failed (%s); retrying in %.1fs",
                     self.model, attempt, MAX_ATTEMPTS, type(retryable.cause).__name__, delay,
@@ -344,16 +360,18 @@ class GeminiClient:
             meta = CallMeta(
                 model=self.model,
                 cached=False,
-                latency_ms=latency_ms,
+                latency_ms=int(round((self._clock() - started) * 1000)),
                 prompt_tokens=prompt_tokens,
                 output_tokens=output_tokens,
                 attempts=attempt,
             )
             log.info("gemini %s ok in %dms (attempt %d, %d+%d tokens)", self.model, latency_ms, attempt, prompt_tokens, output_tokens)
             return obj, meta
+        if isinstance(last_error, genai_errors.ClientError) and last_error.code == 429:
+            raise QuotaExhausted("Gemini quota unavailable across configured keys; retry later.") from last_error
         raise LLMError(
-            f"Gemini call to {self.model} failed after {MAX_ATTEMPTS} attempts; "
-            f"last error {type(last_error).__name__}: {last_error}"
+            f"Gemini call to {self.model} failed after {attempt} attempts; "
+            f"last error {type(last_error).__name__}"
         ) from last_error
 
     # ---------------------------------------------------------------- public
@@ -374,7 +392,7 @@ class GeminiClient:
         temp = float(temperature if temperature is not None else self.temperature)
         sjson = schema_json(schema)
         key = self.cache.key(self.model, system, prompt, sjson, temp)
-        if cache:
+        if cache and self.persist_responses:
             row = self.cache.get(key)
             if row is not None:
                 log.debug("cache hit %s for %s", key[:12], self.model)
@@ -395,7 +413,8 @@ class GeminiClient:
                 f"prompt starts: {preview!r}"
             )
         obj, meta = self._call_with_retry(prompt, schema, system, temp)
-        self.cache.put(
+        if self.persist_responses:
+            self.cache.put(
             key,
             model=self.model,
             system=system,
@@ -419,6 +438,13 @@ class GeminiClient:
 
     def __repr__(self) -> str:
         return f"GeminiClient(model={self.model!r}, rpm={self.rpm}, rpd={self.rpd}, temperature={self.temperature})"
+
+    def close(self) -> None:
+        """Release request-owned clients (shared clients live for the server process)."""
+        for slot in self._slots or []:
+            if slot._genai is not None:
+                slot._genai.close()
+        self.cache.close()
 
 
 __all__ = [

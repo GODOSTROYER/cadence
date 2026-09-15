@@ -1,0 +1,36 @@
+{
+  "environment": "http://127.0.0.1:8000, built React UI and local FastAPI, CADENCE_CACHE_ONLY=1",
+  "browser": "Codex in-app Browser, default desktop viewport",
+  "revision_before_ui_fixes": "c1caea19461ad928d1c825f643c0ef053fe737ed",
+  "flow": [
+    "Landing loads with historical/AI provenance",
+    "Navigate to playground",
+    "Fill fictional message and submit",
+    "See explicit cache-only cache-miss error",
+    "Clear restores empty textbox and disabled Run button",
+    "Return to landing; verify corrected caveats and cache-only badge"
+  ],
+  "checks": {
+    "page_identity": "pass",
+    "meaningful_content": "pass",
+    "framework_error_overlay": "absent",
+    "console_errors_warnings": [],
+    "screenshot": "captured outside repository",
+    "interaction": "pass"
+  },
+  "findings_fixed": [
+    "Historical test reuse falsely described as touched once",
+    "AI agreement incorrectly called a bound on human agreement",
+    "Landing live badge ignored cache-only setting",
+    "Playground added a second animation delay after API completion",
+    "Local cache-miss error incorrectly asserted no key was configured",
+    "README omitted rebuilding the untracked/versioned BM25 index"
+  ],
+  "untested": [
+    "live successful inference",
+    "mobile viewport",
+    "other browsers",
+    "deployed revised endpoint"
+  ],
+  "model_calls": 0
+}

@@ -23,6 +23,7 @@ from cadence.utils.log import get_logger
 log = get_logger(__name__)
 
 SCRIPTS: dict[str, str] = {
+    "reproduce-recorded": "reproduce_recorded.py",
     "prepare-data": "01_prepare_data.py",
     "resolve-links": "resolve_links.py",
     "build-index": "02_build_index.py",
@@ -34,7 +35,7 @@ SCRIPTS: dict[str, str] = {
 }
 """CLI command -> script file under ``scripts/``."""
 
-REPRODUCE_STEPS: tuple[str, ...] = ("build-index", "run", "judge", "evaluate", "export")
+REPRODUCE_STEPS: tuple[str, ...] = ("reproduce-recorded",)
 ALL_STEPS: tuple[str, ...] = ("prepare-data", "build-index", "run", "judge", "evaluate", "export")
 
 _PASSTHROUGH = {"allow_extra_args": True, "ignore_unknown_options": True}
@@ -69,6 +70,9 @@ def load_script(filename: str) -> ModuleType:
 
 def run_script(command: str, argv: Sequence[str] = ()) -> int:
     """Run the script behind ``command`` with ``argv`` and return its exit code (``None`` counts as 0)."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     module = load_script(SCRIPTS[command])
     main = getattr(module, "main", None)
     if not callable(main):

@@ -1,0 +1,201 @@
+id	intent	reason	sentiment	secondary	media_only	notes
+h_001	feature_request_or_feedback		frustrated		false	Wants follower visibility that is absent; acknowledge feature feedback without promising delivery.
+h_002	content_or_availability		neutral		false	A previously available language version disappeared; catalogue availability explanation is public.
+h_003	other	ambiguous_or_media_only	frustrated		true	The maximum is unspecified and only the screenshot could identify it; do not infer a library or download limit.
+h_004	account_hacked_or_security	account_security	frustrated	playlist_or_library	false	Explicit hack with deleted playlists requires account security investigation.
+h_005	feature_request_or_feedback		frustrated	playlist_or_library	false	Requests thumbs-up/down controls for recommendations; product suggestion rather than an account failure.
+h_006	other	out_of_scope	neutral		false	Educational partnership request needs staff who can authorize outreach.
+h_007	content_or_availability		frustrated		false	Album removal is explicit; isolated profanity expresses disappointment rather than abuse directed at staff.
+h_008	playlist_or_library		neutral		false	Asks how to control Discover Weekly recommendations; bounded personalization guidance.
+h_009	login_or_password	high_frustration_or_churn	angry		false	Month-long unresolved contact and account-purging demand; a human must own this case.
+h_010	billing_or_charge	billing_dispute	neutral	subscription_or_plan	false	Debit taken after interrupted checkout and explicit refund request.
+h_011	feature_request_or_feedback		frustrated		false	Wants the LG TV app restored; acknowledge platform-support feedback without a release promise.
+h_012	content_or_availability		frustrated		false	Asks whether a named album is missing; no account-specific action.
+h_013	playback_or_app_bug		frustrated		false	Chromecast connectivity after an update is a describable troubleshooting problem.
+h_014	subscription_or_plan	needs_account_lookup	frustrated		false	Asks Spotify to grant Premium as a concession; not a standard public how-to.
+h_015	login_or_password	needs_account_lookup	frustrated		false	Multiple access and reset routes already fail; needs recovery assistance.
+h_016	subscription_or_plan	needs_account_lookup	neutral		false	Specific Family invite acceptance failure; invite/account state must be checked.
+h_017	content_or_availability		frustrated		false	Missing named artist/catalogue entry; public availability guidance is sufficient.
+h_018	login_or_password		frustrated		false	Facebook login error codes after changing phones; try bounded generic login troubleshooting before account recovery.
+h_019	content_or_availability		neutral		false	Requests a named album; no promise of acquisition or availability should be made.
+h_020	content_or_availability		neutral		false	Requests a specific release; availability template addresses it.
+h_021	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Paid but still Free is a billing failure under the frozen guide.
+h_022	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Card rejected at checkout because of country mismatch; payment failure requires human handling.
+h_023	content_or_availability		angry		false	Named missing track is clear without the linked image; catalogue response can be public.
+h_024	account_hacked_or_security	account_security	frustrated		false	Explicit compromised account; security takes precedence over repeated contact.
+h_025	content_or_availability		frustrated	playlist_or_library	false	Wants explicit rather than radio-edit recordings; content-version availability question, not a playback defect.
+h_026	playback_or_app_bug		neutral		false	Asks about an app audio setting; the taxonomy groups basic app-operation guidance here.
+h_027	playlist_or_library		neutral	feature_request_or_feedback	false	Feedback concerns relevance of personalized announcements versus recommendation mixes.
+h_028	account_hacked_or_security	account_security	frustrated	login_or_password	false	Hacker changed account email and access was lost; security overrides login.
+h_029	subscription_or_plan	needs_account_lookup	neutral		false	Accepted Family invitation but membership remains Free; account-specific eligibility/state problem.
+h_030	playback_or_app_bug		frustrated		false	Asks about app outage on a named device/OS; request symptoms or troubleshoot without claiming live status.
+h_031	subscription_or_plan		neutral		false	General duration question about the student bundle; public plan information only.
+h_032	playback_or_app_bug		frustrated		false	Vague but explicitly ties an app regression to iOS update; safe symptom/device clarification is possible.
+h_033	feature_request_or_feedback	high_frustration_or_churn	angry	playlist_or_library	false	Criticizes queue design with direct abusive wording; route to a human despite a product-feedback intent.
+h_034	playback_or_app_bug		frustrated		false	Reproducible desktop error after six seconds; generic troubleshooting can address it.
+h_035	login_or_password		neutral	metadata_or_artist_issue	false	Artist dashboard login fails; access intent precedes artist context, with generic browser troubleshooting viable.
+h_036	download_or_offline		frustrated	playback_or_app_bug	false	Unexpected mobile-data use is explicitly an offline/data intent; no reimbursement requested.
+h_037	billing_or_charge	billing_dispute	frustrated		false	Double charge and request to recover money.
+h_038	billing_or_charge	billing_dispute	neutral	subscription_or_plan	false	Student subscription double charge; billing takes precedence over plan.
+h_039	billing_or_charge	billing_dispute	angry		false	Double charge allegation requires checking payments, irrespective of angry tone.
+h_040	content_or_availability		frustrated		false	Cannot find a named album; missing-content guidance, not account access.
+h_041	other	ambiguous_or_media_only	neutral		true	Greeting alone has no support issue to resolve.
+h_042	playlist_or_library		frustrated		false	Asks about playlist editing controls; generic platform/capability guidance before account investigation.
+h_043	subscription_or_plan	needs_account_lookup	neutral		false	Requests account check for an unexpected downgrade; no actual failed charge asserted.
+h_044	subscription_or_plan		neutral		false	Asks where to add payment details and avoid phone billing; setup guidance, not an alleged charge failure.
+h_045	content_or_availability		positive		false	Requests service availability in Nigeria; acknowledge regional interest without promising launch.
+h_046	login_or_password		neutral		false	Forgotten password with no failed reset attempt; standard reset instructions suffice.
+h_047	playback_or_app_bug		frustrated	playlist_or_library	false	Shuffle repeats only thirty songs despite a larger list; malfunction rather than playlist organization.
+h_048	feature_request_or_feedback		frustrated		false	Asks for status of proposed Echo support; acknowledge feedback without inventing a delivery date.
+h_049	account_hacked_or_security	account_security	frustrated	playlist_or_library	false	Repeated unsolicited additions from an unfollowed artist may indicate unauthorized account/app access; conservatively investigate.
+h_050	playback_or_app_bug		frustrated		false	Lockscreen track metadata stays stale while playback changes; ordinary app troubleshooting.
+h_051	other	high_frustration_or_churn	angry		true	Explicit cancellation threat dominates; the underlying issue is only in an unseen image and cannot be inferred from the fan reference.
+h_052	playback_or_app_bug	high_frustration_or_churn	angry		false	Update/install failure plus explicit threat not to purchase Premium warrants human ownership.
+h_053	subscription_or_plan	needs_account_lookup	neutral		false	Specific Family admission and travel-country mismatch; membership state needs inspection.
+h_054	download_or_offline		frustrated		false	Downloads removed after an update; known self-service troubleshooting, with no failed support attempts or churn threat.
+h_055	feature_request_or_feedback		neutral		false	Requests album credits as a product capability, not correction of a named wrong credit.
+h_056	content_or_availability		neutral		false	Requests a named track from a named artist.
+h_057	feature_request_or_feedback		frustrated		false	Explicit-content filtering is a feature request; no account action needed.
+h_058	playlist_or_library	high_frustration_or_churn	angry	playback_or_app_bug	false	Stored music missing alongside repeated ignored complaints; human follow-up takes priority.
+h_059	playback_or_app_bug		frustrated		false	Spotify not working is the support issue; profanity describes the situation and another app, not a direct Spotify abuse/churn threat.
+h_060	billing_or_charge	billing_dispute	angry		false	Billing glitch leading to service loss; payment investigation needed.
+h_061	download_or_offline		frustrated	feature_request_or_feedback	false	Explicit download cap complaint; explain public limits without treating routine payment as a dispute.
+h_062	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Charged for Premium without benefits; account billing review required.
+h_063	account_hacked_or_security	account_security	angry	playlist_or_library	false	Unauthorized usage persists after password change and logout; security recovery required.
+h_064	other		positive		false	Reports an apparent resolution and closure; a brief acknowledgement is safe despite missing earlier context.
+h_065	other	ambiguous_or_media_only	neutral		false	The locked account appears to be a Twitter account and the requested link is unspecified; do not invent Spotify recovery context.
+h_066	playback_or_app_bug		neutral		false	Web player workaround behind a proxy; hack here denotes a URL workaround, not unauthorized account access.
+h_067	billing_or_charge	billing_dispute	frustrated		false	Unexpected stated charge without Premium; do not repeat the user's account identity in a public reply.
+h_068	playback_or_app_bug		frustrated		false	Bluetooth and lockscreen synchronization issues on iOS are explicit app symptoms.
+h_069	subscription_or_plan		frustrated	playback_or_app_bug	false	Family-management webpage repeatedly renders blank; browser troubleshooting is available before account lookup.
+h_070	playback_or_app_bug		neutral		false	Previously visible app search disappeared; ask app version or troubleshoot UI behavior.
+h_071	non_english		frustrated	content_or_availability	false	Tagalog sentence about a missing recorded version; redirect to language support, with content as secondary.
+h_072	content_or_availability		frustrated		false	Requests South African availability; complains about voucher expense without disputing a charge.
+h_073	subscription_or_plan	needs_account_lookup	frustrated		false	Family invitation explicitly fails acceptance; account/eligibility investigation required.
+h_074	billing_or_charge	billing_dispute	frustrated		false	Two cards fail payment-detail update; billing failure rather than generic setup instructions.
+h_075	login_or_password	needs_account_lookup	frustrated		false	Repeated failed account-information changes despite Facebook update; unclear linked-account state needs review.
+h_076	account_hacked_or_security	account_security	frustrated	login_or_password	false	Someone else changed the email and locked out the owner; security precedes access.
+h_077	subscription_or_plan		neutral		false	Asks how to disconnect a bundled Headspace service; public plan-management guidance if available.
+h_078	subscription_or_plan	needs_account_lookup	frustrated	playback_or_app_bug	false	Cannot identify Family members because all names are Active; account-specific removal should not be guessed.
+h_079	feature_request_or_feedback	high_frustration_or_churn	angry	playlist_or_library	false	Android playlist reorder feature complaint with profanity directed at the product; human handling under the guide.
+h_080	content_or_availability		neutral		false	Requests two named mixtapes; catalogue response suffices.
+h_081	subscription_or_plan		neutral		false	General SheerID verification timing question; no failed or overdue application stated.
+h_082	other		positive		false	Positive reaction with no unresolved support issue; acknowledge safely.
+h_083	content_or_availability		neutral		false	Asks about regional service launch; no invented launch date.
+h_084	other	ambiguous_or_media_only	frustrated		true	App is drunk is a screenshot caption without a describable symptom; human must inspect media.
+h_085	login_or_password		frustrated	feature_request_or_feedback	false	Facebook deactivation/account-linking question can receive generic unlink guidance; no failed recovery asserted.
+h_086	content_or_availability		frustrated		false	Regional availability of a named album; a public explanation is possible.
+h_087	playlist_or_library		frustrated		false	Deleted playlists without security or login cues; self-service playlist recovery is a reasonable first response.
+h_088	subscription_or_plan		neutral	feature_request_or_feedback	false	Asks whether annual billing exists and suggests pricing; public plan question, not a charge dispute.
+h_089	subscription_or_plan	needs_account_lookup	neutral		false	Requests the registered household address; private account information requires secure support.
+h_090	billing_or_charge	billing_dispute	frustrated	login_or_password	false	Unwanted recurring charges plus lost credentials; money issue has precedence.
+h_091	login_or_password		frustrated		false	Logic in button is interpreted as a typo for login button; generic browser troubleshooting before lookup, with lexical ambiguity noted.
+h_092	subscription_or_plan		neutral	playback_or_app_bug	false	Asks about ad-skipping capability and controls; text identifies the question without requiring screenshot interpretation.
+h_093	login_or_password		frustrated		false	Website signup failure without identity-recovery facts; public browser/error clarification is viable.
+h_094	login_or_password	needs_account_lookup	frustrated	feature_request_or_feedback	false	Email remains attached to a closed Facebook-linked account; account team must resolve reuse.
+h_095	other	ambiguous_or_media_only	neutral		true	Two unnamed settings exist only in an image; cannot supply descriptions from text alone.
+h_096	playlist_or_library		frustrated	feature_request_or_feedback	false	Criticizes recommendation diversity; explain personalization and acknowledge feedback without inventing a cause.
+h_097	subscription_or_plan		neutral		false	Generic location of card-update controls; no failed payment or charge dispute.
+h_098	playlist_or_library		positive		false	Requests editorial playlist placement of an existing song; acknowledge suggestion without promising placement.
+h_099	feature_request_or_feedback		neutral		false	Requests bookmark-icon contrast changes; ordinary design feedback.
+h_100	playlist_or_library	needs_account_lookup	frustrated		false	Entire saved library disappeared again; repeated account-library loss needs account-specific investigation.
+h_101	subscription_or_plan	needs_account_lookup	frustrated		false	Promotional offer disappeared before subscription; no completed charge, but individual offer eligibility needs checking.
+h_102	feature_request_or_feedback		frustrated		false	Objects to violent audio in advertisements; product/ad feedback, not an explicit safety threat or legal claim.
+h_103	login_or_password	needs_account_lookup	frustrated	subscription_or_plan	false	Wants Premium moved between two accounts; account migration requires authorized staff.
+h_104	other	out_of_scope	positive	metadata_or_artist_issue	false	Self-promotion about a produced song with no support request; do not invent an actionable music issue.
+h_105	content_or_availability	high_frustration_or_churn	frustrated		false	Explicit departure because Bollywood releases are absent; churn takes priority over catalogue guidance.
+h_106	playback_or_app_bug	high_frustration_or_churn	angry	playlist_or_library	false	Playlist fails to play its songs; direct BS allegation about the service meets the guide's abuse condition.
+h_107	metadata_or_artist_issue		neutral		false	Wrong artist attribution on a named profile; public reporting route can address the metadata issue.
+h_108	playback_or_app_bug		neutral		false	Continuous playback stops after a Google Home request; troubleshooting/Autoplay setting guidance.
+h_109	billing_or_charge	billing_dispute	neutral		false	Two payment/authorization events; verify billing rather than reassure from an unseen ledger.
+h_110	other	ambiguous_or_media_only	frustrated		false	Requests an urgent DM response with no describable product problem.
+h_111	billing_or_charge	billing_dispute	neutral	login_or_password	false	Paid for Premium on the wrong account and requests transfer; money-linked account action needs staff.
+h_112	content_or_availability		frustrated		false	Wants a removed named release restored; mild annoyance without explicit churn or abusive profanity.
+h_113	feature_request_or_feedback		frustrated	subscription_or_plan	false	Sarcastic complaint about ad annoyance; acknowledge feedback without confirming intent to pressure payment.
+h_114	content_or_availability		frustrated		false	Requests timing of a named album; avoid invented release dates.
+h_115	billing_or_charge	billing_dispute	neutral		false	Explicit refund request, even without transaction details.
+h_116	content_or_availability		neutral		false	Asks when a named album will be available in the UK.
+h_117	playback_or_app_bug		neutral		false	General device streaming how-to; classify as app/device operation, not an account exception.
+h_118	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Student charged full price despite claiming eligibility; billing investigation required.
+h_119	content_or_availability		neutral		false	English-dominant sentence requests RBD albums; artist/title language does not make it non-English.
+h_120	playlist_or_library	needs_account_lookup	frustrated		false	Entire account library wiped overnight; account recovery context is missing and needs investigation.
+h_121	playback_or_app_bug		frustrated	playlist_or_library	false	Shuffle behavior malfunction; the playlist noun does not change the primary symptom.
+h_122	billing_or_charge	billing_dispute	frustrated	login_or_password	false	Explicitly pays for Premium but sees Free after logging in; billing precedence, with wrong-account access as secondary.
+h_123	other		positive	metadata_or_artist_issue	false	Thanks support for a resolved recording issue; acknowledgement requires no new intervention.
+h_124	playback_or_app_bug		frustrated		false	Unexpected track switch is described despite an image; ask playback/device context without guessing the replacement song.
+h_125	login_or_password		frustrated	download_or_offline	false	Offline-mode state blocks login after update; generic state/network reset steps may suffice before account recovery.
+h_126	feature_request_or_feedback		neutral		false	Asks where to submit a product idea; public feedback route suffices.
+h_127	subscription_or_plan		neutral		false	General supported-payment-method question, no failed redemption or disputed charge.
+h_128	content_or_availability		frustrated		false	Demands a named release by a time; acknowledge availability request without a promise.
+h_129	feature_request_or_feedback		positive		false	Requests in-app lyrics while thanking the service; mild expletive is not brand-directed abuse.
+h_130	subscription_or_plan		neutral		false	General country eligibility of student bundle benefits.
+h_131	login_or_password	needs_account_lookup	frustrated		false	Cannot access a Facebook-linked account and supplied an email placeholder; specific recovery state needs review.
+h_132	playback_or_app_bug		neutral		false	Asks whether an official device/software integration exists; bounded compatibility guidance.
+h_133	content_or_availability		frustrated		false	Named EP missing from the catalogue; uppercase alone does not require escalation.
+h_134	feature_request_or_feedback		neutral		false	Asks for unavailable multi-room Echo support; no release timeline should be promised.
+h_135	subscription_or_plan	needs_account_lookup	frustrated		false	Account country cannot be changed and trial entitlement differs; individual region/eligibility state requires support.
+h_136	billing_or_charge	billing_dispute	neutral		false	Explicit billing problem; direct to secure human support.
+h_137	playback_or_app_bug		neutral		false	Asks to disable Autoplay after a playlist; an existing playback setting, not a new feature.
+h_138	feature_request_or_feedback		neutral	playlist_or_library	false	Requests social interaction with playlist followers; product feature feedback.
+h_139	playback_or_app_bug		frustrated		false	App malfunction complaint; routine payment mention is not a charge dispute or explicit churn threat.
+h_140	playback_or_app_bug		frustrated		false	Facebook sharing fails after linking; app integration troubleshooting rather than login recovery.
+h_141	content_or_availability		frustrated		false	Specific range of artist releases missing; catalogue/rights question.
+h_142	other	ambiguous_or_media_only	neutral	subscription_or_plan	false	Quotes invitation instructions but states no personal issue; do not infer failed acceptance from copied text.
+h_143	feature_request_or_feedback		neutral	playlist_or_library	false	Requests notifications when saved content is removed; proposed new capability.
+h_144	metadata_or_artist_issue		frustrated		false	Artist's single assigned to the wrong profile; standard artist metadata reporting path.
+h_145	feature_request_or_feedback	high_frustration_or_churn	angry		false	Direct hostile complaint about repeated advertisements with obscene gesture; human response under frustration policy.
+h_146	playback_or_app_bug		frustrated		false	Repeated refreshing is a concrete UI symptom despite sparse context.
+h_147	playlist_or_library		frustrated		false	Objects to a genre playlist's selection; no evidence of broken playback or wrong artist metadata.
+h_148	content_or_availability		neutral		false	Asks for a podcast catalogue expansion; no promise of future licensing.
+h_149	login_or_password	needs_account_lookup	neutral	metadata_or_artist_issue	false	Artist seeks access to an account allegedly created for a release; identity/account ownership must be checked.
+h_150	playlist_or_library		frustrated	feature_request_or_feedback	false	Complains about library capacity after moving from Groove; no payment dispute or explicit departure threat.
+h_151	other	ambiguous_or_media_only	neutral		true	Webapp plus an image supplies no describable issue; do not assume a browser malfunction.
+h_152	other	high_frustration_or_churn	frustrated		false	Repeated unanswered support request with explicit frustration; issue itself remains unspecified.
+h_153	content_or_availability		neutral		false	Requests regional availability of a particular podcast.
+h_154	subscription_or_plan		neutral		false	General compatibility of a seasonal offer and card discount; no failed charge or personal eligibility claim.
+h_155	playback_or_app_bug		frustrated		false	Wants Spotify playback on a TV; clarify model/platform and provide supported-device guidance without inventing support.
+h_156	login_or_password		frustrated		false	Profile access fails without specified identity/recovery problem; generic login/error clarification is a safe first step.
+h_157	playlist_or_library		neutral		false	Asks for personal annual listening statistics; personalization/analytics guidance without claiming account access.
+h_158	billing_or_charge	billing_dispute	angry	subscription_or_plan	false	Confirmed annual payment but Premium unavailable; account billing investigation required.
+h_159	feature_request_or_feedback		frustrated	content_or_availability	false	Proposes a paid mixtape add-on rather than asking for a named missing recording.
+h_160	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Payment-information update fails because of student redirect; billing-related malfunction.
+h_161	metadata_or_artist_issue		neutral		false	Reports an exact incorrect lyric; profanity is quoted song content and must not trigger abuse routing.
+h_162	playlist_or_library		frustrated		false	Dislikes Daily Mix recommendations based on one saved song; personalization feedback.
+h_163	content_or_availability		neutral		false	Requests a named upcoming album; public catalogue response.
+h_164	subscription_or_plan	needs_account_lookup	frustrated		false	Explicit unable-to-join Family error, unlike a bare quotation of invitation instructions.
+h_165	download_or_offline		frustrated		false	Offline files removed from device; generic downloads troubleshooting is possible.
+h_166	feature_request_or_feedback		neutral	playback_or_app_bug	false	Asks for future iPhone X compatibility update rather than describing a current symptom.
+h_167	content_or_availability		neutral	feature_request_or_feedback	false	Wants a category of catalogue content; availability is primary, without a specific new app capability.
+h_168	other	ambiguous_or_media_only	neutral		false	DM response request contains no support issue; agent cannot access private messages.
+h_169	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Pays for ad-free Premium but receives ads; paid entitlement not delivered under money precedence.
+h_170	content_or_availability		frustrated		false	Only some tracks of a named album are available in Norway; regional catalogue issue.
+h_171	billing_or_charge	billing_dispute	frustrated		false	Premium purchase/checkout fails; billing assistance required.
+h_172	other	needs_account_lookup	neutral		false	Verifying receipt of a private support email needs access to the support inbox.
+h_173	login_or_password		neutral		false	General username change instructions; frozen taxonomy places username questions under account access.
+h_174	download_or_offline	high_frustration_or_churn	angry		false	Repeated alleged SD-card corruption with financial loss on hardware; human handles sustained complaint, not a Spotify charge dispute.
+h_175	other		positive		false	Explicit thanks is sufficient for a safe acknowledgement even though a link is present.
+h_176	billing_or_charge	billing_dispute	frustrated		false	Card details are being rejected in a purchase attempt.
+h_177	content_or_availability		positive		false	Requests Spotify availability in India with positive sentiment.
+h_178	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Paying for Premium while account remains Free; billing investigation.
+h_179	subscription_or_plan		frustrated		false	Asks where monthly plan option went; public plan-selection guidance before individual eligibility review.
+h_180	billing_or_charge	billing_dispute	frustrated	subscription_or_plan	false	Recurring payment did not occur and Premium lapsed; billing failure is explicit.
+h_181	subscription_or_plan		neutral		false	General promo payment-method and existing-customer terms can be explained without asserting personal eligibility.
+h_182	login_or_password		frustrated	playlist_or_library	false	General username change while preserving saved data; account settings guidance, no failed transfer yet.
+h_183	other	out_of_scope	neutral		false	Recruiting enquiry is outside customer product support and requires the recruiting channel.
+h_184	other	ambiguous_or_media_only	angry		false	An unnamed thing is not working; no product or symptom can be inferred from normalized text.
+h_185	feature_request_or_feedback		frustrated	playback_or_app_bug	false	Requests iPhone X update; text identifies platform feedback despite an image.
+h_186	subscription_or_plan		neutral		false	Asks about carrier bundle linking benefits; public plan information.
+h_187	feature_request_or_feedback		frustrated	playback_or_app_bug	false	Challenges advertised ad-free interval without claiming payment; ad-experience complaint, not billing.
+h_188	account_hacked_or_security	account_security	frustrated	login_or_password	false	Unexpected email change and lockout suggest unauthorized account access.
+h_189	login_or_password		neutral		false	Credentials work in app but not website; generic browser/login-method troubleshooting before recovery.
+h_190	playlist_or_library		neutral		false	Asks about an editorial playlist update schedule; acknowledge without inventing an operational timetable.
+h_191	other	ambiguous_or_media_only	neutral		false	Wants to discuss an account privately but supplies no issue for automated resolution.
+h_192	login_or_password	needs_account_lookup	frustrated		false	Deleted Facebook identity blocks linked Spotify access; account recovery needs staff.
+h_193	other	high_frustration_or_churn	angry		false	Direct profane address to support with no product issue; human handles frustration.
+h_194	playback_or_app_bug		frustrated		false	CarPlay screen blank while audio works; concrete display/integration regression suited to troubleshooting.
+h_195	billing_or_charge	billing_dispute	frustrated		false	Payment query with failed contact attempts requires human billing support.
+h_196	account_hacked_or_security	account_security	angry		false	Another person controls account playback on Alexa; urgent unauthorized access overrides repeated contact.
+h_197	feature_request_or_feedback		frustrated		false	Requests more ad variety; product feedback without explicit profanity, churn or reimbursement.
+h_198	subscription_or_plan	needs_account_lookup	frustrated		false	Promised trial duration differs from the individual account expiry; entitlement must be checked.
+h_199	login_or_password		frustrated		false	New account returns 401 errors; generic login/session troubleshooting before private recovery.
+h_200	feature_request_or_feedback		neutral	playlist_or_library	false	Suggests ad targeting by music taste; design feedback, not a current account failure.

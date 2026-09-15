@@ -1,0 +1,28 @@
+{
+  "inputs": {
+    "config/canonical_links.json": "dae079c367fe89924880911e7fc4f19d3f6ca83da226505aae67979668a3b5e2",
+    "config/escalation.yaml": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+    "config/intents.yaml": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+    "config/models.yaml": "aa5c9b387a2696664bbc0d86013504af30eccfb2cf4d3b8a2539566fe8ebfd27",
+    "data/golden/golden_set.jsonl": "0b64d5fa83f26c0bbead5bb7f7ecadc0fd8d58cad089ce7bb40cb54e1ed18723",
+    "src/cadence/agent/__init__.py": "67204e5c974a270bec497a7345601218625edf9b47bef0367cac615be8147353",
+    "src/cadence/agent/integrity.py": "23d6736434c834f0450537070298e9b5228bdd4291dcd0819c4c28cf1bb876c6",
+    "src/cadence/agent/links.py": "6c52a93ae5eda9b4407930eef8125feb58b7721838adea138c0c62767b26efce",
+    "src/cadence/agent/models.py": "585b785ccbcd971ae24066ecfd36291431e652f7cb88e0ba09102d7185ea6038",
+    "src/cadence/agent/pipeline.py": "1a30b559e8dd50e14113cae04486a7947d593b8b34856091c6784c7d39896866",
+    "src/cadence/agent/prompts.py": "0b80e1354ac76c523ce1e95574c35195dd5ede90d4fa3b99ba437350fb427a63",
+    "src/cadence/agent/rules.py": "5111ce3346cec40f22a0adf32e9b8f61ac2b530613326b34c2974c567d23178e",
+    "src/cadence/retrieval/__init__.py": "cde7d983fba333a1b534dbd835d4eda41e1d7323408185e349ace20d6eb568f4",
+    "src/cadence/retrieval/bm25.py": "5e91b79a17bc9a3868a7087bced3c9758f8a13251ac9490d3a2ecbeb01870745",
+    "src/cadence/retrieval/index.py": "9771a29859b7b171a15cccbb6e7f81c7e48451d46891b6d363cc19f084716ef9"
+  },
+  "revision": {
+    "commit": "3b2e4940142bd46034d905f256d7ea503de01236",
+    "dirty": true
+  },
+  "split": "dev",
+  "human_validated": false,
+  "threshold": 0.9,
+  "n": 50,
+  "mode": "free-tier-network-permitted"
+}

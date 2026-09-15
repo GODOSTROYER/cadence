@@ -1,0 +1,25 @@
+{
+  "kind": "local browser/API live smoke, not held-out evaluation",
+  "message_id": "h_001",
+  "input_source": "approved public benchmark text",
+  "checks": {
+    "page_title": "Playground \u2014 Cadence",
+    "result": "intent, decision, reply and six evidence cards rendered",
+    "console_errors_warnings": []
+  },
+  "receipt": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_tokens": 2391,
+    "output_tokens": 210,
+    "latency_ms": 2542
+  },
+  "observed_rounded_pipeline_latency_seconds": 2.6,
+  "limitations": [
+    "One request, no distribution or throughput claim",
+    "Local retriever includes the original source thread; not independent accuracy evidence",
+    "No production deployment tested"
+  ],
+  "network_calls": 1,
+  "backend_request_duration_ms": 4581.5,
+  "backend_duration_source": "request_id=1ff28549c2504c8e980ffa420b77c9cf middleware log, HTTP200"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "execution_commit": "b8317d6d91813d4d6d83336fb3eb05a1d032d52b",
+  "authorization": "Author explicitly approved public cleaned benchmark messages and generated replies being sent to configured free-tier Gemini APIs.",
+  "predictions": 800,
+  "systems": 4,
+  "messages_per_system": 200,
+  "judge_rows": 800,
+  "judge_pairs": 200,
+  "successful_call_receipts": 800,
+  "cached_predictions": 0,
+  "model_terminal_failures": 0,
+  "provider_retry_failures": 3,
+  "provider_retry_scope": "Three ServerError attempts across two judge calls; both eventually succeeded. Failed-attempt tokens unavailable.",
+  "billing": "Configured free-tier intent; billing not independently verified.",
+  "code_integrity": "Frozen source matched committed logical-text content. Post-run modifications only integrity.py and pipeline.py at verification; CRLF normalized per provenance.sha256.",
+  "artifacts": {
+    "manifest.json": "74e5e2a3bd85107c804a8f9b1f7578b46193b26f0ea6456a57a75b916fcfa0c4",
+    "predictions.jsonl": "ba8229b348f0750f80a913babe6c126e8255928fdf4d1ba3c4cb457efd716b81",
+    "judge_orders.jsonl": "36418e22a037a487426c8f2a88dbacc17f9559690b531585da0f315548d94be2",
+    "comparisons.json": "d6e072a1973637188b4e3d768315fb56443e46300b4e4fbc91de87a9f97ce9f9",
+    "summary.json": "625a52bda4a915e9d70cae686cd990b587194b46db5801c410f6829d14df9eb0",
+    "calls.sqlite": "69d5a81b628f56c3c40a55212252ed55d94410b0acf26c29577ee465b1006825"
+  },
+  "post_audit_repairs": "Separate consumed-benchmark replay under results/post_audit_regression; frozen outputs preserved."
+}

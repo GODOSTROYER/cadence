@@ -55,7 +55,7 @@ class RateLimiter:
         while self._window and now - self._window[0] >= WINDOW_SECONDS:
             self._window.popleft()
 
-    def _wait_for_window(self) -> None:
+    def _wait_for_window(self, deadline: float | None = None) -> None:
         """Sleep until fewer than `rpm` requests were started in the last minute."""
         while True:
             now = self._clock()
@@ -63,6 +63,8 @@ class RateLimiter:
             if len(self._window) < self.rpm:
                 return
             wait = WINDOW_SECONDS - (now - self._window[0])
+            if deadline is not None and now + wait >= deadline:
+                raise QuotaExhausted("Local rate-limit wait exceeds the request deadline; retry later.")
             log.info("rate limit: %s at %d req/min, sleeping %.1fs", self.model, self.rpm, wait)
             self._sleep(max(wait, 0.0))
 
@@ -70,12 +72,17 @@ class RateLimiter:
         """Requests still allowed today for this model (never negative)."""
         return max(self.rpd - self.cache.quota_get(self.model, self._today()), 0)
 
-    def acquire(self) -> int:
+    def acquire(self, deadline: float | None = None) -> int:
         """Block until a request may start, count it against today's quota, and return today's count.
 
         Raises `QuotaExhausted` (before sleeping) when the persisted daily counter has reached `rpd`.
         """
-        with self._lock:
+        remaining = max(0.0, deadline - self._clock()) if deadline is not None else -1
+        if not self._lock.acquire(timeout=remaining):
+            raise QuotaExhausted("Local request queue exceeded the deadline; retry later.")
+        try:
+            if deadline is not None and self._clock() >= deadline:
+                raise QuotaExhausted("Local request queue exceeded the deadline; retry later.")
             day = self._today()
             used = self.cache.quota_get(self.model, day)
             if used >= self.rpd:
@@ -83,9 +90,11 @@ class RateLimiter:
                     f"daily quota exhausted for {self.model}: {used}/{self.rpd} requests on {day} (UTC). "
                     "Wait for the UTC day to roll over, lower the workload, or run with CADENCE_CACHE_ONLY=1."
                 )
-            self._wait_for_window()
+            self._wait_for_window(deadline)
             self._window.append(self._clock())
             return self.cache.quota_incr(self.model, day)
+        finally:
+            self._lock.release()
 
 
 __all__ = ["RateLimiter", "WINDOW_SECONDS"]

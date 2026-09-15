@@ -1,0 +1,35 @@
+{
+  "prediction_commit": "27312f710f3587edb07cfd43b34d4eb0f85bf82d",
+  "source_checkout": "7ed653e2827a2a99d42885d9a974c74988f42974",
+  "files": {
+    "data/golden/golden_set.jsonl": "0b64d5fa83f26c0bbead5bb7f7ecadc0fd8d58cad089ce7bb40cb54e1ed18723",
+    "results/predictions.jsonl": "fa27571fe8aadc7cbe03f482cf6829bd37efa203f2b9bf136c5f838725e57fcf",
+    "results/judge_scores.jsonl": "f73435db6bcd8665e693767f42ea2ba94f7c8ba9dd6eebe9d49d7d332ce0cde8"
+  },
+  "headline": {
+    "intent_macro_f1": 0.8214832060840876,
+    "escalation_recall": 0.9397590361445783,
+    "auto_handle_rate": 0.43,
+    "judge_overall_mean": 4.58,
+    "judge_overall_mean_nn": 3.315,
+    "ci95": {
+      "intent_macro_f1": [
+        0.7644447630230675,
+        0.86957258540509
+      ],
+      "escalation_recall": [
+        0.883686730506156,
+        0.9875
+      ],
+      "auto_handle_rate": [
+        0.365,
+        0.49512499999999987
+      ],
+      "judge_overall_mean": [
+        4.46,
+        4.685
+      ]
+    }
+  },
+  "kind": "historical AI-labelled evaluation; not human validation"
+}

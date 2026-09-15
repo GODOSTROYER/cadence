@@ -21,8 +21,8 @@ function errorNote(error: unknown, hasKey: boolean): { text: string; tone: "ambe
   const kind = agentErrorKind(error);
   if (kind === "quota") {
     return hasKey
-      ? { text: "Your key is out of quota (the free tier resets daily). Try another, or clear it to go back to the pooled keys.", tone: "amber" }
-      : { text: "The pooled demo keys are out of quota for today. Paste your own free key to keep going.", tone: "amber" };
+      ? { text: "Your project is rate limited. Wait and retry; quotas are shared by keys in the same project.", tone: "amber" }
+      : { text: "The demo is rate limited. Wait and retry, or use your own free-tier project key.", tone: "amber" };
   }
   if (kind === "invalid-key") {
     return hasKey
@@ -79,6 +79,10 @@ export function OwnKeyField({ error, compact = false, className }: OwnKeyFieldPr
 
   return (
     <div className={cx("flex flex-col", compact ? "gap-2" : "gap-3", className)}>
+      <p className="text-[12px] leading-5 text-faint">
+        Use public or fictional messages only. Google's free tier may use prompts and replies to improve its products.
+        Cadence does not save visitor messages in the deployed reply cache.
+      </p>
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] leading-5">
         <KeyRound className="size-3.5 shrink-0 text-faint" aria-hidden="true" />
         {hasKey ? (

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "g_005",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_006",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_009",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_011",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_021",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_024",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_047",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_050",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_059",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_060",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_061",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_064",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_077",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_084",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_086",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_087",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_090",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_095",
+    "A": "agent",
+    "B": "agent_no_evidence"
+  },
+  {
+    "id": "g_096",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  },
+  {
+    "id": "g_098",
+    "A": "agent_no_evidence",
+    "B": "agent"
+  }
+]

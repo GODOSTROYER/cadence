@@ -65,6 +65,7 @@ rules:
     patterns:
       - '^\s*(<url>\s*)+$'
       - '^\s*(help|hello|hi|hey|please help|pls help|\?+)\s*(<url>)?\s*$'
+      - '^\s*(any (eta|update)( on this)?|what is this|what.s this|please (check|read) (your |my )?dms?|check (your |my )?dms?)\s*[:?!.,]*\s*(<url>)?\s*$'
   - flag: password_or_card_shared
     force_escalate: true
     reason_code: account_security

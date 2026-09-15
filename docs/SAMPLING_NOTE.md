@@ -90,3 +90,11 @@ independently by two annotators and adjudicated (see `LABELLING_GUIDE.md` §7 an
 - Exact-duplicate removal keeps the earliest tweet, so campaign tweets ("UPDATE IPHONE X") survive once.
 - Because rare intents are over-sampled, the golden set's intent distribution is **not** the natural
   distribution; the `random` slice (30 %) is the unbiased estimate of it (see `docs/TAXONOMY.md` §4).
+
+## September 2026 audit addendum: separate AI-reviewed benchmark
+
+The original250 labels were produced by AI passes, not humans. Historical references to hand-labeling should not be interpreted as human annotation. The original200test examples were inspected repeatedly across runs and now serve as a regression set.
+
+A new200-example sample is locked under `data/holdout/`. Script08 excludes original candidates, taxonomy IDs/texts, old golden rows, shared tweet components and near duplicates before sampling with seed2026. Within-sample duplicate rejection changes sampling weights; the sample is not a uniform traffic estimate. Review was performed on customer text before benchmark predictions, with the existing taxonomy/labeling guide available. No labels were changed after prediction.
+
+At the author's request, Codex reviewed every new message and wrote its rationale in `ai_review_notes.tsv`. `AI_REVIEW.lock.json` records provenance and hashes; `ai_reviewed_set.jsonl` has `label_source: ai` on every row. The same assistant also developed code. Arnav Bule subsequently completed human review of all 200 examples, confirmed on 16 September 2026; see [review record](HUMAN_REVIEW.md). This author review is recorded separately from the original frozen labels and blank annotation worksheet. Measured judge–human agreement remains unavailable.

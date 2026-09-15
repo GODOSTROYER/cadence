@@ -1,0 +1,194 @@
+{
+  "revision": {
+    "commit": "3b2e4940142bd46034d905f256d7ea503de01236",
+    "dirty": true
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.6",
+  "historical_agent_vs_zero_shot": {
+    "n": 200,
+    "seed": 2026,
+    "bootstrap_resamples": 2000,
+    "direction": "left minus right",
+    "left": {
+      "intent_accuracy": 0.815,
+      "macro_f1": 0.8214832060840876,
+      "decision_accuracy": 0.795,
+      "escalation_recall": 0.9397590361445783,
+      "auto_handle_rate": 0.43,
+      "unsafe_auto_rate": 0.05813953488372093
+    },
+    "right": {
+      "intent_accuracy": 0.81,
+      "macro_f1": 0.8222538585987351,
+      "decision_accuracy": 0.87,
+      "escalation_recall": 0.9156626506024096,
+      "auto_handle_rate": 0.525,
+      "unsafe_auto_rate": 0.06666666666666667
+    },
+    "delta": {
+      "intent_accuracy": {
+        "estimate": 0.004999999999999893,
+        "ci95": [
+          -0.039999999999999925,
+          0.05499999999999994
+        ],
+        "valid_resamples": 2000
+      },
+      "macro_f1": {
+        "estimate": -0.0007706525146474741,
+        "ci95": [
+          -0.050661574698751086,
+          0.05077597173677119
+        ],
+        "valid_resamples": 2000
+      },
+      "decision_accuracy": {
+        "estimate": -0.07499999999999996,
+        "ci95": [
+          -0.14,
+          -0.009875000000000583
+        ],
+        "valid_resamples": 2000
+      },
+      "escalation_recall": {
+        "estimate": 0.024096385542168752,
+        "ci95": [
+          -0.04396008403361351,
+          0.09302325581395343
+        ],
+        "valid_resamples": 2000
+      },
+      "auto_handle_rate": {
+        "estimate": -0.09500000000000003,
+        "ci95": [
+          -0.16012500000000002,
+          -0.02999999999999997
+        ],
+        "valid_resamples": 2000
+      },
+      "unsafe_auto_rate": {
+        "estimate": -0.008527131782945736,
+        "ci95": [
+          -0.06157113736583743,
+          0.048045174044292455
+        ],
+        "valid_resamples": 2000
+      }
+    },
+    "intent_mcnemar": {
+      "left_only_correct": 12,
+      "right_only_correct": 11,
+      "p_exact": 1.0
+    },
+    "decision_mcnemar": {
+      "left_only_correct": 15,
+      "right_only_correct": 30,
+      "p_exact": 0.035697803555194696
+    }
+  },
+  "retrieval": {
+    "n_queries": 250,
+    "read_seconds": 0.6533692000084557,
+    "build_seconds": 0.8875223000068218,
+    "p50_ms": 0.41310000233352184,
+    "p95_ms": 0.8262950053904206,
+    "rss_bytes_after_build_and_queries": 404750336
+  },
+  "historical_cache": {
+    "gemini-3.5-flash": {
+      "n": 85,
+      "recorded_call_latency_ms": {
+        "p50": 13234.0,
+        "p95": 15147.4
+      },
+      "input_tokens": 201664,
+      "output_tokens": 36206
+    },
+    "gemini-3.5-flash-lite": {
+      "n": 1059,
+      "recorded_call_latency_ms": {
+        "p50": 1578.0,
+        "p95": 3250.0
+      },
+      "input_tokens": 2437237,
+      "output_tokens": 224077
+    },
+    "gemini-3.1-flash-lite": {
+      "n": 627,
+      "recorded_call_latency_ms": {
+        "p50": 2968.0,
+        "p95": 5307.499999999999
+      },
+      "input_tokens": 470816,
+      "output_tokens": 288823
+    }
+  },
+  "golden_with_near_duplicate_corpus_text": 7,
+  "duplicates": [
+    {
+      "id": "g_022",
+      "near_duplicate_threads": [
+        "t_1442526"
+      ]
+    },
+    {
+      "id": "g_061",
+      "near_duplicate_threads": [
+        "t_2342547"
+      ]
+    },
+    {
+      "id": "g_071",
+      "near_duplicate_threads": [
+        "t_1659835"
+      ]
+    },
+    {
+      "id": "g_111",
+      "near_duplicate_threads": [
+        "t_1900273"
+      ]
+    },
+    {
+      "id": "g_119",
+      "near_duplicate_threads": [
+        "t_700419",
+        "t_842898",
+        "t_1404955",
+        "t_1969973",
+        "t_2275499",
+        "t_2289033",
+        "t_2872024"
+      ]
+    },
+    {
+      "id": "g_226",
+      "near_duplicate_threads": [
+        "t_2296881",
+        "t_467605",
+        "t_2802522",
+        "t_2225653"
+      ]
+    },
+    {
+      "id": "g_246",
+      "near_duplicate_threads": [
+        "t_2807573",
+        "t_464469"
+      ]
+    }
+  ],
+  "label_provenance": "AI-labelled; human agreement unavailable",
+  "live_deployed_latency": null,
+  "retrieval_multipliers": {
+    "1.25": 18591,
+    "0.8500000238418579": 8620,
+    "1.0": 416
+  },
+  "limitations": [
+    "Cache call latency is historical, not current network or endpoint latency",
+    "RSS is process memory, not isolated index memory",
+    "Paired zero-shot comparison changes prompt and policy, not a retrieval-only ablation"
+  ]
+}

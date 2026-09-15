@@ -37,7 +37,7 @@ function monthLabel(ym: string): string {
 
 const REPRODUCE_STEPS: { cmd: string; what: string; time: string }[] = [
   { cmd: "make setup", what: "Install the Python package and the UI dependencies.", time: "2 min" },
-  { cmd: "make reproduce", what: "Rebuild the BM25 index, replay every agent, baseline and judge call from the committed LLM cache, recompute metrics, CIs and failure modes, export the UI data.", time: "6–8 min" },
+  { cmd: "make reproduce", what: "Verify archived inputs and cached receipts, then recompute historical metrics and CIs. Zero model calls; this does not execute the revised agent.", time: "seconds" },
   { cmd: "make ui && make serve", what: "Build this dashboard and serve it with the API on http://127.0.0.1:8000.", time: "2 min" },
   { cmd: "GEMINI_API_KEY=… make run judge eval", what: "Optional: rerun with fresh Gemini calls instead of the cache. Rate-limited to the free tier, so allow about an hour.", time: "optional" },
 ];
@@ -108,15 +108,15 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
           </div>
           <div>
             <dt className="text-faint">Sampling</dt>
-            <dd className="text-muted">Stratified by intent-keyword bucket plus a random quarter; two label passes with adjudication ({summary.annotator_agreement.n_disagreements} disagreements).</dd>
+            <dd className="text-muted">Historical stratified sample: two AI label passes with adjudication ({summary.annotator_agreement.n_disagreements} disagreements). The test examples were inspected across multiple runs.</dd>
           </div>
           <div>
             <dt className="text-faint">Labels</dt>
-            <dd className="text-muted">Intent, should-escalate + reason code, sentiment, media-only. κ intent {fixed(summary.annotator_agreement.intent_kappa, 2)}, escalation {fixed(summary.annotator_agreement.escalation_kappa, 2)}.</dd>
+            <dd className="text-muted">Intent, should-escalate + reason code, sentiment, media-only. AI agreement κ intent {fixed(summary.annotator_agreement.intent_kappa, 2)}, escalation {fixed(summary.annotator_agreement.escalation_kappa, 2)}. No human agreement measurement.</dd>
           </div>
           <div>
             <dt className="text-faint">Leakage guard</dt>
-            <dd className="text-muted">A golden example's own thread is excluded from retrieval, so the agent never sees its answer key.</dd>
+            <dd className="text-muted">The historical run excluded each example's own thread but still had near-duplicate leakage. The revised benchmark excludes all locked threads, overlapping tweet components and near duplicates.</dd>
           </div>
         </dl>
       </Section>
@@ -232,7 +232,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         lede={`${summary.meta.judge_model} scores the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge is a different model from the agent (${summary.meta.agent_model}). ${
           summary.judge_agreement && summary.judge_agreement.n > 0
             ? `A human rated ${int(summary.judge_agreement.n)} pairs blind to calibrate it.`
-            : "No human ratings exist yet, so the judge is uncalibrated: its scores are LLM opinion until pairs are rated on the Rate page and the evaluation re-runs."
+            : "Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores. Separate blind human ratings for numerical judge calibration are not recorded."
         }`}
       >
         <div className="table-wrap">
@@ -259,7 +259,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         </div>
       </Section>
 
-      <Section id="reproduce" eyebrow="06 · reproduce" title="Fifteen minutes, no API key" lede="Every Gemini call is cached in a committed SQLite file keyed by model, prompt and schema, so the full evaluation replays offline and deterministically (seed 42).">
+      <Section id="reproduce" eyebrow="06 · reproduce" title="Fifteen minutes, no API key" lede="Archived call receipts and predictions are committed. The reproduce command verifies their provenance and recalculates historical metrics offline. Revised experiments and completed human review of all 200 examples by Arnav Bule are reported separately in the repository.">
         <ol className="region-plain divide-y divide-border">
           {REPRODUCE_STEPS.map((s, i) => (
             <li key={s.cmd} className="grid gap-2 px-5 py-4 sm:grid-cols-[28px_minmax(0,300px)_1fr_auto] sm:items-baseline sm:gap-5">

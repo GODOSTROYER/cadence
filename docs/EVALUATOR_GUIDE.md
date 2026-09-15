@@ -1,56 +1,56 @@
-# Evaluator's guide — fifteen minutes, in order
+# Evaluator guide: reproduce and inspect in fifteen minutes
 
-*For the Hiver team. Everything below is a claim followed by the place to check it.*
+## 1. Read the claim (2 minutes)
 
-## 0. What you are looking at (one minute)
+Read `REPORT.md`, especially “What is misleading about my headline number?”. Original numbers belong to the archived agent. New labels originated with AI and all 200 examples have now been human-reviewed by Arnav Bule. See [review record](HUMAN_REVIEW.md). There are no measured human judge-agreement scores.
 
-Cadence is an AI support agent for @SpotifyCares built from the Kaggle "Customer Support on Twitter" dataset. It classifies a customer tweet into one of 12 intents, drafts a public reply grounded in 27,627 real SpotifyCares conversations, and decides whether the reply can go out unreviewed or a human must take over, with a stated reason. The brief said the proof is worth more than the system; most of the repo is the proof.
+## 2. Recompute archived metrics (3 minutes after dependency install)
 
-| Where | What it is |
-|---|---|
-| **https://www.arnavbule.in/hiver-assignment/** | The pitch page and the live agent (real model, real keys). |
-| `REPORT.md` | The six-page report: framing, method, results vs. baselines, failure analysis, what is misleading, next week. |
-| `DECISION_LOG.md` | 18 non-obvious decisions, each with the why. |
-| `docs/FAILURE_ANALYSIS.md` | Five failure modes with verbatim examples; the two earlier runs are in `_v1.md` / `_v2.md`. |
-| `data/golden/` | 250 labelled tweets, both annotation passes, adjudication log, labelling guide. |
-| `results/` | Every prediction, every judge score, the summary JSON, figures; `v1/` and `v2/` are the earlier runs. |
-| `cache/llm_cache.sqlite` | Every Gemini call ever made for these numbers, so they replay without a key. |
+```bash
+python -m pip install -e ".[dev]"
+python -m cadence.cli reproduce
+```
 
-## 1. Try the agent (three minutes)
+This verifies input hashes and 1,771 cached receipts, then recomputes the old results under `results/reproduced/`, without a key or network calls. Expect intent macro-F1 ≈0.82148, escalation recall≈0.93976 and auto-handle rate 0.43. Inspect `meta.threshold_selection`: the original dev recall constraint was not met. The command does not execute today's changed model pipeline.
 
-Open the live site, paste a tweet, watch the decision. Useful probes:
+## 3. Inspect fresh evidence (4 minutes)
 
-- "my downloads keep disappearing on Android" → should auto-handle with self-serve steps grounded in a cited thread.
-- "I was charged twice this month" → must escalate `billing_dispute` (a deterministic rule, not the model's mood).
-- "someone else is playing music on my account" → must escalate `account_security`, even if the model wanted to auto-handle (enforced policy default).
-- "Check your DMs" → a known failure mode: the model answers confidently; the gold label says a human should look.
+- `data/holdout/HOLDOUT.lock.json`: sampling exclusions, seed and hashes.
+- `data/holdout/AI_REVIEW.lock.json`: original pre-inference lock: 200 AI labels, 81 escalations, zero human ratings at lock time. Subsequent human review by Arnav Bule is recorded in `data/holdout/HUMAN_REVIEW.json`.
+- `data/holdout/ai_review_notes.tsv`: individual labels and rationales, written before predictions.
+- `results/holdout_final/manifest.json`: exact execution revision, labels, threshold and source fingerprints.
+- `results/holdout_final/predictions.jsonl`: 800 predictions, four systems with identical 200 IDs.
+- `results/holdout_final/judge_orders.jsonl`: two presentation orders for each agent/baseline pair.
+- `docs/FAILURE_ANALYSIS_FRESH.md`: five concrete failure modes and post-audit repair boundaries.
+- `results/dev_experiment/comparison.json`: 50-message paired retrieval ablation.
+- `results/dev_experiment/draft_judge_comparison.json`: 20-message, both-order comparison of pre-guard drafts; human agreement is explicitly null.
 
-The evidence panel shows the six retrieved threads and which ones were cited. The step timeline shows what was a rule, what was the model, and what was the confidence guard. Five free-tier keys are pooled behind the demo; you can paste your own from AI Studio in the playground if they run dry.
+Recompute the revised run's coverage, receipt checks and (only when complete) paired metrics:
 
-## 2. Check the headline numbers against the rubric (five minutes)
+```bash
+python analysis_tools/reproduce_benchmark.py
+```
 
-All on the 200 held-out test tweets, 95% bootstrap CIs, third and final run.
+The default selects the completed frozen benchmark. Expect agent macro-F1 .78886, recall .93827, coverage .35, and five missed escalations. Outputs go to `results/reproduced/benchmark_summary.json`; zero model calls. Selecting `--directory results/holdout` instead reports the preserved initial run as incomplete and withholds its headline metrics.
 
-| Rubric item | Number | Check it |
-|---|---|---|
-| Intent classification | macro-F1 0.82 [0.76–0.87], 12 intents | `REPORT.md §3`, `results/eval_summary.json → intent` |
-| Escalation decision | recall 0.94 [0.88–0.99] at 43% auto-handle; 5 missed of 83 | `results/eval_summary.json → escalation` (the threshold sweep is there too) |
-| Reply quality | judge 4.58/5 vs 3.32 nearest historical reply vs 2.56 template; ship rate 90% | `results/judge_scores.jsonl` (600 rows, rationales included) |
-| Two baselines minimum | seven: majority, keyword rules, TF-IDF+LR, zero-shot LLM (ablation), always/never escalate, template, nearest neighbour | `REPORT.md §3` tables |
-| Golden set 150–250, sampling note | 250, stratified, two passes + adjudication, κ 0.96 / 0.95 | `docs/SAMPLING_NOTE.md`, `data/golden/LABELLING_GUIDE.md`, `data/golden/adjudication.jsonl` |
-| LLM judge + human agreement | comparative blind judge on a different model; human-rating flow and κ/ρ wired, **no human ratings collected yet** | `cadence/eval/judge.py`, `cadence/eval/agreement.py`, `REPORT.md §3` last subsection |
-| Failure analysis, top 5 | five modes, verbatim examples, fixes measured across three runs | `docs/FAILURE_ANALYSIS.md`, `results/failure_modes.json` |
-| "What is misleading" | eight items, the first one is the recall figure itself | `REPORT.md §5`, also printed on the site |
-| Reproduce in <15 min | `python -m cadence.cli reproduce`, ~3 min, no key | `README.md` |
+The final release layer additionally blocks unsupported completed actions, historical numeric capability limits and automatic private handoffs. Reproduce its **retrospective** verification with `python analysis_tools/post_audit_regression.py`. It copies the frozen receipt store to a temporary database, enforces cache-only mode, and writes separate artifacts under `results/post_audit_regression/`. This set was already inspected: these are regression results, never fresh benchmark claims. Original judge scores do not apply to changed replies.
 
-## 3. Read the three things I would ask about (four minutes)
+All successful new model calls retain receipts in the respective `calls.sqlite`. Cached metadata stores original request latency; it is not the cost or time of a later replay. Failed requests are discussed in the run record and must not be silently counted as successful benchmark calls.
 
-1. **The recall number is a policy setting.** Without the confidence guard the same model reaches 0.76 recall at 65% auto-handle. The guard (chosen on 50 dev tweets) moves that to 0.94 at 43%, at the price of 36 unnecessary escalations. The sweep is in the report; the reasoning for the rule that picks the threshold, and why it may never pick "escalate everything", is `DECISION_LOG.md #17`.
-2. **Retrieval helps the reply, not the classification.** The zero-shot ablation (same model, no evidence) ties at 0.82 macro-F1 and escalates with better precision. Evidence of self-serve fixes makes the agent more willing to auto-handle; that is failure mode 1.
-3. **The labels were produced by two AI passes from one written guide, then adjudicated.** κ 0.96 is therefore an upper bound on human agreement. The guide is in the repo so anyone can re-label a sample and compare; the adjudication log shows where the guide itself was ambiguous.
+## 4. Verify implementation (4 minutes)
 
-## 4. If you have two more minutes
+```bash
+python -m pytest -q
+python -m ruff check src scripts tests api
+cd ui
+npm ci
+npm run build
+```
 
-- `git log --oneline` reads as the build history: contract first, modules in parallel, golden set, three evaluation runs with the fixes between them.
-- `CONTRACT.md` is the spec every module was built against; it is why independently built parts fit.
-- `python -m pytest` runs 250+ tests with no network.
+The offline suite exercises data, retrieval, structured response parsing, deterministic escalation, integrity checks, cached evaluation and both API entrypoints. The UI build checks TypeScript and bundling; it is not browser interaction testing. [Remote CI](https://github.com/GODOSTROYER/cadence/actions/runs/35033646086) passed on implementation commit `3efe5bb`: Linux Python 74 seconds, Windows Python 164 seconds, and Node/UI 20 seconds, including dependency installation. Both Python jobs also reproduced frozen metrics and cached guard regressions.
+
+## 5. Inspect a case (2 minutes)
+
+Trace a message through `src/cadence/agent/pipeline.py`, then compare its evidence, citations, `trace.llm_decision`, integrity flags and final decision. For an unsafe URL fixture, the final reply must become a holding reply and escalate. For sensitive secondary intent, policy must also escalate. A valid citation alone is not proof the reply follows from it.
+
+See [deployment verification](DEPLOYMENT.md) for the current public release. Dashboard charts remain historical and are distinguished from revised benchmark results. Run locally to reproduce the code; live inference requires confirmed free-tier credentials and sends text to Gemini. No account changes or tweet posting occur. The benchmark runner supports `--ai-reviewed` explicitly; its optional human-label path refuses fabricated human provenance.

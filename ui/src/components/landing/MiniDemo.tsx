@@ -10,7 +10,6 @@ import { OwnKeyField } from "@/components/OwnKeyField";
 import { ReplyPreview, TWEET_LIMIT } from "@/components/ReplyPreview";
 import { Skeleton } from "@/components/Skeleton";
 import { StepTimeline, type StepStatus, type TimelineStep } from "@/components/StepTimeline";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { AGENT_AVAILABLE, describeError, handle, LIVE_AGENT } from "@/lib/api";
 import { cx } from "@/lib/cx";
 import { compact, int, ms as formatMs, truncate } from "@/lib/format";
@@ -24,10 +23,6 @@ const STEP_IDS = ["rules", "retrieve", "llm", "decide"] as const;
 type StepId = (typeof STEP_IDS)[number];
 const PENDING: Record<StepId, StepStatus> = { rules: "pending", retrieve: "pending", llm: "pending", decide: "pending" };
 
-function sleep(msec: number): Promise<void> {
-  return new Promise((resolve) => window.setTimeout(resolve, msec));
-}
-
 function normalise(s: string): string {
   return s.replace(/\s+/g, " ").trim();
 }
@@ -36,10 +31,10 @@ function buildSteps(statuses: Record<StepId, StepStatus>, r: AgentResponse | nul
   const flags = r?.rule_flags ?? [];
   const forced = r?.trace?.forced_by_rules ?? false;
   return [
-    { id: "rules", label: "Rules", status: statuses.rules, ms: statuses.rules === "done" ? 1 : null, detail: statuses.rules === "done" ? (flags.length ? `${flags.length} flag${flags.length === 1 ? "" : "s"}${forced ? ", forced" : ""}` : "no flags") : undefined },
+    { id: "rules", label: "Rules", status: statuses.rules, ms: null, detail: statuses.rules === "done" ? (flags.length ? `${flags.length} flag${flags.length === 1 ? "" : "s"}${forced ? ", forced" : ""}` : "no flags") : undefined },
     { id: "retrieve", label: "Retrieve", status: statuses.retrieve, ms: statuses.retrieve === "done" ? r?.trace?.retrieval_ms ?? null : null, detail: statuses.retrieve === "done" ? "BM25 top-6" : undefined },
     { id: "llm", label: "Gemini", status: statuses.llm, ms: statuses.llm === "done" ? r?.trace?.llm_ms ?? null : null, detail: statuses.llm === "done" && r?.trace ? `${compact(r.trace.prompt_tokens)} → ${int(r.trace.output_tokens)} tok` : undefined },
-    { id: "decide", label: "Decide", status: statuses.decide, ms: statuses.decide === "done" ? 0 : null, detail: statuses.decide === "done" && r ? (r.decision === "escalate" ? "escalate" : "auto-handle") : undefined },
+    { id: "decide", label: "Decide", status: statuses.decide, ms: null, detail: statuses.decide === "done" && r ? (r.decision === "escalate" ? "escalate" : "auto-handle") : undefined },
   ];
 }
 
@@ -51,7 +46,6 @@ export interface MiniDemoProps {
 
 /** A compact composer that runs the agent (live) or replays a recorded run, and shows intent, decision and reply. */
 export function MiniDemo({ threshold, className }: MiniDemoProps) {
-  const reduced = useReducedMotion();
   const [text, setText] = useState(RECORDED[0]?.input_text ?? "");
   const [phase, setPhase] = useState<Phase>("idle");
   const [statuses, setStatuses] = useState<Record<StepId, StepStatus>>(PENDING);
@@ -79,7 +73,6 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
     if (!canRun) return;
     const id = ++runId.current;
     const alive = () => runId.current === id;
-    const wait = (msec: number) => (reduced ? Promise.resolve() : sleep(msec));
     setPhase("running");
     setResult(null);
     setError(null);
@@ -89,19 +82,9 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
     let response: AgentResponse;
     try {
       if (AGENT_AVAILABLE) {
-        const request = handle(text);
-        await wait(240);
-        if (alive()) setStatuses({ rules: "done", retrieve: "active", llm: "pending", decide: "pending" });
-        await wait(360);
-        if (alive()) setStatuses({ rules: "done", retrieve: "done", llm: "active", decide: "pending" });
-        response = await request;
+        response = await handle(text);
       } else {
         if (!recordedMatch) throw new Error("Only the three recorded messages replay here.");
-        await wait(240);
-        if (alive()) setStatuses({ rules: "done", retrieve: "active", llm: "pending", decide: "pending" });
-        await wait(360);
-        if (alive()) setStatuses({ rules: "done", retrieve: "done", llm: "active", decide: "pending" });
-        await wait(700);
         response = recordedMatch;
       }
     } catch (err) {
@@ -111,9 +94,6 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
       setPhase("error");
       return;
     }
-    if (!alive()) return;
-    setStatuses({ rules: "done", retrieve: "done", llm: "done", decide: "active" });
-    await wait(220);
     if (!alive()) return;
     setStatuses({ rules: "done", retrieve: "done", llm: "done", decide: "done" });
     setResult(response);

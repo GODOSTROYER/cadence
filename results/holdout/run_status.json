@@ -1,0 +1,13 @@
+{
+  "status": "incomplete",
+  "execution_commit": "c774b960737c82439804636c65aea39cd32a9c68",
+  "expected_messages": 200,
+  "saved_messages_per_system": 31,
+  "saved_predictions": 124,
+  "successful_call_receipts": 69,
+  "judge_calls": 0,
+  "stop_reason": "Gemini HTTP 400: remaining provider deadline was below its 10-second minimum after local quota queueing.",
+  "resume_status": "Automatic approval review rejected further external transfer pending explicit user approval.",
+  "later_code_changes": "Deadline reserve and cleanup fix; current incident-status guard from pre-existing historical g_127 failure. No new holdout error analysis or relabeling performed. Final code requires a separately named run and manifest.",
+  "headline_reported": false
+}

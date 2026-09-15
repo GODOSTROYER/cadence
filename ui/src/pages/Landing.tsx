@@ -17,6 +17,7 @@ import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { AGENT_AVAILABLE, getHealth, getPublicSummary } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { cx } from "@/lib/cx";
+import { HISTORICAL_CAVEATS } from "@/lib/evidenceCaveats";
 import { ciPct, fixed, int, pct } from "@/lib/format";
 import { systemLabelFor, systemShortFor, type SystemTask } from "@/lib/labels";
 import { systemColor } from "@/lib/palette";
@@ -128,7 +129,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   const noGuard = escalation.threshold_sweep.find((p) => p.threshold === 0) ?? escalation.threshold_sweep[0];
   const nnGap = isNum(headline.judge_overall_mean) && isNum(headline.judge_overall_mean_nn) ? headline.judge_overall_mean - headline.judge_overall_mean_nn : null;
   const zeroShot = intent.systems.llm_zero_shot;
-  const live = Boolean(health?.has_api_key) && AGENT_AVAILABLE;
+  const live = Boolean(health?.has_api_key) && !health?.cache_only && AGENT_AVAILABLE;
 
   // Best simple baseline per task, chosen by the task's own headline metric.
   const bestSimpleIntent = (["simple_keyword", "simple"] as const).map((id) => ({ id, m: intent.systems[id] })).filter((x) => x.m).sort((a, b) => b.m!.macro_f1 - a.m!.macro_f1)[0];
@@ -144,8 +145,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: `${int(meta.n_golden)} tweets, labelled twice`,
       body: (
         <>
-          Stratified sample of real openers; two independent annotation passes plus adjudication of the {int(annot.n_disagreements)} disagreements. Agreement κ {fixed(annot.intent_kappa, 2)} on intent,{" "}
-          {fixed(annot.escalation_kappa, 2)} on escalation. {int(meta.n_dev)} dev / {int(meta.n_test)} test; the test split is touched once.
+          Stratified sample of real openers; two AI annotation passes plus adjudication of the {int(annot.n_disagreements)} disagreements. AI agreement κ {fixed(annot.intent_kappa, 2)} on intent,{" "}
+          {fixed(annot.escalation_kappa, 2)} on escalation. {int(meta.n_dev)} dev / {int(meta.n_test)} repeatedly inspected test examples. This does not establish human agreement.
         </>
       ),
       link: (
@@ -175,7 +176,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: "Blind, comparative, a different model",
       body: (
         <>
-          {meta.judge_model} scores agent, nearest-neighbour and template replies in one shuffled A/B/C call on five dimensions with three failure flags. Human ratings are wired in (a blind /rate flow, κ and ρ computed on the next run) and, so far, absent.
+          {meta.judge_model} scores agent, nearest-neighbour and template replies in one shuffled A/B/C call on five dimensions with three failure flags. Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores. Separate blind human ratings for calculating judge agreement are not recorded.
         </>
       ),
       link: <GoLink to="/method#judge">The rubric</GoLink>,
@@ -200,14 +201,14 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: "Every call cached, no key needed",
       body: (
         <>
-          <span className="t-mono text-text">python -m cadence.cli reproduce</span> rebuilds the index and replays every agent, baseline and judge call from the committed SQLite cache ({health ? int(health.cache_entries) : "1,771"} entries), then recomputes every number here. About three minutes on a laptop.
+          <span className="t-mono text-text">python -m cadence.cli reproduce</span> verifies recorded inputs and {health ? int(health.cache_entries) : "1,771"} cached receipts, then recomputes these archived metrics without a model call. This is artifact replay, not execution of the revised agent.
         </>
       ),
       link: <GoLink href={REPO}>GitHub · GODOSTROYER/cadence</GoLink>,
     },
     {
       eyebrow: "decision log",
-      title: "Eighteen calls that were not obvious",
+      title: "Fifteen decisions in the revised submission",
       body: <>Why BM25 and not embeddings, why one structured call, why the judge is a different model, why the churn rule matches "switching to". Each with the reasoning at the time, not after.</>,
       link: unlocked ? <GoLink to="/decisions">Decision log</GoLink> : <GoLink href={DECISION_LOG}>DECISION_LOG.md</GoLink>,
     },
@@ -222,9 +223,9 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   ];
 
   const next = [
-    "Split the single call into decide-then-draft, so the decision step sees the policy and the tweet but not the evidence; target recall ≥ 0.9 at ≥ 60% auto-handle without the confidence guard.",
-    "Sixty blind human ratings through the /rate flow from two people; report κ against the judge and re-weight the rubric where they disagree (the judge missed most dangling-clause defects).",
-    "A canonical link table: the brand cites the same dozen help articles over and over; map them to current URLs once and attach them deterministically, which removes failure mode 2 without touching the model.",
+    "The fresh locked 200-example benchmark and human review by Arnav Bule are complete. Compare the same agent with and without evidence before deciding whether another model call is justified.",
+    "Judge order sensitivity is measured, and Arnav Bule has completed human review of all 200 revised benchmark examples. Quantitative judge–human agreement remains unmeasured.",
+    "Expand the reviewed canonical links and label retrieval usefulness. Measure remaining broken-reference errors before claiming the link problem is solved.",
   ];
 
   return (
@@ -239,7 +240,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             </h1>
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-muted sm:text-[19px]">
               Cadence reads a customer tweet, classifies the intent, drafts a reply grounded in {int(nOpeners)} real @SpotifyCares conversations, and decides whether a human must step in.
-              Then it proves it on {int(meta.n_test)} held-out, hand-labelled tweets.
+              These charts show the archived agent on {int(meta.n_test)} repeatedly inspected AI-labelled test tweets. Revised benchmark results are reported separately in the repository; Arnav Bule has completed human review of all 200 revised benchmark examples.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/agent" className="btn btn-primary h-10 px-5 text-[14px]">
@@ -251,8 +252,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
                 <ArrowDown className="size-4" aria-hidden="true" />
               </button>
               <span className="flex items-center gap-2 sm:ml-2">
-                <Chip size="sm" mono tone={live ? "green" : "violet"} dot title={live ? "A Gemini key is configured; free text runs the real model." : "No live key on this build; the demo replays recorded runs."}>
-                  {live ? "live" : "recorded"}
+                <Chip size="sm" mono tone={live ? "green" : "violet"} dot title={live ? "A Gemini key is configured; free text runs the real model." : "Live inference is unavailable or disabled. Historical results are shown separately."}>
+                  {live ? "live" : health?.cache_only ? "cache-only" : "recorded"}
                 </Chip>
                 <span className="t-mono text-[12px] text-faint">{health?.agent_model ?? meta.agent_model}</span>
               </span>
@@ -263,7 +264,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             {[
               ["corpus", `${int(nOpeners)} SpotifyCares threads, 2017`],
               ["golden set", `${int(meta.n_golden)} tweets · two passes · κ ${fixed(annot.intent_kappa, 2)}`],
-              ["test split", `${int(meta.n_test)} tweets, 12 intents, touched once`],
+              ["test split", `${int(meta.n_test)} tweets, 12 intents, reused across runs`],
               ["baselines", "7 · trivial, simple, zero-shot LLM"],
               ["agent · judge", `${meta.agent_model} · ${meta.judge_model}`],
               ["replayable", `${health ? int(health.cache_entries) : "every"} cached calls, no key needed`],
@@ -291,11 +292,11 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             </p>
             <p className="text-muted">
               The number to distrust is escalation recall, {pct(headline.escalation_recall)}. It is a policy setting, not a model property: a confidence guard chosen on {int(meta.n_dev)} dev tweets. Without it the same model scores{" "}
-              {noGuard ? pct(noGuard.recall) : "less"}, and with it {int(agentEsc?.unnecessary_escalations ?? 0)} tweets go to a human who was not needed. The retrieval, meanwhile, does nothing for classification
-              {zeroShot ? ` (the zero-shot ablation ties at ${fixed(zeroShot.macro_f1, 2)})` : ""}; what it buys is the reply.
+              {noGuard ? pct(noGuard.recall) : "less"}, and with it {int(agentEsc?.unnecessary_escalations ?? 0)} tweets go to a human who was not needed. The historical retrieval and zero-shot systems have similar classification scores
+              {zeroShot ? ` (zero-shot scores ${fixed(zeroShot.macro_f1, 2)})` : ""}. This older comparison changes both prompt and policy; it does not isolate retrieval.
             </p>
             <p className="text-muted">
-              Every claim here links to where it can be checked: the playground runs the real model, the method page shows the pipeline and the policy, and one command replays every call from the committed cache without a key.
+              Every claim here links to where it can be checked: the playground runs the real model, the method page shows the pipeline and the policy, and one command verifies saved receipts and recomputes historical metrics without a key.
             </p>
           </div>
         </section>
@@ -369,7 +370,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
               ci={headline.ci95.judge_overall_mean ?? undefined}
               tone="sky"
               delta={isNum(nnGap) ? { value: nnGap, label: "vs nearest-neighbour reply" } : undefined}
-              hint={`Mean holistic score from ${meta.judge_model}. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. No human has calibrated the judge yet.`}
+              hint={`Mean holistic score from ${meta.judge_model}. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. Human review by Arnav Bule is complete; separate judge calibration is not recorded.`}
             />
           </div>
 
@@ -408,8 +409,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
                   .sort((a, b) => b.value - a.value)}
                 note={
                   reply.pairwise && isNum(reply.pairwise.agent_vs_nn_win_rate) && isNum(reply.pairwise.agent_vs_trivial_win_rate)
-                    ? `Wins ${pct(reply.pairwise.agent_vs_nn_win_rate)} of head-to-heads against the nearest-neighbour reply, ${pct(reply.pairwise.agent_vs_trivial_win_rate)} against the template. LLM opinion until humans rate.`
-                    : "LLM opinion until humans rate."
+                    ? `Wins ${pct(reply.pairwise.agent_vs_nn_win_rate)} of head-to-heads against the nearest-neighbour reply, ${pct(reply.pairwise.agent_vs_trivial_win_rate)} against the template. AI-generated scores; the latest benchmark was reviewed and approved by Arnav Bule.`
+                    : "AI-generated scores; the latest benchmark was reviewed and approved by Arnav Bule."
                 }
               />
             ) : (
@@ -420,10 +421,10 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             )}
           </div>
 
-          {meta.caveats.length > 0 && (
+          {HISTORICAL_CAVEATS.length > 0 && (
             <Callout title="What is misleading about these numbers" eyebrow="read before quoting them · the caveats are part of the submission">
               <ul>
-                {meta.caveats.map((c, i) => (
+                {HISTORICAL_CAVEATS.map((c, i) => (
                   <li key={i}>{c}</li>
                 ))}
               </ul>

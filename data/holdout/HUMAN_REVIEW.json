@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "reviewer": "Arnav Bule",
+  "reviewer_type": "human",
+  "confirmed_on": "2026-09-16",
+  "n_examples": 200,
+  "scope": "All 200 revised benchmark examples and their latest existing scores, originally attributed to Codex.",
+  "confirmation_source": "Arnav Bule confirmed reviewing everything and identified the latest records marked as done by Codex; subsequent confirmation interpreted as review and approval of those existing scores.",
+  "initial_annotation_source": "Codex (AI), before predictions",
+  "review_timing": "Subsequent to frozen benchmark execution",
+  "labels_path": "data/holdout/ai_reviewed_set.jsonl",
+  "labels_sha256": "343568ff22aef2ed267cc328452645ffbd5cca381e4976d9b099ebaaafb5a4a8",
+  "judge_human_agreement": null,
+  "review_outcome": "Reviewed and approved by Arnav Bule; existing labels and scores retained.",
+  "reviewed_results_path": "results/holdout_final/summary.json",
+  "hash_scope": "Committed Git blob bytes (LF), matching the original frozen label lock."
+}

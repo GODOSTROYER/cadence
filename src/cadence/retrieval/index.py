@@ -54,6 +54,7 @@ from typing import Any
 import numpy as np
 from rapidfuzz import fuzz
 
+from cadence.agent.integrity import useful_link
 from cadence.config import Paths
 from cadence.retrieval.bm25 import BM25Index, tokenize, top_indices
 from cadence.utils.log import get_logger
@@ -70,7 +71,7 @@ DM_ONLY_PENALTY: float = 0.85
 MIN_SUBSTANTIVE_WORDS: int = 12
 NEAR_DUPLICATE_RATIO: float = 90.0
 """``rapidfuzz.fuzz.ratio`` above which two customer texts count as the same complaint."""
-INDEX_FORMAT_VERSION: int = 1
+INDEX_FORMAT_VERSION: int = 2
 
 _ACTION_PREFIXES: tuple[str, ...] = (
     "try", "tri", "reinstall", "restart", "reboot", "updat", "clear", "log", "sign", "setting",
@@ -151,7 +152,7 @@ def first_reply(thread: dict[str, Any]) -> dict[str, Any]:
 
 def reply_has_link(thread: dict[str, Any]) -> bool:
     """True when the first brand reply carries a resolved (non t.co) link."""
-    return any(bool(url) for url in first_reply(thread).get("resolved_links") or [])
+    return any(useful_link(url) for url in first_reply(thread).get("resolved_links") or [])
 
 
 def is_dm_only(reply_text: str) -> bool:
@@ -299,7 +300,11 @@ class Retriever:
             return []
         reranked = scores[candidates] * self._multipliers[candidates]
         order = np.lexsort((candidates, -reranked))
-        return self._dedupe([(int(candidates[i]), float(reranked[i])) for i in order], k)
+        ranked = [(int(candidates[i]), float(reranked[i])) for i in order]
+        if exclude_thread_ids:
+            ranked = [(pos, score) for pos, score in ranked
+                      if not is_near_duplicate(str(self._threads[pos].get("customer_text", "")).casefold(), [query.casefold()])]
+        return self._dedupe(ranked, k)
 
     def _dedupe(self, ranked: Sequence[tuple[int, float]], k: int) -> list[Hit]:
         """Keep the best-scoring representative of each near-identical customer text, up to ``k`` hits."""
