@@ -4,6 +4,8 @@
 
 Every number below is measured on the **200 held-out test examples** of a 250-example golden set (50 dev examples were used only to pick the confidence threshold). Intervals are 95% bootstrap CIs (1,000 resamples). All Gemini calls are cached in the repo; `python -m cadence.cli reproduce` replays them without a key. The numbers are from the **third run**: reading the first run's errors found three defects, reading the second run's errors found two more, all were fixed and the agent and judge were re-run; runs 1 and 2 are kept under `results/v1/` and `results/v2/` and compared in §4.
 
+> **How to read this in the order the rubric asks.** §1 says what "good" means for this brand and what was deliberately not built. §2 is the data, taxonomy, golden set and harness. §3 has every number next to its baselines and its confidence interval. §4 is the failure analysis across three runs. §5 is the mandatory "what is misleading" section, and it comes before the wish list on purpose. Every claim links to a file in the repo; the fifteen-minute checklist is `docs/EVALUATOR_GUIDE.md`, and the live agent is at https://www.arnavbule.in/hiver-assignment/.
+
 ## 1. Problem framing
 
 ### What the agent does

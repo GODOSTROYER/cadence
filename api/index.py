@@ -1,6 +1,7 @@
 """Cadence on Vercel: the live agent plus an admin session for the internal dashboards.
 
-Public endpoints (no login): `GET /api/health`, `POST /api/agent/handle`.
+Public endpoints (no login): `GET /api/health`, `POST /api/agent/handle` (optional `X-Gemini-Key` header lets a
+visitor run the agent on their own free-tier key instead of the pooled deployment keys).
 Admin endpoints: `POST /api/admin/login`, `POST /api/admin/logout`, `GET /api/admin/me`,
 `GET /api/admin/data/{name}` (eval_summary | failure_modes | golden_merged | decisions | health).
 
@@ -95,6 +96,13 @@ def _cache_entries() -> int:
         return 0
 
 
+def _thread_count() -> int:
+    """Threads in the committed corpus, counted once per instance (cheap; the index itself builds on first use)."""
+    if "thread_count" not in _state:
+        _state["thread_count"] = sum(1 for _ in read_jsonl(Paths.THREADS)) if Paths.THREADS.exists() else 0
+    return _state["thread_count"]
+
+
 @router.get("/api/health")
 def health() -> dict[str, Any]:
     n_golden = sum(1 for _ in read_jsonl(Paths.GOLDEN)) if Paths.GOLDEN.exists() else 0
@@ -105,21 +113,41 @@ def health() -> dict[str, Any]:
         "agent_model": model_name("agent"),
         "judge_model": model_name("judge"),
         "cache_entries": _cache_entries(),
-        "index_size": len(_state["retriever"]) if "retriever" in _state else 0,
+        "index_size": len(_state["retriever"]) if "retriever" in _state else _thread_count(),
         "n_golden": n_golden,
         "deployment": "vercel",
         "admin_enabled": bool(_admin_hash() and _secret()),
     }
 
 
+KEY_HEADER = "x-gemini-key"
+
+
+def _agent_for(own_key: str | None):
+    """The shared agent, or a per-request agent bound to the caller's own Gemini key (never stored or logged)."""
+    shared = _agent()
+    key = (own_key or "").strip()
+    if not key:
+        return shared
+    from cadence.agent.pipeline import SupportAgent
+    from cadence.llm.gemini import GeminiClient
+
+    client = GeminiClient(model_name("agent"), api_keys=[key], cache_path=_cache_path())
+    return SupportAgent(client, _state["retriever"])
+
+
 @router.post("/api/agent/handle")
-def handle(req: HandleRequest) -> dict[str, Any]:
-    if not api_keys():
-        raise HTTPException(status_code=503, detail="No Gemini key is configured on this deployment (GEMINI_API_KEYS).")
+def handle(req: HandleRequest, request: Request) -> dict[str, Any]:
+    own_key = request.headers.get(KEY_HEADER)
+    if not api_keys() and not own_key:
+        raise HTTPException(
+            status_code=503,
+            detail="No Gemini key is configured on this deployment; paste your own key in the playground to run it.",
+        )
     from cadence.llm.base import LLMError, QuotaExhausted
 
     try:
-        response = _agent().handle(req.text.strip(), id="live")
+        response = _agent_for(own_key).handle(req.text.strip(), id="live")
     except QuotaExhausted as exc:
         raise HTTPException(status_code=429, detail=str(exc)) from exc
     except LLMError as exc:
