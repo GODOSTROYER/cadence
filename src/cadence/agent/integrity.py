@@ -27,6 +27,22 @@ INCIDENT_STATUS = re.compile(
     r"|\b(?:this is|it's)\s+(?:a\s+)?known issue\b",
     re.I,
 )
+PERFORMED_ACTION = re.compile(
+    r"\b(?:we(?:'ve| have)?|i(?:'ve| have)?)\s+"
+    r"(?:(?:just|already|now|successfully)\s+)*"
+    r"(?:sent|forwarded|escalated|refunded|credited|cancelled|canceled|reset|changed|updated|fixed|restored|deleted)\b",
+    re.I,
+)
+NUMERIC_LIMIT = re.compile(
+    r"\b(?:only|up to|maximum|limit)\b[^.!?]{0,70}\b\d[\d,]*\s+"
+    r"(?:(?:different|offline)\s+)?(?:songs?|tracks?|devices?|accounts?)\b",
+    re.I,
+)
+PRIVATE_HANDOFF = re.compile(
+    r"\b(?:send|drop)\b[^.!?]{0,35}\b(?:dm|direct message)\b"
+    r"|\b(?:dm|direct message)\s+(?:us|me|your)\b",
+    re.I,
+)
 
 
 def useful_link(url: str) -> bool:
@@ -44,7 +60,7 @@ def useful_link(url: str) -> bool:
         return False
 
 
-def reply_violations(reply: str, allowed_urls: set[str]) -> list[str]:
+def reply_violations(reply: str, allowed_urls: set[str], *, allow_private_handoff: bool = False) -> list[str]:
     flags = []
     urls = {m.group().rstrip(".,;!?)") for m in URL.finditer(reply)}
     if any(not useful_link(u) or u not in allowed_urls for u in urls):
@@ -61,6 +77,12 @@ def reply_violations(reply: str, allowed_urls: set[str]) -> list[str]:
         flags.append("unauthorized_commitment")
     if INCIDENT_STATUS.search(reply):
         flags.append("unverified_current_status")
+    if PERFORMED_ACTION.search(affirmative):
+        flags.append("unperformed_action")
+    if NUMERIC_LIMIT.search(reply):
+        flags.append("unverified_numeric_limit")
+    if not allow_private_handoff and PRIVATE_HANDOFF.search(affirmative):
+        flags.append("requires_private_handoff")
     if len(reply) > 280 or not reply.endswith(" /AI"):
         flags.append("format")
     if len(re.sub(r"Hey there|Hi there|Hello|/AI|\W", "", reply, flags=re.I)) < 12:

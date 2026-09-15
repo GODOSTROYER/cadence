@@ -1,7 +1,7 @@
 /** Current interpretation of immutable historical results; never rewrite the archived scores. */
 export const HISTORICAL_CAVEATS = [
   "Both annotation passes were AI-produced. Their agreement does not estimate or bound human agreement. Human validation is unavailable.",
-  "These 200 test examples were inspected across three runs. They now form a regression set, not an untouched holdout. The separate 200-example AI-reviewed benchmark has not completed inference.",
+  "These historical 200 test examples were inspected across three runs and are a regression set. A separate frozen 200-example AI-reviewed benchmark measured 0.789 macro-F1, 0.938 escalation recall and 35% auto-handling. Later guard fixes have separate retrospective verification.",
   "The 0.9 confidence threshold achieved 0.85 recall on the 50-example development set, missing the 0.9 target; the selector used its F2 fallback. Test recall and auto-handle coverage must be read together.",
   "The original zero-shot baseline changes prompt and policy as well as retrieval. It is not a controlled retrieval ablation. New paired development experiments found no classification gain; draft-quality evidence remains exploratory.",
   "The agent and judge are from the same model family. No judge–human agreement has been measured. New development judging agreed across candidate order on only 70% of 20 pairs.",

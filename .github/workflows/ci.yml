@@ -18,6 +18,8 @@ jobs:
       - run: python -m ruff check src scripts tests api analysis_tools
       - run: python -m pytest -p no:cacheprovider
       - run: python -m cadence.cli reproduce
+      - run: python analysis_tools/reproduce_benchmark.py
+      - run: python analysis_tools/post_audit_regression.py
       - run: git diff --exit-code -- results/predictions.jsonl results/judge_scores.jsonl results/ui
   ui:
     runs-on: ubuntu-latest

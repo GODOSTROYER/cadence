@@ -272,7 +272,7 @@ class SupportAgent:
             ev.cited = ev.thread_id in citations
         reply = finalize_reply(decision.reply_draft, citations, evidence)
         allowed_urls = {url for ev in evidence if ev.cited for url in ev.resolved_links}
-        integrity_flags = reply_violations(reply, allowed_urls)
+        integrity_flags = reply_violations(reply, allowed_urls, allow_private_handoff=final_decision == "escalate")
         if len(citations) != len(set(decision.citations)):
             integrity_flags.append("invalid_citation")
         if final_decision == "auto_handle" and not citations:

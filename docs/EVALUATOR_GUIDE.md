@@ -18,8 +18,10 @@ This verifies input hashes and 1,771 cached receipts, then recomputes the old re
 - `data/holdout/HOLDOUT.lock.json`: sampling exclusions, seed and hashes.
 - `data/holdout/AI_REVIEW.lock.json`: 200 AI labels, 81 escalations, zero human ratings.
 - `data/holdout/ai_review_notes.tsv`: individual labels and rationales, written before predictions.
-- `results/holdout/manifest.json`: exact execution revision, labels, threshold and source fingerprints.
-- `results/holdout/predictions.jsonl`: systems share sample IDs; incomplete coverage must not be advertised as the full benchmark.
+- `results/holdout_final/manifest.json`: exact execution revision, labels, threshold and source fingerprints.
+- `results/holdout_final/predictions.jsonl`: 800 predictions, four systems with identical 200 IDs.
+- `results/holdout_final/judge_orders.jsonl`: two presentation orders for each agent/baseline pair.
+- `docs/FAILURE_ANALYSIS_FRESH.md`: five concrete failure modes and post-audit repair boundaries.
 - `results/dev_experiment/comparison.json`: 50-message paired retrieval ablation.
 - `results/dev_experiment/draft_judge_comparison.json`: 20-message, both-order comparison of pre-guard drafts; human agreement is explicitly null.
 
@@ -29,7 +31,9 @@ Recompute the revised run's coverage, receipt checks and (only when complete) pa
 python analysis_tools/reproduce_benchmark.py
 ```
 
-For the preserved initial run it correctly reports `incomplete` and withholds headline metrics. A separately completed run can be selected with `--directory`. Outputs go to `results/reproduced/benchmark_summary.json`; zero model calls.
+The default selects the completed frozen benchmark. Expect agent macro-F1 .78886, recall .93827, coverage .35, and five missed escalations. Outputs go to `results/reproduced/benchmark_summary.json`; zero model calls. Selecting `--directory results/holdout` instead reports the preserved initial run as incomplete and withholds its headline metrics.
+
+The final release layer additionally blocks unsupported completed actions, historical numeric capability limits and automatic private handoffs. Reproduce its **retrospective** verification with `python analysis_tools/post_audit_regression.py`. It copies the frozen receipt store to a temporary database, enforces cache-only mode, and writes separate artifacts under `results/post_audit_regression/`. This set was already inspected: these are regression results, never fresh benchmark claims. Original judge scores do not apply to changed replies.
 
 All successful new model calls retain receipts in the respective `calls.sqlite`. Cached metadata stores original request latency; it is not the cost or time of a later replay. Failed requests are discussed in the run record and must not be silently counted as successful benchmark calls.
 
