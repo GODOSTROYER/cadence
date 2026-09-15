@@ -8,6 +8,7 @@ import { EmptyState } from "@/components/EmptyState";
 import { ErrorState } from "@/components/ErrorState";
 import { EvidenceCard } from "@/components/EvidenceCard";
 import { IntentBadge } from "@/components/IntentBadge";
+import { OwnKeyField } from "@/components/OwnKeyField";
 import { PageHeader } from "@/components/PageHeader";
 import { PageTransition } from "@/components/PageTransition";
 import { ReplyPreview, TWEET_LIMIT } from "@/components/ReplyPreview";
@@ -326,6 +327,7 @@ export default function AgentPlayground() {
             </button>
           </div>
         </div>
+        {LIVE_AGENT && <OwnKeyField error={phase === "error" ? error : null} className="hairline-t pt-4" />}
       </form>
 
       <section className="mt-8" aria-live="polite" aria-label="Agent result">

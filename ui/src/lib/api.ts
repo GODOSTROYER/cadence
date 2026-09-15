@@ -24,6 +24,7 @@ import type {
   RatingSubmission,
   UiMode,
 } from "./types";
+import { getOwnKey } from "./ownKey";
 import { RECORDED } from "./recorded";
 
 export const IS_STATIC: boolean = import.meta.env.VITE_STATIC === "1";
@@ -206,11 +207,28 @@ export async function handle(text: string, mode?: HandleMode): Promise<AgentResp
     return recorded;
   }
   const body: { text: string; mode?: HandleMode } = mode ? { text, mode } : { text };
+  // The visitor's own Gemini key (sessionStorage) rides along only on real agent calls, never on replays.
+  const ownKey = getOwnKey();
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (ownKey) headers["X-Gemini-Key"] = ownKey;
   return fetchJson<AgentResponse>(apiUrl("/api/agent/handle"), {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify(body),
   });
+}
+
+export type AgentErrorKind = "quota" | "invalid-key";
+
+/**
+ * Classify an agent failure the own-key option can do something about: 429 means the Gemini key(s) behind
+ * the request are out of quota; 502 with Gemini's "API key not valid" means the key itself was rejected.
+ */
+export function agentErrorKind(e: unknown): AgentErrorKind | null {
+  if (!isApiError(e)) return null;
+  if (e.status === 429) return "quota";
+  if (e.status === 502 && /api key not valid|api_key_invalid|invalid api key|permission_denied/i.test(e.detail)) return "invalid-key";
+  return null;
 }
 
 export function getRatingQueue(): Promise<RatingQueueItem[]> {
@@ -310,7 +328,7 @@ export function getPolicy(): Promise<EscalationPolicy> {
 
 /** Resolve the UI mode shown in the sidebar status chips. */
 export function uiMode(health: Health | null): UiMode {
-  if (IS_STATIC) return "static";
+  if (IS_STATIC && !LIVE_AGENT) return "static";
   if (health?.has_api_key && !health.cache_only) return "live";
-  return "cache-only";
+  return IS_STATIC ? "static" : "cache-only";
 }

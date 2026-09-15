@@ -6,11 +6,12 @@ import { Chip } from "@/components/Chip";
 import { ConfidenceBar } from "@/components/ConfidenceBar";
 import { DecisionPill } from "@/components/DecisionPill";
 import { IntentBadge } from "@/components/IntentBadge";
+import { OwnKeyField } from "@/components/OwnKeyField";
 import { ReplyPreview, TWEET_LIMIT } from "@/components/ReplyPreview";
 import { Skeleton } from "@/components/Skeleton";
 import { StepTimeline, type StepStatus, type TimelineStep } from "@/components/StepTimeline";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { AGENT_AVAILABLE, describeError, handle } from "@/lib/api";
+import { AGENT_AVAILABLE, describeError, handle, LIVE_AGENT } from "@/lib/api";
 import { cx } from "@/lib/cx";
 import { compact, int, ms as formatMs, truncate } from "@/lib/format";
 import { intentColor } from "@/lib/intents";
@@ -55,7 +56,7 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [statuses, setStatuses] = useState<Record<StepId, StepStatus>>(PENDING);
   const [result, setResult] = useState<AgentResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<unknown>(null);
   const [typed, setTyped] = useState(false);
   const runId = useRef(0);
   const textarea = useRef<HTMLTextAreaElement | null>(null);
@@ -106,7 +107,7 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
     } catch (err) {
       if (!alive()) return;
       setStatuses((s) => ({ ...s, llm: s.llm === "active" ? "error" : s.llm, retrieve: s.retrieve === "active" ? "error" : s.retrieve, rules: s.rules === "active" ? "error" : s.rules }));
-      setError(describeError(err));
+      setError(err);
       setPhase("error");
       return;
     }
@@ -180,6 +181,7 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
             {phase === "running" ? "Running…" : AGENT_AVAILABLE ? "Run the agent" : "Replay"}
           </button>
         </div>
+        {LIVE_AGENT && <OwnKeyField compact error={phase === "error" ? error : null} className="hairline-t pt-3" />}
       </form>
 
       <div className="flex min-w-0 flex-col gap-4 border-t border-border px-5 py-5 sm:px-6 lg:border-t-0" aria-live="polite" aria-label="Agent result">
@@ -203,7 +205,7 @@ export function MiniDemo({ threshold, className }: MiniDemoProps) {
             )}
             {phase === "error" && (
               <p role="alert" className="rounded-md border border-rose/40 px-4 py-3 text-[13px] text-rose">
-                {error}
+                {describeError(error)}
               </p>
             )}
           </>
