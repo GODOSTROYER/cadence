@@ -481,6 +481,28 @@ def test_gemini_daily_quota_stops_before_network(tmp_path: Path, offline: None, 
     assert models.requests == []
 
 
+def test_rate_limit_wait_reserves_provider_minimum_deadline(tmp_path, offline, monkeypatch):
+    clock = FakeClock()
+    models = FakeModels([FakeResponse('{"greeting":"hi","mood":"happy"}')])
+    monkeypatch.setattr(gemini_mod.genai, "Client", lambda **kwargs: FakeGenaiClient(models))
+    client = make_client(tmp_path, clock, rpm=1, deadline_s=45)
+    client.generate_json("first", Ping)
+    # With 40s still in the limiter window, a 45s overall budget cannot fit another 12s request.
+    clock.now += 20
+    with pytest.raises(QuotaExhausted, match="deadline"):
+        client.generate_json("second", Ping)
+    assert len(models.requests) == 1
+    assert clock.sleeps == []
+
+
+def test_short_provider_deadline_fails_before_network(tmp_path, offline):
+    clock = FakeClock()
+    client = make_client(tmp_path, clock)
+    client._request.deadline = clock() + 8
+    with pytest.raises(QuotaExhausted, match="Insufficient"):
+        client._config(Ping, None, 0)
+
+
 def test_gemini_list_models(tmp_path: Path, offline: None, monkeypatch: pytest.MonkeyPatch) -> None:
     constructed: list[str] = []
 

@@ -6,13 +6,11 @@ the test-suite never need an API key.
 
 Key pool
 --------
-Free-tier quotas are enforced per API key, so the client accepts several keys (env `GEMINI_API_KEYS`,
-comma-separated, or a single `GEMINI_API_KEY`). Each key gets its own `RateLimiter` (per-minute window
-and a persisted per-day counter under `model#k<i>`). A call picks the key with the most remaining daily
-quota that is not cooling down; a 429 puts that key on cooldown (server hint or 30 s) and the next key is
-tried immediately, so five free keys behave like one key with five times the quota. `QuotaExhausted` is
-raised only when every key has used its daily allowance. All of this is thread-safe, so runners may call
-`generate_json` from several threads (one per key is a good default).
+Provider quotas are per project, not per key. The client accepts several keys (env `GEMINI_API_KEYS`,
+comma-separated, or a single `GEMINI_API_KEY`) with conservative local scheduling budgets. Keys in the
+same project share provider quotas. Local counters use UTC days; provider resets use Pacific time.
+A 429 cools the key before another credential is tried. Deadlines bound waits and retries; adding keys
+does not imply extra quota. The client supports concurrent callers, subject to these local budgets.
 
 Thinking models
 ---------------
@@ -235,11 +233,15 @@ class GeminiClient:
 
     # ------------------------------------------------------------- request
     def _config(self, schema: type[BaseModel], system: str | None, temperature: float) -> Any:
+        remaining_ms = int((getattr(self._request, "deadline", self._clock() + 12) - self._clock()) * 1000)
+        # Gemini rejects short server deadlines. Fail before network rather than extending our budget.
+        if remaining_ms < 11000:
+            raise QuotaExhausted("Insufficient request time remains after queueing; retry later.")
         thinking = None
         if self.thinking_budget is not None and self._thinking_supported:
             thinking = genai_types.ThinkingConfig(thinking_budget=self.thinking_budget)
         return genai_types.GenerateContentConfig(
-            http_options=genai_types.HttpOptions(timeout=max(1, min(12000, int((getattr(self._request, "deadline", self._clock()+12) - self._clock()) * 1000)))),
+            http_options=genai_types.HttpOptions(timeout=min(12000, remaining_ms)),
             system_instruction=system,
             temperature=temperature,
             max_output_tokens=self.max_output_tokens,
@@ -287,7 +289,8 @@ class GeminiClient:
         """One rate-limited network call on the best key. Returns (object, prompt_tokens, output_tokens, latency_ms)."""
         slot = self._pick_slot()
         deadline = getattr(self._request, "deadline", None)
-        slot.limiter.acquire(deadline=deadline)
+        # Reserve a full provider request window after any local rate-limit wait.
+        slot.limiter.acquire(deadline=deadline - 12 if deadline is not None else None)
         started = self._clock()
         try:
             response = slot.client().models.generate_content(
@@ -367,7 +370,7 @@ class GeminiClient:
         if isinstance(last_error, genai_errors.ClientError) and last_error.code == 429:
             raise QuotaExhausted("Gemini quota unavailable across configured keys; retry later.") from last_error
         raise LLMError(
-            f"Gemini call to {self.model} failed after {MAX_ATTEMPTS} attempts; "
+            f"Gemini call to {self.model} failed after {attempt} attempts; "
             f"last error {type(last_error).__name__}"
         ) from last_error
 

@@ -40,6 +40,8 @@ def test_rejects_unsafe_or_useless_links(url):
         ("Follow this guide to get it working /AI", "missing_resource_link"),
         ("Hey there! See https://evil.example/a /AI", "unsupported_link"),
         ("Hey there! See <url> for the full steps /AI", "placeholder"),
+        ("Our developers are looking into this crash /AI", "unverified_current_status"),
+        ("We're investigating the problem for you /AI", "unverified_current_status"),
     ],
 )
 def test_release_guard(reply, flag):
@@ -172,3 +174,21 @@ def test_function_pbkdf2_login(function, monkeypatch):
         client.post("/api/admin/login", json={"username": "admin", "password": "testpass"}).status_code == 200
     )
     assert client.get("/api/admin/me").json()["authenticated"]
+
+
+def test_own_key_cleanup_failure_does_not_leak_capacity(function, monkeypatch):
+    from types import SimpleNamespace
+
+    def fail_close():
+        raise RuntimeError("cleanup failed")
+
+    agent = SimpleNamespace(
+        handle=lambda *args, **kwargs: SimpleNamespace(model_dump=lambda: {}),
+        client=SimpleNamespace(close=fail_close),
+    )
+    monkeypatch.setattr(function, "_agent_for", lambda key: agent)
+    client = TestClient(function.app)
+    for _ in range(3):
+        response = client.post('/api/agent/handle', json={'text': 'public test message'},
+                               headers={function.KEY_HEADER: 'fake-key'})
+        assert response.status_code == 500  # If slots leak, the third request incorrectly returns 429.

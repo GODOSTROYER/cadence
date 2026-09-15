@@ -20,6 +20,13 @@ PROMISE = re.compile(
     r"\b(we(?:'ll| will| have|'ve)|i(?:'ll| will| have|'ve))\b[^.!?]{0,35}\b(refund|credit|compensat|cancelled|canceled|fixed your account)\w*",
     re.I,
 )
+INCIDENT_STATUS = re.compile(
+    r"\b(?:developers|engineers|tech folks|team)\b[^.!?]{0,35}"
+    r"\b(?:looking into|investigating|aware|on the case|working on)\b"
+    r"|\b(?:we(?:'re| are)|i(?:'m| am))\s+(?:currently\s+)?(?:investigating|looking into|working on)\b"
+    r"|\b(?:this is|it's)\s+(?:a\s+)?known issue\b",
+    re.I,
+)
 
 
 def useful_link(url: str) -> bool:
@@ -52,6 +59,8 @@ def reply_violations(reply: str, allowed_urls: set[str]) -> list[str]:
         flags.append("requests_sensitive_data")
     if PROMISE.search(reply):
         flags.append("unauthorized_commitment")
+    if INCIDENT_STATUS.search(reply):
+        flags.append("unverified_current_status")
     if len(reply) > 280 or not reply.endswith(" /AI"):
         flags.append("format")
     if len(re.sub(r"Hey there|Hi there|Hello|/AI|\W", "", reply, flags=re.I)) < 12:

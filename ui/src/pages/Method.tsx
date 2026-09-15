@@ -37,7 +37,7 @@ function monthLabel(ym: string): string {
 
 const REPRODUCE_STEPS: { cmd: string; what: string; time: string }[] = [
   { cmd: "make setup", what: "Install the Python package and the UI dependencies.", time: "2 min" },
-  { cmd: "make reproduce", what: "Rebuild the BM25 index, replay every agent, baseline and judge call from the committed LLM cache, recompute metrics, CIs and failure modes, export the UI data.", time: "6–8 min" },
+  { cmd: "make reproduce", what: "Verify archived inputs and cached receipts, then recompute historical metrics and CIs. Zero model calls; this does not execute the revised agent.", time: "seconds" },
   { cmd: "make ui && make serve", what: "Build this dashboard and serve it with the API on http://127.0.0.1:8000.", time: "2 min" },
   { cmd: "GEMINI_API_KEY=… make run judge eval", what: "Optional: rerun with fresh Gemini calls instead of the cache. Rate-limited to the free tier, so allow about an hour.", time: "optional" },
 ];
@@ -259,7 +259,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         </div>
       </Section>
 
-      <Section id="reproduce" eyebrow="06 · reproduce" title="Fifteen minutes, no API key" lede="Every Gemini call is cached in a committed SQLite file keyed by model, prompt and schema, so the full evaluation replays offline and deterministically (seed 42).">
+      <Section id="reproduce" eyebrow="06 · reproduce" title="Fifteen minutes, no API key" lede="Archived call receipts and predictions are committed. The reproduce command verifies their provenance and recalculates historical metrics offline. Revised experiments and AI-review limitations are reported separately in the repository.">
         <ol className="region-plain divide-y divide-border">
           {REPRODUCE_STEPS.map((s, i) => (
             <li key={s.cmd} className="grid gap-2 px-5 py-4 sm:grid-cols-[28px_minmax(0,300px)_1fr_auto] sm:items-baseline sm:gap-5">

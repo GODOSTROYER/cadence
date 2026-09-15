@@ -24,7 +24,7 @@ PROMPT_CHAR_BUDGET: int = 2_500 * 4
 VOICE_GUIDE_PATH: Path = Paths.ROOT / "docs" / "BRAND_VOICE.md"
 VOICE_GUIDE_HEADING: str = "## Voice guide"
 VOICE_GUIDE_MAX_CHARS: int = 1_200
-EVIDENCE_CUSTOMER_MAX_CHARS: int = 120
+EVIDENCE_CUSTOMER_MAX_CHARS: int = 110
 EVIDENCE_BRAND_MAX_CHARS: int = 155
 MESSAGE_MAX_CHARS: int = 320
 DESCRIPTION_MAX_CHARS: int = 200
@@ -44,6 +44,7 @@ FALLBACK_VOICE_GUIDE = (
     "- Warm, brief, concrete: one acknowledgement, then the next step. No grovelling, no corporate filler.\n"
     "- <= 280 characters including the signature; <= 1 emoji.\n"
     "- Never promise refunds, credits or compensation; never state policy you cannot see in the evidence.\n"
+    "- Never claim current incident status or completed account actions from historical tweets.\n"
     "- Never ask for passwords, card numbers or codes. Ask for a DM with the account email/username ONLY "
     "when account access is genuinely needed.\n"
     '- End the reply with the signature " /AI".'

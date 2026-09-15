@@ -1,0 +1,189 @@
+{
+  "scope": "existing deployment; read-only; no model calls; unknown revision",
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 7045.12,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::hnk6c-1789509800781-9b21694618d4",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 813.9,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::4bwv7-1789509807734-0d948022acff",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 284.25,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::4bwv7-1789509808550-40020f91669a",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 293.05,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::lxnld-1789509808822-0e396c846dbc",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 505.55,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::fk925-1789509809134-da6ee030cd43",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 312.73,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::5pvvq-1789509809638-c8434661d3f0",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 302.9,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::pmqsd-1789509809965-f00e39c47772",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "ms": 292.49,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 227,
+      "region_hint": "bom1:bom1:bom1::iad1::bv7fx-1789509810252-304660b576b3",
+      "payload": {
+        "status": "ok",
+        "has_api_key": true,
+        "cache_only": false,
+        "agent_model": "gemini-3.5-flash-lite",
+        "judge_model": "gemini-3.1-flash-lite",
+        "cache_entries": 1771,
+        "index_size": 27627,
+        "n_golden": 250,
+        "deployment": "vercel",
+        "admin_enabled": true
+      }
+    },
+    {
+      "path": "/api/admin/data/health",
+      "status": 401,
+      "ms": 246.29,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 36,
+      "region_hint": "bom1:bom1:bom1::iad1::hnk6c-1789509810522-77b9e019f20f"
+    },
+    {
+      "path": "/api/openapi.json",
+      "status": 404,
+      "ms": 525.34,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "bytes": 22,
+      "region_hint": "bom1:bom1:bom1::iad1::bh8kh-1789509810770-f37c68abfd21"
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "ms": 69.45,
+      "cache_control": "no-store",
+      "bytes": 1868,
+      "region_hint": "bom1:bom1:bom1::fk925-1789509811318-1236102ad51c"
+    }
+  ]
+}

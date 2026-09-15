@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -e ".[dev]"
-      - run: python -m ruff check src scripts tests
+      - run: python -m ruff check src scripts tests api analysis_tools
       - run: python -m pytest -p no:cacheprovider
       - run: python -m cadence.cli reproduce
       - run: git diff --exit-code -- results/predictions.jsonl results/judge_scores.jsonl results/ui

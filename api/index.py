@@ -34,9 +34,9 @@ from fastapi import APIRouter, FastAPI, HTTPException, Request, Response  # noqa
 from pydantic import BaseModel, Field  # noqa: E402
 
 from cadence import __version__  # noqa: E402
+from cadence.api.core import HandleRequest, install_observability  # noqa: E402
 from cadence.config import Paths, api_keys, model_name  # noqa: E402
 from cadence.utils.io import read_jsonl  # noqa: E402
-from cadence.api.core import HandleRequest, install_observability  # noqa: E402
 
 TMP_CACHE = Path(os.environ.get("CADENCE_TMP_DIR", "/tmp")) / "cadence_live_v2.sqlite"
 ADMIN_DATA_DIR = ROOT / "results" / "ui"
@@ -153,9 +153,11 @@ def handle(req: HandleRequest, request: Request) -> dict[str, Any]:
     except LLMError as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     finally:
-        if own_key and own_key.strip() and agent is not None:
-            agent.client.close()
-        _capacity.release()
+        try:
+            if own_key and own_key.strip() and agent is not None:
+                agent.client.close()
+        finally:
+            _capacity.release()
     return response.model_dump()
 
 

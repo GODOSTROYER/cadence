@@ -1,160 +1,89 @@
-<div align="center">
-
 # Cadence
 
-**An AI support agent that knows when to stay quiet.**
+An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver SDE Intern take-home. It classifies an incoming tweet, drafts a reply using historical support conversations, and decides whether to escalate, with a reason.
 
-Classifies a customer tweet, drafts a reply grounded in 27,627 real @SpotifyCares conversations, decides whether a human must step in, and then proves how well it does all three.
+**Read the evidence before the demo:** [Report](REPORT.md) · [Engineering audit](docs/IMPLEMENTATION_AUDIT.md) · [Decision log](DECISION_LOG.md) · [Evaluator guide](docs/EVALUATOR_GUIDE.md).
 
-[![Live demo](https://img.shields.io/badge/live%20demo-arnavbule.in%2Fhiver--assignment-1ED760?style=for-the-badge&logo=vercel&logoColor=white)](https://www.arnavbule.in/hiver-assignment/)
-[![Report](https://img.shields.io/badge/report-REPORT.md-ECEDEF?style=for-the-badge)](REPORT.md)
-[![Evaluator's guide](https://img.shields.io/badge/15--minute%20guide-docs%2FEVALUATOR__GUIDE.md-6CB6FF?style=for-the-badge)](docs/EVALUATOR_GUIDE.md)
+## What the evidence actually establishes
 
-![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-250%2B%20passing-1ED760)
-![Gemini](https://img.shields.io/badge/model-Gemini%203.5%20Flash--Lite-4285F4?logo=google&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
+- The original, repeatedly inspected 200-example test set gives **0.821 intent macro-F1, 0.940 escalation recall and 43% auto-handling**. These are archived results from the older agent, not performance claims for this branch.
+- A new **200-example AI-reviewed benchmark** was sampled, labelled with individual rationales, and locked before predictions. See [label provenance](data/holdout/AI_REVIEW.lock.json), [all review notes](data/holdout/ai_review_notes.tsv) and [run manifest](results/holdout/manifest.json).
+- On the 50-example development set, a controlled retrieval ablation finds **no measured classification improvement**. A two-order AI judge prefers retrieved *pre-guard drafts* by **1.15 points on a 1–5 scale**, paired 95% bootstrap CI **[0.70, 1.625]**, on 20 messages. Preference agrees across candidate order on only **70%** of these messages.
+- **There are no human labels or human judge-agreement measurements.** At the author's request, Codex reviewed all new examples. This is an AI benchmark, not a substitute for the assignment's hand-labeling and human-agreement requirements. The reviewer also worked on the implementation.
 
-*Hiver SDE Intern take-home · Arnav Bule*
+## Reproduce without a key (under 15 minutes)
 
-</div>
+Python 3.12 is the tested version. From this branch:
 
-<a href="https://www.arnavbule.in/hiver-assignment/"><img src="docs/img/landing.png" alt="Cadence landing page: the pitch, the live agent and the evidence" width="100%"></a>
+```bash
+python -m pip install -e ".[dev]"
+python -m cadence.cli reproduce
+python -m pytest -q
+```
 
-## Start here
+`reproduce` verifies hashes of archived inputs and 1,771 cached-call receipts, then recomputes historical metrics into `results/reproduced/`. It makes **zero model calls**. It is **artifact replay**, not execution of the changed agent and not a live latency benchmark. Recalculation took approximately 1.4 seconds after imports on the audit machine; installation depends on your connection.
 
-| | |
-|---|---|
-| **Try it** | [arnavbule.in/hiver-assignment](https://www.arnavbule.in/hiver-assignment/) — paste a tweet, watch the intent, the decision, the evidence and the drafted reply. The playground runs the real model; five free-tier Gemini keys are pooled behind it, and you can paste your own if they run dry. |
-| **Score it** | [docs/EVALUATOR_GUIDE.md](docs/EVALUATOR_GUIDE.md) — every rubric item mapped to a number and the file that proves it, in fifteen minutes. |
-| **Read it** | [REPORT.md](REPORT.md) (framing, method, results vs. seven baselines, failure analysis, what is misleading, next week) · [DECISION_LOG.md](DECISION_LOG.md) (18 decisions with the why) · [docs/FAILURE_ANALYSIS.md](docs/FAILURE_ANALYSIS.md) (five modes, verbatim). |
-| **Reproduce it** | `python -m cadence.cli reproduce` replays every Gemini call from the committed cache. No key, about three minutes. |
+For the revised benchmark, follow [the evaluator guide](docs/EVALUATOR_GUIDE.md). The initial fresh run is incomplete (31/200 messages per system) after a provider timeout error; `results/holdout/run_status.json` records it. Final code has fixed the defect, but has not completed a new benchmark. Raw predictions, receipts and fingerprints remain separate from archived results. Do not overwrite or retune against either benchmark.
 
-## Headline numbers
-
-200 held-out, hand-labelled test tweets. 95% bootstrap confidence intervals. Third and final run.
-
-| Task | Agent | Best simple baseline | Trivial baseline |
-|---|---|---|---|
-| Intent (12 classes), macro-F1 | **0.82** [0.76–0.87] | 0.61 keyword rules | 0.02 majority class |
-| Escalation recall / auto-handle rate | **0.94** [0.88–0.99] / **43%** | 0.41 / 82% rules only | 1.00 / 0% always escalate |
-| Reply quality, blind LLM judge (1–5) | **4.58** [4.46–4.69] · 90% ship-as-is | 3.32 nearest historical reply | 2.56 brand template |
-
-**Read this before quoting any of them.** The recall figure is a policy setting: without the confidence guard the same model scores 0.76 at 65% auto-handle. Retrieval does nothing for classification (the no-retrieval ablation ties at 0.82); what it buys is the reply. The golden set was labelled by two AI passes from one guide, so its κ of 0.96 is an upper bound on human agreement. No human judge-agreement ratings exist yet. All eight caveats: [REPORT.md §5](REPORT.md#5-what-is-misleading-about-my-headline-number), also printed on the site under the numbers.
-
-## What it does
+## Architecture
 
 ```mermaid
 flowchart LR
-    T([customer tweet]) --> R[deterministic rules<br/>money · security · legal · churn · media-only]
-    R --> B[BM25 retrieval<br/>27.6k threads, k=6<br/>usefulness re-rank]
-    B --> G[one Gemini structured call<br/>intent · confidence · reply · citations · decision]
-    G --> P{policy layer}
-    P -->|rule fired| E[escalate + reason]
-    P -->|security / billing intent| E
-    P -->|confidence < 0.9| E
-    P -->|otherwise| A[auto-handle<br/>≤280 chars, signed /AI]
+    T[Clean customer message] --> R[Deterministic safety rules]
+    R --> B[BM25: six historical threads]
+    B --> G[One structured Gemini call]
+    G --> P[Rules + primary/secondary defaults + confidence guard]
+    P --> I[Citation, URL and reply integrity checks]
+    I --> A[Draft + auto-handle or escalation reason]
+    A --> U[FastAPI / Vercel to React]
 ```
 
-- **Intents** — 12, defined from the data by clustering and reading, frozen before labelling: [`config/intents.yaml`](config/intents.yaml), method in [`docs/TAXONOMY.md`](docs/TAXONOMY.md).
-- **Escalation policy** — 8 reason codes; rules can only *add* escalations, never remove them: [`config/escalation.yaml`](config/escalation.yaml).
-- **Brand voice** — measured from 43k replies (greetings, sign-offs, emoji rate, per-intent resolution patterns): [`docs/BRAND_VOICE.md`](docs/BRAND_VOICE.md).
-- **Golden set** — 250 tweets, stratified sampling, two independent passes + adjudication, 50 dev / 200 test: [`data/golden/`](data/golden/), [`docs/SAMPLING_NOTE.md`](docs/SAMPLING_NOTE.md).
-- **Evaluation** — bootstrap CIs, threshold sweep, comparative blind LLM judge on a *different* model, judge-vs-human agreement (κ, ρ), automatic failure-mode mining read by hand after every run: [`src/cadence/eval/`](src/cadence/eval/).
-- **Baselines** — majority class, keyword rules, TF-IDF + logistic regression (out-of-fold), zero-shot LLM without retrieval, always/never escalate, brand template, nearest historical reply.
+The corpus contains 27,627 conversation openers derived from the Kaggle Twitter support dataset. Twelve intents, the preparation contract, and the labeling guide are committed. Retrieval excludes held-out threads and near duplicates during evaluation. Retrieved conversations are untrusted historical examples, not current policy or service status.
 
-## The live deployment
+Release checks block missing/invalid citations, unsupported links, dangling resource references, sensitive-data requests, and certain unsupported commitments. A block produces a holding reply and escalation. These checks **do not establish semantic entailment or eliminate prompt injection**. Intent confidence is an ordinal model output, not calibrated escalation risk.
 
-The public site at **[arnavbule.in/hiver-assignment](https://www.arnavbule.in/hiver-assignment/)** is the pitch plus the working agent:
-
-- **Public** — the landing page (results, caveats, how it works), the live playground and the method page. The agent runs in a slim serverless function ([`api/index.py`](api/index.py)) with the same model and keys used for the evaluation; the retriever is built at cold start from the committed corpus.
-- **Bring your own key** — the playground accepts a Gemini key from [AI Studio](https://aistudio.google.com/apikey); it stays in the browser tab and is sent only with that visitor's requests. (Five free-tier keys are pooled behind the demo. Yes, five. The free tier allows roughly twenty thinking-model calls a day per key, which is also why the evaluation runs on Flash-Lite.)
-- **Admin** — the evaluation dashboards, golden explorer, failure modes, blind rating flow and decision log sit behind a sign-in. The function issues a signed HttpOnly session cookie and serves the internal JSON only to that session; nothing internal is downloadable from the public site. Ask me for access, or run it locally where everything is open.
-
-<p align="center"><img src="docs/img/agent.png" alt="The live playground" width="49%"> <img src="docs/img/method.png" alt="The method page" width="49%"></p>
-
-## Reproduce the numbers (no API key, under 15 minutes)
+## Run the application
 
 ```bash
-git clone https://github.com/GODOSTROYER/cadence.git && cd cadence
-python -m pip install -e ".[dev]"          # Python 3.11+
-python -m cadence.cli reproduce            # index (~2 s) → agent + baselines → judge → metrics → export  (~3 min)
+cd ui
+npm ci
+npm run build
+cd ..
+python -m cadence.cli serve
 ```
 
-Every Gemini call behind the reported numbers is in `cache/llm_cache.sqlite` (1,771 entries) and replays byte-for-byte. Outputs land in `results/`: `eval_summary.json`, `failure_modes.json`, `predictions.jsonl`, `judge_scores.jsonl`, `figures/`.
+Open `http://127.0.0.1:8000`. This local service is for a trusted workstation. The deployable entrypoint is `api/index.py`, with admin authentication, input validation, sanitized errors and bounded per-process concurrency.
 
-Then look at it locally with everything unlocked:
+The [existing public demo](https://www.arnavbule.in/hiver-assignment/) was inspected read-only. **It has not been redeployed from this branch; its running commit is unavailable.** Its dashboard metrics and screenshots describe the historical build. Do not use that endpoint to validate these changes.
+
+## Optional live experiments
+
+Copy `.env.example` to `.env` and configure `GEMINI_API_KEY` or comma-separated `GEMINI_API_KEYS`. Keys stay out of source control. Google enforces quotas **per project**, so multiple keys do not necessarily add capacity; actual quotas appear in AI Studio. [Quota documentation](https://ai.google.dev/gemini-api/docs/rate-limits).
+
+Live scripts require `--live-free-tier`; without it they permit cached responses only. This flag records the operator's intention, **not verification of project billing**. Use a confirmed free-tier project. Unpaid Gemini services may use prompts and outputs to improve Google's products; use only public or fictional messages. [Terms](https://ai.google.dev/gemini-api/terms).
 
 ```bash
-cd ui && npm install && npm run build && cd ..
-python -m cadence.cli serve                # http://127.0.0.1:8000
+python scripts/10_experiment.py --help
+python scripts/12_run_holdout.py --help
 ```
 
-<details>
-<summary><b>Run it live with your own key</b></summary>
-
-```bash
-cp .env.example .env                       # GEMINI_API_KEY=... or GEMINI_API_KEYS=k1,k2,... (free at aistudio.google.com)
-python -m cadence.cli run -- --fresh       # re-run the agent live; rate-limited, cached, resumable
-python -m cadence.cli judge -- --fresh
-python -m cadence.cli evaluate
-```
-
-Several keys are pooled automatically: a 429 puts one key on cooldown and the next is tried at once.
-</details>
-
-<details>
-<summary><b>Rebuild from the raw Kaggle data</b></summary>
-
-Download `twcs.csv` from [thoughtvector/customer-support-on-twitter](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter) into `data/raw/twcs/twcs.csv`, then:
-
-```bash
-python -m cadence.cli prepare-data         # 2.8M rows → 27,627 SpotifyCares threads (~30 s)
-python -m cadence.cli sample               # stratified golden-set candidates
-```
-
-The processed brand subset is committed, so this is optional.
-</details>
-
-## How the proof was built
-
-1. **Contract first.** [`CONTRACT.md`](CONTRACT.md) pinned every schema, path and module seam before any code, so the data pipeline, retrieval, LLM layer, agent, baselines, evaluation, API and UI could be built independently and still fit.
-2. **Taxonomy from the data, then frozen.** TF-IDF + k-means over the openers, hundreds read by hand, boundary rules written down, no changes once labelling started.
-3. **Labels with a paper trail.** Two independent passes from the same guide, 14 disagreements adjudicated with written rationales, agreement reported next to model accuracy.
-4. **Three evaluation runs.** Reading the first run's errors found three defects (placeholder links in replies, a judge that penalised the mandated signature, a churn rule that missed "switching to @user"); reading the second found two more caused by the fixes. Each fix is a named defect, each earlier run is kept (`results/v1`, `results/v2`), and the intent numbers never moved, which is the evidence that nothing was tuned to the labels.
-5. **Honesty as a feature.** The caveats live in the results file and render under the headline tiles.
+The locked runner refuses silently mixing code/label revisions. Re-running after seeing errors does not create a fresh holdout. Another benchmark requires new unseen data and a new lock.
 
 ## Repository map
 
-```
-config/            intents.yaml · escalation.yaml · models.yaml
-src/cadence/       data · retrieval · llm · agent · baselines · eval · api · cli
-api/index.py       serverless live agent + admin session (Vercel)
-scripts/           01_prepare_data … 07_export_ui_data, resolve_links, make_label_chunks, build_golden
-data/processed/    spotify_threads.jsonl.gz · openers.parquet · link_map.json · reply_templates.json · stats.json
-data/golden/       golden_set.jsonl · annotations_{a,b}.jsonl · adjudication.jsonl · LABELLING_GUIDE.md
-results/           predictions · judge_scores · eval_summary · failure_modes · figures/ · v1/ · v2/ · ui/
-cache/             llm_cache.sqlite (committed replay cache) · bm25_index.pkl (rebuilt in ~1 s)
-ui/                Vite + React + Tailwind: landing, playground, evaluation, golden explorer, failures, rating, decisions, method
-docs/              EVALUATOR_GUIDE · TAXONOMY · BRAND_VOICE · SAMPLING_NOTE · FAILURE_ANALYSIS (+ v1, v2)
-```
+| Path | Purpose |
+|---|---|
+| `CONTRACT.md`, `config/` | Schemas, intent/policy definitions, model settings |
+| `src/cadence/data/`, `retrieval/`, `agent/` | Preparation, BM25, structured generation and release policy |
+| `src/cadence/eval/`, `scripts/08_*`–`13_*` | Locked sampling, paired comparisons, two-order judging |
+| `data/golden/` | Historical AI annotations: 50 dev / 200 reused test |
+| `data/holdout/` | Fresh locked sample, 200 AI labels and individual rationales |
+| `results/dev_experiment/`, `results/holdout/` | Revised experiments, separate from archived evidence |
+| `api/`, `ui/` | Serverless API and React interface |
+| `tests/`, `.github/workflows/` | Offline contract tests and Windows/Linux/UI CI |
 
-## Tests
+## Borrowed work and scope
 
-```bash
-python -m pytest                           # 250+ tests, no network, < 20 s
-python -m ruff check src scripts tests
-cd ui && npm run typecheck && npm run build
-```
+Data: [thoughtvector / Customer Support on Twitter](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter). Dependencies are declared in `pyproject.toml` and `ui/package-lock.json`. External methods and provider documentation are cited in the [audit](docs/IMPLEMENTATION_AUDIT.md). AI assistance was used for implementation, auditing and explicitly identified annotations. Historical reports are retained under `docs/*_historical.md`; their claims are superseded by this report.
 
-## What I borrowed
-
-- **Dataset:** Customer Support on Twitter (Kaggle, thoughtvector), used under its Kaggle terms; the SpotifyCares subset is redistributed here in processed form for reproducibility.
-- **Libraries:** pandas, scikit-learn, scipy, pydantic, FastAPI, google-genai, rich, typer, matplotlib, rapidfuzz; React, Vite, Tailwind, framer-motion, recharts, lucide. BM25 is implemented in [`src/cadence/retrieval/bm25.py`](src/cadence/retrieval/bm25.py) (Okapi BM25, k1=1.5, b=0.75) rather than imported.
-- **Fonts:** Instrument Serif, Geist, Geist Mono via Google Fonts.
-- **Methods:** Cohen's weighted κ via scikit-learn; percentile bootstrap CIs; the comparative blind-judge setup follows common LLM-as-judge practice (shuffled anonymised candidates against position bias).
-- **AI coding assistants** were used freely, as the brief allows, for code, the two annotation passes and the adjudication. The taxonomy, policy, labelling guide, rubric and every decision are written down so anyone can re-label a sample and compare.
-
-## License
-
-MIT. Built by [Arnav Bule](https://www.arnavbule.in) · [GitHub](https://github.com/GODOSTROYER) · arnav.bule05@gmail.com
+No account actions, tweet posting, fine-tuning, multimodal interpretation or production deployment are included. The objective is a reproducible, inspectable take-home with limitations visible beside results.

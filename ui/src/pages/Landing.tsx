@@ -200,7 +200,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: "Every call cached, no key needed",
       body: (
         <>
-          <span className="t-mono text-text">python -m cadence.cli reproduce</span> rebuilds the index and replays every agent, baseline and judge call from the committed SQLite cache ({health ? int(health.cache_entries) : "1,771"} entries), then recomputes every number here. About three minutes on a laptop.
+          <span className="t-mono text-text">python -m cadence.cli reproduce</span> verifies recorded inputs and {health ? int(health.cache_entries) : "1,771"} cached receipts, then recomputes these archived metrics without a model call. This is artifact replay, not execution of the revised agent.
         </>
       ),
       link: <GoLink href={REPO}>GitHub · GODOSTROYER/cadence</GoLink>,
@@ -222,8 +222,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   ];
 
   const next = [
-    "Complete the fresh locked human holdout. Compare the same agent with and without evidence before deciding whether another model call is justified.",
-    "Sixty blind human ratings through the /rate flow from two people; report κ against the judge and re-weight the rubric where they disagree (the judge missed most dangling-clause defects).",
+    "Complete the fresh locked AI-reviewed benchmark. Compare the same agent with and without evidence before deciding whether another model call is justified.",
+    "Measure judge order sensitivity and publish the AI-only limitation. Human review was declined by the author, so judge–human agreement remains unavailable.",
     "Expand the reviewed canonical links and label retrieval usefulness. Measure remaining broken-reference errors before claiming the link problem is solved.",
   ];
 
@@ -239,7 +239,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             </h1>
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-muted sm:text-[19px]">
               Cadence reads a customer tweet, classifies the intent, drafts a reply grounded in {int(nOpeners)} real @SpotifyCares conversations, and decides whether a human must step in.
-              Historical results cover {int(meta.n_test)} AI-labelled test tweets. Independent human validation is still pending.
+              These charts show the archived agent on {int(meta.n_test)} repeatedly inspected AI-labelled test tweets. Revised branch results are reported separately in the repository; human validation is unavailable.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/agent" className="btn btn-primary h-10 px-5 text-[14px]">
@@ -291,11 +291,11 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             </p>
             <p className="text-muted">
               The number to distrust is escalation recall, {pct(headline.escalation_recall)}. It is a policy setting, not a model property: a confidence guard chosen on {int(meta.n_dev)} dev tweets. Without it the same model scores{" "}
-              {noGuard ? pct(noGuard.recall) : "less"}, and with it {int(agentEsc?.unnecessary_escalations ?? 0)} tweets go to a human who was not needed. The retrieval, meanwhile, does nothing for classification
-              {zeroShot ? ` (the zero-shot ablation ties at ${fixed(zeroShot.macro_f1, 2)})` : ""}; what it buys is the reply.
+              {noGuard ? pct(noGuard.recall) : "less"}, and with it {int(agentEsc?.unnecessary_escalations ?? 0)} tweets go to a human who was not needed. The historical retrieval and zero-shot systems have similar classification scores
+              {zeroShot ? ` (zero-shot scores ${fixed(zeroShot.macro_f1, 2)})` : ""}. This older comparison changes both prompt and policy; it does not isolate retrieval.
             </p>
             <p className="text-muted">
-              Every claim here links to where it can be checked: the playground runs the real model, the method page shows the pipeline and the policy, and one command replays every call from the committed cache without a key.
+              Every claim here links to where it can be checked: the playground runs the real model, the method page shows the pipeline and the policy, and one command verifies saved receipts and recomputes historical metrics without a key.
             </p>
           </div>
         </section>
