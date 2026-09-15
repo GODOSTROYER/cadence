@@ -2,7 +2,7 @@
 
 ## 1. Read the claim (2 minutes)
 
-Read `REPORT.md`, especially “What is misleading about my headline number?”. Original numbers belong to the archived agent. New labels are AI-reviewed, not human ground truth. There are no human judge-agreement scores. The author explicitly requested AI review instead.
+Read `REPORT.md`, especially “What is misleading about my headline number?”. Original numbers belong to the archived agent. New labels originated with AI and all 200 examples have now been human-reviewed by Arnav Bule. See [review record](HUMAN_REVIEW.md). There are no measured human judge-agreement scores.
 
 ## 2. Recompute archived metrics (3 minutes after dependency install)
 
@@ -16,7 +16,7 @@ This verifies input hashes and 1,771 cached receipts, then recomputes the old re
 ## 3. Inspect fresh evidence (4 minutes)
 
 - `data/holdout/HOLDOUT.lock.json`: sampling exclusions, seed and hashes.
-- `data/holdout/AI_REVIEW.lock.json`: 200 AI labels, 81 escalations, zero human ratings.
+- `data/holdout/AI_REVIEW.lock.json`: original pre-inference lock: 200 AI labels, 81 escalations, zero human ratings at lock time. Subsequent human review by Arnav Bule is recorded in `data/holdout/HUMAN_REVIEW.json`.
 - `data/holdout/ai_review_notes.tsv`: individual labels and rationales, written before predictions.
 - `results/holdout_final/manifest.json`: exact execution revision, labels, threshold and source fingerprints.
 - `results/holdout_final/predictions.jsonl`: 800 predictions, four systems with identical 200 IDs.
@@ -53,4 +53,4 @@ The offline suite exercises data, retrieval, structured response parsing, determ
 
 Trace a message through `src/cadence/agent/pipeline.py`, then compare its evidence, citations, `trace.llm_decision`, integrity flags and final decision. For an unsafe URL fixture, the final reply must become a holding reply and escalate. For sensitive secondary intent, policy must also escalate. A valid citation alone is not proof the reply follows from it.
 
-The existing public demo was not redeployed from this branch. Run locally to inspect revised code; live inference requires confirmed free-tier credentials and sends text to Gemini. No account changes or tweet posting occur. The benchmark runner supports `--ai-reviewed` explicitly; its optional human-label path refuses fabricated human provenance.
+See [deployment verification](DEPLOYMENT.md) for the current public release. Dashboard charts remain historical and are distinguished from revised benchmark results. Run locally to reproduce the code; live inference requires confirmed free-tier credentials and sends text to Gemini. No account changes or tweet posting occur. The benchmark runner supports `--ai-reviewed` explicitly; its optional human-label path refuses fabricated human provenance.

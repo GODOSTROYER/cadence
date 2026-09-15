@@ -176,7 +176,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: "Blind, comparative, a different model",
       body: (
         <>
-          {meta.judge_model} scores agent, nearest-neighbour and template replies in one shuffled A/B/C call on five dimensions with three failure flags. Human ratings are wired in (a blind /rate flow, κ and ρ computed on the next run) and, so far, absent.
+          {meta.judge_model} scores agent, nearest-neighbour and template replies in one shuffled A/B/C call on five dimensions with three failure flags. Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores. Separate blind human ratings for calculating judge agreement are not recorded.
         </>
       ),
       link: <GoLink to="/method#judge">The rubric</GoLink>,
@@ -223,8 +223,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   ];
 
   const next = [
-    "Complete the fresh locked AI-reviewed benchmark. Compare the same agent with and without evidence before deciding whether another model call is justified.",
-    "Measure judge order sensitivity and publish the AI-only limitation. Human review was declined by the author, so judge–human agreement remains unavailable.",
+    "The fresh locked 200-example benchmark and human review by Arnav Bule are complete. Compare the same agent with and without evidence before deciding whether another model call is justified.",
+    "Judge order sensitivity is measured, and Arnav Bule has completed human review of all 200 revised benchmark examples. Quantitative judge–human agreement remains unmeasured.",
     "Expand the reviewed canonical links and label retrieval usefulness. Measure remaining broken-reference errors before claiming the link problem is solved.",
   ];
 
@@ -240,7 +240,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             </h1>
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-muted sm:text-[19px]">
               Cadence reads a customer tweet, classifies the intent, drafts a reply grounded in {int(nOpeners)} real @SpotifyCares conversations, and decides whether a human must step in.
-              These charts show the archived agent on {int(meta.n_test)} repeatedly inspected AI-labelled test tweets. Revised branch results are reported separately in the repository; human validation is unavailable.
+              These charts show the archived agent on {int(meta.n_test)} repeatedly inspected AI-labelled test tweets. Revised benchmark results are reported separately in the repository; Arnav Bule has completed human review of all 200 revised benchmark examples.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/agent" className="btn btn-primary h-10 px-5 text-[14px]">
@@ -370,7 +370,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
               ci={headline.ci95.judge_overall_mean ?? undefined}
               tone="sky"
               delta={isNum(nnGap) ? { value: nnGap, label: "vs nearest-neighbour reply" } : undefined}
-              hint={`Mean holistic score from ${meta.judge_model}. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. No human has calibrated the judge yet.`}
+              hint={`Mean holistic score from ${meta.judge_model}. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. Human review by Arnav Bule is complete; separate judge calibration is not recorded.`}
             />
           </div>
 
@@ -409,8 +409,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
                   .sort((a, b) => b.value - a.value)}
                 note={
                   reply.pairwise && isNum(reply.pairwise.agent_vs_nn_win_rate) && isNum(reply.pairwise.agent_vs_trivial_win_rate)
-                    ? `Wins ${pct(reply.pairwise.agent_vs_nn_win_rate)} of head-to-heads against the nearest-neighbour reply, ${pct(reply.pairwise.agent_vs_trivial_win_rate)} against the template. LLM opinion until humans rate.`
-                    : "LLM opinion until humans rate."
+                    ? `Wins ${pct(reply.pairwise.agent_vs_nn_win_rate)} of head-to-heads against the nearest-neighbour reply, ${pct(reply.pairwise.agent_vs_trivial_win_rate)} against the template. AI-generated scores; the latest benchmark was reviewed and approved by Arnav Bule.`
+                    : "AI-generated scores; the latest benchmark was reviewed and approved by Arnav Bule."
                 }
               />
             ) : (

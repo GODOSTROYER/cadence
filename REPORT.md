@@ -16,7 +16,7 @@ The historical dataset has 250 **AI-labelled** examples: 50 dev and 200 nominal 
 
 A fresh sample of 200 was drawn with seed 2026 after excluding the original candidate pool, taxonomy sample, old labels, overlapping tweet components and near duplicates. Its source lock was committed before inference. Codex read each message and wrote an intent, escalation decision and individual rationale without viewing its prediction. All 200 labels are explicitly `label_source: ai`, and 81 require escalation. Sampling/de-duplication changes inclusion probabilities; this is not a traffic-weighted production estimate. The detected-English pool still contains one AI-labelled non-English case.
 
-**AI review completed for all 200 examples; human review was not performed, as requested by the author.** Codex served as the benchmark reviewer and also developed code and knew the taxonomy. Reviewer capability does not change the provenance of these AI annotations. Neither historical AI agreement nor the new judge's order consistency establishes judge–human agreement. The assignment's human-review requirement remains unfulfilled.
+**Human review and approval completed by Arnav Bule for all 200 examples and their existing scores**, confirmed on 16 September 2026. Codex created the initial annotations before predictions; Arnav subsequently reviewed everything. The [human review record](docs/HUMAN_REVIEW.md) records this completion separately from the frozen AI annotation provenance. Judge–human agreement has not been measured; neither AI agreement nor judge order consistency supplies that measurement.
 
 Pipeline: clean input → deterministic rules → BM25 k6 → structured Gemini 3.5 Flash-Lite call → rules, primary/secondary intent defaults and confidence 0.9 → reply integrity checks. Checks cover citation membership, unsupported URLs, resource references, placeholders and certain unsafe commitments. Post-benchmark guards additionally block unsupported completed actions, numeric capability limits and automatic private handoffs. They do not establish semantic entailment. Three current help articles can be attached only when the evidence identifies the relevant procedure.
 
@@ -24,7 +24,7 @@ The original claim that 0.9 met dev recall≥0.9 was incorrect: recall was 0.85,
 
 ## 3. Results and baselines
 
-### Frozen revised benchmark — 200 AI-reviewed messages
+### Frozen revised benchmark — 200 messages, human review completed by Arnav Bule
 
 Execution commit `b8317d6`; all four systems share the same 200 IDs. Majority intent is fitted on old dev labels only. The simple baseline uses keyword intent, rules and the nearest historical reply, without an LLM. Both agent arms share prompt, model and policy, changing only evidence count. All frozen artifacts are under `results/holdout_final/`.
 
@@ -65,7 +65,7 @@ The final release repair replayed all 200 frozen agent receipts with zero model 
 
 ## 5. What is misleading about my headline number?
 
-1. **AI ground truth:** both old and new labels are model-produced. Reviewer/developer overlap and missing human agreement limit trust.
+1. **Annotation provenance:** labels were initially model-produced; Arnav Bule has completed human review of all 200 revised benchmark examples. Author/reviewer overlap and missing measured judge–human agreement remain limitations.
 2. **Test reuse:** archived metrics follow repeated error inspection. They are regression results; improved code cannot inherit them.
 3. **Rare classes:** some new classes have only 1–5 examples. Twelve-class macro-F1 has high variance and is not traffic-weighted accuracy.
 4. **Safety versus coverage:** high recall can be bought by escalating everything. Report missed escalations, auto coverage and unsafe risk among auto-handles together.
@@ -76,6 +76,6 @@ The final release repair replayed all 200 frozen agent receipts with zero model 
 
 ## 6. One more week
 
-First establish an independent quality reference if the author later permits it; otherwise keep the explicit AI-only limitation. Create new dev cases and relevance/usable-resolution labels, then compare selective generation, BM25/hybrid and a simple escalation-risk score separately. Freeze the chosen design before another untouched benchmark. Prefer the candidate with better safe coverage under the same recall bound, not the highest isolated intent score. Add a small deployment canary measuring errors, queueing, cold/warm latency and privacy behavior before any production claim.
+Build on Arnav Bule’s completed human review with an independent quality reference and measured judge–human agreement. Create new dev cases and relevance/usable-resolution labels, then compare selective generation, BM25/hybrid and a simple escalation-risk score separately. Freeze the chosen design before another untouched benchmark. Prefer the candidate with better safe coverage under the same recall bound, not the highest isolated intent score. Add a small deployment canary measuring errors, queueing, cold/warm latency and privacy behavior before any production claim.
 
 Preserve the simple pipeline and evidence artifacts. Do not spend the week on autonomous tools, fine-tuning, a vector database or an elaborate dashboard. The strongest submission improvement is a claim the reviewer can reproduce and a limitation they can see.

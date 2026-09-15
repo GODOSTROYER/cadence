@@ -232,7 +232,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         lede={`${summary.meta.judge_model} scores the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge is a different model from the agent (${summary.meta.agent_model}). ${
           summary.judge_agreement && summary.judge_agreement.n > 0
             ? `A human rated ${int(summary.judge_agreement.n)} pairs blind to calibrate it.`
-            : "No human ratings exist yet, so the judge is uncalibrated: its scores are LLM opinion until pairs are rated on the Rate page and the evaluation re-runs."
+            : "Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores. Separate blind human ratings for numerical judge calibration are not recorded."
         }`}
       >
         <div className="table-wrap">
@@ -259,7 +259,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         </div>
       </Section>
 
-      <Section id="reproduce" eyebrow="06 · reproduce" title="Fifteen minutes, no API key" lede="Archived call receipts and predictions are committed. The reproduce command verifies their provenance and recalculates historical metrics offline. Revised experiments and AI-review limitations are reported separately in the repository.">
+      <Section id="reproduce" eyebrow="06 · reproduce" title="Fifteen minutes, no API key" lede="Archived call receipts and predictions are committed. The reproduce command verifies their provenance and recalculates historical metrics offline. Revised experiments and completed human review of all 200 examples by Arnav Bule are reported separately in the repository.">
         <ol className="region-plain divide-y divide-border">
           {REPRODUCE_STEPS.map((s, i) => (
             <li key={s.cmd} className="grid gap-2 px-5 py-4 sm:grid-cols-[28px_minmax(0,300px)_1fr_auto] sm:items-baseline sm:gap-5">

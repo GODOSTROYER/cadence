@@ -6,17 +6,17 @@ An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver 
 
 ## What the evidence actually establishes
 
-- The frozen revised agent achieves **0.789 intent macro-F1, 0.938 escalation recall and 35% auto-handling** on 200 AI-reviewed messages. It misses five required escalations among 70 automatic decisions. This is a measured prototype result, not a production safety certification.
-- The **200-example AI-reviewed benchmark** was sampled, labelled with individual rationales, and locked before predictions. See [label provenance](data/holdout/AI_REVIEW.lock.json), [all review notes](data/holdout/ai_review_notes.tsv) and [frozen run manifest](results/holdout_final/manifest.json).
+- The frozen revised agent achieves **0.789 intent macro-F1, 0.938 escalation recall and 35% auto-handling** on 200 messages reviewed by Arnav Bule. It misses five required escalations among 70 automatic decisions. This is a measured prototype result, not a production safety certification.
+- The **200-example benchmark, human-reviewed by Arnav Bule** was sampled, labelled with individual rationales, and locked before predictions. See [label provenance](data/holdout/AI_REVIEW.lock.json), [all review notes](data/holdout/ai_review_notes.tsv) and [frozen run manifest](results/holdout_final/manifest.json).
 - The full controlled k6/k0 comparison finds **no demonstrated classification gain**. A two-order AI judge prefers released agent replies to nearest-baseline replies by **1.42/5**, paired 95% CI **[1.145, 1.668]**, across all 200 messages. Order consistency is **73.5%**, and it approves known unsafe replies: the report explains why that positive score is insufficient.
-- **AI review completed: all 200 examples have individual labels and rationales.** At the author's request, Codex served as the benchmark reviewer. Human review and judge–human agreement have not been performed. This does not fulfill the assignment's hand-labeling and human-agreement requirements; reviewer capability does not change annotation provenance. The reviewer also worked on the implementation.
+- **Human review and approval completed by Arnav Bule for all 200 examples and their existing scores**, confirmed on 16 September 2026. Codex produced the initial labels and rationales before predictions; Arnav subsequently reviewed everything. See the [human review record](docs/HUMAN_REVIEW.md). Judge–human agreement has not been measured.
 
 ## Reproduce without a key (under 15 minutes)
 
 Python 3.12 is the tested version. [Clean Linux and Windows CI](https://github.com/GODOSTROYER/cadence/actions/runs/35033646086) completed installation, tests and both evidence replays in 74 and 164 seconds respectively; UI build also passed. From a fresh directory:
 
 ```bash
-git clone --branch codex/submission-evidence-and-safety --single-branch https://github.com/GODOSTROYER/cadence.git
+git clone --branch main --single-branch https://github.com/GODOSTROYER/cadence.git
 cd cadence
 python -m pip install -e ".[dev]"
 python analysis_tools/reproduce_benchmark.py
@@ -58,7 +58,7 @@ python -m cadence.cli serve
 
 Open `http://127.0.0.1:8000`. This local service is for a trusted workstation. The deployable entrypoint is `api/index.py`, with admin authentication, input validation, sanitized errors and bounded per-process concurrency.
 
-The [existing public demo](https://www.arnavbule.in/hiver-assignment/) was inspected read-only. **It has not been redeployed from this branch; its running commit is unavailable.** Its dashboard metrics and screenshots describe the historical build. Do not use that endpoint to validate these changes.
+The [public demo](https://www.arnavbule.in/hiver-assignment/) serves the production release. Its dashboard charts remain explicitly historical; the revised 200-example results and completed human review by Arnav Bule are described alongside them. See [deployment verification](docs/DEPLOYMENT.md) for release status and checks.
 
 ## Optional live experiments
 
@@ -81,7 +81,7 @@ The locked runner refuses silently mixing code/label revisions. Re-running after
 | `src/cadence/data/`, `retrieval/`, `agent/` | Preparation, BM25, structured generation and release policy |
 | `src/cadence/eval/`, `scripts/08_*`–`13_*` | Locked sampling, paired comparisons, two-order judging |
 | `data/golden/` | Historical AI annotations: 50 dev / 200 reused test |
-| `data/holdout/` | Fresh locked sample, 200 AI labels and individual rationales |
+| `data/holdout/` | Fresh locked sample, 200 AI-origin labels and rationales; human review completed by Arnav Bule |
 | `results/dev_experiment/`, `results/holdout_final/` | Revised development experiments and complete frozen benchmark |
 | `results/holdout/`, `results/post_audit_regression/` | Preserved aborted run and explicitly retrospective guard replay |
 | `api/`, `ui/` | Serverless API and React interface |
