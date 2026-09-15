@@ -13,9 +13,11 @@ An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver 
 
 ## Reproduce without a key (under 15 minutes)
 
-Python 3.12 is the tested version. From this branch:
+Python 3.12 is the tested version. [Clean Linux and Windows CI](https://github.com/GODOSTROYER/cadence/actions/runs/35033646086) completed installation, tests and both evidence replays in 74 and 164 seconds respectively; UI build also passed. From a fresh directory:
 
 ```bash
+git clone --branch codex/submission-evidence-and-safety --single-branch https://github.com/GODOSTROYER/cadence.git
+cd cadence
 python -m pip install -e ".[dev]"
 python analysis_tools/reproduce_benchmark.py
 python -m cadence.cli reproduce

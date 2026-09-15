@@ -47,7 +47,7 @@ npm ci
 npm run build
 ```
 
-The offline suite exercises data, retrieval, structured response parsing, deterministic escalation, integrity checks, cached evaluation and both API entrypoints. The UI build checks TypeScript and bundling; it is not browser interaction testing. CI is configured for Windows/Linux Python and Node, but local results are the executed evidence unless a remote CI run is linked.
+The offline suite exercises data, retrieval, structured response parsing, deterministic escalation, integrity checks, cached evaluation and both API entrypoints. The UI build checks TypeScript and bundling; it is not browser interaction testing. [Remote CI](https://github.com/GODOSTROYER/cadence/actions/runs/35033646086) passed on implementation commit `3efe5bb`: Linux Python 74 seconds, Windows Python 164 seconds, and Node/UI 20 seconds, including dependency installation. Both Python jobs also reproduced frozen metrics and cached guard regressions.
 
 ## 5. Inspect a case (2 minutes)
 

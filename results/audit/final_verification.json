@@ -8,7 +8,17 @@
   "ruff": "passed: src scripts tests api analysis_tools",
   "ui": "TypeScript and Vite build passed; 2651 modules; 10.75s Vite phase",
   "browser_interaction_tests": "Passed local desktop landing/navigation/cache-only error/Clear and one live successful API result; zero console errors/warnings. Live smoke is functional, not independent accuracy evidence. Mobile not tested.",
-  "remote_ci": "configured, not executed",
+  "remote_ci": {
+    "status": "success",
+    "commit": "3efe5bbb769975d4fa96290cf42221a235d78238",
+    "url": "https://github.com/GODOSTROYER/cadence/actions/runs/35033646086",
+    "jobs": {
+      "python_ubuntu_seconds": 74,
+      "python_windows_seconds": 164,
+      "ui_seconds": 20
+    },
+    "scope": "Clean checkout, dependency install, lint, tests, historical replay, frozen benchmark reproduction, cached guard regression; UI install/build."
+  },
   "historical_replay": {
     "model_calls": 0,
     "receipts_verified": 1771,
