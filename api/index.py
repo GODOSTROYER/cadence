@@ -84,6 +84,17 @@ def _agent():
         return _state["agent"]
 
 
+def _cache_entries() -> int:
+    """Number of replayable calls in the committed cache (read from the writable /tmp copy)."""
+    try:
+        import sqlite3
+
+        with sqlite3.connect(str(_cache_path())) as conn:
+            return int(conn.execute("select count(*) from calls").fetchone()[0])
+    except Exception:  # noqa: BLE001 - health must never fail because of the cache
+        return 0
+
+
 @router.get("/api/health")
 def health() -> dict[str, Any]:
     n_golden = sum(1 for _ in read_jsonl(Paths.GOLDEN)) if Paths.GOLDEN.exists() else 0
@@ -93,7 +104,7 @@ def health() -> dict[str, Any]:
         "cache_only": False,
         "agent_model": model_name("agent"),
         "judge_model": model_name("judge"),
-        "cache_entries": 0,
+        "cache_entries": _cache_entries(),
         "index_size": len(_state["retriever"]) if "retriever" in _state else 0,
         "n_golden": n_golden,
         "deployment": "vercel",
