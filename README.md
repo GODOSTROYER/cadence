@@ -9,7 +9,7 @@ An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver 
 - The frozen revised agent achieves **0.789 intent macro-F1, 0.938 escalation recall and 35% auto-handling** on 200 AI-reviewed messages. It misses five required escalations among 70 automatic decisions. This is a measured prototype result, not a production safety certification.
 - The **200-example AI-reviewed benchmark** was sampled, labelled with individual rationales, and locked before predictions. See [label provenance](data/holdout/AI_REVIEW.lock.json), [all review notes](data/holdout/ai_review_notes.tsv) and [frozen run manifest](results/holdout_final/manifest.json).
 - The full controlled k6/k0 comparison finds **no demonstrated classification gain**. A two-order AI judge prefers released agent replies to nearest-baseline replies by **1.42/5**, paired 95% CI **[1.145, 1.668]**, across all 200 messages. Order consistency is **73.5%**, and it approves known unsafe replies: the report explains why that positive score is insufficient.
-- **There are no human labels or human judge-agreement measurements.** At the author's request, Codex reviewed all new examples. This is an AI benchmark, not a substitute for the assignment's hand-labeling and human-agreement requirements. The reviewer also worked on the implementation.
+- **AI review completed: all 200 examples have individual labels and rationales.** At the author's request, Codex served as the benchmark reviewer. Human review and judge–human agreement have not been performed. This does not fulfill the assignment's hand-labeling and human-agreement requirements; reviewer capability does not change annotation provenance. The reviewer also worked on the implementation.
 
 ## Reproduce without a key (under 15 minutes)
 
