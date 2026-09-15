@@ -198,10 +198,10 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
     },
     {
       eyebrow: "reproducibility",
-      title: "Every call cached, no key needed",
+      title: "Archived calls, no key needed",
       body: (
         <>
-          <span className="t-mono text-text">python -m cadence.cli reproduce</span> verifies recorded inputs and {health ? int(health.cache_entries) : "1,771"} cached receipts, then recomputes these archived metrics without a model call. This is artifact replay, not execution of the revised agent.
+          <span className="t-mono text-text">python -m cadence.cli reproduce</span> verifies recorded inputs and archived call receipts, then recomputes these archived metrics without a model call. This is artifact replay, not execution of the revised agent.
         </>
       ),
       link: <GoLink href={REPO}>GitHub · GODOSTROYER/cadence</GoLink>,
@@ -267,7 +267,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
               ["test split", `${int(meta.n_test)} tweets, 12 intents, reused across runs`],
               ["baselines", "7 · trivial, simple, zero-shot LLM"],
               ["agent · judge", `${meta.agent_model} · ${meta.judge_model}`],
-              ["replayable", `${health ? int(health.cache_entries) : "every"} cached calls, no key needed`],
+              ["replayable", "archived call receipts, no key needed"],
             ].map(([k, v]) => (
               <div key={k} className="hairline-b grid grid-cols-[96px_1fr] gap-3 py-2.5">
                 <dt className="t-mono text-[12px] text-faint">{k}</dt>
@@ -488,9 +488,9 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
           </p>
         </div>
         <div className="flex max-w-[48ch] flex-col gap-1.5 sm:text-right">
-          <p>Built with {meta.agent_model} on the free tier; every call cached and replayable.</p>
+          <p>Built with {meta.agent_model}. Archived evaluation calls are replayable; live visitor replies are not stored in the deployed cache.</p>
           <p className="t-mono text-[12px] text-faint">
-            results {meta.generated_at.slice(0, 10)} · sha {meta.git_sha.slice(0, 9)} · cache hit rate {pct(meta.cache_hit_rate)}
+            archived results {meta.generated_at.slice(0, 10)} · evaluation sha {meta.git_sha.slice(0, 9)} · historical cache hit rate {pct(meta.cache_hit_rate)}
           </p>
         </div>
       </footer>
