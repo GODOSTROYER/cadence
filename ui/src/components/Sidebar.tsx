@@ -1,9 +1,10 @@
-import { AlertTriangle, BarChart3, BookOpen, Compass, FlaskConical, ListOrdered, MessageSquareText, Star, type LucideIcon } from "lucide-react";
+import { AlertTriangle, BarChart3, BookOpen, Compass, FlaskConical, ListOrdered, Lock, LogOut, MessageSquareText, Star, type LucideIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 import { Chip, type ChipTone } from "@/components/Chip";
 import { Skeleton } from "@/components/Skeleton";
 import { Tooltip } from "@/components/Tooltip";
+import { useAuth } from "@/lib/auth";
 import { cx } from "@/lib/cx";
 import type { Health, UiMode } from "@/lib/types";
 
@@ -14,16 +15,20 @@ export interface NavItem {
   end?: boolean;
 }
 
-/** The eight routes (CONTRACT §11), in reading order. */
-export const NAV: readonly NavItem[] = [
+/** What every visitor sees. */
+export const PUBLIC_NAV: readonly NavItem[] = [
   { to: "/", label: "Overview", icon: Compass, end: true },
-  { to: "/agent", label: "Playground", icon: MessageSquareText },
+  { to: "/agent", label: "Try the agent", icon: MessageSquareText },
+  { to: "/method", label: "How it works", icon: FlaskConical },
+];
+
+/** Internal tooling, shown once signed in (or when there is no admin door: local dev). */
+export const ADMIN_NAV: readonly NavItem[] = [
   { to: "/eval", label: "Evaluation", icon: BarChart3 },
   { to: "/golden", label: "Golden set", icon: BookOpen },
   { to: "/failures", label: "Failure modes", icon: AlertTriangle },
   { to: "/rate", label: "Rate replies", icon: Star },
   { to: "/decisions", label: "Decisions", icon: ListOrdered },
-  { to: "/method", label: "Method & data", icon: FlaskConical },
 ];
 
 export interface SidebarProps {
@@ -40,12 +45,37 @@ export interface SidebarProps {
 const MODE_CHIP: Record<UiMode, { label: string; tone: ChipTone; title: string }> = {
   static: { label: "static", tone: "violet", title: "Reading exported results from public/data. The live agent is disabled." },
   "cache-only": { label: "cache-only", tone: "amber", title: "API server without a Gemini key: replies replay from the committed LLM cache." },
-  live: { label: "live", tone: "green", title: "API server with a Gemini key: free-text messages run the real agent." },
+  live: { label: "live", tone: "green", title: "A Gemini key is configured: free-text messages run the real agent." },
 };
 
-/** Wordmark, navigation with active state, and the status chips fed by getHealth(). */
+function NavList({ items, collapsed, onNavigate }: { items: readonly NavItem[]; collapsed: boolean; onNavigate?: () => void }) {
+  return (
+    <>
+      {items.map((item) => {
+        const link = (
+          <NavLink key={item.to} to={item.to} end={item.end} onClick={onNavigate} aria-label={collapsed ? item.label : undefined} className={cx("nav-item", collapsed && "w-9 justify-center px-0")}>
+            <item.icon aria-hidden="true" />
+            {!collapsed && <span>{item.label}</span>}
+          </NavLink>
+        );
+        return collapsed ? (
+          <Tooltip key={item.to} content={item.label} side="bottom">
+            {link}
+          </Tooltip>
+        ) : (
+          link
+        );
+      })}
+    </>
+  );
+}
+
+/** Wordmark, public navigation, the admin section (door or full nav), and the status chips fed by getHealth(). */
 export function Sidebar({ collapsed = false, health, healthLoading, mode, onNavigate, className }: SidebarProps) {
+  const auth = useAuth();
+  const unlocked = auth.status === "admin" || auth.status === "unavailable";
   const chip = MODE_CHIP[mode];
+
   return (
     <div className={cx("flex h-full flex-col", className)}>
       <div className={cx("flex h-16 items-center", collapsed ? "justify-center px-0" : "px-3")}>
@@ -61,31 +91,52 @@ export function Sidebar({ collapsed = false, health, healthLoading, mode, onNavi
       </div>
 
       <nav aria-label="Primary" className={cx("mt-2 flex flex-1 flex-col gap-0.5", collapsed ? "items-center px-0" : "px-3")}>
-        {NAV.map((item) => {
-          const link = (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              onClick={onNavigate}
-              aria-label={collapsed ? item.label : undefined}
-              className={cx("nav-item", collapsed && "w-9 justify-center px-0")}
-            >
-              <item.icon aria-hidden="true" />
-              {!collapsed && <span>{item.label}</span>}
-            </NavLink>
-          );
-          return collapsed ? (
-            <Tooltip key={item.to} content={item.label} side="bottom">
-              {link}
-            </Tooltip>
-          ) : (
-            link
-          );
-        })}
+        <NavList items={PUBLIC_NAV} collapsed={collapsed} onNavigate={onNavigate} />
+
+        {unlocked && (
+          <>
+            {!collapsed && (
+              <p className="eyebrow mt-5 mb-1.5 px-3 text-faint" aria-hidden="true">
+                {auth.status === "admin" ? `admin · ${auth.user ?? ""}` : "admin · local"}
+              </p>
+            )}
+            {collapsed && <span aria-hidden="true" className="my-3 h-px w-6 bg-border" />}
+            <NavList items={ADMIN_NAV} collapsed={collapsed} onNavigate={onNavigate} />
+          </>
+        )}
+
+        <div className="mt-auto pt-4">
+          {auth.status === "admin" ? (
+            collapsed ? (
+              <Tooltip content={`Sign out ${auth.user ?? ""}`} side="top">
+                <button type="button" onClick={() => void auth.logout()} aria-label="Sign out" className="nav-item w-9 justify-center px-0">
+                  <LogOut aria-hidden="true" />
+                </button>
+              </Tooltip>
+            ) : (
+              <button type="button" onClick={() => void auth.logout()} className="nav-item w-full text-faint">
+                <LogOut aria-hidden="true" />
+                <span>Sign out</span>
+              </button>
+            )
+          ) : auth.status === "anon" || auth.status === "loading" ? (
+            collapsed ? (
+              <Tooltip content="Admin" side="top">
+                <NavLink to="/admin" onClick={onNavigate} aria-label="Admin" className="nav-item w-9 justify-center px-0">
+                  <Lock aria-hidden="true" />
+                </NavLink>
+              </Tooltip>
+            ) : (
+              <NavLink to="/admin" onClick={onNavigate} className="nav-item text-faint">
+                <Lock aria-hidden="true" />
+                <span>Admin</span>
+              </NavLink>
+            )
+          ) : null}
+        </div>
       </nav>
 
-      <footer className={cx("hairline-t flex flex-col gap-2 py-4", collapsed ? "items-center px-0" : "px-3")} aria-label="Status">
+      <footer className={cx("hairline-t mt-3 flex flex-col gap-2 py-4", collapsed ? "items-center px-0" : "px-3")} aria-label="Status">
         {collapsed ? (
           <Tooltip content={`${chip.title} Agent ${health?.agent_model ?? "…"}, judge ${health?.judge_model ?? "…"}.`} side="top">
             <span className={cx("size-2.5 rounded-full", chip.tone === "green" ? "bg-green" : chip.tone === "amber" ? "bg-amber" : "bg-violet")} tabIndex={0} aria-label={`Mode: ${chip.label}`} />

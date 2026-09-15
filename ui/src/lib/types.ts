@@ -409,6 +409,10 @@ export interface Health {
   cache_entries: number;
   index_size: number;
   n_golden: number;
+  /** Additive fields from the static export / the Vercel function. */
+  static?: boolean;
+  deployment?: string;
+  admin_enabled?: boolean;
 }
 
 export type HandleMode = "live" | "cache_only";
@@ -486,3 +490,31 @@ export interface EscalationPolicy {
 
 /** UI mode derived from build env + health. */
 export type UiMode = "static" | "live" | "cache-only";
+
+// ---------------------------------------------------------------------------- public summary + admin session
+
+/** `public_summary.json`: the aggregate subset of `EvalSummary` shipped to anonymous visitors (no confusion matrices, no example ids). */
+export type PublicIntentSystemMetrics = Omit<IntentSystemMetrics, "confusion"> & {
+  ci95: { accuracy: CI95; macro_f1: CI95; per_class_f1?: Record<IntentId, CI95> };
+};
+
+export type PublicEscalationSystemMetrics = Omit<EscalationSystemMetrics, "missed_examples" | "unnecessary_examples">;
+
+export interface PublicSummary {
+  meta: EvalMeta & { caveats: string[]; n_boot?: number; systems?: string[] };
+  headline: Headline;
+  intent: { labels: IntentId[]; support: Record<IntentId, number>; systems: Record<string, PublicIntentSystemMetrics> };
+  escalation: { threshold: number; threshold_sweep: ThresholdPoint[]; systems: Record<string, PublicEscalationSystemMetrics> };
+  reply_quality: Nullable<ReplyQualityBlock>;
+  judge_agreement: Nullable<JudgeAgreementBlock>;
+  annotator_agreement: AnnotatorAgreement & { n?: number };
+  cost: CostBlock;
+}
+
+/** Datasets served by `GET /api/admin/data/{name}` once signed in. */
+export type AdminDataName = "eval_summary" | "failure_modes" | "golden_merged" | "decisions" | "health";
+
+export interface AdminSession {
+  authenticated: boolean;
+  user: string | null;
+}

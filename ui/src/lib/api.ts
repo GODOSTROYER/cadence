@@ -6,6 +6,8 @@
  * status and server `detail`; `StaticModeError` marks features that need the live server.
  */
 import type {
+  AdminDataName,
+  AdminSession,
   AgentResponse,
   DecisionEntry,
   EscalationPolicy,
@@ -16,11 +18,13 @@ import type {
   IntentDefinition,
   MergedGoldenExample,
   ProcessedThread,
+  PublicSummary,
   RatingQueueItem,
   RatingRecord,
   RatingSubmission,
   UiMode,
 } from "./types";
+import { RECORDED } from "./recorded";
 
 export const IS_STATIC: boolean = import.meta.env.VITE_STATIC === "1";
 /**
@@ -34,6 +38,8 @@ function apiUrl(path: string): string {
 }
 
 export const LIVE_AGENT: boolean = IS_STATIC && import.meta.env.VITE_LIVE_HANDLE === "1";
+/** True when `handle()` reaches a real agent (the FastAPI server in dev, or the serverless function on Vercel). */
+export const AGENT_AVAILABLE: boolean = !IS_STATIC || LIVE_AGENT;
 
 export class ApiError extends Error {
   readonly status: number;
@@ -99,7 +105,7 @@ async function parseError(res: Response, url: string): Promise<ApiError> {
 async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(url, init);
+    res = await fetch(url, { credentials: "include", ...init });
   } catch (e) {
     throw new ApiError(url, 0, e instanceof Error ? e.message : "network error");
   }
@@ -138,23 +144,36 @@ export function getHealth(): Promise<Health> {
   return cachedGet<Health>(IS_STATIC && !LIVE_AGENT ? staticUrl("health") : apiUrl("/api/health"));
 }
 
+/** Public aggregate results (`public/data/public_summary.json`): what anonymous visitors may see. */
+export function getPublicSummary(): Promise<PublicSummary> {
+  return cachedGet<PublicSummary>(staticUrl("public_summary"));
+}
+
+/**
+ * Admin-only datasets. On the static/Vercel build the full results are not shipped as public files;
+ * they come from `GET /api/admin/data/{name}`, which answers 401 until `login()` has set the session cookie.
+ */
+export function getAdminData<T>(name: AdminDataName): Promise<T> {
+  return cachedGet<T>(apiUrl(`/api/admin/data/${name}`));
+}
+
 export function getResults(): Promise<EvalSummary> {
-  return cachedGet<EvalSummary>(IS_STATIC ? staticUrl("eval_summary") : apiUrl("/api/results"));
+  return IS_STATIC ? getAdminData<EvalSummary>("eval_summary") : cachedGet<EvalSummary>(apiUrl("/api/results"));
 }
 
 export function getFailures(): Promise<FailureMode[]> {
-  return cachedGet<FailureMode[]>(IS_STATIC ? staticUrl("failure_modes") : apiUrl("/api/failures"));
+  return IS_STATIC ? getAdminData<FailureMode[]>("failure_modes") : cachedGet<FailureMode[]>(apiUrl("/api/failures"));
 }
 
 export function getGolden(): Promise<MergedGoldenExample[]> {
-  return cachedGet<MergedGoldenExample[]>(IS_STATIC ? staticUrl("golden_merged") : apiUrl("/api/golden"));
+  return IS_STATIC ? getAdminData<MergedGoldenExample[]>("golden_merged") : cachedGet<MergedGoldenExample[]>(apiUrl("/api/golden"));
 }
 
 export async function getGoldenById(id: string): Promise<MergedGoldenExample> {
   if (IS_STATIC) {
     const rows = await getGolden();
     const row = rows.find((r) => r.id === id);
-    if (!row) throw new ApiError(staticUrl("golden_merged"), 404, `No golden example with id ${id}.`);
+    if (!row) throw new ApiError(apiUrl("/api/admin/data/golden_merged"), 404, `No golden example with id ${id}.`);
     return row;
   }
   return cachedGet<MergedGoldenExample>(apiUrl(`/api/golden/${encodeURIComponent(id)}`));
@@ -167,7 +186,15 @@ export async function getGoldenById(id: string): Promise<MergedGoldenExample> {
 export async function handle(text: string, mode?: HandleMode): Promise<AgentResponse> {
   if (IS_STATIC && !LIVE_AGENT) {
     const wanted = normaliseText(text);
-    const rows = await getGolden();
+    // The three embedded runs replay without the golden set (which needs the admin session on this build).
+    const embedded = RECORDED.find((r) => normaliseText(r.input_text) === wanted);
+    if (embedded) return embedded;
+    let rows: MergedGoldenExample[] = [];
+    try {
+      rows = await getGolden();
+    } catch (e) {
+      if (!(isApiError(e) && e.status === 401)) throw e;
+    }
     const row = rows.find((r) => normaliseText(r.text) === wanted);
     const recorded = row?.predictions.agent;
     if (!recorded) {
@@ -208,7 +235,29 @@ export async function postRating(rating: RatingSubmission): Promise<RatingRecord
 }
 
 export function getDecisions(): Promise<DecisionEntry[]> {
-  return cachedGet<DecisionEntry[]>(IS_STATIC ? staticUrl("decisions") : apiUrl("/api/decisions"));
+  return IS_STATIC ? getAdminData<DecisionEntry[]>("decisions") : cachedGet<DecisionEntry[]>(apiUrl("/api/decisions"));
+}
+
+// ---------------------------------------------------------------------------- admin session
+
+/** `GET /api/admin/me`: never cached, so a fresh cookie is seen immediately. */
+export function adminMe(): Promise<AdminSession> {
+  return fetchJson<AdminSession>(apiUrl("/api/admin/me"), { cache: "no-store" });
+}
+
+export async function adminLogin(username: string, password: string): Promise<AdminSession> {
+  const session = await fetchJson<AdminSession>(apiUrl("/api/admin/login"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+  invalidate("/api/admin/data/");
+  return session;
+}
+
+export async function adminLogout(): Promise<void> {
+  await fetchJson<AdminSession>(apiUrl("/api/admin/logout"), { method: "POST" });
+  invalidate("/api/admin/data/");
 }
 
 /** Processed thread (§3). Static mode rebuilds a thread view from the golden example's recorded turns. */
@@ -216,7 +265,7 @@ export async function getThread(threadId: string): Promise<ProcessedThread> {
   if (IS_STATIC) {
     const rows = await getGolden();
     const row = rows.find((r) => r.thread_id === threadId);
-    if (!row) throw new ApiError(staticUrl("golden_merged"), 404, `No recorded thread ${threadId}.`);
+    if (!row) throw new ApiError(apiUrl("/api/admin/data/golden_merged"), 404, `No recorded thread ${threadId}.`);
     const brand = row.historical_thread.filter((t) => t.role === "brand");
     const first = brand[0];
     return {

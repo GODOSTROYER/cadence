@@ -16,7 +16,8 @@ import { StepTimeline, type StepStatus, type TimelineStep } from "@/components/S
 import { useAsync } from "@/hooks/useAsync";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { describeError, getGolden, getResults, handle, IS_STATIC, isStaticModeError, LIVE_AGENT } from "@/lib/api";
+import { describeError, getGolden, getPublicSummary, getResults, handle, IS_STATIC, isApiError, isStaticModeError, LIVE_AGENT } from "@/lib/api";
+import { recordedAsGolden } from "@/lib/recorded";
 
 /** Recorded runs only: static build without a live agent endpoint. */
 const RECORDED_ONLY = IS_STATIC && !LIVE_AGENT;
@@ -135,9 +136,15 @@ export default function AgentPlayground() {
   useDocumentTitle("Playground");
   const reduced = useReducedMotion();
   const golden = useAsync(getGolden, []);
-  const results = useAsync(getResults, []);
-  const threshold = results.data?.meta.threshold;
-  const examples = useMemo(() => (golden.data ? pickExamples(golden.data) : []), [golden.data]);
+  // The threshold comes from the public summary on static builds (the full results need the admin session).
+  const results = useAsync(async (): Promise<{ threshold: number }> => {
+    const summary = IS_STATIC ? await getPublicSummary() : await getResults();
+    return { threshold: summary.meta.threshold };
+  }, []);
+  const threshold = results.data?.threshold;
+  // Anonymous visitors on the static build cannot read the golden set (401): fall back to three embedded recorded runs.
+  const goldenLocked = isApiError(golden.error) && golden.error.status === 401;
+  const examples = useMemo(() => (golden.data ? pickExamples(golden.data) : goldenLocked ? recordedAsGolden() : []), [golden.data, goldenLocked]);
 
   const [text, setText] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -259,10 +266,11 @@ export default function AgentPlayground() {
               {RECORDED_ONLY ? "recorded messages · pick one" : "try one of these, or write your own"}
             </label>
             {golden.data && <span className="t-mono text-[12px] text-faint">{examples.length} of {golden.data.length} golden tweets</span>}
+            {goldenLocked && <span className="t-mono text-[12px] text-faint">3 recorded runs · the full golden set is behind admin</span>}
           </div>
           <div className="flex flex-wrap gap-2" role="list" aria-label="Example messages">
             {golden.loading && [0, 1, 2, 3, 4, 5].map((i) => <Skeleton key={i} height={28} width={150 + (i % 3) * 40} radius={999} />)}
-            {golden.error ? <p className="text-[13px] text-rose">Couldn't load the example tweets: {describeError(golden.error)}</p> : null}
+            {golden.error && !goldenLocked ? <p className="text-[13px] text-rose">Couldn't load the example tweets: {describeError(golden.error)}</p> : null}
             {examples.map((row) => (
               <Chip
                 key={row.id}

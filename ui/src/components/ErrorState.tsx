@@ -1,7 +1,11 @@
 import { RotateCcw, WifiOff } from "lucide-react";
+import { lazy, Suspense } from "react";
 
 import { EmptyState } from "@/components/EmptyState";
-import { describeError } from "@/lib/api";
+import { AdminSkeleton } from "@/components/RequireAdmin";
+import { describeError, isApiError } from "@/lib/api";
+
+const SignIn = lazy(() => import("@/pages/SignIn"));
 
 export interface ErrorStateProps {
   error: unknown;
@@ -12,8 +16,18 @@ export interface ErrorStateProps {
   className?: string;
 }
 
-/** Rose EmptyState with the typed error's message and a retry button. */
+/**
+ * Rose EmptyState with the typed error's message and a retry button. A 401 (the admin session expired
+ * or was never set) renders the sign-in page in place instead, so every admin page locks the same way.
+ */
 export function ErrorState({ error, what, onRetry, compact, className }: ErrorStateProps) {
+  if (isApiError(error) && error.status === 401) {
+    return (
+      <Suspense fallback={<AdminSkeleton />}>
+        <SignIn inline />
+      </Suspense>
+    );
+  }
   return (
     <EmptyState
       tone="rose"
