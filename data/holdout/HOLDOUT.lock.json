@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "seed": 2026,
+  "n": 200,
+  "eligible_pool": 26424,
+  "status": "unlabelled; no predictions permitted until human labels validated",
+  "sampling": "seeded random order; reject >=85 fuzzy duplicates and overlapping tweet components",
+  "population": "English threads with brand replies, excluding prior candidate/golden/taxonomy exposure",
+  "limitations": "Deduplication changes inclusion probabilities; represents distinct complaints, not tweet traffic.",
+  "provenance": {
+    "commit": "7ed653e2827a2a99d42885d9a974c74988f42974",
+    "dirty": true
+  },
+  "files": {
+    "examples.jsonl": "dcb1a585e3ac0ae601895bc5bb8312d0b13432272d4e095dc0b538c21a7ee95d",
+    "ids.txt": "1759555ba73f1ab38581b0aa569d37aae783b9517c99d1f942ee75d0f15331ad"
+  },
+  "sources": {
+    "data/golden/candidates.jsonl": "e1195f077271217ed9b80ad8cc8f450ee615e0e33a9577c73ec47fefdf2e3eee",
+    "data/golden/golden_set.jsonl": "0b64d5fa83f26c0bbead5bb7f7ecadc0fd8d58cad089ce7bb40cb54e1ed18723",
+    "docs/taxonomy_calibration.jsonl": "8dd4e58b9b075dbddbcd893fb559e7f810a7fd9018922ff58173e46d816e94c6",
+    "data/processed/spotify_threads.jsonl.gz": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58"
+  }
+}
