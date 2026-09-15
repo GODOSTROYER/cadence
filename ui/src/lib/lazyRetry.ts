@@ -8,7 +8,8 @@ import { lazy, type ComponentType } from "react";
  * imported module"). The fix is a single hard reload, which fetches the current shell; a sessionStorage flag
  * makes sure a genuinely broken chunk does not reload forever.
  */
-export function lazyRetry<T extends ComponentType<unknown>>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- any props: the wrapper is prop-agnostic
+export function lazyRetry<T extends ComponentType<any>>(
   factory: () => Promise<{ default: T }>,
   key: string,
 ) {
