@@ -4,9 +4,6 @@ data/processed/spotify_openers.parquet
 data/processed/reply_templates.json
 data/golden/work
 cache/bm25_index.pkl
-results/v1
-results/v2
-results/figures
 ui/node_modules
 ui/mock
 tests
@@ -16,8 +13,9 @@ docs/taxonomy_calibration.jsonl
 .git
 pyproject.toml
 Makefile
-results
 uv.lock
 docs/FAILURE_ANALYSIS*.md
 docs/TAXONOMY.md
 docs/SAMPLING_NOTE.md
+results/*
+!results/ui

@@ -11,6 +11,7 @@ Usage: ``python scripts/07_export_ui_data.py [--out DIR]``
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 import sys
 from collections.abc import Sequence
@@ -184,12 +185,70 @@ def export_all(out_dir: Path) -> dict[str, bool]:
     return written
 
 
+PUBLIC_KEYS_INTENT = ("accuracy", "macro_f1", "weighted_f1", "per_class", "ci95")
+PUBLIC_KEYS_ESCALATION = (
+    "precision", "recall", "f1", "accuracy", "auto_handle_rate", "missed_escalations",
+    "unnecessary_escalations", "reason_code_accuracy", "confusion", "ci95",
+)
+
+
+def public_summary(summary: dict) -> dict:
+    """The recruiter-facing subset of eval_summary.json: aggregate numbers only, no per-example data."""
+    intent = summary.get("intent") or {}
+    escalation = summary.get("escalation") or {}
+    reply = summary.get("reply_quality") or {}
+    return {
+        "meta": summary.get("meta", {}),
+        "headline": summary.get("headline", {}),
+        "intent": {
+            "labels": intent.get("labels", []),
+            "support": intent.get("support", {}),
+            "systems": {k: {f: v.get(f) for f in PUBLIC_KEYS_INTENT if f in v} for k, v in (intent.get("systems") or {}).items()},
+        },
+        "escalation": {
+            "threshold": escalation.get("threshold"),
+            "threshold_sweep": escalation.get("threshold_sweep", []),
+            "systems": {k: {f: v.get(f) for f in PUBLIC_KEYS_ESCALATION if f in v} for k, v in (escalation.get("systems") or {}).items()},
+        },
+        "reply_quality": {
+            "systems": {k: {f: v.get(f) for f in ("mean", "dist_overall", "ship_rate", "flag_rates", "ci95") if f in v}
+                        for k, v in (reply.get("systems") or {}).items()},
+            "pairwise": reply.get("pairwise"),
+        },
+        "judge_agreement": (summary.get("judge_agreement") or None) and {
+            k: v for k, v in summary["judge_agreement"].items() if k != "pairs"
+        },
+        "annotator_agreement": summary.get("annotator_agreement"),
+        "cost": summary.get("cost"),
+    }
+
+
+def export_public(admin_dir: Path, public_dir: Path) -> None:
+    """Write the public files (health + aggregate summary) and remove any internal JSON left in the public folder."""
+    public_dir.mkdir(parents=True, exist_ok=True)
+    summary_path = admin_dir / "eval_summary.json"
+    if summary_path.exists():
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        write_json(public_dir / "public_summary.json", public_summary(summary))
+        log.info("wrote %s", public_dir / "public_summary.json")
+    write_json(public_dir / "health.json", static_health())
+    for internal in ("eval_summary.json", "failure_modes.json", "golden_merged.json", "decisions.json"):
+        stale = public_dir / internal
+        if stale.exists():
+            stale.unlink()
+            log.info("removed internal file from the public folder: %s", stale)
+
+
 def main(argv: Sequence[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Export results into ui/public/data for the static UI.")
-    parser.add_argument("--out", type=Path, default=None, help="Output directory (default: ui/public/data).")
+    parser = argparse.ArgumentParser(
+        description="Export results: full JSON into results/ui (admin-only on the deployment), public subset into ui/public/data."
+    )
+    parser.add_argument("--out", type=Path, default=None, help="Admin output directory (default: results/ui).")
+    parser.add_argument("--public", type=Path, default=None, help="Public output directory (default: ui/public/data).")
     args = parser.parse_args(list(argv) if argv is not None else None)
-    out_dir = args.out or Paths.UI_PUBLIC_DATA
+    out_dir = args.out or (Paths.RESULTS / "ui")
     written = export_all(out_dir)
+    export_public(out_dir, args.public or Paths.UI_PUBLIC_DATA)
     skipped = sorted(name for name, ok in written.items() if not ok)
     log.info("export complete: %d/%d files written to %s", len(written) - len(skipped), len(written), out_dir)
     if skipped:

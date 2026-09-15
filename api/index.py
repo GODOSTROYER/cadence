@@ -1,25 +1,36 @@
-"""Cadence on Vercel: a slim ASGI function serving the live agent next to the static dashboard.
+"""Cadence on Vercel: the live agent plus an admin session for the internal dashboards.
 
-Only two endpoints are exposed here — `GET /api/health` and `POST /api/agent/handle` — because everything
-else the dashboard needs (results, golden set, failure modes, decisions) ships as static JSON in the build.
-The retriever is built at cold start from the committed thread file (about two seconds); the committed
-replay cache is copied to /tmp so recorded golden examples answer without an API call, and new messages
-go to Gemini with the keys configured as Vercel environment variables (`GEMINI_API_KEYS`).
+Public endpoints (no login): `GET /api/health`, `POST /api/agent/handle`.
+Admin endpoints: `POST /api/admin/login`, `POST /api/admin/logout`, `GET /api/admin/me`,
+`GET /api/admin/data/{name}` (eval_summary | failure_modes | golden_merged | decisions | health).
+
+The admin session is a signed, HttpOnly cookie (HMAC over user + expiry with `SESSION_SECRET`); the password is
+compared as a SHA-256 digest against `ADMIN_PASSWORD_HASH`, so the plaintext never lives on the server. Internal
+JSON is bundled under `results/ui/` and only served to authenticated sessions; the public build ships just the
+headline summary. Everything is mounted twice, at `/api/...` and `/hiver-assignment/api/...`, so it works both
+directly and behind the www.arnavbule.in proxy.
+
+The retriever is built at cold start from the committed thread file (about two seconds); the committed replay
+cache is copied to /tmp so it is writable; new messages go to Gemini with the keys in `GEMINI_API_KEYS`.
 """
 
 from __future__ import annotations
 
+import hashlib
+import hmac
+import json
 import os
 import shutil
 import sys
 import threading
+import time
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from fastapi import APIRouter, FastAPI, HTTPException  # noqa: E402
+from fastapi import APIRouter, FastAPI, HTTPException, Request, Response  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
 
 from cadence import __version__  # noqa: E402
@@ -27,6 +38,10 @@ from cadence.config import Paths, api_keys, model_name  # noqa: E402
 from cadence.utils.io import read_jsonl  # noqa: E402
 
 TMP_CACHE = Path(os.environ.get("CADENCE_TMP_DIR", "/tmp")) / "llm_cache.sqlite"
+ADMIN_DATA_DIR = ROOT / "results" / "ui"
+ADMIN_DATA_FILES = ("eval_summary", "failure_modes", "golden_merged", "decisions", "health")
+COOKIE_NAME = "cadence_admin"
+SESSION_SECONDS = 7 * 24 * 3600
 
 app = FastAPI(title="Cadence live agent", version=__version__)
 router = APIRouter()
@@ -39,6 +54,12 @@ class HandleRequest(BaseModel):
     mode: str | None = None
 
 
+class LoginRequest(BaseModel):
+    username: str = Field(min_length=1, max_length=80)
+    password: str = Field(min_length=1, max_length=200)
+
+
+# --------------------------------------------------------------------------- agent
 def _cache_path() -> Path:
     """A writable copy of the committed replay cache (the deployment filesystem is read-only)."""
     if not TMP_CACHE.exists():
@@ -76,6 +97,7 @@ def health() -> dict[str, Any]:
         "index_size": len(_state["retriever"]) if "retriever" in _state else 0,
         "n_golden": n_golden,
         "deployment": "vercel",
+        "admin_enabled": bool(_admin_hash() and _secret()),
     }
 
 
@@ -92,6 +114,98 @@ def handle(req: HandleRequest) -> dict[str, Any]:
     except LLMError as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     return response.model_dump()
+
+
+# --------------------------------------------------------------------------- admin session
+def _secret() -> bytes:
+    return os.environ.get("SESSION_SECRET", "").encode()
+
+
+def _admin_user() -> str:
+    return os.environ.get("ADMIN_USER", "admin")
+
+
+def _admin_hash() -> str:
+    return os.environ.get("ADMIN_PASSWORD_HASH", "").strip().lower()
+
+
+def _sign(payload: str) -> str:
+    return hmac.new(_secret(), payload.encode(), hashlib.sha256).hexdigest()
+
+
+def _issue_token(user: str) -> str:
+    payload = f"{user}|{int(time.time()) + SESSION_SECONDS}"
+    return f"{payload}|{_sign(payload)}"
+
+
+def _session_user(request: Request) -> str | None:
+    """The logged-in admin user, or None when the cookie is missing, tampered with or expired."""
+    token = request.cookies.get(COOKIE_NAME)
+    if not token or not _secret():
+        return None
+    try:
+        user, expires, signature = token.rsplit("|", 2)
+    except ValueError:
+        return None
+    payload = f"{user}|{expires}"
+    if not hmac.compare_digest(_sign(payload), signature):
+        return None
+    if int(expires) < time.time():
+        return None
+    return user
+
+
+def _require_admin(request: Request) -> str:
+    user = _session_user(request)
+    if user is None:
+        raise HTTPException(status_code=401, detail="Admin sign-in required.")
+    return user
+
+
+@router.post("/api/admin/login")
+def admin_login(req: LoginRequest, response: Response) -> dict[str, Any]:
+    expected = _admin_hash()
+    if not expected or not _secret():
+        raise HTTPException(status_code=503, detail="Admin login is not configured on this deployment.")
+    given = hashlib.sha256(req.password.encode()).hexdigest()
+    ok_user = hmac.compare_digest(req.username.strip().lower(), _admin_user().lower())
+    ok_pass = hmac.compare_digest(given, expected)
+    if not (ok_user and ok_pass):
+        time.sleep(0.4)  # blunt brute-force damper
+        raise HTTPException(status_code=401, detail="Wrong username or password.")
+    response.set_cookie(
+        COOKIE_NAME,
+        _issue_token(_admin_user()),
+        max_age=SESSION_SECONDS,
+        httponly=True,
+        secure=True,
+        samesite="lax",
+        path="/",
+    )
+    return {"authenticated": True, "user": _admin_user()}
+
+
+@router.post("/api/admin/logout")
+def admin_logout(response: Response) -> dict[str, Any]:
+    response.delete_cookie(COOKIE_NAME, path="/")
+    return {"authenticated": False}
+
+
+@router.get("/api/admin/me")
+def admin_me(request: Request) -> dict[str, Any]:
+    user = _session_user(request)
+    return {"authenticated": user is not None, "user": user}
+
+
+@router.get("/api/admin/data/{name}")
+def admin_data(name: str, request: Request) -> Any:
+    _require_admin(request)
+    if name not in ADMIN_DATA_FILES:
+        raise HTTPException(status_code=404, detail=f"unknown dataset {name!r}")
+    path = ADMIN_DATA_DIR / f"{name}.json"
+    if not path.exists():
+        raise HTTPException(status_code=503, detail=f"{name}.json is not bundled; run scripts/07_export_ui_data.py")
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 # The same routes at the root and under the proxied sub-path (www.arnavbule.in/hiver-assignment/api/...).

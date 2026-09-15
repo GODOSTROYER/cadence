@@ -34,3 +34,5 @@ data/golden/work/
 
 .vercel
 .env*
+cache/*.sqlite-shm
+cache/*.sqlite-wal
