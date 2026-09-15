@@ -17,6 +17,7 @@ import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { AGENT_AVAILABLE, getHealth, getPublicSummary } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { cx } from "@/lib/cx";
+import { HISTORICAL_CAVEATS } from "@/lib/evidenceCaveats";
 import { ciPct, fixed, int, pct } from "@/lib/format";
 import { systemLabelFor, systemShortFor, type SystemTask } from "@/lib/labels";
 import { systemColor } from "@/lib/palette";
@@ -128,7 +129,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   const noGuard = escalation.threshold_sweep.find((p) => p.threshold === 0) ?? escalation.threshold_sweep[0];
   const nnGap = isNum(headline.judge_overall_mean) && isNum(headline.judge_overall_mean_nn) ? headline.judge_overall_mean - headline.judge_overall_mean_nn : null;
   const zeroShot = intent.systems.llm_zero_shot;
-  const live = Boolean(health?.has_api_key) && AGENT_AVAILABLE;
+  const live = Boolean(health?.has_api_key) && !health?.cache_only && AGENT_AVAILABLE;
 
   // Best simple baseline per task, chosen by the task's own headline metric.
   const bestSimpleIntent = (["simple_keyword", "simple"] as const).map((id) => ({ id, m: intent.systems[id] })).filter((x) => x.m).sort((a, b) => b.m!.macro_f1 - a.m!.macro_f1)[0];
@@ -144,8 +145,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: `${int(meta.n_golden)} tweets, labelled twice`,
       body: (
         <>
-          Stratified sample of real openers; two independent annotation passes plus adjudication of the {int(annot.n_disagreements)} disagreements. Agreement κ {fixed(annot.intent_kappa, 2)} on intent,{" "}
-          {fixed(annot.escalation_kappa, 2)} on escalation. {int(meta.n_dev)} dev / {int(meta.n_test)} test; the test split is touched once.
+          Stratified sample of real openers; two AI annotation passes plus adjudication of the {int(annot.n_disagreements)} disagreements. AI agreement κ {fixed(annot.intent_kappa, 2)} on intent,{" "}
+          {fixed(annot.escalation_kappa, 2)} on escalation. {int(meta.n_dev)} dev / {int(meta.n_test)} repeatedly inspected test examples. This does not establish human agreement.
         </>
       ),
       link: (
@@ -207,7 +208,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
     },
     {
       eyebrow: "decision log",
-      title: "Eighteen calls that were not obvious",
+      title: "Fifteen decisions in the revised submission",
       body: <>Why BM25 and not embeddings, why one structured call, why the judge is a different model, why the churn rule matches "switching to". Each with the reasoning at the time, not after.</>,
       link: unlocked ? <GoLink to="/decisions">Decision log</GoLink> : <GoLink href={DECISION_LOG}>DECISION_LOG.md</GoLink>,
     },
@@ -251,8 +252,8 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
                 <ArrowDown className="size-4" aria-hidden="true" />
               </button>
               <span className="flex items-center gap-2 sm:ml-2">
-                <Chip size="sm" mono tone={live ? "green" : "violet"} dot title={live ? "A Gemini key is configured; free text runs the real model." : "No live key on this build; the demo replays recorded runs."}>
-                  {live ? "live" : "recorded"}
+                <Chip size="sm" mono tone={live ? "green" : "violet"} dot title={live ? "A Gemini key is configured; free text runs the real model." : "Live inference is unavailable or disabled. Historical results are shown separately."}>
+                  {live ? "live" : health?.cache_only ? "cache-only" : "recorded"}
                 </Chip>
                 <span className="t-mono text-[12px] text-faint">{health?.agent_model ?? meta.agent_model}</span>
               </span>
@@ -263,7 +264,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             {[
               ["corpus", `${int(nOpeners)} SpotifyCares threads, 2017`],
               ["golden set", `${int(meta.n_golden)} tweets · two passes · κ ${fixed(annot.intent_kappa, 2)}`],
-              ["test split", `${int(meta.n_test)} tweets, 12 intents, touched once`],
+              ["test split", `${int(meta.n_test)} tweets, 12 intents, reused across runs`],
               ["baselines", "7 · trivial, simple, zero-shot LLM"],
               ["agent · judge", `${meta.agent_model} · ${meta.judge_model}`],
               ["replayable", `${health ? int(health.cache_entries) : "every"} cached calls, no key needed`],
@@ -420,10 +421,10 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             )}
           </div>
 
-          {meta.caveats.length > 0 && (
+          {HISTORICAL_CAVEATS.length > 0 && (
             <Callout title="What is misleading about these numbers" eyebrow="read before quoting them · the caveats are part of the submission">
               <ul>
-                {meta.caveats.map((c, i) => (
+                {HISTORICAL_CAVEATS.map((c, i) => (
                   <li key={i}>{c}</li>
                 ))}
               </ul>

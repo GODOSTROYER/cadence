@@ -49,6 +49,7 @@ cd ui
 npm ci
 npm run build
 cd ..
+python -m cadence.cli build-index          # build the local retrieval artifact
 python -m cadence.cli serve
 ```
 

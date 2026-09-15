@@ -129,8 +129,8 @@ def agent_handle(body: HandleRequest) -> dict[str, Any]:
             raise HTTPException(
                 status_code=503,
                 detail=(
-                    "No Gemini API key is configured and this message was not in the replay cache. "
-                    "Try one of the recorded golden examples, or set GEMINI_API_KEY in .env for live mode."
+                    "Model network calls are disabled and this exact request is not cached. "
+                    "Use the recorded evaluation for archived outputs, or enable live mode with a confirmed free-tier key."
                 ),
             ) from exc
         if _exception_named(exc, "QuotaExhausted"):

@@ -415,7 +415,7 @@ def test_agent_handle_cache_miss_is_503(client: TestClient, fake_agent: dict[str
     resp = client.post("/api/agent/handle", json={"text": "a cache miss", "mode": "cache_only"})
     assert resp.status_code == 503
     detail = resp.json()["detail"]
-    assert "API key" in detail and "replay cache" in detail
+    assert "network calls are disabled" in detail and "exact request is not cached" in detail
 
 
 def test_agent_handle_validates_text(client: TestClient, fake_agent: dict[str, FakeAgent]) -> None:

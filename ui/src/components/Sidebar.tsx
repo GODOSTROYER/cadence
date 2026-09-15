@@ -44,7 +44,7 @@ export interface SidebarProps {
 
 const MODE_CHIP: Record<UiMode, { label: string; tone: ChipTone; title: string }> = {
   static: { label: "static", tone: "violet", title: "Reading exported results from public/data. The live agent is disabled." },
-  "cache-only": { label: "cache-only", tone: "amber", title: "API server without a Gemini key: replies replay from the committed LLM cache." },
+  "cache-only": { label: "cache-only", tone: "amber", title: "Model network calls are disabled; only exact cached requests can run." },
   live: { label: "live", tone: "green", title: "A Gemini key is configured: free-text messages run the real agent." },
 };
 

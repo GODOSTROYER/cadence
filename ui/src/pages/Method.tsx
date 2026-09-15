@@ -108,15 +108,15 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
           </div>
           <div>
             <dt className="text-faint">Sampling</dt>
-            <dd className="text-muted">Stratified by intent-keyword bucket plus a random quarter; two label passes with adjudication ({summary.annotator_agreement.n_disagreements} disagreements).</dd>
+            <dd className="text-muted">Historical stratified sample: two AI label passes with adjudication ({summary.annotator_agreement.n_disagreements} disagreements). The test examples were inspected across multiple runs.</dd>
           </div>
           <div>
             <dt className="text-faint">Labels</dt>
-            <dd className="text-muted">Intent, should-escalate + reason code, sentiment, media-only. κ intent {fixed(summary.annotator_agreement.intent_kappa, 2)}, escalation {fixed(summary.annotator_agreement.escalation_kappa, 2)}.</dd>
+            <dd className="text-muted">Intent, should-escalate + reason code, sentiment, media-only. AI agreement κ intent {fixed(summary.annotator_agreement.intent_kappa, 2)}, escalation {fixed(summary.annotator_agreement.escalation_kappa, 2)}. No human agreement measurement.</dd>
           </div>
           <div>
             <dt className="text-faint">Leakage guard</dt>
-            <dd className="text-muted">A golden example's own thread is excluded from retrieval, so the agent never sees its answer key.</dd>
+            <dd className="text-muted">The historical run excluded each example's own thread but still had near-duplicate leakage. The revised benchmark excludes all locked threads, overlapping tweet components and near duplicates.</dd>
           </div>
         </dl>
       </Section>
