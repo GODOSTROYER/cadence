@@ -16,4 +16,13 @@ Verified on 16 September 2026 (Asia/Kolkata):
 - The new deployment’s runtime error log query returned no entries in the inspected ten-minute window. This is a release smoke check, not sustained monitoring.
 - All PR CI checks passed on Linux, Windows and UI. Local verification passed 283 Python tests, ruff, the production UI build, frozen benchmark replay and 1,771 historical receipt checks.
 
-A release follow-up clarifies that archived repository receipts are separate from the empty deployed visitor cache and labels the footer SHA as the historical evaluation revision. It preserves all scores and review attribution. The earlier read-only deployment measurements in the engineering audit describe the previous deployment, not this release.
+The follow-up `83f82aa07f52bbd1d002bbe1467feb461fca63f0` deployed as `dpl_GJtCYNgAHfXw1UaYBv9qHCkgMptx` (**READY**, production); all Linux, Windows and UI CI checks passed. Live browser verification confirmed the corrected archive receipt wording, historical evaluation SHA and Arnav Bule review credit. Public health returned HTTP 200; the runtime error query returned no entries. It preserves all scores and review attribution. The earlier read-only deployment measurements in the engineering audit describe the previous deployment, not this release.
+
+
+## Social link preview
+
+The static HTML includes Open Graph and Twitter large-image metadata with **Cadence — Arnav Bule**, a short description, the canonical public URL and an absolute PNG URL. Crawlers can read these tags without executing the React application.
+
+The preview image is `ui/public/assets/cadence-social-v1.png`, served at `/hiver-assignment/assets/cadence-social-v1.png`. Keeping it under `assets/` avoids the SPA fallback and uses the existing asset cache policy. When changing the artwork, create a new versioned filename and update both image tags; social platforms may retain an older preview until they re-scrape the page.
+
+Artwork: 1730 × 909 PNG, generated with the built-in image-generation tool. Design prompt: a restrained dark editorial card matching Cadence, near-black background, ivory italic serif title, green equalizer, “Cadence”, “by Arnav Bule”, “An AI support agent that knows when to reply—and when to escalate”, and the public site address.
