@@ -15,7 +15,8 @@ def normalize_ws(text: str) -> str:
 
 def word_count(text: str) -> int:
     """Count alphanumeric words (emoji and punctuation excluded)."""
-    return len(_WORD.findall(text or ""))
+    meaningful = re.sub(r"https?://\S+|<url>|@\w+", " ", text or "", flags=re.I)
+    return len(_WORD.findall(meaningful))
 
 
 def truncate(text: str, n: int = 120, suffix: str = "…") -> str:

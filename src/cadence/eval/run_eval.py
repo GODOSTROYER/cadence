@@ -406,6 +406,12 @@ def run_eval(
             "human ratings and judge scores share no (id, system) pairs; judge_agreement is null"
         )
     cost = _cost_block(inputs)
+    dev_sweep = threshold_sweep([p for _, p in dev_pairs], [bool(g["gold"]["should_escalate"]) for g, _ in dev_pairs]) if dev_pairs else []
+    eligible = [s for s in dev_sweep if s["threshold"] < 1 and s["recall"] >= min_recall]
+    selection = {"rule": "recall_constraint" if eligible else ("f2_fallback" if dev_pairs else "config_default"),
+                 "constraint_met": bool(eligible), "min_recall": min_recall,
+                 "selected_dev": next((s for s in dev_sweep if s["threshold"] == threshold), None),
+                 "dev_sweep": dev_sweep}
 
     summary = {
         "meta": {
@@ -421,6 +427,7 @@ def run_eval(
             "cache_hit_rate": cost["cache_hit_rate"],
             "threshold": threshold,
             "min_recall": min_recall,
+            "threshold_selection": selection,
             "n_boot": n_boot,
             "systems": _ordered_systems(list(inputs.predictions)),
             "notes": inputs.notes,

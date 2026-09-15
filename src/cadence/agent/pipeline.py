@@ -11,9 +11,12 @@ from collections.abc import Iterable, Sequence
 from typing import TYPE_CHECKING, Any
 
 from cadence.config import escalation_config, intents_config, model_name
+from cadence.data.clean import clean_text
 from cadence.utils.log import get_logger
 from cadence.utils.text import normalize_ws
 
+from .integrity import SAFE_HOLDING_REPLY, reply_violations, useful_link
+from .links import links_for_evidence
 from .models import (
     REPLY_MAX_CHARS,
     REPLY_SIGNATURE,
@@ -88,16 +91,17 @@ _TRAILING_COLON = re.compile(r"\s*:\s*[?.!]*" + _END)
 
 def is_useful_link(url: str) -> bool:
     """True when ``url`` points at an actual article/page rather than a home page, DM card or t.co stub."""
-    return bool(url) and not _USELESS_LINK.match(url.strip())
+    return useful_link(url)
 
 
 def scrub_reply(text: str) -> str:
     """Remove ``<url>`` placeholders (copied from evidence) and bare home-page / DM / t.co links from a draft."""
     cleaned = _PLACEHOLDER_OR_BARE_LINK.sub("", text)
-    cleaned = _DANGLING_LINK_CLAUSE.sub(" ", cleaned)
-    cleaned = _TRAILING_COLON.sub(" ", cleaned)
-    cleaned = re.sub(r"[,;]?\s*\b(?:but|and|so)\s*(?=(?:[.!?]\s*)?(?:%s\s*)*(?:/AI\s*)?$)" % _EMOJI, "", cleaned)  # ", but" left hanging
-    cleaned = re.sub(r"\s*,\s*(?=[.!?]|(?:%s\s*)*(?:/AI\s*)?$)" % _EMOJI, "", cleaned)  # trailing comma
+    if cleaned != text or re.search(r":\s*(?:[?!]|(?:" + _EMOJI + r"\s*)*(?:/AI)?$)", cleaned):
+        cleaned = _DANGLING_LINK_CLAUSE.sub(" ", cleaned)
+        cleaned = _TRAILING_COLON.sub(" ", cleaned)
+    cleaned = re.sub(rf"[,;]?\s*\b(?:but|and|so)\s*(?=(?:[.!?]\s*)?(?:{_EMOJI}\s*)*(?:/AI\s*)?$)", "", cleaned)
+    cleaned = re.sub(rf"\s*,\s*(?=[.!?]|(?:{_EMOJI}\s*)*(?:/AI\s*)?$)", "", cleaned)
     cleaned = re.sub(r"\(\s*\)", "", cleaned)  # empty parentheses left behind
     cleaned = re.sub(r"\s+([.,;!?])", r"\1", cleaned)  # no colon: keep " :)" emoticons intact
     return normalize_ws(cleaned)
@@ -188,7 +192,10 @@ class SupportAgent:
     # ------------------------------------------------------------------ retrieval
     def _retrieve(self, text: str, exclude_thread_ids: set[str] | None) -> list[EvidenceItem]:
         hits = self.retriever.search(text, k=self.k, exclude_thread_ids=exclude_thread_ids)
-        return [evidence_from_hit(h) for h in hits]
+        evidence = [evidence_from_hit(h) for h in hits]
+        for ev in evidence:
+            ev.resolved_links = list(dict.fromkeys([*ev.resolved_links, *links_for_evidence(ev.brand_reply)]))
+        return evidence
 
     # ------------------------------------------------------------------ decision policy
     def _llm_escalation(self, decision: Any) -> Escalation:
@@ -212,11 +219,11 @@ class SupportAgent:
             return "escalate", Escalation(
                 reason_code=rules.reason_code, reason=rules.reason or "Forced by rules."
             ), False
-        if decision.decision == "escalate":
-            return "escalate", self._llm_escalation(decision), False
-        enforced = self._enforced_default(decision.intent)
+        enforced = self._enforced_default(decision.intent) or self._enforced_default(decision.secondary_intent)
         if enforced is not None:
             return "escalate", enforced, True
+        if decision.decision == "escalate":
+            return "escalate", self._llm_escalation(decision), False
         if decision.intent_confidence < self.threshold:
             return "escalate", Escalation(
                 reason_code="low_confidence",
@@ -248,6 +255,9 @@ class SupportAgent:
     ) -> AgentResponse:
         """Classify ``text``, decide auto_handle/escalate and draft a grounded public reply."""
         t0 = time.perf_counter()
+        text = clean_text(text).text
+        if not text:
+            raise ValueError("Customer message must contain text or media")
         rules = apply_rules(text)
         t_r0 = time.perf_counter()
         evidence = self._retrieve(text, exclude_thread_ids)
@@ -261,6 +271,17 @@ class SupportAgent:
         for ev in evidence:
             ev.cited = ev.thread_id in citations
         reply = finalize_reply(decision.reply_draft, citations, evidence)
+        allowed_urls = {url for ev in evidence if ev.cited for url in ev.resolved_links}
+        integrity_flags = reply_violations(reply, allowed_urls)
+        if len(citations) != len(set(decision.citations)):
+            integrity_flags.append("invalid_citation")
+        if final_decision == "auto_handle" and not citations:
+            integrity_flags.append("no_cited_evidence")
+        if integrity_flags:
+            reply = SAFE_HOLDING_REPLY
+            if final_decision != "escalate":
+                final_decision = "escalate"
+                escalation = Escalation(reason_code="needs_account_lookup", reason="Draft withheld for human review: " + ", ".join(integrity_flags))
 
         trace = Trace(
             retrieval_ms=_ms(t_r0, t_r1),
@@ -272,6 +293,9 @@ class SupportAgent:
             forced_by_rules=bool(rules.force_escalate),
             enforced_default=enforced_default,
             policy_conflict=self._policy_conflict(decision.intent, final_decision),
+            integrity_flags=integrity_flags,
+            integrity_blocked=bool(integrity_flags),
+            attempts=int(getattr(meta, "attempts", 0) or 0),
         )
         if trace.policy_conflict:
             log.debug("policy conflict: auto_handle for intent %s whose default is escalate", decision.intent)

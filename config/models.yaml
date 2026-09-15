@@ -21,9 +21,9 @@ thinking_budget:
   gemini-3.8-flash: 1024
   gemini-3-flash-preview: 1024
 
-# Conservative free-tier limits PER KEY (requests per minute / per day). With GEMINI_API_KEYS=k1,k2,... the
-# client pools them, so five keys give five times these numbers. A 429 puts a key on cooldown and the
-# next key is tried at once.
+# Local per-key scheduling budgets only, not provider entitlements. Gemini enforces quotas per PROJECT.
+# Keys in one project share quotas; five keys do not imply five times the capacity. A 429 triggers cooldown.
+# Verify the actual free-tier project limits in AI Studio; these historical observations are not guarantees.
 limits:
   gemini-3.5-flash:      { rpm: 5,  rpd: 20 }
   gemini-3.6-flash:      { rpm: 5,  rpd: 20 }

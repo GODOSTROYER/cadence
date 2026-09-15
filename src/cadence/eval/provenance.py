@@ -1,4 +1,5 @@
 """Portable content hashes and run provenance; never reads credentials."""
+
 from __future__ import annotations
 
 import hashlib
@@ -17,6 +18,7 @@ def sha256(path: Path) -> str:
 def revision(root: Path) -> dict:
     def git(*args: str) -> str:
         return subprocess.check_output(["git", *args], cwd=root, text=True).strip()
+
     try:
         return {"commit": git("rev-parse", "HEAD"), "dirty": bool(git("status", "--porcelain"))}
     except (OSError, subprocess.CalledProcessError):

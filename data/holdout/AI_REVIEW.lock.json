@@ -1,0 +1,30 @@
+{
+  "kind": "AI-reviewed benchmark, not human ground truth",
+  "n": 200,
+  "source_lock_sha256": "2a5bc56151b677afc6602f188de84fe9c9dd7503aff7f7df2b786d4e2e6dc7de",
+  "labels_sha256": "343568ff22aef2ed267cc328452645ffbd5cca381e4976d9b099ebaaafb5a4a8",
+  "review_notes_sha256": "af405ee625303a99605522e533a46c657157fd2d18ac65d93b8fac90e81f957a",
+  "human_ratings": 0,
+  "reviewer": "Codex (AI)",
+  "predictions_seen_during_labeling": false,
+  "limitations": [
+    "One AI reviewer; no independent human adjudication",
+    "Reviewer developed code; not blind to policy or original taxonomy",
+    "Interpretive borderline decisions remain label uncertainty"
+  ],
+  "intent_counts": {
+    "feature_request_or_feedback": 23,
+    "content_or_availability": 29,
+    "other": 22,
+    "account_hacked_or_security": 8,
+    "playlist_or_library": 14,
+    "login_or_password": 20,
+    "billing_or_charge": 25,
+    "playback_or_app_bug": 24,
+    "subscription_or_plan": 26,
+    "download_or_offline": 5,
+    "non_english": 1,
+    "metadata_or_artist_issue": 3
+  },
+  "escalate": 81
+}

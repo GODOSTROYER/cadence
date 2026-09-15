@@ -404,7 +404,7 @@ def test_gemini_retries_429_then_parses_fenced_text(tmp_path: Path, offline: Non
     server_error = api_error(genai_errors.ServerError, 503, "overloaded", "UNAVAILABLE")
     fenced = FakeResponse('```json\n{"greeting": "hey", "mood": "neutral"}\n```', usage=FakeUsage(20, 6, 30))
     models = FakeModels([quota_error, server_error, fenced])
-    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key: FakeGenaiClient(models))
+    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key, **kwargs: FakeGenaiClient(models))
 
     client = make_client(tmp_path, clock, rpm=10, rpd=10)
     obj, meta = client.generate_json("hello", Ping, system="sys")
@@ -436,7 +436,7 @@ def test_gemini_uses_parsed_when_present_and_invalid_json_retries(tmp_path: Path
     good = FakeResponse('{"greeting":"hi","mood":"happy"}', parsed=Ping(greeting="hi", mood="happy"),
                         usage=FakeUsage(5, 2, None))
     models = FakeModels([FakeResponse("not json at all"), FakeResponse('{"greeting":"hi","mood":"sad"}'), good])
-    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key: FakeGenaiClient(models))
+    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key, **kwargs: FakeGenaiClient(models))
     client = make_client(tmp_path, clock)
     obj, meta = client.generate_json("hello", Ping, cache=False)
     assert obj is good.parsed
@@ -448,7 +448,7 @@ def test_gemini_uses_parsed_when_present_and_invalid_json_retries(tmp_path: Path
 def test_gemini_non_retryable_client_error(tmp_path: Path, offline: None, monkeypatch: pytest.MonkeyPatch) -> None:
     clock = FakeClock()
     models = FakeModels([api_error(genai_errors.ClientError, 400, "bad schema", "INVALID_ARGUMENT")])
-    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key: FakeGenaiClient(models))
+    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key, **kwargs: FakeGenaiClient(models))
     client = make_client(tmp_path, clock)
     with pytest.raises(LLMError, match="400") as info:
         client.generate_json("hello", Ping)
@@ -460,8 +460,8 @@ def test_gemini_non_retryable_client_error(tmp_path: Path, offline: None, monkey
 def test_gemini_gives_up_after_max_attempts(tmp_path: Path, offline: None, monkeypatch: pytest.MonkeyPatch) -> None:
     clock = FakeClock()
     models = FakeModels([api_error(genai_errors.ServerError, 500, "boom", "INTERNAL")] * gemini_mod.MAX_ATTEMPTS)
-    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key: FakeGenaiClient(models))
-    client = make_client(tmp_path, clock)
+    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key, **kwargs: FakeGenaiClient(models))
+    client = make_client(tmp_path, clock, deadline_s=200)
     with pytest.raises(LLMError, match="after 6 attempts"):
         client.generate_json("hello", Ping)
     assert len(models.requests) == gemini_mod.MAX_ATTEMPTS
@@ -473,7 +473,7 @@ def test_gemini_gives_up_after_max_attempts(tmp_path: Path, offline: None, monke
 def test_gemini_daily_quota_stops_before_network(tmp_path: Path, offline: None, monkeypatch: pytest.MonkeyPatch) -> None:
     clock = FakeClock()
     models = FakeModels([])
-    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key: FakeGenaiClient(models))
+    monkeypatch.setattr(gemini_mod.genai, "Client", lambda api_key, **kwargs: FakeGenaiClient(models))
     client = make_client(tmp_path, clock, rpd=1)
     client.cache.quota_incr(client.model, utc_day())
     with pytest.raises(QuotaExhausted):
@@ -484,7 +484,7 @@ def test_gemini_daily_quota_stops_before_network(tmp_path: Path, offline: None, 
 def test_gemini_list_models(tmp_path: Path, offline: None, monkeypatch: pytest.MonkeyPatch) -> None:
     constructed: list[str] = []
 
-    def fake_ctor(api_key: str) -> FakeGenaiClient:
+    def fake_ctor(api_key: str, **kwargs) -> FakeGenaiClient:
         constructed.append(api_key)
         return FakeGenaiClient(FakeModels([]))
 

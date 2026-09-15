@@ -21,7 +21,6 @@ import hashlib
 import hmac
 import json
 import os
-import shutil
 import sys
 import threading
 import time
@@ -37,22 +36,20 @@ from pydantic import BaseModel, Field  # noqa: E402
 from cadence import __version__  # noqa: E402
 from cadence.config import Paths, api_keys, model_name  # noqa: E402
 from cadence.utils.io import read_jsonl  # noqa: E402
+from cadence.api.core import HandleRequest, install_observability  # noqa: E402
 
-TMP_CACHE = Path(os.environ.get("CADENCE_TMP_DIR", "/tmp")) / "llm_cache.sqlite"
+TMP_CACHE = Path(os.environ.get("CADENCE_TMP_DIR", "/tmp")) / "cadence_live_v2.sqlite"
 ADMIN_DATA_DIR = ROOT / "results" / "ui"
 ADMIN_DATA_FILES = ("eval_summary", "failure_modes", "golden_merged", "decisions", "health")
 COOKIE_NAME = "cadence_admin"
 SESSION_SECONDS = 7 * 24 * 3600
 
-app = FastAPI(title="Cadence live agent", version=__version__)
+app = FastAPI(title="Cadence live agent", version=__version__, docs_url=None, redoc_url=None, openapi_url=None)
+install_observability(app)
 router = APIRouter()
 _lock = threading.Lock()
 _state: dict[str, Any] = {}
-
-
-class HandleRequest(BaseModel):
-    text: str = Field(min_length=1, max_length=1000)
-    mode: str | None = None
+_capacity = threading.BoundedSemaphore(2)
 
 
 class LoginRequest(BaseModel):
@@ -62,11 +59,8 @@ class LoginRequest(BaseModel):
 
 # --------------------------------------------------------------------------- agent
 def _cache_path() -> Path:
-    """A writable copy of the committed replay cache (the deployment filesystem is read-only)."""
-    if not TMP_CACHE.exists():
-        TMP_CACHE.parent.mkdir(parents=True, exist_ok=True)
-        if Paths.LLM_CACHE.exists():
-            shutil.copyfile(Paths.LLM_CACHE, TMP_CACHE)
+    """Runtime quota counters only; visitor prompts/responses are not persisted."""
+    TMP_CACHE.parent.mkdir(parents=True, exist_ok=True)
     return TMP_CACHE
 
 
@@ -79,7 +73,7 @@ def _agent():
             from cadence.retrieval.index import Retriever
 
             retriever = Retriever.build(read_jsonl(Paths.THREADS))
-            client = GeminiClient(model_name("agent"), cache_path=_cache_path())
+            client = GeminiClient(model_name("agent"), cache_path=_cache_path(), persist_responses=False)
             _state["retriever"] = retriever
             _state["agent"] = SupportAgent(client, retriever)
         return _state["agent"]
@@ -90,7 +84,7 @@ def _cache_entries() -> int:
     try:
         import sqlite3
 
-        with sqlite3.connect(str(_cache_path())) as conn:
+        with sqlite3.connect(Paths.LLM_CACHE.as_uri() + "?mode=ro", uri=True) as conn:
             return int(conn.execute("select count(*) from calls").fetchone()[0])
     except Exception:  # noqa: BLE001 - health must never fail because of the cache
         return 0
@@ -99,7 +93,7 @@ def _cache_entries() -> int:
 def _thread_count() -> int:
     """Threads in the committed corpus, counted once per instance (cheap; the index itself builds on first use)."""
     if "thread_count" not in _state:
-        _state["thread_count"] = sum(1 for _ in read_jsonl(Paths.THREADS)) if Paths.THREADS.exists() else 0
+        _state["thread_count"] = json.loads(Paths.STATS.read_text(encoding="utf-8")).get("n_threads", 0) if Paths.STATS.exists() else 0
     return _state["thread_count"]
 
 
@@ -132,12 +126,14 @@ def _agent_for(own_key: str | None):
     from cadence.agent.pipeline import SupportAgent
     from cadence.llm.gemini import GeminiClient
 
-    client = GeminiClient(model_name("agent"), api_keys=[key], cache_path=_cache_path())
+    client = GeminiClient(model_name("agent"), api_keys=[key], cache_path=_cache_path(), persist_responses=False)
     return SupportAgent(client, _state["retriever"])
 
 
 @router.post("/api/agent/handle")
 def handle(req: HandleRequest, request: Request) -> dict[str, Any]:
+    if req.mode == "cache_only":
+        raise HTTPException(status_code=503, detail="The public demo does not cache visitor messages. Use local recorded replay.")
     own_key = request.headers.get(KEY_HEADER)
     if not api_keys() and not own_key:
         raise HTTPException(
@@ -146,12 +142,20 @@ def handle(req: HandleRequest, request: Request) -> dict[str, Any]:
         )
     from cadence.llm.base import LLMError, QuotaExhausted
 
+    if not _capacity.acquire(blocking=False):
+        raise HTTPException(status_code=429, detail="Demo is busy; retry shortly.", headers={"Retry-After": "5"})
+    agent = None
     try:
-        response = _agent_for(own_key).handle(req.text.strip(), id="live")
+        agent = _agent_for(own_key)
+        response = agent.handle(req.text.strip(), id="live")
     except QuotaExhausted as exc:
         raise HTTPException(status_code=429, detail=str(exc)) from exc
     except LLMError as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
+    finally:
+        if own_key and own_key.strip() and agent is not None:
+            agent.client.close()
+        _capacity.release()
     return response.model_dump()
 
 
@@ -189,7 +193,7 @@ def _session_user(request: Request) -> str | None:
     payload = f"{user}|{expires}"
     if not hmac.compare_digest(_sign(payload), signature):
         return None
-    if int(expires) < time.time():
+    if not expires.isdigit() or int(expires) < time.time() or user != _admin_user():
         return None
     return user
 
@@ -206,9 +210,18 @@ def admin_login(req: LoginRequest, response: Response) -> dict[str, Any]:
     expected = _admin_hash()
     if not expected or not _secret():
         raise HTTPException(status_code=503, detail="Admin login is not configured on this deployment.")
-    given = hashlib.sha256(req.password.encode()).hexdigest()
     ok_user = hmac.compare_digest(req.username.strip().lower(), _admin_user().lower())
-    ok_pass = hmac.compare_digest(given, expected)
+    # Preferred format: pbkdf2_sha256$600000$hex_salt$hex_digest.
+    if expected.startswith("pbkdf2_sha256$"):
+        try:
+            _, iterations, salt, digest = expected.split("$")
+            given = hashlib.pbkdf2_hmac("sha256", req.password.encode(), bytes.fromhex(salt), int(iterations)).hex()
+            ok_pass = hmac.compare_digest(given, digest)
+        except (ValueError, OverflowError):
+            ok_pass = False
+    else:
+        # Existing deployment can migrate without locking the owner out.
+        ok_pass = hmac.compare_digest(hashlib.sha256(req.password.encode()).hexdigest(), expected)
     if not (ok_user and ok_pass):
         time.sleep(0.4)  # blunt brute-force damper
         raise HTTPException(status_code=401, detail="Wrong username or password.")

@@ -27,6 +27,8 @@ N_TEST = 12
 N_DEV = 2
 
 _PATH_ATTRS = {
+    "RESULTS": "results",
+    "STATS": "data/processed/stats.json",
     "THREADS": "data/processed/spotify_threads.jsonl.gz",
     "GOLDEN": "data/golden/golden_set.jsonl",
     "HUMAN_RATINGS": "data/golden/human_ratings.jsonl",
@@ -487,8 +489,8 @@ def test_export_matches_api_golden(
     write_json(Paths.EVAL_SUMMARY, {"meta": {"n_golden": len(golden)}})
     write_json(Paths.FAILURE_MODES, [])
     Paths.DECISION_LOG.write_text(DECISION_LOG, encoding="utf-8")
-    assert _load_export_script().main([]) == 0
-    out = Paths.UI_PUBLIC_DATA
+    out = Paths.RESULTS / "ui"
+    assert _load_export_script().main(["--out", str(out)]) == 0
     assert sorted(p.name for p in out.iterdir()) == [
         "decisions.json",
         "eval_summary.json",

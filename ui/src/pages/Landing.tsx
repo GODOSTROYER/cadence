@@ -222,9 +222,9 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   ];
 
   const next = [
-    "Split the single call into decide-then-draft, so the decision step sees the policy and the tweet but not the evidence; target recall ≥ 0.9 at ≥ 60% auto-handle without the confidence guard.",
+    "Complete the fresh locked human holdout. Compare the same agent with and without evidence before deciding whether another model call is justified.",
     "Sixty blind human ratings through the /rate flow from two people; report κ against the judge and re-weight the rubric where they disagree (the judge missed most dangling-clause defects).",
-    "A canonical link table: the brand cites the same dozen help articles over and over; map them to current URLs once and attach them deterministically, which removes failure mode 2 without touching the model.",
+    "Expand the reviewed canonical links and label retrieval usefulness. Measure remaining broken-reference errors before claiming the link problem is solved.",
   ];
 
   return (
@@ -239,7 +239,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
             </h1>
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-muted sm:text-[19px]">
               Cadence reads a customer tweet, classifies the intent, drafts a reply grounded in {int(nOpeners)} real @SpotifyCares conversations, and decides whether a human must step in.
-              Then it proves it on {int(meta.n_test)} held-out, hand-labelled tweets.
+              Historical results cover {int(meta.n_test)} AI-labelled test tweets. Independent human validation is still pending.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/agent" className="btn btn-primary h-10 px-5 text-[14px]">

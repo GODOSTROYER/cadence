@@ -191,7 +191,7 @@ def decision_at_threshold(row: dict[str, Any], threshold: float) -> str:
     if not _has_llm_trace(row):
         return str(row.get("decision") or "auto_handle")
     trace = row.get("trace") or {}
-    if trace.get("forced_by_rules") or trace.get("enforced_default"):
+    if trace.get("forced_by_rules") or trace.get("enforced_default") or trace.get("integrity_blocked"):
         return "escalate"
     if trace.get("llm_decision") == "escalate":
         return "escalate"
@@ -213,7 +213,7 @@ def reason_code_at_threshold(row: dict[str, Any], threshold: float) -> str | Non
     if not _has_llm_trace(row):
         return recorded
     trace = row.get("trace") or {}
-    if trace.get("forced_by_rules") or trace.get("enforced_default"):
+    if trace.get("forced_by_rules") or trace.get("enforced_default") or trace.get("integrity_blocked"):
         return trace.get("rule_reason_code") or recorded
     if trace.get("llm_decision") == "escalate":
         return trace.get("llm_reason_code") or recorded

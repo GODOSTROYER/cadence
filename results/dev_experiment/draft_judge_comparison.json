@@ -1,0 +1,15 @@
+{
+  "n": 20,
+  "kind": "pre-guard drafts; normalized equally; two orders",
+  "human_agreement": null,
+  "mean_overall_delta": 1.15,
+  "ci95": [
+    0.7,
+    1.625
+  ],
+  "preference_order_consistency": 0.7,
+  "position_means": {
+    "1": 4.125,
+    "2": 3.775
+  }
+}

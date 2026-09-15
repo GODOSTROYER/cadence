@@ -1,4 +1,5 @@
 """Validate human-entered labels against the locked sample; never invent missing answers."""
+
 from __future__ import annotations
 
 import argparse
@@ -33,14 +34,28 @@ def validate(directory: Path) -> list[dict]:
         if r["sentiment"] not in SENTIMENTS or r["should_escalate"].lower() not in {"true", "false"}:
             raise ValueError(f"{example['id']}: sentiment and true/false escalation required")
         escalate = r["should_escalate"].lower() == "true"
-        if (escalate and r["escalation_reason_code"] not in reason_codes()) or (not escalate and r["escalation_reason_code"]):
+        if (escalate and r["escalation_reason_code"] not in reason_codes()) or (
+            not escalate and r["escalation_reason_code"]
+        ):
             raise ValueError(f"{example['id']}: reason must agree with decision")
         if not r["notes"].strip():
             raise ValueError(f"{example['id']}: a brief labeling rationale is required")
-        output.append({**example, "gold": {"intent": r["intent"], "secondary_intent": r["secondary_intent"] or None,
-                       "should_escalate": escalate, "escalation_reason_code": r["escalation_reason_code"] or None,
-                       "sentiment": r["sentiment"], "notes": r["notes"]},
-                       "label_source": "human", "annotator": r["annotator"], "labels_sha256": sha256(directory / "human_labels.csv")})
+        output.append(
+            {
+                **example,
+                "gold": {
+                    "intent": r["intent"],
+                    "secondary_intent": r["secondary_intent"] or None,
+                    "should_escalate": escalate,
+                    "escalation_reason_code": r["escalation_reason_code"] or None,
+                    "sentiment": r["sentiment"],
+                    "notes": r["notes"],
+                },
+                "label_source": "human",
+                "annotator": r["annotator"],
+                "labels_sha256": sha256(directory / "human_labels.csv"),
+            }
+        )
     return output
 
 
@@ -50,7 +65,9 @@ def main(argv=None):
     args = p.parse_args(argv)
     rows = validate(args.directory)
     write_jsonl(args.directory / "golden_set.jsonl", rows)
-    print(f"Validated {len(rows)} human-labelled examples. Authorship is self-attested, not independently verified.")
+    print(
+        f"Validated {len(rows)} human-labelled examples. Authorship is self-attested, not independently verified."
+    )
 
 
 if __name__ == "__main__":

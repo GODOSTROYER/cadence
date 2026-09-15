@@ -36,3 +36,5 @@ data/golden/work/
 .env*
 cache/*.sqlite-shm
 cache/*.sqlite-wal
+results/**/*.sqlite-shm
+results/**/*.sqlite-wal

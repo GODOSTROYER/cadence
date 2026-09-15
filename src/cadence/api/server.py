@@ -9,15 +9,16 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, Response
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, field_validator
 
 from cadence import __version__
 from cadence.api import rating_queue
+from cadence.api.core import HandleRequest, install_observability
 from cadence.api.decisions import parse_decision_log
 from cadence.api.merge import merge_example
 from cadence.api.state import STATE, cache_only_env, health_payload, require_path
@@ -31,6 +32,7 @@ CORS_ORIGINS: tuple[str, ...] = ("http://localhost:5173", "http://127.0.0.1:5173
 MAX_TEXT_CHARS = 1000
 
 app = FastAPI(title="Cadence API", version=__version__, docs_url="/api/docs", openapi_url="/api/openapi.json")
+install_observability(app)
 app.add_middleware(
     CORSMiddleware, allow_origins=list(CORS_ORIGINS), allow_methods=["*"], allow_headers=["*"], allow_credentials=True
 )
@@ -39,20 +41,6 @@ app.add_middleware(
 # ---------------------------------------------------------------------------------------------
 # Request models
 # ---------------------------------------------------------------------------------------------
-class HandleRequest(BaseModel):
-    """Body of ``POST /api/agent/handle``."""
-
-    text: str = Field(min_length=1, max_length=MAX_TEXT_CHARS)
-    mode: Literal["live", "cache_only"] = "live"
-
-    @field_validator("text")
-    @classmethod
-    def _not_blank(cls, value: str) -> str:
-        if not value.strip():
-            raise ValueError("text must contain at least one non-whitespace character")
-        return value
-
-
 class RatingIn(BaseModel):
     """Body of ``POST /api/ratings``: a blind rating with the system hidden behind an alias."""
 
@@ -147,8 +135,8 @@ def agent_handle(body: HandleRequest) -> dict[str, Any]:
             ) from exc
         if _exception_named(exc, "QuotaExhausted"):
             raise HTTPException(status_code=429, detail=f"Gemini daily quota exhausted: {exc}") from exc
-        log.exception("agent failed on request")
-        raise HTTPException(status_code=500, detail=f"agent error: {type(exc).__name__}: {exc}") from exc
+        log.error("agent error_class=%s", type(exc).__name__)
+        raise HTTPException(status_code=500, detail="Agent failed; retry later.") from exc
     return _as_row(response)
 
 

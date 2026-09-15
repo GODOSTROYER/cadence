@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pytest
 
-KEY_VARS = ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GEMINI_API_KEYS")
+KEY_VARS = ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GEMINI_API_KEYS", "ADMIN_USER", "ADMIN_PASSWORD_HASH", "SESSION_SECRET")
 
 
 @pytest.fixture(autouse=True)

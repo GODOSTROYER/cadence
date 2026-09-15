@@ -20,6 +20,7 @@ import pytest
 from cadence.config import JUDGED_SYSTEMS, SYSTEMS, Paths, escalation_config, intent_ids, reason_codes
 
 DATA = Paths.UI_PUBLIC_DATA
+PRIVATE_FILES = {"eval_summary.json", "failure_modes.json", "golden_merged.json", "decisions.json"}
 GENERATOR = Paths.UI / "mock" / "generate_mock_data.py"
 FILES = (
     "eval_summary.json",
@@ -36,7 +37,8 @@ DIMENSIONS = {"grounded", "resolves", "tone", "safe", "overall"}
 
 
 def _load(name: str) -> Any:
-    with open(DATA / name, encoding="utf-8") as f:
+    directory = Paths.RESULTS / "ui" if name in PRIVATE_FILES else DATA
+    with open(directory / name, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -70,8 +72,9 @@ def golden() -> list[dict[str, Any]]:
 
 def test_all_files_exist_and_parse() -> None:
     for name in FILES:
-        assert (DATA / name).exists(), name
         _load(name)
+    assert (DATA / "public_summary.json").exists()
+    assert not any((DATA / name).exists() for name in PRIVATE_FILES)
 
 
 def test_intents_json_mirrors_config() -> None:
@@ -258,7 +261,7 @@ def _decision_at_threshold(pred: dict[str, Any], threshold: float) -> str:
     trace = pred.get("trace") or {}
     if "llm_decision" not in trace and "forced_by_rules" not in trace:
         return pred["decision"]
-    if trace.get("forced_by_rules") or trace.get("llm_decision") == "escalate":
+    if trace.get("forced_by_rules") or trace.get("enforced_default") or trace.get("llm_decision") == "escalate":
         return "escalate"
     conf = pred.get("intent_confidence")
     return "escalate" if conf is not None and conf < threshold else "auto_handle"
