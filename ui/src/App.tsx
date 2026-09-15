@@ -1,5 +1,5 @@
 import { MotionConfig } from "framer-motion";
-import { lazy, Suspense, type ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { AppShell } from "@/components/AppShell";
@@ -7,17 +7,18 @@ import { RequireAdmin } from "@/components/RequireAdmin";
 import { Skeleton } from "@/components/Skeleton";
 import { ToastProvider } from "@/components/Toast";
 import { AuthProvider } from "@/lib/auth";
+import { lazyRetry } from "@/lib/lazyRetry";
 
-const Landing = lazy(() => import("@/pages/Landing"));
-const AgentPlayground = lazy(() => import("@/pages/AgentPlayground"));
-const Method = lazy(() => import("@/pages/Method"));
-const SignIn = lazy(() => import("@/pages/SignIn"));
-const Evaluation = lazy(() => import("@/pages/Evaluation"));
-const GoldenExplorer = lazy(() => import("@/pages/GoldenExplorer"));
-const FailureModes = lazy(() => import("@/pages/FailureModes"));
-const Rate = lazy(() => import("@/pages/Rate"));
-const Decisions = lazy(() => import("@/pages/Decisions"));
-const NotFound = lazy(() => import("@/pages/NotFound"));
+const Landing = lazyRetry(() => import("@/pages/Landing"), "Landing");
+const AgentPlayground = lazyRetry(() => import("@/pages/AgentPlayground"), "AgentPlayground");
+const Method = lazyRetry(() => import("@/pages/Method"), "Method");
+const SignIn = lazyRetry(() => import("@/pages/SignIn"), "SignIn");
+const Evaluation = lazyRetry(() => import("@/pages/Evaluation"), "Evaluation");
+const GoldenExplorer = lazyRetry(() => import("@/pages/GoldenExplorer"), "GoldenExplorer");
+const FailureModes = lazyRetry(() => import("@/pages/FailureModes"), "FailureModes");
+const Rate = lazyRetry(() => import("@/pages/Rate"), "Rate");
+const Decisions = lazyRetry(() => import("@/pages/Decisions"), "Decisions");
+const NotFound = lazyRetry(() => import("@/pages/NotFound"), "NotFound");
 
 /** Router basename follows Vite's `base` so the app works under a sub-path (e.g. /hiver-assignment/). */
 const BASENAME = import.meta.env.BASE_URL.replace(/\/$/, "");
