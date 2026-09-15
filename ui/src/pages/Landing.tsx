@@ -229,38 +229,37 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   ];
 
   return (
-    <PageTransition className="flex flex-col gap-20 md:gap-24">
+    <PageTransition className="flex flex-col gap-16 md:gap-20">
       {/* ------------------------------------------------------------------ hero */}
       <Reveal>
-        <section className="grid gap-10 pt-2 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16 lg:pt-6" aria-labelledby="hero-title">
+        <section className="grid items-center gap-8 pt-2 xl:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] xl:gap-x-12 xl:pt-4" aria-labelledby="hero-title">
           <div className="min-w-0">
-            <p className="eyebrow mb-5">Hiver SDE Intern take-home · Arnav Bule</p>
-            <h1 id="hero-title" className="t-display t-display-96 t-italic text-text">
+            <p className="eyebrow mb-6 leading-relaxed">Hiver SDE Intern take-home · Arnav Bule</p>
+            <h1 id="hero-title" className="t-display t-italic max-w-[20ch] text-[clamp(48px,5vw,80px)] leading-[1.04] text-balance text-text">
               An AI support agent that knows when to stay quiet.
             </h1>
-            <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-muted sm:text-[19px]">
+            <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.7] text-muted sm:text-[17px]">
               Cadence reads a customer tweet, classifies the intent, drafts a reply grounded in {int(nOpeners)} real @SpotifyCares conversations, and decides whether a human must step in.
-              These charts show the archived agent on {int(meta.n_test)} repeatedly inspected AI-labelled test tweets. Revised benchmark results are reported separately in the repository; Arnav Bule has completed human review of all 200 revised benchmark examples.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/agent" className="btn btn-primary h-10 px-5 text-[14px]">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Link to="/agent" className="btn btn-primary h-10 w-full justify-center px-5 text-[14px] sm:w-auto">
                 Try the live agent
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
-              <button type="button" onClick={scrollToResults} className="btn h-10 px-5 text-[14px]">
+              <button type="button" onClick={scrollToResults} className="btn h-10 w-full justify-center px-5 text-[14px] sm:w-auto">
                 Read the evidence
                 <ArrowDown className="size-4" aria-hidden="true" />
               </button>
-              <span className="flex items-center gap-2 sm:ml-2">
-                <Chip size="sm" mono tone={live ? "green" : "violet"} dot title={live ? "A Gemini key is configured; free text runs the real model." : "Live inference is unavailable or disabled. Historical results are shown separately."}>
-                  {live ? "live" : health?.cache_only ? "cache-only" : "recorded"}
-                </Chip>
-                <span className="t-mono text-[12px] text-faint">{health?.agent_model ?? meta.agent_model}</span>
-              </span>
+            </div>
+            <div className="mt-4 flex items-center gap-2">
+              <Chip size="sm" mono tone={live ? "green" : "violet"} dot title={live ? "A Gemini key is configured; free text runs the real model." : "Live inference is unavailable or disabled. Historical results are shown separately."}>
+                {live ? "live" : health?.cache_only ? "cache-only" : "recorded"}
+              </Chip>
+              <span className="t-mono text-[12px] text-faint">{health?.agent_model ?? meta.agent_model}</span>
             </div>
           </div>
 
-          <dl className="hairline-t flex flex-col self-end text-[13px] lg:border-t-0" aria-label="Facts">
+          <dl className="hairline-t flex min-w-0 flex-col text-[13px] xl:border-t-0 xl:border-l xl:border-border xl:pl-8" aria-label="Facts">
             {[
               ["corpus", `${int(nOpeners)} SpotifyCares threads, 2017`],
               ["golden set", `${int(meta.n_golden)} tweets · two passes · κ ${fixed(annot.intent_kappa, 2)}`],
@@ -269,18 +268,21 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
               ["agent · judge", `${meta.agent_model} · ${meta.judge_model}`],
               ["replayable", "archived call receipts, no key needed"],
             ].map(([k, v]) => (
-              <div key={k} className="hairline-b grid grid-cols-[96px_1fr] gap-3 py-2.5">
+              <div key={k} className="hairline-b grid grid-cols-[100px_minmax(0,1fr)] items-baseline gap-4 py-3.5">
                 <dt className="t-mono text-[12px] text-faint">{k}</dt>
-                <dd className="text-muted">{v}</dd>
+                <dd className="min-w-0 leading-relaxed [overflow-wrap:anywhere] text-muted">{v}</dd>
               </div>
             ))}
           </dl>
+          <p className="border-t border-border pt-5 text-[13px] leading-relaxed text-muted xl:col-span-2">
+            These charts show the archived agent on {int(meta.n_test)} repeatedly inspected AI-labelled test tweets. Revised benchmark results are reported separately in the repository; Arnav Bule has completed human review of all 200 revised benchmark examples.
+          </p>
         </section>
       </Reveal>
 
       {/* ------------------------------------------------------------------ 60 seconds */}
       <Reveal>
-        <section className="grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-16" aria-labelledby="sixty">
+        <section className="grid items-start gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-12" aria-labelledby="sixty">
           <SectionHead n="01" eyebrow="for the evaluators" title={<span className="t-italic">In sixty seconds.</span>} id="sixty" />
           <div className="flex max-w-[64ch] flex-col gap-4 text-[16px] leading-relaxed text-text">
             <p>

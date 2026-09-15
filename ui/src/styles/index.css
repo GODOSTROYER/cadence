@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "./tokens.css";
-@import "./typography.css";
+@import "./typography.css" layer(components);
 
 /*
  * Tailwind v4 theme: wipe the default palette and map every utility colour / font to a token,
