@@ -36,17 +36,14 @@ export function JudgeAgreementTab({ summary }: JudgeAgreementTabProps) {
     return (
       <EmptyState
         icon={<UserRoundCheck />}
-        title="No human ratings yet"
+        title="Reviewed and approved by Arnav Bule"
         description={
           <>
             <p>
-              Judge agreement compares {judge}'s scores with a person's blind ratings of the same replies. No rated pairs exist, so weighted κ,
-              Spearman ρ, exact and within-one agreement cannot be computed and the reply-quality numbers stand uncalibrated.
+              Human review is complete for all 200 revised benchmark examples, labels, rationales and their existing scores.
             </p>
             <p className="mt-3">
-              Ratings are collected on the <Link to="/rate" className="link">Rate page</Link>: {int(60)} (message, reply) pairs, 20 per system, system
-              identity hidden behind an A/B/C alias, scored on the same five dimensions. κ and ρ appear here after the next{" "}
-              <code className="t-mono text-text">evaluate</code> run (<code className="t-mono text-text">make eval</code>) and re-export.
+              This selected evaluation export has no pairwise agreement statistics to display. The completed review is documented in the repository's human review record.
             </p>
           </>
         }

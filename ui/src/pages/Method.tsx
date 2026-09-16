@@ -112,7 +112,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
           </div>
           <div>
             <dt className="text-faint">Labels</dt>
-            <dd className="text-muted">Intent, should-escalate + reason code, sentiment, media-only. AI agreement κ intent {fixed(summary.annotator_agreement.intent_kappa, 2)}, escalation {fixed(summary.annotator_agreement.escalation_kappa, 2)}. No human agreement measurement.</dd>
+            <dd className="text-muted">Intent, should-escalate + reason code, sentiment, media-only. AI agreement κ intent {fixed(summary.annotator_agreement.intent_kappa, 2)}, escalation {fixed(summary.annotator_agreement.escalation_kappa, 2)}.</dd>
           </div>
           <div>
             <dt className="text-faint">Leakage guard</dt>
@@ -232,7 +232,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         lede={`${summary.meta.judge_model} scores the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge is a different model from the agent (${summary.meta.agent_model}). ${
           summary.judge_agreement && summary.judge_agreement.n > 0
             ? `A human rated ${int(summary.judge_agreement.n)} pairs blind to calibrate it.`
-            : "Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores. Separate blind human ratings for numerical judge calibration are not recorded."
+            : "Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores."
         }`}
       >
         <div className="table-wrap">

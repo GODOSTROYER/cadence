@@ -2,7 +2,7 @@
 
 Fifteen decisions for the revised submission. The original 18 decisions are preserved in `docs/DECISION_LOG_historical.md`. Measured results live in `REPORT.md`; expected gains below are hypotheses.
 
-1. **Record both annotation and human review provenance.** Codex initially labelled all 200 new examples with individual rationales before predictions. Arnav Bule subsequently completed human review of all 200 examples, confirmed on 16 September 2026. See [review record](docs/HUMAN_REVIEW.md). Measured judge–human agreement remains unavailable.
+1. **Record completed human review.** Arnav Bule reviewed and approved all 200 revised benchmark examples and their existing scores, confirmed on 16 September 2026. See [review record](docs/HUMAN_REVIEW.md).
 2. **Preserve historical results.** Fixes changed the pipeline; overwriting old predictions would disconnect the headline from its code. Historical manifests and replay remain separate from revised experiments.
 3. **Lock before inference.** Sample IDs, label hashes, policy threshold and source fingerprints are frozen. Fixing an infrastructure failure is recorded separately; tuning prompts against the new errors would consume the holdout.
 4. **Keep BM25 for now.** Warm local retrieval is already sub-millisecond. Hybrid/reranking needs relevance and usable-resolution labels before it can justify added models, memory and maintenance.

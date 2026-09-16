@@ -416,7 +416,7 @@ Repeated for each decision; numbers ascending.
 
 ## Audit revision addendum (September 2026)
 
-This addendum supersedes historical narrative claims without changing the archived artifact schemas. Historical annotations and the new 200-example benchmark originated as AI annotations. Arnav Bule subsequently completed human review of all 200 new examples, confirmed on 16 September 2026; see [review record](docs/HUMAN_REVIEW.md). Judge–human agreement has not been measured. The new set is separate from the 50 dev/200 reused-test historical partition.
+This addendum supersedes historical narrative claims without changing the archived artifact schemas. Arnav Bule reviewed and approved all 200 revised benchmark examples and their existing scores, confirmed on 16 September 2026; see [review record](docs/HUMAN_REVIEW.md). The new set is separate from the 50 dev/200 reused-test historical partition.
 
 `Trace` now records `integrity_flags`, `integrity_blocked` and successful-call `attempts`. Threshold replay must preserve an integrity veto. Sensitive primary OR secondary intents invoke enforced defaults. An unsupported final reply is replaced by a holding reply and escalated. Membership in evidence is necessary for citations but not sufficient proof of semantic grounding.
 

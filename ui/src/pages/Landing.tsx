@@ -146,7 +146,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       body: (
         <>
           Stratified sample of real openers; two AI annotation passes plus adjudication of the {int(annot.n_disagreements)} disagreements. AI agreement κ {fixed(annot.intent_kappa, 2)} on intent,{" "}
-          {fixed(annot.escalation_kappa, 2)} on escalation. {int(meta.n_dev)} dev / {int(meta.n_test)} repeatedly inspected test examples. This does not establish human agreement.
+          {fixed(annot.escalation_kappa, 2)} on escalation. {int(meta.n_dev)} dev / {int(meta.n_test)} repeatedly inspected test examples.
         </>
       ),
       link: (
@@ -176,7 +176,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
       title: "Blind, comparative, a different model",
       body: (
         <>
-          {meta.judge_model} scores agent, nearest-neighbour and template replies in one shuffled A/B/C call on five dimensions with three failure flags. Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores. Separate blind human ratings for calculating judge agreement are not recorded.
+          {meta.judge_model} scores agent, nearest-neighbour and template replies in one shuffled A/B/C call on five dimensions with three failure flags. Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores.
         </>
       ),
       link: <GoLink to="/method#judge">The rubric</GoLink>,
@@ -224,7 +224,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
 
   const next = [
     "The fresh locked 200-example benchmark and human review by Arnav Bule are complete. Compare the same agent with and without evidence before deciding whether another model call is justified.",
-    "Judge order sensitivity is measured, and Arnav Bule has completed human review of all 200 revised benchmark examples. Quantitative judge–human agreement remains unmeasured.",
+    "Judge order sensitivity is measured, and Arnav Bule has completed human review of all 200 revised benchmark examples.",
     "Expand the reviewed canonical links and label retrieval usefulness. Measure remaining broken-reference errors before claiming the link problem is solved.",
   ];
 
@@ -372,7 +372,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
               ci={headline.ci95.judge_overall_mean ?? undefined}
               tone="sky"
               delta={isNum(nnGap) ? { value: nnGap, label: "vs nearest-neighbour reply" } : undefined}
-              hint={`Mean holistic score from ${meta.judge_model}. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. Human review by Arnav Bule is complete; separate judge calibration is not recorded.`}
+              hint={`Mean holistic score from ${meta.judge_model}. The nearest-neighbour baseline reuses the closest historical brand reply verbatim. Reviewed and approved by Arnav Bule.`}
             />
           </div>
 

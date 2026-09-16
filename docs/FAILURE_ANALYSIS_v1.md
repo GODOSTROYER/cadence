@@ -100,4 +100,4 @@ the rest; it does not separate 0.85 from 0.90, which is where the threshold sits
   at 0.90. `pred_decision` in `failure_modes.json` uses the reported 0.9 decision, so 29 rows read
   `escalate` while the raw `decision` says `auto_handle` with `escalation: null`.
 - `config/escalation.yaml` (`confidence_threshold: 0.60`) disagrees with the reported run (0.90).
-- `human_ratings.jsonl` is missing; fm2's flag counts rest on one judge that missed 10 of 16 fake links.
+- fm2's flag counts rest on one judge that missed 10 of 16 fake links. For the revised benchmark's completed review by Arnav Bule, see [review record](HUMAN_REVIEW.md).

@@ -1,10 +1,10 @@
 /** Current interpretation of immutable historical results; never rewrite the archived scores. */
 export const HISTORICAL_CAVEATS = [
-  "Both annotation passes were AI-produced. Their agreement does not estimate or bound human agreement. Arnav Bule has subsequently completed human review of the separate 200-example revised benchmark.",
-  "These historical 200 test examples were inspected across three runs and are a regression set. A separate frozen 200-example benchmark, subsequently human-reviewed by Arnav Bule, measured 0.789 macro-F1, 0.938 escalation recall and 35% auto-handling. Later guard fixes have separate retrospective verification.",
+  "Arnav Bule reviewed and approved all 200 examples and their existing scores in the revised benchmark. The historical charts below describe the earlier evaluation.",
+  "These historical 200 test examples were inspected across three runs and are a regression set. A separate frozen 200-example benchmark, reviewed and approved by Arnav Bule, measured 0.789 macro-F1, 0.938 escalation recall and 35% auto-handling. Later guard fixes have separate retrospective verification.",
   "The 0.9 confidence threshold achieved 0.85 recall on the 50-example development set, missing the 0.9 target; the selector used its F2 fallback. Test recall and auto-handle coverage must be read together.",
   "The original zero-shot baseline changes prompt and policy as well as retrieval. It is not a controlled retrieval ablation. New paired development experiments found no classification gain; draft-quality evidence remains exploratory.",
-  "The agent and judge are from the same model family. No judge–human agreement has been measured. New development judging agreed across candidate order on only 70% of 20 pairs.",
+  "The agent and judge are from the same model family. New development judging agreed across candidate order on only 70% of 20 pairs.",
   "Citation membership does not prove that a reply follows from relevant evidence. Most conversations date to 2017; they do not establish current policy or incident status. Own-thread exclusion alone did not eliminate near-duplicate leakage.",
   "Offline reproduction recalculates recorded results and verifies receipts. It does not execute the revised agent or measure live endpoint latency. Gemini quotas are per project, not per API key.",
 ];

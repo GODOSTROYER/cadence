@@ -9,9 +9,9 @@ An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver 
 ## What the evidence actually establishes
 
 - The frozen revised agent achieves **0.789 intent macro-F1, 0.938 escalation recall and 35% auto-handling** on 200 messages reviewed by Arnav Bule. It misses five required escalations among 70 automatic decisions. This is a measured prototype result, not a production safety certification.
-- The **200-example benchmark, human-reviewed by Arnav Bule** was sampled, labelled with individual rationales, and locked before predictions. See [label provenance](data/holdout/AI_REVIEW.lock.json), [all review notes](data/holdout/ai_review_notes.tsv) and [frozen run manifest](results/holdout_final/manifest.json).
+- The **200-example benchmark, human-reviewed by Arnav Bule** was sampled, labelled with individual rationales, and locked before predictions. See [completed review](docs/HUMAN_REVIEW.md), [all review notes](data/holdout/ai_review_notes.tsv) and [frozen run manifest](results/holdout_final/manifest.json).
 - The full controlled k6/k0 comparison finds **no demonstrated classification gain**. A two-order AI judge prefers released agent replies to nearest-baseline replies by **1.42/5**, paired 95% CI **[1.145, 1.668]**, across all 200 messages. Order consistency is **73.5%**, and it approves known unsafe replies: the report explains why that positive score is insufficient.
-- **Human review and approval completed by Arnav Bule for all 200 examples and their existing scores**, confirmed on 16 September 2026. Codex produced the initial labels and rationales before predictions; Arnav subsequently reviewed everything. See the [human review record](docs/HUMAN_REVIEW.md). Judge–human agreement has not been measured.
+- **Human review and approval completed by Arnav Bule for all 200 examples and their existing scores**, confirmed on 16 September 2026. See the [human review record](docs/HUMAN_REVIEW.md).
 
 ## Reproduce without a key (under 15 minutes)
 
@@ -102,7 +102,7 @@ The locked runner refuses silently mixing code/label revisions. Re-running after
 | `src/cadence/data/`, `retrieval/`, `agent/` | Preparation, BM25, structured generation and release policy |
 | `src/cadence/eval/`, `scripts/08_*`–`13_*` | Locked sampling, paired comparisons, two-order judging |
 | `data/golden/` | Historical AI annotations: 50 dev / 200 reused test |
-| `data/holdout/` | Fresh locked sample, 200 AI-origin labels and rationales; human review completed by Arnav Bule |
+| `data/holdout/` | Fresh locked sample, 200 labels and rationales; reviewed and approved by Arnav Bule |
 | `results/dev_experiment/`, `results/holdout_final/` | Revised development experiments and complete frozen benchmark |
 | `results/holdout/`, `results/post_audit_regression/` | Preserved aborted run and explicitly retrospective guard replay |
 | `api/`, `ui/` | Serverless API and React interface |

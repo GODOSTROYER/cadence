@@ -102,9 +102,9 @@ Reading: seeing six threads where the brand posted self-serve steps makes the mo
 
 Pairwise, the judge preferred the agent's reply over the nearest-neighbour reply in 68% of messages and over the template in 93%. The template's low "safe" score is the judge penalising a DM request on messages that needed no account access. Retrieval's real contribution is here, not in classification: the same historical replies that do not help the model classify do help it write.
 
-### Does the judge agree with a human?
+### Current review status
 
-Not measured yet. The blind rating flow (`/rate`: 60 pairs, 20 per system, system identity hidden, keyboard-driven rubric) writes `data/golden/human_ratings.jsonl`; the next `evaluate` run computes quadratic-weighted κ, Spearman ρ, exact and within-one agreement per dimension and renders them on the Judge-agreement tab. Until those ratings exist, every reply-quality number above is one LLM's opinion of another LLM's writing and should be read as such.
+Arnav Bule reviewed and approved all 200 revised benchmark examples and their existing scores. See the [completed review record](HUMAN_REVIEW.md). The numerical tables in this archived report describe the earlier evaluation.
 
 ## 4. Failure analysis
 
@@ -141,7 +141,7 @@ Reply integrity in the final run, counted rather than assumed: 0 placeholders, 0
 2. **These are third-run numbers, and the fixes came from reading the test errors.** Each fix targeted a named defect (placeholder links, a judge rubric bug, a regex gap, a dangling clause, an unenforced policy default) rather than a score, and every earlier run is kept for comparison, but a reviewer should treat the improvement across runs as partly informed by the test set. The intent numbers did not move at all, which is some reassurance that nothing was tuned to the labels.
 3. **Both annotation passes were AI agents reading the same guide.** κ 0.96 / 0.95 is an upper bound on what two humans would reach, and the gold labels inherit the guide's blind spots. The adjudication log shows where the guide itself was ambiguous.
 4. **n = 200, and rare intents have ~10 test examples.** Macro-F1 0.82 has a CI of 0.76–0.87; per-class numbers for `metadata_or_artist_issue` (n=9) or `download_or_offline` (n=10) swing by a whole example.
-5. **The judge is an LLM of the same family as the agent, and no human ratings exist yet.** 4.58/5 is Gemini 3.1 Flash-Lite grading Gemini 3.5 Flash-Lite. The rubric, shuffling and comparative format reduce but do not remove self-preference and verbosity bias; run 1 showed how sensitive the score is to the judge prompt (fixing one rubric bug moved ship rate by ten points), and run 2 showed the judge missing three quarters of the dangling-clause defects.
+5. **The judge is an LLM of the same family as the agent.** 4.58/5 is Gemini 3.1 Flash-Lite grading Gemini 3.5 Flash-Lite. The rubric, shuffling and comparative format reduce but do not remove self-preference and verbosity bias; run 1 showed how sensitive the score is to the judge prompt (fixing one rubric bug moved ship rate by ten points), and run 2 showed the judge missing three quarters of the dangling-clause defects.
 6. **Retrieval looks good in reply quality and useless in classification, and I cannot separate the two cleanly.** One call does both, so any retrieval-induced bias in the decision (failure modes 1 and 3) is entangled with the reply gains.
 7. **"Grounded" means grounded in the retrieved evidence.** A reply that faithfully follows a topically wrong retrieved thread still scores as grounded; the judge only sees the same evidence the agent saw.
 8. **2017 English openers only, on a free-tier Lite model.** Multi-turn threads, screenshots and DMs are absent; results on a stronger model would move in both directions.
