@@ -1,4 +1,6 @@
 /** Inline SVG of the pipeline (ui/DESIGN.md §8): message → rules → BM25 retrieval → Gemini → decision. Shared by the landing and Method pages. */
+import { ArrowDown } from "lucide-react";
+
 import { fixed } from "@/lib/format";
 import { TOKENS } from "@/lib/palette";
 
@@ -27,7 +29,36 @@ export function PipelineDiagram({ threshold, k = 6 }: { threshold: number; k?: n
   const x = (i: number) => i * (boxW + gap);
 
   return (
-    <div className="overflow-x-auto">
+    <>
+      <div className="md:hidden">
+        <ol aria-label="Support agent pipeline" className="flex flex-col gap-3">
+          {nodes.map((n, i) => (
+            <li key={n.id} className="flex min-w-0 flex-col gap-3">
+              <div className="rounded-lg border border-border-strong bg-surface p-4">
+                <div className="border-l-2 pl-3" style={{ borderColor: n.accent }}>
+                  <h3 className="t-display-20 text-text">{n.title}</h3>
+                  <p className="mt-2 text-[12px] leading-relaxed text-muted">{n.sub}</p>
+                </div>
+                {n.id === "rules" && (
+                  <p className="mt-3 border-t border-dashed border-amber/30 pt-3 text-[12px] leading-relaxed text-amber">
+                    Rule fires → escalate directly. The model cannot override it.
+                  </p>
+                )}
+                {n.id === "llm" && (
+                  <p className="mt-3 border-t border-border pt-3 text-[12px] leading-relaxed text-muted">
+                    Prompt: brand voice notes + taxonomy + policy + {k} threads with their replies.
+                  </p>
+                )}
+              </div>
+              {i < nodes.length - 1 && <ArrowDown className="size-4 self-center text-faint" aria-hidden="true" />}
+            </li>
+          ))}
+        </ol>
+        <p className="mt-4 text-[12px] leading-relaxed text-muted">
+          Output: intent + confidence, sentiment, a ≤280-char reply signed /AI, cited thread ids, decision + one-sentence reason, rule flags, latency.
+        </p>
+      </div>
+      <div className="hidden overflow-x-auto md:block">
       <svg viewBox={`0 0 ${w} ${h}`} className="h-auto w-full min-w-[820px]" role="img" aria-label="Pipeline: a customer tweet passes through deterministic rules, BM25 retrieval over historical threads, a Gemini structured call, and a decision step. Rules can force escalation directly.">
         <defs>
           <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
@@ -78,6 +109,7 @@ export function PipelineDiagram({ threshold, k = 6 }: { threshold: number; k?: n
           Output: intent + confidence, sentiment, a ≤280-char reply signed /AI, cited thread ids, decision + one-sentence reason, rule flags, latency.
         </text>
       </svg>
-    </div>
+      </div>
+    </>
   );
 }
