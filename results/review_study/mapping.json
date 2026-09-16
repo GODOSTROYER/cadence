@@ -1,0 +1,802 @@
+[
+  {
+    "id": "h_001",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "208e7513731009d65a7ad40e67d69b390a91405f09802a6f470292eddb24529f",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_001",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "87c7444ce18f5a26f015a054148df8f259b2fa5c0cf1a0c97ae5bd8dd2458776",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_002",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_002",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "e9a8809acfdbc6a94ad02eb1ea63917e341f12a6fef510ca1f3af165565009f6",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_006",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "0626e95af2d04483ac6badf8be28ed843b3052d2aefda87178fdd8e453d09fd5",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_006",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "092a8b496cf024ef72318697e64fa61b72ffdc68a08fda5b2e6fc18e2d1bf957",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_007",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "a6582f911fc690501f3f182997c398f30280609c56bf5e4f5ee62e3ffd936fba",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_007",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "62f11aeb3f054c72139b98d5d5acaedde587dcf971d153d365f690d49995fc7a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_011",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "d807aceca3ada5bc7a6bf96f028dcef9b6bd82e85be4ec453f0635abeaaa06b5",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_011",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "868b49290d51a2a7b66f0b5a8751d05b2a85f36e2a7167ce51cbccea6656104d",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_032",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "b8903050c0ab198ba5cb3301d9a043bccb95dcd0abc3a1729d5e453991d3923c",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_032",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "67a2c3c18b991df976109a01d81b9f333584589495adf58e7087335a5c1da3ec",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_034",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "a3ccfae4cc2babb9bdeebd39059b19d1e2a9d498e447c0c358144d42779ad5bb",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_034",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "90703dff27cc2e344b8d41d9cef7086dd1924d615c7edddf3520f8d4ad21049d",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_037",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "710ea46d36b27734c902d2690decab294c0894d838a3e3df000d1a6a7b65083a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_037",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "b387131f26dc4741c29721d34bae66ae3133d6063788fb950b4e88e276de2304",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_039",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "db89b57aa5d3fad30b23918b7615abe6597eb84ec36b06c9c7777c251a5d4f74",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_039",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "e51c6260c4f813fed9c4d9d0e36d78d8630e47610dd8786ad3e85159e91d50c1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_042",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "8c52cc3a0903729256d6d25f5062900fd4a764823fc732ec97ab03e7cbd2f3ae",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_042",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "01f2712f723f544062343beea83494fc332d117826b14dcbadd961298110743b",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_052",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "8bbeaadb088de19fb8c5abad79cf4947dac0ea803d3aafb0f165c18578636f43",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_052",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "db57e06b652f5affdf897e4ccc0e77ea969fc0079bb8667db9074e20febe8e9a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_054",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "0f99e426b6c69f447d18590df1e468c6d50c3ba380a4b8e01b2747877b670cd4",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_054",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "fe719662029ed27be9d67e525761a086b111d112da3a44d042ff79afdd3980cc",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_055",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "476047779629c89be165af42b02b9f9cce5e1c40646333460c24302b501509fe",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_055",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "7c990ed7ec3d9a4eb22a38e51ef780bfc587a3870f2198dc11b856fc690886c6",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_056",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "876b06e13472334ed4a74aea1d29452baa1e80a76500d5820440c71aa5740bf8",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_056",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "87237fb9b15109cb503e9681c242f4e1a21197780caba3cba1ddc3ea45772e8a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_057",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "5f6379e59c3a51f550c279e236a33304f599f1e14d2ed74113f63b8cf1332971",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_057",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "32923e0c6eccf0f71ecdaa5879aa0858f9f44fda29634dd3d7bb2a93d11dc076",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_061",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "304bdff69d5d2bc365eb180ebcfd9a4c7eb5c6cf3aff5db45b76c039fb9f55d3",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_061",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "0cec86d495c2a79e28eb014b7310edbbb73fbd4051d521c9e6dfd8eb86471b3c",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_062",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "6d14604a2fa140e6733d53af5bd6547fb09dc80d98ede7ae8ada84c4c9e29b08",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_062",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "656c9a50356be819ef97ccece78551a4952bb2740b11b8cd309ed0bdc3d2dfd6",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_066",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "bbdc35a3df6e1f7c4e34da9c8bd26f49323407a4f181530b4f1af36ea8a997d6",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_066",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "ab1cb79b74f56a6b732843c10ad38457634a8fc68e3684cc1af3acd5dd11b281",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_067",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "18ae5d86bc37089e72c91cf238fd196d3fb230adf3c24af9a1de96f41dcefbcf",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_067",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "99e059922d80cb9a4c6dedd230b6dc92ee4543f166a4b8a6ff379db47748d46e",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_075",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "710ea46d36b27734c902d2690decab294c0894d838a3e3df000d1a6a7b65083a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_075",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "9243df539d73fd7abbab790c69221e3fddfe9f3e7900f7656cf23acca075a28d",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_080",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_080",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "ce3c952dedce1eb4e361b683434e2936f1030e83ee2c8661088ccf326c1fc049",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_081",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "a076f99edee61390741515f2dc81136d541af955d22e18e765c72a4057c0b643",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_081",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "c4e7ff53e6c3ad58f9ab707fab5f57c8d9ed98ce3ef876d117f09095459406cf",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_085",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "d4dd16254e5055eb4df892a6332e22443e53a0ba87fdfef7e7fcbe8635ce9547",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_085",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "55c381107193b392f567f2018d0e7aaef8bacbf09cfeb665cae89858eb3c0b45",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_089",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "36e5335c9a4ffa7c49fba67bddd78d875eb64a6ba78d09ba60afcdf882325b17",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_089",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "be09814b76e2d7b61bab08e5bb48b35e1ea58b988c9ba165197b813560b01fb2",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_096",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "302e18018e298fa20ecc0896c67584e108e91268a74e4dffba80d91381c0420f",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_096",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "cdc17a65c73af400f7088bcf940672b95c8af57c30c7584bc27d39f74555f50d",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_099",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "608bc47bb4b505478f556aef854294515f2fd872dd8e56caca104a891e487cb5",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_099",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "632a7b4b209239115fead57df12036200e60ee42726c78f604267bee7adc2980",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_102",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "f26abd14239884254b5a71e7d1e93d1e6a76a93ddc1351a51205a03657de0b21",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_102",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "a1738eef6a741adae778a8b657c370dc469487b943a8db5e97ed0dc2be474008",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_107",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "15942ce761739de301c5fa6eee62aa00b8f6b99e55aeb3ba66812743d6b3cf56",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_107",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "7f5ee98f1b4760b5c3ee1d24efae7c84dc401303f10685290212666342d0023f",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_120",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "f8eb581531d923ed9ec74a094b3131bbcb8f6b0e9f8b34b9d43d37416fdf3502",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_120",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "729ac2541a72c31e3708c936584c068811d49c1599a2b306b683883eec3787bf",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_124",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "1afcff79234b3c0616dc8732995077a96dcdd4447eb99f6dd6911197130e9c47",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_124",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "51403831b872e21cfc16bdd31ea34a78c93f1130292f700d15a1122408cbfce1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_127",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "ead7714d59f5d21b7d16a0e5acaf104a7895e5df2617253fb11ff57f6bd5a0a0",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_127",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_129",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "050d3ff2376a65fade7ab77ec8fad5e6748c8a5a8062070a576a338a88e56fea",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_129",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "69de8cd6b137e1182511a344884a393223793d57af45dc3e2fc33777a629a384",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_134",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "c20e0709f82ea4e39d77cef458e4ececab07dd3b2e5c965082cdbd2ab061afa6",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_134",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "613a43676c4571e87a21106628097c7fa678be8bcfb93a5c6c65303e25d15b02",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_136",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "608f72cb230a18ada097cd43dfb447341d3ef17f70b2328de631739d80860724",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_136",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "b94345bcaa3fd3f2e2b60158282caf45e03c72cf8518add3015971778c724c77",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_137",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_137",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "021d939687dbb5211de6f728eb005a684f16035ed6e60a3be75d1eedb9f6d495",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_140",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "1c7548f5d3c96d776f6c206f396ada59721abe369138400a692eb8cb3856d79d",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_140",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "dfba5f0a586859891dbc14ae0a5db660c921b288edf53a33db96ab9ed5043575",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_141",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "e143edec0a002e6d00f1fcd93cadb0470155e5c96b7c6d835fa67df8389d711c",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_141",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "275bb096c2a9e63f8841b846768abd623628f1c653c3988e0243d6c892e78ea8",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_143",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "7ac7ef96b8c5def7d475db58aa92be10f194267659a668d4b314f46483e0e2b4",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_143",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "91495291b4c7801d46fa99c7f35ae410603b0b700394f32c5bcd8813ddff73ca",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_148",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "58b633d73a070b452e07ceec372b0eea2547eed06a3adad5e92001bf36b9b864",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_148",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "41e71d530fbe112f5e59207065834b5247fce5a854622ddd380a9d4c0b37fc5a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_157",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "376a173a8dcf5fe1ff318852fd42290e130c0cd9d14166eb5b45f101a2d81ff3",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_157",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "0147ce4e795c707e3fedb066978ab51c32fc7cc1db39454c80416ab020ebb0f0",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_158",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "980bce8bbdb5896a21d23c5d141f9812ef0253cf2bd9ae091073d599b1787324",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_158",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "30121b086a82eb09bf57b75dccc6c70b590b996108afdbbcf78f48fa52f9d3cd",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_160",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "e5605f0efff7dc1d5e3714c1fc24165f44035b4a5704055780d6bf1e657c25a3",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_160",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "29df38495fbf2c1a521ad00f4ae3f5a0ecf44c24358790ec9bf313a509716977",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_161",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "a78e10b5c80afdfaf7a7e30848ef0fc8f63ed1c58f2a032a230a8a1c347662a1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_161",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_167",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_167",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "ce3c952dedce1eb4e361b683434e2936f1030e83ee2c8661088ccf326c1fc049",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_168",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "9a326b26dea2c1fb4ed5ab09433b4e626a90393f0e9f693679fdcb5774e6be89",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_168",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "0ded733810c407a4ecd6dba707c40b19f225bb752b5cf21c1165fe3c3f986df3",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_171",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "27b3683c22379b7e7d30404be69257b85e51a49c1e187e4b5eca107d6a6f3246",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_171",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "005c3d39ece8424ffe9e3f5a1c1acbcd0a18d9e62d9c7ec15af7d311523dfef9",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_177",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "005bf7187aa0755945aeb705c8c287b14633ef40725d246c274c28600281593a",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_177",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_181",
+    "alias": "A",
+    "system": "simple_keyword",
+    "reply_hash": "f123d0f0d7231d9ed6738beeeb7a1651df01d13a1937f812e400c53919c74168",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_181",
+    "alias": "B",
+    "system": "agent",
+    "reply_hash": "13af74c1677549341b76824f1f42fd6304ee93c34a38108757e29f6f8759bfcb",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_190",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "e9678d834d54c37cdfa87094b302e074b7e8b24f6c25c8fac3b1a9446c46ec91",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_190",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "16af143af2b7d2cbcaf164e1c361cd15f34470d822cd1423eea4d670542e0a7f",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_193",
+    "alias": "A",
+    "system": "agent",
+    "reply_hash": "dfbab7bb33cb9e4a651459b976481f868d8ca386483e9dcfeb6996160801542d",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  },
+  {
+    "id": "h_193",
+    "alias": "B",
+    "system": "simple_keyword",
+    "reply_hash": "35f73640cac4b923f237d333e8a1f77fdf92efa581cd0d69459bf1eac62dd9aa",
+    "run_id": "holdout_final-b8317d6",
+    "rubric_version": "support-review-v1"
+  }
+]

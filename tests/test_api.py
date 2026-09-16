@@ -283,20 +283,20 @@ def test_rating_queue_is_blind_deterministic_and_test_only(
 ) -> None:
     queue = client.get("/api/rating-queue").json()
     assert queue == client.get("/api/rating-queue").json()
-    assert len(queue) == N_TEST  # fewer test examples than 60 -> every test example, each once
+    assert len(queue) == N_TEST * len(JUDGED_SYSTEMS)
     ids = [item["id"] for item in queue]
-    assert len(set(ids)) == len(ids)
+    assert len(set(ids)) == N_TEST
     dev_ids = {g["id"] for g in golden if g["split"] == "dev"}
     assert not dev_ids & set(ids)
     for item in queue:
-        assert set(item) == {"id", "system_alias", "text", "reply_draft", "evidence", "historical_brand_reply"}
+        assert set(item) == {"id", "system_alias", "text", "reply_draft", "evidence", "historical_brand_reply", "run_id", "reply_hash", "rubric_version"}
         assert item["system_alias"] in rating_queue.ALIASES
         for system in JUDGED_SYSTEMS:
             assert system not in json.dumps({k: v for k, v in item.items() if k != "reply_draft"})
         hidden = rating_queue.resolve_alias(item["id"], item["system_alias"])
         assert item["reply_draft"] == f"{hidden} reply for {item['id']}"
     hidden_systems = [rating_queue.resolve_alias(i["id"], i["system_alias"]) for i in queue]
-    assert {hidden_systems.count(s) for s in JUDGED_SYSTEMS} == {N_TEST // len(JUDGED_SYSTEMS)}
+    assert {hidden_systems.count(s) for s in JUDGED_SYSTEMS} == {N_TEST}
 
 
 def test_rating_plan_is_stratified_and_20_per_system() -> None:
@@ -305,12 +305,12 @@ def test_rating_plan_is_stratified_and_20_per_system() -> None:
         rows.append({"id": f"g_{i:03d}", "split": "test", "gold": {"intent": INTENTS[i % 3]}})
     pairs = rating_queue.plan_pairs(rows)
     assert len(pairs) == rating_queue.PER_SYSTEM * len(JUDGED_SYSTEMS)
-    assert len({eid for eid, _ in pairs}) == len(pairs)
+    assert len({eid for eid, _ in pairs}) == rating_queue.PER_SYSTEM
     for system in JUDGED_SYSTEMS:
         assert sum(1 for _, s in pairs if s == system) == rating_queue.PER_SYSTEM
     by_id = {r["id"]: r for r in rows}
     intents = [by_id[eid]["gold"]["intent"] for eid, _ in pairs]
-    assert all(intents.count(label) == 20 for label in INTENTS[:3])
+    assert max(intents.count(label) for label in INTENTS[:3]) - min(intents.count(label) for label in INTENTS[:3]) <= len(JUDGED_SYSTEMS)
     assert pairs == rating_queue.plan_pairs(list(reversed(rows)))
 
 
@@ -331,6 +331,8 @@ def test_post_rating_resolves_alias_and_appends(
     body = {
         "id": item["id"],
         "system_alias": item["system_alias"],
+        "reviewer_id": "legacy",
+        **{k: item[k] for k in ("run_id", "reply_hash", "rubric_version")},
         "scores": {"grounded": 4, "resolves": 3, "tone": 5, "safe": 5, "overall": 4},
         "flags": {"hallucinated_link_or_policy": False, "asks_sensitive_info": False, "wrong_issue": False},
         "verdict": "ship",
@@ -351,6 +353,8 @@ def test_post_rating_resolves_alias_and_appends(
     assert (item["id"], item["system_alias"]) not in {(i["id"], i["system_alias"]) for i in remaining}
 
     assert client.post("/api/ratings", json=body).status_code == 409
+    assert client.post("/api/ratings", json={**body, "reply_hash": "wrong"}).status_code == 409
+    assert client.post("/api/ratings", json={**body, "reviewer_id": "second"}).status_code == 201
     assert client.post("/api/ratings", json={**body, "system_alias": "Q"}).status_code == 400
     assert client.post("/api/ratings", json={**body, "id": "g_999"}).status_code == 404
     assert client.post("/api/ratings", json={**body, "scores": {"overall": 9}}).status_code == 422

@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight, ArrowUpRight, Lock } from "lucide-react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { BenchmarkOverview } from "@/components/BenchmarkOverview";
 import { Link } from "react-router-dom";
 
 import { Callout } from "@/components/Callout";
@@ -500,7 +501,7 @@ function Content({ s, health }: { s: PublicSummary; health: Health | null }) {
   );
 }
 
-export default function Landing() {
+function HistoricalLanding() {
   useDocumentTitle("");
   const summary = useAsync(getPublicSummary, []);
   const health = useAsync(getHealth, []);
@@ -508,4 +509,17 @@ export default function Landing() {
   if (summary.loading) return <LandingSkeleton />;
   if (summary.error || !summary.data) return <ErrorState error={summary.error} what="the public results" onRetry={summary.reload} />;
   return <Content s={summary.data} health={health.data} />;
+}
+
+
+export default function Landing() {
+  useDocumentTitle("");
+  const [historical, setHistorical] = useState(false);
+  return <>
+    <div className="mb-8 flex flex-wrap items-center gap-3 text-sm" aria-label="Evaluation version">
+      <button type="button" className={`btn ${!historical ? "btn-primary" : ""}`} aria-pressed={!historical} onClick={() => setHistorical(false)}>Revised benchmark</button>
+      <button type="button" className={`btn ${historical ? "btn-primary" : ""}`} aria-pressed={historical} onClick={() => setHistorical(true)}>Historical charts</button>
+    </div>
+    {historical ? <HistoricalLanding /> : <BenchmarkOverview />}
+  </>;
 }

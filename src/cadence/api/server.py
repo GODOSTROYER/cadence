@@ -14,7 +14,7 @@ from typing import Any
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, Response
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, Field, StrictBool, StrictInt, field_validator
 
 from cadence import __version__
 from cadence.api import rating_queue
@@ -23,7 +23,9 @@ from cadence.api.decisions import parse_decision_log
 from cadence.api.merge import merge_example
 from cadence.api.state import STATE, cache_only_env, health_payload, require_path
 from cadence.config import JUDGE_DIMENSIONS, JUDGE_FLAGS, VERDICTS, Paths, api_key, cache_only
-from cadence.utils.io import write_jsonl
+from cadence.eval.provenance import sha256
+from cadence.eval.review import RUBRIC_VERSION, reply_hash
+from cadence.utils.io import read_json, read_jsonl, write_jsonl
 from cadence.utils.log import get_logger
 
 log = get_logger(__name__)
@@ -45,11 +47,23 @@ class RatingIn(BaseModel):
     """Body of ``POST /api/ratings``: a blind rating with the system hidden behind an alias."""
 
     id: str
+    reviewer_id: str = Field(min_length=1, max_length=80)
+    run_id: str
+    reply_hash: str
+    rubric_version: str
     system_alias: str
-    scores: dict[str, int]
-    flags: dict[str, bool]
+    scores: dict[str, StrictInt]
+    flags: dict[str, StrictBool]
     verdict: str
+    response_kind: str = "other"
     rationale: str = ""
+
+    @field_validator("response_kind")
+    @classmethod
+    def _response_kind(cls, value: str) -> str:
+        if value not in ("resolution", "clarification", "handoff", "other"):
+            raise ValueError("Invalid response kind")
+        return value
 
     @field_validator("scores")
     @classmethod
@@ -170,37 +184,51 @@ def ratings() -> list[dict[str, Any]]:
     return STATE.human_ratings()
 
 
+def review_context():
+    directory = Paths.RESULTS / "holdout_final"
+    if (directory / "predictions.jsonl").exists():
+        golden = read_jsonl(Paths.DATA / "holdout/ai_reviewed_set.jsonl")
+        rows = read_jsonl(directory / "predictions.jsonl")
+        systems = ("agent", "simple_keyword")
+        predictions = {s: {r["id"]: r for r in rows if r["system"] == s} for s in systems}
+        run = "holdout_final-" + read_json(directory / "manifest.json")["commit"][:7]
+        return golden, predictions, systems, run
+    require_path(Paths.PREDICTIONS, "run")
+    from cadence.config import JUDGED_SYSTEMS
+    return STATE.golden(), STATE.predictions(), JUDGED_SYSTEMS, "historical-" + sha256(Paths.PREDICTIONS)[:12]
+
+
 @app.post("/api/ratings", status_code=201)
 def post_rating(body: RatingIn) -> dict[str, Any]:
-    """Store one blind human rating; the alias is resolved to the real system server-side."""
-    if body.id not in STATE.golden_by_id():
-        raise HTTPException(status_code=404, detail=f"unknown golden example {body.id!r}")
+    golden, predictions, systems, run = review_context()
+    if body.id not in {r["id"] for r in golden}:
+        raise HTTPException(status_code=404, detail=f"unknown example {body.id!r}")
     try:
-        system = rating_queue.resolve_alias(body.id, body.system_alias)
+        system = rating_queue.resolve_alias(body.id, body.system_alias, systems)
     except KeyError as exc:
         raise HTTPException(status_code=400, detail=str(exc.args[0])) from exc
-    if (body.id, system) in rating_queue.rated_pairs(STATE.human_ratings()):
-        raise HTTPException(status_code=409, detail=f"{body.id} already has a human rating for alias {body.system_alias}")
-    row = {
-        "id": body.id,
-        "system": system,
-        "rater": "human",
-        "scores": body.scores,
-        "flags": body.flags,
-        "verdict": body.verdict,
-        "rationale": body.rationale,
-        "rated_at": datetime.now(UTC).isoformat(timespec="seconds"),
-    }
+    prediction = predictions.get(system, {}).get(body.id)
+    if not prediction or body.run_id != run or body.rubric_version != RUBRIC_VERSION or body.reply_hash != reply_hash(prediction["reply_draft"]):
+        raise HTTPException(status_code=409, detail="Reply/run/rubric changed; reload the review queue")
+    reviewer = body.reviewer_id.strip()
+    if not reviewer:
+        raise HTTPException(status_code=422, detail="Reviewer name is required")
+    if (body.id, system) in rating_queue.rated_pairs(STATE.human_ratings(), reviewer, run):
+        raise HTTPException(status_code=409, detail="This reviewer already rated this reply")
+    row = {"id": body.id, "system": system, "rater": "human", "reviewer_type": "human",
+           "reviewer_id": reviewer, "run_id": run, "reply_hash": body.reply_hash, "rubric_version": RUBRIC_VERSION,
+           "scores": body.scores, "flags": body.flags, "verdict": body.verdict, "rationale": body.rationale,
+           "response_kind": body.response_kind,
+           "rated_at": datetime.now(UTC).isoformat(timespec="seconds")}
     write_jsonl(Paths.HUMAN_RATINGS, [row], append=True)
     return row
 
 
 @app.get("/api/rating-queue")
-def rating_queue_route() -> list[dict[str, Any]]:
-    """Blind queue of (example, system) pairs the human has not rated yet."""
-    require_path(Paths.PREDICTIONS, "predictions")
-    done = rating_queue.rated_pairs(STATE.human_ratings())
-    return rating_queue.build_queue(STATE.golden(), STATE.predictions(), done)
+def rating_queue_route(reviewer_id: str = "legacy") -> list[dict[str, Any]]:
+    golden, predictions, systems, run = review_context()
+    done = rating_queue.rated_pairs(STATE.human_ratings(), reviewer_id.strip(), run)
+    return rating_queue.build_queue(golden, predictions, done, run_id=run, systems=systems)
 
 
 @app.get("/api/decisions")

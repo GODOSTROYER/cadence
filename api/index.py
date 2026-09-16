@@ -110,6 +110,8 @@ def health() -> dict[str, Any]:
         "index_size": len(_state["retriever"]) if "retriever" in _state else _thread_count(),
         "n_golden": n_golden,
         "deployment": "vercel",
+        "deployment_commit": os.environ.get("VERCEL_GIT_COMMIT_SHA"),
+        "evaluation_run": "holdout_final-b8317d6",
         "admin_enabled": bool(_admin_hash() and _secret()),
     }
 

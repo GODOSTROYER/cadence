@@ -20,6 +20,9 @@ jobs:
       - run: python -m cadence.cli reproduce
       - run: python analysis_tools/reproduce_benchmark.py
       - run: python analysis_tools/post_audit_regression.py
+      - run: python scripts/15_publish_benchmark.py --check
+      - run: python scripts/17_prepare_review_study.py --check
+      - run: python scripts/14_review_study.py --ratings results/review_study/astra_ratings.jsonl --out results/reproduced/astra_summary.json
       - run: git diff --exit-code -- results/predictions.jsonl results/judge_scores.jsonl results/ui
   ui:
     runs-on: ubuntu-latest

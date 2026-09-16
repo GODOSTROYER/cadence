@@ -249,6 +249,13 @@ class SupportAgent:
         default = self._intent_defaults.get(intent, {}).get("default_decision")
         return final_decision == "auto_handle" and default == "escalate"
 
+    def _prepare(self, text, rules, exclude_thread_ids):
+        started = time.perf_counter()
+        evidence = self._retrieve(text, exclude_thread_ids)
+        retrieval_ms = _ms(started, time.perf_counter())
+        decision, meta = self.client.generate_json(build_user_prompt(text, evidence, rules), LLMDecision, system=self.system_prompt)
+        return evidence, decision, meta, retrieval_ms, 1
+
     # ------------------------------------------------------------------ main entry point
     def handle(
         self, text: str, *, id: str | None = None, exclude_thread_ids: set[str] | None = None
@@ -259,12 +266,7 @@ class SupportAgent:
         if not text:
             raise ValueError("Customer message must contain text or media")
         rules = apply_rules(text)
-        t_r0 = time.perf_counter()
-        evidence = self._retrieve(text, exclude_thread_ids)
-        t_r1 = time.perf_counter()
-
-        user_prompt = build_user_prompt(text, evidence, rules)
-        decision, meta = self.client.generate_json(user_prompt, LLMDecision, system=self.system_prompt)
+        evidence, decision, meta, retrieval_ms, call_count = self._prepare(text, rules, exclude_thread_ids)
 
         final_decision, escalation, enforced_default = self._decide(rules, decision)
         citations = filter_citations(decision.citations, evidence)
@@ -284,7 +286,8 @@ class SupportAgent:
                 escalation = Escalation(reason_code="needs_account_lookup", reason="Draft withheld for human review: " + ", ".join(integrity_flags))
 
         trace = Trace(
-            retrieval_ms=_ms(t_r0, t_r1),
+            retrieval_ms=retrieval_ms,
+            model_calls=call_count,
             llm_ms=int(getattr(meta, "latency_ms", 0) or 0),
             prompt_tokens=int(getattr(meta, "prompt_tokens", 0) or 0),
             output_tokens=int(getattr(meta, "output_tokens", 0) or 0),

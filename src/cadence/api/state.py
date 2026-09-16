@@ -187,6 +187,7 @@ def health_payload(state: AppState) -> Row:
     """The ``GET /api/health`` body (CONTRACT.md §10)."""
     return {
         "status": "ok",
+        "deployment_commit": os.environ.get("VERCEL_GIT_COMMIT_SHA"),
         "has_api_key": api_key() is not None,
         "cache_only": cache_only(),
         "agent_model": model_name("agent"),

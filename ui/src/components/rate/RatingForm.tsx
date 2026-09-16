@@ -17,6 +17,7 @@ export interface RatingDraft {
   flags: JudgeFlags;
   verdict: Verdict | null;
   rationale: string;
+  response_kind: "resolution" | "clarification" | "handoff" | "other";
 }
 
 /** A draft that passed validation: the rubric part of a `RatingSubmission` (CONTRACT §7). */
@@ -25,6 +26,7 @@ export interface CompletedRating {
   flags: JudgeFlags;
   verdict: Verdict;
   rationale: string;
+  response_kind: RatingDraft["response_kind"];
 }
 
 const VERDICT_OPTIONS: readonly SegmentOption<Verdict>[] = [
@@ -39,6 +41,7 @@ function emptyDraft(): RatingDraft {
     flags: { hallucinated_link_or_policy: false, asks_sensitive_info: false, wrong_issue: false },
     verdict: null,
     rationale: "",
+    response_kind: "other",
   };
 }
 
@@ -68,7 +71,7 @@ function missingParts(draft: RatingDraft): string[] {
 function completeRating(draft: RatingDraft): CompletedRating | null {
   if (missingParts(draft).length > 0 || !draft.verdict) return null;
   const scores = Object.fromEntries(JUDGE_DIMENSIONS.map((d) => [d, draft.scores[d]])) as JudgeScores;
-  return { scores, flags: draft.flags, verdict: draft.verdict, rationale: draft.rationale.trim() };
+  return { scores, flags: draft.flags, verdict: draft.verdict, rationale: draft.rationale.trim(), response_kind: draft.response_kind };
 }
 
 /** The rubric's own rule (CONTRACT §7): ship needs overall ≥ 4 and no flags. Advisory, never blocking. */
@@ -183,6 +186,14 @@ export function RatingForm({ onSubmit, submitting = false, error, disabled = fal
         </div>
       </section>
 
+      <label className="flex flex-col gap-2 text-sm">What does this reply provide?
+        <select className="rounded border border-border bg-bg p-3" disabled={disabled} value={draft.response_kind} onChange={(e) => setDraft((s) => ({ ...s, response_kind: e.target.value as RatingDraft["response_kind"] }))}>
+          <option value="other">Other / no useful next step</option>
+          <option value="resolution">A resolution or troubleshooting step</option>
+          <option value="clarification">A clarifying question</option>
+          <option value="handoff">A human handoff</option>
+        </select>
+      </label>
       <section aria-labelledby="rating-flags" className="flex flex-col gap-3">
         <h3 id="rating-flags" className="eyebrow">
           flags · any one of these blocks a ship

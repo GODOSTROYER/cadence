@@ -1,0 +1,13 @@
+{
+  "seed": 20260918,
+  "n": 30,
+  "purpose": "new development sample for routing experiment, never final holdout",
+  "excluded_source_files": [
+    "candidates",
+    "golden",
+    "taxonomy_calibration",
+    "holdout/examples"
+  ],
+  "similarity_rejection": ">=85 rapidfuzz ratio against excluded and selected texts",
+  "examples_sha256": "255b0406443c58fbc256e3182e3d455e10083760bcb9c9955019daf99a77751d"
+}

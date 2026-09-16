@@ -1,0 +1,4523 @@
+{
+  "rubric_version": "support-review-v1",
+  "n_expected_replies": 100,
+  "reviewers": {
+    "astra-xhigh": {
+      "reviewer_type": "ai",
+      "status": "complete",
+      "n": 100,
+      "verdicts": {
+        "edit": 35,
+        "reject": 59,
+        "ship": 6
+      },
+      "agreement_kind": "ai_vs_judge",
+      "agreement": {
+        "n": 200,
+        "weighted_kappa_overall": 0.13741261369615876,
+        "kappa_status": "defined",
+        "spearman_overall": 0.20190354256296503,
+        "exact_agreement": 0.28,
+        "within_one": 0.53,
+        "per_dimension": {
+          "grounded": {
+            "n": 200,
+            "weighted_kappa": 0.045780243678032795,
+            "spearman": 0.09315148337090486
+          },
+          "resolves": {
+            "n": 200,
+            "weighted_kappa": 0.3109144251867558,
+            "spearman": 0.5567300521558004
+          },
+          "tone": {
+            "n": 200,
+            "weighted_kappa": 0.4494949494949495,
+            "spearman": 0.5979407204422318
+          },
+          "safe": {
+            "n": 200,
+            "weighted_kappa": 0.0023368685960812874,
+            "spearman": 0.09711414706652716
+          },
+          "overall": {
+            "n": 200,
+            "weighted_kappa": 0.13741261369615876,
+            "spearman": 0.20190354256296503
+          }
+        },
+        "pairs": [
+          {
+            "id": "h_001",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_001",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_001",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_001",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_002",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_002",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_002",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_002",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_006",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_006",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_006",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_006",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_007",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_007",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_007",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_007",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_011",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_011",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_011",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_011",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_032",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 5,
+            "judge": 4
+          },
+          {
+            "id": "h_032",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 5,
+            "judge": 4
+          },
+          {
+            "id": "h_032",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_032",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_034",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 4
+          },
+          {
+            "id": "h_034",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_034",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_034",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_037",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_039",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_039",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_039",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_039",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_042",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_042",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_042",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_042",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_052",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_052",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_052",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_052",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_054",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_054",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_054",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_054",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_055",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_055",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_055",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_055",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_056",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 3
+          },
+          {
+            "id": "h_056",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_056",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_056",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_057",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_057",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_057",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_057",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_061",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 2
+          },
+          {
+            "id": "h_061",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 3
+          },
+          {
+            "id": "h_061",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_061",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_062",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_062",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_062",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_062",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_066",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 3
+          },
+          {
+            "id": "h_066",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_066",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_066",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_067",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_067",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_067",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_067",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_075",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_080",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_080",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_080",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_080",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_081",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_081",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_081",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_081",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_085",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_085",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_085",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_085",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_089",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_089",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_089",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_089",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_096",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_096",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_096",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_096",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_099",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_099",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_099",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_099",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_102",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_102",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_102",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_102",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_107",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_107",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_107",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_107",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_120",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_120",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 3
+          },
+          {
+            "id": "h_120",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 2
+          },
+          {
+            "id": "h_120",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_124",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_124",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_124",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_124",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_127",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_127",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_127",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_127",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_129",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_129",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_129",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_129",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_134",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_134",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_134",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_134",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_136",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_136",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_136",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_136",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_137",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_137",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_137",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_137",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_140",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_140",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_140",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_140",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_141",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_141",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_141",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_141",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_143",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_143",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_143",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_143",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_148",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_148",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_148",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_148",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_157",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_157",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_157",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_157",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_158",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_158",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_158",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_158",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_160",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_160",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_160",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_160",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_161",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_161",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_161",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_161",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_167",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_167",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_167",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_167",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 2
+          },
+          {
+            "id": "h_168",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_168",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_168",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_168",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_171",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 3
+          },
+          {
+            "id": "h_171",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 3
+          },
+          {
+            "id": "h_171",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_171",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_177",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_177",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_177",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_177",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_181",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_181",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_181",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_181",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_190",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_190",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_190",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_190",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 1
+          },
+          {
+            "id": "h_193",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 5,
+            "judge": 5
+          },
+          {
+            "id": "h_193",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 5,
+            "judge": 3
+          },
+          {
+            "id": "h_193",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 3
+          },
+          {
+            "id": "h_193",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 4
+          }
+        ],
+        "identity_verified": true,
+        "aggregation": "rating-order observations; use per_reviewer_order for separate estimates",
+        "n_examples": 50,
+        "per_reviewer_order": [
+          {
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "n": 100,
+            "weighted_kappa_overall": 0.1618089686440356,
+            "kappa_status": "defined",
+            "spearman_overall": 0.23679552800620912,
+            "exact_agreement": 0.3,
+            "within_one": 0.55,
+            "per_dimension": {
+              "grounded": {
+                "n": 100,
+                "weighted_kappa": 0.02601090413448459,
+                "spearman": 0.08676283857908383
+              },
+              "resolves": {
+                "n": 100,
+                "weighted_kappa": 0.3245541571504933,
+                "spearman": 0.5846141561397401
+              },
+              "tone": {
+                "n": 100,
+                "weighted_kappa": 0.45534838076545625,
+                "spearman": 0.5843780110053027
+              },
+              "safe": {
+                "n": 100,
+                "weighted_kappa": 0.0,
+                "spearman": null
+              },
+              "overall": {
+                "n": 100,
+                "weighted_kappa": 0.1618089686440356,
+                "spearman": 0.23679552800620912
+              }
+            },
+            "pairs": [
+              {
+                "id": "h_001",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_001",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_002",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_002",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_006",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_006",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_007",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_007",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_011",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_011",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_032",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 5,
+                "judge": 4
+              },
+              {
+                "id": "h_032",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_034",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 4,
+                "judge": 4
+              },
+              {
+                "id": "h_034",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_037",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_037",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_039",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_039",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_042",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_042",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_052",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 4,
+                "judge": 5
+              },
+              {
+                "id": "h_052",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_054",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_054",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_055",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_055",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_056",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 3
+              },
+              {
+                "id": "h_056",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_057",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_057",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_061",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 2
+              },
+              {
+                "id": "h_061",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_062",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_062",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_066",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 3
+              },
+              {
+                "id": "h_066",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_067",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_067",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_075",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_075",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_080",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_080",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_081",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_081",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_085",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_085",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_089",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_089",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_096",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_096",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_099",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_099",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_102",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_102",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_107",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_107",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_120",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 4,
+                "judge": 5
+              },
+              {
+                "id": "h_120",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 2
+              },
+              {
+                "id": "h_124",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_124",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_127",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_127",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_129",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_129",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_134",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_134",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_136",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_136",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_137",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_137",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_140",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_140",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_141",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_141",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_143",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_143",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_148",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_148",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_157",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_157",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_158",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_158",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_160",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_160",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_161",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_161",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_167",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_167",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_168",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_168",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_171",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 3,
+                "judge": 3
+              },
+              {
+                "id": "h_171",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_177",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_177",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_181",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_181",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_190",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_190",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_193",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 5,
+                "judge": 5
+              },
+              {
+                "id": "h_193",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 0,
+                "human": 4,
+                "judge": 3
+              }
+            ]
+          },
+          {
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "n": 100,
+            "weighted_kappa_overall": 0.11366586315594285,
+            "kappa_status": "defined",
+            "spearman_overall": 0.16082059558158435,
+            "exact_agreement": 0.26,
+            "within_one": 0.51,
+            "per_dimension": {
+              "grounded": {
+                "n": 100,
+                "weighted_kappa": 0.0648447341037297,
+                "spearman": 0.10022874873021775
+              },
+              "resolves": {
+                "n": 100,
+                "weighted_kappa": 0.2968671804624161,
+                "spearman": 0.5332532539480473
+              },
+              "tone": {
+                "n": 100,
+                "weighted_kappa": 0.4432882414151925,
+                "spearman": 0.6132915516443168
+              },
+              "safe": {
+                "n": 100,
+                "weighted_kappa": 0.0046854639718315605,
+                "spearman": 0.13768652562506087
+              },
+              "overall": {
+                "n": 100,
+                "weighted_kappa": 0.11366586315594285,
+                "spearman": 0.16082059558158435
+              }
+            },
+            "pairs": [
+              {
+                "id": "h_001",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_001",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_002",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_002",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_006",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_006",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_007",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_007",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_011",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_011",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_032",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 5,
+                "judge": 4
+              },
+              {
+                "id": "h_032",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_034",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 4,
+                "judge": 5
+              },
+              {
+                "id": "h_034",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_037",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_037",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_039",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_039",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_042",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_042",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_052",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 4,
+                "judge": 5
+              },
+              {
+                "id": "h_052",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_054",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_054",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_055",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_055",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_056",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_056",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_057",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_057",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_061",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 3
+              },
+              {
+                "id": "h_061",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_062",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_062",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_066",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_066",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_067",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_067",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_075",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_075",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_080",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_080",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_081",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_081",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_085",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_085",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_089",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_089",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_096",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_096",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_099",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_099",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_102",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_102",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_107",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_107",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_120",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 4,
+                "judge": 3
+              },
+              {
+                "id": "h_120",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 4
+              },
+              {
+                "id": "h_124",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_124",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_127",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_127",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_129",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_129",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_134",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 5
+              },
+              {
+                "id": "h_134",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_136",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_136",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_137",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_137",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 5
+              },
+              {
+                "id": "h_140",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_140",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_141",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_141",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_143",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_143",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 2
+              },
+              {
+                "id": "h_148",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_148",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_157",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_157",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_158",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_158",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_160",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_160",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_161",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_161",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_167",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 3
+              },
+              {
+                "id": "h_167",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 2
+              },
+              {
+                "id": "h_168",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_168",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_171",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 3,
+                "judge": 3
+              },
+              {
+                "id": "h_171",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_177",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 1
+              },
+              {
+                "id": "h_177",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 4
+              },
+              {
+                "id": "h_181",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 5
+              },
+              {
+                "id": "h_181",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 3
+              },
+              {
+                "id": "h_190",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 2,
+                "judge": 4
+              },
+              {
+                "id": "h_190",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 1,
+                "judge": 1
+              },
+              {
+                "id": "h_193",
+                "system": "agent",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 5,
+                "judge": 3
+              },
+              {
+                "id": "h_193",
+                "system": "simple_keyword",
+                "reviewer_id": "astra-xhigh",
+                "order_id": 1,
+                "human": 4,
+                "judge": 4
+              }
+            ]
+          }
+        ],
+        "human_human": [],
+        "order_sensitivity": {
+          "n_replies": 100,
+          "overall_score_changed": 42
+        },
+        "judge_ship_on_human_unsafe": {
+          "n": 106,
+          "count": 58,
+          "rate": 0.5471698113207547
+        },
+        "disagreements": [
+          {
+            "id": "h_001",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_001",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_001",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_002",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_002",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_002",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_002",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_006",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_006",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_007",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_007",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_007",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_011",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_011",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_011",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_011",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_032",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 5,
+            "judge": 4
+          },
+          {
+            "id": "h_032",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 5,
+            "judge": 4
+          },
+          {
+            "id": "h_032",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_032",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_034",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_037",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_039",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_039",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_042",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_042",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_052",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_052",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_052",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_054",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_054",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_054",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_055",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_055",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_056",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_056",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_057",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_057",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_057",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_057",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_061",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 2
+          },
+          {
+            "id": "h_061",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_061",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_062",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_062",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_062",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_062",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_066",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_066",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_066",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_067",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_067",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_075",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_080",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_080",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_080",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_081",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_081",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_085",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_085",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_089",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_089",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_096",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_096",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_099",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_099",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_102",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_102",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_102",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_102",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_107",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_107",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_120",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 5
+          },
+          {
+            "id": "h_120",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 4,
+            "judge": 3
+          },
+          {
+            "id": "h_120",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 2
+          },
+          {
+            "id": "h_120",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_124",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_124",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_124",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_124",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_127",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_127",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_127",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_127",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_129",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_129",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_129",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_129",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_134",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_134",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_134",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_134",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_136",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_136",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_136",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_137",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 3,
+            "judge": 4
+          },
+          {
+            "id": "h_137",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 3,
+            "judge": 5
+          },
+          {
+            "id": "h_140",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_140",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_141",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_141",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_143",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_143",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_143",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_148",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_148",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_157",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_157",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_157",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_157",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_158",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_158",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_160",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_160",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_160",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_160",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_161",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_161",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_161",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_167",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 3
+          },
+          {
+            "id": "h_168",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_168",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_168",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_168",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_171",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_171",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_177",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_177",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 1
+          },
+          {
+            "id": "h_177",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 2
+          },
+          {
+            "id": "h_177",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 4
+          },
+          {
+            "id": "h_181",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_181",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 5
+          },
+          {
+            "id": "h_181",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_181",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 1,
+            "judge": 3
+          },
+          {
+            "id": "h_190",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 2,
+            "judge": 5
+          },
+          {
+            "id": "h_190",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 2,
+            "judge": 4
+          },
+          {
+            "id": "h_193",
+            "system": "agent",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 1,
+            "human": 5,
+            "judge": 3
+          },
+          {
+            "id": "h_193",
+            "system": "simple_keyword",
+            "reviewer_id": "astra-xhigh",
+            "order_id": 0,
+            "human": 4,
+            "judge": 3
+          }
+        ]
+      },
+      "systems": {
+        "agent": {
+          "n": 50,
+          "mean_overall": 2.12,
+          "ship": 5
+        },
+        "simple_keyword": {
+          "n": 50,
+          "mean_overall": 1.5,
+          "ship": 1
+        }
+      }
+    }
+  },
+  "human_agreement": null,
+  "queue": "50-message supplemental study",
+  "input_hashes": {
+    "results\\review_study\\astra_ratings.jsonl": "5265b52e36cb19509edf1a1a44e381223df3c296c00001573113c566d17519b5",
+    "results\\holdout_final\\judge_orders.jsonl": "36418e22a037a487426c8f2a88dbacc17f9559690b531585da0f315548d94be2",
+    "results\\review_study\\mapping.json": "5dbe7699297c792cb7b8880adfbae8d87458b3e69bc1b49c772cde8d54b9f103",
+    "results\\review_study\\blind_packet.jsonl": "acd277b0180dcf2ddde9ab49b8e028d7f95ad3cda04ce8f2f953c9822a9191a4",
+    "results\\review_study\\rubric.md": "bc23ace25c575e1ddb00ea142bb199ab3c565580a90e9fc8fc0a225c62a8f7a8"
+  },
+  "scope": "Supplemental review of exact frozen replies; original scores unchanged. AI ratings are not human ratings."
+}

@@ -12,18 +12,18 @@ export function RatingProtocol({ mode, className }: RatingProtocolProps) {
     <Callout tone="sky" eyebrow="protocol" title="Blind, one reply at a time" className={className}>
       <ul>
         <li>
-          <strong>Sixty pairs, twenty per system.</strong> A stratified subset of test tweets, each paired with a reply from one of the three judged
-          systems (the agent, the nearest-neighbour historical reply, the most common template). You see the tweet, the reply and the retrieved
+          <strong>Matched messages across systems.</strong> The revised queue uses twenty messages and both the agent and keyword baseline replies: forty ratings per reviewer.
+          The historical fallback has three systems. You see the tweet, the reply and the retrieved
           evidence; which system wrote the reply is hidden and never shown.
         </li>
         <li>
-          <strong>Same rubric as the LLM judge.</strong> Five 1–5 scores (grounded, resolves, tone, safe, overall), three flags, and a verdict: ship
+          <strong>Five scores and a verdict.</strong> Five 1–5 scores (grounded, resolves, tone, safe, overall), three flags, and a verdict: ship
           means post as-is (overall ≥ 4, no flags), edit means a human fixes it first, reject means do not send.
         </li>
         <li>
           <strong>What it feeds.</strong> Your ratings are appended to <code>data/golden/human_ratings.jsonl</code>; the evaluation then reports
-          quadratic-weighted Cohen&rsquo;s κ, Spearman ρ, exact and within-1 agreement between you and the judge on overall, plus κ per dimension.
-          That is the only check on whether the judge&rsquo;s numbers mean anything.
+          quadratic-weighted Cohen&rsquo;s κ, Spearman ρ, exact and within-1 agreement. Run the review-study script with <code>--api-ratings</code> to compare your ratings with both judge orders.
+          Your reviewer name and the exact reply identity are saved with each rating. A holding reply is a handoff, not a resolution.
         </li>
         {mode === "static" ? (
           <li>

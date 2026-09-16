@@ -64,11 +64,13 @@ python -m cadence.cli serve
 
 Open `http://127.0.0.1:8000`. This local service is for a trusted workstation. The deployable entrypoint is `api/index.py`, with admin authentication, input validation, sanitized errors and bounded per-process concurrency.
 
-The [public demo](https://www.arnavbule.in/hiver-assignment/) serves the production release. Its dashboard charts remain explicitly historical; the revised 200-example results and completed human review by Arnav Bule are described alongside them. See [deployment verification](docs/DEPLOYMENT.md) for release status and checks.
+The [public demo](https://www.arnavbule.in/hiver-assignment/) serves the production release. Overview and Evaluation default to the revised 200-example benchmark reviewed by Arnav Bule. Historical charts are available through an explicit version switch. See [deployment verification](docs/DEPLOYMENT.md) for release status and checks.
+
+See [evaluation and routing improvements](docs/IMPROVEMENTS.md) for the supplemental Astra review, matched human-rating workflow, trained baseline and controlled development experiment.
 
 ## Screenshots
 
-Captures of the public demo; as noted above, its charts and headline figures are the historical ones.
+Archived screenshots of the earlier public demo; the current default view shows the revised benchmark.
 
 ![Overview page of the Cadence dashboard](docs/img/landing.png)
 *Overview — the evaluator summary, corpus and benchmark facts, and links into the evidence.*

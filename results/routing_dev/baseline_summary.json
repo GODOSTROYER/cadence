@@ -1,0 +1,292 @@
+{
+  "status": "baseline_only",
+  "n": 30,
+  "label_sources": [
+    "ai"
+  ],
+  "intent": {
+    "accuracy": 0.5666666666666667,
+    "macro_f1": 0.3309523809523809,
+    "weighted_f1": 0.5663492063492063,
+    "per_class": {
+      "non_english": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "account_hacked_or_security": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "billing_or_charge": {
+        "precision": 0.3333333333333333,
+        "recall": 0.5,
+        "f1": 0.4,
+        "support": 2
+      },
+      "login_or_password": {
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666,
+        "support": 3
+      },
+      "download_or_offline": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "metadata_or_artist_issue": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "playlist_or_library": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "support": 3
+      },
+      "content_or_availability": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2
+      },
+      "playback_or_app_bug": {
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "support": 1
+      },
+      "subscription_or_plan": {
+        "precision": 0.8,
+        "recall": 0.5714285714285714,
+        "f1": 0.6666666666666666,
+        "support": 7
+      },
+      "feature_request_or_feedback": {
+        "precision": 0.5454545454545454,
+        "recall": 0.8571428571428571,
+        "f1": 0.6666666666666666,
+        "support": 7
+      },
+      "other": {
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285714,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "labels": [
+        "non_english",
+        "account_hacked_or_security",
+        "billing_or_charge",
+        "login_or_password",
+        "download_or_offline",
+        "metadata_or_artist_issue",
+        "playlist_or_library",
+        "content_or_availability",
+        "playback_or_app_bug",
+        "subscription_or_plan",
+        "feature_request_or_feedback",
+        "other"
+      ],
+      "matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          2
+        ]
+      ]
+    },
+    "n": 30
+  },
+  "escalation": {
+    "precision": 0.6666666666666666,
+    "recall": 0.2857142857142857,
+    "f1": 0.4,
+    "accuracy": 0.6,
+    "auto_handle_rate": 0.8,
+    "missed_escalations": 10,
+    "unnecessary_escalations": 2,
+    "reason_code_accuracy": null,
+    "confusion": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 10,
+      "tn": 14
+    },
+    "n": 30
+  },
+  "model_calls": 0,
+  "remaining": "Current and selective Gemini variants have not run"
+}

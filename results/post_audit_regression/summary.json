@@ -3,14 +3,14 @@
   "model_calls": 0,
   "cached_predictions": 200,
   "revision": {
-    "commit": "b8317d6d91813d4d6d83336fb3eb05a1d032d52b",
+    "commit": "962d6bfd23a4a903d4cef43c178bf2cf22076fbf",
     "dirty": true
   },
   "source_manifest_sha256": "74e5e2a3bd85107c804a8f9b1f7578b46193b26f0ea6456a57a75b916fcfa0c4",
   "labels_sha256": "343568ff22aef2ed267cc328452645ffbd5cca381e4976d9b099ebaaafb5a4a8",
   "guard_hashes": {
-    "src/cadence/agent/integrity.py": "4c87f86d8a9b43c6fa4eb1fcce0ad5f45216f9199eb15ea6c64e58170441cc3e",
-    "src/cadence/agent/pipeline.py": "db4c1d7dfaf87996b78ed619c3e41f625d51a845019ff14c77487bd5e747affc"
+    "src/cadence/agent/integrity.py": "0ca5fb75543888f9e5eae8a236ccae8eefe68b9c02ea2ab2f9acf786369370e6",
+    "src/cadence/agent/pipeline.py": "ff905a9e56fb3d4248037ae94132115034f7df68c026b4bb4e518f71aeb7e50b"
   },
   "changed_ids": [
     "h_003",

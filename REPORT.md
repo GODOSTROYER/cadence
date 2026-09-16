@@ -28,12 +28,14 @@ The original claim that 0.9 met dev recall≥0.9 was incorrect: recall was 0.85,
 
 Execution commit `b8317d6`; all four systems share the same 200 IDs. Majority intent is fitted on old dev labels only. The simple baseline uses keyword intent, rules and the nearest historical reply, without an LLM. Both agent arms share prompt, model and policy, changing only evidence count. All frozen artifacts are under `results/holdout_final/`.
 
+<!-- benchmark-table:start -->
 | System | Intent accuracy | Macro-F1 | Escalation recall | Auto-handles | Misses among auto |
 |---|---:|---:|---:|---:|---:|
-| Majority / always escalate / template |.115|.017|1.000|0/200|N/A|
-| Keyword / rules / nearest reply |.600|.601|.346|166/200|53/166|
-| Same-prompt agent, k0 |.800|.826|1.000|0/200|N/A|
-| Retrieval agent, k6 |.770|.789|.938|70/200|5/70|
+| Majority / always escalate | 0.115 | 0.017 | 1.000 | 0/200 | N/A |
+| Keyword / rules / nearest reply | 0.600 | 0.601 | 0.346 | 166/200 | 53/166 |
+| Same-prompt agent, k0 | 0.800 | 0.826 | 1.000 | 0/200 | N/A |
+| Retrieval agent, k6 | 0.770 | 0.789 | 0.938 | 70/200 | 5/70 |
+<!-- benchmark-table:end -->
 
 For k6, paired-example bootstrap 95% intervals (2,000 resamples, seed 2026) are: macro-F1 [.647, .836], escalation recall [.882, .988], coverage [.285, .415], unsafe-auto risk [.014, .138]. The numerical recall gate passes this bootstrap calculation, but known hard release failures prevent a safety claim. CI choice matters: a post-hoc Wilson interval for 76/81 recall has a lower bound around .864, below the .88 target. This is a robustness warning, not a replacement preregistered gate.
 
@@ -79,3 +81,8 @@ The final release repair replayed all 200 frozen agent receipts with zero model 
 Create new dev cases and relevance/usable-resolution labels, then compare selective generation, BM25/hybrid and a simple escalation-risk score separately. Freeze the chosen design before another untouched benchmark. Prefer the candidate with better safe coverage under the same recall bound, not the highest isolated intent score. Add a small deployment canary measuring errors, queueing, cold/warm latency and privacy behavior before any production claim.
 
 Preserve the simple pipeline and evidence artifacts. Do not spend the week on autonomous tools, fine-tuning, a vector database or an elaborate dashboard. The strongest submission improvement is a claim the reviewer can reproduce and a limitation they can see.
+
+
+## Supplemental review and routing development
+
+The dashboard and this report now share a generated frozen-benchmark publication checked in CI. A separate blinded, matched 50-message study contains 100 provisional GPT-6 Astra (extra-high effort) reply ratings: 6 ship, 35 edit, 59 reject. These new AI ratings do not replace the existing 200-example scores reviewed by Arnav Bule. A train-only TF-IDF/logistic-regression baseline and message-first selective routing experiment are implemented; the new live comparison remains pending authorization. See [implementation, reproduction and review instructions](docs/IMPROVEMENTS.md).

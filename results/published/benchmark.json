@@ -1,0 +1,299 @@
+{
+  "run_id": "holdout_final-b8317d6",
+  "execution_commit": "b8317d6d91813d4d6d83336fb3eb05a1d032d52b",
+  "dataset_hash": "343568ff22aef2ed267cc328452645ffbd5cca381e4976d9b099ebaaafb5a4a8",
+  "summary_hash": "625a52bda4a915e9d70cae686cd990b587194b46db5801c410f6829d14df9eb0",
+  "prompt_version": "52d6a9403eae0485a004b330a21bc0405aeeb6026c334985b88c779c27ffb30a",
+  "policy_version": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+  "models": [
+    "gemini-3.5-flash-lite"
+  ],
+  "evaluation_mode": "frozen recorded benchmark",
+  "n": 200,
+  "review": {
+    "reviewer": "Arnav Bule",
+    "status": "completed",
+    "n_examples": 200,
+    "review_outcome": "Reviewed and approved by Arnav Bule."
+  },
+  "systems": [
+    {
+      "id": "trivial",
+      "name": "Majority / always escalate",
+      "n": 200,
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.115,
+          "ci95": [
+            0.075,
+            0.16
+          ]
+        },
+        "macro_f1": {
+          "estimate": 0.017189835575485802,
+          "ci95": [
+            0.011627906976744186,
+            0.022988505747126436
+          ]
+        },
+        "escalation_recall": {
+          "estimate": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "escalation_precision": {
+          "estimate": 0.405,
+          "ci95": [
+            0.335,
+            0.47
+          ]
+        },
+        "auto_handle_rate": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "unsafe_auto_rate": {
+          "estimate": null,
+          "ci95": null
+        }
+      },
+      "misses": 0
+    },
+    {
+      "id": "simple_keyword",
+      "name": "Keyword / rules / nearest reply",
+      "n": 200,
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.6,
+          "ci95": [
+            0.53,
+            0.665
+          ]
+        },
+        "macro_f1": {
+          "estimate": 0.6013656235475998,
+          "ci95": [
+            0.4495464364055119,
+            0.6600376313731906
+          ]
+        },
+        "escalation_recall": {
+          "estimate": 0.345679012345679,
+          "ci95": [
+            0.2409524172639927,
+            0.4473684210526316
+          ]
+        },
+        "escalation_precision": {
+          "estimate": 0.8235294117647058,
+          "ci95": [
+            0.6773956356736243,
+            0.9393939393939394
+          ]
+        },
+        "auto_handle_rate": {
+          "estimate": 0.83,
+          "ci95": [
+            0.78,
+            0.88
+          ]
+        },
+        "unsafe_auto_rate": {
+          "estimate": 0.3192771084337349,
+          "ci95": [
+            0.2499630177514793,
+            0.38922155688622756
+          ]
+        }
+      },
+      "misses": 53
+    },
+    {
+      "id": "agent_no_evidence",
+      "name": "Same-prompt agent, k0",
+      "n": 200,
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.8,
+          "ci95": [
+            0.745,
+            0.855
+          ]
+        },
+        "macro_f1": {
+          "estimate": 0.8255514035807794,
+          "ci95": [
+            0.6811843119506084,
+            0.8698728222096975
+          ]
+        },
+        "escalation_recall": {
+          "estimate": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "escalation_precision": {
+          "estimate": 0.405,
+          "ci95": [
+            0.335,
+            0.47
+          ]
+        },
+        "auto_handle_rate": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "unsafe_auto_rate": {
+          "estimate": null,
+          "ci95": null
+        }
+      },
+      "misses": 0
+    },
+    {
+      "id": "agent",
+      "name": "Retrieval agent, k6",
+      "n": 200,
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.77,
+          "ci95": [
+            0.71,
+            0.825
+          ]
+        },
+        "macro_f1": {
+          "estimate": 0.788864812068771,
+          "ci95": [
+            0.647461259146882,
+            0.8359460003149737
+          ]
+        },
+        "escalation_recall": {
+          "estimate": 0.9382716049382716,
+          "ci95": [
+            0.881578947368421,
+            0.9875
+          ]
+        },
+        "escalation_precision": {
+          "estimate": 0.5846153846153846,
+          "ci95": [
+            0.5,
+            0.6666666666666666
+          ]
+        },
+        "auto_handle_rate": {
+          "estimate": 0.35,
+          "ci95": [
+            0.285,
+            0.415
+          ]
+        },
+        "unsafe_auto_rate": {
+          "estimate": 0.07142857142857142,
+          "ci95": [
+            0.014280684104627767,
+            0.13846153846153847
+          ]
+        }
+      },
+      "misses": 5
+    }
+  ],
+  "judge": {
+    "status": "complete",
+    "n_pairs": 200,
+    "human_agreement": null,
+    "direction": "agent minus simple_keyword",
+    "mean_overall_delta": 1.4175,
+    "ci95": [
+      1.145,
+      1.6675
+    ],
+    "preference_order_consistency": 0.735,
+    "system_means": {
+      "agent": 4.1075,
+      "simple_keyword": 2.69
+    },
+    "both_orders_ship_rate": {
+      "agent": 0.69,
+      "simple_keyword": 0.165
+    },
+    "flagged_in_either_order_rate": {
+      "agent": 0.09,
+      "simple_keyword": 0.46
+    },
+    "position_means": {
+      "1": 3.635,
+      "2": 3.1625
+    }
+  },
+  "replay": {
+    "mode": "retrospective regression; not fresh inference",
+    "changed_ids": [
+      "h_003",
+      "h_168",
+      "h_191"
+    ],
+    "metrics": {
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.77,
+          "ci95": [
+            0.71,
+            0.825
+          ]
+        },
+        "macro_f1": {
+          "estimate": 0.788864812068771,
+          "ci95": [
+            0.647461259146882,
+            0.8359460003149737
+          ]
+        },
+        "escalation_recall": {
+          "estimate": 0.9753086419753086,
+          "ci95": [
+            0.9374802215189874,
+            1.0
+          ]
+        },
+        "escalation_precision": {
+          "estimate": 0.5939849624060151,
+          "ci95": [
+            0.511269963229241,
+            0.6744186046511628
+          ]
+        },
+        "auto_handle_rate": {
+          "estimate": 0.335,
+          "ci95": [
+            0.27,
+            0.4
+          ]
+        },
+        "unsafe_auto_rate": {
+          "estimate": 0.029850746268656716,
+          "ci95": [
+            0.0,
+            0.07575757575757576
+          ]
+        }
+      }
+    },
+    "judge_note": "Frozen judge scores do not score the changed replies."
+  },
+  "source": "results/holdout_final/summary.json"
+}

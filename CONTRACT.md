@@ -421,3 +421,10 @@ This addendum supersedes historical narrative claims without changing the archiv
 `Trace` now records `integrity_flags`, `integrity_blocked` and successful-call `attempts`. Threshold replay must preserve an integrity veto. Sensitive primary OR secondary intents invoke enforced defaults. An unsupported final reply is replaced by a holding reply and escalated. Membership in evidence is necessary for citations but not sufficient proof of semantic grounding.
 
 Deployment does not persist visitor response prompts in the evaluation cache. Local reproduction verifies recorded artifacts and makes no live calls; it is not fresh model inference. Client budgets and UTC counters are local scheduling controls, not provider quota entitlements or provider reset times. The code/label manifest defines each benchmark's execution revision; later documentation changes do not rewrite that provenance.
+
+
+## Revised review and publication addendum
+
+This addendum supersedes the earlier queue/join description for the revised benchmark. `GET /api/rating-queue?reviewer_id=NAME` returns both judged systems on the same 20 sampled messages. Each entry includes `run_id`, `reply_hash` (SHA-256 of exact UTF-8 reply) and `rubric_version`. `POST /api/ratings` requires those identities, `reviewer_id` and `system_alias`, plus rubric scores/flags/verdict/rationale. It accepts `response_kind` (resolution, clarification, handoff, other; default other). Stale identities and duplicate ratings by the same reviewer return 409. Different reviewers are retained separately.
+
+Strict supplemental agreement requires both presentation orders and exact run/reply/rubric joins. It reports separate reviewer/order results, raw agreement and undefined kappa for constant marginals. AI ratings remain AI; human approval and independent ratings are distinct records. See `docs/IMPROVEMENTS.md` for importing local reviews and reproducing the separate 50-message study. The generated `ui/public/data/benchmark.json` is the default public evaluation source; legacy JSON exports remain historical.

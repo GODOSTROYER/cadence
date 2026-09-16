@@ -171,6 +171,12 @@ export type JudgeFlags = Record<JudgeFlag, boolean>;
 
 /** Shared by human ratings and judge scores (CONTRACT §7). */
 export interface RatingRecord {
+  reviewer_id?: string;
+  reviewer_type?: "human" | "ai";
+  response_kind?: "resolution" | "clarification" | "handoff" | "other";
+  run_id?: string;
+  reply_hash?: string;
+  rubric_version?: string;
   id: string;
   system: SystemId;
   /** `"human"` or the judge model name. */
@@ -404,6 +410,8 @@ export interface FailureMode {
 // ---------------------------------------------------------------------------- §10 API payloads
 
 export interface Health {
+  deployment_commit?: string | null;
+  evaluation_run?: string;
   status: string;
   has_api_key: boolean;
   cache_only: boolean;
@@ -428,6 +436,9 @@ export interface HandleRequest {
 export type RatingAlias = "A" | "B" | "C";
 
 export interface RatingQueueItem {
+  run_id?: string;
+  reply_hash?: string;
+  rubric_version?: string;
   id: string;
   system_alias: RatingAlias;
   text: string;
@@ -437,6 +448,11 @@ export interface RatingQueueItem {
 
 /** Body of `POST /api/ratings`; the server forces `rater` to `"human"`. */
 export interface RatingSubmission {
+  reviewer_id: string;
+  run_id: string;
+  reply_hash: string;
+  rubric_version: string;
+  system_alias: RatingAlias;
   id: string;
   /** The alias shown to the rater; the server resolves it to a system. */
   system: RatingAlias | SystemId;

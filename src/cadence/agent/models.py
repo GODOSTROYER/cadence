@@ -90,6 +90,8 @@ class EvidenceItem(BaseModel):
 class Trace(BaseModel):
     """Timing, token and decision provenance for one agent call."""
 
+    model_calls: int = 1
+
     model_config = ConfigDict()
 
     retrieval_ms: int = 0

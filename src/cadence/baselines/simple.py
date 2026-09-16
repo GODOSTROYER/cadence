@@ -312,3 +312,50 @@ def run_simple_keyword(rows: Sequence[Mapping[str, Any]], simple_rows: Sequence[
         copy_response(base, system=SYSTEM_KEYWORD, intent=keyword_intent(row_text(row)), model=MODEL_KEYWORD)
         for row, base in zip(rows, simple_rows, strict=True)
     ]
+
+
+class TrainedIntentBaseline:
+    """Train once on an explicit training split; predictions never accept evaluation labels."""
+
+    def __init__(self):
+        self.classifier = _make_classifier()
+        self.training_ids = set()
+        self.training_texts = set()
+        self.fitted = False
+
+    def fit(self, rows):
+        if not rows or any(not gold_intent(r) for r in rows):
+            raise ValueError("Every training row needs a label")
+        if len({gold_intent(r) for r in rows}) < 2:
+            raise ValueError("Training needs at least two intent classes")
+        self.training_ids = {row_id(r) for r in rows}
+        if len(self.training_ids) != len(rows):
+            raise ValueError("Duplicate training IDs")
+        self.training_texts = {row_text(r).strip().casefold() for r in rows}
+        self.classifier.fit([row_text(r) for r in rows], [gold_intent(r) for r in rows])
+        self.fitted = True
+        return self
+
+    def predict(self, rows):
+        if not self.fitted:
+            raise ValueError("Fit on designated training data first")
+        if self.training_ids & {row_id(r) for r in rows} or self.training_texts & {row_text(r).strip().casefold() for r in rows}:
+            raise ValueError("Training/evaluation overlap")
+        return self.classifier.predict([row_text(r) for r in rows]).tolist()
+
+    def run(self, rows, retriever, *, exclude_thread_ids=None):
+        classify_start = time.perf_counter()
+        predictions = self.predict(rows)
+        classify_ms = (time.perf_counter() - classify_start) * 1000 / max(1, len(rows))
+        output = []
+        for row, intent in zip(rows, predictions, strict=True):
+            start = time.perf_counter()
+            text = row_text(row)
+            outcome = rules_decision(text)
+            nearest = nearest_reply(retriever, text, set(exclude_thread_ids or ()) | {row_thread_id(row)})
+            output.append(build_response(id=row_id(row), system="trained_tfidf_lr", input_text=text,
+                intent=intent, decision=outcome.decision, escalation=outcome.escalation,
+                rule_flags=outcome.rule_flags, reply_draft=nearest.reply, citations=nearest.citations,
+                evidence=nearest.evidence, model="trained_tfidf_lr+rules+nearest",
+                latency_ms=round((time.perf_counter()-start)*1000 + classify_ms), trace=trace_payload(forced_by_rules=outcome.decision=="escalate")))
+        return output

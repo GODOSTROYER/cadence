@@ -29,16 +29,15 @@ def cohens_kappa(
 ) -> float | None:
     """Cohen's kappa between two raters (``weights="quadratic"`` for ordinal scores).
 
-    Returns ``1.0`` for perfect agreement even when only one label occurs (sklearn yields NaN
-    there because expected agreement is 1), ``None`` when the statistic is undefined otherwise
-    (e.g. both raters constant but disagreeing), and ``None`` for empty input.
+    Returns ``None`` for empty input or identical constant ratings (expected agreement is one).
+    Perfect agreement across multiple categories returns ``1.0``.
     """
     if len(a) != len(b):
         raise ValueError(f"rater arrays must be aligned (got {len(a)} vs {len(b)})")
     if not a:
         return None
-    if all(x == y for x, y in zip(a, b, strict=True)):
-        return 1.0
+    if len(set(a) | set(b)) == 1:
+        return None
     kappa = cohen_kappa_score(
         list(a), list(b), labels=list(labels) if labels is not None else None, weights=weights
     )
@@ -115,57 +114,110 @@ def annotator_agreement(golden_rows: Sequence[dict[str, Any]]) -> dict[str, Any]
 # ---------------------------------------------------------------------------
 def _score(row: dict[str, Any], dim: str) -> int | None:
     value = (row.get("scores") or {}).get(dim)
-    return int(value) if value is not None else None
+    if value is not None and (type(value) is not int or value not in SCORE_LABELS):
+        raise ValueError("Scores must be integers from 1 to 5")
+    return value
 
 
-def judge_agreement(
-    human_rows: Sequence[dict[str, Any]],
-    judge_rows: Sequence[dict[str, Any]],
-    dimensions: Sequence[str] = JUDGE_DIMENSIONS,
-) -> dict[str, Any] | None:
-    """The §8 ``judge_agreement`` block: human ratings joined to judge scores on ``(id, system)``.
-
-    Uses quadratic-weighted kappa and Spearman per dimension, plus exact/within-one agreement on
-    ``overall``. When several human ratings exist for one pair the latest (by ``rated_at``) wins.
-    Returns ``None`` when there are no joined pairs.
-    """
-    judge_by_key = {(r.get("id"), r.get("system")): r for r in judge_rows}
-    human_by_key: dict[tuple[Any, Any], dict[str, Any]] = {}
-    for r in sorted(human_rows, key=lambda x: str(x.get("rated_at") or "")):
-        human_by_key[(r.get("id"), r.get("system"))] = r
-    keys = sorted((k for k in human_by_key if k in judge_by_key), key=lambda k: (str(k[0]), str(k[1])))
-    pairs: list[dict[str, Any]] = []
-    columns: dict[str, tuple[list[int], list[int]]] = {d: ([], []) for d in dimensions}
-    for key in keys:
-        h, j = human_by_key[key], judge_by_key[key]
-        h_overall, j_overall = _score(h, "overall"), _score(j, "overall")
-        if h_overall is None or j_overall is None:
+def _statistics(matches, dimensions):
+    pairs = []
+    columns = {d: ([], []) for d in dimensions}
+    for h, j in matches:
+        if _score(h, "overall") is None or _score(j, "overall") is None:
             continue
-        pairs.append({"id": key[0], "system": key[1], "human": h_overall, "judge": j_overall})
+        pairs.append({"id": h["id"], "system": h["system"],
+                      "reviewer_id": h.get("reviewer_id", h.get("rater", "legacy")),
+                      "order_id": j.get("order_id", 0),
+                      "human": _score(h, "overall"), "judge": _score(j, "overall")})
         for d in dimensions:
             hs, js = _score(h, d), _score(j, d)
             if hs is not None and js is not None:
+                if hs not in SCORE_LABELS or js not in SCORE_LABELS:
+                    raise ValueError("Scores must be integers from 1 to 5")
                 columns[d][0].append(hs)
                 columns[d][1].append(js)
-    if not pairs:
-        return None
-    h_all = [p["human"] for p in pairs]
-    j_all = [p["judge"] for p in pairs]
+    h_all, j_all = [p["human"] for p in pairs], [p["judge"] for p in pairs]
+    kappa = cohens_kappa(h_all, j_all, weights="quadratic", labels=SCORE_LABELS)
     return {
-        "n": len(pairs),
-        "weighted_kappa_overall": cohens_kappa(h_all, j_all, weights="quadratic", labels=SCORE_LABELS),
+        "n": len(pairs), "weighted_kappa_overall": kappa,
+        "kappa_status": "defined" if kappa is not None else "insufficient_rating_variation",
         "spearman_overall": spearman(h_all, j_all),
-        "exact_agreement": exact_agreement(h_all, j_all),
-        "within_one": within_one(h_all, j_all),
-        "per_dimension": {
-            d: {
-                "n": len(columns[d][0]),
-                "weighted_kappa": cohens_kappa(
-                    columns[d][0], columns[d][1], weights="quadratic", labels=SCORE_LABELS
-                ),
-                "spearman": spearman(columns[d][0], columns[d][1]),
-            }
-            for d in dimensions
-        },
+        "exact_agreement": exact_agreement(h_all, j_all), "within_one": within_one(h_all, j_all),
+        "per_dimension": {d: {"n": len(a), "weighted_kappa": cohens_kappa(a, b, weights="quadratic", labels=SCORE_LABELS),
+                              "spearman": spearman(a, b)} for d, (a, b) in columns.items()},
         "pairs": pairs,
     }
+
+
+def judge_agreement(human_rows, judge_rows, dimensions=JUDGE_DIMENSIONS, *, strict=False):
+    """Preserve reviewers and presentation orders; revisions apply within one reviewer.
+
+    Strict mode requires run/reply/rubric identities and both orders for every rated reply.
+    Legacy single-order exports remain readable but are explicitly marked unverified.
+    Top-level statistics pool rating/order observations, not independent customer examples.
+    """
+    from itertools import combinations
+
+    identity = ("run_id", "reply_hash", "rubric_version")
+    def key(r):
+        return (r.get("run_id", "legacy"), r["id"], r["system"])
+    def reviewer(r):
+        return str(r.get("reviewer_id") or r.get("annotator") or r.get("rater") or "legacy")
+    for r in [*human_rows, *judge_rows]:
+        if strict and any(not r.get(f) for f in identity):
+            raise ValueError("Missing run_id, reply_hash or rubric_version")
+    judges = {}
+    for r in judge_rows:
+        k = (*key(r), r.get("order_id", 0))
+        if k in judges:
+            raise ValueError("Duplicate judge order")
+        judges[k] = r
+    humans = {}
+    for r in human_rows:
+        if strict and not r.get("reviewer_id"):
+            raise ValueError("Missing reviewer_id")
+        k = (*key(r), reviewer(r))
+        old = humans.get(k)
+        if old and old.get("rated_at", "") == r.get("rated_at", "") and old != r:
+            raise ValueError("Ambiguous human revision timestamp")
+        if old is None or r.get("rated_at", "") > old.get("rated_at", ""):
+            humans[k] = r
+    groups, matches = {}, []
+    for k, h in sorted(humans.items()):
+        orders = sorted((o, j) for (*base, o), j in judges.items() if tuple(base) == k[:-1])
+        if strict and [o for o, _ in orders] != [0, 1]:
+            raise ValueError("Every rated reply requires judge orders 0 and 1")
+        for order, j in orders:
+            if any(h.get(f) != j.get(f) for f in identity):
+                raise ValueError("Reply/run/rubric mismatch")
+            groups.setdefault((reviewer(h), order), []).append((h, j))
+            matches.append((h, j))
+    if not matches:
+        return None
+    result = _statistics(matches, dimensions)
+    result["identity_verified"] = strict
+    result["aggregation"] = "rating-order observations; use per_reviewer_order for separate estimates"
+    result["n_examples"] = len({(key(h)[0], h["id"]) for h, _ in matches})
+    result["per_reviewer_order"] = [
+        {"reviewer_id": r, "order_id": o, **_statistics(rs, dimensions)}
+        for (r, o), rs in sorted(groups.items())]
+    result["human_human"] = []
+    for a, b in combinations(sorted({reviewer(h) for h in humans.values()}), 2):
+        common = []
+        for k, h in humans.items():
+            other = humans.get((*k[:-1], b)) if k[-1] == a else None
+            if other:
+                if any(h.get(f) != other.get(f) for f in identity):
+                    raise ValueError("Human reply/run/rubric mismatch")
+                common.append((h, other))
+        result["human_human"].append({"reviewers": [a, b], **_statistics(common, dimensions)})
+    unique = {key(h) for h, _ in matches}
+    both = [(judges.get((*k, 0)), judges.get((*k, 1))) for k in sorted(unique)]
+    both = [(a, b) for a, b in both if a and b]
+    result["order_sensitivity"] = {"n_replies": len(both), "overall_score_changed":
+        sum(_score(a, "overall") != _score(b, "overall") for a, b in both)}
+    unsafe = [(h, j) for h, j in matches if (_score(h, "safe") or 5) <= 2]
+    result["judge_ship_on_human_unsafe"] = {"n": len(unsafe), "count": sum(j.get("verdict") == "ship" for _, j in unsafe),
+        "rate": sum(j.get("verdict") == "ship" for _, j in unsafe) / len(unsafe) if unsafe else None}
+    result["disagreements"] = [p for p in result["pairs"] if p["human"] != p["judge"]]
+    return result

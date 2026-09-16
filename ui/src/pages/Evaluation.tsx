@@ -3,6 +3,7 @@ import { useCallback, useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
 import { ErrorState } from "@/components/ErrorState";
+import { BenchmarkOverview } from "@/components/BenchmarkOverview";
 import { EscalationTab } from "@/components/eval/EscalationTab";
 import { IntentTab } from "@/components/eval/IntentTab";
 import { JudgeAgreementTab } from "@/components/eval/JudgeAgreementTab";
@@ -70,6 +71,17 @@ function summaryEyebrow(summary: EvalSummary | null): string {
  * arrival and normalised), and the selected system in `?system=`, so any view is linkable.
  */
 export default function Evaluation() {
+  const [params, setParams] = useSearchParams();
+  const historical = params.get("view") === "historical";
+  return <div className="flex flex-col gap-8">
+    <div className="flex flex-wrap gap-2" aria-label="Evaluation version">
+      {[false, true].map((value) => <button key={String(value)} className="btn" aria-pressed={historical === value} onClick={() => setParams((previous) => { previous.set("view", value ? "historical" : "revised"); return previous; })}>{value ? "Historical charts" : "Revised benchmark"}</button>)}
+    </div>
+    {historical ? <HistoricalEvaluation /> : <BenchmarkOverview />}
+  </div>;
+}
+
+function HistoricalEvaluation() {
   const results = useAsync(getResults, []);
   const golden = useAsync(getGolden, []);
   const [params, setParams] = useSearchParams();
@@ -126,8 +138,8 @@ export default function Evaluation() {
     <PageTransition>
       <PageHeader
         eyebrow={summaryEyebrow(summary)}
-        title="Evaluation"
-        description="Intent, escalation, reply quality and judge agreement, with confidence intervals and the baselines beside every number. All figures are on the held-out test split."
+        title="Historical evaluation"
+        description="Archived results on the original, repeatedly inspected test split. These figures describe an earlier agent and dataset; use Revised benchmark for the frozen 200-example comparison."
       />
 
       {results.loading && <EvaluationSkeleton />}

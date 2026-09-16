@@ -179,7 +179,7 @@ def test_bootstrap_ci_contains_point_estimate_and_is_deterministic() -> None:
 # ---------------------------------------------------------------------------
 def test_kappa_perfect_chance_and_total_disagreement() -> None:
     assert agreement.cohens_kappa(["x", "y", "x"], ["x", "y", "x"]) == 1.0
-    assert agreement.cohens_kappa([1, 1, 1], [1, 1, 1]) == 1.0
+    assert agreement.cohens_kappa([1, 1, 1], [1, 1, 1]) is None
     assert agreement.cohens_kappa([1, 2, 1, 2], [1, 1, 2, 2]) == pytest.approx(0.0)
     assert agreement.cohens_kappa([1, 1, 2, 2], [2, 2, 1, 1]) == pytest.approx(-1.0)
     assert (
@@ -239,7 +239,7 @@ def test_annotator_and_judge_agreement() -> None:
     ]
     ja = agreement.judge_agreement(human, judged)
     assert ja is not None and ja["n"] == 2
-    assert ja["pairs"] == [
+    assert [{k: p[k] for k in ("id", "system", "human", "judge")} for p in ja["pairs"]] == [
         {"id": "g_001", "system": "agent", "human": 4, "judge": 5},
         {"id": "g_002", "system": "agent", "human": 2, "judge": 2},
     ]

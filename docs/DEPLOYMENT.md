@@ -2,9 +2,11 @@
 
 Production URL: [Cadence](https://www.arnavbule.in/hiver-assignment/). Vercel project: `cadence`; production branch: `main`.
 
-The release includes the revised agent safety checks and completed human review and approval by **Arnav Bule** of all 200 revised benchmark examples and their existing scores. Dashboard charts retain their historical labels and numerical results. The [human review record](HUMAN_REVIEW.md) identifies Arnav Bule as the reviewer who completed and approved the revised benchmark.
+The release includes the revised agent safety checks and completed human review and approval by **Arnav Bule** of all 200 revised benchmark examples and their existing scores. The new Overview and Evaluation default to the revised frozen benchmark; the historical charts retain their original labels and numbers behind the version switch. The [human review record](HUMAN_REVIEW.md) identifies Arnav Bule as the reviewer who completed and approved the revised benchmark.
 
 ## Verification status
+
+The entries below describe previous deployments. Current implementation and pending experiment status are in [improvements](IMPROVEMENTS.md); deployment checks for this update will be recorded after release.
 
 Verified on 16 September 2026 (Asia/Kolkata):
 

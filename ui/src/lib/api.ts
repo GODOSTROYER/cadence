@@ -231,9 +231,9 @@ export function agentErrorKind(e: unknown): AgentErrorKind | null {
   return null;
 }
 
-export function getRatingQueue(): Promise<RatingQueueItem[]> {
+export function getRatingQueue(reviewerId = "legacy"): Promise<RatingQueueItem[]> {
   if (IS_STATIC) return Promise.reject(new StaticModeError("Human rating"));
-  return fetchJson<RatingQueueItem[]>(apiUrl("/api/rating-queue"));
+  return fetchJson<RatingQueueItem[]>(apiUrl(`/api/rating-queue?reviewer_id=${encodeURIComponent(reviewerId)}`));
 }
 
 export function getRatings(): Promise<RatingRecord[]> {

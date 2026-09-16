@@ -38,6 +38,12 @@ NUMERIC_LIMIT = re.compile(
     r"(?:(?:different|offline)\s+)?(?:songs?|tracks?|devices?|accounts?)\b",
     re.I,
 )
+PASSIVE_ACTION = re.compile(
+    r"\b(?:your|the)\s+(?:account|refund|subscription|payment|details|password)\s+"
+    r"(?:has been|have been|was|is now)\s+(?:(?:successfully|already)\s+)?"
+    r"(?:restored|processed|updated|changed|cancelled|canceled|refunded|reset|fixed)\b",
+    re.I,
+)
 PRIVATE_HANDOFF = re.compile(
     r"\b(?:send|drop)\b[^.!?]{0,35}\b(?:dm|direct message)\b"
     r"|\b(?:dm|direct message)\s+(?:us|me|your)\b",
@@ -77,7 +83,7 @@ def reply_violations(reply: str, allowed_urls: set[str], *, allow_private_handof
         flags.append("unauthorized_commitment")
     if INCIDENT_STATUS.search(reply):
         flags.append("unverified_current_status")
-    if PERFORMED_ACTION.search(affirmative):
+    if PERFORMED_ACTION.search(affirmative) or PASSIVE_ACTION.search(affirmative):
         flags.append("unperformed_action")
     if NUMERIC_LIMIT.search(reply):
         flags.append("unverified_numeric_limit")
