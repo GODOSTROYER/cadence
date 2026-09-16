@@ -4,6 +4,8 @@ An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver 
 
 **Read the evidence before the demo:** [Report](REPORT.md) · [Engineering audit](docs/IMPLEMENTATION_AUDIT.md) · [Decision log](DECISION_LOG.md) · [Evaluator guide](docs/EVALUATOR_GUIDE.md).
 
+**Live demo:** [www.arnavbule.in/hiver-assignment](https://www.arnavbule.in/hiver-assignment)
+
 ## What the evidence actually establishes
 
 - The frozen revised agent achieves **0.789 intent macro-F1, 0.938 escalation recall and 35% auto-handling** on 200 messages reviewed by Arnav Bule. It misses five required escalations among 70 automatic decisions. This is a measured prototype result, not a production safety certification.
@@ -45,6 +47,10 @@ The corpus contains 27,627 conversation openers derived from the Kaggle Twitter 
 
 Release checks block missing/invalid citations, unsupported links, dangling resource references, sensitive-data requests, and certain unsupported commitments. A block produces a holding reply and escalation. These checks **do not establish semantic entailment or eliminate prompt injection**. Intent confidence is an ordinal model output, not calibrated escalation risk.
 
+## Stack
+
+Python 3.12 is the tested version (`requires-python >= 3.11`). FastAPI and uvicorn serve the API, Typer wraps the CLI, pydantic defines the schemas, retrieval is an in-repo Okapi BM25 index over a scipy sparse matrix, `google-genai` calls Gemini, and pandas, numpy, scikit-learn, scipy and matplotlib cover data preparation, baselines, metrics and figures; pytest and ruff for tests and linting. Default models are `gemini-3.5-flash-lite` for the agent and `gemini-3.1-flash-lite` for the judge (`config/models.yaml`). The UI is React 18 with TypeScript, Vite, Tailwind v4, React Router, Recharts and Framer Motion. Vercel hosts one Python serverless function plus the static Vite build (`vercel.json`).
+
 ## Run the application
 
 ```bash
@@ -60,9 +66,24 @@ Open `http://127.0.0.1:8000`. This local service is for a trusted workstation. T
 
 The [public demo](https://www.arnavbule.in/hiver-assignment/) serves the production release. Its dashboard charts remain explicitly historical; the revised 200-example results and completed human review by Arnav Bule are described alongside them. See [deployment verification](docs/DEPLOYMENT.md) for release status and checks.
 
+## Screenshots
+
+Captures of the public demo; as noted above, its charts and headline figures are the historical ones.
+
+![Overview page of the Cadence dashboard](docs/img/landing.png)
+*Overview — the evaluator summary, corpus and benchmark facts, and links into the evidence.*
+
+![Agent playground: paste a customer tweet and run the live agent](docs/img/agent.png)
+*Agent playground — paste a tweet or pick a recorded run; the decision, the evidence and the drafted reply appear below it.*
+
+![Method page: corpus statistics, the four-step pipeline and the intent taxonomy](docs/img/method.png)
+*Method — the corpus, the pipeline and the twelve-intent taxonomy.*
+
 ## Optional live experiments
 
 Copy `.env.example` to `.env` and configure `GEMINI_API_KEY` or comma-separated `GEMINI_API_KEYS`. Keys stay out of source control. Google enforces quotas **per project**, so multiple keys do not necessarily add capacity; actual quotas appear in AI Studio. [Quota documentation](https://ai.google.dev/gemini-api/docs/rate-limits).
+
+`.env.example` also lists the optional overrides: `CADENCE_AGENT_MODEL`, `CADENCE_JUDGE_MODEL` and `CADENCE_ZERO_SHOT_MODEL` (defaults in `config/models.yaml`), `CADENCE_CACHE_ONLY=1` to forbid any network call and replay from `cache/llm_cache.sqlite`, and `CADENCE_LLM=mock` for the deterministic offline client used by tests and smoke runs.
 
 Live scripts require `--live-free-tier`; without it they permit cached responses only. This flag records the operator's intention, **not verification of project billing**. Use a confirmed free-tier project. Unpaid Gemini services may use prompts and outputs to improve Google's products; use only public or fictional messages. [Terms](https://ai.google.dev/gemini-api/terms).
 
@@ -92,3 +113,7 @@ The locked runner refuses silently mixing code/label revisions. Re-running after
 Data: [thoughtvector / Customer Support on Twitter](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter). Dependencies are declared in `pyproject.toml` and `ui/package-lock.json`. External methods and provider documentation are cited in the [audit](docs/IMPLEMENTATION_AUDIT.md). AI assistance was used for implementation, auditing and explicitly identified annotations. Historical reports are retained under `docs/*_historical.md`; their claims are superseded by this report.
 
 No account actions, tweet posting, fine-tuning, multimodal interpretation or production deployment are included. The objective is a reproducible, inspectable take-home with limitations visible beside results.
+
+## Author
+
+Arnav Bule — [www.arnavbule.in](https://www.arnavbule.in) · [GitHub](https://github.com/GODOSTROYER)
