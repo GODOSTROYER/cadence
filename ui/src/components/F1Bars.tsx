@@ -84,7 +84,7 @@ export function F1Bars({ rows, title, subtitle, sort = true, macroF1, className 
               {data.map((d) => (
                 <Cell key={d.id} fill={intentColor(d.id)} fillOpacity={0.85} />
               ))}
-              {hasCi && <ErrorBar dataKey="err" direction="x" width={4} strokeWidth={1} stroke="#ECEDEF" strokeOpacity={0.7} />}
+              {hasCi && <ErrorBar dataKey={(d: Datum) => d.err[0] || d.err[1] ? d.err : 0} direction="x" width={4} strokeWidth={1} stroke="#ECEDEF" strokeOpacity={0.7} />}
             </Bar>
           </BarChart>
         </ResponsiveContainer>

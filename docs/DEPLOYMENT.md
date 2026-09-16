@@ -6,7 +6,18 @@ The release includes the revised agent safety checks and completed human review 
 
 ## Verification status
 
-The entries below describe previous deployments. Current implementation and pending experiment status are in [improvements](IMPROVEMENTS.md); deployment checks for this update will be recorded after release.
+Current implementation and pending experiment status are in [improvements](IMPROVEMENTS.md).
+
+Verified on 17 September 2026 (Asia/Kolkata):
+
+- Evaluation/review release `3efcfd60b896768a74441834a3f008d8024539a8` was pushed directly to `main`.
+- Production deployment `dpl_CxX6aL1ZNePut8HHcn3oVCVwzSaG` reached **READY**. [Immutable deployment](https://cadence-3w0wi9o4z-godostroyers-projects.vercel.app).
+- Public health returned `status: ok`, 27,627 indexed threads and that exact deployment commit. Public `data/benchmark.json` matched the generated repository export in full.
+- [GitHub run 35160452989](https://github.com/GODOSTROYER/cadence/actions/runs/35160452989) passed Linux, Windows and UI checks. Local validation passed 310 tests, lint, the production build, frozen benchmark reproduction and 1,771 historical receipt checks; all reproduction made zero model calls.
+- Browser verification covered the revised/historical switches, a desktop layout with no page overflow, and the 430px mobile layout. A follow-up corrects zero-width interval rendering in the historical F1 chart. The runtime health commit identifies the currently served revision, including later documentation/UI follow-ups.
+- The 30-message Gemini development comparison remains pending authorization; only its offline learned baseline and separately identified Astra review have run. The experimental routing path is not the production default.
+
+### Previous deployments
 
 Verified on 16 September 2026 (Asia/Kolkata):
 
