@@ -58,3 +58,7 @@ See [deployment verification](DEPLOYMENT.md) for the current public release. The
 ## Completed supplemental review and development comparison
 
 On 17 September 2026, Arnav Bule verified all 100 scores from the initial GPT-6 Astra extra-high review unchanged. See `results/review_study/HUMAN_VERIFICATION.json` and `arnav_verified_summary.json` for the two-stage provenance and human-verified agreement. The authorized 30-message Gemini comparison is complete under `results/routing_dev/`; reproduce its saved predictions and 71 receipts with `python analysis_tools/reproduce_routing_comparison.py`. This remains development evidence; production routing is unchanged.
+
+## Final submission artifacts
+
+Start with the [six-page PDF](../output/pdf/Cadence-Arnav-Bule-Report.pdf), then [quality acceptance](QUALITY_ACCEPTANCE.md). `python analysis_tools/reproduce_quality.py` checks the new development and confirmation runs without model calls. All new quality ratings are AI-authored; the completed Arnav verification remains scoped to the earlier 100 ratings. The demo remains on the reference agent.

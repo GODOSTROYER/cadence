@@ -2,7 +2,7 @@
 
 An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver SDE Intern take-home. It classifies an incoming tweet, drafts a reply using historical support conversations, and decides whether to escalate, with a reason.
 
-**Read the evidence before the demo:** [Report](REPORT.md) · [Engineering audit](docs/IMPLEMENTATION_AUDIT.md) · [Decision log](DECISION_LOG.md) · [Evaluator guide](docs/EVALUATOR_GUIDE.md).
+**Read the evidence before the demo:** [Six-page PDF report](output/pdf/Cadence-Arnav-Bule-Report.pdf) · [Report source](REPORT.md) · [Engineering audit](docs/IMPLEMENTATION_AUDIT.md) · [Decision log](DECISION_LOG.md) · [Evaluator guide](docs/EVALUATOR_GUIDE.md).
 
 **Live demo:** [www.arnavbule.in/hiver-assignment](https://www.arnavbule.in/hiver-assignment)
 
@@ -22,6 +22,7 @@ git clone --branch main --single-branch https://github.com/GODOSTROYER/cadence.g
 cd cadence
 python -m pip install -e ".[dev]"
 python analysis_tools/reproduce_benchmark.py
+python analysis_tools/reproduce_quality.py
 python -m cadence.cli reproduce
 python -m pytest -q
 ```
@@ -66,7 +67,7 @@ Open `http://127.0.0.1:8000`. This local service is for a trusted workstation. T
 
 The [public demo](https://www.arnavbule.in/hiver-assignment/) serves the production release. Overview and Evaluation default to the revised 200-example benchmark reviewed by Arnav Bule. Historical charts are available through an explicit version switch. See [deployment verification](docs/DEPLOYMENT.md) for release status and checks.
 
-**Supplemental human verification completed:** 100 reply ratings were first reviewed by GPT-6 Astra at extra-high reasoning, then reviewed and verified unchanged by Arnav Bule on 17 September 2026. Human-verified agreement with the original Gemini judge is κ=0.137 (28% exact; 53% within one), using AI-assisted ratings with the original scores visible. The separate 30-message Gemini routing comparison is complete; the promising selective variant remains experimental pending usefulness review and fresh confirmation. See [results and provenance](docs/IMPROVEMENTS.md).
+**Supplemental human verification completed:** 100 reply ratings were first reviewed by GPT-6 Astra at extra-high reasoning, then reviewed and verified unchanged by Arnav Bule on 17 September 2026. Human-verified agreement with the original Gemini judge is κ=0.137 (28% exact; 53% within one), using AI-assisted ratings with the original scores visible. The separate 30-message Gemini routing comparison is complete; all 90 original development replies now have AI usefulness reviews, and a repaired candidate has completed a separate 60-case confirmation with 120 newly reviewed replies. Promotion remains a separate acceptance decision. See [results and provenance](docs/IMPROVEMENTS.md).
 
 ## Screenshots
 
@@ -119,3 +120,7 @@ No account actions, tweet posting, fine-tuning, multimodal interpretation or aut
 ## Author
 
 Arnav Bule — [www.arnavbule.in](https://www.arnavbule.in) · [GitHub](https://github.com/GODOSTROYER)
+
+## Completed quality and confirmation work
+
+The final experimental candidate uses approved response actions with server-owned wording, current-source references, and a semantic relevance check on the exact public reply. Three development iterations are preserved, including rejected candidates. The 60-case confirmation is frozen and has separate AI annotations and blinded AI reply review; it does not inherit Arnav’s earlier human verification. [Measured results and acceptance](docs/QUALITY_ACCEPTANCE.md) explain why the production reference remains unchanged. The six-page PDF follows Cadence’s theme and has page-by-page visual verification. Form submission is intentionally left to the author.

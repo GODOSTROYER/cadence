@@ -1,0 +1,35 @@
+{
+  "run_id": "routing_dev-ee6807234fbc",
+  "reviewer_id": "astra-xhigh",
+  "reviewer_type": "ai",
+  "systems": {
+    "agent": {
+      "n": 30,
+      "automatic": 9,
+      "useful_automatic": 2,
+      "useful_automatic_coverage": 0.06666666666666667,
+      "useful_resolution": 1,
+      "useful_clarification": 1
+    },
+    "quality": {
+      "n": 30,
+      "automatic": 1,
+      "useful_automatic": 1,
+      "useful_automatic_coverage": 0.03333333333333333,
+      "useful_resolution": 0,
+      "useful_clarification": 1
+    }
+  },
+  "retrieval": {
+    "n_evidence": 290,
+    "relevant": 0.5482758620689655,
+    "supports_next_step": 0.2620689655172414,
+    "current_advice": 0.296551724137931
+  },
+  "input_hashes": {
+    "results\\quality_dev_v3\\manifest.json": "ee6807234fbc139e4f1c6b340f0635642d32ccf11cdcd9d4255b2f180c052435",
+    "results\\quality_dev_v3\\predictions.jsonl": "4241b31cd11e30c72c8e67a0f4e0a52d24f2f45e62d22123915e52dcf70c819b",
+    "results\\quality_dev_v3\\astra_reply_ratings.jsonl": "82d7ec4f690bbfdb1c46154839913c7e0351b211db62b0941af5f549e9c4dc90",
+    "results\\quality_dev_v3\\astra_retrieval_review.csv": "5c3e554c15bde6a9b40cce91683b24222d08974fec87aaf6e5fc6f07af391fbe"
+  }
+}

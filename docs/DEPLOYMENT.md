@@ -43,3 +43,8 @@ Artwork: 1730 × 909 PNG, generated with the built-in image-generation tool. Des
 ## Human verification and Gemini comparison release — 17 September 2026
 
 The dashboard and generated benchmark export now include completed human verification by Arnav Bule of all 100 supplemental Astra ratings, with the initial GPT-6 Astra extra-high review preserved. They also publish the completed 30-message Gemini routing comparison. Production routing is unchanged. Local release checks passed all 311 tests, lint, the Vercel build, artifact publication checks, and offline reproduction of 90 predictions and 71 model-call receipts. Desktop and 430px mobile browser checks found no page overflow or console errors. The runtime health commit and GitHub checks identify the deployed revision.
+
+
+## Quality confirmation and six-page report release
+
+The public evidence now includes the completed routing usefulness review, the 60-case fresh quality confirmation, and the six-page Cadence report. The candidate remains experimental; the hosted demonstration still uses the reference agent. Review provenance is explicit: prior Arnav verification remains complete, while the new development and confirmation reviews are AI-authored. Current acceptance evidence is recorded in `results/acceptance/release.json`; GitHub checks and runtime health identify the deployed revision.

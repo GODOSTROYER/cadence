@@ -36,6 +36,15 @@ def publication(root=Paths.ROOT):
     agreement = verified["human_agreement"]
     experiment = read_json(root / "results/routing_dev/summary.json")
     comparison = experiment["comparisons"]["selective"]
+    usefulness = read_json(root / "results/routing_dev/astra_coverage.json")
+    confirmation = read_json(root / "results/quality_confirmation/summary.json")
+    quality_review = read_json(root / "results/quality_confirmation/astra_coverage.json")
+    acceptance = read_json(root / "results/quality_confirmation/ACCEPTANCE.json")
+    for base, record in (("results/routing_dev", usefulness), ("results/quality_confirmation", acceptance)):
+        for name, digest in record["input_hashes"].items():
+            source = root / (base + "/" + name if "/" not in name and "\\" not in name else name.replace("\\", "/"))
+            if sha256(source) != digest:
+                raise ValueError(f"Quality source changed: {source}")
     return {"run_id": "holdout_final-" + manifest["commit"][:7], "execution_commit": manifest["commit"],
             "dataset_hash": manifest["labels"], "summary_hash": sha256(directory / "summary.json"),
             "prompt_version": manifest["files"]["src/cadence/agent/prompts.py"],
@@ -50,7 +59,12 @@ def publication(root=Paths.ROOT):
                                     "verdicts": human["verdicts"], "source": "results/review_study/arnav_verified_summary.json"},
             "routing_experiment": {"status": experiment["status"], "n": experiment["n"], "label_sources": experiment["label_sources"],
                                    "current": comparison["right"], "selective": comparison["left"], "promotion": experiment["promotion"],
+                                   "useful_coverage": usefulness["systems"], "reviewer_type": usefulness["reviewer_type"],
                                    "source": "results/routing_dev/summary.json"},
+            "quality_confirmation": {"n": confirmation["n"], "metrics": confirmation["comparisons"]["quality"],
+                                     "useful_coverage": quality_review["systems"], "acceptance": acceptance["decision"],
+                                     "counts": acceptance["counts"], "reviewer_type": quality_review["reviewer_type"],
+                                     "source": "results/quality_confirmation/ACCEPTANCE.json"},
             "replay": {"mode": "retrospective regression; not fresh inference", "changed_ids": replay["changed_ids"],
                        "metrics": {"metrics": replay["metrics"]["metrics"]}, "judge_note": replay["judge_note"]},
             "source": "results/holdout_final/summary.json"}

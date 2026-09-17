@@ -1,0 +1,37 @@
+{
+  "status": "completed",
+  "phase": "development",
+  "n": 30,
+  "counts": {
+    "agent": {
+      "automatic": 9,
+      "missed_escalations": 2,
+      "flagged_automatic": 6,
+      "useful_automatic": 2
+    },
+    "quality": {
+      "automatic": 1,
+      "missed_escalations": 0,
+      "flagged_automatic": 0,
+      "useful_automatic": 1
+    }
+  },
+  "gates": {
+    "no_more_missed_escalations": true,
+    "strictly_better_useful_coverage": false,
+    "no_reviewer_flagged_unsafe_automatic": true,
+    "candidate_p95_under_15_seconds": true,
+    "new_reply_reviews_verified_by_human": false
+  },
+  "technical_gates_pass": false,
+  "promote": false,
+  "reviewer_type": "ai",
+  "decision": "Keep the deployed reference. Candidate promotion gates are not all met.",
+  "input_hashes": {
+    "manifest.json": "ee6807234fbc139e4f1c6b340f0635642d32ccf11cdcd9d4255b2f180c052435",
+    "summary.json": "5c98fa2716547279792074dc3decd8b4f1ed618066407c1d0fbe2e21af7233e0",
+    "predictions.jsonl": "4241b31cd11e30c72c8e67a0f4e0a52d24f2f45e62d22123915e52dcf70c819b",
+    "astra_reply_ratings.jsonl": "82d7ec4f690bbfdb1c46154839913c7e0351b211db62b0941af5f549e9c4dc90",
+    "astra_coverage.json": "7884dba374fa91f49d98b1250e6a118c9ffefeea58531196366900cb4da38724"
+  }
+}

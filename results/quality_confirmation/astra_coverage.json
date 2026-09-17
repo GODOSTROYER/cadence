@@ -1,0 +1,29 @@
+{
+  "run_id": "routing_dev-d20bbd4ae863",
+  "reviewer_id": "GPT-6 Astra confirmation review",
+  "reviewer_type": "ai",
+  "systems": {
+    "agent": {
+      "n": 60,
+      "automatic": 22,
+      "useful_automatic": 3,
+      "useful_automatic_coverage": 0.05,
+      "useful_resolution": 1,
+      "useful_clarification": 2
+    },
+    "quality": {
+      "n": 60,
+      "automatic": 4,
+      "useful_automatic": 4,
+      "useful_automatic_coverage": 0.06666666666666667,
+      "useful_resolution": 1,
+      "useful_clarification": 3
+    }
+  },
+  "retrieval": null,
+  "input_hashes": {
+    "results\\quality_confirmation\\manifest.json": "d20bbd4ae8630d04a417fd78b13e37796feb2671e2c0245000fe5abd02da789b",
+    "results\\quality_confirmation\\predictions.jsonl": "beb9afe8bfdecdbd8c39d7884a8257bc97dd66d1b2ddf747f2f526b585bf136a",
+    "results\\quality_confirmation\\astra_reply_ratings.jsonl": "a2bf5ecdc8c139e3283d12b3ad9872fccd17d5d621843c6586b412b793ee8215"
+  }
+}

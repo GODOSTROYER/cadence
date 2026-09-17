@@ -1,0 +1,6 @@
+{
+  "kind": "local_request_queue_deadline",
+  "status": "resume_same_frozen_inputs",
+  "failed_attempt_usage": "not available",
+  "note": "Completed predictions and successful call receipts preserved. On resumption, in-flight earlier subcalls may replay; observed prediction latency excludes time spent in the interrupted invocation."
+}

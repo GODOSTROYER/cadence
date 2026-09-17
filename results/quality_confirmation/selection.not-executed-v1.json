@@ -1,0 +1,9 @@
+{
+  "status": "frozen_for_confirmation",
+  "candidate": "QualityAgent",
+  "reason": "Test the predeclared repair candidate on untouched cases; no source/policy/threshold changes after development inference. This is not production promotion.",
+  "development_manifest_sha256": "7168aea8388341c363aaff07766efb57a1df1f52e8c085b224029989c66b5fb8",
+  "candidate_source_sha256": "7319ce38ac13c3824ee3b7fee0331b42197c0a26416f9bd060cc34d9e66b72c3",
+  "human_review_of_new_outputs": false,
+  "rule": "Keep deployed reference unless all frozen numerical/reply-safety gates and new human-review gate pass."
+}

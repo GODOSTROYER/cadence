@@ -1,0 +1,105 @@
+{
+  "status": "accepted",
+  "date": "2026-09-17",
+  "scope": "Implementation, evidence, documentation, dashboard and six-page report acceptance; candidate promotion remains held. Form submission excluded.",
+  "reviewers": [
+    {
+      "name": "GPT-6 Astra",
+      "reasoning_effort": "xhigh",
+      "type": "ai",
+      "scope": "Independent candidate code/action checks, evidence/tooling review, blinded confirmation reply review, PDF visual/content review"
+    },
+    {
+      "name": "Codex task agent",
+      "type": "ai",
+      "scope": "Full test/lint/build/replay checks; desktop/mobile browser acceptance; every PDF page visually inspected"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Python unit suite",
+      "status": "pass",
+      "details": "335 tests passed"
+    },
+    {
+      "name": "Candidate implementation independent review",
+      "status": "pass",
+      "details": "24 quality unit tests plus 12 independent action/escalation checks"
+    },
+    {
+      "name": "Evidence and exact rating identities",
+      "status": "pass",
+      "details": "All four quality runs: 300 predictions, 400 saved call receipts, zero new model calls in replay; 120 blinded mappings validated"
+    },
+    {
+      "name": "Historical/frozen replay",
+      "status": "pass",
+      "details": "1,771 historical receipts; 800 frozen predictions plus judge review; 90 routing predictions; 200 post-audit regression outputs"
+    },
+    {
+      "name": "Lint and production build",
+      "status": "pass",
+      "details": "ruff and npm run build:vercel"
+    },
+    {
+      "name": "Publication consistency",
+      "status": "pass",
+      "details": "Benchmark JSON/report table and generated quality acceptance match artifacts"
+    },
+    {
+      "name": "Browser acceptance",
+      "status": "pass",
+      "details": "1280px desktop and 430px mobile; no horizontal page overflow; new evidence and PDF link present; no console errors"
+    },
+    {
+      "name": "PDF independent visual/content acceptance",
+      "status": "pass",
+      "details": "All six pages inspected; pages 2 and 4 corrected and rechecked; metrics, author, provenance, required sections and URL annotations verified; no clipping or overlap"
+    }
+  ],
+  "pdf": {
+    "path": "output/pdf/Cadence-Arnav-Bule-Report.pdf",
+    "pages": 6,
+    "author": "Arnav Bule",
+    "sha256": "f0ddcdb87185f254f15d8292bec0663a114d2e3e9a1b98f2ebba9297cb817020"
+  },
+  "candidate_promotion": false,
+  "remaining": "Human verification of the new AI ratings; only the earlier 100 ratings were verified by Arnav. Technical confirmation gates pass but the one-reply usefulness gain is limited evidence.",
+  "input_hashes": {
+    "output/pdf/Cadence-Arnav-Bule-Report.pdf": "f0ddcdb87185f254f15d8292bec0663a114d2e3e9a1b98f2ebba9297cb817020",
+    "analysis_tools/build_submission_report.py": "de3dd3d334fad0545df99cba9a8f4d3fadb9f2ce463b4b69515d69499b5d59e6",
+    "analysis_tools/publish_quality.py": "adef2114b1022fd978787d5f58b076ec0af1fcb697c3dafc362b7eaf846fa5ad",
+    "analysis_tools/reproduce_quality.py": "06df233ae1b878d113f908d86cbf0c0352e5a2ebb0342dbf03640841c9099019",
+    "analysis_tools/verify_submission.py": "7ef317094b266e8e6342f8f42868a424187812a978d584df99890664328a5229",
+    "README.md": "5e5e720d5f862ad9c79e80afb56a9c3c5928aed5db51a3694953f99b0711ca23",
+    "REPORT.md": "5cacc61ded773816d592be99086056ed6effbf3e5cd249272b18507aed7e4f7e",
+    "DECISION_LOG.md": "a2dec14f319b6cce10d6308332e77cb1de0694a92d21669c11e787d899205803",
+    "docs/EVALUATOR_GUIDE.md": "6c0fc351ec0781d6a08677e15007515b6332dd2899528779772680b9250e7cf2",
+    "docs/IMPROVEMENTS.md": "c8c7041709868842576b29986e753ebe3670a70b265c4b0b1bc8314f8280b4fe",
+    "docs/QUALITY_ACCEPTANCE.md": "cb0cb98583b5e1eba5357124f90ef5f986d89b91c8f89eae652ce2858dffc04d",
+    "docs/report_assets/README.md": "2b11ee546c6e87f954fbd331d48e71d3770fc601792940ceaed69f72ab8fde78",
+    "docs/report_assets/cadence-gates.png": "4a79ad6291d08b33a1b3518230e7c6704d7dea5ad356d73491843133599386e2",
+    "scripts/15_publish_benchmark.py": "8ab6a3dee53d33fdd04b97adb7b89936140263a3a1a54b8355466187ddbcfd48",
+    "scripts/21_confirmation_review_packet.py": "0ce29baa5b2ea19b5b85b471a8c7a754c5b5969d978e501f372f5cd462f07b69",
+    "ui/src/components/BenchmarkOverview.tsx": "565f03f6a19ea7a532f0dd6944af639ecfd66f0d3f155a7d502e1ef9cfb39606",
+    "ui/public/data/benchmark.json": "9d5243e5789e9a8c7720102c3a53348e4f1cd520a76a35fc2491d5a418604423",
+    "results/published/benchmark.json": "9d5243e5789e9a8c7720102c3a53348e4f1cd520a76a35fc2491d5a418604423",
+    "results/routing_dev/astra_coverage.json": "1057a61ab9925a8948c77e64c4c8ca775b1d4d6268b1d110f748219992ac5183",
+    "results/quality_confirmation/ACCEPTANCE.json": "b1f1674317e2a77a184c2163100ab5add33ad6579c4741b43024a17a37327c4b",
+    "results/quality_dev_v3/ACCEPTANCE.json": "e1f1ce3dcc20820f6c8a37a36fbadbcbd1d2f973bbe7fc5ee9ba3d795399a6cd",
+    "results/quality_confirmation/blind_astra_ratings.jsonl": "59c29ef1182f74999d1e9a1725e040f69b16aa5a6972ab12476b2cb6927c4783",
+    "results/quality_confirmation/blind_mapping.json": "f412cebe7840016f06d6045b72044b33b0cfb3cf617d51e4d6aca4aaad19fc77",
+    "results/quality_confirmation/astra_reply_ratings.jsonl": "a2bf5ecdc8c139e3283d12b3ad9872fccd17d5d621843c6586b412b793ee8215",
+    "results/quality_confirmation/astra_review_notes.md": "61e45b8b1aa3d738ae93fe27b33cc7ccadf9541f2e7103ce6c131b782567fdc1",
+    "docs/report_assets/fonts/Geist-OFL.txt": "f12f59163d92084b0473315ae4566cde0c1233d940ae464f5225a69c347cc691",
+    "docs/report_assets/fonts/Geist-Regular.ttf": "0f77d017b2cec7952269840c3a9e7a8ef5760d6130de37f330b6898f271ba2ed",
+    "docs/report_assets/fonts/Geist-Semibold.ttf": "0ca8e316b85ad031e8c259196fa9b5ecce134231bf78c54eaaa5a5d2d7249460",
+    "docs/report_assets/fonts/Geist.ttf": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659",
+    "docs/report_assets/fonts/GeistMono-OFL.txt": "f12f59163d92084b0473315ae4566cde0c1233d940ae464f5225a69c347cc691",
+    "docs/report_assets/fonts/GeistMono-Regular.ttf": "8e8e6503c459095817684bcd491d0c32c0c2349a82657ff24e857c49512a6eef",
+    "docs/report_assets/fonts/GeistMono.ttf": "d00e590b8eb3a59acc329b2d044fd143ae935090b7da33199ebee27cc7de8196",
+    "docs/report_assets/fonts/InstrumentSerif-Italic.ttf": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+    "docs/report_assets/fonts/InstrumentSerif-OFL.txt": "b6b2292aa580937fb63796878d65a027a27f8c3db2d97601d0c34d9031f4ca17",
+    "docs/report_assets/fonts/InstrumentSerif-Regular.ttf": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+  }
+}

@@ -55,7 +55,7 @@ python scripts/16_routing_experiment.py --live-free-tier
 | Message-first selective agent | 83.3% | 0.546 | 100% (14/14) | 11/30 | 0 |
 | Trained TF-IDF/LR baseline | 56.7% | 0.331 | 28.6% (4/14) | 24/30 | 10 |
 
-Selective routing uses 41 model calls versus 30, but fewer total input/output tokens: 67,094 versus 77,127. Median latency is 1,571.5 versus 1,602.5 ms; p95 is 3,348.3 versus 3,166.3 ms. These are local successful-request timings from one sequential run, not a production latency claim. Decision accuracy improves by 23.3 percentage points (paired bootstrap 95% interval 6.7–43.3; exploratory McNemar p=0.039). Intent accuracy improvement has a 95% interval of −6.7 to +20.0 points. This small AI-labeled development result is promising, but useful-reply review and fresh confirmation are still required before promotion. Production continues using the current agent. Use a new output directory after changing frozen source or inputs.
+Selective routing uses 41 model calls versus 30, but fewer total input/output tokens: 67,094 versus 77,127. Median latency is 1,571.5 versus 1,602.5 ms; p95 is 3,348.3 versus 3,166.3 ms. These are local successful-request timings from one sequential run, not a production latency claim. Decision accuracy improves by 23.3 percentage points (paired bootstrap 95% interval 6.7–43.3; exploratory McNemar p=0.039). Intent accuracy improvement has a 95% interval of −6.7 to +20.0 points. Later AI review found only 1/30 useful automatic selective replies versus 2/30 for the reference. The quality follow-up and fresh confirmation are now complete; see [acceptance](QUALITY_ACCEPTANCE.md). Production continues using the current agent. Use a new output directory after changing frozen source or inputs.
 
 The offline learned baseline completed all 30 messages: intent accuracy **0.567**, macro-F1 **0.331** across the fixed 12-intent taxonomy, escalation recall **0.286**, and automatic coverage **0.800** (10 missed required escalations). These small-sample results use the disclosed AI labels and are not a replacement for the frozen benchmark. Macro-F1 includes zero-support classes under the fixed taxonomy. Artifacts are in `results/routing_dev/`; source hashes were verified after execution.
 
@@ -65,4 +65,8 @@ After a complete run, review every exact reply and the exported `retrieval_revie
 python scripts/18_review_coverage.py --reply-reviews path/to/reviews.jsonl --retrieval-reviews results/routing_dev/retrieval_review.csv --out results/routing_dev/reviewed_coverage.json
 ```
 
-Promotion requires reviewed usefulness and a new confirmation set. The frozen benchmark, existing review attribution and deployed routing remain the reference until those measurements exist.
+The follow-up now includes complete AI usefulness review, three recorded quality-development iterations and 60 unseen confirmation cases. Their measured acceptance retains the deployed reference; new AI review does not imply human verification. See [complete quality results](QUALITY_ACCEPTANCE.md) and the [six-page report](../output/pdf/Cadence-Arnav-Bule-Report.pdf).
+
+## Final quality candidate
+
+Public wording comes from a finite set of server-rendered support actions. This prevents arbitrary operational promises and historical procedure text from entering the public reply. The model chooses an action and a separate semantic check assesses its fit. Fixed templates do not guarantee relevance or usefulness; those are measured from exact-output reviews. Source snapshots and rejected iterations are retained with their results.

@@ -1,0 +1,7 @@
+{
+  "decision": "reject_candidate",
+  "reason": "Rejected: zero automatic decisions; optional citation fields were omitted, so release checks withheld every reply.",
+  "full_reply_review_completed": false,
+  "summary_sha256": "dc9fc14375236fd854eabdadf3c612ad03af69ae9dc5bb762d901265573bda5e",
+  "preserved": true
+}

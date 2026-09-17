@@ -282,7 +282,154 @@
       "unsafe_auto_rate": 0.0
     },
     "promotion": "not promoted; human usefulness and fresh confirmation required",
+    "useful_coverage": {
+      "agent": {
+        "n": 30,
+        "automatic": 8,
+        "useful_automatic": 2,
+        "useful_automatic_coverage": 0.06666666666666667,
+        "useful_resolution": 1,
+        "useful_clarification": 1
+      },
+      "selective": {
+        "n": 30,
+        "automatic": 11,
+        "useful_automatic": 1,
+        "useful_automatic_coverage": 0.03333333333333333,
+        "useful_resolution": 0,
+        "useful_clarification": 1
+      },
+      "trained_tfidf_lr": {
+        "n": 30,
+        "automatic": 24,
+        "useful_automatic": 2,
+        "useful_automatic_coverage": 0.06666666666666667,
+        "useful_resolution": 1,
+        "useful_clarification": 1
+      }
+    },
+    "reviewer_type": "ai",
     "source": "results/routing_dev/summary.json"
+  },
+  "quality_confirmation": {
+    "n": 60,
+    "metrics": {
+      "n": 60,
+      "seed": 2026,
+      "bootstrap_resamples": 2000,
+      "direction": "left minus right",
+      "left": {
+        "intent_accuracy": 0.85,
+        "macro_f1": 0.8049075924075924,
+        "decision_accuracy": 0.6166666666666667,
+        "escalation_recall": 1.0,
+        "auto_handle_rate": 0.06666666666666667,
+        "unsafe_auto_rate": 0.0
+      },
+      "right": {
+        "intent_accuracy": 0.8,
+        "macro_f1": 0.7574229133439659,
+        "decision_accuracy": 0.7833333333333333,
+        "escalation_recall": 0.8787878787878788,
+        "auto_handle_rate": 0.36666666666666664,
+        "unsafe_auto_rate": 0.18181818181818182
+      },
+      "delta": {
+        "intent_accuracy": {
+          "estimate": 0.04999999999999993,
+          "ci95": [
+            0.0,
+            0.1166666666666667
+          ],
+          "valid_resamples": 2000
+        },
+        "macro_f1": {
+          "estimate": 0.04748467906362641,
+          "ci95": [
+            0.0015259709653091924,
+            0.11814437552972763
+          ],
+          "valid_resamples": 2000
+        },
+        "decision_accuracy": {
+          "estimate": -0.16666666666666663,
+          "ci95": [
+            -0.31666666666666665,
+            -0.01666666666666672
+          ],
+          "valid_resamples": 2000
+        },
+        "escalation_recall": {
+          "estimate": 0.12121212121212122,
+          "ci95": [
+            0.02857142857142858,
+            0.2434121621621612
+          ],
+          "valid_resamples": 2000
+        },
+        "auto_handle_rate": {
+          "estimate": -0.3,
+          "ci95": [
+            -0.45,
+            -0.16666666666666666
+          ],
+          "valid_resamples": 2000
+        },
+        "unsafe_auto_rate": {
+          "estimate": -0.18181818181818182,
+          "ci95": [
+            -0.3632727272727273,
+            -0.043478260869565216
+          ],
+          "valid_resamples": 1965
+        }
+      },
+      "intent_mcnemar": {
+        "left_only_correct": 3,
+        "right_only_correct": 0,
+        "p_exact": 0.25
+      },
+      "decision_mcnemar": {
+        "left_only_correct": 6,
+        "right_only_correct": 16,
+        "p_exact": 0.052478790283203125
+      }
+    },
+    "useful_coverage": {
+      "agent": {
+        "n": 60,
+        "automatic": 22,
+        "useful_automatic": 3,
+        "useful_automatic_coverage": 0.05,
+        "useful_resolution": 1,
+        "useful_clarification": 2
+      },
+      "quality": {
+        "n": 60,
+        "automatic": 4,
+        "useful_automatic": 4,
+        "useful_automatic_coverage": 0.06666666666666667,
+        "useful_resolution": 1,
+        "useful_clarification": 3
+      }
+    },
+    "acceptance": "Keep the deployed reference. Candidate promotion gates are not all met.",
+    "counts": {
+      "agent": {
+        "automatic": 22,
+        "missed_escalations": 4,
+        "flagged_automatic": 14,
+        "useful_automatic": 3
+      },
+      "quality": {
+        "automatic": 4,
+        "missed_escalations": 0,
+        "flagged_automatic": 0,
+        "useful_automatic": 4
+      }
+    },
+    "reviewer_type": "ai",
+    "source": "results/quality_confirmation/ACCEPTANCE.json"
   },
   "replay": {
     "mode": "retrospective regression; not fresh inference",

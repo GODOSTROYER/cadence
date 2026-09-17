@@ -1,0 +1,111 @@
+{
+  "status": "complete",
+  "phase": "development",
+  "n": 30,
+  "label_sources": [
+    "ai"
+  ],
+  "comparisons": {
+    "quality": {
+      "n": 30,
+      "seed": 2026,
+      "bootstrap_resamples": 2000,
+      "direction": "left minus right",
+      "left": {
+        "intent_accuracy": 0.8666666666666667,
+        "macro_f1": 0.5502035002035002,
+        "decision_accuracy": 0.4666666666666667,
+        "escalation_recall": 1.0,
+        "auto_handle_rate": 0.0,
+        "unsafe_auto_rate": null
+      },
+      "right": {
+        "intent_accuracy": 0.8,
+        "macro_f1": 0.5274470899470899,
+        "decision_accuracy": 0.6666666666666666,
+        "escalation_recall": 0.7857142857142857,
+        "auto_handle_rate": 0.4,
+        "unsafe_auto_rate": 0.25
+      },
+      "delta": {
+        "intent_accuracy": {
+          "estimate": 0.06666666666666665,
+          "ci95": [
+            -0.06666666666666665,
+            0.20000000000000007
+          ],
+          "valid_resamples": 2000
+        },
+        "macro_f1": {
+          "estimate": 0.022756410256410287,
+          "ci95": [
+            -0.05476996961371953,
+            0.13814881877381868
+          ],
+          "valid_resamples": 2000
+        },
+        "decision_accuracy": {
+          "estimate": -0.19999999999999996,
+          "ci95": [
+            -0.4,
+            0.0
+          ],
+          "valid_resamples": 2000
+        },
+        "escalation_recall": {
+          "estimate": 0.2142857142857143,
+          "ci95": [
+            0.0,
+            0.46153846153846156
+          ],
+          "valid_resamples": 2000
+        },
+        "auto_handle_rate": {
+          "estimate": -0.4,
+          "ci95": [
+            -0.5666666666666667,
+            -0.23333333333333334
+          ],
+          "valid_resamples": 2000
+        },
+        "unsafe_auto_rate": {
+          "estimate": null,
+          "ci95": null,
+          "valid_resamples": 0
+        }
+      },
+      "intent_mcnemar": {
+        "left_only_correct": 3,
+        "right_only_correct": 1,
+        "p_exact": 0.625
+      },
+      "decision_mcnemar": {
+        "left_only_correct": 3,
+        "right_only_correct": 9,
+        "p_exact": 0.14599609375
+      }
+    }
+  },
+  "runtime": {
+    "agent": {
+      "n": 30,
+      "p50_ms": 1622.5,
+      "p95_ms": 2188.2499999999986,
+      "model_calls": 30,
+      "prompt_tokens": 71623,
+      "output_tokens": 5618,
+      "cached": 0
+    },
+    "quality": {
+      "n": 30,
+      "p50_ms": 1441.5,
+      "p95_ms": 4262.2,
+      "model_calls": 48,
+      "prompt_tokens": 60442,
+      "output_tokens": 4976,
+      "cached": 0
+    }
+  },
+  "excluded_retrieval_threads": 31,
+  "promotion": "Requires separate acceptance decision; no automatic promotion"
+}

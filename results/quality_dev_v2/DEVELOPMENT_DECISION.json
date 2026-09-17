@@ -1,0 +1,7 @@
+{
+  "decision": "reject_candidate",
+  "reason": "Rejected: free-form wording still produced an unsupported check-under-the-hood promise despite semantic review. Superseded by server-rendered approved actions.",
+  "full_reply_review_completed": false,
+  "summary_sha256": "55e87e6ab6fb5e4642c63f3e6010aab2c8a1c30429aaf2a467a5f1333029fb2f",
+  "preserved": true
+}

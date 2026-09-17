@@ -1,0 +1,3 @@
+{
+  "purpose": "Exact executed Python source, bound by manifest hashes; config/data are committed with matching hashes."
+}

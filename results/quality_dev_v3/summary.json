@@ -1,0 +1,114 @@
+{
+  "status": "complete",
+  "phase": "development",
+  "n": 30,
+  "label_sources": [
+    "ai"
+  ],
+  "comparisons": {
+    "quality": {
+      "n": 30,
+      "seed": 2026,
+      "bootstrap_resamples": 2000,
+      "direction": "left minus right",
+      "left": {
+        "intent_accuracy": 0.8,
+        "macro_f1": 0.5403439153439153,
+        "decision_accuracy": 0.5,
+        "escalation_recall": 1.0,
+        "auto_handle_rate": 0.03333333333333333,
+        "unsafe_auto_rate": 0.0
+      },
+      "right": {
+        "intent_accuracy": 0.8,
+        "macro_f1": 0.5087962962962963,
+        "decision_accuracy": 0.6333333333333333,
+        "escalation_recall": 0.8571428571428571,
+        "auto_handle_rate": 0.3,
+        "unsafe_auto_rate": 0.2222222222222222
+      },
+      "delta": {
+        "intent_accuracy": {
+          "estimate": 0.0,
+          "ci95": [
+            -0.13333333333333341,
+            0.13333333333333341
+          ],
+          "valid_resamples": 2000
+        },
+        "macro_f1": {
+          "estimate": 0.03154761904761905,
+          "ci95": [
+            -0.08928668689698108,
+            0.1275418422951317
+          ],
+          "valid_resamples": 2000
+        },
+        "decision_accuracy": {
+          "estimate": -0.1333333333333333,
+          "ci95": [
+            -0.3333333333333333,
+            0.06666666666666665
+          ],
+          "valid_resamples": 2000
+        },
+        "escalation_recall": {
+          "estimate": 0.1428571428571429,
+          "ci95": [
+            0.0,
+            0.3571428571428571
+          ],
+          "valid_resamples": 2000
+        },
+        "auto_handle_rate": {
+          "estimate": -0.26666666666666666,
+          "ci95": [
+            -0.43416666666666665,
+            -0.09999999999999999
+          ],
+          "valid_resamples": 2000
+        },
+        "unsafe_auto_rate": {
+          "estimate": -0.2222222222222222,
+          "ci95": [
+            -0.5,
+            0.0
+          ],
+          "valid_resamples": 1308
+        }
+      },
+      "intent_mcnemar": {
+        "left_only_correct": 2,
+        "right_only_correct": 2,
+        "p_exact": 1.0
+      },
+      "decision_mcnemar": {
+        "left_only_correct": 3,
+        "right_only_correct": 7,
+        "p_exact": 0.34375
+      }
+    }
+  },
+  "runtime": {
+    "agent": {
+      "n": 30,
+      "p50_ms": 1514.0,
+      "p95_ms": 1845.2499999999998,
+      "model_calls": 30,
+      "prompt_tokens": 71623,
+      "output_tokens": 5654,
+      "cached": 0
+    },
+    "quality": {
+      "n": 30,
+      "p50_ms": 1290.5,
+      "p95_ms": 6361.14999999999,
+      "model_calls": 50,
+      "prompt_tokens": 67575,
+      "output_tokens": 4058,
+      "cached": 0
+    }
+  },
+  "excluded_retrieval_threads": 31,
+  "promotion": "Requires separate acceptance decision; no automatic promotion"
+}

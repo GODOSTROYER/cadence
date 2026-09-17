@@ -39,3 +39,4 @@ cache/*.sqlite-wal
 results/**/*.sqlite-shm
 results/**/*.sqlite-wal
 results/reproduced/
+tmp/pdfs/

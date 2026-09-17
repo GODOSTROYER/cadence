@@ -1,0 +1,43 @@
+{
+  "run_id": "routing_dev-52ea832b86ce",
+  "reviewer_id": "astra-xhigh",
+  "reviewer_type": "ai",
+  "systems": {
+    "agent": {
+      "n": 30,
+      "automatic": 8,
+      "useful_automatic": 2,
+      "useful_automatic_coverage": 0.06666666666666667,
+      "useful_resolution": 1,
+      "useful_clarification": 1
+    },
+    "selective": {
+      "n": 30,
+      "automatic": 11,
+      "useful_automatic": 1,
+      "useful_automatic_coverage": 0.03333333333333333,
+      "useful_resolution": 0,
+      "useful_clarification": 1
+    },
+    "trained_tfidf_lr": {
+      "n": 30,
+      "automatic": 24,
+      "useful_automatic": 2,
+      "useful_automatic_coverage": 0.06666666666666667,
+      "useful_resolution": 1,
+      "useful_clarification": 1
+    }
+  },
+  "retrieval": {
+    "n_evidence": 276,
+    "relevant": 0.4963768115942029,
+    "supports_next_step": 0.15579710144927536,
+    "current_advice": 0.14130434782608695
+  },
+  "input_hashes": {
+    "results\\routing_dev\\manifest.json": "52ea832b86cebcb3c60c12f0b60e958412121388b2444f35c1291f055b92c79c",
+    "results\\routing_dev\\predictions.jsonl": "89b84b62713b29df6a0d46e4fe44846e40eb45070317b27b00a4fe42c68f1bf2",
+    "results\\routing_dev\\astra_reply_ratings.jsonl": "1cde7b4db82fd13b4dea15c0f089af43a7d034d8e4793fbb254ffac65dcbb880",
+    "results\\routing_dev\\astra_retrieval_review.csv": "535131074eaa0749742186344e8f6fe2d3e63a8acf66bd739a776451a535c18c"
+  }
+}

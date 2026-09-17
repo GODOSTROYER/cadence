@@ -1,0 +1,962 @@
+[
+  {
+    "id": "c3_001",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_001",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_002",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "e4961df06b7ee234473e3501daf9fe9f3005fb78103c07874eccf8e053b4ba94",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_002",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_003",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "485479917a401b58849029be87df2c836f0be97ae23b9a7221167c6b29ac0c92",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_003",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_004",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_004",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "761394b6b9886776f44428b993389605982e7da643391ac729a5683efbdd149b",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_005",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ddc49a4bd1d254b13c08759fdd42381a43c1a09cd210c886982f2302ec10f342",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_005",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_006",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_006",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "91d113668330b23275a87da2bf90da0257f16062b6138d9d725cc7d06df089f4",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_007",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_007",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "4b29b282707d8426aca91c0cc0efce7e113dc5bded7a33ad237bf964be0e51aa",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_008",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_008",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "30121b086a82eb09bf57b75dccc6c70b590b996108afdbbcf78f48fa52f9d3cd",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_009",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "c58cc109ec22f0c1575f517997c61cddaa1ba57a97232d227d8cefe757ac9171",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_009",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_010",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "27d48d91387be8c5716d7d32471c5a074d9a27e0b6cf0e4a1563b93fc4ef4e0c",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_010",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_011",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_011",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "00951371594bcaed36f55d89b29dd478f9e813fb7590319223cc83f8d4525d48",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_012",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "c8d2aa3cd6066b76a5e47eb701b2519250ee4625a3f304b35416f8be4afb15ae",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_012",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_013",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_013",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "dd3d9d2f8d29da2dcb1098c4dedb6ce9e9de95a950b82e0de16dd102fa5eed81",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_014",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_014",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_015",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_015",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ecdd58edae93bf482a482d202e36ad5720b98df9caca043b762b792d11db26f3",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_016",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7d5c726d694e10aa45686424e6d0e97b93cd2a21c0b23df06701e4409e606f0a",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_016",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_017",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_017",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_018",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "92b7280157402781de2ddbab5d9642ad85a099bfd4549404efcec61cebed8e5f",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_018",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_019",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "21e80eb86c14515091191b8986315af7396af78068a782d3e3a148da46cd9545",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_019",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_020",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_020",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8dc9d90bb2f8cb874fb3844a29236f48696b16bdcc3d5bd63c40a15652745d9e",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_021",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7d4e7f1453e76a5e35a966582a5a1509a8e300f384a1d0ce18ca19e0cdfffeab",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_021",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_022",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_022",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "f87497a4ee69606b1a5a11688ecca3c31caa860bc2236c654fb35edc64ec2d9f",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_023",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "74ce3abf41c5abc901dc9c33420b1fcf225595b9f6da1c7cce9de43ced887ce4",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_023",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_024",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "e7614828159aef233d7188a21ed7ac482eb5788dcc748f965b27e8bad9ed5c12",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_024",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_025",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_025",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "e07b9d67e077906c82148a010cd2eefc2231b135d1844ddcd601157cc0171e12",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_026",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_026",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "94e757fd53e88d15000e950be07b72fd349ea050838809fd95d02b488249dd57",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_027",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "afb2550f73e6f45fcf0afa25ed447b460157d98ccb8ea82816620061a131def8",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_027",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_028",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_028",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8e4b0ec8cb2c9b705848b9ae84c47d52f331cc8df15be325b16b50d0e17666ed",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_029",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_029",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_030",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_030",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "16e2bf6474a6c1bc5126cf07aff8fccad9b26516cb7a3137a4a79ea944602845",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_031",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_031",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "a1b25ea520a46b009140c996b047bee6c134ce89adc5633cf8553c4cc1696d04",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_032",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_032",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "0cd622e4a3a2d416023d9b6373791ae023d0a299abf4ce61194a6f44b1e1191b",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_033",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "6e34930c9e6ef14e2c91807c41ec540d4547a9b9bc45706821ff7b3cd3a39d9f",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_033",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_034",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_034",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "1b0babf230a35b62ccfc0dab7c6081a162bab4ee7181b51fbb329f9ef57f74c7",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_035",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "6476404642afa3dc916d0b276905b8b55fe14503eb0a96006e06a00eefad5f61",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_035",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_036",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_036",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "50dcdcad2f4ea8405e8cfd8acde91c5bd0965f68cb2e5aa7c90bbfe7df0b72eb",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_037",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "3d17a1bf567cc212c95926afb1bbe24d073ac8399d8d0c98fbe38ead9f095be5",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_037",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_038",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7762ba1c03ae30c0bae053561873c475a9a31b69e91de621d2c39a34ee31ea84",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_038",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_039",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "f87497a4ee69606b1a5a11688ecca3c31caa860bc2236c654fb35edc64ec2d9f",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_039",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_040",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_040",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "60a9be26916cff1d149b006dbd97635b36c03d5da4684a38e3f62166568fc8b7",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_041",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "1cbb781ea0661e253aa74e95ea26db04da373a8f6723c2ce35036d868e2c2c0f",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_041",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_042",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "ab522106646cf3762e9d042033fe858bb76b755419c5e2a0105630a0b1fec547",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_042",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_043",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7f1396321f9cdadfb356c0aeb779c899326f0ae4890490aae21b9c2229205cc9",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_043",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_044",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "c9304a2914b884d34ff75df3da6aa075b3248154d27b75ca4ab67bb9c84fd530",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_044",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_045",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "12a3df2aad87aeb6fbb904075d4e6792d0aa85710bc1534a90cb73d0c24f263a",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_045",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_046",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_046",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_047",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_047",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "390566d7d9e49a0ddb348a17fbb05c272109fafbdceeed90529ce5a7ec5c5df9",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_048",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "d776f819cb73b9ea5242b9fdb5f45dbe98fa3b29e72ae167afcf91bb302f6b31",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_048",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_049",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_049",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "28949e86e223b13f900e32e3177440e40dd9a21d799690866959c699fb9957d1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_050",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_050",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "95f64f944109c8c73f6c4cb7381b8331e519f98c6ad5884239ca28731855609b",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_051",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_051",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "6ea109108112a06438e4b0e93d7a85d5132dab54e385dfcd268efef6b36ab4b9",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_052",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_052",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "72b57a18149f2fa63e4eb2b8e24c6d966740a841f78536e9cc7e87638e6d558e",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_053",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_053",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_054",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_054",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "d220047daec2964ec5974f2d8b8ec4821a506601903e14cde85e1d63613bba69",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_055",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "82a56354a746e0d6d03fa6db7e33e4c0812daad9ce50e6399142868eca465ea2",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_055",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_056",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_056",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "fe5241907be3d9ab8e85f91aefbe4443269bcd09941f86b0f324c01541397924",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_057",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_057",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "2bd0af701b428c1a2baade914086158ae04f8728dc93ac393706d19bac5a3ff0",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_058",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_058",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_059",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_059",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "23a96ba2de0154c2c2fb1b740562419272dfff1349a8b62c3339afa30d746aab",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "c3_060",
+    "alias": "A",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "c3_060",
+    "alias": "B",
+    "run_id": "routing_dev-d20bbd4ae863",
+    "reply_hash": "6af9cf297d6f000c12fbf8529859dc2c7f03cf78899ce005b8dd21315a8e2c38",
+    "rubric_version": "support-review-v1",
+    "system": "agent"
+  }
+]

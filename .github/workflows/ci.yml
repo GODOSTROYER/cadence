@@ -20,6 +20,9 @@ jobs:
       - run: python -m cadence.cli reproduce
       - run: python analysis_tools/reproduce_benchmark.py
       - run: python analysis_tools/reproduce_routing_comparison.py
+      - run: python analysis_tools/reproduce_quality.py
+      - run: python analysis_tools/publish_quality.py --check
+      - run: python analysis_tools/verify_submission.py
       - run: python analysis_tools/post_audit_regression.py
       - run: python scripts/15_publish_benchmark.py --check
       - run: python scripts/17_prepare_review_study.py --check

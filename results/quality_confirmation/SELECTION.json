@@ -1,0 +1,9 @@
+{
+  "status": "frozen_for_confirmation",
+  "candidate": "QualityAgent constrained actions v3",
+  "source_sha256": "ddf6e8ffddb3a392d582dd6d35f50d00b194943c5d1d1b7528725f41954fca20",
+  "development_manifest_sha256": "ee6807234fbc139e4f1c6b340f0635642d32ccf11cdcd9d4255b2f180c052435",
+  "code_acceptance": "PASS:24 unit tests plus12 independent action/escalation checks",
+  "pre_inference_labels": "AI authored independently before predictions",
+  "rule": "No source/policy/threshold changes after this point; accept/reject promotion using predeclared metrics and exact-output review. Human verification of new outputs is not implied."
+}
