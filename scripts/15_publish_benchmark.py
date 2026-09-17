@@ -28,6 +28,14 @@ def publication(root=Paths.ROOT):
                 "misses": len(summary["systems"][key]["missed_escalation_ids"])} for key, name in NAMES.items()]
     replay = read_json(root / "results/post_audit_regression/summary.json")
     review = read_json(root / "data/holdout/HUMAN_REVIEW.json")
+    verified = read_json(root / "results/review_study/arnav_verified_summary.json")
+    for name, digest in verified["input_hashes"].items():
+        if sha256(root / name.replace("\\", "/")) != digest:
+            raise ValueError(f"Human review source changed: {name}")
+    human = verified["reviewers"]["Arnav Bule"]
+    agreement = verified["human_agreement"]
+    experiment = read_json(root / "results/routing_dev/summary.json")
+    comparison = experiment["comparisons"]["selective"]
     return {"run_id": "holdout_final-" + manifest["commit"][:7], "execution_commit": manifest["commit"],
             "dataset_hash": manifest["labels"], "summary_hash": sha256(directory / "summary.json"),
             "prompt_version": manifest["files"]["src/cadence/agent/prompts.py"],
@@ -35,6 +43,14 @@ def publication(root=Paths.ROOT):
             "evaluation_mode": "frozen recorded benchmark", "n": summary["n_labels"],
             "review": {k: review[k] for k in ("reviewer", "status", "n_examples", "review_outcome")},
             "systems": systems, "judge": summary["judge"],
+            "supplemental_review": {"status": human["status"], "reviewer": "Arnav Bule", "initial_reviewer": "GPT-6 Astra", "initial_reasoning_effort": "xhigh",
+                                    "n_messages": agreement["n_examples"], "n_ratings": human["n"], "scores_changed": False,
+                                    "method": "AI-assisted ratings verified unchanged by the human reviewer; not an independent blind human pass",
+                                    "weighted_kappa": agreement["weighted_kappa_overall"], "exact_agreement": agreement["exact_agreement"], "within_one": agreement["within_one"],
+                                    "verdicts": human["verdicts"], "source": "results/review_study/arnav_verified_summary.json"},
+            "routing_experiment": {"status": experiment["status"], "n": experiment["n"], "label_sources": experiment["label_sources"],
+                                   "current": comparison["right"], "selective": comparison["left"], "promotion": experiment["promotion"],
+                                   "source": "results/routing_dev/summary.json"},
             "replay": {"mode": "retrospective regression; not fresh inference", "changed_ids": replay["changed_ids"],
                        "metrics": {"metrics": replay["metrics"]["metrics"]}, "judge_note": replay["judge_note"]},
             "source": "results/holdout_final/summary.json"}

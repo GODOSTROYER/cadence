@@ -14,6 +14,7 @@ def main():
     p.add_argument("--judge", type=Path, default=Path("results/holdout_final/judge_orders.jsonl"))
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--api-ratings", action="store_true", help="Import local reviewer queue records rather than the 50-message study")
+    p.add_argument("--confirmation", type=Path, help="Human verification record for adopted AI-assisted ratings")
     args = p.parse_args()
     for name, digest in read_json(args.judge.parent / "run_status.json")["artifacts"].items():
         if sha256(args.judge.parent / name) != digest:
@@ -41,6 +42,20 @@ def main():
     report["queue"] = "local matched 20-message queue" if args.api_ratings else "50-message supplemental study"
     report["input_hashes"] = {str(f): sha256(f) for f in (args.ratings, args.judge, args.study / "mapping.json", args.study / "blind_packet.jsonl", args.study / "rubric.md")}
     report["scope"] = "Supplemental review of exact frozen replies; original scores unchanged. AI ratings are not human ratings."
+    if args.confirmation:
+        confirmation = read_json(args.confirmation)
+        if confirmation["status"] != "completed" or len(ratings) != confirmation["n_reply_ratings"]:
+            raise ValueError("Incomplete human verification")
+        for path, digest in confirmation["artifacts"].items():
+            if sha256(Path(path)) != digest:
+                raise ValueError(f"Verified rating artifact changed: {path}")
+        if str(args.ratings).replace("\\", "/") not in confirmation["artifacts"]:
+            raise ValueError("Ratings are not bound by the verification record")
+        if any(r["reviewer_id"] != confirmation["reviewer"] or r["reviewer_type"] != "human" for r in ratings):
+            raise ValueError("Human verification reviewer mismatch")
+        report["verification"] = confirmation
+        report["input_hashes"][str(args.confirmation)] = sha256(args.confirmation)
+        report["scope"] = "Human-verified AI-assisted ratings versus the original Gemini judge. Initially reviewed by GPT-6 Astra at extra-high reasoning, then verified unchanged by Arnav Bule; not an independent blind human rating pass."
     write_json(args.out, report)
     print({k: {f: v[f] for f in ("reviewer_type", "status", "n", "verdicts")} for k, v in report["reviewers"].items()})
 

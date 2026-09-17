@@ -6,7 +6,7 @@ The release includes the revised agent safety checks and completed human review 
 
 ## Verification status
 
-Current implementation and pending experiment status are in [improvements](IMPROVEMENTS.md).
+Current implementation, completed review and experiment status are in [improvements](IMPROVEMENTS.md).
 
 Verified on 17 September 2026 (Asia/Kolkata):
 
@@ -15,7 +15,7 @@ Verified on 17 September 2026 (Asia/Kolkata):
 - Public health returned `status: ok`, 27,627 indexed threads and that exact deployment commit. Public `data/benchmark.json` matched the generated repository export in full.
 - [GitHub run 35160452989](https://github.com/GODOSTROYER/cadence/actions/runs/35160452989) passed Linux, Windows and UI checks. Local validation passed 310 tests, lint, the production build, frozen benchmark reproduction and 1,771 historical receipt checks; all reproduction made zero model calls.
 - Browser verification covered the revised/historical switches, a desktop layout with no page overflow, and the 430px mobile layout. A follow-up corrects zero-width interval rendering in the historical F1 chart. The runtime health commit identifies the currently served revision, including later documentation/UI follow-ups.
-- The 30-message Gemini development comparison remains pending authorization; only its offline learned baseline and separately identified Astra review have run. The experimental routing path is not the production default.
+- At that release, the Gemini development comparison was pending authorization. On 17 September 2026, Arnav Bule verified the 100 Astra reply ratings unchanged and authorized the comparison, which completed all 30 messages per variant. Current evidence and reproduction commands are in [improvements](IMPROVEMENTS.md). The experimental routing path remains outside the production default.
 
 ### Previous deployments
 
@@ -39,3 +39,7 @@ The static HTML includes Open Graph and Twitter large-image metadata with **Cade
 The preview image is `ui/public/assets/cadence-social-v1.png`, served at `/hiver-assignment/assets/cadence-social-v1.png`. Keeping it under `assets/` avoids the SPA fallback and uses the existing asset cache policy. When changing the artwork, create a new versioned filename and update both image tags; social platforms may retain an older preview until they re-scrape the page.
 
 Artwork: 1730 × 909 PNG, generated with the built-in image-generation tool. Design prompt: a restrained dark editorial card matching Cadence, near-black background, ivory italic serif title, green equalizer, “Cadence”, “by Arnav Bule”, “An AI support agent that knows when to reply—and when to escalate”, and the public site address.
+
+## Human verification and Gemini comparison release — 17 September 2026
+
+The dashboard and generated benchmark export now include completed human verification by Arnav Bule of all 100 supplemental Astra ratings, with the initial GPT-6 Astra extra-high review preserved. They also publish the completed 30-message Gemini routing comparison. Production routing is unchanged. Local release checks passed all 311 tests, lint, the Vercel build, artifact publication checks, and offline reproduction of 90 predictions and 71 model-call receipts. Desktop and 430px mobile browser checks found no page overflow or console errors. The runtime health commit and GitHub checks identify the deployed revision.

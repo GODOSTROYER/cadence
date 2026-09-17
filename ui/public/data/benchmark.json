@@ -240,6 +240,50 @@
       "2": 3.1625
     }
   },
+  "supplemental_review": {
+    "status": "complete",
+    "reviewer": "Arnav Bule",
+    "initial_reviewer": "GPT-6 Astra",
+    "initial_reasoning_effort": "xhigh",
+    "n_messages": 50,
+    "n_ratings": 100,
+    "scores_changed": false,
+    "method": "AI-assisted ratings verified unchanged by the human reviewer; not an independent blind human pass",
+    "weighted_kappa": 0.13741261369615876,
+    "exact_agreement": 0.28,
+    "within_one": 0.53,
+    "verdicts": {
+      "edit": 35,
+      "reject": 59,
+      "ship": 6
+    },
+    "source": "results/review_study/arnav_verified_summary.json"
+  },
+  "routing_experiment": {
+    "status": "complete",
+    "n": 30,
+    "label_sources": [
+      "ai"
+    ],
+    "current": {
+      "intent_accuracy": 0.7666666666666667,
+      "macro_f1": 0.4810185185185185,
+      "decision_accuracy": 0.6,
+      "escalation_recall": 0.8571428571428571,
+      "auto_handle_rate": 0.26666666666666666,
+      "unsafe_auto_rate": 0.25
+    },
+    "selective": {
+      "intent_accuracy": 0.8333333333333334,
+      "macro_f1": 0.5461691086691086,
+      "decision_accuracy": 0.8333333333333334,
+      "escalation_recall": 1.0,
+      "auto_handle_rate": 0.36666666666666664,
+      "unsafe_auto_rate": 0.0
+    },
+    "promotion": "not promoted; human usefulness and fresh confirmation required",
+    "source": "results/routing_dev/summary.json"
+  },
   "replay": {
     "mode": "retrospective regression; not fresh inference",
     "changed_ids": [

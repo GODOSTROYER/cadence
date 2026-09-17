@@ -5,7 +5,7 @@
 - Scope: 100 anonymous replies covering 50 paired customer messages.
 - Run: holdout_final-b8317d6. Rubric: support-review-v1.
 - Recorded at: 2026-09-16T22:38:01Z.
-- Status: AI-authored provisional ratings, pending Arnav's human review. These are supplemental and do not replace the frozen benchmark or establish general benchmark safety.
+- Status: initial AI review completed; all scores subsequently reviewed and verified unchanged by Arnav Bule on 17 September 2026. See HUMAN_VERIFICATION.json and arnav_verified_summary.json. These remain the original AI-authored rows; the separate human record preserves the two-stage provenance.
 
 ## Results
 
@@ -37,4 +37,4 @@ Polite requests for missing diagnostic information can be useful next steps. Vag
 
 ## Validation
 
-Checked exact coverage of every packet id/alias, exact supplied reply hashes, unique keys, required metadata, integer scores from 1 through 5, Boolean flags, and allowed verdict/response-kind values. Human review remains outstanding.
+Checked exact coverage of every packet id/alias, exact supplied reply hashes, unique keys, required metadata, integer scores from 1 through 5, Boolean flags, and allowed verdict/response-kind values. Subsequent human verification is complete; the accepted scores and original Astra attribution are recorded separately.

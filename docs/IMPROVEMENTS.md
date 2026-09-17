@@ -9,17 +9,18 @@
 - **Controlled routing experiment:** the existing agent is compared with customer-message-first routing, then selective retrieval and drafting. Both use the same model, policy and 0.9 threshold. Escalated cases retain their intent and skip retrieval/drafting. Source/input hashes prevent resuming with changed code. The new path is experimental and has not replaced production routing.
 - **Operational measurements:** experiment artifacts record paired differences, confidence bins, p50/p95 latency, cache status, token totals and model-call counts. Retrieval review and useful automatic coverage tools require explicit reviewer judgments; useful clarification is counted separately from resolution. Coverage uses all messages as its denominator.
 
-## Astra review: completed, pending author review
+## Astra review and human verification: completed
 
 At the author's request, **GPT-6 Astra at extra-high reasoning effort** reviewed a seeded sample of 50 frozen messages, each with both agent and keyword-baseline replies: **100 ratings, not 100 independent messages**. System names, judge scores and gold labels were excluded from the review packet. The packet includes the customer message, exact reply and retrieved evidence.
 
-The review produced **6 ship, 35 edit and 59 reject** verdicts. These are **AI-authored provisional ratings**, stored separately from the original benchmark and Arnav Bule's completed approval of the existing 200 examples/scores. They do not establish new independent human–judge agreement. The supplemental report therefore leaves `human_agreement` null until a person supplies ratings. Arnav's later review should be a separate named record; preserve the Astra rows.
+The review produced **6 ship, 35 edit and 59 reject** verdicts. **First reviewed by GPT-6 Astra at extra-high reasoning, then reviewed and verified unchanged by Arnav Bule**, confirmed on 17 September 2026. Human verification is complete for all 100 reply ratings. The original Astra rows remain intact; separate human-verified rows record the accepted scores and their origin. This is human verification with the initial AI scores visible, not an independent blind human rating pass. Against the original Gemini judge across both orders, the verified ratings yield weighted κ **0.137**, exact agreement **28%**, and within-one agreement **53%**. The original frozen summary retains its execution-time values; the later completed verification and agreement are published in `arnav_verified_summary.json`.
 
-Files: `results/review_study/blind_packet.jsonl`, `mapping.json`, `rubric.md`, `astra_ratings.jsonl`, `astra_review_notes.md`, and `astra_summary.json`. The supplemental rubric explicitly treats 2017 advice as historical and distinguishes safe holding replies from resolution. The original judge used its original prompt and normalized reply presentation: this comparison is a rubric audit, not two interchangeable measurements under an identical protocol. Top-level agreement pools rating/order observations; use `per_reviewer_order` for separate estimates.
+Files under `results/review_study/`: the original `blind_packet.jsonl`, `mapping.json`, `rubric.md`, `astra_ratings.jsonl`, `astra_review_notes.md`, and `astra_summary.json`; the subsequent `HUMAN_VERIFICATION.json`, `arnav_verified_ratings.jsonl`, and `arnav_verified_summary.json`. The supplemental rubric explicitly treats 2017 advice as historical and distinguishes safe holding replies from resolution. The original judge used its original prompt and normalized reply presentation: this comparison is a rubric audit, not two interchangeable measurements under an identical protocol. Top-level agreement pools rating/order observations; use `per_reviewer_order` for separate estimates.
 
 ```sh
 python scripts/17_prepare_review_study.py --check
 python scripts/14_review_study.py --ratings results/review_study/astra_ratings.jsonl --out results/review_study/astra_summary.json
+python scripts/14_review_study.py --ratings results/review_study/arnav_verified_ratings.jsonl --confirmation results/review_study/HUMAN_VERIFICATION.json --out results/review_study/arnav_verified_summary.json
 python scripts/15_publish_benchmark.py --check
 ```
 
@@ -46,7 +47,15 @@ python scripts/16_routing_experiment.py --baseline-only
 python scripts/16_routing_experiment.py --live-free-tier
 ```
 
-**Live experiment status:** pending authorization. Current and selective Gemini variants have not run on this batch, so no comparative improvement is claimed. Credentials and external execution are required to measure them. Failed or interrupted runs retain receipts, partial predictions and status; unchanged inputs can resume. Use a new output directory after changing any frozen source or input.
+**Live experiment status: completed on 17 September 2026 after Arnav Bule explicitly authorized the Gemini comparison.** Both variants completed all 30 messages with 71 successful model-call receipts, plus 30 offline baseline predictions. All Gemini predictions were uncached. Frozen execution source matches commit `093dbfd`; authorization and artifact hashes are recorded in `AUTHORIZATION.json` and `VERIFICATION.json`. Reproduce with `python analysis_tools/reproduce_routing_comparison.py` (zero new model calls).
+
+| System | Intent accuracy | Macro-F1 | Escalation recall | Automatic decisions | Missed escalations |
+|---|---:|---:|---:|---:|---:|
+| Current agent | 76.7% | 0.481 | 85.7% (12/14) | 8/30 | 2 |
+| Message-first selective agent | 83.3% | 0.546 | 100% (14/14) | 11/30 | 0 |
+| Trained TF-IDF/LR baseline | 56.7% | 0.331 | 28.6% (4/14) | 24/30 | 10 |
+
+Selective routing uses 41 model calls versus 30, but fewer total input/output tokens: 67,094 versus 77,127. Median latency is 1,571.5 versus 1,602.5 ms; p95 is 3,348.3 versus 3,166.3 ms. These are local successful-request timings from one sequential run, not a production latency claim. Decision accuracy improves by 23.3 percentage points (paired bootstrap 95% interval 6.7–43.3; exploratory McNemar p=0.039). Intent accuracy improvement has a 95% interval of −6.7 to +20.0 points. This small AI-labeled development result is promising, but useful-reply review and fresh confirmation are still required before promotion. Production continues using the current agent. Use a new output directory after changing frozen source or inputs.
 
 The offline learned baseline completed all 30 messages: intent accuracy **0.567**, macro-F1 **0.331** across the fixed 12-intent taxonomy, escalation recall **0.286**, and automatic coverage **0.800** (10 missed required escalations). These small-sample results use the disclosed AI labels and are not a replacement for the frozen benchmark. Macro-F1 includes zero-support classes under the fixed taxonomy. Artifacts are in `results/routing_dev/`; source hashes were verified after execution.
 

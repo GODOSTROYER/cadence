@@ -66,7 +66,7 @@ Open `http://127.0.0.1:8000`. This local service is for a trusted workstation. T
 
 The [public demo](https://www.arnavbule.in/hiver-assignment/) serves the production release. Overview and Evaluation default to the revised 200-example benchmark reviewed by Arnav Bule. Historical charts are available through an explicit version switch. See [deployment verification](docs/DEPLOYMENT.md) for release status and checks.
 
-See [evaluation and routing improvements](docs/IMPROVEMENTS.md) for the supplemental Astra review, matched human-rating workflow, trained baseline and controlled development experiment.
+**Supplemental human verification completed:** 100 reply ratings were first reviewed by GPT-6 Astra at extra-high reasoning, then reviewed and verified unchanged by Arnav Bule on 17 September 2026. Human-verified agreement with the original Gemini judge is κ=0.137 (28% exact; 53% within one), using AI-assisted ratings with the original scores visible. The separate 30-message Gemini routing comparison is complete; the promising selective variant remains experimental pending usefulness review and fresh confirmation. See [results and provenance](docs/IMPROVEMENTS.md).
 
 ## Screenshots
 
@@ -114,7 +114,7 @@ The locked runner refuses silently mixing code/label revisions. Re-running after
 
 Data: [thoughtvector / Customer Support on Twitter](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter). Dependencies are declared in `pyproject.toml` and `ui/package-lock.json`. External methods and provider documentation are cited in the [audit](docs/IMPLEMENTATION_AUDIT.md). AI assistance was used for implementation, auditing and explicitly identified annotations. Historical reports are retained under `docs/*_historical.md`; their claims are superseded by this report.
 
-No account actions, tweet posting, fine-tuning, multimodal interpretation or production deployment are included. The objective is a reproducible, inspectable take-home with limitations visible beside results.
+No account actions, tweet posting, fine-tuning, multimodal interpretation or autonomous production integration are included; the hosted application is a demonstration. The objective is a reproducible, inspectable take-home with limitations visible beside results.
 
 ## Author
 

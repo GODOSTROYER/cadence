@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "reviewer": "Arnav Bule",
+  "reviewer_type": "human",
+  "confirmed_at": "2026-09-17T02:55:32Z",
+  "n_messages": 50,
+  "n_reply_ratings": 100,
+  "scores_changed": false,
+  "initial_reviewer": "GPT-6 Astra",
+  "initial_reasoning_effort": "xhigh",
+  "review_method": "human_verification_of_ai_ratings",
+  "blinding": "Human reviewed existing Astra scores; not an independent blind rating pass.",
+  "confirmation": "I have reviewed as human judge; scores remain the same. First reviewed by GPT-6 Astra on extra-high reasoning and then verified by me.",
+  "artifacts": {
+    "results/review_study/astra_ratings.jsonl": "5265b52e36cb19509edf1a1a44e381223df3c296c00001573113c566d17519b5",
+    "results/review_study/arnav_verified_ratings.jsonl": "5324d5d35fdfac97fbb5012c8ff1b7c9163a484059a74b99da8321aceeda4aa2"
+  },
+  "summary_path": "results/review_study/arnav_verified_summary.json"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "execution_commit": "093dbfd908b5f5783046c45b1fce377abb0d4677",
+  "source_hashes_verified": true,
+  "n_messages": 30,
+  "n_predictions": 90,
+  "successful_model_calls": 71,
+  "authorization": "AUTHORIZATION.json",
+  "artifacts": {
+    "manifest.json": "52ea832b86cebcb3c60c12f0b60e958412121388b2444f35c1291f055b92c79c",
+    "predictions.jsonl": "89b84b62713b29df6a0d46e4fe44846e40eb45070317b27b00a4fe42c68f1bf2",
+    "summary.json": "db39be25e54876e23f2d6ad7c92af3773fd271f256294171886353df1936332b",
+    "status.json": "6a3f7837c6c100e45dda4d121af6728cea647147edd0bae2e728abdcd5e0c468",
+    "calls.sqlite": "7217ba8feeb191801b9355b5f8cc37f3bc7c8008ac9bbe9eed751d86c4d24837",
+    "AUTHORIZATION.json": "8c55abe8b37ddc2ecf1d942107dd43b907a06b2152133670db3d76d1417c20df"
+  },
+  "limitations": "AI-labeled development sample; no promotion or new reply usefulness claim. Baseline summary records the earlier offline-only phase."
+}
