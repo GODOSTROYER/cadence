@@ -1,0 +1,769 @@
+{
+  "version": 1,
+  "status": "accepted_for_human_validation",
+  "purpose": "Acceptance of the additional AI-only Astra Ultra review packet for the 55 previously flagged cases; not human verification or final ground truth.",
+  "reviewer": "/root/ultra_package_acceptance",
+  "reviewer_model": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "reviewer_type": "ai",
+  "review_source": "ai",
+  "human_verified": false,
+  "human_validation_complete": false,
+  "independent_first_pass_annotation": false,
+  "prior_ai_proposals_visible": true,
+  "candidate_inference_run": false,
+  "candidate_predictions_metrics_or_historical_replies_accessed": false,
+  "reviewed_at": "2026-09-18T20:19:02.456694+00:00",
+  "reviewed_count": 55,
+  "individually_reviewed": true,
+  "reviewed_ids": [
+    "v5_006",
+    "v5_016",
+    "v5_019",
+    "v5_020",
+    "v5_029",
+    "v5_049",
+    "v5_057",
+    "v5_059",
+    "v5_060",
+    "v5_072",
+    "v5_074",
+    "v5_080",
+    "v5_083",
+    "v5_084",
+    "v5_087",
+    "v5_089",
+    "v5_091",
+    "v5_093",
+    "v5_094",
+    "v5_098",
+    "v5_101",
+    "v5_114",
+    "v5_129",
+    "v5_132",
+    "v5_134",
+    "v5_151",
+    "v5_152",
+    "v5_157",
+    "v5_177",
+    "v5_178",
+    "v5_184",
+    "v5_191",
+    "v5_193",
+    "v5_195",
+    "v5_200",
+    "vc_002",
+    "vc_003",
+    "vc_008",
+    "vc_018",
+    "vc_027",
+    "vc_028",
+    "vc_042",
+    "vc_045",
+    "vc_046",
+    "vc_049",
+    "vc_052",
+    "vc_055",
+    "vc_061",
+    "vc_062",
+    "vc_063",
+    "vc_064",
+    "vc_065",
+    "vc_070",
+    "vc_071",
+    "vc_077"
+  ],
+  "reviewed_ids_by_partition": {
+    "confirmation": [
+      "v5_006",
+      "v5_016",
+      "v5_019",
+      "v5_020",
+      "v5_029",
+      "v5_049",
+      "v5_057",
+      "v5_059",
+      "v5_060",
+      "v5_072",
+      "v5_074",
+      "v5_080",
+      "v5_083",
+      "v5_084",
+      "v5_087",
+      "v5_089",
+      "v5_091",
+      "v5_093",
+      "v5_094",
+      "v5_098",
+      "v5_101",
+      "v5_114",
+      "v5_129",
+      "v5_132",
+      "v5_134",
+      "v5_151",
+      "v5_152",
+      "v5_157",
+      "v5_177",
+      "v5_178",
+      "v5_184",
+      "v5_191",
+      "v5_193",
+      "v5_195",
+      "v5_200"
+    ],
+    "challenge": [
+      "vc_002",
+      "vc_003",
+      "vc_008",
+      "vc_018",
+      "vc_027",
+      "vc_028",
+      "vc_042",
+      "vc_045",
+      "vc_046",
+      "vc_049",
+      "vc_052",
+      "vc_055",
+      "vc_061",
+      "vc_062",
+      "vc_063",
+      "vc_064",
+      "vc_065",
+      "vc_070",
+      "vc_071",
+      "vc_077"
+    ]
+  },
+  "summary": {
+    "confirmation_cases": 35,
+    "synthetic_challenge_cases": 20,
+    "total_cases": 55,
+    "confirmed": 33,
+    "revised": 4,
+    "needs_discussion": 18,
+    "flags_resolved_by_ai": 37,
+    "flags_remaining_for_human_decision": 18,
+    "cases_with_label_changes": 11,
+    "resolved_cases_with_label_changes": 4,
+    "unresolved_cases_with_label_changes": 7,
+    "pending_human_validation": 55,
+    "unchanged_prior_labels": 44,
+    "other_225_original_cases_received_no_ultra_review": true
+  },
+  "semantic_review": {
+    "status": "passed_for_human_validation",
+    "method": "Individually read all 55 source texts and scenario setups, frozen policy/taxonomy, prior AI proposals, flagged questions and acceptance suggestions, Ultra labels, rationale, question resolution and remaining question. Scripts performed structure, fidelity, count and hash checks only; they did not classify cases.",
+    "all_flagged_questions_addressed": true,
+    "all_changed_fields_exact": true,
+    "all_remaining_questions_visible": true,
+    "unresolved_risk_questions_fail_closed": true,
+    "defective_final_recommendations": [],
+    "changed_ids": [
+      "v5_006",
+      "v5_016",
+      "v5_087",
+      "v5_093",
+      "v5_098",
+      "v5_132",
+      "vc_018",
+      "vc_042",
+      "vc_052",
+      "vc_071",
+      "vc_077"
+    ],
+    "resolved_ids": [
+      "v5_006",
+      "v5_016",
+      "v5_019",
+      "v5_029",
+      "v5_057",
+      "v5_059",
+      "v5_072",
+      "v5_080",
+      "v5_083",
+      "v5_084",
+      "v5_089",
+      "v5_091",
+      "v5_098",
+      "v5_101",
+      "v5_114",
+      "v5_129",
+      "v5_134",
+      "v5_151",
+      "v5_152",
+      "v5_157",
+      "v5_177",
+      "v5_178",
+      "v5_191",
+      "v5_193",
+      "v5_200",
+      "vc_003",
+      "vc_008",
+      "vc_018",
+      "vc_027",
+      "vc_028",
+      "vc_045",
+      "vc_046",
+      "vc_049",
+      "vc_055",
+      "vc_061",
+      "vc_062",
+      "vc_070"
+    ],
+    "unresolved_cases": [
+      {
+        "id": "v5_020",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "What is the exact notification text, and does it report a billing, entitlement, account-security or app problem?"
+      },
+      {
+        "id": "v5_049",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Does the customer want to make a playlist or listening library visible, or publish original recordings?"
+      },
+      {
+        "id": "v5_060",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "What does NOI denote in this message, and what unresolved event or problem is the customer reporting?"
+      },
+      {
+        "id": "v5_074",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Which name field was entered incorrectly: Family enrollment or verification identity information, or only the public profile display name?"
+      },
+      {
+        "id": "v5_087",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "escalation_reason_code"
+        ],
+        "remaining_question": "Does the redacted payment-card marker represent exposed usable payment credentials, and does the frozen security trigger include that exposure rather than only login credentials?"
+      },
+      {
+        "id": "v5_093",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "intent",
+          "should_escalate",
+          "escalation_reason_code"
+        ],
+        "remaining_question": "What is Twitter stopping, and which application, playback activity or other function is affected?"
+      },
+      {
+        "id": "v5_094",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Does reporting sexual-themed music in explicitly child-oriented album and radio selections qualify as a safety allegation under policy v2, or solely as content-placement feedback?"
+      },
+      {
+        "id": "v5_132",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "should_escalate",
+          "escalation_reason_code"
+        ],
+        "remaining_question": "Does reported children's exposure to profanity, without another stated harm, qualify as a safety allegation under policy v2 or remain explicit-content feature feedback?"
+      },
+      {
+        "id": "v5_184",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Is the intended issue editorial placement of the customer's music on RapCaviar, or finding/opening/following RapCaviar as a listener?"
+      },
+      {
+        "id": "v5_195",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "When the different recording plays, does the player still identify the originally selected track, or has it switched to the other track?"
+      },
+      {
+        "id": "vc_002",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Should exposed credentials without evidence of account intrusion use account_hacked_or_security, or other with account_security routing?"
+      },
+      {
+        "id": "vc_042",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "intent"
+        ],
+        "remaining_question": "Should general playback-setting explanations with no malfunction or requested feature change map to other, or is playback_or_app_bug intended to include public playback how-tos?"
+      },
+      {
+        "id": "vc_052",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "intent"
+        ],
+        "remaining_question": "Should preventive login-security education without compromise or an access problem use login_or_password, other, or an explicitly broadened account_hacked_or_security category?"
+      },
+      {
+        "id": "vc_063",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Is Spanish supported in this evaluation? This determines whether the current out_of_scope handoff should remain or change to eligible automatic clarification."
+      },
+      {
+        "id": "vc_064",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Is Hindi supported in this evaluation? This determines whether out_of_scope remains appropriate or the request is eligible for automatic clarification."
+      },
+      {
+        "id": "vc_065",
+        "disposition": "needs_discussion",
+        "changed_fields": [],
+        "remaining_question": "Is Japanese supported in this evaluation? Confirm whether the provisional out_of_scope handoff should remain or change to eligible automatic playlist guidance."
+      },
+      {
+        "id": "vc_071",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "intent"
+        ],
+        "remaining_question": "Should current playback-settings navigation without any malfunction use other, or should playback_or_app_bug explicitly include ordinary playback how-tos?"
+      },
+      {
+        "id": "vc_077",
+        "disposition": "needs_discussion",
+        "changed_fields": [
+          "intent"
+        ],
+        "remaining_question": "Should general device-compatibility guidance with no established malfunction use other, or does playback_or_app_bug include such compatibility how-tos?"
+      }
+    ],
+    "accepted_revision_notes": [
+      {
+        "ids": [
+          "v5_006",
+          "v5_016",
+          "v5_098",
+          "vc_018"
+        ],
+        "assessment": "Resolved revisions are supported: retain the separately expressed shuffle-control issue; do not turn a generic absent-help-desk complaint into an explicit human request; distinguish unexpected Premium shuffle from an established Free-tier restriction; make the explicit playlist how-to primary rather than inventing missing catalogue availability."
+      },
+      {
+        "ids": [
+          "v5_087",
+          "v5_132"
+        ],
+        "assessment": "Unresolved material-risk boundaries retain human handling: possible payment-credential exposure uses provisional security priority, and reported child profanity exposure uses provisional safety priority pending policy adjudication."
+      },
+      {
+        "ids": [
+          "v5_093"
+        ],
+        "assessment": "The omitted stopped object prevents a sufficiently interpretable technical issue; other with ambiguous_or_media_only preserves the factual question without inventing music or establishing an external-only scope."
+      },
+      {
+        "ids": [
+          "vc_042",
+          "vc_052",
+          "vc_071",
+          "vc_077"
+        ],
+        "assessment": "Residual other proposals explicitly preserve taxonomy gaps for playback navigation, prevention and compatibility how-tos. The supplied provider failure independently requires low_confidence for vc_042; dated customer documents do not establish assistant knowledge failure in vc_071 or vc_077."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "acceptance-001",
+      "severity": "validation_gap",
+      "status": "resolved",
+      "artifact": "assemble_review.py",
+      "finding": "Initial assembly checked COMPLETE existence only.",
+      "resolution": "Final assembler parses and validates completion reviewer, AI source, model/effort, human_verified=false, exact IDs/count, individual-review assertion, timezone-aware actual completion time and review-time ordering. All three completion records pass."
+    },
+    {
+      "id": "acceptance-002",
+      "severity": "interpretation",
+      "status": "resolved_without_label_change",
+      "ids": [
+        "v5_074",
+        "v5_177"
+      ],
+      "finding": "Compared fail-closed Family-name uncertainty with eligible Family-ZIP clarification.",
+      "resolution": "The frozen policy expressly separates public visible-name guidance from identity/username intervention; v5_074 retains that unknown target as a human question. v5_177 states no verification failure, restricted field or operator-only correction, so public field clarification is defensible. Neither review asserts that identity verification occurred."
+    },
+    {
+      "id": "acceptance-003",
+      "severity": "provenance_documentation",
+      "status": "resolved",
+      "artifact": "MANIFEST.json",
+      "finding": "The original acceptance file has CRLF bytes, making its canonical hash differ from its raw hash.",
+      "resolution": "Manifest explicitly documents CRLF-to-LF-only canonical text hashing. All source/input bindings match that convention; this acceptance records both raw and canonical hashes."
+    },
+    {
+      "id": "acceptance-004",
+      "severity": "runtime_limitation",
+      "status": "accepted_with_documented_limitation",
+      "artifact": "build_workbook.mjs",
+      "finding": "The Node builder returned exit code 1 after writing artifacts and emitting completion JSON, without a printed exception.",
+      "resolution": "No successful builder process exit is claimed. The saved final workbook independently passed Python ZIP/XML QA, exact timestamp checks, Artifact Tool reopening and ten final render inspections. The cause of the builder exit remains unestablished."
+    }
+  ],
+  "blocking_findings": [],
+  "checks": {
+    "data_and_csv": {
+      "status": "passed",
+      "rows": 55,
+      "csv_cells_compared": 1705,
+      "source_text_setup_prior_labels_rationale_confidence_questions_exact": true,
+      "input_and_raw_review_joins_exact": true,
+      "all_human_statuses_pending": true,
+      "all_human_reviewer_time_notes_blank": true,
+      "completion_records_validated": 3,
+      "strict_assembler_exit_code": 0
+    },
+    "original_packet_and_sources": {
+      "status": "passed",
+      "original_artifact_bindings_verified": 46,
+      "original_source_bindings_verified": 12,
+      "raw_hashes_canonical_hashes_and_sizes_match": true,
+      "original_packet_unchanged": true,
+      "manifest_source_bindings_verified": 4,
+      "manifest_input_bindings_verified": 3,
+      "inference_and_import_markers_absent": true
+    },
+    "workbook": {
+      "status": "passed",
+      "evidence": "workbook_qa.json",
+      "acceptance_reran_reviewed_qa_functions_read_only": true,
+      "acceptance_qa_exit_code": 0,
+      "checks_passed": 12280,
+      "errors": 0,
+      "record_cells_compared": 1870,
+      "source_fields_compared": 495,
+      "exact_literal_timestamp_cells": 55,
+      "native_boolean_cells": 220,
+      "worksheet_formulas": 0,
+      "worksheet_error_cells": 0,
+      "visible_sheets": 2,
+      "tables": 2,
+      "frozen_anchor": "B9",
+      "human_status_dropdown_per_sheet": true,
+      "all_human_fields_pending_or_blank": true,
+      "native_excel_tested": false,
+      "artifact_tool_reimport_passed": true
+    },
+    "documentation": {
+      "status": "passed",
+      "reviewed": [
+        "README.md",
+        "REVIEW_GUIDE.md",
+        "MANIFEST.json",
+        "assemble_review.py",
+        "checkpoint.py",
+        "build_workbook.mjs",
+        "qa_workbook.py"
+      ],
+      "ai_provenance_explicit": true,
+      "human_validation_pending_explicit": true,
+      "prior_labels_visible_disclosed": true,
+      "no_independent_human_or_candidate_performance_claim": true,
+      "confirmation_and_challenge_separate": true
+    }
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewer": "/root/ultra_package_acceptance",
+    "method": "Read-only inspection of all ten final Artifact Tool PNG renders, generated from the saved and reopened final XLSX.",
+    "sheets": [
+      "Confirmation",
+      "Challenge"
+    ],
+    "ranges_per_sheet": [
+      "A1:F10",
+      "G8:P10",
+      "Q8:V10",
+      "W8:Y10",
+      "AC8:AH10"
+    ],
+    "source_text_label_pairs_rationale_questions_provenance_readable": true,
+    "blank_human_controls_visible": true,
+    "no_visible_clipping_in_inspected_ranges": true,
+    "scope_limit": "Visual sampling covers the opening two review rows of each sheet. Exact cell checks cover all 55 rows; this is not native Microsoft Excel interaction."
+  },
+  "limitations": [
+    "Acceptance and all proposed labels are AI work from the same model family. Prior AI proposals were visible. This is not human approval, blind independent first-pass labeling, or final benchmark ground truth.",
+    "All 55 reviewed cases still require human validation. Eighteen retain explicit factual or policy questions; a needs_discussion proposal can contain label changes.",
+    "No candidate inference, human-label import, browsing, candidate prediction/metric inspection, or historical-reply retrieval was performed in this acceptance. Absent source markers are an artifact/workflow check, not a forensic audit of external execution.",
+    "Public support facts were not externally reverified. Automatic routing means eligibility for supported guidance or a useful clarification, not proof of resolution.",
+    "Saved-file QA, Artifact Tool reimport and PNG inspection do not establish native Microsoft Excel interaction.",
+    "The Node builder exited with code 1 after writing artifacts and emitting completion JSON, with no printed exception. Independent saved-file checks passed; the builder exit cause remains unestablished.",
+    "Artifact Tool ISO serialization required a narrowly scoped repair of 55 provenance cells, removing an artificial leading apostrophe while preserving exact timestamp text and string type. Final saved-file checks and reopened renders passed."
+  ],
+  "hash_convention": "Raw SHA-256 binds exact file bytes. Canonical SHA-256 replaces CRLF with LF only for .md, .json, .jsonl, .py, .yaml and .txt, preserving all other bytes and JSON key order. All other suffixes, including .csv, .mjs, .xlsx and .png, use raw bytes for canonical SHA-256. Artifact paths are relative to this validation folder; source paths are repository-relative. Source bindings include the original acceptance, which transitively binds all 46 original packet artifacts and 12 source files; all 58 were freshly checked against both raw and canonical hashes and sizes.",
+  "excluded_from_bindings": [
+    "ACCEPTANCE.json (self-reference)",
+    "ACCEPTANCE_STATE.md (mutable acceptance checkpoint)",
+    "STATE.md and STATE.json (mutable resume checkpoints)",
+    "WORKBOOK_STATE.md (mutable workbook checkpoint)",
+    "reviews/*.progress.json and other mutable progress/state files",
+    "__pycache__/** (generated Python cache)",
+    "*.xlsx.inspect.ndjson (redundant generated debug dump)",
+    "workbook_inspection.txt and workbook_reopen.txt (internal debug/inspection logs)",
+    "temporary files and external mutable resume state"
+  ],
+  "artifact_bindings": {
+    ".gitignore": {
+      "raw_sha256": "2349870197e5b45ee4ce97b6baf976ac7d415f84886d2e552ecd467539ebcb5c",
+      "canonical_sha256": "2349870197e5b45ee4ce97b6baf976ac7d415f84886d2e552ecd467539ebcb5c",
+      "size_bytes": 79
+    },
+    "Cadence-Astra-Ultra-Review.xlsx": {
+      "raw_sha256": "5de279c291893b41d8f662f156a0e8a0baabfc13d35184d3815aa5cb52af32b6",
+      "canonical_sha256": "5de279c291893b41d8f662f156a0e8a0baabfc13d35184d3815aa5cb52af32b6",
+      "size_bytes": 42604
+    },
+    "MANIFEST.json": {
+      "raw_sha256": "f2fd4740bde5c2668b5ece96446f660be5991a88f815fd291de7b3c7f9e8c0d9",
+      "canonical_sha256": "f2fd4740bde5c2668b5ece96446f660be5991a88f815fd291de7b3c7f9e8c0d9",
+      "size_bytes": 2978
+    },
+    "README.md": {
+      "raw_sha256": "f15b1fde5a734d666dae8338dc2b6bc33cda9d844b064d8283c765abf5818c1a",
+      "canonical_sha256": "f15b1fde5a734d666dae8338dc2b6bc33cda9d844b064d8283c765abf5818c1a",
+      "size_bytes": 3288
+    },
+    "REVIEW_GUIDE.md": {
+      "raw_sha256": "cabcb5f24eb64340144905dc3fd85626771bec450664abb014de4174636803ac",
+      "canonical_sha256": "cabcb5f24eb64340144905dc3fd85626771bec450664abb014de4174636803ac",
+      "size_bytes": 3249
+    },
+    "assemble_review.py": {
+      "raw_sha256": "9ff3b2cf29c4e20ae1762bfb68385949dea62fdecdd40fb33f2748beba4ac1fd",
+      "canonical_sha256": "9ff3b2cf29c4e20ae1762bfb68385949dea62fdecdd40fb33f2748beba4ac1fd",
+      "size_bytes": 10603
+    },
+    "build_workbook.mjs": {
+      "raw_sha256": "4b9ece2c9fbe01871f70f2055ff16652600f19ebff3d110f091425a3e6c6a90f",
+      "canonical_sha256": "4b9ece2c9fbe01871f70f2055ff16652600f19ebff3d110f091425a3e6c6a90f",
+      "size_bytes": 14751
+    },
+    "challenge-ultra-review.csv": {
+      "raw_sha256": "ee4ea6727b35d3a3ca2ec479529abe71b001d641b6124fa908e4e57b915e2b27",
+      "canonical_sha256": "ee4ea6727b35d3a3ca2ec479529abe71b001d641b6124fa908e4e57b915e2b27",
+      "size_bytes": 24331
+    },
+    "checkpoint.py": {
+      "raw_sha256": "d4fccef390760b2c5271de4a2514e58a7a4018bc0da4d573b003a6936111425d",
+      "canonical_sha256": "d4fccef390760b2c5271de4a2514e58a7a4018bc0da4d573b003a6936111425d",
+      "size_bytes": 1521
+    },
+    "confirmation-ultra-review.csv": {
+      "raw_sha256": "883ece194dd5d552a8232cb7c924e00aedcf24351d1203010b691f94f1283932",
+      "canonical_sha256": "883ece194dd5d552a8232cb7c924e00aedcf24351d1203010b691f94f1283932",
+      "size_bytes": 37370
+    },
+    "qa_workbook.py": {
+      "raw_sha256": "740228eeb99ea41b93a29c1e903d0a5553592a6981dac0b102355bc8a2321cc0",
+      "canonical_sha256": "740228eeb99ea41b93a29c1e903d0a5553592a6981dac0b102355bc8a2321cc0",
+      "size_bytes": 23726
+    },
+    "review_data.json": {
+      "raw_sha256": "a31e7d81393e0dcae4008df46995a9f2c8df7152c9e35267f3b66b5d15eefbc8",
+      "canonical_sha256": "a31e7d81393e0dcae4008df46995a9f2c8df7152c9e35267f3b66b5d15eefbc8",
+      "size_bytes": 139732
+    },
+    "workbook_layout.json": {
+      "raw_sha256": "4bc33ddda492836c3f2434da30a4660e8c0c15fc08561addb78afc46d82a45bb",
+      "canonical_sha256": "4bc33ddda492836c3f2434da30a4660e8c0c15fc08561addb78afc46d82a45bb",
+      "size_bytes": 8733
+    },
+    "workbook_qa.json": {
+      "raw_sha256": "1112f608d997681b3078a2e1abdce87869b3825fe433c174315624e075c6be88",
+      "canonical_sha256": "e8641405a85152fb107172eeb32ab69de993165ca9b5aa82b4e20cd8e407050a",
+      "size_bytes": 2189
+    },
+    "workbook_timestamp_fidelity.json": {
+      "raw_sha256": "eced11c78403ef5771cbd5681fa19df05dea82e2dc465e1fca970c7851d5004d",
+      "canonical_sha256": "3a66867cab50f32fa3a435d8d8cf09edd4a9ecc307fbfc11816f3074eefcd671",
+      "size_bytes": 43
+    },
+    "workbook_visual_qa.json": {
+      "raw_sha256": "35b8e617a127b89e4e80aa39aa1194c80090c2271f61cd2d1d37a60fc0c39373",
+      "canonical_sha256": "251d4d1f16a0b429a9131e247cd0ed22ff12a2f49eb61070c24d7efbf71b51f6",
+      "size_bytes": 1313
+    },
+    "inputs/challenge_01.jsonl": {
+      "raw_sha256": "0cf594e8a5601301926274647f7f9105b3a4ef53c10d72bf73cedbf566f4bde7",
+      "canonical_sha256": "0cf594e8a5601301926274647f7f9105b3a4ef53c10d72bf73cedbf566f4bde7",
+      "size_bytes": 18030
+    },
+    "inputs/confirmation_01.jsonl": {
+      "raw_sha256": "975ac38e89dc3f159af6a028d090fc76477cbe311d7f247a545e02be3f020db2",
+      "canonical_sha256": "975ac38e89dc3f159af6a028d090fc76477cbe311d7f247a545e02be3f020db2",
+      "size_bytes": 15593
+    },
+    "inputs/confirmation_02.jsonl": {
+      "raw_sha256": "591370f56f65df05e561105660eeaed166e9fee36937aa2a5406c3de3e4fb700",
+      "canonical_sha256": "591370f56f65df05e561105660eeaed166e9fee36937aa2a5406c3de3e4fb700",
+      "size_bytes": 17482
+    },
+    "reviews/challenge_01.jsonl": {
+      "raw_sha256": "d75fc1f69e5691261e9307d937b52d5442f58a052e59329d4aff7cd732fef91f",
+      "canonical_sha256": "194be16cc37380638dad00a8e6c7b138135aff915c46b5a48827a65216ab3c53",
+      "size_bytes": 22555
+    },
+    "reviews/confirmation_01.jsonl": {
+      "raw_sha256": "fdffaf742848b8ca1fb97772f3e1380c3cc0c9aa531b327e9ca8a92f8d9137ef",
+      "canonical_sha256": "e9d59f352696dd124f1942d46f3d1389df2f6438ac2e6b267a1d3a5a3055f26e",
+      "size_bytes": 18972
+    },
+    "reviews/confirmation_02.jsonl": {
+      "raw_sha256": "9ec5da6d3576f6c75a9001b1293fca9ceb1bb18090817ed52bec7a6dc00f8198",
+      "canonical_sha256": "9ec5da6d3576f6c75a9001b1293fca9ceb1bb18090817ed52bec7a6dc00f8198",
+      "size_bytes": 17838
+    },
+    "reviews/challenge_01.COMPLETE.json": {
+      "raw_sha256": "a75355b72a464e2962726b27fbe912621cbb87e4b30a99cd02515a1b06a1df42",
+      "canonical_sha256": "a75355b72a464e2962726b27fbe912621cbb87e4b30a99cd02515a1b06a1df42",
+      "size_bytes": 557
+    },
+    "reviews/confirmation_01.COMPLETE.json": {
+      "raw_sha256": "f3ce1297391a17e377edcd696b4621e7eae26c726f5d649dcab38a6ad0883e77",
+      "canonical_sha256": "f3ce1297391a17e377edcd696b4621e7eae26c726f5d649dcab38a6ad0883e77",
+      "size_bytes": 532
+    },
+    "reviews/confirmation_02.COMPLETE.json": {
+      "raw_sha256": "1ff75e867c9ea3a50382fe695c8649c5fd02677ed1946098c30868a3f44a4163",
+      "canonical_sha256": "1ff75e867c9ea3a50382fe695c8649c5fd02677ed1946098c30868a3f44a4163",
+      "size_bytes": 393
+    },
+    "workbook_challenge_human.png": {
+      "raw_sha256": "2fef3e7bcdb0f1e4a47ece75bf5ca44db8173e343a41a418d7ea41b395a8abe5",
+      "canonical_sha256": "2fef3e7bcdb0f1e4a47ece75bf5ca44db8173e343a41a418d7ea41b395a8abe5",
+      "size_bytes": 8328
+    },
+    "workbook_challenge_labels.png": {
+      "raw_sha256": "ec2f1e5d31b35cfc3b4b19e31d502f9fa36a119ed8cb1afbcfec5ead95ec8931",
+      "canonical_sha256": "ec2f1e5d31b35cfc3b4b19e31d502f9fa36a119ed8cb1afbcfec5ead95ec8931",
+      "size_bytes": 34864
+    },
+    "workbook_challenge_provenance.png": {
+      "raw_sha256": "e2367d0a87ad5d66c4553e322d2bf6a3300f1fc364b019a3075854f249f748db",
+      "canonical_sha256": "e2367d0a87ad5d66c4553e322d2bf6a3300f1fc364b019a3075854f249f748db",
+      "size_bytes": 23731
+    },
+    "workbook_challenge_reasoning.png": {
+      "raw_sha256": "a000c390a349ed405d212ecc9c3b5b9ea4b63c86b63c438eea5e4cce6598e155",
+      "canonical_sha256": "a000c390a349ed405d212ecc9c3b5b9ea4b63c86b63c438eea5e4cce6598e155",
+      "size_bytes": 113337
+    },
+    "workbook_challenge_source.png": {
+      "raw_sha256": "98cdbc9c1c8af6ba41a4ce72de1b2f422fe1ab2cf84d1bf53f285444b56d82fb",
+      "canonical_sha256": "98cdbc9c1c8af6ba41a4ce72de1b2f422fe1ab2cf84d1bf53f285444b56d82fb",
+      "size_bytes": 80929
+    },
+    "workbook_confirmation_human.png": {
+      "raw_sha256": "71df2cdfc09ed294a3986fe24fc88cee587d668ae738785793c4d02dd2b2629b",
+      "canonical_sha256": "71df2cdfc09ed294a3986fe24fc88cee587d668ae738785793c4d02dd2b2629b",
+      "size_bytes": 8091
+    },
+    "workbook_confirmation_labels.png": {
+      "raw_sha256": "3844d27b53405482daef276fe1bd1a8a9d523c8c7bfbc2dad98cce730b14bd2a",
+      "canonical_sha256": "3844d27b53405482daef276fe1bd1a8a9d523c8c7bfbc2dad98cce730b14bd2a",
+      "size_bytes": 32142
+    },
+    "workbook_confirmation_provenance.png": {
+      "raw_sha256": "1cb6b2efa695e779eebbf3f6fce557ecdfc4559f293f32126ef7dea820b004bd",
+      "canonical_sha256": "1cb6b2efa695e779eebbf3f6fce557ecdfc4559f293f32126ef7dea820b004bd",
+      "size_bytes": 23220
+    },
+    "workbook_confirmation_reasoning.png": {
+      "raw_sha256": "8938350b6914dc84e979d65d18ccab972a2f5bee92b7eb55f1045ae9afafddf8",
+      "canonical_sha256": "8938350b6914dc84e979d65d18ccab972a2f5bee92b7eb55f1045ae9afafddf8",
+      "size_bytes": 102191
+    },
+    "workbook_confirmation_source.png": {
+      "raw_sha256": "d6ae8e4542489063aa23ab577ac58dd1654291eaf2c840a387d297ce6f724281",
+      "canonical_sha256": "d6ae8e4542489063aa23ab577ac58dd1654291eaf2c840a387d297ce6f724281",
+      "size_bytes": 81912
+    }
+  },
+  "source_bindings": {
+    "data/verified_challenge/SAMPLE.lock.json": {
+      "raw_sha256": "d0d38f5e363bf8fe426846b7a2a655cf0cbe2d9ffe26ba1307e6fea2a1122659",
+      "canonical_sha256": "c305a53fa20769d70c4f0420fb73ab5838bb02bc3f4baf154bb6e21d6677aaf4",
+      "size_bytes": 3172
+    },
+    "data/verified_challenge/examples.jsonl": {
+      "raw_sha256": "b6d21d33d995c397183a0526fa4de2a6c11dba1f681869be04b51c15bb04f6bd",
+      "canonical_sha256": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12",
+      "size_bytes": 22234
+    },
+    "data/verified_challenge/human_labels.csv": {
+      "raw_sha256": "c6acb148579edf674124d2c72cdac0dd6df9b87caac349d74b5b8ff188c032b4",
+      "canonical_sha256": "c6acb148579edf674124d2c72cdac0dd6df9b87caac349d74b5b8ff188c032b4",
+      "size_bytes": 15394
+    },
+    "data/verified_challenge/intents.snapshot.yaml": {
+      "raw_sha256": "ca23203ab3f7fb0741fe78eebddd35139f748307674f0ada4dfb6d23a8fc902a",
+      "canonical_sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+      "size_bytes": 28068
+    },
+    "data/verified_challenge/policy.snapshot.yaml": {
+      "raw_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "canonical_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "size_bytes": 2880
+    },
+    "data/verified_challenge/reasons.snapshot.yaml": {
+      "raw_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "canonical_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "size_bytes": 4963
+    },
+    "data/verified_confirmation/SAMPLE.lock.json": {
+      "raw_sha256": "7d6d24116af09ba4832ca613f2c73349547d90734c8dcbdd10c5bb0b1fa78173",
+      "canonical_sha256": "2e54dbeb36adcb97aeef3e44c9d5178e5622bd9546eabb2ed75caf8e312823b8",
+      "size_bytes": 2439
+    },
+    "data/verified_confirmation/examples.jsonl": {
+      "raw_sha256": "25b88adadf32e0c5c50ce4dd1e85ac3e373214eb75d5ee9663ee32727568ea40",
+      "canonical_sha256": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+      "size_bytes": 36213
+    },
+    "data/verified_confirmation/human_labels.csv": {
+      "raw_sha256": "194e6a55f06b9e02d89c20d8ba6e84b7f964bfbc553c4c9f12ea93ab854fa0e8",
+      "canonical_sha256": "194e6a55f06b9e02d89c20d8ba6e84b7f964bfbc553c4c9f12ea93ab854fa0e8",
+      "size_bytes": 23719
+    },
+    "data/verified_confirmation/intents.snapshot.yaml": {
+      "raw_sha256": "ca23203ab3f7fb0741fe78eebddd35139f748307674f0ada4dfb6d23a8fc902a",
+      "canonical_sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+      "size_bytes": 28068
+    },
+    "data/verified_confirmation/policy.snapshot.yaml": {
+      "raw_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "canonical_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "size_bytes": 2880
+    },
+    "data/verified_confirmation/reasons.snapshot.yaml": {
+      "raw_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "canonical_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "size_bytes": 4963
+    },
+    "output/validation/astra-high-280-v1/ACCEPTANCE.json": {
+      "raw_sha256": "02b639a3cba6c3677f6cf9be397bb72e0c114552f12125a58d5da320b8f6db7d",
+      "canonical_sha256": "3fd3023c253e19cbf4eab7aa4031d40757a101a6b3ce971048f4dea848643cd3",
+      "size_bytes": 21298
+    },
+    "output/validation/astra-high-280-v1/ANNOTATION_GUIDE.md": {
+      "raw_sha256": "dad77af23e8ffc60fda5cd9d4110847af7adc63914817aedf7b046dae8895e53",
+      "canonical_sha256": "dad77af23e8ffc60fda5cd9d4110847af7adc63914817aedf7b046dae8895e53",
+      "size_bytes": 11959
+    },
+    "output/validation/astra-high-280-v1/review_data.json": {
+      "raw_sha256": "12cd2cdeb568b27391aea76b130b2443997ab2713c214fc385b2161a01b11028",
+      "canonical_sha256": "12cd2cdeb568b27391aea76b130b2443997ab2713c214fc385b2161a01b11028",
+      "size_bytes": 283716
+    }
+  },
+  "final_workbook_sha256": "5de279c291893b41d8f662f156a0e8a0baabfc13d35184d3815aa5cb52af32b6"
+}

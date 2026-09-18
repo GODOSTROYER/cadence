@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-18T20:15:16.0572226Z",
+  "workbook": "Cadence-Astra-Ultra-Review.xlsx",
+  "workbook_sha256": "5de279c291893b41d8f662f156a0e8a0baabfc13d35184d3815aa5cb52af32b6",
+  "sheets_visually_reviewed": [
+    "Confirmation",
+    "Challenge"
+  ],
+  "rendered_views_per_sheet": [
+    "source",
+    "labels",
+    "reasoning",
+    "human",
+    "provenance"
+  ],
+  "render_source": "Saved XLSX reopened through Artifact Tool after exact timestamp serialization repair",
+  "max_row_height_points": {
+    "Confirmation": 198,
+    "Challenge": 123
+  },
+  "observations": [
+    "Prior and Ultra label pairs are legible.",
+    "AI disposition and human review status are separate.",
+    "Blank amber reviewer, review time, and notes fields are present.",
+    "AI model, ultra effort, reviewer, exact UTC timestamps, and false human verification are explicit.",
+    "No clipped headers or visible text truncation in inspected views."
+  ],
+  "builder_process_exit_code": 1,
+  "builder_process_note": "Artifact Tool runtime returned exit code 1 after printing the completion JSON and writing all artifacts. No exception was printed. Saved-file reimport and independent ZIP/XML QA establish deliverable content separately.",
+  "native_excel_tested": false
+}

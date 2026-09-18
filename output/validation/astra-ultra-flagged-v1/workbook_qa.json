@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-18T20:14:01.621514+00:00",
+  "method": "Read-only Python standard-library ZIP/XML inspection",
+  "scope": "Saved-file content and control serialization; no label judgments",
+  "workbook": "Cadence-Astra-Ultra-Review.xlsx",
+  "workbook_sha256": "5de279c291893b41d8f662f156a0e8a0baabfc13d35184d3815aa5cb52af32b6",
+  "review_data_sha256": "a31e7d81393e0dcae4008df46995a9f2c8df7152c9e35267f3b66b5d15eefbc8",
+  "manifest_sha256": "f2fd4740bde5c2668b5ece96446f660be5991a88f815fd291de7b3c7f9e8c0d9",
+  "records_checked": 55,
+  "record_cells_compared": 1870,
+  "source_fields_compared": 495,
+  "sheets": {
+    "Confirmation": {
+      "records": 35,
+      "data_range": "A9:AH43",
+      "table": "A8:AH43",
+      "freeze_anchor": "B9",
+      "status_validation": "F9:F43"
+    },
+    "Challenge": {
+      "records": 20,
+      "data_range": "A9:AH28",
+      "table": "A8:AH28",
+      "freeze_anchor": "B9",
+      "status_validation": "F9:F28"
+    }
+  },
+  "checks": {
+    "error_scan": 2414,
+    "filters": 4,
+    "formula_scan": 2414,
+    "freeze_panes": 10,
+    "headers": 68,
+    "human_editability": 2,
+    "human_initial_state": 495,
+    "human_instructions": 4,
+    "literal_cells": 2223,
+    "literal_string_types": 1276,
+    "native_booleans": 220,
+    "package_integrity": 3,
+    "provenance": 390,
+    "provenance_banner": 2,
+    "record_cell_equality": 1870,
+    "record_coverage": 116,
+    "sheet_structure": 1,
+    "sheet_titles": 2,
+    "source_binding": 495,
+    "source_binding_presence": 55,
+    "source_citation": 2,
+    "tables": 10,
+    "validation_coverage": 55,
+    "validations": 8,
+    "visibility": 141
+  },
+  "worksheet_formula_count": 0,
+  "worksheet_error_count": 0,
+  "input_hashes_verified": {
+    "inputs/confirmation_01.jsonl": "975ac38e89dc3f159af6a028d090fc76477cbe311d7f247a545e02be3f020db2",
+    "inputs/confirmation_02.jsonl": "591370f56f65df05e561105660eeaed166e9fee36937aa2a5406c3de3e4fb700",
+    "inputs/challenge_01.jsonl": "0cf594e8a5601301926274647f7f9105b3a4ef53c10d72bf73cedbf566f4bde7"
+  },
+  "native_excel_tested": false,
+  "errors": []
+}

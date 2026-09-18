@@ -1,0 +1,4 @@
+__pycache__/
+*.xlsx.inspect.ndjson
+workbook_inspection.txt
+workbook_reopen.txt

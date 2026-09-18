@@ -1,0 +1,33 @@
+{
+  "saved_at": "2026-09-18T20:20:24.908698+00:00",
+  "review_source": "ai",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "human_validation_complete": false,
+  "candidate_inference_run": false,
+  "progress": [
+    {
+      "batch": "confirmation_01",
+      "expected": 18,
+      "saved": 18,
+      "complete": true
+    },
+    {
+      "batch": "confirmation_02",
+      "expected": 17,
+      "saved": 17,
+      "complete": true
+    },
+    {
+      "batch": "challenge_01",
+      "expected": 20,
+      "saved": 20,
+      "complete": true
+    }
+  ],
+  "saved_rows": 55,
+  "consolidated": true,
+  "workbook": true,
+  "acceptance": true,
+  "resume": "Read STATE.md and output/analysis/ACTIVE_LABELING_STATE.md. Preserve existing review rows and original 280-case packet."
+}

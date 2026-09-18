@@ -1,0 +1,405 @@
+{
+  "sheets": [
+    {
+      "sheet": "Confirmation",
+      "partition": "confirmation",
+      "count": 35,
+      "table": "A8:AH43",
+      "first": 9,
+      "last": 43,
+      "freeze": "B9",
+      "maxRowHeight": 198,
+      "columns": [
+        {
+          "column": "A",
+          "header": "Case ID",
+          "width": 17
+        },
+        {
+          "column": "B",
+          "header": "Source text",
+          "width": 68
+        },
+        {
+          "column": "C",
+          "header": "Scenario setup",
+          "width": 43
+        },
+        {
+          "column": "D",
+          "header": "AI disposition",
+          "width": 22
+        },
+        {
+          "column": "E",
+          "header": "Changed label fields",
+          "width": 27
+        },
+        {
+          "column": "F",
+          "header": "Human review status",
+          "width": 24
+        },
+        {
+          "column": "G",
+          "header": "Prior intent",
+          "width": 31
+        },
+        {
+          "column": "H",
+          "header": "Ultra intent",
+          "width": 31
+        },
+        {
+          "column": "I",
+          "header": "Prior secondary intent",
+          "width": 31
+        },
+        {
+          "column": "J",
+          "header": "Ultra secondary intent",
+          "width": 31
+        },
+        {
+          "column": "K",
+          "header": "Prior should escalate",
+          "width": 20
+        },
+        {
+          "column": "L",
+          "header": "Ultra should escalate",
+          "width": 20
+        },
+        {
+          "column": "M",
+          "header": "Prior escalation reason",
+          "width": 29
+        },
+        {
+          "column": "N",
+          "header": "Ultra escalation reason",
+          "width": 29
+        },
+        {
+          "column": "O",
+          "header": "Prior sentiment",
+          "width": 18
+        },
+        {
+          "column": "P",
+          "header": "Ultra sentiment",
+          "width": 18
+        },
+        {
+          "column": "Q",
+          "header": "Ultra rationale",
+          "width": 85
+        },
+        {
+          "column": "R",
+          "header": "Question resolution",
+          "width": 85
+        },
+        {
+          "column": "S",
+          "header": "Remaining question",
+          "width": 70
+        },
+        {
+          "column": "T",
+          "header": "Requires human decision",
+          "width": 23
+        },
+        {
+          "column": "U",
+          "header": "Ultra confidence",
+          "width": 18
+        },
+        {
+          "column": "V",
+          "header": "Flagged question",
+          "width": 90
+        },
+        {
+          "column": "W",
+          "header": "Human reviewer",
+          "width": 26
+        },
+        {
+          "column": "X",
+          "header": "Human reviewed at",
+          "width": 27
+        },
+        {
+          "column": "Y",
+          "header": "Human notes",
+          "width": 60
+        },
+        {
+          "column": "Z",
+          "header": "Prior rationale",
+          "width": 75
+        },
+        {
+          "column": "AA",
+          "header": "Prior confidence",
+          "width": 19
+        },
+        {
+          "column": "AB",
+          "header": "Acceptance review findings",
+          "width": 120
+        },
+        {
+          "column": "AC",
+          "header": "Review source",
+          "width": 18
+        },
+        {
+          "column": "AD",
+          "header": "Model",
+          "width": 25
+        },
+        {
+          "column": "AE",
+          "header": "Reasoning effort",
+          "width": 20
+        },
+        {
+          "column": "AF",
+          "header": "AI reviewer",
+          "width": 38
+        },
+        {
+          "column": "AG",
+          "header": "AI reviewed at (UTC)",
+          "width": 39
+        },
+        {
+          "column": "AH",
+          "header": "Human verified",
+          "width": 19
+        }
+      ]
+    },
+    {
+      "sheet": "Challenge",
+      "partition": "challenge",
+      "count": 20,
+      "table": "A8:AH28",
+      "first": 9,
+      "last": 28,
+      "freeze": "B9",
+      "maxRowHeight": 123,
+      "columns": [
+        {
+          "column": "A",
+          "header": "Case ID",
+          "width": 17
+        },
+        {
+          "column": "B",
+          "header": "Source text",
+          "width": 68
+        },
+        {
+          "column": "C",
+          "header": "Scenario setup",
+          "width": 43
+        },
+        {
+          "column": "D",
+          "header": "AI disposition",
+          "width": 22
+        },
+        {
+          "column": "E",
+          "header": "Changed label fields",
+          "width": 27
+        },
+        {
+          "column": "F",
+          "header": "Human review status",
+          "width": 24
+        },
+        {
+          "column": "G",
+          "header": "Prior intent",
+          "width": 31
+        },
+        {
+          "column": "H",
+          "header": "Ultra intent",
+          "width": 31
+        },
+        {
+          "column": "I",
+          "header": "Prior secondary intent",
+          "width": 31
+        },
+        {
+          "column": "J",
+          "header": "Ultra secondary intent",
+          "width": 31
+        },
+        {
+          "column": "K",
+          "header": "Prior should escalate",
+          "width": 20
+        },
+        {
+          "column": "L",
+          "header": "Ultra should escalate",
+          "width": 20
+        },
+        {
+          "column": "M",
+          "header": "Prior escalation reason",
+          "width": 29
+        },
+        {
+          "column": "N",
+          "header": "Ultra escalation reason",
+          "width": 29
+        },
+        {
+          "column": "O",
+          "header": "Prior sentiment",
+          "width": 18
+        },
+        {
+          "column": "P",
+          "header": "Ultra sentiment",
+          "width": 18
+        },
+        {
+          "column": "Q",
+          "header": "Ultra rationale",
+          "width": 85
+        },
+        {
+          "column": "R",
+          "header": "Question resolution",
+          "width": 85
+        },
+        {
+          "column": "S",
+          "header": "Remaining question",
+          "width": 70
+        },
+        {
+          "column": "T",
+          "header": "Requires human decision",
+          "width": 23
+        },
+        {
+          "column": "U",
+          "header": "Ultra confidence",
+          "width": 18
+        },
+        {
+          "column": "V",
+          "header": "Flagged question",
+          "width": 90
+        },
+        {
+          "column": "W",
+          "header": "Human reviewer",
+          "width": 26
+        },
+        {
+          "column": "X",
+          "header": "Human reviewed at",
+          "width": 27
+        },
+        {
+          "column": "Y",
+          "header": "Human notes",
+          "width": 60
+        },
+        {
+          "column": "Z",
+          "header": "Prior rationale",
+          "width": 75
+        },
+        {
+          "column": "AA",
+          "header": "Prior confidence",
+          "width": 19
+        },
+        {
+          "column": "AB",
+          "header": "Acceptance review findings",
+          "width": 120
+        },
+        {
+          "column": "AC",
+          "header": "Review source",
+          "width": 18
+        },
+        {
+          "column": "AD",
+          "header": "Model",
+          "width": 25
+        },
+        {
+          "column": "AE",
+          "header": "Reasoning effort",
+          "width": 20
+        },
+        {
+          "column": "AF",
+          "header": "AI reviewer",
+          "width": 38
+        },
+        {
+          "column": "AG",
+          "header": "AI reviewed at (UTC)",
+          "width": 39
+        },
+        {
+          "column": "AH",
+          "header": "Human verified",
+          "width": 19
+        }
+      ]
+    }
+  ],
+  "total": 55,
+  "headers": [
+    "Case ID",
+    "Source text",
+    "Scenario setup",
+    "AI disposition",
+    "Changed label fields",
+    "Human review status",
+    "Prior intent",
+    "Ultra intent",
+    "Prior secondary intent",
+    "Ultra secondary intent",
+    "Prior should escalate",
+    "Ultra should escalate",
+    "Prior escalation reason",
+    "Ultra escalation reason",
+    "Prior sentiment",
+    "Ultra sentiment",
+    "Ultra rationale",
+    "Question resolution",
+    "Remaining question",
+    "Requires human decision",
+    "Ultra confidence",
+    "Flagged question",
+    "Human reviewer",
+    "Human reviewed at",
+    "Human notes",
+    "Prior rationale",
+    "Prior confidence",
+    "Acceptance review findings",
+    "Review source",
+    "Model",
+    "Reasoning effort",
+    "AI reviewer",
+    "AI reviewed at (UTC)",
+    "Human verified"
+  ]
+}

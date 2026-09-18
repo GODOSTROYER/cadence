@@ -96,3 +96,11 @@ Root will join original text/setup by ID; workbook status starts Pending and hum
 - `STATE.json` now records all six completed batches, both accepted final semantic reviews, the workbook and final acceptance record.
 - Current next step: stage this checkpoint, refreshed STATE.json and ACCEPTANCE.json; commit/push directly to main; verify CI and deployment; deliver the workbook. The resulting Git commit/log is the publication receipt.
 - No inference, human sign-off, submission-form action, or reset-credit redemption occurred.
+
+## Active follow-up: Astra Ultra AI review of 55 flagged cases
+
+User requested Astra Ultra to perform the review and clearly label it AI. New package: `output/validation/astra-ultra-flagged-v1/`. Original accepted 280-case package stays immutable. See new MANIFEST.json, REVIEW_GUIDE.md and STATE.md. Three explicit Astra Ultra agents will review 18 + 17 confirmation and 20 challenge cases. Save at most every five rows. Human validation remains pending; no candidate inference.
+
+Ultra follow-up now has all55 AI reviews and valid completion records, frozen JSON/CSVs, and a checked workbook. Counts:33 confirmed,4 revised,18 needs_discussion;11 cases propose label changes, including7 with unresolved questions. Separate Astra Ultra semantic acceptance found no blocking defects. Workbook SHA256 `5de279c291893b41d8f662f156a0e8a0baabfc13d35184d3815aa5cb52af32b6`;55records/1,870cells/495sourcefields verified, both sheets visually checked. Old submission integrity passes1,669 bindings. Final package acceptance and commit/push/CI/deployment remain; consult newfolder STATE.md for precise resume steps. User-requested review source is AI; all human validation remains pending.
+
+Final Ultra package acceptance is now complete and frozen. Root verified50 working/staged bindings (35 artifacts+15 sources). Only staging acceptance/latestcheckpoints, commit/push, CI/deployment verification and delivery remain. All55 reviewed rows are AI-only;37 flags resolved by AI and18 explicit questions remain. If Git log shows this follow-up already published, resume verification/delivery only, not labeling.

@@ -1,0 +1,30 @@
+{
+  "reviewer": "/root/ultra_confirmation_01",
+  "review_source": "ai",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "reviewed_ids": [
+    "v5_006",
+    "v5_016",
+    "v5_019",
+    "v5_020",
+    "v5_029",
+    "v5_049",
+    "v5_057",
+    "v5_059",
+    "v5_060",
+    "v5_072",
+    "v5_074",
+    "v5_080",
+    "v5_083",
+    "v5_084",
+    "v5_087",
+    "v5_089",
+    "v5_091",
+    "v5_093"
+  ],
+  "reviewed_count": 18,
+  "completed_at": "2026-09-18T20:10:30Z",
+  "individually_reviewed": true,
+  "human_verified": false
+}

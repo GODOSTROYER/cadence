@@ -1,0 +1,32 @@
+{
+  "reviewer": "/root/ultra_challenge_01",
+  "review_source": "ai",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "reviewed_ids": [
+    "vc_002",
+    "vc_003",
+    "vc_008",
+    "vc_018",
+    "vc_027",
+    "vc_028",
+    "vc_042",
+    "vc_045",
+    "vc_046",
+    "vc_049",
+    "vc_052",
+    "vc_055",
+    "vc_061",
+    "vc_062",
+    "vc_063",
+    "vc_064",
+    "vc_065",
+    "vc_070",
+    "vc_071",
+    "vc_077"
+  ],
+  "reviewed_count": 20,
+  "completed_at": "2026-09-18T20:09:07Z",
+  "individually_reviewed": true,
+  "human_verified": false
+}

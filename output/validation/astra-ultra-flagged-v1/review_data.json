@@ -1,0 +1,2572 @@
+{
+  "metadata": {
+    "review_source": "ai",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "ultra",
+    "human_validation_complete": false,
+    "candidate_inference_run": false,
+    "method": "Additional AI review of flagged Astra-high proposals; prior labels and questions were visible.",
+    "original_280_case_package_unchanged": true,
+    "summary": {
+      "total": 55,
+      "confirmation": 35,
+      "challenge": 20,
+      "dispositions": {
+        "revised": 4,
+        "confirmed": 33,
+        "needs_discussion": 18
+      },
+      "cases_with_label_changes": 11,
+      "requires_human_decision": 18
+    },
+    "review_bindings": {
+      "reviews/confirmation_01.jsonl": "e9d59f352696dd124f1942d46f3d1389df2f6438ac2e6b267a1d3a5a3055f26e",
+      "reviews/confirmation_01.COMPLETE.json": "f3ce1297391a17e377edcd696b4621e7eae26c726f5d649dcab38a6ad0883e77",
+      "reviews/confirmation_02.jsonl": "9ec5da6d3576f6c75a9001b1293fca9ceb1bb18090817ed52bec7a6dc00f8198",
+      "reviews/confirmation_02.COMPLETE.json": "1ff75e867c9ea3a50382fe695c8649c5fd02677ed1946098c30868a3f44a4163",
+      "reviews/challenge_01.jsonl": "194be16cc37380638dad00a8e6c7b138135aff915c46b5a48827a65216ab3c53",
+      "reviews/challenge_01.COMPLETE.json": "a75355b72a464e2962726b27fbe912621cbb87e4b30a99cd02515a1b06a1df42"
+    }
+  },
+  "confirmation": [
+    {
+      "id": "v5_006",
+      "partition": "confirmation",
+      "text": "is there a way to refresh my daily mixes? they are literally always exactly the same songs, it's essentially just a normal playlist and i can't even shuffle",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playlist_or_library",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Requests refreshing repetitive Daily Mix content and describes its playback controls as part of that experience; library guidance or clarification is eligible.",
+      "prior_confidence": "high",
+      "flagged_question": "Acceptance review suggests needs_human_attention = true. Inability to shuffle may be a separately expressed control malfunction, beyond repetitive Daily Mix recommendations. The draft folds both into one issue without flagging this boundary. Does the inability to shuffle warrant secondary_intent=playback_or_app_bug, or does it merely elaborate the Daily Mix design complaint?",
+      "acceptance_review_findings": [
+        {
+          "id": "v5_006",
+          "severity": "clarification",
+          "field": "needs_human_attention",
+          "current_value": false,
+          "proposed_value": true,
+          "rationale": "Inability to shuffle may be a separately expressed control malfunction, beyond repetitive Daily Mix recommendations. The draft folds both into one issue without flagging this boundary.",
+          "question_for_human": "Does the inability to shuffle warrant secondary_intent=playback_or_app_bug, or does it merely elaborate the Daily Mix design complaint?"
+        }
+      ],
+      "ultra_review": {
+        "id": "v5_006",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:03:06Z",
+        "human_verified": false,
+        "disposition": "revised",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": "playback_or_app_bug",
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [
+          "secondary_intent"
+        ],
+        "rationale": "Refreshing repetitive Daily Mix recommendations is the principal request. The separate inability to use shuffle describes a control problem, eligible for technical clarification alongside library guidance.",
+        "question_resolution": "Add playback_or_app_bug as secondary: the independently stated shuffle limitation is not a synonym for repetitive recommendations. No Free-tier limit or merely desired new control is stated. The acceptance-review boundary is resolved by retaining both expressed issues; human adjudication is not required.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_016",
+      "partition": "confirmation",
+      "text": ". I need help. I paid and got confirmed as student acct eligible, but I cannot login. Help please you do not have a help desk!!",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "login_or_password",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "needs_account_lookup",
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Cannot log in after student approval; payment is background rather than a stated charge dispute. The appeal for a help desk is treated conservatively as a human-support request.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does the complaint about an absent help desk constitute an explicit request for human support, or is ordinary login clarification sufficient?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_016",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:03:06Z",
+        "human_verified": false,
+        "disposition": "revised",
+        "labels": {
+          "intent": "login_or_password",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [
+          "should_escalate",
+          "escalation_reason_code"
+        ],
+        "rationale": "The expressed problem is inability to log in after Student eligibility confirmation. Payment is background, without a disputed charge or missing paid entitlement. No recovery failure requiring intervention is supplied.",
+        "question_resolution": "The complaint that a help desk is absent, combined with generic requests for help, does not explicitly request a human support contact under the frozen trigger. Ordinary login clarification is eligible. Do not infer account recovery or a billing dispute solely from the login failure and prior payment.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_019",
+      "partition": "confirmation",
+      "text": "Hey @user, loyal Spotify subscriber here. What’s the latest on support for Apple Watch? I don’t want to jump to Apple Music!",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Requests Apple Watch support information. Expresses reluctance to switch services without affirmatively announcing a departure, so public feature guidance is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should reluctance to switch to a named competitor count as an implicit churn threat despite the locally negated intention?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_019",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:03:06Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The customer asks about Apple Watch support and states a preference to remain with Spotify. Public feature information is eligible when supported by approved current sources.",
+        "question_resolution": "A locally negated desire to switch is neither an explicit intention nor an explicit conditional threat to leave. Naming a competitor does not override that negation, so the churn trigger is absent.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_020",
+      "partition": "confirmation",
+      "text": "sudsenly for the last week Im getting this notification. Premium account holder Android and card is valid and has been charged. <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "other",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "ambiguous_or_media_only",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Reports an unspecified notification with a link. Premium status and an existing charge do not reveal the notification or establish a disputed transaction; unavailable essential media requires handoff.",
+      "prior_confidence": "medium",
+      "flagged_question": "The unavailable notification may identify a billing or app issue; can its contents be supplied before refining the intent?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_020",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:03:06Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "ambiguous_or_media_only",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The notification itself is unavailable and no error, entitlement failure or charge dispute is described in text. A normal charge mentioned as context does not establish the issue; the essential missing media requires an honest handoff.",
+        "question_resolution": "The supplied packet does not contain the notification, so its contents cannot be supplied or inferred in this review. Retain other with ambiguous_or_media_only on the available evidence. The underlying issue remains factually unresolved and may change intent or the priority reason once the notification is provided.",
+        "confidence": "high",
+        "requires_human_decision": true,
+        "remaining_question": "What is the exact notification text, and does it report a billing, entitlement, account-security or app problem?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_029",
+      "partition": "confirmation",
+      "text": "where can i see my info about my address?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "other",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Requests navigation to stored address information without asking for disclosure or modification by support. Public settings guidance or a clarifying question is eligible; the taxonomy lacks a generic account-profile category.",
+      "prior_confidence": "medium",
+      "flagged_question": "Which intent should cover a generic request to locate stored address information when no plan, login, or account-country issue is stated?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_029",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:03:06Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "This is a generic self-service navigation request for address information, without a stated login, country, plan or identity-verification problem. Account mentions alone do not require escalation.",
+        "question_resolution": "Use other as the residual category because the frozen taxonomy has no general profile-information intent. Do not infer a Family-plan address, account-country change or login identifier. Supported settings guidance or clarification about the kind of address is eligible.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_049",
+      "partition": "confirmation",
+      "text": "Hey how do I make my muisc public",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playlist_or_library",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Interpreted as a public library or playlist visibility question, with creator publishing also plausible. A targeted clarification is eligible because the requested visibility action is recognizable and no material risk is stated.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does making music public refer to playlist visibility or publishing the customer's own recordings?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_049",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:04:30Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The request concerns making music public, but it does not identify a playlist, listening activity or an original release. A targeted clarification is useful and no material-risk trigger is stated.",
+        "question_resolution": "The text cannot distinguish listener-library visibility from publishing the customer's own recordings. Retain playlist_or_library only as a provisional proposal; creator publishing would instead be metadata_or_artist_issue. These are alternative meanings, not two separately expressed issues, so do not add a secondary intent.",
+        "confidence": "low",
+        "requires_human_decision": true,
+        "remaining_question": "Does the customer want to make a playlist or listening library visible, or publish original recordings?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_057",
+      "partition": "confirmation",
+      "text": "I had to cancel the debit card on file for my premium account. How do I update the information for my new debit card so that my premium service is not interrupted? I do not have an email from you guys in my inbox.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Requests proactive instructions to replace a canceled payment card. No failed transaction or inaccessible payment settings are reported, so public guidance is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should a proactive payment-method how-to be subscription_or_plan or billing_or_charge when no transaction or payment-details failure is reported?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_057",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:04:30Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The customer wants to update the card used for a continuing Premium subscription before service is interrupted. No attempted payment, update failure, disputed charge or inaccessible account is reported.",
+        "question_resolution": "Use subscription_or_plan for this proactive subscription-administration how-to. Billing_or_charge requires the stated transaction or payment-details failure described by the frozen money boundary; cancelling a card at the bank does not itself report such a failure. The unspecified absent email does not establish a failed login or reset.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_059",
+      "partition": "confirmation",
+      "text": "Wow! Thank you. I appreciate it. I thought I was going to have to catch you guys outside... of the courthouse when I sue you. Such a relief. <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "other",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "positive"
+      },
+      "prior_rationale": "Grateful closure describes litigation as a past avoided possibility; no active legal allegation or remaining support request is expressed.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does the clearly relieved, counterfactual reference to suing qualify as resolved closure under the local negation rule?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_059",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:04:30Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "positive"
+        },
+        "changed_fields": [],
+        "rationale": "Gratitude and explicit relief frame litigation as an avoided possibility. The text contains no continuing legal allegation, current threat or unresolved support request.",
+        "question_resolution": "Yes. Read the lawsuit reference within its past, relieved framing instead of treating its legal vocabulary as an active allegation. This is resolved social closure eligible for a bounded acknowledgment, excluded from useful support resolution.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_060",
+      "partition": "confirmation",
+      "text": ".@user @user WHAT IS GOING ON IN YOUR OFFICES? Please explain to me why you have not fixed my NOI problem.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "other",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "ambiguous_or_media_only",
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Demands correction of an unexplained acronym-based problem. Its subject and material risks cannot be established from the message alone; honest handoff is required.",
+      "prior_confidence": "medium",
+      "flagged_question": "Is the unexplained acronym enough to establish a legal issue, or should it remain uninterpretable without expanding it by assumption?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_060",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:04:30Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "ambiguous_or_media_only",
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The problem is identified only by an unexplained acronym. Neither a technical issue nor a legal allegation can be established; capitalization and a demand for a fix do not establish abuse or repeated unsuccessful support contacts.",
+        "question_resolution": "The acronym alone is insufficient to establish a legal issue. Do not expand it using outside knowledge or unavailable history. The supplied text remains uninterpretable, so retain the ambiguous_or_media_only handoff while keeping the missing factual context visible.",
+        "confidence": "high",
+        "requires_human_decision": true,
+        "remaining_question": "What does NOI denote in this message, and what unresolved event or problem is the customer reporting?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_072",
+      "partition": "confirmation",
+      "text": "Have no playlists or premium for 7 days before buying it monthly. What do I do? I can’t even find how to get premium. Help?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": "playlist_or_library",
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Asks how to obtain Premium and also reports having no playlists. Payment and re-login are unstated, so clarify trial status and library context without assuming a wrong account.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does this unclear trial description establish vanished Premium and playlists, or should plan acquisition remain primary without any re-login evidence?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_072",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:04:30Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": "playlist_or_library",
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The explicit actionable request is how to obtain Premium; the absence of playlists is an additional expressed library issue. The unclear seven-day reference establishes neither payment nor account loss.",
+        "question_resolution": "Keep plan acquisition primary. The message does not say that Premium and playlists vanished after re-login, so the wrong-account rule cannot be invoked. Clarify trial or subscription status and the playlist concern without inferring a completed purchase or account-specific recovery.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_074",
+      "partition": "confirmation",
+      "text": "Hi, several years Premium Plan subscriber:-) I upgrade to family plan, enter wrong name on family plan account... what to do?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "needs_account_lookup",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Seeks correction of the name entered for Family-plan enrollment. This concerns plan identity information rather than an explicitly public display name and requires account intervention.",
+      "prior_confidence": "medium",
+      "flagged_question": "Is the incorrectly entered Family-plan name an identity/enrollment field requiring intervention, or a public display name eligible for self-service guidance?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_074",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:06:10Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "needs_account_lookup",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The incorrect name is tied to Family-plan enrollment, but the field is not identified as a public display name. Possible identity or enrollment correction creates material account-intervention uncertainty, which must fail closed.",
+        "question_resolution": "The text does not establish whether this is an enrollment identity field or an editable public visible name. Keep the plan intent and account-lookup handoff provisionally. Public display-name guidance would be eligible only if that is the field actually meant; the supplied evidence does not support asserting it.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Which name field was entered incorrectly: Family enrollment or verification identity information, or only the public profile display name?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_080",
+      "partition": "confirmation",
+      "text": "how do i follow my daughter on spotify who doesnt have a facebook account but has a a spotify account?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "other",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Requests a public how-to for following another listener without social-network integration. No malfunction, recovery or plan issue is stated; guidance is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Which intent should cover following another listener: other for this uncatalogued social how-to, or playlist_or_library by extension?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_080",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:06:10Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "Following another listener without Facebook is a social-navigation how-to. The customer describes neither a playlist or saved-library operation nor a malfunction or account-access failure.",
+        "question_resolution": "Use other for this uncatalogued social how-to. Extending playlist_or_library to following people would add a rule absent from the frozen taxonomy. A supported public following procedure or a necessary clarification is eligible without private account lookup.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_083",
+      "partition": "confirmation",
+      "text": "why cant I search inside my playlist?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playback_or_app_bug",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Reports inability to search within a playlist; treat as a search-function problem while clarifying whether the control is missing or malfunctioning.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does inability to search within a playlist establish broken search, or is this a playlist how-to without a reported malfunction?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_083",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:06:10Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "playback_or_app_bug",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The customer reports inability to use search. The playlist identifies where that function is unavailable rather than a separately expressed library-management issue.",
+        "question_resolution": "Keep playback_or_app_bug as the best label for the reported search inability under the explicit search-function boundary. This does not establish a verified software defect: supported clarification may determine whether the control is missing, unavailable in that context or malfunctioning. Prior successful use is not required to recognize the technical symptom.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_084",
+      "partition": "confirmation",
+      "text": "Hi Spotify, I have an old PS4 account which got banned still linked to my Spotify account, how do I unlink them?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "login_or_password",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Requests unlinking an old console account. A public linked-account removal how-to is eligible; a console ban alone does not prove Spotify-side recovery is needed.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should a console-account unlinking how-to use login_or_password for account access management or playback_or_app_bug for device integration?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_084",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:06:10Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "login_or_password",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The requested action is removing the association with an inaccessible external account. No playback or device-connection malfunction, failed unlinking attempt or Spotify-side recovery requirement is supplied.",
+        "question_resolution": "Prefer login_or_password for management of an account-access association, rather than playback_or_app_bug solely because the linked service is a console. The external ban does not establish that a supported self-service unlinking path is unavailable. Public guidance or clarification is eligible; intervention must not be presumed.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_087",
+      "partition": "confirmation",
+      "text": "Hi would you be kind check my payment C__credit_card__ I still waiting for premium member.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "billing_or_charge",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "billing_dispute",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Requests a payment check because Premium has not arrived; the stated transaction and missing entitlement require a human with billing access.",
+      "prior_confidence": "high",
+      "flagged_question": "Acceptance review suggests needs_human_attention = true. The source includes a redacted payment-card marker. The draft considers only missing paid entitlement, but the policy prioritizes exposed credentials over money and does not say whether payment-card exposure falls within that security trigger. Does the payment-card marker establish exposed credentials for account_security, or should this remain billing_dispute? Retain billing intent either way unless a separate account-compromise issue is established.",
+      "acceptance_review_findings": [
+        {
+          "id": "v5_087",
+          "severity": "clarification",
+          "field": "needs_human_attention",
+          "current_value": false,
+          "proposed_value": true,
+          "rationale": "The source includes a redacted payment-card marker. The draft considers only missing paid entitlement, but the policy prioritizes exposed credentials over money and does not say whether payment-card exposure falls within that security trigger.",
+          "question_for_human": "Does the payment-card marker establish exposed credentials for account_security, or should this remain billing_dispute? Retain billing intent either way unless a separate account-compromise issue is established."
+        }
+      ],
+      "ultra_review": {
+        "id": "v5_087",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:06:10Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "billing_or_charge",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "account_security",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "escalation_reason_code"
+        ],
+        "rationale": "The payment check and missing Premium establish a billing issue. The redacted card marker also presents a concrete possibility of exposed payment credentials; the completeness of that exposure and the policy's treatment of it are unknown.",
+        "question_resolution": "The marker alone does not prove that usable credentials were exposed, and no account takeover is stated. Nevertheless, material security-risk uncertainty must fail closed. Provisionally prioritize account_security over billing_dispute while retaining billing intent and human handoff. The acceptance-review suggestion to retain human attention is warranted because the frozen policy does not define whether this card marker satisfies its exposed-credentials trigger.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Does the redacted payment-card marker represent exposed usable payment credentials, and does the frozen security trigger include that exposure rather than only login credentials?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_089",
+      "partition": "confirmation",
+      "text": "k but can u please let me go back a track in my daily mix on my phone lock screen???",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Requests previous-track capability on the phone lock screen while using a personalized mix; no previously working control is reported broken, so feature feedback is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should requested lock-screen playback capability remain feature feedback, or does the Daily Mix behavior boundary require playlist_or_library?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_089",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:07:30Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The customer asks for previous-track capability on the lock screen. The named mix supplies playback context; its recommendations, contents and refresh behavior are not challenged.",
+        "question_resolution": "Keep feature_request_or_feedback because the request is for a control capability without a stated malfunction. The Daily Mix reference does not convert every surrounding feature request into playlist_or_library. No separate library issue or explicit repeated unsuccessful support contact is established.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_091",
+      "partition": "confirmation",
+      "text": "Waiting on to update the New Music Friday playlist before the gym opens... <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playlist_or_library",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Comments on an expected playlist refresh; guidance or clarification about playlist updating is eligible without account intervention.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does waiting for an editorial playlist refresh belong to playlist_or_library behavior or feature_request_or_feedback for editorial expectations?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_091",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:07:30Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The comment concerns refreshing the contents of an existing playlist. It states no desired change to editorial selection, categorization, interface or platform functionality.",
+        "question_resolution": "Playlist_or_library is the better fit for an expected playlist refresh. The editorial-placement rule concerns wishes about placement or categorization, not every reference to an editorial playlist. Do not infer a missed update or malfunction; supported refresh information or clarification is eligible.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_093",
+      "partition": "confirmation",
+      "text": "Why does twitter keep stopping my 😡",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playback_or_app_bug",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Describes another app repeatedly stopping an unspecified activity. A technical interruption is recognizable enough to ask what stops, without inferring the missing object.",
+      "prior_confidence": "low",
+      "flagged_question": "Is this truncated cross-app interruption report sufficiently recognizable for technical clarification, or too incomplete and therefore other with ambiguous_or_media_only handoff?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_093",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_01",
+        "reviewed_at": "2026-09-18T20:07:30Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "ambiguous_or_media_only",
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [
+          "intent",
+          "should_escalate",
+          "escalation_reason_code"
+        ],
+        "rationale": "The sentence leaves the stopped object or activity unspecified and names only Twitter. Assigning a playback issue would require inventing music, an affected player or another omitted technical symptom.",
+        "question_resolution": "On the supplied text, the missing object prevents a sufficiently interpretable in-scope technical issue, so propose other with ambiguous_or_media_only rather than automatic playback clarification. A specific out_of_scope conclusion is also unsupported because a cross-app playback problem remains possible. The factual referent must remain an explicit question.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "What is Twitter stopping, and which application, playback activity or other function is affected?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_094",
+      "partition": "confirmation",
+      "text": "Zara Larsson's \"I would like\" is all about sex but is in \"Really Fun Kids Songs\" album! It's also in the \"Super Simple Songs\" radio!!!",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "metadata_or_artist_issue",
+        "secondary_intent": "playlist_or_library",
+        "should_escalate": true,
+        "escalation_reason_code": "legal_or_safety",
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Reports sexual-themed material in a children-oriented album and radio recommendations. Whether this constitutes a safety allegation remains unresolved; policy v2 requires fail-closed human routing for the unknown material safety risk.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does sexual-themed material in children-oriented selections constitute a safety allegation or only content and recommendation feedback? Human routing applies pending an explicit safety-risk determination.\nThe original Astra-high annotator revised this proposal after acceptance review (routing). The original draft is preserved. Does this report constitute a safety allegation or only curation feedback? Pending that determination, apply fail-closed human routing; if safety is explicitly ruled out, automatic handling can be restored.",
+      "acceptance_review_findings": [
+        {
+          "id": "v5_094",
+          "severity": "correction",
+          "field": "routing",
+          "current_value": {
+            "should_escalate": false,
+            "escalation_reason_code": null
+          },
+          "proposed_value": {
+            "should_escalate": true,
+            "escalation_reason_code": "legal_or_safety"
+          },
+          "rationale": "The draft itself leaves unresolved whether sexual-themed material in children's selections is a safety allegation. Under policy v2, an unknown material-risk assessment fails closed; automatic routing is inconsistent while that safety boundary remains unresolved.",
+          "question_for_human": "Does this report constitute a safety allegation or only curation feedback? Pending that determination, apply fail-closed human routing; if safety is explicitly ruled out, automatic handling can be restored.",
+          "resolution": {
+            "status": "resolved",
+            "revision_file": "drafts/v5_094.revision_01.json",
+            "revision_canonical_sha256": "a00de0ad189ef036c754f040b6e437cb4ce131718fbc0d0805104b7f536ed656",
+            "verified_value": {
+              "should_escalate": true,
+              "escalation_reason_code": "legal_or_safety"
+            },
+            "reviewed_at": "2026-09-18T17:35:28.0357160Z",
+            "rationale": "The named high-effort revision now routes to a human while the material safety assessment remains unresolved, consistent with policy v2. Its notes and validation question explicitly retain human adjudication. The original routing contradiction is fixed.",
+            "human_adjudication_status": "pending"
+          }
+        }
+      ],
+      "ultra_review": {
+        "id": "v5_094",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:02:42Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "metadata_or_artist_issue",
+          "secondary_intent": "playlist_or_library",
+          "should_escalate": true,
+          "escalation_reason_code": "legal_or_safety",
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The reported song-to-album association is a content-metadata issue, with a separately reported radio-selection issue. Sexual-themed content in explicitly child-oriented selections leaves a material safety boundary unresolved, so human routing remains required.",
+        "question_resolution": "The source supports inappropriate-content placement, but the frozen policy does not decide whether this child-directed sexual-content report itself constitutes a safety allegation. The acceptance correction correctly applies fail-closed routing while that policy question remains open; no actual injury or exposure is inferred.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Does reporting sexual-themed music in explicitly child-oriented album and radio selections qualify as a safety allegation under policy v2, or solely as content-placement feedback?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_098",
+      "partition": "confirmation",
+      "text": "I have premium and whenever I play a album/playlist it shuffles instead of going through the songs as normal.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "A Premium listener reports shuffle behavior instead of expected ordered playback. Apply the shuffle-limit entitlement boundary with no payment dispute; clarify settings and account status through supported guidance.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does unexpected shuffle for a Premium listener satisfy the shuffle-only plan boundary, or indicate an ordinary playback setting/bug without a stated inability to disable shuffle?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_098",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:02:42Z",
+        "human_verified": false,
+        "disposition": "revised",
+        "labels": {
+          "intent": "playback_or_app_bug",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "intent"
+        ],
+        "rationale": "The stated problem is unexpected playback order for a Premium listener. The message does not establish an enforced Free-tier shuffle limit, missing entitlement, or payment problem; shuffle-setting clarification is eligible.",
+        "question_resolution": "Unexpected shuffle does not by itself satisfy the shuffle-only Free-tier boundary. Use the playback issue category and clarify whether shuffle is enabled or cannot be disabled, without presuming a confirmed app defect.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_101",
+      "partition": "confirmation",
+      "text": "asks me to buy this type of subscription, but forgets to add a “buy” or “subscribe” button. I wonder how much they could have earned if they did add the button 🤔 <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playback_or_app_bug",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Subscription purchase interface appears to omit its action button; device and purchase-path clarification can support troubleshooting without assuming a charge.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does the missing purchase control describe a malfunction or a subscription navigation question?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_101",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:02:42Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "playback_or_app_bug",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The complaint identifies an expected purchase control missing from a subscription prompt. This describes an interface failure; the purchase path can be clarified without assuming a payment attempt or transaction.",
+        "question_resolution": "Use the malfunction category because the complaint is about an absent control in a presented purchase flow, rather than a general request for upgrade instructions. The URL is supplementary to an intelligible text report.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_114",
+      "partition": "confirmation",
+      "text": "I just discovered Lorne Balfe @user ....but why no bio on #Spotify ? <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "metadata_or_artist_issue",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "An existing artist profile lacks biographical metadata. Treating this as profile information permits public guidance, although third-party missing biography is not an explicit taxonomy example.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should a listener's report of a missing artist biography fall under metadata, or does missing content extend to profile biographies?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_114",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:02:42Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "metadata_or_artist_issue",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The listener identifies a missing descriptive field on an existing artist profile. Artist-profile metadata is the closest taxonomy fit, and the question can receive public guidance without account intervention.",
+        "question_resolution": "A biography is profile metadata, whereas the availability category concerns access to artists' recordings, releases, podcasts, or the service. The artist is discoverable here; no unavailable recording is reported.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_129",
+      "partition": "confirmation",
+      "text": "wish your app would work without paying for premium. Just tryna listen to the front bottoms",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Frames difficulty listening as a limitation of using the service without Premium. Public Free-tier guidance and clarification are eligible; a separate malfunction is not established.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does this express Free-tier playback restrictions, or a general app malfunction whose details are omitted?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_129",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:02:42Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The customer frames the listening obstacle as requiring Premium while describing no particular crash, error, or unavailable song. A Free-tier capability clarification is supported and no actual payment is reported.",
+        "question_resolution": "The explicit contrast between listening and paying for Premium makes a plan restriction the best-supported provisional issue. A concrete symptom remains suitable for clarification; the vague phrase about the app working does not establish a separate malfunction.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_132",
+      "partition": "confirmation",
+      "text": "Are you f_cking kidding me? Still no option to skip explicit songs? My kids just learned a few new words. Not cool.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "angry"
+      },
+      "prior_rationale": "Objects to absent explicit-content controls after children heard profanity. No legal or safety allegation, staff insult, or churn threat is stated; exasperated profanity alone does not require escalation.",
+      "prior_confidence": "high",
+      "flagged_question": "Acceptance review suggests needs_human_attention = true. The message reports children's actual exposure to explicit lyrics, beyond a general request for filtering. The guide does not define when such exposure becomes a safety allegation, but the draft dismisses safety with high confidence and no adjudication question. Should reported profanity exposure for children remain feature feedback, or trigger legal_or_safety? If that material-risk assessment remains unresolved, policy v2 requires fail-closed human routing.",
+      "acceptance_review_findings": [
+        {
+          "id": "v5_132",
+          "severity": "clarification",
+          "field": "needs_human_attention",
+          "current_value": false,
+          "proposed_value": true,
+          "rationale": "The message reports children's actual exposure to explicit lyrics, beyond a general request for filtering. The guide does not define when such exposure becomes a safety allegation, but the draft dismisses safety with high confidence and no adjudication question.",
+          "question_for_human": "Should reported profanity exposure for children remain feature feedback, or trigger legal_or_safety? If that material-risk assessment remains unresolved, policy v2 requires fail-closed human routing."
+        }
+      ],
+      "ultra_review": {
+        "id": "v5_132",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:03:47Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "legal_or_safety",
+          "sentiment": "angry"
+        },
+        "changed_fields": [
+          "should_escalate",
+          "escalation_reason_code"
+        ],
+        "rationale": "The requested change is an explicit-content skipping control, accompanied by reported children's exposure to profanity. The policy does not resolve whether this report constitutes a safety allegation; that material uncertainty requires fail-closed routing.",
+        "question_resolution": "The acceptance suggestion is warranted: actual exposure is reported, and the original high-confidence dismissal of safety exceeds the supplied policy. Preserve the feature intent, flag human adjudication, and escalate pending that decision. Exasperated profanity is not itself a directed insult, and repeated support contact is not stated.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Does reported children's exposure to profanity, without another stated harm, qualify as a safety allegation under policy v2 or remain explicit-content feature feedback?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_134",
+      "partition": "confirmation",
+      "text": "how do I turn off Behind The Lyrics. It’s really annoying",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Wants to disable an unwanted lyrics-related interface feature. Public settings guidance is eligible; the taxonomy lacks an explicit category for general feature-settings how-tos.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should a request to disable an unwanted interface feature use feedback when no malfunction is reported?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_134",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:03:47Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The customer dislikes a displayed feature and asks to disable it, with no reported malfunction or incorrect lyrics. The wanted-versus-broken boundary favors feature feedback, and supported settings guidance is eligible.",
+        "question_resolution": "Yes. Within this taxonomy, disabling an unwanted interface feature fits feature feedback better than a bug or a metadata problem. It is a how-to request, not evidence that the feature is broken.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_151",
+      "partition": "confirmation",
+      "text": "When is holiday music going to be up? I've been waiting fro christmas playlists since August xD",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "content_or_availability",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Asks when seasonal curated content will be available; public catalogue guidance or clarification is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should availability of seasonal playlists be catalogue availability or playlist/library intent?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_151",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:03:47Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "content_or_availability",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The request concerns when seasonal music selections will be published or available. It identifies neither missing items from the customer's own library nor a playlist-management problem; public discovery guidance or clarification is eligible.",
+        "question_resolution": "Use availability for the expected release of seasonal selections. Mentioning playlists does not make this an own-library issue, and no personalized playlist behavior is described. The playful waiting remark does not establish frustration.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_152",
+      "partition": "confirmation",
+      "text": "my wife and I both have individual premium accounts. How can I merge them into one premium family account?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Seeks to place two existing subscribers on one Family plan; public transition guidance is eligible without assuming actual account-data consolidation.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does combining these subscriptions mean Family enrollment or literal account merging requiring access intervention?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_152",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:03:47Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The explicit objective is to move two Individual Premium subscribers onto a Family plan. No combined login, account closure, data transfer, or recovery is requested separately, so public plan-transition guidance is supported.",
+        "question_resolution": "In context, 'merge' describes the intended Family subscription arrangement. The text does not establish literal consolidation of account identities or libraries requiring access intervention; a bounded plan explanation may clarify that distinction.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_157",
+      "partition": "confirmation",
+      "text": "heeeyyyyy just wondering if I can ever save over 10k songs. I'm deleting gold to add more gold. If I could fix anything I'd fix that. Your biggest fan.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "positive"
+      },
+      "prior_rationale": "Wants a higher saved-song capacity and praises the service; treats the stated limit as a requested product change, with public current-limit guidance eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should a request to raise saved-library capacity be feature feedback or playlist/library guidance?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_157",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:03:47Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "positive"
+        },
+        "changed_fields": [],
+        "rationale": "The customer wants saved-song capacity increased and offers affectionate product feedback. Deleting items to accommodate the reported cap is described as a consequence of the limit, not an unexplained library failure.",
+        "question_resolution": "Use feature feedback because the requested outcome is a higher product limit, rather than managing or recovering the existing library. Present-day guidance would need current approved limit information; the historical limit is not treated as a verified current fact.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_177",
+      "partition": "confirmation",
+      "text": "I just signed up for Premium Family, entered the wrong Zip code. Changed in FB, but did change in Spotify. How do I fix this?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Asks how to correct a postal-code entry during Family setup; wording about synchronization is unclear, but plan-address guidance or clarification is eligible without assuming verification intervention.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does this concern an editable profile postal code or a Family verification record requiring account-specific correction?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_177",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:05:19Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The customer asks how to correct a postal-code entry associated with Family signup. The text does not report failed verification, an inaccessible field, or a request for staff to change a restricted record; a public how-to or field-location clarification is eligible.",
+        "question_resolution": "The source does not establish which postal-code field is involved. That missing UI detail can be requested through a supported clarification; it does not itself establish account-specific verification or intervention. Do not infer a verification failure from the Family reference or silently repair the ambiguous wording about Facebook synchronization.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_178",
+      "partition": "confirmation",
+      "text": "shes harassing me thru my damn spotify. can u plz help me change my password i cant remember it and its registered thru an old email address... i cant even listen to my music w/out her changing every song to some sappy breakup song. help!!!",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "account_hacked_or_security",
+        "secondary_intent": "login_or_password",
+        "should_escalate": true,
+        "escalation_reason_code": "legal_or_safety",
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Describes another person controlling playback as harassment, plus a forgotten password and registration under an old email address whose accessibility is unstated; safety priority overrides security and recovery reasons for human handling.",
+      "prior_confidence": "high",
+      "flagged_question": "The original Astra-high annotator revised this proposal after acceptance review (notes). The original draft is preserved. Please remove the unsupported claim of inaccessible email; does any supplied evidence establish email access status?",
+      "acceptance_review_findings": [
+        {
+          "id": "v5_178",
+          "severity": "correction",
+          "field": "notes",
+          "current_value": "Describes another person controlling playback as harassment, plus forgotten credentials and an inaccessible old email; safety priority overrides security and recovery reasons for human handling.",
+          "proposed_value": "Describes another person controlling playback as harassment, plus a forgotten password and registration under an old email address whose accessibility is unstated; safety priority overrides security and recovery reasons for human handling.",
+          "rationale": "The draft adds that the old email is inaccessible; the source establishes only that it is old. Preserve unknown email access rather than adding a recovery fact. Intent and safety escalation remain appropriate.",
+          "question_for_human": "Please remove the unsupported claim of inaccessible email; does any supplied evidence establish email access status?",
+          "resolution_status": "resolved",
+          "resolved_by_revision": "drafts/v5_178.revision_01.json",
+          "resolution_rationale": "The preserved Astra-high revision removes the unsupported accessibility claim and leaves email access unknown. Only the rationale and actual revision timestamp changed; the original intent, secondary intent and safety routing remain intact."
+        }
+      ],
+      "ultra_review": {
+        "id": "v5_178",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:05:19Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "account_hacked_or_security",
+          "secondary_intent": "login_or_password",
+          "should_escalate": true,
+          "escalation_reason_code": "legal_or_safety",
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "A third party controls playback and is expressly described as harassing the customer. Forgotten credentials form a second access issue. Safety takes priority over security and account recovery, requiring a human response.",
+        "question_resolution": "No supplied evidence establishes whether the old email remains accessible. The accepted rationale has already corrected the unsupported inaccessibility claim; retain email access as unknown. That correction does not change the supported security intent, secondary access intent, or safety-priority routing.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_184",
+      "partition": "confirmation",
+      "text": "how do i get on rap caviar",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Most naturally asks about editorial playlist placement, categorized as feedback; a clarification can distinguish placement from finding or following the playlist.",
+      "prior_confidence": "medium",
+      "flagged_question": "Is the user seeking editorial placement for music or listener access to an existing playlist?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_184",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:05:19Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The wording most naturally suggests editorial playlist placement, which has an explicit feature-feedback boundary. However, no artist role, music submission, or listener action is supplied to conclusively distinguish placement from accessing the playlist.",
+        "question_resolution": "Editorial placement is the best-supported proposal, but listener access cannot be ruled out from this short request. Preserve an explicit intent question. A clarification can distinguish the two without account access, and this non-risk intent ambiguity does not require escalation.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Is the intended issue editorial placement of the customer's music on RapCaviar, or finding/opening/following RapCaviar as a listener?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_191",
+      "partition": "confirmation",
+      "text": "yall really not gonna let me stream on multiple devices at the same time smh",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Objects to a simultaneous-streaming restriction, most naturally a plan capability question; public device and subscription-limit guidance is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should opposition to a simultaneous-streaming limit be plan guidance or a request to change product behavior?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_191",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:05:19Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The customer objects to a stated simultaneous-streaming restriction. The issue is a service capability or allowance, without an identified device malfunction, actual payment dispute, or separate feature-design request.",
+        "question_resolution": "Use plan guidance for the complained-of streaming allowance. Wanting an allowance to be less restrictive does not by itself displace the subscription category with feature feedback; approved public capability information or plan clarification can address the issue.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_193",
+      "partition": "confirmation",
+      "text": "FYI ALL USERS: Watch out for these kind of emails. These are PHISHING emails and not from Spotify themselves. <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "other",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Shares a general phishing-awareness warning without reporting account access, exposed credentials or requesting attachment verification; a bounded acknowledgment or public safety guidance is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does the taxonomy place general phishing awareness in other, given that its security intent definition requires third-party account access?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_193",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:05:19Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "This is a public phishing-awareness warning, with no reported account intrusion, exposed credentials, personal compromise, or request to inspect the linked material. A bounded acknowledgment or approved general guidance is eligible.",
+        "question_resolution": "Yes. General awareness fits other under the supplied taxonomy because its security intent requires a third party in the account. Mentioning phishing does not establish a personal security incident, and the intelligible warning does not depend on unavailable linked media.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_195",
+      "partition": "confirmation",
+      "text": "when I try to play 'Come and get your love' by redbone it instead plays 'I will survive'...",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "metadata_or_artist_issue",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "A selected catalogue track produces a different identifiable recording, suggesting wrong content mapping; clarification can distinguish that from queue or playback behavior.",
+      "prior_confidence": "medium",
+      "flagged_question": "Is the selected track linked to incorrect audio, or is playback unexpectedly advancing to another track?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_195",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:06:16Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "metadata_or_artist_issue",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "A named selection produces another identifiable recording, making wrong content mapping a plausible primary issue. The message does not establish whether the original title remains displayed or the player changes tracks, so a playback explanation remains possible.",
+        "question_resolution": "The source cannot distinguish incorrect linked audio from unexpected selection or queue behavior. Retain metadata as the best-supported proposal and ask which track title the player displays when the different recording plays. This is technical intent uncertainty eligible for clarification, with no material-risk trigger.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "When the different recording plays, does the player still identify the originally selected track, or has it switched to the other track?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "v5_200",
+      "partition": "confirmation",
+      "text": "Wtf ? I’m a paid (read: no ads) subscriber. Why are my searches still triggering connections to ad networks. Not the first time I’ve noticed this crap. <url>",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Objects to advertising-network connections during searches rather than reporting a charge or an ad playing; privacy-related product feedback permits explanation or clarification, with no legal allegation or directed abuse stated.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should unexpected advertising-network traffic for a paid subscriber be feature feedback or a subscription entitlement issue? No actual ad playback or disputed transaction is stated.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "v5_200",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_confirmation_02",
+        "reviewed_at": "2026-09-18T20:06:16Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The objection concerns advertising-network connections during search. It reports no audible ad, disputed charge, exposed credentials, or legal allegation; public explanation or clarification of product behavior is eligible.",
+        "question_resolution": "Use feature feedback for the objection to network behavior. A paid-subscription reference alone does not establish a billing problem, and the Premium-ad boundary requires an ad playing, which is not reported here. Repeated observation is not repeated unsuccessful support contact; the profanity criticizes behavior rather than insulting staff or the brand.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    }
+  ],
+  "challenge": [
+    {
+      "id": "vc_002",
+      "partition": "challenge",
+      "text": "Oops. The screenshot I posted publicly included the sign-in details I use for Spotify. I've removed the picture, but people had already opened it. What should happen next?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "account_hacked_or_security",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "account_security",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Publicly exposed sign-in credentials create an explicit security risk even without confirmed intrusion; human security handling is required.",
+      "prior_confidence": "high",
+      "flagged_question": "Acceptance review suggests needs_human_attention = true. Exposed credentials unambiguously require account_security routing, but the intent definition describes third-party account access, which is not established here. The draft silently extends that intent boundary with high confidence. Flag the taxonomy gap without changing the required security handoff. Does account_hacked_or_security explicitly include exposed credentials without evidence of intrusion, or should this be other with account_security routing? Please resolve the intent boundary.",
+      "acceptance_review_findings": [
+        {
+          "id": "vc_002",
+          "severity": "clarification",
+          "field": "needs_human_attention",
+          "current_value": false,
+          "proposed_value": true,
+          "rationale": "Exposed credentials unambiguously require account_security routing, but the intent definition describes third-party account access, which is not established here. The draft silently extends that intent boundary with high confidence. Flag the taxonomy gap without changing the required security handoff.",
+          "question_for_human": "Does account_hacked_or_security explicitly include exposed credentials without evidence of intrusion, or should this be other with account_security routing? Please resolve the intent boundary.",
+          "resolution_status": "unresolved_human_clarification"
+        }
+      ],
+      "ultra_review": {
+        "id": "vc_002",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:04:32Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "account_hacked_or_security",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "account_security",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "Public exposure of usable sign-in details independently requires security handling. Retaining the security intent is a provisional closest fit: the frozen intent definition describes third-party account access, which this message does not establish.",
+        "question_resolution": "The acceptance-review concern is valid. Exposed credentials explicitly trigger account_security routing, but the supplied taxonomy does not explicitly extend the security intent to exposure without intrusion. Preserve the required handoff and flag the intent mapping for a human policy decision.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Should exposed credentials without evidence of account intrusion use account_hacked_or_security, or other with account_security routing?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_003",
+      "partition": "challenge",
+      "text": "A listener keeps renaming a shared playlist to describe the route I walk home and says they'll be waiting there. This is how they're intimidating me after I blocked them elsewhere.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playlist_or_library",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "legal_or_safety",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Shared-playlist renaming is being used for a reported stalking threat; safety priority requires human handling.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should intimidation through shared-playlist edits be playlist_or_library, or other because safety reporting is the central issue?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_003",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:04:32Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "legal_or_safety",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The described product issue is malicious alteration of a shared playlist. The accompanying route-home intimidation is a reported personal safety threat and has routing priority.",
+        "question_resolution": "Keep playlist_or_library: playlist changes are a concrete, described issue even when used to intimidate. The independent legal_or_safety route captures the dominant risk; the absence of a dedicated safety intent does not require discarding the playlist issue into other.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_008",
+      "partition": "challenge",
+      "text": "That's my last month with Spotify. I've lined up Deezer for payday because this queue behaviour has worn me down; I'm taking my listening there.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "high_frustration_or_churn",
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Queue dissatisfaction is expressed without a specific malfunction, alongside explicit departure to a competitor; churn requires human handling.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does the vague queue-behaviour complaint support feature_request_or_feedback, or should this be other because no specific issue is described?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_008",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:04:32Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "high_frustration_or_churn",
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The customer criticizes queue behavior without alleging a malfunction, and explicitly plans to move to a competitor. That is feature dissatisfaction plus a definite churn trigger.",
+        "question_resolution": "Feature_request_or_feedback is supported by the broad unwanted-behavior/UI-feedback boundary, which includes general app criticism without a detailed defect. The queue is identified as the source of dissatisfaction, so this is more than an issue-free churn statement. Do not invent a playback malfunction.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_018",
+      "partition": "challenge",
+      "text": "I'm searching for a song whose title is 'Steal My Password', not reporting anything about my account. While you're here, how can I put a song I find into a new playlist?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "content_or_availability",
+        "secondary_intent": "playlist_or_library",
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "The first request is catalogue discovery and the second is playlist creation; a song title and explicit negation provide no account-security evidence.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should a song-search request with no claim of missing availability use content_or_availability or other?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_018",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:04:32Z",
+        "human_verified": false,
+        "disposition": "revised",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "intent",
+          "secondary_intent"
+        ],
+        "rationale": "The explicit assistance request is how to add a found song to a new playlist. Merely searching for a named song does not assert missing catalogue availability or a broken search function. The attributed song title and local denial provide no security evidence.",
+        "question_resolution": "A song-search statement alone does not meet the missing/unavailable-content definition. Here it is context for the concrete playlist how-to, so playlist_or_library is primary and no separately expressed taxonomy-supported second issue is present. Public playlist guidance is eligible.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_027",
+      "partition": "challenge",
+      "text": "There are two different names for me on Spotify and I want the old one changed. I'm unsure whether the name I'm seeing is the login identifier or the public profile name.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "login_or_password",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "needs_account_lookup",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "A requested identity-name change may concern the login identifier rather than the public name; unresolved intervention risk is conservatively handed off.",
+      "prior_confidence": "medium",
+      "flagged_question": "Does the unknown public-name versus login-identifier target require fail-closed handoff, or may a safe clarification establish eligibility before escalation?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_027",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:04:32Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "login_or_password",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "needs_account_lookup",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The requested name change may concern the login identifier, and username questions belong to login_or_password. The customer explicitly cannot distinguish this intervention case from an eligible public display-name change.",
+        "question_resolution": "The frozen risk-uncertainty boundary requires fail-closed handling because the requested target may require username intervention. The necessary-clarification allowance does not override unknown material account-intervention risk. Retain needs_account_lookup; a human can establish whether only the public name needs changing.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_028",
+      "partition": "challenge",
+      "text": "When I open my account it looks different from yesterday. A few settings seem changed, but I don't know whether that's the update or someone else's doing.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "account_hacked_or_security",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "account_security",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Unexpected account-setting changes are explicitly suspected to involve another person; possible compromise warrants a human even though an update is another explanation.",
+      "prior_confidence": "medium",
+      "flagged_question": "Is speculative third-party involvement with unexplained settings changes enough for the security intent, while security routing remains required for the possible compromise?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_028",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:05:23Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "account_hacked_or_security",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "account_security",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "Unexpected settings changes are explicitly linked to possible activity by another person. This is a suspected account intrusion, although an update remains an alternative explanation; no claim of confirmed compromise is needed to route the allegation safely.",
+        "question_resolution": "Yes. The text alleges possible third-party account activity through unexplained changes, which supports the security issue category provisionally without asserting that intrusion occurred. The policy expressly routes possible compromise to account_security. This differs from preventive advice or a security-themed title, where no account intrusion is alleged.",
+        "confidence": "medium",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_042",
+      "partition": "challenge",
+      "text": "Where would I look for the current public explanation of crossfade? I'm making a party playlist on my laptop and want to understand the setting before changing it.",
+      "scenario_setup": {
+        "inject": "provider_error"
+      },
+      "prior_ai_proposal": {
+        "intent": "playback_or_app_bug",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "low_confidence",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "A general playback-setting explanation is requested. Playback is the nearest topic despite no malfunction; the supplied provider error requires handoff.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should general playback-setting guidance use playback_or_app_bug when no malfunction or requested feature change is present?",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_042",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:05:23Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "low_confidence",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "intent"
+        ],
+        "rationale": "The customer requests an explanation of an existing playback setting and reports no malfunction, feature change, or playlist-management problem. Other is the best-supported fallback under the narrow intent definitions, but ordinary playback how-tos lack an explicit category. The supplied provider error prevents reliable supported handling.",
+        "question_resolution": "Do not silently extend playback_or_app_bug to all playback-related questions: its definition requires misbehavior. Propose other pending an explicit taxonomy decision for non-malfunctioning playback how-tos. The supplied operational provider failure meets the guide's low_confidence condition and requires an honest handoff.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Should general playback-setting explanations with no malfunction or requested feature change map to other, or is playback_or_app_bug intended to include public playback how-tos?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_045",
+      "partition": "challenge",
+      "text": "I'm about to travel and would like the currently supported steps for choosing what is available offline on my Android tablet. I haven't tried changing any settings yet.",
+      "scenario_setup": {
+        "inject": "expired_knowledge"
+      },
+      "prior_ai_proposal": {
+        "intent": "download_or_offline",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "low_confidence",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Current offline-selection instructions would ordinarily be eligible. Supplied expired knowledge prevents approved current guidance and requires an honest handoff.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm low_confidence is the intended operational-failure reason for expired knowledge; the policy does not explicitly map knowledge freshness failures to a reason code.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_045",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:05:23Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "download_or_offline",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "low_confidence",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The customer wants current instructions for selecting offline content. The injected expired-knowledge state prevents satisfying the requirement to use approved current sources, although the request itself is a normal offline how-to.",
+        "question_resolution": "Confirm low_confidence. The guide explicitly permits that code for a supplied operational failure that prevents reliable handling; expired knowledge qualifies here because the requested current steps cannot be supported. This is not inferred uncertainty about intent and does not make offline guidance intrinsically out of scope.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_046",
+      "partition": "challenge",
+      "text": "Is there an official guide explaining the listening options on a Spotify account made for a child? I'm exploring the service and have no existing account issue.",
+      "scenario_setup": {
+        "inject": "missing_knowledge"
+      },
+      "prior_ai_proposal": {
+        "intent": "subscription_or_plan",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "low_confidence",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "The request concerns public child-account listening options, without account intervention. Supplied missing knowledge prevents supported current guidance.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm low_confidence is the intended operational-failure reason for missing knowledge rather than out_of_scope.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_046",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:05:23Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "subscription_or_plan",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "low_confidence",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The request concerns public listening options for a child-oriented account offering, with no actual account problem or intervention request. The injected missing-knowledge condition prevents supported current guidance.",
+        "question_resolution": "Confirm low_confidence rather than out_of_scope: the subject is a supported kind of public account/plan information, but the supplied operational knowledge failure prevents answering reliably. The guide's stated operational-failure condition covers this case without needing a separate code for each knowledge failure.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_049",
+      "partition": "challenge",
+      "text": "Before I make my playlist public, can you show me where Spotify explains what other listeners will be able to see? This is a general privacy-settings question.",
+      "scenario_setup": {
+        "inject": "retrieval_error"
+      },
+      "prior_ai_proposal": {
+        "intent": "playlist_or_library",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "low_confidence",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Public playlist visibility guidance is requested without a compromise allegation. The retrieval failure prevents access to approved current information.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm low_confidence is the intended operational-failure reason for retrieval failure when current public guidance cannot be supported.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_049",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:05:23Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "low_confidence",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The issue is a public-playlist visibility how-to. No compromise or exposed credentials are alleged. The injected retrieval error prevents obtaining the approved current information needed to answer.",
+        "question_resolution": "Confirm low_confidence: this is an explicit operational retrieval failure that prevents reliable current-source guidance. The privacy subject alone does not create an account_security trigger, and a retrieval failure does not make the underlying playlist question out of scope.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_052",
+      "partition": "challenge",
+      "text": "Nothing has been stolen and my account details are unchanged. A friend had a security scare, so I'd like to read Spotify's general advice on protecting my own login.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "login_or_password",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "General login-protection advice is requested; compromise of this account is explicitly denied. Public guidance is eligible, although preventive security advice lacks a precise intent category.",
+      "prior_confidence": "medium",
+      "flagged_question": "Should preventive login-security guidance without any compromise use login_or_password or account_hacked_or_security? The latter definition requires a third party in the account.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_052",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:06:11Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "intent"
+        ],
+        "rationale": "This is preventive login-protection advice, with compromise of the customer's account explicitly denied. No access, reset, username, or account-change problem is described. Neither the security nor login intent definition explicitly covers this advice, so other is a provisional fallback.",
+        "question_resolution": "Account_hacked_or_security would imply an intrusion issue absent here. Login_or_password is a plausible topical extension, but its frozen definition also does not explicitly include preventive security education. Propose other while flagging that taxonomy gap; approved public advice remains eligible without escalation.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Should preventive login-security education without compromise or an access problem use login_or_password, other, or an explicitly broadened account_hacked_or_security category?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_055",
+      "partition": "challenge",
+      "text": "Bloody hell, that tiny queue button is hard to spot on this screen. I like the app otherwise; could you tell me where to find the queue on an Android phone?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "feature_request_or_feedback",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "frustrated"
+      },
+      "prior_rationale": "Queue-button visibility criticism accompanies a navigation question, with no malfunction. Incidental profanity is not directed abuse; public interface guidance remains eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm feature_request_or_feedback for a navigation how-to accompanied by a UI visibility complaint, rather than playback_or_app_bug for queue controls.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_055",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:06:11Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "feature_request_or_feedback",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "frustrated"
+        },
+        "changed_fields": [],
+        "rationale": "The concrete complaint is a small, hard-to-find queue control, accompanied by a request for navigation help. That is UI visibility feedback without a reported playback malfunction. The incidental exclamation is not abuse directed at staff or the brand.",
+        "question_resolution": "Confirm feature_request_or_feedback because the UI-design complaint is explicitly covered by that category. The related navigation question is not a separate playback bug. Mild frustration and incidental profanity do not meet the escalation triggers; supported public navigation guidance is eligible.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_061",
+      "partition": "challenge",
+      "text": "YouTube Music won't sync the downloads on my Pixel. I don't use Spotify at all; can this support account repair the YouTube library for me?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "download_or_offline",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "out_of_scope",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "The described failure is download synchronization in another service. Repairing that service is outside Spotify support, requiring an honest handoff.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm retaining the specific technical intent for another service, rather than labeling all explicitly non-Spotify requests as off-topic other.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_061",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:06:11Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "download_or_offline",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "out_of_scope",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The described issue is download synchronization on a phone, clearly attributed to another service. The request to repair that external service cannot be fulfilled by this support context.",
+        "question_resolution": "Retain download_or_offline: the ordered downloads boundary classifies the concrete technical issue before the catch-all other boundary. Intent and routing are independent, so out_of_scope records the explicitly external service without erasing the recognizable download problem.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_062",
+      "partition": "challenge",
+      "text": "The songs I purchased from Apple's iTunes Store are missing from my Apple Music library. This isn't a Spotify subscription, but your account came up when I searched for music help.",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playlist_or_library",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "out_of_scope",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Previously purchased music is missing from the customer's library in another service. No payment dispute is expressed; the third-party library issue is outside Spotify support.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm playlist_or_library for an explicitly third-party library issue, rather than the off-topic other category.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_062",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:06:11Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "playlist_or_library",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "out_of_scope",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "Previously acquired tracks are missing from the customer's library in a named external service. The purchase reference identifies the music's origin; no charge, failed payment, price, or refund issue is asserted.",
+        "question_resolution": "Retain playlist_or_library under the own-library boundary. That specific described issue takes precedence over catch-all off-topic classification, while out_of_scope captures the external service. Merely identifying tracks as purchased does not convert a library disappearance into an expressed billing dispute.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_063",
+      "partition": "challenge",
+      "text": "Desde ayer la música se detiene cuando bloqueo la pantalla del teléfono. ¿Podrían explicarme qué información necesitan para revisar el problema?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "non_english",
+        "secondary_intent": "playback_or_app_bug",
+        "should_escalate": true,
+        "escalation_reason_code": "out_of_scope",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Spanish text describes playback stopping when the phone screen locks. Language takes primary-intent precedence; an honest language-support handoff is required under the unsupported-language boundary.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm Spanish is unsupported in this evaluation; the policy requires handoff for unsupported languages but does not enumerate supported languages.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_063",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:06:11Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "non_english",
+          "secondary_intent": "playback_or_app_bug",
+          "should_escalate": true,
+          "escalation_reason_code": "out_of_scope",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The Spanish message describes music stopping when the phone screen locks and asks what diagnostic information is needed. The language-first intent and playback secondary are clear, but the supplied policy does not establish whether Spanish is supported. The existing handoff is retained provisionally.",
+        "question_resolution": "Spanish cannot be confirmed unsupported from this packet. Non_english is an intent rule, not an English-only capability declaration. If Spanish is supported, this recognizable technical issue is eligible for a useful clarification; if unsupported, out_of_scope is appropriate. Do not present the provisional handoff as a resolved language-policy requirement.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Is Spanish supported in this evaluation? This determines whether the current out_of_scope handoff should remain or change to eligible automatic clarification."
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_064",
+      "partition": "challenge",
+      "text": "मेरे फ़ोन में डाउनलोड किए हुए गाने इंटरनेट बंद करते ही नहीं चलते। कृपया बताइए कि मुझे कौन सी जानकारी देनी चाहिए।",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "non_english",
+        "secondary_intent": "download_or_offline",
+        "should_escalate": true,
+        "escalation_reason_code": "out_of_scope",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Hindi text describes downloaded tracks failing without internet. Language is primary and offline playback is secondary; use an honest handoff under the unsupported-language boundary.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm Hindi is unsupported in this evaluation; the policy does not enumerate supported languages.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_064",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:07:14Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "non_english",
+          "secondary_intent": "download_or_offline",
+          "should_escalate": true,
+          "escalation_reason_code": "out_of_scope",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The Hindi message says downloaded songs stop working when internet access is turned off and asks what information to provide. The language-first primary and offline secondary are clear. Hindi support capability is absent from the supplied policy, so the prior handoff remains provisional.",
+        "question_resolution": "Hindi cannot be confirmed unsupported merely because non_english is the primary intent. If Hindi is supported, the offline issue permits a necessary clarification; if unsupported, the scope boundary requires a handoff. The missing language-support definition is a genuine policy gap.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Is Hindi supported in this evaluation? This determines whether out_of_scope remains appropriate or the request is eligible for automatic clarification."
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_065",
+      "partition": "challenge",
+      "text": "プレイリストの曲順を自分で変えたいのですが、操作する場所が見つかりません。スマートフォンのアプリを使っています。",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "non_english",
+        "secondary_intent": "playlist_or_library",
+        "should_escalate": true,
+        "escalation_reason_code": "out_of_scope",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Japanese text asks how to reorder a playlist in the phone app. Language is primary and playlist guidance secondary; an honest language-support handoff follows the unsupported-language boundary.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm Japanese is unsupported in this evaluation; the policy does not enumerate supported languages.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_065",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:07:14Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "non_english",
+          "secondary_intent": "playlist_or_library",
+          "should_escalate": true,
+          "escalation_reason_code": "out_of_scope",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "The Japanese message asks where to reorder songs in a playlist using a smartphone app. This establishes non_english and playlist_or_library, but not whether Japanese is outside supported language capabilities. Retain the existing route as a provisional proposal only.",
+        "question_resolution": "The packet does not establish that Japanese is unsupported. The language-first taxonomy rule determines intent, not support scope. Supported Japanese would allow playlist guidance or a useful clarification; unsupported Japanese would require out_of_scope handoff.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Is Japanese supported in this evaluation? Confirm whether the provisional out_of_scope handoff should remain or change to eligible automatic playlist guidance."
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_070",
+      "partition": "challenge",
+      "text": "I've finished recording an EP. Can you take the audio files from my laptop, distribute them on Spotify and make the release appear next Friday under my artist name?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "metadata_or_artist_issue",
+        "secondary_intent": null,
+        "should_escalate": true,
+        "escalation_reason_code": "out_of_scope",
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "An artist requests direct file retrieval, distribution and scheduling of their own release. This is execution beyond supported support guidance and requires an honest handoff.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm out_of_scope for direct music-distribution execution rather than needs_account_lookup; this request exceeds support capabilities, not merely public artist guidance.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_070",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:07:14Z",
+        "human_verified": false,
+        "disposition": "confirmed",
+        "labels": {
+          "intent": "metadata_or_artist_issue",
+          "secondary_intent": null,
+          "should_escalate": true,
+          "escalation_reason_code": "out_of_scope",
+          "sentiment": "neutral"
+        },
+        "changed_fields": [],
+        "rationale": "An artist requests execution of file retrieval, music distribution, and release scheduling for their own EP. The own-release boundary sets the intent, while the requested distribution service exceeds supported informational assistance.",
+        "question_resolution": "Confirm out_of_scope. The requested work is music-distribution execution, not recovery, verification, or intervention on an existing support account; needs_account_lookup would misdescribe that limitation. General artist guidance could explain the appropriate route, but it would not fulfill the requested distribution action.",
+        "confidence": "high",
+        "requires_human_decision": false,
+        "remaining_question": ""
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_071",
+      "partition": "challenge",
+      "text": "I'm following a printed Spotify tutorial dated 2016, and its picture of the settings menu doesn't resemble my current phone app. What's the up-to-date way to find playback settings?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playback_or_app_bug",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "Current playback-settings navigation is requested because an old tutorial differs from the app. Approved current guidance is eligible; an outdated customer document does not establish an operational knowledge failure.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm playback_or_app_bug as the nearest category for playback-settings navigation when no malfunction is alleged.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_071",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:07:14Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "intent"
+        ],
+        "rationale": "A dated customer tutorial does not match the current interface, and the customer asks for current navigation to playback settings. No app malfunction or requested design change is alleged. Other is a provisional fallback because ordinary playback navigation lacks an explicit category.",
+        "question_resolution": "Playback_or_app_bug is not established merely because the requested setting concerns playback. Propose other pending clarification of general navigation coverage. Keep automatic eligibility: the customer's outdated document is not a supplied failure of the assistant's current knowledge, and approved current guidance or a device clarification can address the request.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Should current playback-settings navigation without any malfunction use other, or should playback_or_app_bug explicitly include ordinary playback how-tos?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    },
+    {
+      "id": "vc_077",
+      "partition": "challenge",
+      "text": "The instructions in my car's old handbook show a Spotify integration I can't find on the dashboard. How can I check which listening methods are supported for my car now?",
+      "scenario_setup": {},
+      "prior_ai_proposal": {
+        "intent": "playback_or_app_bug",
+        "secondary_intent": null,
+        "should_escalate": false,
+        "escalation_reason_code": null,
+        "sentiment": "neutral"
+      },
+      "prior_rationale": "The customer seeks current car-listening compatibility information after old instructions no longer match. Device playback is the nearest intent; current guidance or a necessary vehicle clarification is eligible.",
+      "prior_confidence": "medium",
+      "flagged_question": "Confirm playback_or_app_bug for current device-compatibility guidance when no definite malfunction is described.",
+      "acceptance_review_findings": [],
+      "ultra_review": {
+        "id": "vc_077",
+        "review_source": "ai",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "reviewer": "/root/ultra_challenge_01",
+        "reviewed_at": "2026-09-18T20:07:14Z",
+        "human_verified": false,
+        "disposition": "needs_discussion",
+        "labels": {
+          "intent": "other",
+          "secondary_intent": null,
+          "should_escalate": false,
+          "escalation_reason_code": null,
+          "sentiment": "neutral"
+        },
+        "changed_fields": [
+          "intent"
+        ],
+        "rationale": "The customer seeks current supported listening methods for a car after finding that an old handbook's integration is absent. The text does not establish a supported connection failing or another definite malfunction. Other is the provisional fallback for a compatibility how-to outside the explicit definitions.",
+        "question_resolution": "Do not classify a current compatibility enquiry as an established playback bug solely because a car is involved. Propose other while flagging whether device-compatibility guidance belongs within playback_or_app_bug. Automatic guidance or a necessary vehicle/model clarification remains eligible; an old handbook does not establish an operational knowledge failure.",
+        "confidence": "medium",
+        "requires_human_decision": true,
+        "remaining_question": "Should general device-compatibility guidance with no established malfunction use other, or does playback_or_app_bug include such compatibility how-tos?"
+      },
+      "human_review_status": "Pending",
+      "human_reviewer": "",
+      "human_reviewed_at": "",
+      "human_notes": ""
+    }
+  ]
+}
