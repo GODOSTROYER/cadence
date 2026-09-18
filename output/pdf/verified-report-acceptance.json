@@ -1,7 +1,7 @@
 {
   "status": "accepted",
-  "reviewed_at_utc": "2026-09-18T13:07:10.887167+00:00",
-  "scope": "Six-page Cadence report with unchanged historical benchmark pages, completed pre-patch VerifiedAgent development and calibration evidence, and explicitly limited post-pilot selected-regression evidence. No candidate promotion.",
+  "reviewed_at_utc": "2026-09-18T13:36:07.377049+00:00",
+  "scope": "Six-page Cadence report after replacing the VerifiedAgent reproduction command with the portable numeric-summary verifier. All scientific results, first-five-page renders and page6 text apart from the command remain unchanged. No candidate promotion.",
   "pages": 6,
   "author": "Arnav Bule",
   "hash_convention": {
@@ -18,29 +18,22 @@
     "binary_files": "SHA256 of exact bytes; PDF and PNG files are binary."
   },
   "previous_acceptance": {
-    "path": "output/pdf/verified-report-acceptance.initial.json",
-    "sha256": "650d86f4c4c6455f17bb58b110b653d1a06e09fbbbd44a645fb44ce332f038e2",
-    "note": "Historical initial report acceptance preserved unchanged; hashes inside that older record used raw local bytes."
+    "path": "output/pdf/verified-report-acceptance.pre-portable.json",
+    "sha256": "33942a4cf1e820f3461040b499e66269520d4afec29f9aec7501f79dc5acd801",
+    "note": "Previously accepted report before the portable-command change; preserved unchanged, with its earlier acceptance history."
   },
   "reviewers": [
     {
       "name": "Codex report author",
       "type": "ai",
-      "scope": "All six rendered pages; exact first-five-page text and render parity; metadata; public-copy parity; source metrics and links; builder lint",
+      "scope": "Page6 visual inspection; first-five-page render and text parity; exact page6 command-only text change; PDF metadata and public-copy parity; portable command execution and builder lint",
       "result": "pass"
     },
     {
       "name": "GPT-6 Astra",
       "reasoning_effort": "xhigh",
       "type": "ai",
-      "scope": "Independent read-only visual and content acceptance of all six final renders and saved evidence",
-      "result": "pass",
-      "blocking_findings": []
-    },
-    {
-      "name": "Independent publication reviewer",
-      "type": "ai",
-      "scope": "All six final PNGs and publication claims, including pre-patch separation and selected-regression limits",
+      "scope": "Independent read-only visual/content reinspection of all six final renders, including the longer reproduction command and unchanged scientific claims",
       "result": "pass",
       "blocking_findings": []
     }
@@ -56,19 +49,39 @@
     "experimental_status_and_human_label_gates": "pass",
     "matching_public_pdf_copy": "pass",
     "ruff_builder": "pass",
-    "embedded_evidence_link_targets": "pass"
+    "embedded_evidence_link_targets": "pass",
+    "page6_command_only_text_change": "pass",
+    "portable_reproduction_command": "pass"
   },
   "candidate_promotion": false,
   "remaining": "Human labels for the new 200-case representative benchmark and 80-case challenge set, followed by matched confirmation and fresh reply review. The 18 selected regression cases do not establish restored coverage or independent confirmation. This AI report acceptance does not complete human annotation.",
   "sha256": {
-    "REPORT.md": "6bed3ed54a01b14526959d7e968e99c6df978157e5d297d08483293b2609df0b",
-    "analysis_tools/build_submission_report.py": "6237327b1e6121c7f1dcb08d3bb1dc032e261d86d3fcc76ea08f2ea09faaebf6",
-    "output/pdf/Cadence-Arnav-Bule-Report.pdf": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
-    "ui/public/Cadence-Arnav-Bule-Report.pdf": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
+    "REPORT.md": "7707f3493efa481b9ba5244df61e2401e386312ccbb88e55311b763eb10b3448",
+    "analysis_tools/build_submission_report.py": "9f70ad1a6de9246c4a91231af11dede32b078b6b6055580946bb3cf08aece4c9",
+    "output/pdf/Cadence-Arnav-Bule-Report.pdf": "c4781842bc40763c0e5bd785ed1228728e88b593e7d77ffc73db58bbcaa635d9",
+    "ui/public/Cadence-Arnav-Bule-Report.pdf": "c4781842bc40763c0e5bd785ed1228728e88b593e7d77ffc73db58bbcaa635d9",
     "output/pdf/layout-check.json": "bd12b5cf2e0c499b47bb773478c8cb9f9ef7798a3146c7d75957e8cc204c8a87",
     "results/published/balanced.json": "7826ce56a2f536ef2c61a13bacf4c9727c96dc6b64d3f0ae9dad69d8cf5cde9e",
     "results/verified_dev_v4/summary.json": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
     "results/verified_calibration_v1/summary.json": "dd3f5303f810e65e28206e87dc0a1be4ccd93159a2e4bc411f7a168a325d3876",
-    "results/verified_postpilot_regression_v1/summary.json": "9161eb7d3a92be13732df7bdc0bdf41dcad763c3b57514bbfd6094c388d219c2"
+    "results/verified_postpilot_regression_v1/summary.json": "9161eb7d3a92be13732df7bdc0bdf41dcad763c3b57514bbfd6094c388d219c2",
+    "analysis_tools/verify_portable_summaries.py": "e727be2aeb9c96429c3f607c766508923fa2bc536f02bac042a506072f9fbbe2"
+  },
+  "portable_reproduction": {
+    "command": "python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_dev_v4",
+    "verified": true,
+    "new_model_calls": 0,
+    "writes": 0,
+    "mismatches": 0,
+    "accepted_float_differences": 0,
+    "absolute_float_tolerance": 1e-12,
+    "relative_float_tolerance": 0,
+    "environment": {
+      "platform": "Windows",
+      "python": "3.12.6",
+      "numpy": "2.2.6",
+      "scipy": "1.14.1",
+      "scikit-learn": "1.5.2"
+    }
   }
 }

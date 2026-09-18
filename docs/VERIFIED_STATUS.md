@@ -205,13 +205,20 @@ packets and validation commands. Form submission remains excluded.
 ## Verify the saved evidence
 
 These read-only commands reproduce the completed pilots and diagnostic summaries
-without model calls. They do not run the post-pilot patch or grant release approval.
+without model calls or writes. They do not rerun candidate inference or grant
+release approval. Use the portable wrapper for the studies below: original
+evaluators and their provenance/artifact-hash checks run first. The wrapper allows
+only finite float-to-float summary differences of at most `1e-12` absolute, with
+no relative tolerance. Counts, types, keys, provenance and hashes remain exact.
+It reports every accepted difference count and bounded numeric diagnostics;
+frozen helpers, ratings and saved summaries remain unchanged.
 
 ```powershell
-python analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4 --action verify
-python analysis_tools/reproduce_verified.py --experiment results/verified_calibration_v1 --action verify
-python analysis_tools/reproduce_verified.py --experiment results/verified_postpilot_regression_v1 --action verify
-python analysis_tools/compare_verified_variants.py --check
-python analysis_tools/summarize_verified_controls.py --experiment results/verified_ablation_v1 --check
+python analysis_tools/verify_portable_summaries.py development
+python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_dev_v4
+python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_calibration_v1
+python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_postpilot_regression_v1
+python analysis_tools/verify_portable_summaries.py variants
+python analysis_tools/verify_portable_summaries.py controls --experiment results/verified_ablation_v1
 python analysis_tools/summarize_verified_retrieval.py --check
 ```

@@ -26,13 +26,13 @@ jobs:
       - run: python analysis_tools/publish_quality.py --check
       - run: python scripts/verify_knowledge.py --as-of 2026-09-18
       - run: python scripts/verify_knowledge.py --registry config/knowledge/v3.json --as-of 2026-09-18
-      - run: python analysis_tools/compare_verified_development.py verify
-      - run: python analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4
-      - run: python analysis_tools/reproduce_verified.py --experiment results/verified_calibration_v1
-      - run: python analysis_tools/reproduce_verified.py --experiment results/verified_postpilot_regression_v1
-      - run: python analysis_tools/compare_verified_variants.py --check
+      - run: python analysis_tools/verify_portable_summaries.py development
+      - run: python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_dev_v4
+      - run: python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_calibration_v1
+      - run: python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_postpilot_regression_v1
+      - run: python analysis_tools/verify_portable_summaries.py variants
       - run: python analysis_tools/summarize_verified_retrieval.py --check
-      - run: python analysis_tools/summarize_verified_controls.py --experiment results/verified_ablation_v1 --check
+      - run: python analysis_tools/verify_portable_summaries.py controls --experiment results/verified_ablation_v1
       - run: python analysis_tools/verify_submission.py
       - run: python analysis_tools/post_audit_regression.py
       - run: python scripts/15_publish_benchmark.py --check

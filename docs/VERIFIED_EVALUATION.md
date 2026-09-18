@@ -74,6 +74,16 @@ Offline reproduction resolves archived inputs and rejects changes to the evaluat
 implementation itself. Use the run's matching source checkout when metric/import
 code changes; newer code must not silently redefine an older rubric's results.
 
+For the existing development, calibration, regression, variant and control summaries,
+use the [portable CLI](VERIFIED_STATUS.md#verify-the-saved-evidence):
+`python analysis_tools/verify_portable_summaries.py development`,
+`verified --experiment PATH_TO_RUN`, `variants`, or
+`controls --experiment results/verified_ablation_v1` after the same script path.
+It runs the original checks and permits only finite float-to-float summary
+differences of at most `1e-12` absolute, with no relative tolerance. Counts, types,
+keys, provenance and artifact hashes remain exact. Accepted numeric differences
+are reported; no saved summary, rating or frozen evaluator is rewritten.
+
 One request budget spans model stages and retries. Runtime includes failures and
 retry-inclusive wall time. Successful parsing does not imply complete usage data:
 the request budget tracks billed malformed-response tokens and marks unknown
@@ -219,13 +229,19 @@ verification of a different AI study does not transfer to these outputs.
 python analysis_tools/reproduce_verified.py --experiment $Run --action import-review --ratings completed-ai-ratings.jsonl --reviewer-type ai
 python analysis_tools/reproduce_verified.py --experiment $Run --action import-review --ratings completed-human-ratings.jsonl --reviewer-type human
 python analysis_tools/reproduce_verified.py --experiment $Run --action summarize
-python analysis_tools/reproduce_verified.py --experiment $Run --action verify
+python analysis_tools/verify_portable_summaries.py verified --experiment $Run
 ```
 
 Here `$Run` is the completed run selected above, or the exact path of a later
 confirmation run. Review filenames are placeholders for actual completed reviews;
 do not run an import on a blank packet. For the current evidence, use the run paths
 and verification commands in [status](VERIFIED_STATUS.md).
+
+The portable command above covers the current summaries without a linked challenge.
+It does not replace review preparation, import or initial summary creation. A future
+confirmation summary bound to a separate challenge uses the original
+`reproduce_verified.py --action summarize` and `--action verify` interfaces with
+`--challenge`, as described below; the portable wrapper has no challenge option.
 
 Each submitted rating must include the exact packet identity, reviewer ID/type,
 timezone-aware `rated_at`, all five integer scores, all seven boolean flags,

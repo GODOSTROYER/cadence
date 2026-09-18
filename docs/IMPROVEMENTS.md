@@ -14,6 +14,8 @@ The new 200-case representative confirmation and 80-case synthetic challenge hum
 
 VerifiedAgent and policy v2 are not deployed or promoted. The reference `SupportAgent` remains the application default and hosted demo agent. No submission form is sent.
 
+Reproduce the saved Verified evidence with the [portable CLI commands](VERIFIED_STATUS.md#verify-the-saved-evidence), starting with `python analysis_tools/verify_portable_summaries.py development`. The read-only wrapper permits only finite float-to-float summary differences at most `1e-12` absolute, with no relative tolerance; counts, types, keys, provenance and artifact hashes remain exact. It leaves the original helpers, ratings and summaries unchanged.
+
 ## What is implemented
 
 - **One published benchmark:** Overview and Evaluation default to the revised frozen 200-message, four-system comparison. Historical charts remain available explicitly. The report table and public JSON come from the same frozen summary; CI checks both for drift. The live deployment commit and frozen execution commit are shown separately.

@@ -11,8 +11,14 @@ See [Verified empirical status](VERIFIED_STATUS.md) for the latest measured resu
 The retained comparison is already prepared, rated and summarized. Verify it without model calls or new review artifacts:
 
 ```powershell
-python analysis_tools/compare_verified_development.py verify --out results/verified_development_comparison
+python analysis_tools/verify_portable_summaries.py development
 ```
+
+The portable wrapper runs the original provenance and artifact-hash checks before
+comparing the saved summary. Only finite float-to-float differences of at most
+`1e-12` absolute are permitted, with no relative tolerance; counts, types, keys,
+provenance and hashes remain exact. It makes no model calls or writes and leaves
+the frozen helpers, ratings and results unchanged.
 
 ## Workflow
 
@@ -23,7 +29,7 @@ $Comparison = "results/verified_development_comparison_example_20260918_01"
 python analysis_tools/compare_verified_development.py prepare --candidate-dir results/verified_dev_v2 --out $Comparison
 ```
 
-Preparation verifies both source studies through their existing offline validators and freezes labels, source provenance, exact replies, runtime records, rubric, policy, taxonomy, current source snapshots, and evaluator versions. It refuses partial runs and mismatched customer context. Existing comparison directories cannot be overwritten. Hashes use the repository's LF-normalized text convention, so Windows/Linux checkouts reproduce identically.
+Preparation verifies both source studies through their existing offline validators and freezes labels, source provenance, exact replies, runtime records, rubric, policy, taxonomy, current source snapshots, and evaluator versions. It refuses partial runs and mismatched customer context. Existing comparison directories cannot be overwritten. Hashes use the repository's LF-normalized text convention for consistent Windows/Linux hash checks; numeric summary verification uses the bounded float comparison described above.
 
 Give an independent reviewer only `REVIEW_INSTRUCTIONS.json`, `rubric.json`, `blind_packet.jsonl`, and `context/config/knowledge/`. Do not give the reviewer labels, mappings, previous ratings, source run summaries or agent implementation. Aliases are randomized separately for each message; reply style and evidence may still reveal architecture. Each produced reply, including a safe fallback from a failed invocation, needs a new rating. Failure status remains in metrics regardless of how its visible text is rated.
 
@@ -39,7 +45,7 @@ Separate batches may be reviewed independently. Import all batches together; the
 ```powershell
 python analysis_tools/compare_verified_development.py import --out $Comparison --ratings path/to/batch1.jsonl path/to/batch2.jsonl
 python analysis_tools/compare_verified_development.py summarize --out $Comparison
-python analysis_tools/compare_verified_development.py verify --out $Comparison
+python analysis_tools/verify_portable_summaries.py development --experiment $Comparison
 ```
 
 Every command is offline. No previous reply scores or flags are converted into new ratings. Original external submissions are retained alongside the mapped AI ratings. Imports and summaries are immutable; later adjudication needs a separately named study.

@@ -1,0 +1,48 @@
+{
+  "status": "pass",
+  "scope": "Read-only numeric portability wrapper; preserves frozen evaluators, ratings, result values and seals",
+  "reviewer_type": "ai",
+  "reviewer_model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "independent_review_agent": "/root/verified_development_comparison/helper_acceptance",
+  "accepted_at": "2026-09-18T13:29:53.974398+00:00",
+  "findings": [],
+  "contract": {
+    "absolute_float_tolerance": 1e-12,
+    "relative_float_tolerance": 0,
+    "finite_float_pairs_only": true,
+    "exact_types_keys_lists_integers_booleans_strings": true,
+    "max_numeric_diagnostic_samples": 20,
+    "all_differences_counted": true,
+    "writes": 0,
+    "model_calls": 0
+  },
+  "validation": {
+    "focused_tests_passed": 30,
+    "ruff": "pass",
+    "windows_real_studies_passed": 6,
+    "accepted_numeric_differences_windows": 0,
+    "independent_real_studies_checked": [
+      "controls",
+      "variants",
+      "verified_dev_v4"
+    ],
+    "frozen_files_unchanged": true
+  },
+  "limitations": [
+    "Linux CI rerun remains pending. Prior Linux exact-equality failure is consistent with floating-point drift; exact Linux paths and deltas have not yet been observed.",
+    "Acceptance covers verification portability, not candidate quality, human review or release promotion."
+  ],
+  "artifacts": {
+    "analysis_tools/verify_portable_summaries.py": "e727be2aeb9c96429c3f607c766508923fa2bc536f02bac042a506072f9fbbe2",
+    "tests/test_portable_summaries.py": "0804dbc715b74f6de0e6b83d83f64d859baf298b5228ade12e946b5d0ac1bc9b"
+  },
+  "unchanged_saved_summaries": {
+    "results/verified_development_comparison/summary.json": "fe0a3c9fc520ced77c43eefeece12b17eaca67dca2e58df4bc3dbf52b4212d44",
+    "results/verified_dev_v4/summary.json": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
+    "results/verified_calibration_v1/summary.json": "dd3f5303f810e65e28206e87dc0a1be4ccd93159a2e4bc411f7a168a325d3876",
+    "results/verified_postpilot_regression_v1/summary.json": "9161eb7d3a92be13732df7bdc0bdf41dcad763c3b57514bbfd6094c388d219c2",
+    "results/verified_variant_comparison_v1/summary.json": "6de10d89630a5834eae387edadf0db6984500a9cd51e66179066f6e2e76c6ebe",
+    "results/verified_ablation_v1/quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790"
+  }
+}

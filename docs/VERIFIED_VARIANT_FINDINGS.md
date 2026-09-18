@@ -49,12 +49,18 @@ All four arms have zero observed cached calls, zero unknown cache statuses and z
 ## Reproduction and boundaries
 
 ```powershell
-python analysis_tools/compare_verified_variants.py
-python analysis_tools/compare_verified_variants.py --check
+python analysis_tools/verify_portable_summaries.py variants
 ```
+
+Initial summary creation uses `python analysis_tools/compare_verified_variants.py`.
+For an existing saved summary, use the read-only portable command above. The
+portable wrapper retains the original provenance and artifact-hash checks and
+allows only finite float-to-float summary differences of at most `1e-12` absolute,
+with no relative tolerance. Counts, types, keys, provenance and hashes remain
+exact. Frozen helpers, ratings and results are unchanged.
 
 The helper uses `reproduce_verified.py` to validate sealed execution artifacts, exact blinded packets, original AI submissions and unchanged mapped ratings. It requires matching exact customer text and gold labels, source/config and other execution dependency hashes, model, policy, source date, retrieval settings and resource limits. Each 21-message variant also reserves the original unchanged 80-message development file, preserving the combined arm's retrieval exclusions; the helper checks that dependency, the other reserved references and the sealed excluded-thread count. All four runs excluded the same **402 retrieval threads**. The planned generation total is checked per request because the original run sizes differ (80 versus 21). Runtime is recomputed from the selected observations, including caches, retries and failures.
 
-The helper also verifies `BLIND_REVIEW_V2.lock.json` and the joint `AI_REVIEW.json`, requires the complete joint packet to equal the selected original packets, and validates each rating against its original run/reply mapping. One explicit AI reviewer must cover all 84 replies. The saved summary binds its source artifacts, joint review, selection data, helper and evaluator hashes. `--check` repeats verification and requires exact saved-summary equality. No customer/reply text is written into the comparison summary. Reserved samples remain excluded; the existing reproduction validator checks their frozen dependency hashes without interpreting their contents. No model calls, new ratings or promotion occur here.
+The helper also verifies `BLIND_REVIEW_V2.lock.json` and the joint `AI_REVIEW.json`, requires the complete joint packet to equal the selected original packets, and validates each rating against its original run/reply mapping. One explicit AI reviewer must cover all 84 replies. The saved summary binds its source artifacts, joint review, selection data, helper and evaluator hashes. The original helper's `--check` retains strict saved-summary equality; the recommended portable verification uses the bounded float comparison described above. No customer/reply text is written into the comparison summary. Reserved samples remain excluded; the existing reproduction validator checks their frozen dependency hashes without interpreting their contents. No model calls, new ratings or promotion occur here.
 
 Generation and `--check` both passed on the sealed actual artifacts. The helper and tests also passed independent code acceptance, 37 focused tests and Ruff. Full reproducible results: [summary.json](../results/verified_variant_comparison_v1/summary.json). Joint review seal: [AI_REVIEW.json](../results/verified_variant_comparison_v1/AI_REVIEW.json).

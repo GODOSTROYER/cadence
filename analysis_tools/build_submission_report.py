@@ -505,7 +505,7 @@ def main():
         'python -m pip install -e ".[dev]"',
         "python analysis_tools/reproduce_benchmark.py",
         "python analysis_tools/reproduce_balanced.py",
-        "python analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4",
+        "python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_dev_v4",
     ]:
         r.text(command, M, yy, 8.5, "Mono", INK)
         yy += 16

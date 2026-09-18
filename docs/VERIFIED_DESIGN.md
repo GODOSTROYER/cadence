@@ -51,6 +51,8 @@ The candidate plans at most two model calls. A shared deadline and provider-atte
 
 Known usage includes unsuccessful provider attempts when metadata is available. Missing or partial usage is marked unknown. Cached work is marked replayed; it cannot support a fresh latency or cost claim. Tokens per request and tokens per policy-compliant useful reply are reported separately.
 
+For saved-summary reproduction, use the [portable verification commands](VERIFIED_STATUS.md#verify-the-saved-evidence), such as `python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_dev_v4`. The wrapper retains original provenance and artifact-hash checks and permits only finite float-to-float summary differences of at most `1e-12` absolute, with no relative tolerance. Counts, types and keys remain exact; source snapshots and saved results are unchanged.
+
 ## What remains to be established
 
 Code acceptance establishes tested invariants, not live reply quality or universal safety. The extraction and response-audit models can both be wrong. Short, single-turn clarifications have not been shown to resolve a whole support conversation. No account actions, staff contact, ticket creation, live catalog lookup or real customer resolution is claimed.

@@ -38,6 +38,8 @@ python -m pytest -q
 
 `reproduce_benchmark.py` recomputes the revised benchmark from saved predictions and validates receipt keys without model calls. The frozen execution is `b8317d6`; the earlier timeout-aborted run remains under `results/holdout/`. General release-guard fixes made after failure inspection have a separate [cache-only regression](results/post_audit_regression/summary.json), not fresh accuracy evidence. Follow [the evaluator guide](docs/EVALUATOR_GUIDE.md) to inspect all three evidence layers.
 
+For the experimental Verified studies, start with `python analysis_tools/verify_portable_summaries.py development`; [Verified status](docs/VERIFIED_STATUS.md#verify-the-saved-evidence) lists the pilot, regression, variant and control commands. This read-only wrapper retains exact count, type, key, provenance and artifact-hash checks. Only finite float-to-float summary differences of at most `1e-12` absolute are allowed, with no relative tolerance. Saved evidence is unchanged.
+
 ## Architecture
 
 ```mermaid

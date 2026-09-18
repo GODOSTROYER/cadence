@@ -1,14 +1,13 @@
 {
   "status": "accepted",
   "scope": "Current ten-document portable-verification command and explanation update; no candidate release or generalization acceptance",
-  "recorded_at": "2026-09-18T13:41:14.188900+00:00",
+  "recorded_at": "2026-09-18T13:39:53.787269+00:00",
   "reviewer": {
     "agent": "/root/verified_docs_consistency/portable_docs_acceptance",
     "reviewer_type": "ai",
     "model": "gpt-6-astra",
     "reasoning_effort": "xhigh",
-    "context": "fresh context; independent read-only review; reviewer edited no files",
-    "final_followup": "Explicit Astra xhigh acceptance of final ten-document revision; no actionable issues; other nine hashes unchanged."
+    "context": "fresh context; independent read-only review; reviewer edited no files"
   },
   "findings": [],
   "prior_acceptance": {
@@ -29,8 +28,7 @@
     "historical_human_attestations_preserved": true,
     "no_promotion_or_restored_coverage_claim_added": true,
     "local_document_links_resolve": true,
-    "git_diff_whitespace_check_passed": true,
-    "variant_reproduction_block_contains_portable_verification_only": true
+    "git_diff_whitespace_check_passed": true
   },
   "offline_checks_passed": [
     {
@@ -102,7 +100,7 @@
     "docs/IMPROVEMENTS.md": "2760c0a50d77bc7142bbd35f40195559361aad66a83dcb8171b4a0eb5af026c8",
     "docs/DEPLOYMENT.md": "d6a85fe806623d3f577f28342455007d77e48c0de45ca025b05870c34af2100f",
     "docs/VERIFIED_DEVELOPMENT_COMPARISON.md": "29d144865abc4893bb674abe1aacf3d1232c1ed612f87fc1bac3477a983c08be",
-    "docs/VERIFIED_VARIANT_FINDINGS.md": "970ab1197963db8946d2c91b1de17774f53a1b360e1a0f93da775d3ae5e45a78"
+    "docs/VERIFIED_VARIANT_FINDINGS.md": "d507241db2c571216a0001a6ed55b018e2fe275c9884d8e277209e25d6c45042"
   },
   "evidence": {
     "results/verified_dev_v4/summary.json": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
@@ -124,11 +122,5 @@
     "Local verification uses the recorded Windows environment; this record does not claim Linux or newer-library CI reproduction."
   ],
   "promote": false,
-  "new_model_calls": 0,
-  "initial_portable_acceptance": {
-    "path": "output/analysis/VERIFIED_DOCUMENTATION_ACCEPTANCE.portable-initial.json",
-    "sha256": "2c56a70887fb16d2c5a946cec4c360338b7854b426d1508b8d0f4a30490969b0",
-    "preserved_byte_for_byte": true,
-    "note": "Preserved before the final reviewed reproduction-block clarification."
-  }
+  "new_model_calls": 0
 }

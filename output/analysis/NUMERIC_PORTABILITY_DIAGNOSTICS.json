@@ -1,0 +1,402 @@
+{
+  "recorded_at": "2026-09-18T13:34:47.196473+00:00",
+  "scope": "Windows reproduction using CI numerical-library versions; actual Linux CI verification follows.",
+  "python_executable": "C:\\Python312\\python.exe",
+  "receipts": [
+    {
+      "verified": true,
+      "study": "development",
+      "new_model_calls": 0,
+      "writes": 0,
+      "absolute_float_tolerance": 1e-12,
+      "relative_float_tolerance": 0,
+      "summary_sha256": "fe0a3c9fc520ced77c43eefeece12b17eaca67dca2e58df4bc3dbf52b4212d44",
+      "accepted_float_differences": 8,
+      "mismatches": 0,
+      "max_accepted_absolute_delta": 4.440892098500626e-16,
+      "accepted_samples": [
+        {
+          "path": "/metrics/agent/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.7617286150541898,
+          "actual": 0.7617286150541897,
+          "absolute_delta": 1.1102230246251565e-16
+        },
+        {
+          "path": "/metrics/agent/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.20820471317941186,
+          "actual": 0.20820471317941197,
+          "absolute_delta": 1.1102230246251565e-16
+        },
+        {
+          "path": "/metrics/balanced/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.39394742252236326,
+          "actual": 0.3939474225223633,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/balanced/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.20820471317941186,
+          "actual": 0.20820471317941197,
+          "absolute_delta": 1.1102230246251565e-16
+        },
+        {
+          "path": "/metrics/quality/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.3481636551311608,
+          "actual": 0.34816365513116077,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/quality/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.10146573557272469,
+          "actual": 0.10146573557272467,
+          "absolute_delta": 1.3877787807814457e-17
+        },
+        {
+          "path": "/metrics/verified/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.3076263442275549,
+          "actual": 0.30762634422755497,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/verified/per_reason/ambiguous_or_media_only/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.5273266035603439,
+          "actual": 0.5273266035603434,
+          "absolute_delta": 4.440892098500626e-16
+        }
+      ],
+      "mismatch_samples": [],
+      "environment": {
+        "platform": "Windows",
+        "python": "3.12.6",
+        "packages": {
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "arguments": [
+        "development"
+      ]
+    },
+    {
+      "verified": true,
+      "study": "verified",
+      "new_model_calls": 0,
+      "writes": 0,
+      "absolute_float_tolerance": 1e-12,
+      "relative_float_tolerance": 0,
+      "summary_sha256": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
+      "accepted_float_differences": 3,
+      "mismatches": 0,
+      "max_accepted_absolute_delta": 1.1102230246251565e-16,
+      "accepted_samples": [
+        {
+          "path": "/metrics/verified/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.27137118155751466,
+          "actual": 0.2713711815575147,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/verified/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.20820471317941186,
+          "actual": 0.20820471317941197,
+          "absolute_delta": 1.1102230246251565e-16
+        },
+        {
+          "path": "/metrics/verified/per_reason/ambiguous_or_media_only/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.4381054351153113,
+          "actual": 0.43810543511531136,
+          "absolute_delta": 5.551115123125783e-17
+        }
+      ],
+      "mismatch_samples": [],
+      "environment": {
+        "platform": "Windows",
+        "python": "3.12.6",
+        "packages": {
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "arguments": [
+        "verified",
+        "--experiment",
+        "results/verified_dev_v4"
+      ]
+    },
+    {
+      "verified": true,
+      "study": "verified",
+      "new_model_calls": 0,
+      "writes": 0,
+      "absolute_float_tolerance": 1e-12,
+      "relative_float_tolerance": 0,
+      "summary_sha256": "dd3f5303f810e65e28206e87dc0a1be4ccd93159a2e4bc411f7a168a325d3876",
+      "accepted_float_differences": 3,
+      "mismatches": 0,
+      "max_accepted_absolute_delta": 5.551115123125783e-17,
+      "accepted_samples": [
+        {
+          "path": "/metrics/verified/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.18946446742553869,
+          "actual": 0.18946446742553866,
+          "absolute_delta": 2.7755575615628914e-17
+        },
+        {
+          "path": "/metrics/verified/per_reason/ambiguous_or_media_only/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.3481636551311608,
+          "actual": 0.34816365513116077,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/verified/per_reason/needs_account_lookup/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.28312883556311347,
+          "actual": 0.2831288355631134,
+          "absolute_delta": 5.551115123125783e-17
+        }
+      ],
+      "mismatch_samples": [],
+      "environment": {
+        "platform": "Windows",
+        "python": "3.12.6",
+        "packages": {
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "arguments": [
+        "verified",
+        "--experiment",
+        "results/verified_calibration_v1"
+      ]
+    },
+    {
+      "verified": true,
+      "study": "verified",
+      "new_model_calls": 0,
+      "writes": 0,
+      "absolute_float_tolerance": 1e-12,
+      "relative_float_tolerance": 0,
+      "summary_sha256": "9161eb7d3a92be13732df7bdc0bdf41dcad763c3b57514bbfd6094c388d219c2",
+      "accepted_float_differences": 1,
+      "mismatches": 0,
+      "max_accepted_absolute_delta": 5.551115123125783e-17,
+      "accepted_samples": [
+        {
+          "path": "/metrics/verified/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.3481636551311608,
+          "actual": 0.34816365513116077,
+          "absolute_delta": 5.551115123125783e-17
+        }
+      ],
+      "mismatch_samples": [],
+      "environment": {
+        "platform": "Windows",
+        "python": "3.12.6",
+        "packages": {
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "arguments": [
+        "verified",
+        "--experiment",
+        "results/verified_postpilot_regression_v1"
+      ]
+    },
+    {
+      "verified": true,
+      "study": "variants",
+      "new_model_calls": 0,
+      "writes": 0,
+      "absolute_float_tolerance": 1e-12,
+      "relative_float_tolerance": 0,
+      "summary_sha256": "6de10d89630a5834eae387edadf0db6984500a9cd51e66179066f6e2e76c6ebe",
+      "accepted_float_differences": 2,
+      "mismatches": 0,
+      "max_accepted_absolute_delta": 1.1102230246251565e-16,
+      "accepted_samples": [
+        {
+          "path": "/metrics/combined/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.28312883556311347,
+          "actual": 0.2831288355631134,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/full_context/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.8107446225622292,
+          "actual": 0.8107446225622291,
+          "absolute_delta": 1.1102230246251565e-16
+        }
+      ],
+      "mismatch_samples": [],
+      "environment": {
+        "platform": "Windows",
+        "python": "3.12.6",
+        "packages": {
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "arguments": [
+        "variants"
+      ]
+    },
+    {
+      "verified": true,
+      "study": "controls",
+      "new_model_calls": 0,
+      "writes": 0,
+      "absolute_float_tolerance": 1e-12,
+      "relative_float_tolerance": 0,
+      "summary_sha256": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+      "accepted_float_differences": 8,
+      "mismatches": 0,
+      "max_accepted_absolute_delta": 1.1102230246251565e-16,
+      "accepted_samples": [
+        {
+          "path": "/metrics/balanced_replay/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.429933933806293,
+          "actual": 0.42993393380629297,
+          "absolute_delta": 5.551115123125783e-17
+        },
+        {
+          "path": "/metrics/balanced_replay/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.20820471317941186,
+          "actual": 0.20820471317941197,
+          "absolute_delta": 1.1102230246251565e-16
+        },
+        {
+          "path": "/metrics/combined_veto/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.20581666518655062,
+          "actual": 0.2058166651865506,
+          "absolute_delta": 2.7755575615628914e-17
+        },
+        {
+          "path": "/metrics/combined_veto/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.10146573557272469,
+          "actual": 0.10146573557272467,
+          "absolute_delta": 1.3877787807814457e-17
+        },
+        {
+          "path": "/metrics/independent_policy_veto/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.4467665364241776,
+          "actual": 0.44676653642417746,
+          "absolute_delta": 1.1102230246251565e-16
+        },
+        {
+          "path": "/metrics/independent_policy_veto/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.10146573557272469,
+          "actual": 0.10146573557272467,
+          "absolute_delta": 1.3877787807814457e-17
+        },
+        {
+          "path": "/metrics/prerequisite_veto/automatic_error_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.1707497229824809,
+          "actual": 0.17074972298248087,
+          "absolute_delta": 2.7755575615628914e-17
+        },
+        {
+          "path": "/metrics/prerequisite_veto/miss_rate_upper95",
+          "reason": "finite float rounding",
+          "expected_type": "float",
+          "actual_type": "float",
+          "expected": 0.1585071743916358,
+          "actual": 0.15850717439163578,
+          "absolute_delta": 2.7755575615628914e-17
+        }
+      ],
+      "mismatch_samples": [],
+      "environment": {
+        "platform": "Windows",
+        "python": "3.12.6",
+        "packages": {
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        }
+      },
+      "arguments": [
+        "controls",
+        "--experiment",
+        "results/verified_ablation_v1"
+      ]
+    }
+  ]
+}

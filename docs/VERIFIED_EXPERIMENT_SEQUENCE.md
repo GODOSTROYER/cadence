@@ -80,3 +80,16 @@ Implementation acceptance does not imply release acceptance; promotion remains f
 New labels and reviews are AI work. Arnav Bule's earlier verification remains
 attached only to the earlier artifacts he reviewed. No deployment promotion or
 form submission is authorized by an automatic study summary.
+
+## Reproduce the sealed sequence
+
+Use `python analysis_tools/verify_portable_summaries.py verified --experiment results/verified_dev_v4`
+for step 1; use the same command with `results/verified_calibration_v1` or
+`results/verified_postpilot_regression_v1` for the other completed candidate runs.
+Use `python analysis_tools/verify_portable_summaries.py variants` for the joint
+variant comparison. The [complete command list](VERIFIED_STATUS.md#verify-the-saved-evidence)
+also covers the earlier development comparison and controls.
+
+This read-only wrapper leaves frozen evidence unchanged. It allows only finite
+float-to-float summary differences up to `1e-12` absolute, with no relative
+tolerance; counts, types, keys, provenance and artifact hashes remain exact.
