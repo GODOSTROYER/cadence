@@ -1,0 +1,102 @@
+{
+  "status": "accepted_for_pre_inference_evaluation",
+  "review_type": "independent_ai_annotation_and_schema_review",
+  "reviewer": "confirmation_labels independent annotation agent",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "annotator": "gpt-6-astra xhigh",
+  "label_source": "ai",
+  "human_reviewed": false,
+  "reviewed_at_utc": "2026-09-17T05:12:05.215151+00:00",
+  "examples_path": "data/balanced_confirmation/examples.jsonl",
+  "labels_path": "data/balanced_confirmation/labels.jsonl",
+  "sample_sha256": "daf1ea4a00faf4c1411d3064fa1c6ad2e5617d2776d8b511c113870a50d4c138",
+  "labels_sha256": "cfaad25718d0b8bc0890318365d99e9d2a82ca2e58c1d1d42d9bd945cd4818e3",
+  "hash_function": "cadence.eval.provenance.sha256",
+  "reference_policy_sha256": {
+    "config/intents.yaml": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+    "config/escalation.yaml": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+    "docs/TAXONOMY.md": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f"
+  },
+  "scope": "All 80 balanced-confirmation messages independently annotated from customer text before candidate predictions; routing_dev labels were used only for schema.",
+  "independence": {
+    "candidate_code_inspected": false,
+    "candidate_predictions_inspected": false,
+    "agent_outputs_inspected": false,
+    "historical_thread_context_used": false,
+    "model_inference_run": false,
+    "existing_labels_used_as_annotation_examples": false
+  },
+  "schema_validation": {
+    "passed": true,
+    "row_count": 80,
+    "unique_ids": 80,
+    "unique_thread_ids": 80,
+    "root_and_gold_fields_match_routing_dev": true,
+    "source_id_thread_id_text_split_preserved": true,
+    "source_order_preserved": true,
+    "locked_sample_hash_unchanged": true,
+    "valid_intents_secondary_intents_reasons_sentiments_and_booleans": true,
+    "escalation_reason_present_if_and_only_if_escalating": true,
+    "individual_unique_rationales": 80,
+    "saved_jsonl_round_trip_validated": true,
+    "matches_sampling_lock_sha256": true
+  },
+  "coverage": {
+    "total": 80,
+    "should_escalate": 38,
+    "auto_handle": 42,
+    "primary_intents_present": 12,
+    "taxonomy_size": 12,
+    "primary_intent_counts": {
+      "account_hacked_or_security": 3,
+      "billing_or_charge": 7,
+      "content_or_availability": 10,
+      "download_or_offline": 4,
+      "feature_request_or_feedback": 12,
+      "login_or_password": 6,
+      "metadata_or_artist_issue": 1,
+      "non_english": 1,
+      "other": 16,
+      "playback_or_app_bug": 10,
+      "playlist_or_library": 3,
+      "subscription_or_plan": 7
+    },
+    "absent_primary_intents": [],
+    "absent_intent_explanation": "All 12 taxonomy intents are represented, including one non-English message.",
+    "escalation_reason_counts": {
+      "account_security": 3,
+      "ambiguous_or_media_only": 13,
+      "billing_dispute": 7,
+      "high_frustration_or_churn": 4,
+      "legal_or_safety": 1,
+      "needs_account_lookup": 8,
+      "out_of_scope": 2
+    },
+    "media_only": 6,
+    "sentiment_counts": {
+      "angry": 8,
+      "frustrated": 27,
+      "neutral": 40,
+      "positive": 5
+    }
+  },
+  "review_notes": [
+    "These are AI labels, not human labels or a claim of human acceptance.",
+    "Annotations use the same frozen taxonomy and escalation policy as the earlier independent confirmation review, including the default routes for account-management questions and other acknowledgments.",
+    "Actual money/payment-detail issues and account security escalate; a promotional offer question without a submitted or failed payment is not assumed to be a billing dispute.",
+    "Individual rejected or missing trial eligibility is distinguished from general trial-duration and cancellation-policy questions.",
+    "Recurring bugs, prior self-troubleshooting, tenure, and the word again are not alone treated as unresolved repeated support contact.",
+    "Only explicit or textually supported concerns are labeled. Linked images, missing prior conversation, and unspecified promises were not inferred.",
+    "Profanity directed at the brand differs from self-directed slang; emotionally worded app failures do not automatically become churn threats.",
+    "The low_confidence reason is model-specific and was not fabricated from unobserved model confidence.",
+    "Coverage is descriptive, not evidence of reliable per-class accuracy; some classes have very few examples."
+  ],
+  "sample_lock_verification": {
+    "expected_sha256": "daf1ea4a00faf4c1411d3064fa1c6ad2e5617d2776d8b511c113870a50d4c138",
+    "observed_sha256": "daf1ea4a00faf4c1411d3064fa1c6ad2e5617d2776d8b511c113870a50d4c138",
+    "matches": true,
+    "expected_hash_source": "SAMPLE.lock.json hash communicated by the parent agent before acceptance",
+    "verified_at_utc": "2026-09-17T05:12:05.215151+00:00"
+  }
+}

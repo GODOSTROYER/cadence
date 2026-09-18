@@ -1,0 +1,12 @@
+{
+  "status": "selected_before_confirmation_inference",
+  "selected_at": "2026-09-17T08:56:49.388118+00:00",
+  "development_run": "results/balanced_dev_v3",
+  "development_acceptance_sha256": "7687daec6f0ca57ae4364cdb1f4d1625241e38c19c84e624d38f0482bd2d0c33",
+  "development_manifest_sha256": "628b67e9274fdfda114a0011ac66b1bff883916dc04014d71a3be9680868ee75",
+  "candidate_sha256": "140c085d959a976874f87045a37c312f040c465451667490b9b544b8ebddebc9",
+  "technical_gates_pass": true,
+  "selection": "All8 technical development gates passed:8/30 useful automatic replies,0misses, no flagged automatic replies. This is selection for confirmation, not promotion.",
+  "human_verified": false,
+  "confirmation_cases_inspected_for_tuning": false
+}

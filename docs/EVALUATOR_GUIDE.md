@@ -61,4 +61,6 @@ On 17 September 2026, Arnav Bule verified all 100 scores from the initial GPT-6 
 
 ## Final submission artifacts
 
-Start with the [six-page PDF](../output/pdf/Cadence-Arnav-Bule-Report.pdf), then [quality acceptance](QUALITY_ACCEPTANCE.md). `python analysis_tools/reproduce_quality.py` checks the new development and confirmation runs without model calls. All new quality ratings are AI-authored; the completed Arnav verification remains scoped to the earlier 100 ratings. The demo remains on the reference agent.
+Start with the [six-page PDF](../output/pdf/Cadence-Arnav-Bule-Report.pdf), then [balanced acceptance](BALANCED_ACCEPTANCE.md) and the earlier [quality acceptance](QUALITY_ACCEPTANCE.md). `python analysis_tools/reproduce_quality.py` checks the quality development and confirmation runs without model calls. All new quality ratings are AI-authored; the completed Arnav verification remains scoped to the earlier 100 ratings. The demo remains on the reference agent.
+
+For the latest coverage/safety follow-up, read [balanced acceptance](BALANCED_ACCEPTANCE.md) and run `python analysis_tools/reproduce_balanced.py`. This validates the 80-case comparison, full blind-review context, per-call cache observations and every promotion gate. Pass `--experiment results/balanced_dev`, `balanced_dev_v2` or `balanced_dev_v3` with the full `results/` prefix to inspect retained development runs. `python analysis_tools/publish_balanced.py --check` ensures the report and dashboard use the same results. The new labels and ratings are AI-authored.

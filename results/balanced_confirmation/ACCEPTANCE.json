@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "phase": "confirmation",
+  "n": 80,
+  "counts": {
+    "agent": {
+      "n": 80,
+      "automatic": 28,
+      "useful_automatic": 6,
+      "useful_automatic_coverage": 0.075,
+      "useful_resolution": 0,
+      "useful_clarification": 6,
+      "missed_escalations": 4,
+      "flagged_automatic": 15
+    },
+    "quality": {
+      "n": 80,
+      "automatic": 7,
+      "useful_automatic": 6,
+      "useful_automatic_coverage": 0.075,
+      "useful_resolution": 1,
+      "useful_clarification": 5,
+      "missed_escalations": 0,
+      "flagged_automatic": 0
+    },
+    "balanced": {
+      "n": 80,
+      "automatic": 30,
+      "useful_automatic": 13,
+      "useful_automatic_coverage": 0.1625,
+      "useful_resolution": 11,
+      "useful_clarification": 2,
+      "missed_escalations": 4,
+      "flagged_automatic": 4
+    }
+  },
+  "gates": {
+    "no_more_misses_than_either": false,
+    "strictly_better_useful_coverage_than_both": true,
+    "minimum_automatic_coverage": true,
+    "bounded_coverage_loss_vs_reference": true,
+    "no_fewer_useful_resolutions_than_reference": true,
+    "no_reviewer_flagged_unsafe_automatic": false,
+    "latency_within_frozen_limit": true,
+    "latency_observations_fully_fresh": true,
+    "new_reply_reviews_verified_by_human": false
+  },
+  "technical_gates_pass": false,
+  "promote": false,
+  "reviewer_type": "ai",
+  "decision": "Keep the deployed reference; not all promotion gates are met.",
+  "input_hashes": {
+    "manifest.json": "f35238c020416a785aa86c032af3b7f9374247e3f1163de9b4c068691cbff451",
+    "summary.json": "a22f4fd7f160a1a0110f88b070886933ec1663cd7ea084a06904303061701d96",
+    "predictions.jsonl": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d",
+    "blind_packet.jsonl": "c34423c7b7b0a92bb8dbbfba4a642ae74c63af9526f84e18ab732be7c0a84d8d",
+    "blind_mapping.json": "31b4f921a64e9e84e9e1e4b1205502e2e6ef77325cdf513a3286297f5f569e51",
+    "blind_astra_ratings.jsonl": "8c00806fa474e544ff55c164c7563c0de841d23a6f9cc2affb86c54391252073",
+    "astra_reply_ratings.jsonl": "17f75aa9d506c9f86c4c5cd54fe2407f57679a8bce1aee728a740fa854847a19",
+    "astra_coverage.json": "50a1d06b7a0feb2e3fea681da11649e764463c0d928b32aa57817f099ef19938"
+  }
+}

@@ -23,6 +23,7 @@ cd cadence
 python -m pip install -e ".[dev]"
 python analysis_tools/reproduce_benchmark.py
 python analysis_tools/reproduce_quality.py
+python analysis_tools/reproduce_balanced.py
 python -m cadence.cli reproduce
 python -m pytest -q
 ```
@@ -123,4 +124,16 @@ Arnav Bule — [www.arnavbule.in](https://www.arnavbule.in) · [GitHub](https://
 
 ## Completed quality and confirmation work
 
-The final experimental candidate uses approved response actions with server-owned wording, current-source references, and a semantic relevance check on the exact public reply. Three development iterations are preserved, including rejected candidates. The 60-case confirmation is frozen and has separate AI annotations and blinded AI reply review; it does not inherit Arnav’s earlier human verification. [Measured results and acceptance](docs/QUALITY_ACCEPTANCE.md) explain why the production reference remains unchanged. The six-page PDF follows Cadence’s theme and has page-by-page visual verification. Form submission is intentionally left to the author.
+The earlier quality candidate uses approved response actions with server-owned wording, current-source references, and a semantic relevance check on the exact public reply. Its three development iterations and 60-case confirmation are preserved, including rejected candidates. That confirmation has separate AI annotations and blinded AI reply review; it does not inherit Arnav’s earlier human verification. [Measured results and acceptance](docs/QUALITY_ACCEPTANCE.md) explain its coverage tradeoff.
+
+## Recovering useful automatic coverage
+
+The follow-up `BalancedAgent` jointly routes the request and selects from 25 verified, server-rendered answers, then audits the exact proposed reply. Explicit request-scope checks keep a convenient public answer from masking a required escalation. The reference and earlier QualityAgent remain available as unchanged comparators.
+
+[Balanced acceptance](docs/BALANCED_ACCEPTANCE.md) reports the same-case comparison: automatic coverage, AI-reviewed useful replies, resolution-style replies versus clarifications, missed escalations, flagged automatic replies, tokens and fresh-call latency. Three development iterations are retained; a separate 80-message sample was locked and independently AI-labelled before inference. Promotion requires every fixed gate, including human verification of the new replies. The hosted demo retains the reference.
+
+**Confirmation outcome:** balanced automatic coverage is 30/80 (37.5%), versus reference 28/80 (35%) and quality 7/80 (8.75%). Balanced and reference each miss four required escalations; quality misses none. The balanced candidate therefore fails the fixed safety gate and is **not promoted**. It uses 1.88 times the reference tokens. See [the four routing misses and policy boundaries](docs/BALANCED_FAILURES.md); higher raw coverage alone does not satisfy the objective.
+
+The blinded Astra review rates **13/80 balanced replies as useful automatic help**, versus **6/80 for each comparator**. It flags four balanced automatic replies, versus 15 reference and zero quality replies. These flags and the escalation misses are separate measurements and need not concern the same cases. The usefulness gain does not cancel either failed safety gate.
+
+The six-page PDF and dashboard use the same published evidence. The PDF follows Cadence’s theme and receives page-by-page visual review. Form submission is intentionally left to the author.

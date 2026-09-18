@@ -19,3 +19,5 @@ docs/TAXONOMY.md
 docs/SAMPLING_NOTE.md
 results/*
 !results/ui
+tmp
+PAUSED_STATE.md

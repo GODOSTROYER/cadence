@@ -1,0 +1,15 @@
+{
+  "status": "accepted_for_development",
+  "reviewer": "GPT-6 Astra",
+  "reasoning_effort": "xhigh",
+  "reviewer_type": "ai",
+  "source_sha256": "140c085d959a976874f87045a37c312f040c465451667490b9b544b8ebddebc9",
+  "checks": [
+    "62 candidate tests passed",
+    "Targeted lint passed",
+    "All25 templates unchanged and release-valid",
+    "Completed churn positives and negation/unrelated-action regressions",
+    "Account identifier veto covers primary and fallback, including explicit contrast"
+  ],
+  "confirmation_cases_inspected": false
+}

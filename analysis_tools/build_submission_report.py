@@ -148,19 +148,16 @@ def pct(v):
 
 def main():
     register_fonts()
-    route = read("results/routing_dev/summary.json")
-    route_review = read("results/routing_dev/astra_coverage.json")
-    confirm = read("results/quality_confirmation/summary.json")
-    reviewed = read("results/quality_confirmation/astra_coverage.json")
-    acceptance = read("results/quality_confirmation/ACCEPTANCE.json")
+    balanced_publication = read("results/published/balanced.json")
+    balanced = balanced_publication["current"]
     report = Report()
     r = report
     r.page("01 / the brief")
-    r.label("Hiver SDE Intern take-home / 17 September 2026", 78)
+    r.label("Hiver SDE Intern take-home / 18 September 2026", 78)
     r.text("An AI support agent", M, 101, 45, "DisplayItalic")
     r.text("that earns its answer.", M, 151, 45, "DisplayItalic")
     r.para(
-        "Built and reviewed by <b>Arnav Bule</b>. Cadence classifies customer messages, drafts grounded replies and explains when a human must take over.",
+        "Built by <b>Arnav Bule</b>. Cadence classifies customer messages, drafts grounded replies and explains when a human must take over.",
         M,
         217,
         468,
@@ -194,8 +191,8 @@ def main():
     r.stat(
         394,
         546,
-        "60",
-        "New confirmation cases",
+        str(balanced["n"]),
+        "Latest confirmation cases",
         "Separated from inspected data; AI labels frozen before inference.",
     )
     r.para(
@@ -226,12 +223,12 @@ def main():
         202,
         241,
     )
-    r.label("Two implementations, clearly identified", 317)
+    r.label("Versioned implementations, explicit handoffs", 317)
     steps = [
         ("DEPLOYED REFERENCE", "Rules + BM25 k6 + one structured model call + release checks."),
         (
-            "QUALITY CANDIDATE",
-            "Message-only route; retrieve if eligible; render approved response actions; audit the exact final reply.",
+            "BALANCED CANDIDATE",
+            "Joint route + approved answer selection; preserve request scope; check the exact reply in a second call.",
         ),
         (
             "HUMAN HANDOFF",
@@ -251,7 +248,7 @@ def main():
             ("Historical 250", "AI labels; repeatedly inspected", "Training / regression"),
             ("Frozen 200", "AI labels; Arnav approved", "Frozen benchmark"),
             ("100 reply ratings", "Astra xhigh; Arnav verified", "Judge calibration audit"),
-            ("New 60", "Astra xhigh before inference", "One-shot confirmation"),
+            ("New 60 + 80", "Astra xhigh before inference", "Versioned confirmation"),
         ],
         M,
         592,
@@ -259,7 +256,7 @@ def main():
         row_height=28,
     )
     r.para(
-        "Sampling excludes prior candidate, golden, taxonomy and benchmark cases; confirmation also excludes development messages. Conversation overlap and >=85% fuzzy text matches are rejected. This measures distinct English complaints, not traffic-weighted demand.",
+        "Sampling excludes prior candidate, golden, taxonomy and benchmark cases; confirmation also excludes development messages. Conversation overlap and >=85% fuzzy text matches are rejected. This is an English-focused customer-message sample, not traffic-weighted demand.",
         M,
         743,
         size=8.7,
@@ -371,7 +368,7 @@ def main():
         yy += 103
     r.rect(M, 709, CW, 66, PANEL, 6)
     r.para(
-        "<b>Review before release:</b> the semantic check sees the exact finalized public text, including trimming and links. Failed checks produce a contact handoff. The candidate uses one to three calls; tokens and latency are measured rather than assumed.",
+        "<b>Review before release:</b> the semantic check sees the exact finalized public text, including trimming and links. Failed checks produce a contact handoff. BalancedAgent uses one or two calls; tokens and latency are measured rather than assumed.",
         M + 14,
         724,
         CW - 28,
@@ -384,103 +381,52 @@ def main():
         "Measure useful coverage.",
         "Development selects a hypothesis. Fresh confirmation tests the frozen implementation.",
     )
-    rc = route["comparisons"]["selective"]
-    rv = route_review["systems"]
-    r.label("30-case routing experiment / AI labels and review", 177)
-    r.table(
-        ["System", "Recall", "Auto", "Useful auto", "Tokens"],
-        [
-            (
-                "Current",
-                pct(rc["right"]["escalation_recall"]),
-                pct(rc["right"]["auto_handle_rate"]),
-                pct(rv["agent"]["useful_automatic_coverage"]),
-                "77,127",
-            ),
-            (
-                "Selective",
-                pct(rc["left"]["escalation_recall"]),
-                pct(rc["left"]["auto_handle_rate"]),
-                pct(rv["selective"]["useful_automatic_coverage"]),
-                "67,094",
-            ),
-        ],
-        M,
-        201,
-        [138, 85, 85, 105, 98],
-        row_height=29,
-    )
+    r.label("Before / the earlier 60-case confirmation", 177)
     r.para(
-        "Selective routing missed 0/14 required escalations versus 2/14, but automatic decisions are not all useful replies. Its p95 was 3.35 s versus 3.17 s. The quality candidate adds approved actions and semantic review. Two weaker development iterations were rejected before the final design was frozen.",
-        M,
-        300,
-        size=9.5,
-        leading=13,
+        "The earlier quality candidate reduced missed escalations from 4 to 0, but automatic replies fell from 22/60 to 4/60. Useful replies rose only from 3/60 to 4/60. That coverage loss motivated a broader set of verified answers and joint routing. The reference and quality versions remain unchanged.",
+        M, 199, size=9.4, leading=13,
     )
-    r.label("60 new cases / frozen before inference / AI labels and review", 373)
-    comp = confirm["comparisons"]["quality"]
-    cr = reviewed["systems"]
+    r.label(f"Now / {balanced['n']} new cases / all three arms / AI labels and review", 267)
+    names = {"agent": "Reference", "quality": "Quality candidate", "balanced": "Balanced candidate"}
     r.table(
-        ["System", "Recall", "Auto", "Useful auto", "Misses"],
-        [
-            (
-                "Reference",
-                pct(comp["right"]["escalation_recall"]),
-                pct(comp["right"]["auto_handle_rate"]),
-                pct(cr["agent"]["useful_automatic_coverage"]),
-                str(acceptance["counts"]["agent"]["missed_escalations"]),
-            ),
-            (
-                "Quality candidate",
-                pct(comp["left"]["escalation_recall"]),
-                pct(comp["left"]["auto_handle_rate"]),
-                pct(cr["quality"]["useful_automatic_coverage"]),
-                str(acceptance["counts"]["quality"]["missed_escalations"]),
-            ),
-        ],
-        M,
-        398,
-        [138, 85, 85, 105, 98],
-        row_height=32,
+        ["System", "Auto", "Useful auto", "Resolution-style", "Misses"],
+        [(name, f"{balanced['counts'][key]['automatic']}/{balanced['n']}",
+          f"{balanced['counts'][key]['useful_automatic']}/{balanced['n']}",
+          str(balanced['counts'][key]['useful_resolution']),
+          str(balanced['counts'][key]['missed_escalations'])) for key, name in names.items()],
+        M, 291, [139, 90, 101, 96, 85], row_height=30,
     )
-    a, b = confirm["runtime"]["agent"], confirm["runtime"]["quality"]
+    r.label("Cost and latency / successful end-to-end predictions", 432)
     r.table(
-        ["Runtime", "Reference", "Quality candidate"],
-        [
-            (
-                "p50 / p95",
-                f"{a['p50_ms'] / 1000:.2f} / {a['p95_ms'] / 1000:.2f} s",
-                f"{b['p50_ms'] / 1000:.2f} / {b['p95_ms'] / 1000:.2f} s",
-            ),
-            (
-                "Input + output tokens",
-                f"{a['prompt_tokens'] + a['output_tokens']:,}",
-                f"{b['prompt_tokens'] + b['output_tokens']:,}",
-            ),
-            ("Model calls", str(a["model_calls"]), str(b["model_calls"])),
-        ],
-        M,
-        508,
-        [211, 150, 150],
-        row_height=27,
+        ["Runtime", "Reference", "Quality", "Balanced"],
+        [("p95 seconds", *[f"{balanced['runtime'][key]['p95_ms']/1000:.2f}" for key in names]),
+         ("Input + output tokens", *[f"{balanced['runtime'][key]['prompt_tokens']+balanced['runtime'][key]['output_tokens']:,}" for key in names])],
+        M, 456, [169, 114, 114, 114], row_height=27,
     )
+    timing = ("All recorded calls were fresh. " if balanced['gates']['latency_observations_fully_fresh'] else
+              "Some predictions used cached calls; the freshness gate failed. ")
+    if balanced.get('execution'):
+        timing += "Timing spans " + ', '.join(balanced['execution']['receipt_dates_utc']) + " (UTC). "
+    timing += "Failed attempts and interruption time are excluded."
     r.para(
-        "<b>Useful automatic coverage</b> counts shipped automatic replies with grounding, safety and resolution/next-step scores >=4, no review flags, and response kind resolution or necessary clarification. All messages stay in the denominator. Safe handoffs are not counted as automatic resolutions.",
-        M,
-        635,
-        size=9.4,
-        leading=13,
+        "<b>Useful automatic</b> requires ship, grounding/safety/next-step scores >=4 and no flags. Clarifications count; resolution-style replies are reviewer judgments, not observed outcomes. Handoffs/social replies are excluded. Misses count even when text looks harmless. " + timing,
+        M, 550, size=9.1, leading=12.4,
     )
-    r.rect(M, 705, CW, 75, PANEL, 6)
+    r.rect(M, 647, CW, 130, PANEL, 6)
+    gate_labels = {
+        'no_more_misses_than_either': 'missed-escalation bound',
+        'no_reviewer_flagged_unsafe_automatic': 'zero flagged automatic replies',
+    }
+    failed = [gate_labels.get(key, key.replace('_', ' ')) for key, passed in balanced['gates'].items()
+              if not passed and key != 'new_reply_reviews_verified_by_human']
     r.para(
-        "<b>Acceptance decision:</b> "
-        + escape(acceptance["decision"])
-        + " New reply reviews are AI-authored and have not been verified by Arnav. The earlier human verification applies only to the original 100 ratings. Small samples and same-family generation/checking limit the conclusion.",
-        M + 14,
-        719,
-        CW - 28,
-        size=9.4,
-        leading=13,
+        "<b>Acceptance:</b> " + ("Technical gates passed. " if balanced['technical_gates_pass'] else "Technical gates failed. ")
+        + escape(balanced['decision'])
+        + (" Failed: " + escape('; '.join(failed)) + "." if failed else "")
+        + f" Balanced automatic replies flagged by review: {balanced['counts']['balanced']['flagged_automatic']}."
+        + " " + escape(balanced_publication["review_note"])
+        + " Development iterations are preserved. Code was frozen before confirmation; no tuning followed these outcomes.",
+        M + 14, 661, CW - 28, size=9.2, leading=12.6,
     )
 
     r.page(
@@ -515,7 +461,7 @@ def main():
     for command in [
         'python -m pip install -e ".[dev]"',
         "python analysis_tools/reproduce_benchmark.py",
-        "python analysis_tools/reproduce_quality.py",
+        "python analysis_tools/reproduce_balanced.py",
         "python -m pytest -q",
     ]:
         r.text(command, M, yy, 8.5, "Mono", INK)

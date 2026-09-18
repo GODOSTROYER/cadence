@@ -1,0 +1,13 @@
+{
+  "scope": "80 locked public Kaggle Twitter customer openers plus exactly retrieved six-neighbor evidence texts; aggregate-only inspection, individual cases not shown to implementation agent",
+  "n_text_fields": 1028,
+  "possible_sensitive_literal_counts": {
+    "email_like": 0,
+    "long_digit_identifier": 0,
+    "credential_assignment": 0
+  },
+  "labels_sha256": "cfaad25718d0b8bc0890318365d99e9d2a82ca2e58c1d1d42d9bd945cd4818e3",
+  "corpus_sha256": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+  "no_model_calls": true,
+  "limitation": "Regex scan detects selected literal patterns; not proof of absence of all personal information."
+}

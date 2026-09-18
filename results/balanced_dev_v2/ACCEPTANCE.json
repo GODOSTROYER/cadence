@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "phase": "development",
+  "n": 30,
+  "counts": {
+    "agent": {
+      "n": 30,
+      "automatic": 13,
+      "useful_automatic": 3,
+      "useful_automatic_coverage": 0.1,
+      "useful_resolution": 1,
+      "useful_clarification": 2,
+      "missed_escalations": 3,
+      "flagged_automatic": 8
+    },
+    "quality": {
+      "n": 30,
+      "automatic": 1,
+      "useful_automatic": 1,
+      "useful_automatic_coverage": 0.03333333333333333,
+      "useful_resolution": 0,
+      "useful_clarification": 1,
+      "missed_escalations": 0,
+      "flagged_automatic": 0
+    },
+    "balanced": {
+      "n": 30,
+      "automatic": 8,
+      "useful_automatic": 7,
+      "useful_automatic_coverage": 0.23333333333333334,
+      "useful_resolution": 7,
+      "useful_clarification": 0,
+      "missed_escalations": 2,
+      "flagged_automatic": 0
+    }
+  },
+  "gates": {
+    "no_more_misses_than_either": false,
+    "strictly_better_useful_coverage_than_both": true,
+    "minimum_automatic_coverage": true,
+    "bounded_coverage_loss_vs_reference": false,
+    "no_fewer_useful_resolutions_than_reference": true,
+    "no_reviewer_flagged_unsafe_automatic": true,
+    "latency_within_frozen_limit": true,
+    "latency_observations_fully_fresh": true,
+    "new_reply_reviews_verified_by_human": false
+  },
+  "technical_gates_pass": false,
+  "promote": false,
+  "reviewer_type": "ai",
+  "decision": "Development assessment only; fresh confirmation is required before promotion.",
+  "input_hashes": {
+    "manifest.json": "bd9fac26e016af3ce6905347e56f7545148e75b1870cc39eaca5fa9c5ec602f4",
+    "summary.json": "8a8902a6b4d72ad49b21364e4feb26e77788986ffd9c7a3931cb9fb93b008b9e",
+    "predictions.jsonl": "96534e0b601f3d5e0272ea544d558de924122b90ecae704a90a4d6a6dc612cb1",
+    "blind_packet.jsonl": "3b08596119170697444db996025067208dce835b7810e0138e3c5830ead80901",
+    "blind_mapping.json": "2d39b1c997553872afec32132497b5895c7927595aed2c67ed7e1faeec7cee62",
+    "blind_astra_ratings.jsonl": "c2e15d709682c1650efea61535ccfa89a213bfe21163df46c944d45e1484c428",
+    "astra_reply_ratings.jsonl": "70619773c4c38ed1506f118adbfffc4173e2bece04f5c694abd1bb9a1a576b3a",
+    "astra_coverage.json": "791653a25ad56a1b555c89ead0b1ffea18ef1f1fb659f81abcc46a84ef1c60f4"
+  }
+}

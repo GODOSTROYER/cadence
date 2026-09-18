@@ -1,0 +1,37 @@
+{
+  "run_id": "routing_dev-f35238c02041",
+  "reviewer_id": "astra-balanced-confirmation-blind",
+  "reviewer_type": "ai",
+  "systems": {
+    "agent": {
+      "n": 80,
+      "automatic": 28,
+      "useful_automatic": 6,
+      "useful_automatic_coverage": 0.075,
+      "useful_resolution": 0,
+      "useful_clarification": 6
+    },
+    "balanced": {
+      "n": 80,
+      "automatic": 30,
+      "useful_automatic": 13,
+      "useful_automatic_coverage": 0.1625,
+      "useful_resolution": 11,
+      "useful_clarification": 2
+    },
+    "quality": {
+      "n": 80,
+      "automatic": 7,
+      "useful_automatic": 6,
+      "useful_automatic_coverage": 0.075,
+      "useful_resolution": 1,
+      "useful_clarification": 5
+    }
+  },
+  "retrieval": null,
+  "input_hashes": {
+    "results\\balanced_confirmation\\manifest.json": "f35238c020416a785aa86c032af3b7f9374247e3f1163de9b4c068691cbff451",
+    "results\\balanced_confirmation\\predictions.jsonl": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d",
+    "results\\balanced_confirmation\\astra_reply_ratings.jsonl": "17f75aa9d506c9f86c4c5cd54fe2407f57679a8bce1aee728a740fa854847a19"
+  }
+}

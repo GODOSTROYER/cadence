@@ -1,0 +1,7 @@
+{
+  "status": "interrupted",
+  "completed": 194,
+  "exception_type": "QuotaExhausted",
+  "partial_invocation_cache_flags": [],
+  "latency_note": "Aborted invocation time is excluded. A resumed mixed-cache invocation is ineligible for latency acceptance."
+}

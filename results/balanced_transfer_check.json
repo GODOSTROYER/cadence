@@ -1,0 +1,11 @@
+{
+  "scope": "30 public Kaggle Twitter customer openers plus exactly retrieved six-neighbor evidence texts; no raw private thread messages or account stores",
+  "n_text_fields": 390,
+  "possible_sensitive_literal_counts": {
+    "email_like": 0,
+    "long_digit_identifier": 0,
+    "credential_assignment": 0
+  },
+  "source": "README.md lines47,91;docs/SAMPLING_NOTE.md public-thread provenance; handles normalized and URLs tokenized by clean_text",
+  "no_model_calls": true
+}

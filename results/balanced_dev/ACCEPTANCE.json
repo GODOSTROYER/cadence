@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "phase": "development",
+  "n": 30,
+  "counts": {
+    "agent": {
+      "n": 30,
+      "automatic": 10,
+      "useful_automatic": 2,
+      "useful_automatic_coverage": 0.06666666666666667,
+      "useful_resolution": 1,
+      "useful_clarification": 1,
+      "missed_escalations": 2,
+      "flagged_automatic": 7
+    },
+    "quality": {
+      "n": 30,
+      "automatic": 1,
+      "useful_automatic": 1,
+      "useful_automatic_coverage": 0.03333333333333333,
+      "useful_resolution": 0,
+      "useful_clarification": 1,
+      "missed_escalations": 0,
+      "flagged_automatic": 0
+    },
+    "balanced": {
+      "n": 30,
+      "automatic": 7,
+      "useful_automatic": 5,
+      "useful_automatic_coverage": 0.16666666666666666,
+      "useful_resolution": 4,
+      "useful_clarification": 1,
+      "missed_escalations": 3,
+      "flagged_automatic": 1
+    }
+  },
+  "gates": {
+    "no_more_misses_than_either": false,
+    "strictly_better_useful_coverage_than_both": true,
+    "minimum_automatic_coverage": true,
+    "bounded_coverage_loss_vs_reference": true,
+    "no_fewer_useful_resolutions_than_reference": true,
+    "no_reviewer_flagged_unsafe_automatic": false,
+    "latency_within_frozen_limit": true,
+    "latency_observations_fully_fresh": true,
+    "new_reply_reviews_verified_by_human": false
+  },
+  "technical_gates_pass": false,
+  "promote": false,
+  "reviewer_type": "ai",
+  "decision": "Development assessment only; fresh confirmation is required before promotion.",
+  "input_hashes": {
+    "manifest.json": "0f27e88438204fe9444a9f562f0b709e843dca3226184a8383fe41cd0efe8363",
+    "summary.json": "9c0be9cae99bacdccaf911cfe447cbf1f95094a92e037e2623e10db1880b676e",
+    "predictions.jsonl": "5d3c72ddbe87aa81f3d551bbc3b7e166bc79922fa877f6660ae2314b12ea084a",
+    "blind_packet.jsonl": "a9a426119c22767a0d8a3cf42aaae72f823b6a2eef3516aae3398b6c8494cfa6",
+    "blind_mapping.json": "4e06bf57febf087ea0509aaf1e20588312d07289cdd592198f3b8fc92ad5a11b",
+    "blind_astra_ratings.jsonl": "a14ef09e167e48c287cbf57d173b76235dad8cab9a66b5f49691b2e30aaaefa8",
+    "astra_reply_ratings.jsonl": "a70ed15e9338fc936531a20ba4cd1b581b3d747164eba9b985e9b33e12f71d3d",
+    "astra_coverage.json": "bdf2cc7345ccf1d776b0d8823f0d2bcffe92860a31592a626634e4dc846f4821"
+  }
+}

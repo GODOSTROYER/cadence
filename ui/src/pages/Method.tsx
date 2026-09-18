@@ -12,6 +12,7 @@ import { getIntents, getPolicy, getPublicSummary } from "@/lib/api";
 import { fixed, formatDate, int, pct } from "@/lib/format";
 import { JUDGE_DIMENSION_HINTS, JUDGE_DIMENSION_LABELS, JUDGE_DIMENSIONS, reasonLabel } from "@/lib/labels";
 import type { DatasetFacts, EscalationPolicy, IntentDefinition, PublicSummary } from "@/lib/types";
+import { Link } from "react-router-dom";
 
 /** CONTRACT §2 measured facts, used when eval_summary.meta.dataset is absent. */
 const DATASET_FALLBACK: DatasetFacts = {
@@ -229,11 +230,7 @@ function MethodContent({ summary, intents, policy }: { summary: PublicSummary; i
         id="judge"
         eyebrow="05 · reply quality"
         title="How replies are judged"
-        lede={`${summary.meta.judge_model} scores the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge is a different model from the agent (${summary.meta.agent_model}). ${
-          summary.judge_agreement && summary.judge_agreement.n > 0
-            ? `A human rated ${int(summary.judge_agreement.n)} pairs blind to calibrate it.`
-            : "Arnav Bule has reviewed and approved the latest 200-example benchmark and its existing scores."
-        }`}
+        lede={`${summary.meta.judge_model} scored the agent, the nearest-neighbour reply and the template in one comparative call per example, shuffled and anonymised as A/B/C. The judge differed from the agent (${summary.meta.agent_model}). These archived judge results predate the later Astra review and Arnav Bule's verification with the AI scores visible.`}
       >
         <div className="table-wrap">
           <table className="table">
@@ -297,8 +294,17 @@ export default function Method() {
       <PageHeader
         eyebrow="method & data"
         title="How Cadence was built and measured"
-        description="The corpus, the pipeline, the taxonomy and policy it enforces, how replies are judged, and the commands that reproduce every number on this site."
+        description="The original corpus, reference pipeline, taxonomy, policy and archived judge methodology. Current benchmark and candidate evidence are linked below."
       />
+      <aside className="region mb-10 px-5 py-5 sm:px-6" aria-labelledby="method-version-title">
+        <p id="method-version-title" className="eyebrow mb-3">Historical methods · current evidence</p>
+        <p className="max-w-4xl text-sm leading-relaxed text-muted">The 250-example golden set, comparative judge results and execution details below describe the archived evaluation. Their original numbers remain available for reproduction.</p>
+        <p className="mt-3 max-w-4xl text-sm leading-relaxed text-muted">The latest follow-up compares the reference, QualityAgent and BalancedAgent on 80 separately locked messages. BalancedAgent adds 25 verified response actions and an audit of the exact reply; the hosted demo retains the reference.</p>
+        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+          <Link className="link" to="/">Current dashboard</Link>
+          <a className="link" href="https://github.com/GODOSTROYER/cadence/blob/main/docs/BALANCED_ACCEPTANCE.md">80-message comparison and review provenance</a>
+        </div>
+      </aside>
       {loading ? <MethodSkeleton /> : error || !results.data || !intents.data || !policy.data ? <ErrorState error={error} what="the method data" onRetry={reload} /> : <MethodContent summary={results.data} intents={intents.data} policy={policy.data} />}
     </>
   );

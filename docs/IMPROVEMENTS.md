@@ -70,3 +70,7 @@ The follow-up now includes complete AI usefulness review, three recorded quality
 ## Final quality candidate
 
 Public wording comes from a finite set of server-rendered support actions. This prevents arbitrary operational promises and historical procedure text from entering the public reply. The model chooses an action and a separate semantic check assesses its fit. Fixed templates do not guarantee relevance or usefulness; those are measured from exact-output reviews. Source snapshots and rejected iterations are retained with their results.
+
+## Follow-up: recover useful coverage
+
+The earlier quality confirmation reduced misses but cut automatic coverage from 22/60 to 4/60. BalancedAgent expands the verified answer set and jointly selects routing and an answer, preserving explicit escalation scope. Its three development attempts and separate 80-case confirmation are reported in [balanced acceptance](BALANCED_ACCEPTANCE.md), with all fixed gates, exact reply review, fresh-call runtime and token totals. Earlier evidence remains immutable; new AI ratings do not inherit prior human verification.

@@ -48,3 +48,11 @@ The dashboard and generated benchmark export now include completed human verific
 ## Quality confirmation and six-page report release
 
 The public evidence now includes the completed routing usefulness review, the 60-case fresh quality confirmation, and the six-page Cadence report. The candidate remains experimental; the hosted demonstration still uses the reference agent. Review provenance is explicit: prior Arnav verification remains complete, while the new development and confirmation reviews are AI-authored. Current acceptance evidence is recorded in `results/acceptance/release.json`; GitHub checks and runtime health identify the deployed revision.
+
+## Balanced coverage and safety evidence
+
+This evidence release adds the matched 80-message comparison of reference, QualityAgent and BalancedAgent, with a separate blinded Astra review of all 240 replies. The dashboard, [acceptance report](BALANCED_ACCEPTANCE.md) and six-page PDF share the generated publication. Three development iterations and their rejected outcomes are retained.
+
+BalancedAgent remains experimental: its four missed escalations exceed QualityAgent's zero, so it fails the fixed safety gate despite recovering raw automatic coverage. The hosted agent continues to use `SupportAgent`. New ratings preserve AI authorship; Arnav's earlier verification is unchanged within its original scope.
+
+`results/acceptance/release.json` records completed local release checks and exact file hashes. GitHub's checks and `/hiver-assignment/api/health` identify the subsequently deployed commit. Public `data/balanced.json` must match `ui/public/data/balanced.json`; no model call is needed to verify that publication.

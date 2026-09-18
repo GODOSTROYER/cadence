@@ -1,0 +1,37 @@
+{
+  "run_id": "routing_dev-628b67e9274f",
+  "reviewer_id": "astra-balanced-dev-v3-20260917",
+  "reviewer_type": "ai",
+  "systems": {
+    "agent": {
+      "n": 30,
+      "automatic": 10,
+      "useful_automatic": 2,
+      "useful_automatic_coverage": 0.06666666666666667,
+      "useful_resolution": 1,
+      "useful_clarification": 1
+    },
+    "balanced": {
+      "n": 30,
+      "automatic": 8,
+      "useful_automatic": 8,
+      "useful_automatic_coverage": 0.26666666666666666,
+      "useful_resolution": 7,
+      "useful_clarification": 1
+    },
+    "quality": {
+      "n": 30,
+      "automatic": 1,
+      "useful_automatic": 1,
+      "useful_automatic_coverage": 0.03333333333333333,
+      "useful_resolution": 0,
+      "useful_clarification": 1
+    }
+  },
+  "retrieval": null,
+  "input_hashes": {
+    "results\\balanced_dev_v3\\manifest.json": "628b67e9274fdfda114a0011ac66b1bff883916dc04014d71a3be9680868ee75",
+    "results\\balanced_dev_v3\\predictions.jsonl": "39c0e242ec7034e064a6d3e1210d5428941530ea1843cfaf11ee01fc5bd2b9e3",
+    "results\\balanced_dev_v3\\astra_reply_ratings.jsonl": "beb1ae22cb888e3b00fa7cff87c05a1a78a7775a67ef5c79e9234941baa2bbef"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "initial_session_date": "2026-09-17",
+  "resumed_session_date": "2026-09-18",
+  "timezone": "Asia/Calcutta",
+  "saved_before_interruption": 194,
+  "added_after_resume": 46,
+  "total_predictions": 240,
+  "interruption": "QuotaExhausted; local request queue exceeded deadline. Preserved in INTERRUPTION.json.",
+  "partial_invocation_cache_flags_at_interruption": [],
+  "resume_method": "Identical frozen inputs; skip completed prediction identities and retain all existing receipts.",
+  "successful_invocations_fully_fresh": true,
+  "timing_limits": "Successful prediction latency only; excludes aborted invocation and overnight interruption. Timing spans two sessions and is not a production traffic or availability benchmark.",
+  "input_hashes": {
+    "manifest.json": "f35238c020416a785aa86c032af3b7f9374247e3f1163de9b4c068691cbff451",
+    "predictions.jsonl": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d",
+    "summary.json": "a22f4fd7f160a1a0110f88b070886933ec1663cd7ea084a06904303061701d96",
+    "INTERRUPTION.json": "3bcc57db4cfa394585a6efc79cd1a24ed72f7c8efef0cdb444e12764d5856a63"
+  }
+}
