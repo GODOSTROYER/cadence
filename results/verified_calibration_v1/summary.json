@@ -1,0 +1,440 @@
+{
+  "status": "complete",
+  "phase": "calibration",
+  "policy_version": "v2",
+  "n": 100,
+  "metrics": {
+    "verified": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 6,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 6,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 1,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 100,
+        "automatic": 33,
+        "escalated": 67,
+        "failed": 0,
+        "required": 31,
+        "missed_escalations": 2,
+        "auto_on_required": 2,
+        "unnecessary_escalations": 38,
+        "legacy_useful_automatic": 22,
+        "policy_compliant_useful_automatic": 22,
+        "resolution": 12,
+        "clarification": 10
+      },
+      "rates": {
+        "automatic": 0.33,
+        "legacy_useful_coverage": 0.22,
+        "policy_compliant_useful_coverage": 0.22,
+        "completion": 1.0,
+        "escalation_recall": 0.935483870967742
+      },
+      "miss_rate_upper95": 0.18946446742553869,
+      "automatic_error_upper95": 0.32762675185040113,
+      "per_reason": {
+        "needs_account_lookup": {
+          "n": 9,
+          "required": 9,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.28312883556311347
+        },
+        "ambiguous_or_media_only": {
+          "n": 7,
+          "required": 7,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.3481636551311608
+        },
+        "none": {
+          "n": 69,
+          "required": 0,
+          "missed": 0,
+          "automatic": 31,
+          "miss_rate_upper95": null
+        },
+        "billing_dispute": {
+          "n": 8,
+          "required": 8,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.3123439780663678
+        },
+        "account_security": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        },
+        "high_frustration_or_churn": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 2,
+          "automatic": 2,
+          "miss_rate_upper95": 1.0
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 37,
+          "automatic": 21,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 26,
+          "automatic": 6,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 37,
+          "automatic": 6,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 6,
+          "unsupported_action": 0,
+          "stale_procedure": 1,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.73,
+        "macro_f1": 0.6238830087264623,
+        "weighted_f1": 0.7329642056235984,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "account_hacked_or_security": {
+            "precision": 0.14285714285714285,
+            "recall": 1.0,
+            "f1": 0.25,
+            "support": 1
+          },
+          "billing_or_charge": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "login_or_password": {
+            "precision": 0.8,
+            "recall": 0.36363636363636365,
+            "f1": 0.5,
+            "support": 11
+          },
+          "download_or_offline": {
+            "precision": 0.8,
+            "recall": 0.8,
+            "f1": 0.8,
+            "support": 5
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 2
+          },
+          "playlist_or_library": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091,
+            "support": 15
+          },
+          "playback_or_app_bug": {
+            "precision": 0.6,
+            "recall": 0.6923076923076923,
+            "f1": 0.6428571428571429,
+            "support": 13
+          },
+          "subscription_or_plan": {
+            "precision": 0.8125,
+            "recall": 0.8666666666666667,
+            "f1": 0.8387096774193549,
+            "support": 15
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.9166666666666666,
+            "recall": 0.6111111111111112,
+            "f1": 0.7333333333333333,
+            "support": 18
+          },
+          "other": {
+            "precision": 0.8,
+            "recall": 0.4444444444444444,
+            "f1": 0.5714285714285714,
+            "support": 9
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              8,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              4,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              1,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              15,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              9,
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              13,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              2,
+              2,
+              2,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              4
+            ]
+          ]
+        },
+        "n": 100
+      }
+    }
+  },
+  "runtime": {
+    "verified": {
+      "n_requests": 100,
+      "failures": 0,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 3312.986599999931,
+      "p95_end_to_end_ms": 5281.393529998968,
+      "fully_fresh_requests": 100,
+      "model_calls": 151,
+      "network_attempts_known": 152,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 374276,
+      "output_tokens_known": 61030,
+      "tokens_known": 435306,
+      "tokens_per_request_known": 4353.06,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist.",
+      "tokens_per_policy_compliant_useful_reply_known": 19786.636363636364
+    }
+  },
+  "paired_usefulness": {},
+  "human_labels_pre_inference": false,
+  "human_agreement": null,
+  "challenge_binding": null,
+  "acceptance": {
+    "eligible_for_release_review": false,
+    "promote": false,
+    "decision": "Development subset; full matched comparison required",
+    "gates": {
+      "all_four_arms": false
+    }
+  },
+  "inputs": {
+    "manifest.json": "78ca979e49200139d97b1c93edf06e1dd6700815c1579e67e7da67726deb4e50",
+    "EXECUTION.json": "aec9467ca3b5e5d8aa4c382dae56198c94f1c3093d1ef9ca181223258a6fc644",
+    "REVIEW.lock.json": "0cd0ad6f555c213413057209b37720fe1ec9eb8dbb6657c27dd11c6cf4d52a1c",
+    "AI_REVIEW.json": "0f9a52b927e0e2974859003a9569b236e4498532419bb189072b46eccf1b6431"
+  }
+}

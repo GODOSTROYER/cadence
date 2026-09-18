@@ -1,0 +1,245 @@
+{
+  "version": "verified-final-tooling-acceptance-v1",
+  "status": "pass",
+  "reviewer_type": "ai",
+  "reviewer": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "review_task": "/root/verified_final_tooling_acceptance",
+  "recorded_at": "2026-09-18T12:35:27.500240+00:00",
+  "scope": {
+    "variant_helper": "Code, synthetic sealed-development fixtures, independent read-only reproduction of the real joint84 comparison on 21 selected development messages, separate combined80 reproduction, and aggregate findings document.",
+    "controls_helper": "Code, synthetic sealed-development fixtures and read-only reproduction of the existing 80-message / 320-rating historical control quality artifacts.",
+    "excluded": [
+      "No reserved 100/200/challenge customer texts or gold inspected or parsed.",
+      "No model inference, rating generation, source code edits, deployment or promotion."
+    ],
+    "dependency_hashing": "Existing reproduction checks verify archived dependency hashes; reserved dependency contents were not interpreted or displayed."
+  },
+  "validation": {
+    "focused_tests": {
+      "status": "pass",
+      "passed": 50,
+      "variant_tests": 37,
+      "control_tests": 13,
+      "duration_seconds": 35.5,
+      "warning": "Pytest could not write its optional .pytest_cache nodeids cache (WinError 5); all 50 tests passed."
+    },
+    "ruff": "pass",
+    "real_control_check": {
+      "status": "pass",
+      "n_messages": 80,
+      "n_ratings": 320,
+      "reviewer_type": "ai",
+      "new_model_calls": 0,
+      "promotion": false
+    },
+    "prior_control_acceptance_files_and_artifacts_still_match": true,
+    "variant_source_owner_freeze_confirmed": true,
+    "variant_joint_artifact_check": "pass",
+    "original_combined80_separate_summary_reproduction": "pass",
+    "independent_real_artifact_arithmetic": "pass",
+    "aggregate_findings_document_matches_summary": true
+  },
+  "commands": [
+    {
+      "command": "python -m pytest tests/test_verified_variant_comparison.py tests/test_summarize_verified_controls.py",
+      "exit_code": 0,
+      "result": "50 passed, 1 optional-cache warning in 35.50s"
+    },
+    {
+      "command": "ruff check analysis_tools/compare_verified_variants.py analysis_tools/summarize_verified_controls.py tests/test_verified_variant_comparison.py tests/test_summarize_verified_controls.py",
+      "exit_code": 0,
+      "result": "All checks passed!"
+    },
+    {
+      "command": "python analysis_tools/summarize_verified_controls.py --experiment results/verified_ablation_v1 --check",
+      "exit_code": 0,
+      "result": "Exact reproduction passed for 80 messages / 320 AI ratings; 0 new model calls and promotion false."
+    },
+    {
+      "command": "Read-only cadence.eval.provenance.sha256 comparison of both helpers/tests and the earlier control acceptance files/artifacts",
+      "exit_code": 0,
+      "result": "All four reviewed file hashes frozen; all seven earlier control file/artifact hashes still match."
+    },
+    {
+      "command": "python analysis_tools/compare_verified_variants.py --check",
+      "exit_code": 0,
+      "result": "Exact real joint84 summary reproduction passed for 21 messages across four arms; 0 new model calls and promotion false."
+    },
+    {
+      "command": "python analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4 --action verify",
+      "exit_code": 0,
+      "result": "Original separate combined80 summary still reproduces; release-review eligibility and promotion false; 0 new model calls."
+    },
+    {
+      "command": "Read-only standard-library Python arithmetic over the selected development labels, original predictions and joint ratings",
+      "exit_code": 0,
+      "result": "Independent useful/misses/flagged/failure/resolution/clarification counts, budget token totals, linearly interpolated p50/p95 and explicit uncached-request counts all match. All84 rating timestamps follow the joint lock and precede current UTC;54 exact contexts retain identical duplicate judgments."
+    }
+  ],
+  "findings_resolved": [
+    {
+      "id": "freshness",
+      "status": "resolved",
+      "evidence": "Unknown cache status is reported separately; affirmative request freshness requires at least one observed call and every call explicitly cached=false. An explanatory note prevents treating inherited fully_fresh_requests as affirmative proof. The synthetic failed call remains in both runtime and quality denominators."
+    },
+    {
+      "id": "emitted_prediction_identity",
+      "status": "resolved",
+      "evidence": "When a prediction emits model or trace identity fields, contradictions to frozen model, variant, policy version/hash or source date are rejected, including resealed prediction mutations. The frozen manifest identity remains mandatory."
+    },
+    {
+      "id": "joint_review_comparability",
+      "status": "resolved",
+      "evidence": "Quality vectors for every compared arm use one complete 84-reply joint AI review, with exact original run/reply mappings and one reviewer. The synthetic combined-rating probe proves joint scores determine combined metrics while separate full80 reviews remain unchanged."
+    },
+    {
+      "id": "matched_population_and_provenance",
+      "status": "resolved",
+      "evidence": "Selected labels/selection hashes, all 21 IDs and text/gold match, run seals, rubric, model/source/config/resource identity, full development retrieval exclusions and excluded-thread counts are checked. Runtime only includes those 21 rows in every arm; saved summaries bind the helper/evaluator and all execution/review contexts."
+    },
+    {
+      "id": "historical_control_immutability",
+      "status": "resolved",
+      "evidence": "Controls reconstruct exact blinded context from frozen old outputs, use archived labels/inputs, retain failed cases and routing counts, preserve AI attribution, reject altered inputs/outputs/evaluator snapshots, and expose no fresh latency/cost or promotion claim. Existing real summary reproduces with all prior acceptance hashes unchanged."
+    },
+    {
+      "id": "real_joint_artifact_acceptance",
+      "status": "resolved",
+      "evidence": "The real summary now reproduces with the frozen helper, all84 joint ratings and original source contexts. Independent arithmetic and timestamp/exact-context checks passed. The separate original combined80 summary also still reproduces. The aggregate findings document matches and makes no superiority or promotion claim."
+    }
+  ],
+  "actionable_findings": [],
+  "remaining_required_validation": [],
+  "limitations": [
+    "Acceptance covers analysis integrity and reproduction of AI-reviewed development evidence; it does not accept a candidate for release or establish human agreement.",
+    "Variant inference concerns 21 already inspected selected development cases and cannot establish population gains or superiority.",
+    "Control results are AI-rated veto-only counterfactuals on historical outputs; no fresh end-to-end runtime/cost or deployable optimum is inferred.",
+    "AI acceptance is not independent human review; human agreement remains unavailable and promotion remains false."
+  ],
+  "hash_convention": "files/artifacts use cadence.eval.provenance.sha256: CRLF normalized to LF for project text extensions. raw_file_sha256 additionally records exact bytes.",
+  "files": {
+    "analysis_tools/compare_verified_variants.py": "8aaa4698551c5b153abe3c2e3b0a6549f4ca58ce812f8edb1adfde76720d0404",
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "tests/test_verified_variant_comparison.py": "8c48ec6cbc99f2cc381a92d5965e38cf73fd7c9d4279bf185a082995285ec2fc",
+    "tests/test_summarize_verified_controls.py": "d4d45ee8d6521b6e1acb32ff780e323c9e6a52c5121816af19b1277a6dd90844"
+  },
+  "raw_file_sha256": {
+    "analysis_tools/compare_verified_variants.py": "8aaa4698551c5b153abe3c2e3b0a6549f4ca58ce812f8edb1adfde76720d0404",
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "tests/test_verified_variant_comparison.py": "8c48ec6cbc99f2cc381a92d5965e38cf73fd7c9d4279bf185a082995285ec2fc",
+    "tests/test_summarize_verified_controls.py": "d4d45ee8d6521b6e1acb32ff780e323c9e6a52c5121816af19b1277a6dd90844"
+  },
+  "control_artifacts": {
+    "results/verified_ablation_v1/quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+    "results/verified_ablation_v1/ai_reviews.jsonl": "b73d724cd09c2fb49d5a2ebd469d174401d4b2edf155b12cd9665051bf51207e",
+    "results/verified_ablation_v1/AI_REVIEW.json": "9d149bb7bda83e4ddb5dafdbf8f219b3c13b38ccad40ba029d850c0bcea0e83c",
+    "results/verified_ablation_v1/blind_ai_ratings.jsonl": "d9a6b914daedd4e3145347cc6b6ecc3b875a0a853615f8167b2a3cdb54109973",
+    "results/verified_ablation_v1/AI_REVIEW_NOTES.md": "155b6d4313d119a29c701eda8f348f1eec096514dfb5c6a30e00c841f1e1adf1"
+  },
+  "supporting_acceptance": {
+    "path": "output/analysis/VERIFIED_CONTROL_QUALITY_ACCEPTANCE.json",
+    "sha256": "4c96c5d1741c3e8dde33447e7a00fbdcd457a3b34d1dc1499553fce4dce28556"
+  },
+  "source_changes_made": false,
+  "promotion": false,
+  "initial_code_acceptance": {
+    "path": "output/analysis/VERIFIED_FINAL_TOOLING_ACCEPTANCE.initial.json",
+    "sha256": "a3ea1caca5b0950d20658ade7c3152bd872b808347887b8bab51b20ff1cba27c",
+    "recorded_at": "2026-09-18T12:31:46.204925+00:00"
+  },
+  "real_variant_validation": {
+    "status": "pass",
+    "n_messages": 21,
+    "n_ratings": 84,
+    "quality_reviewer_type": "ai",
+    "quality_reviewer_id": "GPT-6 Astra xhigh independent variant review",
+    "joint_review_exact_contexts": 54,
+    "duplicate_context_rows": 30,
+    "duplicate_context_judgments_consistent": true,
+    "ratings_postdate_joint_lock_and_are_not_future_dated": true,
+    "same_matched_runtime_population_per_arm": 21,
+    "all_matched_requests_observed_uncached": true,
+    "source_population_n": {
+      "combined": 80,
+      "core": 21,
+      "full_context": 21,
+      "no_history": 21
+    },
+    "counts": {
+      "combined": {
+        "policy_compliant_useful_automatic": 3,
+        "missed_escalations": 1,
+        "flagged_automatic": 0,
+        "failed": 0,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "core": {
+        "policy_compliant_useful_automatic": 3,
+        "missed_escalations": 0,
+        "flagged_automatic": 0,
+        "failed": 0,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "full_context": {
+        "policy_compliant_useful_automatic": 3,
+        "missed_escalations": 2,
+        "flagged_automatic": 1,
+        "failed": 1,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "no_history": {
+        "policy_compliant_useful_automatic": 4,
+        "missed_escalations": 1,
+        "flagged_automatic": 0,
+        "failed": 0,
+        "resolution": 1,
+        "clarification": 3
+      }
+    },
+    "known_tokens": {
+      "combined": 101815,
+      "core": 94694,
+      "full_context": 107539,
+      "no_history": 94996
+    },
+    "runtime_and_counts_independently_recomputed": true,
+    "human_review_pending": true,
+    "human_agreement": null,
+    "promotion": false
+  },
+  "variant_artifacts": {
+    "results/verified_variant_comparison_v1/summary.json": "6de10d89630a5834eae387edadf0db6984500a9cd51e66179066f6e2e76c6ebe",
+    "results/verified_variant_comparison_v1/AI_REVIEW.json": "b2e978122026a840047fb933e420693496ea8ec8526de36d96b9da46e549bc97",
+    "results/verified_variant_comparison_v1/blind_ai_ratings.jsonl": "ca10d5f4e5dc61a328e9d35cd4c20284b9e24241ac41258a422ce39ff99d51b8",
+    "results/verified_variant_comparison_v1/AI_REVIEW_NOTES.md": "593be813bdab2871f44f45039bd3d517dab586e4fb53689314dd80cce75b6add",
+    "results/verified_variant_comparison_v1/BLIND_REVIEW_V2.lock.json": "f8e33769afc6580007f0ee8d26aa0a6acb49b6ac13b87740fa223862f756c310",
+    "results/verified_variant_comparison_v1/blind_packet_v2.jsonl": "4d895e4964d24fc17ad062538f5ede2d422ea893a15b0b28dbecf296daa0c52e",
+    "results/verified_variant_comparison_v1/rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "data/verified_dev/V3_REGRESSION_SELECTION.json": "0f91abd5618d318bd073653d62a3008fbf79ecb4b4e016d101eab5ef71ced1b8",
+    "docs/VERIFIED_VARIANT_FINDINGS.md": "8f40004abffac5025e877c278e2e0b746272fa1c17f933377145540b78363f7a",
+    "results/verified_dev_v4/manifest.json": "a957f2d1d694ec6013e50ffb2cae56bbca89ac0abf412642cd28cc9d3b333886",
+    "results/verified_dev_v4/EXECUTION.json": "3fd59686384ee143755aefacf2ac85b813f8677719bba5e05fdd618acad5991b",
+    "results/verified_dev_v4/REVIEW.lock.json": "49954b42b071d427364e8834c5e2029469b22fd11e25038bb5253720fa99e713",
+    "results/verified_dev_v4/AI_REVIEW.json": "bf5a5d10091ae9f088c99c3171125763679df2c7bf10bfea7f31824df01db356",
+    "results/verified_dev_v4/summary.json": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
+    "results/verified_variant_core_v1/manifest.json": "6351980c63f5548458d8d31866c0611d4000260a7ffacc804b5a1db509b72b88",
+    "results/verified_variant_core_v1/EXECUTION.json": "6275b818140350a0fd9ab1b38d597c63241e25ec9b95e05f954579c83751d530",
+    "results/verified_variant_core_v1/REVIEW.lock.json": "90b0c64ac2a9d4711daeda68e12321aef6d64fbf10069182a8cdfaab78ec88b7",
+    "results/verified_variant_core_v1/AI_REVIEW.json": "0518aa4f0895137410ebc0a3a92da3a4a7a00a7f8723c5eb5b6aa79f7eb1d399",
+    "results/verified_variant_core_v1/summary.json": "36cc6637a329ab112f37ddd12549f12c4e6b7f6dfff5083cb15ca941051486f2",
+    "results/verified_variant_full_context_v1/manifest.json": "137a184469fa4b16d183194b3e9ff043aa9854e7a5e70399f265f768ba1bb7dd",
+    "results/verified_variant_full_context_v1/EXECUTION.json": "807646dd7e34188b8d3e4f1cf91398df0c08443fb95653ee48c4665847b975f0",
+    "results/verified_variant_full_context_v1/REVIEW.lock.json": "861283a466226597f7e1ee406c3212b4869ef42310908c482d84054584f23f6b",
+    "results/verified_variant_full_context_v1/AI_REVIEW.json": "c328531045b3f12031fe48fa3540f1875559606559591f34f9fc9407eddad9ec",
+    "results/verified_variant_full_context_v1/summary.json": "596ba0b7edd325c8b18050446e88bcb9436c14922a32d6095b78243de4266484",
+    "results/verified_variant_no_history_v1/manifest.json": "694d515a850511d4277069e69318e60b0471e96c02e0a1263b52fd29cfa63aa9",
+    "results/verified_variant_no_history_v1/EXECUTION.json": "b76bc523f52785c5beee20bdfe11cabdd2dc20dbd84e3685e078b5d06379ca6a",
+    "results/verified_variant_no_history_v1/REVIEW.lock.json": "4beaf2581aacbf83cb29402f5369f6ce4d83c4f888f8b178efe397b05b8bd94e",
+    "results/verified_variant_no_history_v1/AI_REVIEW.json": "1f4a45bd94d6473943a073d25eff2e74d6d7a45da9b178964e094ae574e528dc",
+    "results/verified_variant_no_history_v1/summary.json": "a1c70001060e0873ba921e50e6f6eafb286ae3a83afbd18e827d8a63226ce3bd"
+  }
+}

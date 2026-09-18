@@ -1,0 +1,12 @@
+{
+  "artifacts": {
+    "manifest.json": "054233e82a42ed6adcb001234d70a796a47b5aae56f4c35dcfa6bc7acd391416",
+    "predictions.jsonl": "ff31abacbb22c05b5538fdcf5bf925859aa6e85fc581a44237df66c31e7ab58d",
+    "routing_summary.json": "15f12e784f305b90a3d5796246bc7d5b2facdf134c787f0ee0f49a8587c65e0d",
+    "rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "blind_packet.jsonl": "42cc74819eff6323868a7267e2762ffe10e4992593d31b66cd512d9a06aebb37",
+    "blind_mapping.json": "90f3ff127809618bff4c5d114c6e606b1927d1bbcf8405c8dce0704a0dc353b4"
+  },
+  "live_model_calls": 0,
+  "promotion": false
+}

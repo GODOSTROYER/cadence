@@ -1,0 +1,40 @@
+{
+  "status": "accepted",
+  "reviewed_at_utc": "2026-09-18T11:32:31.520164+00:00",
+  "scope": "Six-page report synchronization for the experimental VerifiedAgent implementation; no new confirmation performance or promotion claim.",
+  "pages": 6,
+  "author": "Arnav Bule",
+  "reviewers": [
+    {
+      "name": "Codex report author",
+      "type": "ai",
+      "scope": "All six rendered pages, extracted text, metadata, layout bounds, public-copy parity and builder lint"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "reasoning_effort": "xhigh",
+      "type": "ai",
+      "scope": "Independent read-only visual and content acceptance across all six renders, saved evidence and implementation",
+      "result": "pass",
+      "blocking_findings": []
+    }
+  ],
+  "checks": {
+    "all_six_pages_visually_inspected": "pass",
+    "no_clipping_overlap_or_unreadable_text": "pass",
+    "assignment_sections_and_theme": "pass",
+    "frozen_metrics_and_review_scope_preserved": "pass",
+    "experimental_status_and_human_label_gates": "pass",
+    "matching_public_pdf_copy": "pass",
+    "ruff_builder": "pass"
+  },
+  "candidate_promotion": false,
+  "remaining": "Human-reviewed labels for the new 200-case benchmark and 80-case challenge set, followed by confirmation and fresh reply review. This AI report acceptance does not complete human annotation.",
+  "sha256": {
+    "REPORT.md": "47650cc7e1ace07efb2bc7513aceaaacbfef32e9f2f20f577b66375f631500ac",
+    "analysis_tools/build_submission_report.py": "031eef2dbbfc4e2834a751a8efe752250b7d3ad057f8a0658cd3e23b8e8ebc9d",
+    "output/pdf/Cadence-Arnav-Bule-Report.pdf": "44dda7e7cc019b167acec97895083e61d05b1be6f9f5c7c12e0ed9c9c3c52124",
+    "ui/public/Cadence-Arnav-Bule-Report.pdf": "44dda7e7cc019b167acec97895083e61d05b1be6f9f5c7c12e0ed9c9c3c52124",
+    "output/pdf/layout-check.json": "0f03051d9b0d2da6a6fcc4643031534a9733fdd99b0460a66e6eaa6415494a4b"
+  }
+}

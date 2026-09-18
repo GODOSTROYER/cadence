@@ -1,0 +1,36 @@
+{
+  "run_id": "verified-694d515a850511d4",
+  "rubric_version": "verified-support-review-v1",
+  "human_reply_ids": [
+    "b4_028",
+    "b4_061",
+    "b4_059",
+    "b4_027",
+    "b4_014",
+    "b4_017",
+    "b4_073",
+    "b4_053",
+    "b4_045",
+    "b4_023",
+    "b4_054",
+    "b4_037",
+    "b4_008",
+    "b4_069",
+    "b4_066",
+    "b4_021",
+    "b4_067",
+    "b4_068",
+    "b4_056",
+    "b4_002",
+    "b4_034"
+  ],
+  "blinding": "Customer, exact reply and evidence; no identity, decisions, gold labels, or judge scores",
+  "artifacts": {
+    "manifest.json": "694d515a850511d4277069e69318e60b0471e96c02e0a1263b52fd29cfa63aa9",
+    "predictions.jsonl": "b47480e0e5405017ef7c167d975e26bde48da6bfeb34c8be1e74bac0823b27ff",
+    "rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "blind_packet.jsonl": "4ddd760dee7ef56e0aed1f4d96b28fbfe7a98095b107269ee315ab171dd157f3",
+    "blind_mapping.json": "d8ab3114719cc8747078f349b3bc41a7ee08a81cac9a665d5fe4a86065fbce27",
+    "human_reply_packet.jsonl": "4ddd760dee7ef56e0aed1f4d96b28fbfe7a98095b107269ee315ab171dd157f3"
+  }
+}

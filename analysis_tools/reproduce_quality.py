@@ -8,6 +8,7 @@ import sqlite3
 from pathlib import Path
 
 from cadence.config import Paths
+from cadence.eval.archive import resolve_input
 from cadence.eval.paired import compare
 from cadence.eval.provenance import sha256
 from cadence.eval.review import RUBRIC_VERSION, reply_hash, validate_reviews
@@ -115,13 +116,10 @@ def main():
             if sha256(directory / f) != digest:
                 raise ValueError(f"Frozen artifact changed: {name}/{f}")
         for f, digest in manifest["frozen"]["inputs"].items():
-            path = directory / "source_snapshot" / f if f.endswith(".py") else Paths.ROOT / f
-            if sha256(path) != digest:
-                raise ValueError(f"Frozen source or input changed: {name}/{f}")
+            resolve_input(directory, f, digest, root=Paths.ROOT)
         label_name = next(f for f in manifest["frozen"]["inputs"] if f.endswith("/labels.jsonl"))
-        label_path = Paths.ROOT / label_name
-        if sha256(label_path) != manifest["frozen"]["inputs"][label_name]:
-            raise ValueError("Frozen labels changed")
+        label_path = resolve_input(directory, label_name,
+                                   manifest["frozen"]["inputs"][label_name], root=Paths.ROOT)
         labels = read_jsonl(label_path)
         rows = read_jsonl(directory / "predictions.jsonl")
         grouped = {s: [r for r in rows if r["system"] == s] for s in ("agent", "quality")}

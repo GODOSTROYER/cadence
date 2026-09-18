@@ -1,0 +1,3169 @@
+{
+  "version": "verified-retrieval-descriptive-summary-v1",
+  "phase": "development",
+  "validation": {
+    "valid": true,
+    "n_ratings": 360,
+    "reviewer_type": "ai",
+    "human_review": false,
+    "attribution": "AI development ratings; these are not human review.",
+    "limitation": "Structural validation does not establish reviewer identity, source authenticity or semantic correctness."
+  },
+  "inputs_logical_sha256": {
+    "results/verified_retrieval_dev_v2/blind_packet.jsonl": "810e712c438535c1e45af407b1d9ad3aa8a1a8ee544307d9bcf12ad20929fb5c",
+    "results/verified_retrieval_dev_v2/private_mapping.jsonl": "e09ca82420e214c7c52cfd9b526f815cbf80eddb05c0e1d312f1195b69b346ab",
+    "results/verified_retrieval_dev_v2/PACKET.lock.json": "ef7d9c6ec55bc00ff10ae5543b262758089ffe6ff076aabec585ac4574452294",
+    "results/verified_retrieval_dev_v2/SELECTION.lock.json": "c4567a0b9ddcdc140c2b1cf020ccb9851451fa5d694751fc2362ce7f553d73b5",
+    "results/verified_retrieval_dev_v2/rubric.json": "ed6e7cbb6a5a36a360d9930b46720bda66e54d6d8343e992d46c6c9ebaeb0276",
+    "results/verified_retrieval_dev_v2/ai_review_submission.jsonl": "33e876bdafe25f5817e7f83800a135c3c25a74055f2359668ec2a85a03d58ea0",
+    "analysis_tools/summarize_verified_retrieval.py": "5e989d34f94927889645631dc6aaf0592dac6c7c0eabe7474c40c21d9895175f",
+    "analysis_tools/verified_retrieval_review.py": "31823a540537cddcc0b2d10b6eac48db6048e67d64512f4a66825049dcb615a6"
+  },
+  "selected_message_ids": [
+    "b4_003",
+    "b4_004",
+    "b4_006",
+    "b4_007",
+    "b4_014",
+    "b4_018",
+    "b4_030",
+    "b4_037",
+    "b4_039",
+    "b4_050",
+    "b4_052",
+    "b4_059",
+    "b4_060",
+    "b4_062",
+    "b4_065",
+    "b4_070",
+    "b4_072",
+    "b4_073",
+    "b4_074",
+    "b4_076"
+  ],
+  "n_messages": 20,
+  "n_packet_rows": 360,
+  "n_unique_substantive_contexts": 244,
+  "duplicate_group_size_counts": {
+    "1": 144,
+    "2": 84,
+    "3": 16
+  },
+  "analysis_contract": {
+    "primary_relevance": "same_issue means issue_relevance=2; any_relevance means 1 or 2",
+    "top_k": "At least one positive candidate among ranks 1..k, separately for each reply view",
+    "absence": "No retrieved hit, not a negative content rating; available-only rates also reported",
+    "uncertain": "Reported separately in rating counts; never counted as a positive yes",
+    "inference_unit": "Selected customer message; never the 360 rows or 244 reviewed contexts",
+    "arm_pairing": "All arms paired on the same selected messages, including absent slots as no hit",
+    "reply_pairing": "Only same message/thread with both views available; deduplicated across arms in union",
+    "interval": "Descriptive paired message-cluster percentile bootstrap; not confirmatory or multiplicity-adjusted",
+    "bootstrap_repetitions": 20000,
+    "bootstrap_seed": 2026091815,
+    "input_hashing": "cadence.eval.provenance.sha256 normalizes CRLF text; original packet raw-byte seals validate independently",
+    "later_view_limit": "Later views include preceding turns (often the first reply), so differences cannot isolate the later reply",
+    "authority": "Historical support is never combined with current-authority ratings",
+    "review_limit": "AI-only development judgments; no human validation, independent outcome observation, or promotion"
+  },
+  "arms": {
+    "raw_text": {
+      "first_brand_reply": {
+        "top1": {
+          "selected_messages": 20,
+          "candidate_slots": 20,
+          "available_candidates": 20,
+          "absent_candidates": 0,
+          "messages_with_available_candidates": 20,
+          "messages_without_available_candidates": 0,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 5,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 5,
+              "hit_rate_all_selected_messages": 0.25,
+              "hit_rate_messages_with_available_candidates": 0.25
+            },
+            "any_relevance": {
+              "positive_candidates": 11,
+              "positive_rate_among_available_candidates": 0.55,
+              "messages_with_hit": 11,
+              "hit_rate_all_selected_messages": 0.55,
+              "hit_rate_messages_with_available_candidates": 0.55
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 4,
+              "positive_rate_among_available_candidates": 0.2,
+              "messages_with_hit": 4,
+              "hit_rate_all_selected_messages": 0.2,
+              "hit_rate_messages_with_available_candidates": 0.2
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 3,
+              "positive_rate_among_available_candidates": 0.15,
+              "messages_with_hit": 3,
+              "hit_rate_all_selected_messages": 0.15,
+              "hit_rate_messages_with_available_candidates": 0.15
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 9,
+              "1": 6,
+              "2": 5
+            },
+            "useful_diagnostic_pattern": {
+              "no": 14,
+              "uncertain": 2,
+              "yes": 4
+            },
+            "supports_proposed_action": {
+              "no": 17,
+              "yes": 3
+            },
+            "context_sufficient": {
+              "uncertain": 3,
+              "yes": 17
+            }
+          }
+        },
+        "top3": {
+          "selected_messages": 20,
+          "candidate_slots": 60,
+          "available_candidates": 60,
+          "absent_candidates": 0,
+          "messages_with_available_candidates": 20,
+          "messages_without_available_candidates": 0,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 17,
+              "positive_rate_among_available_candidates": 0.2833333333333333,
+              "messages_with_hit": 10,
+              "hit_rate_all_selected_messages": 0.5,
+              "hit_rate_messages_with_available_candidates": 0.5
+            },
+            "any_relevance": {
+              "positive_candidates": 37,
+              "positive_rate_among_available_candidates": 0.6166666666666667,
+              "messages_with_hit": 16,
+              "hit_rate_all_selected_messages": 0.8,
+              "hit_rate_messages_with_available_candidates": 0.8
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 17,
+              "positive_rate_among_available_candidates": 0.2833333333333333,
+              "messages_with_hit": 9,
+              "hit_rate_all_selected_messages": 0.45,
+              "hit_rate_messages_with_available_candidates": 0.45
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 10,
+              "positive_rate_among_available_candidates": 0.16666666666666666,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.3
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 23,
+              "1": 20,
+              "2": 17
+            },
+            "useful_diagnostic_pattern": {
+              "no": 41,
+              "uncertain": 2,
+              "yes": 17
+            },
+            "supports_proposed_action": {
+              "no": 49,
+              "uncertain": 1,
+              "yes": 10
+            },
+            "context_sufficient": {
+              "uncertain": 6,
+              "yes": 54
+            }
+          }
+        }
+      },
+      "last_later_brand_reply": {
+        "top1": {
+          "selected_messages": 20,
+          "candidate_slots": 20,
+          "available_candidates": 4,
+          "absent_candidates": 16,
+          "messages_with_available_candidates": 4,
+          "messages_without_available_candidates": 16,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.25
+            },
+            "any_relevance": {
+              "positive_candidates": 2,
+              "positive_rate_among_available_candidates": 0.5,
+              "messages_with_hit": 2,
+              "hit_rate_all_selected_messages": 0.1,
+              "hit_rate_messages_with_available_candidates": 0.5
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.25
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.25
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 2,
+              "1": 1,
+              "2": 1
+            },
+            "useful_diagnostic_pattern": {
+              "no": 3,
+              "yes": 1
+            },
+            "supports_proposed_action": {
+              "no": 3,
+              "yes": 1
+            },
+            "context_sufficient": {
+              "yes": 4
+            }
+          }
+        },
+        "top3": {
+          "selected_messages": 20,
+          "candidate_slots": 60,
+          "available_candidates": 21,
+          "absent_candidates": 39,
+          "messages_with_available_candidates": 13,
+          "messages_without_available_candidates": 7,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 5,
+              "positive_rate_among_available_candidates": 0.23809523809523808,
+              "messages_with_hit": 4,
+              "hit_rate_all_selected_messages": 0.2,
+              "hit_rate_messages_with_available_candidates": 0.3076923076923077
+            },
+            "any_relevance": {
+              "positive_candidates": 13,
+              "positive_rate_among_available_candidates": 0.6190476190476191,
+              "messages_with_hit": 9,
+              "hit_rate_all_selected_messages": 0.45,
+              "hit_rate_messages_with_available_candidates": 0.6923076923076923
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 11,
+              "positive_rate_among_available_candidates": 0.5238095238095238,
+              "messages_with_hit": 7,
+              "hit_rate_all_selected_messages": 0.35,
+              "hit_rate_messages_with_available_candidates": 0.5384615384615384
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 5,
+              "positive_rate_among_available_candidates": 0.23809523809523808,
+              "messages_with_hit": 4,
+              "hit_rate_all_selected_messages": 0.2,
+              "hit_rate_messages_with_available_candidates": 0.3076923076923077
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 8,
+              "1": 8,
+              "2": 5
+            },
+            "useful_diagnostic_pattern": {
+              "no": 10,
+              "yes": 11
+            },
+            "supports_proposed_action": {
+              "no": 15,
+              "uncertain": 1,
+              "yes": 5
+            },
+            "context_sufficient": {
+              "yes": 21
+            }
+          }
+        }
+      }
+    },
+    "request_frame": {
+      "first_brand_reply": {
+        "top1": {
+          "selected_messages": 20,
+          "candidate_slots": 20,
+          "available_candidates": 20,
+          "absent_candidates": 0,
+          "messages_with_available_candidates": 20,
+          "messages_without_available_candidates": 0,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 6,
+              "positive_rate_among_available_candidates": 0.3,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.3
+            },
+            "any_relevance": {
+              "positive_candidates": 18,
+              "positive_rate_among_available_candidates": 0.9,
+              "messages_with_hit": 18,
+              "hit_rate_all_selected_messages": 0.9,
+              "hit_rate_messages_with_available_candidates": 0.9
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 2,
+              "positive_rate_among_available_candidates": 0.1,
+              "messages_with_hit": 2,
+              "hit_rate_all_selected_messages": 0.1,
+              "hit_rate_messages_with_available_candidates": 0.1
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 2,
+              "positive_rate_among_available_candidates": 0.1,
+              "messages_with_hit": 2,
+              "hit_rate_all_selected_messages": 0.1,
+              "hit_rate_messages_with_available_candidates": 0.1
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 2,
+              "1": 12,
+              "2": 6
+            },
+            "useful_diagnostic_pattern": {
+              "no": 16,
+              "uncertain": 2,
+              "yes": 2
+            },
+            "supports_proposed_action": {
+              "no": 17,
+              "uncertain": 1,
+              "yes": 2
+            },
+            "context_sufficient": {
+              "uncertain": 2,
+              "yes": 18
+            }
+          }
+        },
+        "top3": {
+          "selected_messages": 20,
+          "candidate_slots": 60,
+          "available_candidates": 60,
+          "absent_candidates": 0,
+          "messages_with_available_candidates": 20,
+          "messages_without_available_candidates": 0,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 15,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 9,
+              "hit_rate_all_selected_messages": 0.45,
+              "hit_rate_messages_with_available_candidates": 0.45
+            },
+            "any_relevance": {
+              "positive_candidates": 46,
+              "positive_rate_among_available_candidates": 0.7666666666666667,
+              "messages_with_hit": 20,
+              "hit_rate_all_selected_messages": 1.0,
+              "hit_rate_messages_with_available_candidates": 1.0
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 13,
+              "positive_rate_among_available_candidates": 0.21666666666666667,
+              "messages_with_hit": 9,
+              "hit_rate_all_selected_messages": 0.45,
+              "hit_rate_messages_with_available_candidates": 0.45
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 9,
+              "positive_rate_among_available_candidates": 0.15,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.3
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 14,
+              "1": 31,
+              "2": 15
+            },
+            "useful_diagnostic_pattern": {
+              "no": 44,
+              "uncertain": 3,
+              "yes": 13
+            },
+            "supports_proposed_action": {
+              "no": 46,
+              "uncertain": 5,
+              "yes": 9
+            },
+            "context_sufficient": {
+              "no": 1,
+              "uncertain": 11,
+              "yes": 48
+            }
+          }
+        }
+      },
+      "last_later_brand_reply": {
+        "top1": {
+          "selected_messages": 20,
+          "candidate_slots": 20,
+          "available_candidates": 9,
+          "absent_candidates": 11,
+          "messages_with_available_candidates": 9,
+          "messages_without_available_candidates": 11,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.1111111111111111,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.1111111111111111
+            },
+            "any_relevance": {
+              "positive_candidates": 7,
+              "positive_rate_among_available_candidates": 0.7777777777777778,
+              "messages_with_hit": 7,
+              "hit_rate_all_selected_messages": 0.35,
+              "hit_rate_messages_with_available_candidates": 0.7777777777777778
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 3,
+              "positive_rate_among_available_candidates": 0.3333333333333333,
+              "messages_with_hit": 3,
+              "hit_rate_all_selected_messages": 0.15,
+              "hit_rate_messages_with_available_candidates": 0.3333333333333333
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.1111111111111111,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.1111111111111111
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 2,
+              "1": 6,
+              "2": 1
+            },
+            "useful_diagnostic_pattern": {
+              "no": 5,
+              "uncertain": 1,
+              "yes": 3
+            },
+            "supports_proposed_action": {
+              "no": 7,
+              "uncertain": 1,
+              "yes": 1
+            },
+            "context_sufficient": {
+              "uncertain": 2,
+              "yes": 7
+            }
+          }
+        },
+        "top3": {
+          "selected_messages": 20,
+          "candidate_slots": 60,
+          "available_candidates": 24,
+          "absent_candidates": 36,
+          "messages_with_available_candidates": 15,
+          "messages_without_available_candidates": 5,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 8,
+              "positive_rate_among_available_candidates": 0.3333333333333333,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.4
+            },
+            "any_relevance": {
+              "positive_candidates": 19,
+              "positive_rate_among_available_candidates": 0.7916666666666666,
+              "messages_with_hit": 12,
+              "hit_rate_all_selected_messages": 0.6,
+              "hit_rate_messages_with_available_candidates": 0.8
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 10,
+              "positive_rate_among_available_candidates": 0.4166666666666667,
+              "messages_with_hit": 7,
+              "hit_rate_all_selected_messages": 0.35,
+              "hit_rate_messages_with_available_candidates": 0.4666666666666667
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 5,
+              "positive_rate_among_available_candidates": 0.20833333333333334,
+              "messages_with_hit": 4,
+              "hit_rate_all_selected_messages": 0.2,
+              "hit_rate_messages_with_available_candidates": 0.26666666666666666
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 5,
+              "1": 11,
+              "2": 8
+            },
+            "useful_diagnostic_pattern": {
+              "no": 13,
+              "uncertain": 1,
+              "yes": 10
+            },
+            "supports_proposed_action": {
+              "no": 17,
+              "uncertain": 2,
+              "yes": 5
+            },
+            "context_sufficient": {
+              "uncertain": 2,
+              "yes": 22
+            }
+          }
+        }
+      }
+    },
+    "request_frame_token_rerank": {
+      "first_brand_reply": {
+        "top1": {
+          "selected_messages": 20,
+          "candidate_slots": 20,
+          "available_candidates": 20,
+          "absent_candidates": 0,
+          "messages_with_available_candidates": 20,
+          "messages_without_available_candidates": 0,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 5,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 5,
+              "hit_rate_all_selected_messages": 0.25,
+              "hit_rate_messages_with_available_candidates": 0.25
+            },
+            "any_relevance": {
+              "positive_candidates": 17,
+              "positive_rate_among_available_candidates": 0.85,
+              "messages_with_hit": 17,
+              "hit_rate_all_selected_messages": 0.85,
+              "hit_rate_messages_with_available_candidates": 0.85
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 3,
+              "positive_rate_among_available_candidates": 0.15,
+              "messages_with_hit": 3,
+              "hit_rate_all_selected_messages": 0.15,
+              "hit_rate_messages_with_available_candidates": 0.15
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 2,
+              "positive_rate_among_available_candidates": 0.1,
+              "messages_with_hit": 2,
+              "hit_rate_all_selected_messages": 0.1,
+              "hit_rate_messages_with_available_candidates": 0.1
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 3,
+              "1": 12,
+              "2": 5
+            },
+            "useful_diagnostic_pattern": {
+              "no": 16,
+              "uncertain": 1,
+              "yes": 3
+            },
+            "supports_proposed_action": {
+              "no": 17,
+              "uncertain": 1,
+              "yes": 2
+            },
+            "context_sufficient": {
+              "uncertain": 1,
+              "yes": 19
+            }
+          }
+        },
+        "top3": {
+          "selected_messages": 20,
+          "candidate_slots": 60,
+          "available_candidates": 60,
+          "absent_candidates": 0,
+          "messages_with_available_candidates": 20,
+          "messages_without_available_candidates": 0,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 15,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 9,
+              "hit_rate_all_selected_messages": 0.45,
+              "hit_rate_messages_with_available_candidates": 0.45
+            },
+            "any_relevance": {
+              "positive_candidates": 44,
+              "positive_rate_among_available_candidates": 0.7333333333333333,
+              "messages_with_hit": 20,
+              "hit_rate_all_selected_messages": 1.0,
+              "hit_rate_messages_with_available_candidates": 1.0
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 9,
+              "positive_rate_among_available_candidates": 0.15,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.3
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 5,
+              "positive_rate_among_available_candidates": 0.08333333333333333,
+              "messages_with_hit": 3,
+              "hit_rate_all_selected_messages": 0.15,
+              "hit_rate_messages_with_available_candidates": 0.15
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 16,
+              "1": 29,
+              "2": 15
+            },
+            "useful_diagnostic_pattern": {
+              "no": 46,
+              "uncertain": 5,
+              "yes": 9
+            },
+            "supports_proposed_action": {
+              "no": 52,
+              "uncertain": 3,
+              "yes": 5
+            },
+            "context_sufficient": {
+              "no": 2,
+              "uncertain": 7,
+              "yes": 51
+            }
+          }
+        }
+      },
+      "last_later_brand_reply": {
+        "top1": {
+          "selected_messages": 20,
+          "candidate_slots": 20,
+          "available_candidates": 8,
+          "absent_candidates": 12,
+          "messages_with_available_candidates": 8,
+          "messages_without_available_candidates": 12,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.125,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.125
+            },
+            "any_relevance": {
+              "positive_candidates": 6,
+              "positive_rate_among_available_candidates": 0.75,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.75
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 2,
+              "positive_rate_among_available_candidates": 0.25,
+              "messages_with_hit": 2,
+              "hit_rate_all_selected_messages": 0.1,
+              "hit_rate_messages_with_available_candidates": 0.25
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 1,
+              "positive_rate_among_available_candidates": 0.125,
+              "messages_with_hit": 1,
+              "hit_rate_all_selected_messages": 0.05,
+              "hit_rate_messages_with_available_candidates": 0.125
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 2,
+              "1": 5,
+              "2": 1
+            },
+            "useful_diagnostic_pattern": {
+              "no": 5,
+              "uncertain": 1,
+              "yes": 2
+            },
+            "supports_proposed_action": {
+              "no": 6,
+              "uncertain": 1,
+              "yes": 1
+            },
+            "context_sufficient": {
+              "uncertain": 2,
+              "yes": 6
+            }
+          }
+        },
+        "top3": {
+          "selected_messages": 20,
+          "candidate_slots": 60,
+          "available_candidates": 27,
+          "absent_candidates": 33,
+          "messages_with_available_candidates": 15,
+          "messages_without_available_candidates": 5,
+          "metrics": {
+            "same_issue": {
+              "positive_candidates": 8,
+              "positive_rate_among_available_candidates": 0.2962962962962963,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.4
+            },
+            "any_relevance": {
+              "positive_candidates": 19,
+              "positive_rate_among_available_candidates": 0.7037037037037037,
+              "messages_with_hit": 13,
+              "hit_rate_all_selected_messages": 0.65,
+              "hit_rate_messages_with_available_candidates": 0.8666666666666667
+            },
+            "useful_diagnostic_pattern": {
+              "positive_candidates": 10,
+              "positive_rate_among_available_candidates": 0.37037037037037035,
+              "messages_with_hit": 6,
+              "hit_rate_all_selected_messages": 0.3,
+              "hit_rate_messages_with_available_candidates": 0.4
+            },
+            "supports_proposed_action": {
+              "positive_candidates": 4,
+              "positive_rate_among_available_candidates": 0.14814814814814814,
+              "messages_with_hit": 3,
+              "hit_rate_all_selected_messages": 0.15,
+              "hit_rate_messages_with_available_candidates": 0.2
+            }
+          },
+          "rating_counts_available_only": {
+            "issue_relevance": {
+              "0": 8,
+              "1": 11,
+              "2": 8
+            },
+            "useful_diagnostic_pattern": {
+              "no": 16,
+              "uncertain": 1,
+              "yes": 10
+            },
+            "supports_proposed_action": {
+              "no": 21,
+              "uncertain": 2,
+              "yes": 4
+            },
+            "context_sufficient": {
+              "uncertain": 2,
+              "yes": 25
+            }
+          }
+        }
+      }
+    }
+  },
+  "paired_arm_comparisons": {
+    "request_frame_minus_raw_text": {
+      "first_brand_reply": {
+        "top1": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 5,
+            "right_positive_messages": 6,
+            "right_only": 4,
+            "left_only": 3,
+            "ties": 13,
+            "difference_right_minus_left": 0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.3
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 1,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 11,
+            "right_positive_messages": 18,
+            "right_only": 8,
+            "left_only": 1,
+            "ties": 11,
+            "difference_right_minus_left": 0.35,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.1,
+              0.6
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 1,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 1,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 1
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 2,
+            "right_only": 2,
+            "left_only": 4,
+            "ties": 14,
+            "difference_right_minus_left": -0.1,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.35,
+              0.15
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 1,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 3,
+            "right_positive_messages": 2,
+            "right_only": 1,
+            "left_only": 2,
+            "ties": 17,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.1
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 1,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          }
+        },
+        "top3": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 10,
+            "right_positive_messages": 9,
+            "right_only": 3,
+            "left_only": 4,
+            "ties": 13,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.3,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": -1,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": -1,
+              "b4_073": 1,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 16,
+            "right_positive_messages": 20,
+            "right_only": 4,
+            "left_only": 0,
+            "ties": 16,
+            "difference_right_minus_left": 0.2,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.05,
+              0.4
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 1,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 1,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 9,
+            "right_positive_messages": 9,
+            "right_only": 2,
+            "left_only": 2,
+            "ties": 16,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": -1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 1,
+              "b4_065": -1,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 1
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 6,
+            "right_positive_messages": 6,
+            "right_only": 2,
+            "left_only": 2,
+            "ties": 16,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": -1,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 1,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 1
+            }
+          }
+        }
+      },
+      "last_later_brand_reply": {
+        "top1": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 1,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 2,
+            "right_positive_messages": 7,
+            "right_only": 6,
+            "left_only": 1,
+            "ties": 13,
+            "difference_right_minus_left": 0.25,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.5
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 1,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": -1,
+              "b4_074": 1,
+              "b4_076": 1
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 3,
+            "right_only": 2,
+            "left_only": 0,
+            "ties": 18,
+            "difference_right_minus_left": 0.1,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.25
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 1,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "top3": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 6,
+            "right_only": 3,
+            "left_only": 1,
+            "ties": 16,
+            "difference_right_minus_left": 0.1,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.1,
+              0.3
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 9,
+            "right_positive_messages": 12,
+            "right_only": 5,
+            "left_only": 2,
+            "ties": 13,
+            "difference_right_minus_left": 0.15,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.1,
+              0.4
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": -1,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 1
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 7,
+            "right_positive_messages": 7,
+            "right_only": 2,
+            "left_only": 2,
+            "ties": 16,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": -1,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": -1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 4,
+            "right_only": 3,
+            "left_only": 3,
+            "ties": 14,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.25,
+              0.25
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 1,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": -1,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 1,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          }
+        }
+      }
+    },
+    "request_frame_token_rerank_minus_request_frame": {
+      "first_brand_reply": {
+        "top1": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 6,
+            "right_positive_messages": 5,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 19,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": -1,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 18,
+            "right_positive_messages": 17,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 19,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 2,
+            "right_positive_messages": 3,
+            "right_only": 1,
+            "left_only": 0,
+            "ties": 19,
+            "difference_right_minus_left": 0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.15
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 1,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 2,
+            "right_positive_messages": 2,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "top3": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 9,
+            "right_positive_messages": 9,
+            "right_only": 1,
+            "left_only": 1,
+            "ties": 18,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.15
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 20,
+            "right_positive_messages": 20,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 9,
+            "right_positive_messages": 6,
+            "right_only": 0,
+            "left_only": 3,
+            "ties": 17,
+            "difference_right_minus_left": -0.15,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.3,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": -1,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 6,
+            "right_positive_messages": 3,
+            "right_only": 0,
+            "left_only": 3,
+            "ties": 17,
+            "difference_right_minus_left": -0.15,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.3,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": -1,
+              "b4_065": 0,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        }
+      },
+      "last_later_brand_reply": {
+        "top1": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 1,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 7,
+            "right_positive_messages": 6,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 19,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 3,
+            "right_positive_messages": 2,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 19,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 1,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "top3": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 6,
+            "right_positive_messages": 6,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 12,
+            "right_positive_messages": 13,
+            "right_only": 1,
+            "left_only": 0,
+            "ties": 19,
+            "difference_right_minus_left": 0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.15
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 7,
+            "right_positive_messages": 6,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 19,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 3,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 19,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.15,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        }
+      }
+    },
+    "request_frame_token_rerank_minus_raw_text": {
+      "first_brand_reply": {
+        "top1": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 5,
+            "right_positive_messages": 5,
+            "right_only": 3,
+            "left_only": 3,
+            "ties": 14,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.25,
+              0.25
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 11,
+            "right_positive_messages": 17,
+            "right_only": 7,
+            "left_only": 1,
+            "ties": 12,
+            "difference_right_minus_left": 0.3,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.05,
+              0.55
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 1,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 1
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 3,
+            "right_only": 3,
+            "left_only": 4,
+            "ties": 13,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.3,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 1,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 1,
+              "b4_060": 1,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 3,
+            "right_positive_messages": 2,
+            "right_only": 1,
+            "left_only": 2,
+            "ties": 17,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.1
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 1,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          }
+        },
+        "top3": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 10,
+            "right_positive_messages": 9,
+            "right_only": 3,
+            "left_only": 4,
+            "ties": 13,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.3,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": -1,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 16,
+            "right_positive_messages": 20,
+            "right_only": 4,
+            "left_only": 0,
+            "ties": 16,
+            "difference_right_minus_left": 0.2,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.05,
+              0.4
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 1,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 1,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 1,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 9,
+            "right_positive_messages": 6,
+            "right_only": 1,
+            "left_only": 4,
+            "ties": 15,
+            "difference_right_minus_left": -0.15,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.35,
+              0.05
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": -1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 1
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 6,
+            "right_positive_messages": 3,
+            "right_only": 1,
+            "left_only": 4,
+            "ties": 15,
+            "difference_right_minus_left": -0.15,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.35,
+              0.05
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": -1,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": -1,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 1
+            }
+          }
+        }
+      },
+      "last_later_brand_reply": {
+        "top1": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 1,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 2,
+            "right_positive_messages": 6,
+            "right_only": 5,
+            "left_only": 1,
+            "ties": 14,
+            "difference_right_minus_left": 0.2,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.45
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": -1,
+              "b4_074": 1,
+              "b4_076": 1
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 2,
+            "right_only": 2,
+            "left_only": 1,
+            "ties": 17,
+            "difference_right_minus_left": 0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.1,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": -1,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 1,
+            "right_positive_messages": 1,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 20,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "top3": {
+          "same_issue": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 6,
+            "right_only": 3,
+            "left_only": 1,
+            "ties": 16,
+            "difference_right_minus_left": 0.1,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.1,
+              0.3
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "any_relevance": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 9,
+            "right_positive_messages": 13,
+            "right_only": 5,
+            "left_only": 1,
+            "ties": 14,
+            "difference_right_minus_left": 0.2,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.4
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 1,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": -1,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 1
+            }
+          },
+          "useful_diagnostic_pattern": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 7,
+            "right_positive_messages": 6,
+            "right_only": 2,
+            "left_only": 3,
+            "ties": 15,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.25,
+              0.15
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": -1,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": -1,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          },
+          "supports_proposed_action": {
+            "n_message_clusters": 20,
+            "left_positive_messages": 4,
+            "right_positive_messages": 3,
+            "right_only": 2,
+            "left_only": 3,
+            "ties": 15,
+            "difference_right_minus_left": -0.05,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.25,
+              0.15
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 1,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": -1,
+              "b4_030": 0,
+              "b4_037": 0,
+              "b4_039": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": -1,
+              "b4_076": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "matched_first_vs_later": {
+    "raw_text": {
+      "unique_message_thread_candidates": 60,
+      "matched_available_pairs": 21,
+      "unmatched_candidates": 39,
+      "paired_messages": 13,
+      "selected_messages_without_matched_pairs": 7,
+      "metrics": {
+        "same_issue": {
+          "first_positive_candidates": 5,
+          "later_positive_candidates": 5,
+          "later_only_candidates": 1,
+          "first_only_candidates": 1,
+          "both_positive_candidates": 4,
+          "neither_positive_candidates": 15,
+          "paired_message_hit": {
+            "n_message_clusters": 13,
+            "left_positive_messages": 4,
+            "right_positive_messages": 4,
+            "right_only": 1,
+            "left_only": 1,
+            "ties": 11,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.23076923076923078,
+              0.23076923076923078
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_073": 1,
+              "b4_074": 0
+            }
+          }
+        },
+        "any_relevance": {
+          "first_positive_candidates": 12,
+          "later_positive_candidates": 13,
+          "later_only_candidates": 1,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 12,
+          "neither_positive_candidates": 8,
+          "paired_message_hit": {
+            "n_message_clusters": 13,
+            "left_positive_messages": 9,
+            "right_positive_messages": 9,
+            "right_only": 0,
+            "left_only": 0,
+            "ties": 13,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_073": 0,
+              "b4_074": 0
+            }
+          }
+        },
+        "useful_diagnostic_pattern": {
+          "first_positive_candidates": 10,
+          "later_positive_candidates": 11,
+          "later_only_candidates": 1,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 10,
+          "neither_positive_candidates": 10,
+          "paired_message_hit": {
+            "n_message_clusters": 13,
+            "left_positive_messages": 6,
+            "right_positive_messages": 7,
+            "right_only": 1,
+            "left_only": 0,
+            "ties": 12,
+            "difference_right_minus_left": 0.07692307692307693,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.23076923076923078
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_073": 1,
+              "b4_074": 0
+            }
+          }
+        },
+        "supports_proposed_action": {
+          "first_positive_candidates": 4,
+          "later_positive_candidates": 5,
+          "later_only_candidates": 1,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 4,
+          "neither_positive_candidates": 16,
+          "paired_message_hit": {
+            "n_message_clusters": 13,
+            "left_positive_messages": 3,
+            "right_positive_messages": 4,
+            "right_only": 1,
+            "left_only": 0,
+            "ties": 12,
+            "difference_right_minus_left": 0.07692307692307693,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.23076923076923078
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_052": 0,
+              "b4_059": 1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_073": 0,
+              "b4_074": 0
+            }
+          }
+        }
+      }
+    },
+    "request_frame": {
+      "unique_message_thread_candidates": 60,
+      "matched_available_pairs": 24,
+      "unmatched_candidates": 36,
+      "paired_messages": 15,
+      "selected_messages_without_matched_pairs": 5,
+      "metrics": {
+        "same_issue": {
+          "first_positive_candidates": 6,
+          "later_positive_candidates": 8,
+          "later_only_candidates": 2,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 6,
+          "neither_positive_candidates": 16,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 4,
+            "right_positive_messages": 6,
+            "right_only": 2,
+            "left_only": 0,
+            "ties": 13,
+            "difference_right_minus_left": 0.13333333333333333,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "any_relevance": {
+          "first_positive_candidates": 18,
+          "later_positive_candidates": 19,
+          "later_only_candidates": 1,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 18,
+          "neither_positive_candidates": 5,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 11,
+            "right_positive_messages": 12,
+            "right_only": 1,
+            "left_only": 0,
+            "ties": 14,
+            "difference_right_minus_left": 0.06666666666666667,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "useful_diagnostic_pattern": {
+          "first_positive_candidates": 5,
+          "later_positive_candidates": 10,
+          "later_only_candidates": 5,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 5,
+          "neither_positive_candidates": 14,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 4,
+            "right_positive_messages": 7,
+            "right_only": 3,
+            "left_only": 0,
+            "ties": 12,
+            "difference_right_minus_left": 0.2,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.4
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 1,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "supports_proposed_action": {
+          "first_positive_candidates": 3,
+          "later_positive_candidates": 5,
+          "later_only_candidates": 2,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 3,
+          "neither_positive_candidates": 19,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 2,
+            "right_positive_messages": 4,
+            "right_only": 2,
+            "left_only": 0,
+            "ties": 13,
+            "difference_right_minus_left": 0.13333333333333333,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 1,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 1,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        }
+      }
+    },
+    "request_frame_token_rerank": {
+      "unique_message_thread_candidates": 60,
+      "matched_available_pairs": 27,
+      "unmatched_candidates": 33,
+      "paired_messages": 15,
+      "selected_messages_without_matched_pairs": 5,
+      "metrics": {
+        "same_issue": {
+          "first_positive_candidates": 6,
+          "later_positive_candidates": 8,
+          "later_only_candidates": 2,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 6,
+          "neither_positive_candidates": 19,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 4,
+            "right_positive_messages": 6,
+            "right_only": 2,
+            "left_only": 0,
+            "ties": 13,
+            "difference_right_minus_left": 0.13333333333333333,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "any_relevance": {
+          "first_positive_candidates": 19,
+          "later_positive_candidates": 19,
+          "later_only_candidates": 2,
+          "first_only_candidates": 2,
+          "both_positive_candidates": 17,
+          "neither_positive_candidates": 6,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 13,
+            "right_positive_messages": 13,
+            "right_only": 1,
+            "left_only": 1,
+            "ties": 13,
+            "difference_right_minus_left": 0.0,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.2,
+              0.2
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "useful_diagnostic_pattern": {
+          "first_positive_candidates": 5,
+          "later_positive_candidates": 10,
+          "later_only_candidates": 5,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 5,
+          "neither_positive_candidates": 17,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 3,
+            "right_positive_messages": 6,
+            "right_only": 3,
+            "left_only": 0,
+            "ties": 12,
+            "difference_right_minus_left": 0.2,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.4
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 1,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "supports_proposed_action": {
+          "first_positive_candidates": 2,
+          "later_positive_candidates": 4,
+          "later_only_candidates": 2,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 2,
+          "neither_positive_candidates": 23,
+          "paired_message_hit": {
+            "n_message_clusters": 15,
+            "left_positive_messages": 1,
+            "right_positive_messages": 3,
+            "right_only": 2,
+            "left_only": 0,
+            "ties": 13,
+            "difference_right_minus_left": 0.13333333333333333,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 1,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 1,
+              "b4_059": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        }
+      }
+    },
+    "union_across_arms_deduplicated": {
+      "unique_message_thread_candidates": 122,
+      "matched_available_pairs": 49,
+      "unmatched_candidates": 73,
+      "paired_messages": 18,
+      "selected_messages_without_matched_pairs": 2,
+      "metrics": {
+        "same_issue": {
+          "first_positive_candidates": 10,
+          "later_positive_candidates": 12,
+          "later_only_candidates": 3,
+          "first_only_candidates": 1,
+          "both_positive_candidates": 9,
+          "neither_positive_candidates": 36,
+          "paired_message_hit": {
+            "n_message_clusters": 18,
+            "left_positive_messages": 6,
+            "right_positive_messages": 7,
+            "right_only": 2,
+            "left_only": 1,
+            "ties": 15,
+            "difference_right_minus_left": 0.05555555555555555,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.1111111111111111,
+              0.2222222222222222
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": -1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "any_relevance": {
+          "first_positive_candidates": 31,
+          "later_positive_candidates": 32,
+          "later_only_candidates": 3,
+          "first_only_candidates": 2,
+          "both_positive_candidates": 29,
+          "neither_positive_candidates": 15,
+          "paired_message_hit": {
+            "n_message_clusters": 18,
+            "left_positive_messages": 15,
+            "right_positive_messages": 14,
+            "right_only": 0,
+            "left_only": 1,
+            "ties": 17,
+            "difference_right_minus_left": -0.05555555555555555,
+            "descriptive_paired_bootstrap_95_interval": [
+              -0.16666666666666666,
+              0.0
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": -1,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "useful_diagnostic_pattern": {
+          "first_positive_candidates": 15,
+          "later_positive_candidates": 22,
+          "later_only_candidates": 7,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 15,
+          "neither_positive_candidates": 27,
+          "paired_message_hit": {
+            "n_message_clusters": 18,
+            "left_positive_messages": 6,
+            "right_positive_messages": 9,
+            "right_only": 3,
+            "left_only": 0,
+            "ties": 15,
+            "difference_right_minus_left": 0.16666666666666666,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 1,
+              "b4_006": 0,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 0,
+              "b4_052": 0,
+              "b4_059": 0,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 1,
+              "b4_073": 1,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        },
+        "supports_proposed_action": {
+          "first_positive_candidates": 6,
+          "later_positive_candidates": 9,
+          "later_only_candidates": 3,
+          "first_only_candidates": 0,
+          "both_positive_candidates": 6,
+          "neither_positive_candidates": 40,
+          "paired_message_hit": {
+            "n_message_clusters": 18,
+            "left_positive_messages": 4,
+            "right_positive_messages": 7,
+            "right_only": 3,
+            "left_only": 0,
+            "ties": 15,
+            "difference_right_minus_left": 0.16666666666666666,
+            "descriptive_paired_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ],
+            "message_deltas": {
+              "b4_003": 0,
+              "b4_004": 0,
+              "b4_006": 1,
+              "b4_007": 0,
+              "b4_014": 0,
+              "b4_018": 0,
+              "b4_037": 0,
+              "b4_050": 1,
+              "b4_052": 0,
+              "b4_059": 1,
+              "b4_060": 0,
+              "b4_062": 0,
+              "b4_065": 0,
+              "b4_070": 0,
+              "b4_072": 0,
+              "b4_073": 0,
+              "b4_074": 0,
+              "b4_076": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "current_authority_counts": {
+    "unsupported": 360
+  }
+}

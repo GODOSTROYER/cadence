@@ -1,0 +1,20 @@
+{
+  "n": 60,
+  "seed": 2026091703,
+  "purpose": "one-shot confirmation; AI labels before inference, never hand-labelled claim",
+  "sampling": "Seeded English brand-replied threads; exclude inspected sources, overlapping components and >=85 casefold fuzzy duplicates",
+  "examples_sha256": "bae43ffbc0113c067270970a8a9742dce6dd67c3b52169791e2d4b5b407cbb97",
+  "revision": {
+    "commit": "9992adc6d44366a9fbc36b6a55d037d5b41ab597",
+    "dirty": true
+  },
+  "sources": {
+    "data/golden/candidates.jsonl": "e1195f077271217ed9b80ad8cc8f450ee615e0e33a9577c73ec47fefdf2e3eee",
+    "data/golden/golden_set.jsonl": "0b64d5fa83f26c0bbead5bb7f7ecadc0fd8d58cad089ce7bb40cb54e1ed18723",
+    "docs/taxonomy_calibration.jsonl": "8dd4e58b9b075dbddbcd893fb559e7f810a7fd9018922ff58173e46d816e94c6",
+    "data/holdout/examples.jsonl": "dcb1a585e3ac0ae601895bc5bb8312d0b13432272d4e095dc0b538c21a7ee95d",
+    "data/routing_dev/examples.jsonl": "3976011ede55ca707d368f28fd294bb173760b3d6b653122713666b895b98fc1",
+    "data/processed/spotify_threads.jsonl.gz": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+    "scripts/20_lock_confirmation.py": "9371a7d0d3f641f7a76dd738ddef355d2f01ff90392c7e8b171f0699e0d82032"
+  }
+}

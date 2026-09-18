@@ -1,0 +1,114 @@
+{
+  "policy_rescore": {
+    "control": "unchanged_output_policy_rescore",
+    "behavior_changed": false,
+    "additional_model_calls": 0,
+    "fresh_latency_ms": null,
+    "old_policy": {
+      "n": 80,
+      "automatic": 30,
+      "required": 38,
+      "missed_escalations": 4,
+      "unnecessary_escalations": 16,
+      "failed": 0
+    },
+    "new_policy": {
+      "n": 80,
+      "automatic": 30,
+      "required": 28,
+      "missed_escalations": 2,
+      "unnecessary_escalations": 24,
+      "failed": 0
+    },
+    "label_route_changed_ids": [
+      "b4_006",
+      "b4_008",
+      "b4_012",
+      "b4_019",
+      "b4_048",
+      "b4_052",
+      "b4_057",
+      "b4_060",
+      "b4_073",
+      "b4_076"
+    ]
+  },
+  "controls": {
+    "balanced_replay": {
+      "n": 80,
+      "automatic": 30,
+      "required": 28,
+      "missed_escalations": 2,
+      "unnecessary_escalations": 24,
+      "failed": 0,
+      "changed_ids": []
+    },
+    "independent_policy_veto": {
+      "n": 80,
+      "automatic": 26,
+      "required": 28,
+      "missed_escalations": 0,
+      "unnecessary_escalations": 26,
+      "failed": 0,
+      "changed_ids": [
+        "b4_027",
+        "b4_054",
+        "b4_069",
+        "b4_072"
+      ]
+    },
+    "prerequisite_veto": {
+      "n": 80,
+      "automatic": 16,
+      "required": 28,
+      "missed_escalations": 1,
+      "unnecessary_escalations": 37,
+      "failed": 0,
+      "changed_ids": [
+        "b4_005",
+        "b4_014",
+        "b4_021",
+        "b4_023",
+        "b4_027",
+        "b4_028",
+        "b4_031",
+        "b4_034",
+        "b4_037",
+        "b4_042",
+        "b4_056",
+        "b4_059",
+        "b4_074",
+        "b4_080"
+      ]
+    },
+    "combined_veto": {
+      "n": 80,
+      "automatic": 13,
+      "required": 28,
+      "missed_escalations": 0,
+      "unnecessary_escalations": 39,
+      "failed": 0,
+      "changed_ids": [
+        "b4_005",
+        "b4_014",
+        "b4_021",
+        "b4_023",
+        "b4_027",
+        "b4_028",
+        "b4_031",
+        "b4_034",
+        "b4_037",
+        "b4_042",
+        "b4_054",
+        "b4_056",
+        "b4_059",
+        "b4_069",
+        "b4_072",
+        "b4_074",
+        "b4_080"
+      ]
+    }
+  },
+  "useful_coverage": null,
+  "why_unmeasured": "New exact replies require independent blind review"
+}

@@ -1,0 +1,13 @@
+{
+  "artifacts": {
+    "manifest.json": "bad8e539d0b86e2496c39fe84b2a86545283bf96e73cc521988e985e8fc74e31",
+    "predictions.jsonl": "88a553c995fadda6a5f9c1c4346f6f3a55e8b12dc4aa1d784ee31b50d5113eb0",
+    "status.json": "5fc2afc57814f7277ab0ff21037eb96cbdcca201c957391ffc344a63bf725dab",
+    "runtime.json": "8ba00cc4f0e1b2454e23475192bc4b260f10aa3cd50764b3744a3e307d0610c4",
+    "calls.sqlite": "3c8906fa6d0c39f3e35e3867839c13dc0606649480384e17f1434bf000259219",
+    "invocations_started.jsonl": "62cdc1b15dd03db93d5a8df58919691d40e5e7410f4a8b272e87efe03b605f00"
+  },
+  "label_inference_started": null,
+  "excluded_retrieval_threads": 402,
+  "promotion": false
+}

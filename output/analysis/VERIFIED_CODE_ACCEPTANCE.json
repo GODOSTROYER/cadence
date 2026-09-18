@@ -1,0 +1,174 @@
+{
+  "artifact_version": "verified-code-acceptance-v1",
+  "status": "pass",
+  "reviewed_at": "2026-09-18T11:21:49.630280+00:00",
+  "reviewer": {
+    "type": "ai",
+    "identity": "Codex independent agent /root/verified_code_acceptance",
+    "independent_of_implementation": true,
+    "human_review": false,
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh"
+  },
+  "acceptance_scope": "Experimental VerifiedAgent integration and executable response/source contracts, with related budget accounting and runner normalization.",
+  "review_scope": [
+    "Request/risk extraction integrity, mandatory policy vetoes, and primary/secondary issue handling.",
+    "Action prerequisites, known-fact exclusions, exact alternative audits and bounded reselection.",
+    "Handoff destination selection and exact final response integrity.",
+    "Source freshness, snapshot integrity, claim issue/device/plan/region scope, and current official authority.",
+    "Request deadline handling, retry attempt/token accounting, unknown usage reporting, and failure outcomes.",
+    "Follow-up runner use of shared input normalization and actual frozen policy version in traces."
+  ],
+  "findings_resolved": [
+    {
+      "id": "VC-01",
+      "priority": "P1",
+      "finding": "Default source date was frozen at agent construction, allowing an old singleton to authorize expired sources.",
+      "resolution": "Resolve the UTC source date per request unless an explicit study date is supplied; regression covers both live and frozen behavior.",
+      "files": [
+        "src/cadence/agent/verified.py",
+        "tests/test_verified_agent.py"
+      ]
+    },
+    {
+      "id": "VC-02",
+      "priority": "P1",
+      "finding": "Specialist student-verification handoff ignored locked deterministic security/money/legal risk when the extracted frame omitted it.",
+      "resolution": "Specialist eligibility now requires a validated PolicyDecision and considers its flags and reason; generic fallbacks cannot authorize the specialist.",
+      "files": [
+        "src/cadence/agent/actions.py",
+        "tests/test_verified_actions.py"
+      ]
+    },
+    {
+      "id": "VC-03",
+      "priority": "P2",
+      "finding": "Final integrity rejection could return another invalid handoff without validating the replacement.",
+      "resolution": "Validate the handoff replacement with its own allowed URLs and use a source-independent holding reply if it also fails.",
+      "files": [
+        "src/cadence/agent/verified.py",
+        "tests/test_verified_agent.py"
+      ]
+    },
+    {
+      "id": "VC-04",
+      "priority": "P2",
+      "finding": "Reviewed claim issue restrictions were recorded but not enforced by applicability checks.",
+      "resolution": "ClaimScope and KnowledgeStore now require matching issue context; actions pass that context and bundled canonical issue scopes are aligned.",
+      "files": [
+        "src/cadence/knowledge/models.py",
+        "src/cadence/knowledge/store.py",
+        "src/cadence/agent/actions.py",
+        "tests/test_knowledge.py",
+        "tests/test_verified_actions.py"
+      ]
+    },
+    {
+      "id": "VC-05",
+      "priority": "P2",
+      "finding": "A local-policy source could authorize a current external procedure or destination.",
+      "resolution": "Source-backed applicability requires current_official authority by default; local response policy remains separate.",
+      "files": [
+        "src/cadence/knowledge/store.py",
+        "src/cadence/agent/actions.py",
+        "tests/test_knowledge.py"
+      ]
+    },
+    {
+      "id": "VC-06",
+      "priority": "P1",
+      "finding": "Input cleaning erased brand-handle targets, allowing explicit directed abuse to become an automatic reply under permissive model output.",
+      "resolution": "Normalize known brand handles to Spotify before legacy cleaning; integration tests cover brand variants and benign incidental profanity.",
+      "files": [
+        "src/cadence/agent/verified.py",
+        "tests/test_verified_agent.py"
+      ]
+    },
+    {
+      "id": "VC-07",
+      "priority": "P2",
+      "finding": "Runtime summaries and API trace totals omitted provider attempts or usage unavailable from successful CallMeta records.",
+      "resolution": "Use request-budget counters for retry-inclusive known attempts and usage; trace explicitly identifies unknown and replayed usage.",
+      "files": [
+        "src/cadence/agent/verified.py",
+        "src/cadence/eval/verified.py",
+        "tests/test_verified_agent.py",
+        "tests/test_verified_experiment.py"
+      ]
+    },
+    {
+      "id": "VC-08",
+      "priority": "P2",
+      "finding": "Successful provider responses with missing or partial usage were incorrectly treated as complete zero-cost observations.",
+      "resolution": "Track unknown_usage for every incomplete provider response and propagate it to cost completeness reporting.",
+      "files": [
+        "src/cadence/llm/gemini.py",
+        "src/cadence/eval/verified.py",
+        "tests/test_llm_budget.py",
+        "tests/test_verified_experiment.py"
+      ]
+    }
+  ],
+  "unresolved_findings": [],
+  "validation": [
+    {
+      "stage": "Independent acceptance suite after reported fixes, before the two follow-up refactors",
+      "command": "python -B -m pytest -p no:cacheprovider tests/test_verified_agent.py tests/test_verified_actions.py tests/test_request_policy.py tests/test_knowledge.py tests/test_llm_budget.py tests/test_verified_experiment.py",
+      "passed": 244,
+      "failed": 0,
+      "exit_code": 0,
+      "warning": "One upstream google-genai/Pydantic deprecation warning.",
+      "execution": "Offline tests with fake or mocked model/provider responses; no model or network calls."
+    },
+    {
+      "stage": "Focused verification of follow-up changes at the recorded hashes",
+      "status": "pass",
+      "checks": [
+        "VerifiedTrace.policy_version equals the imported POLICY_VERSION (2.0.0).",
+        "Shared normalize_input preserves three known brand targets and is idempotent.",
+        "Incidental profanity addressed to the brand remains outside deterministic directed-abuse findings.",
+        "Other customer handles continue to be anonymized.",
+        "Runner exception rows for VerifiedAgent use the same normalize_input result as the agent."
+      ],
+      "full_suite_rerun": false
+    }
+  ],
+  "follow_up_changes_accepted": [
+    "Extract and reuse normalize_input in the agent and runner, including runner resume checks and failure rows.",
+    "Bind the trace policy_version to POLICY_VERSION instead of an independent hard-coded label."
+  ],
+  "limitations": [
+    "This is an AI code acceptance artifact for a specific reviewed version, not final release acceptance.",
+    "Live reply quality, held-out performance, human annotations, judge calibration and deployment promotion are not accepted by this record.",
+    "No model or network calls were made during this review; current-source factual verification belongs to the separate knowledge review.",
+    "The 244-test result precedes the two small follow-up refactors; those changes received the recorded focused verification before hashes were captured.",
+    "Hashes identify reviewed bytes. A file listed here was reviewed only within the stated scope; this record does not assert a complete audit of all historical code or experiment machinery."
+  ],
+  "live_quality_accepted": false,
+  "promotion_accepted": false,
+  "release_accepted": false,
+  "files": {
+    "src/cadence/agent/verified.py": "539baa741fc9834247d4c5224a4e583dcc67218cf9d3b76bbe98879e28224d82",
+    "src/cadence/agent/request_frame.py": "04e04609257379c2ae91360cdddddc52b2c7dd1e9106c5229d97619cedf85e70",
+    "src/cadence/agent/policy_v2.py": "553d9228f4f9a9ff2e00aa1e208501e9b59002ad3e9fbd1c3a1a5f825c0bba01",
+    "src/cadence/agent/actions.py": "e4ea2602d483daff6b189d7193a89bd26bcbcafecb2d31a3f5b328d032515553",
+    "src/cadence/agent/integrity.py": "c657e83aa2561f62fc092981c2e0de0381cb75fb7282ca207d1cbef8e27cdbc1",
+    "src/cadence/agent/models.py": "3402b3a34c79707d913c57614392521289b89623354ccb5d36ac1185cd336d73",
+    "src/cadence/knowledge/__init__.py": "00d0724a607c5e1ef65ba81c5f2f7f6f144e360432eb2933f8c11de537e4a29e",
+    "src/cadence/knowledge/models.py": "aa21dfa3ad37ea810442776f851ee0b2baeb31342d4ffa7375c813a77630f260",
+    "src/cadence/knowledge/store.py": "b78fceed1077fe3452b27fe36f97d28cb974372c35691297c192313b24be0c22",
+    "src/cadence/llm/base.py": "6f7d2d18444de30438ed0b66e0fae5c2b35191d82ee8f9f2da5997b790c82199",
+    "src/cadence/llm/gemini.py": "c8f293dda5cd368f273c21e229e972832960754fc44ccfb01bd87bc2068bb644",
+    "src/cadence/eval/verified.py": "ada690ef51859625743b3cdc1924846d4ebe122567b2ab477259cf70e347710d",
+    "scripts/25_verified_experiment.py": "ed9ee8096309c9287d497992e3c264e573849397a2f65b8101bba4f71fae400e",
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "config/knowledge/v2.json": "9abe3912d763ebb8b58e3aaf913158ea8bab4a87142a5a95ea3a8480c9a5d478",
+    "tests/test_verified_agent.py": "5a4392f28b4e2c51684083482bea9884f1bc3b8c31c806f4a8a82a89bbd4c94d",
+    "tests/test_verified_actions.py": "141699c72e873945eba4600138f0af41367747126f68257ec8392113084d8251",
+    "tests/test_request_policy.py": "c04d22e000716a2bcfe600011e2fd253e0af33cee734d4c47d71a71d47978a48",
+    "tests/test_knowledge.py": "8b14bd5dafeb2b2ea8381539d955c8a0fcc3d4cf72ee41a1df7a063a17ce3a04",
+    "tests/test_llm_budget.py": "589dd4d00bc81ea23a28131004dbdbc5f32c3cc384c62f766321f7f8efb90cff",
+    "tests/test_verified_experiment.py": "13e3da46d35854e32f3f9f2163125d27c644629cdb221f00e2ea785f787480b1",
+    "output/analysis/Cadence-Implementation-Plan.md": "1b41ef8db7fa48cb3237dc9c5e3b1f98961d4faf2deaf05cd7cc89e38427e354"
+  }
+}

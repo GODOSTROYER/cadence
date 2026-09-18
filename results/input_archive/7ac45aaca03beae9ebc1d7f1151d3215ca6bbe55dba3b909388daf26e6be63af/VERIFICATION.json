@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "execution": {
+    "commit": "a0e670d355435a89ce7215cfa497730030798fb3",
+    "dirty": true
+  },
+  "artifacts": {
+    "manifest.json": "f35238c020416a785aa86c032af3b7f9374247e3f1163de9b4c068691cbff451",
+    "predictions.jsonl": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d",
+    "summary.json": "a22f4fd7f160a1a0110f88b070886933ec1663cd7ea084a06904303061701d96",
+    "status.json": "5c57bbf35cf92e6b4d34bc09d5cc74d6f8fea21ff6751946c0f12a297f3c6864",
+    "calls.sqlite": "fdeed29b9383fe9fb7c34c653c40dda13410e782e4509508c1fde9f41b865fdb"
+  }
+}

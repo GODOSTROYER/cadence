@@ -1,0 +1,935 @@
+{
+  "version": "spotify-current-v3-2026-09-18",
+  "temporal_contract": "Present-day assistance for historical customer utterances. Official sources authorize current claims only within their reviewed scope and validity dates. Historical conversations support tone and diagnostic patterns, not current policy. Source and claim review is AI-authored; no human source verification is asserted.",
+  "sources": [
+    {
+      "id": "spotify-not-playing",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "spotify not playing",
+      "url": "https://support.spotify.com/us/article/spotify-not-playing/",
+      "final_url": "https://support.spotify.com/us/article/spotify-not-playing/",
+      "fetched_at": "2026-09-18T10:58:25.716001+00:00",
+      "response_sha256": "39a48d156dd7c207b5445b3e7c5d5e7dd3f6cc877f3b54b3e259cf4ad0834f66",
+      "normalized_sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/spotify-not-playing.txt",
+      "snapshot_sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "updating-spotify",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "updating spotify",
+      "url": "https://support.spotify.com/us/article/updating-spotify/",
+      "final_url": "https://support.spotify.com/us/article/updating-spotify/",
+      "fetched_at": "2026-09-18T10:58:25.615100+00:00",
+      "response_sha256": "ff76499b9207aae1c60e10547d2278701096436d2bd85a194ad8c7e82a3a5abd",
+      "normalized_sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/updating-spotify.txt",
+      "snapshot_sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "reinstall-spotify",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "reinstall spotify",
+      "url": "https://support.spotify.com/us/article/reinstall-spotify/",
+      "final_url": "https://support.spotify.com/us/article/reinstall-spotify/",
+      "fetched_at": "2026-09-18T10:58:25.746983+00:00",
+      "response_sha256": "503c3620f2aa645264cb4bc644c2c5c223b666d4b52bc92f5dc61d63b52a604a",
+      "normalized_sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/reinstall-spotify.txt",
+      "snapshot_sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "spotify-connect",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "spotify connect",
+      "url": "https://support.spotify.com/us/article/spotify-connect/",
+      "final_url": "https://support.spotify.com/us/article/spotify-connect/",
+      "fetched_at": "2026-09-18T10:58:25.531114+00:00",
+      "response_sha256": "88c9f360c68e6730d673b0d35d7b54609adb55f6913037b7494299e18e6c7387",
+      "normalized_sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/spotify-connect.txt",
+      "snapshot_sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "listen-offline",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "listen offline",
+      "url": "https://support.spotify.com/us/article/listen-offline/",
+      "final_url": "https://support.spotify.com/us/article/listen-offline/",
+      "fetched_at": "2026-09-18T10:58:26.612920+00:00",
+      "response_sha256": "1129b82bf909dd6b464ba880d56034b6fe79c47c7f38bd121bbd6742250e5d44",
+      "normalized_sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/listen-offline.txt",
+      "snapshot_sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "sort-and-filter",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "sort and filter",
+      "url": "https://support.spotify.com/us/article/sort-and-filter/",
+      "final_url": "https://support.spotify.com/us/article/sort-and-filter/",
+      "fetched_at": "2026-09-18T10:58:26.190584+00:00",
+      "response_sha256": "bf1a0dc0c0a1b6ebc7e0049934c787d605c2226be63fec9a278f853c03ffdd12",
+      "normalized_sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/sort-and-filter.txt",
+      "snapshot_sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "create-playlists",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "create playlists",
+      "url": "https://support.spotify.com/us/article/create-playlists/",
+      "final_url": "https://support.spotify.com/us/article/create-playlists/",
+      "fetched_at": "2026-09-18T10:58:26.644173+00:00",
+      "response_sha256": "431cd96b29c43732aa6b62a8d422bdf2e3dcb25e1525127a40416ff0567f8b70",
+      "normalized_sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/create-playlists.txt",
+      "snapshot_sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "collaborative-playlists",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "collaborative playlists",
+      "url": "https://support.spotify.com/us/article/collaborative-playlists/",
+      "final_url": "https://support.spotify.com/us/article/collaborative-playlists/",
+      "fetched_at": "2026-09-18T10:58:26.676452+00:00",
+      "response_sha256": "a54aff7e5bf7bc74bc1c6ca1625d14d2b1abedd833db413e9a3c7cc4163f267d",
+      "normalized_sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/collaborative-playlists.txt",
+      "snapshot_sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "missing-music-or-podcasts",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "missing music or podcasts",
+      "url": "https://support.spotify.com/us/article/missing-music-or-podcasts/",
+      "final_url": "https://support.spotify.com/us/article/missing-music-or-podcasts/",
+      "fetched_at": "2026-09-18T10:58:26.766815+00:00",
+      "response_sha256": "386e3064d79a0e1850503d5fa213817f54e0b139126405a6377ac1d7fc211b47",
+      "normalized_sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/missing-music-or-podcasts.txt",
+      "snapshot_sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "where-spotify-is-available",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "where spotify is available",
+      "url": "https://support.spotify.com/us/article/where-spotify-is-available/",
+      "final_url": "https://support.spotify.com/us/article/where-spotify-is-available/",
+      "fetched_at": "2026-09-18T10:58:27.351320+00:00",
+      "response_sha256": "30a58abb240cf919ab5925ff44d88ae1da72fd221d319d163021e69567802957",
+      "normalized_sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/where-spotify-is-available.txt",
+      "snapshot_sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "faulty-inaccurate-metadata",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "faulty inaccurate metadata",
+      "url": "https://support.spotify.com/us/article/faulty-inaccurate-metadata/",
+      "final_url": "https://support.spotify.com/us/article/faulty-inaccurate-metadata/",
+      "fetched_at": "2026-09-18T10:58:27.213165+00:00",
+      "response_sha256": "780b6a12c65f984bd173c43d4c04d755dc430759e0234d21763aca308c49a7bc",
+      "normalized_sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/faulty-inaccurate-metadata.txt",
+      "snapshot_sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "student-verification-not-working",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "student verification not working",
+      "url": "https://support.spotify.com/us/article/student-verification-not-working/",
+      "final_url": "https://support.spotify.com/us/article/student-verification-not-working/",
+      "fetched_at": "2026-09-18T10:58:27.315114+00:00",
+      "response_sha256": "5af2c46b18e1038e0981b2f47d57754c88b68e69476eef7c3ddad0df231609ec",
+      "normalized_sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/student-verification-not-working.txt",
+      "snapshot_sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "hulu-premium-bundle",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "hulu premium bundle",
+      "url": "https://support.spotify.com/us/article/hulu-premium-bundle/",
+      "final_url": "https://support.spotify.com/us/article/hulu-premium-bundle/",
+      "fetched_at": "2026-09-18T10:58:27.277794+00:00",
+      "response_sha256": "8bd4a2e5e1d412a5f97a57c392a2ec24951d52fd97a792386a158ae2941e72c5",
+      "normalized_sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/hulu-premium-bundle.txt",
+      "snapshot_sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "username-and-display-name",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "username and display name",
+      "url": "https://support.spotify.com/us/article/username-and-display-name/",
+      "final_url": "https://support.spotify.com/us/article/username-and-display-name/",
+      "fetched_at": "2026-09-18T10:58:27.845834+00:00",
+      "response_sha256": "ac0de990543efb8a65ecc810dffc742bedeffa395a6cdfd76faf79bb75e6a334",
+      "normalized_sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/username-and-display-name.txt",
+      "snapshot_sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "suggest-feature",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "suggest feature",
+      "url": "https://support.spotify.com/us/article/suggest-feature/",
+      "final_url": "https://support.spotify.com/us/article/suggest-feature/",
+      "fetched_at": "2026-09-18T10:58:27.871900+00:00",
+      "response_sha256": "7db509d1f22a8decbbac8e9bed26d4cf37d286a450b4353eca584aae95c752c9",
+      "normalized_sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/suggest-feature.txt",
+      "snapshot_sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "contact-us",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "contact us",
+      "url": "https://support.spotify.com/us/article/contact-us/",
+      "final_url": "https://support.spotify.com/us/article/contact-us/",
+      "fetched_at": "2026-09-18T10:58:28.036253+00:00",
+      "response_sha256": "724e4acb522e16aa0b3bac6f03b2c84ab767230c5ea15f7467d75e822fe33226",
+      "normalized_sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/contact-us.txt",
+      "snapshot_sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "family-plan",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "family plan",
+      "url": "https://support.spotify.com/us/article/family-plan/",
+      "final_url": "https://support.spotify.com/us/article/family-plan/",
+      "fetched_at": "2026-09-18T10:58:27.960462+00:00",
+      "response_sha256": "3199d5157de71000d44a0f9cf93a96ba0548d4499dd48512bf876ddb15f6a864",
+      "normalized_sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/family-plan.txt",
+      "snapshot_sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "spotify-wrapped",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "spotify wrapped",
+      "url": "https://support.spotify.com/us/article/spotify-wrapped/",
+      "final_url": "https://support.spotify.com/us/article/spotify-wrapped/",
+      "fetched_at": "2026-09-18T10:58:28.383489+00:00",
+      "response_sha256": "e169f9a3f57db0a11822d82b2559ad63f88283aae653446be9ed196c86a1f9c4",
+      "normalized_sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/spotify-wrapped.txt",
+      "snapshot_sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "shuffle-play",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "shuffle play",
+      "url": "https://support.spotify.com/us/article/shuffle-play/",
+      "final_url": "https://support.spotify.com/us/article/shuffle-play/",
+      "fetched_at": "2026-09-18T10:58:28.758034+00:00",
+      "response_sha256": "324a31f9e0dba31fc57062c782872beae3eed89268002215d0c4e757be6d0d4e",
+      "normalized_sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/shuffle-play.txt",
+      "snapshot_sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "autoplay",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "autoplay",
+      "url": "https://support.spotify.com/us/article/autoplay/",
+      "final_url": "https://support.spotify.com/us/article/autoplay/",
+      "fetched_at": "2026-09-18T10:58:28.746560+00:00",
+      "response_sha256": "51af1a71654a6e8850f087dea19a3b281149936c6c00acc59b4d0b235e946a1c",
+      "normalized_sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/autoplay.txt",
+      "snapshot_sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "explicit-content",
+      "role": "current_official",
+      "authority": "Spotify Support",
+      "title": "explicit content",
+      "url": "https://support.spotify.com/us/article/explicit-content/",
+      "final_url": "https://support.spotify.com/us/article/explicit-content/",
+      "fetched_at": "2026-09-18T10:58:28.769917+00:00",
+      "response_sha256": "7ddb55e45a29700bd4a0403afc6bf5c976ec55e1f4ad63f9446f2b25374437c5",
+      "normalized_sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+      "extraction": "spotify-rendered-article-text-v1",
+      "snapshot": "snapshots/2026-09-18/explicit-content.txt",
+      "snapshot_sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+      "verified_on": "2026-09-18",
+      "recheck_on": "2026-09-25",
+      "expires_on": "2026-10-18",
+      "reviewer": "Codex source review with independent AI cross-check of existing guidance",
+      "reviewer_type": "ai",
+      "review_status": "reviewed"
+    }
+  ],
+  "claims": [
+    {
+      "id": "app_restart",
+      "source_id": "spotify-not-playing",
+      "text": "For technical playback failures in the Spotify app, restarting the app is an official troubleshooting step.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "playback_failure",
+          "app_problem",
+          "offline_playback",
+          "track_unplayable"
+        ]
+      },
+      "limits": [
+        "Not a guaranteed fix or current-outage diagnosis. Do not repeat a step already tried. This does not address catalog, billing or feature requests."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "app_update",
+      "source_id": "updating-spotify",
+      "text": "Update Spotify through the device app store on mobile; the desktop profile menu offers Update Spotify now when an update is available.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "playback_failure",
+          "app_problem",
+          "offline_playback",
+          "track_unplayable"
+        ]
+      },
+      "limits": [
+        "Only suggest an update when it has not already been tried and the app is not already current. Use the linked device guide instead of assuming an OS-specific settings path."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "app_reinstall",
+      "source_id": "reinstall-spotify",
+      "text": "Reinstalling can address common Spotify app technical issues. Previously downloaded music and podcasts must be downloaded again afterward.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "playback_failure",
+          "app_problem"
+        ]
+      },
+      "limits": [
+        "Include the loss-of-downloads warning in any reinstall advice. Follow device-specific official instructions. Do not use for a feature request or repeat a failed reinstall."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "spotify_connect",
+      "source_id": "spotify-connect",
+      "text": "Spotify Connect lets one device control playback on another compatible device. For the first speaker connection, place devices on the same Wi-Fi, play something in Spotify, open the device selector and choose the playback device.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "spotify_connect"
+        ]
+      },
+      "limits": [
+        "Compatibility must be checked for the particular device. This does not confirm a device is supported or explain unfamiliar devices. Suspected unauthorized access requires the security route."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "offline_downloads",
+      "source_id": "listen-offline",
+      "text": "Premium supports downloading albums, playlists and podcasts; Free supports podcast downloads. The official guide supplies device-specific download requirements and steps. Downloaded copies are different from saved items in Your Library.",
+      "scope": {
+        "devices": [],
+        "plans": [
+          "premium",
+          "premium_student",
+          "free",
+          "premium_family"
+        ],
+        "regions": [],
+        "issues": [
+          "download_howto"
+        ]
+      },
+      "limits": [
+        "No diagnosis of missing downloads is established. A saved library item alone is not proof it was downloaded. Reinstalling requires downloads to be made again."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "offline_download_loss",
+      "source_id": "listen-offline",
+      "text": "Downloaded items can be lost after reinstalling, extended offline use, changes in download devices, an outdated app, or SD-card problems. The guide explains checks and download requirements.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "downloads_missing"
+        ]
+      },
+      "limits": [
+        "These are possible causes, not a diagnosis of this customer. Do not substitute a library-filter procedure for lost offline downloads."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "library_filters",
+      "source_id": "missing-music-or-podcasts",
+      "text": "For saved content missing from Your Library on mobile, check whether a filter is hiding it. Pull down to see filters. Search can locate content to save again.",
+      "scope": {
+        "devices": [
+          "mobile"
+        ],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "library_missing"
+        ]
+      },
+      "limits": [
+        "Applies to saved-library visibility, not lost downloaded files or offline playback. Do not assert a different account or account compromise without evidence."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "playlist_create",
+      "source_id": "create-playlists",
+      "text": "Spotify supports creating a personal playlist. The official guide gives separate creation and editing steps for mobile/tablet and desktop.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "playlist_create"
+        ]
+      },
+      "limits": [
+        "Do not describe playlist creation as a missing feature. Device-specific instructions require the device to be known. Playlist modification faults need diagnosis rather than generic creation steps."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "playlist_search",
+      "source_id": "sort-and-filter",
+      "text": "To search within a playlist on mobile/tablet, open the playlist and pull down to reveal its search bar. On desktop, use Search at the top of the playlist.",
+      "scope": {
+        "devices": [
+          "mobile",
+          "desktop"
+        ],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "playlist_search"
+        ]
+      },
+      "limits": [
+        "This is searching inside a playlist, not finding playlists globally. Match instructions to the known device; do not claim these are web-player steps."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "playlist_collaborate",
+      "source_id": "collaborative-playlists",
+      "text": "Spotify supports collaborative playlists. The playlist menu offers Invite collaborators; the official guide describes invitations and removing collaborators on mobile and desktop.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "playlist_collaboration"
+        ]
+      },
+      "limits": [
+        "A user must have the relevant playlist controls. The assistant cannot create an invitation or change access. A malfunction or expired invitation requires appropriate diagnosis."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "catalog_availability",
+      "source_id": "missing-music-or-podcasts",
+      "text": "Spotify catalog availability changes across countries and over time according to rights-holder permissions.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "catalog_missing"
+        ]
+      },
+      "limits": [
+        "This does not establish why a particular release is missing, when it will return, whether it exists, or whether a visible track has a playback fault."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "service_countries",
+      "source_id": "where-spotify-is-available",
+      "text": "Spotify publishes a list of countries and regions where a customer can sign up for the service on this official page.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "country_availability"
+        ]
+      },
+      "limits": [
+        "Use the source list to check a specific country; do not invent future launch dates. Service availability and availability of a particular release are different."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "metadata_attribution",
+      "source_id": "faulty-inaccurate-metadata",
+      "text": "Listeners who do not own the rights can report inaccurate music information by contacting Spotify. Artists should ask their label or distributor to correct information about their releases or profiles. The official guide distinguishes these routes.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "metadata_attribution"
+        ]
+      },
+      "limits": [
+        "The assistant cannot change artist credits or file a report. Ask for public release/artist details when missing. Do not infer ownership or direct an ordinary listener to a distributor."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "student_verification",
+      "source_id": "student-verification-not-working",
+      "text": "SheerID handles student eligibility verification. Spotify links to SheerID help for verification problems and states that account, payment and billing problems belong with Spotify support.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "student_verification"
+        ]
+      },
+      "limits": [
+        "This route does not diagnose or fix Hulu bundle linking. Do not request enrollment documents in public, approve eligibility, or assert that a support ticket was created."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "student_verification_browser",
+      "source_id": "student-verification-not-working",
+      "text": "For a student verification form problem, the official guide suggests an incognito/private browser window to avoid saved details being filled into the form.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "student_verification"
+        ]
+      },
+      "limits": [
+        "Only applicable to verification form trouble; not rejected eligibility, exhausted attempts, account payments or Hulu linking. Do not repeat a private-window step already tried."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "student_hulu_linking",
+      "source_id": "hulu-premium-bundle",
+      "text": "For the US Premium Student offering, a customer with Premium Student activates Hulu with ads from the Spotify services page. An existing or new Hulu account can be used during activation. The offer cannot be combined with other Hulu plans or add-ons.",
+      "scope": {
+        "devices": [],
+        "plans": [
+          "premium_student"
+        ],
+        "regions": [
+          "US"
+        ],
+        "issues": [
+          "student_bundle_linking"
+        ]
+      },
+      "limits": [
+        "General activation guidance is not account reconnection or student verification. Never instruct cancellation/resubscription automatically for a customer-specific linking failure; that can change billing or eligibility. Do not promise the customer qualifies."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "public_display_name",
+      "source_id": "username-and-display-name",
+      "text": "A Spotify display name appears on the profile, app and playlists in place of the username. It is editable and cannot be used to log in. The official guide gives mobile and desktop editing instructions.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "public_display_name"
+        ]
+      },
+      "limits": [
+        "Changing the visible display name does not change the login identity or underlying username. Does not resolve recovery, security or account-identifier requests."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "feature_ideas",
+      "source_id": "suggest-feature",
+      "text": "Spotify directs feature proposals to its Community Ideas board. Search for a similar idea and vote for it, or submit a new idea after signing in with Spotify.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "feature_request",
+          "feedback_submission"
+        ]
+      },
+      "limits": [
+        "No feature implementation, release date or staff action is guaranteed. The assistant has not submitted or forwarded the idea. Do not substitute this route for an existing feature or an app malfunction."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "contact_support",
+      "source_id": "contact-us",
+      "text": "The official Spotify contact page offers messaging with customer service and links separate artist, creator and author help centers.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": []
+      },
+      "limits": [
+        "The assistant cannot access accounts, contact staff or create tickets. Do not invent a phone number or promise a response time."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "family_household",
+      "source_id": "family-plan",
+      "text": "The US Family plan requires members to live with the plan manager and supply the same home address on joining.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [
+          "US"
+        ],
+        "issues": [
+          "family_household"
+        ]
+      },
+      "limits": [
+        "No exception for temporary absence or individual eligibility is established. Do not approve membership, circumvent verification, or advise payment changes."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "wrapped",
+      "source_id": "spotify-wrapped",
+      "text": "Wrapped is an annual personalized listening experience with playlists and global lists. Access to Wrapped and individual features is subject to eligibility.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "wrapped_updates"
+        ]
+      },
+      "limits": [
+        "The page supplies no guaranteed upcoming release date, universal recovery procedure or numeric listening threshold."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "smart_shuffle",
+      "source_id": "shuffle-play",
+      "text": "Smart Shuffle inserts recommended tracks. The current guide distinguishes Free mobile, where it is always active, from Premium mobile, where Include Smart Shuffle in play modes can be switched off under Playback settings.",
+      "scope": {
+        "devices": [
+          "mobile"
+        ],
+        "plans": [
+          "premium",
+          "premium_student",
+          "free",
+          "premium_family"
+        ],
+        "regions": [],
+        "issues": [
+          "smart_shuffle"
+        ]
+      },
+      "limits": [
+        "Never offer the Premium-only disable control to Free users. Distinguish recommendations between tracks from Autoplay after a selection ends."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "smart_shuffle_disable",
+      "source_id": "shuffle-play",
+      "text": "On Premium mobile, Spotify settings under Playback include the option Include Smart Shuffle in play modes; switching it off disables Smart Shuffle.",
+      "scope": {
+        "devices": [
+          "mobile"
+        ],
+        "plans": [
+          "premium",
+          "premium_student",
+          "premium_family"
+        ],
+        "regions": [],
+        "issues": [
+          "smart_shuffle"
+        ]
+      },
+      "limits": [
+        "Both Premium membership and mobile context must be known. No desktop/web control or Free-user disable step is authorized."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "shuffle_repeats",
+      "source_id": "shuffle-play",
+      "text": "Premium offers a Fewer repeats shuffle style that reduces repeat frequency but does not eliminate repeats.",
+      "scope": {
+        "devices": [],
+        "plans": [
+          "premium",
+          "premium_student",
+          "premium_family"
+        ],
+        "regions": [],
+        "issues": [
+          "shuffle_repeats"
+        ]
+      },
+      "limits": [
+        "Do not promise no repeats or an algorithm change. This does not explain missing catalog items or technical playback errors."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "autoplay",
+      "source_id": "autoplay",
+      "text": "Autoplay adds similar songs after the current album, playlist or selection ends. Mobile/tablet and desktop settings provide an Autoplay toggle.",
+      "scope": {
+        "devices": [
+          "mobile",
+          "desktop"
+        ],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "autoplay_after_end"
+        ]
+      },
+      "limits": [
+        "Does not explain recommended songs mixed between playlist tracks. Use only when after-end timing is established."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "explicit_versions",
+      "source_id": "explicit-content",
+      "text": "Explicit tags use rights-holder information. A user can search a song title for another version without an explicit tag, but some explicit releases have no clean version. Blocking explicit content skips tagged releases.",
+      "scope": {
+        "devices": [],
+        "plans": [],
+        "regions": [],
+        "issues": [
+          "explicit_version"
+        ]
+      },
+      "limits": [
+        "No clean or uncensored version of any specific recording is guaranteed. Disabling explicit content does not automatically replace it with a clean version. Incorrect tags require the reporting route."
+      ],
+      "status": "reviewed"
+    },
+    {
+      "id": "family_separate_accounts",
+      "source_id": "family-plan",
+      "text": "In the US Premium Family plan, each member has a separate Spotify account and signs in with their own details.",
+      "scope": {
+        "devices": [],
+        "plans": [
+          "premium_family"
+        ],
+        "regions": [
+          "US"
+        ],
+        "issues": [
+          "connect_unwanted_takeover"
+        ]
+      },
+      "limits": [
+        "Supports a clarification about whether known Family members are using separate accounts. It does not establish the cause of unwanted playback control.",
+        "Never request usernames, passwords, login details or account identifiers in the reply. Do not infer account sharing when it has not been stated.",
+        "This claim does not authorize account access, reconnecting accounts, changing membership or bypassing a security escalation."
+      ],
+      "status": "reviewed"
+    }
+  ]
+}

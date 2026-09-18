@@ -1,0 +1,567 @@
+{
+  "version": 1,
+  "manifest_sha256": "bad8e539d0b86e2496c39fe84b2a86545283bf96e73cc521988e985e8fc74e31",
+  "hash_convention": "cadence.eval.provenance.sha256 (portable text newlines)",
+  "inputs": {
+    "analysis_tools/reproduce_verified.py": {
+      "sha256": "affadbe92098bbc355acd845551d68f9e2eae1fde39837c398f2e807e6217b60",
+      "storage": "source_snapshot"
+    },
+    "config/canonical_links.json": {
+      "sha256": "dae079c367fe89924880911e7fc4f19d3f6ca83da226505aae67979668a3b5e2",
+      "storage": "shared_archive",
+      "path": "results/input_archive/dae079c367fe89924880911e7fc4f19d3f6ca83da226505aae67979668a3b5e2/canonical_links.json",
+      "raw_sha256": "dae079c367fe89924880911e7fc4f19d3f6ca83da226505aae67979668a3b5e2",
+      "size_bytes": 709
+    },
+    "config/escalation.yaml": {
+      "sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "storage": "shared_archive",
+      "path": "results/input_archive/5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae/escalation.yaml",
+      "raw_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "size_bytes": 4963
+    },
+    "config/intents.yaml": {
+      "sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+      "storage": "shared_archive",
+      "path": "results/input_archive/e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6/intents.yaml",
+      "raw_sha256": "ca23203ab3f7fb0741fe78eebddd35139f748307674f0ada4dfb6d23a8fc902a",
+      "size_bytes": 28068
+    },
+    "config/knowledge/README.md": {
+      "sha256": "ec4f77ea6c0b2885cf42662577e221781f202461713ece4a0658e4c06351fd6d",
+      "storage": "shared_archive",
+      "path": "results/input_archive/ec4f77ea6c0b2885cf42662577e221781f202461713ece4a0658e4c06351fd6d/README.md",
+      "raw_sha256": "ec4f77ea6c0b2885cf42662577e221781f202461713ece4a0658e4c06351fd6d",
+      "size_bytes": 3037
+    },
+    "config/knowledge/snapshots/2026-09-18/autoplay.txt": {
+      "sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+      "storage": "shared_archive",
+      "path": "results/input_archive/9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47/autoplay.txt",
+      "raw_sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+      "size_bytes": 568
+    },
+    "config/knowledge/snapshots/2026-09-18/collaborative-playlists.txt": {
+      "sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+      "storage": "shared_archive",
+      "path": "results/input_archive/1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726/collaborative-playlists.txt",
+      "raw_sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+      "size_bytes": 920
+    },
+    "config/knowledge/snapshots/2026-09-18/contact-us.txt": {
+      "sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+      "storage": "shared_archive",
+      "path": "results/input_archive/895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4/contact-us.txt",
+      "raw_sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+      "size_bytes": 766
+    },
+    "config/knowledge/snapshots/2026-09-18/create-playlists.txt": {
+      "sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+      "storage": "shared_archive",
+      "path": "results/input_archive/6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371/create-playlists.txt",
+      "raw_sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+      "size_bytes": 1889
+    },
+    "config/knowledge/snapshots/2026-09-18/explicit-content.txt": {
+      "sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+      "storage": "shared_archive",
+      "path": "results/input_archive/8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07/explicit-content.txt",
+      "raw_sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+      "size_bytes": 2186
+    },
+    "config/knowledge/snapshots/2026-09-18/family-plan.txt": {
+      "sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+      "storage": "shared_archive",
+      "path": "results/input_archive/03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59/family-plan.txt",
+      "raw_sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+      "size_bytes": 2672
+    },
+    "config/knowledge/snapshots/2026-09-18/faulty-inaccurate-metadata.txt": {
+      "sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+      "storage": "shared_archive",
+      "path": "results/input_archive/64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae/faulty-inaccurate-metadata.txt",
+      "raw_sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+      "size_bytes": 1056
+    },
+    "config/knowledge/snapshots/2026-09-18/hulu-premium-bundle.txt": {
+      "sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+      "storage": "shared_archive",
+      "path": "results/input_archive/b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda/hulu-premium-bundle.txt",
+      "raw_sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+      "size_bytes": 1061
+    },
+    "config/knowledge/snapshots/2026-09-18/listen-offline.txt": {
+      "sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+      "storage": "shared_archive",
+      "path": "results/input_archive/bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f/listen-offline.txt",
+      "raw_sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+      "size_bytes": 3282
+    },
+    "config/knowledge/snapshots/2026-09-18/missing-music-or-podcasts.txt": {
+      "sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+      "storage": "shared_archive",
+      "path": "results/input_archive/8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656/missing-music-or-podcasts.txt",
+      "raw_sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+      "size_bytes": 828
+    },
+    "config/knowledge/snapshots/2026-09-18/reinstall-spotify.txt": {
+      "sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+      "storage": "shared_archive",
+      "path": "results/input_archive/86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c/reinstall-spotify.txt",
+      "raw_sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+      "size_bytes": 3755
+    },
+    "config/knowledge/snapshots/2026-09-18/shuffle-play.txt": {
+      "sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+      "storage": "shared_archive",
+      "path": "results/input_archive/159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5/shuffle-play.txt",
+      "raw_sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+      "size_bytes": 2249
+    },
+    "config/knowledge/snapshots/2026-09-18/sort-and-filter.txt": {
+      "sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+      "storage": "shared_archive",
+      "path": "results/input_archive/e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd/sort-and-filter.txt",
+      "raw_sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+      "size_bytes": 2202
+    },
+    "config/knowledge/snapshots/2026-09-18/spotify-connect.txt": {
+      "sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+      "storage": "shared_archive",
+      "path": "results/input_archive/dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed/spotify-connect.txt",
+      "raw_sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+      "size_bytes": 3576
+    },
+    "config/knowledge/snapshots/2026-09-18/spotify-not-playing.txt": {
+      "sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+      "storage": "shared_archive",
+      "path": "results/input_archive/ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45/spotify-not-playing.txt",
+      "raw_sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+      "size_bytes": 1766
+    },
+    "config/knowledge/snapshots/2026-09-18/spotify-wrapped.txt": {
+      "sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+      "storage": "shared_archive",
+      "path": "results/input_archive/a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1/spotify-wrapped.txt",
+      "raw_sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+      "size_bytes": 726
+    },
+    "config/knowledge/snapshots/2026-09-18/student-verification-not-working.txt": {
+      "sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+      "storage": "shared_archive",
+      "path": "results/input_archive/3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e/student-verification-not-working.txt",
+      "raw_sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+      "size_bytes": 2131
+    },
+    "config/knowledge/snapshots/2026-09-18/suggest-feature.txt": {
+      "sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+      "storage": "shared_archive",
+      "path": "results/input_archive/eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6/suggest-feature.txt",
+      "raw_sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+      "size_bytes": 537
+    },
+    "config/knowledge/snapshots/2026-09-18/updating-spotify.txt": {
+      "sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+      "storage": "shared_archive",
+      "path": "results/input_archive/528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02/updating-spotify.txt",
+      "raw_sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+      "size_bytes": 990
+    },
+    "config/knowledge/snapshots/2026-09-18/username-and-display-name.txt": {
+      "sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+      "storage": "shared_archive",
+      "path": "results/input_archive/238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474/username-and-display-name.txt",
+      "raw_sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+      "size_bytes": 923
+    },
+    "config/knowledge/snapshots/2026-09-18/where-spotify-is-available.txt": {
+      "sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+      "storage": "shared_archive",
+      "path": "results/input_archive/9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509/where-spotify-is-available.txt",
+      "raw_sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+      "size_bytes": 2758
+    },
+    "config/knowledge/v2.json": {
+      "sha256": "c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39",
+      "storage": "shared_archive",
+      "path": "results/input_archive/c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39/v2.json",
+      "raw_sha256": "9abe3912d763ebb8b58e3aaf913158ea8bab4a87142a5a95ea3a8480c9a5d478",
+      "size_bytes": 40530
+    },
+    "config/knowledge/v3.json": {
+      "sha256": "aa7c03eeda9aeed44f0d5c29ddb594c5fbfa8c3741dc58c7530c220691ce119a",
+      "storage": "shared_archive",
+      "path": "results/input_archive/aa7c03eeda9aeed44f0d5c29ddb594c5fbfa8c3741dc58c7530c220691ce119a/v3.json",
+      "raw_sha256": "2af782a0cc838e193851434403f9663adf83cd94f437c13dc7b8afc17bc1ee2d",
+      "size_bytes": 41646
+    },
+    "config/models.yaml": {
+      "sha256": "e8b815f727553f65a4fbe445439b6a14f783b91cfb16dd8de6b479d1e0f08530",
+      "storage": "shared_archive",
+      "path": "results/input_archive/e8b815f727553f65a4fbe445439b6a14f783b91cfb16dd8de6b479d1e0f08530/models.yaml",
+      "raw_sha256": "e8b815f727553f65a4fbe445439b6a14f783b91cfb16dd8de6b479d1e0f08530",
+      "size_bytes": 2052
+    },
+    "config/policy_v2.json": {
+      "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "storage": "shared_archive",
+      "path": "results/input_archive/cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0/policy_v2.json",
+      "raw_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "size_bytes": 2880
+    },
+    "data/processed/spotify_threads.jsonl.gz": {
+      "sha256": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+      "storage": "verified_root",
+      "size_bytes": 6586165
+    },
+    "data/verified_calibration/examples.jsonl": {
+      "sha256": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+      "storage": "shared_archive",
+      "path": "results/input_archive/bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c/examples.jsonl",
+      "raw_sha256": "bd355dc4c82929cc157d01f30198ff425dae35859656583f98ab63e19307dd7a",
+      "size_bytes": 17591
+    },
+    "data/verified_challenge/examples.jsonl": {
+      "sha256": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12",
+      "storage": "shared_archive",
+      "path": "results/input_archive/0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12/examples.jsonl",
+      "raw_sha256": "b6d21d33d995c397183a0526fa4de2a6c11dba1f681869be04b51c15bb04f6bd",
+      "size_bytes": 22234
+    },
+    "data/verified_confirmation/examples.jsonl": {
+      "sha256": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+      "storage": "shared_archive",
+      "path": "results/input_archive/bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33/examples.jsonl",
+      "raw_sha256": "25b88adadf32e0c5c50ce4dd1e85ac3e373214eb75d5ee9663ee32727568ea40",
+      "size_bytes": 36213
+    },
+    "data/verified_dev/labels.jsonl": {
+      "sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+      "storage": "shared_archive",
+      "path": "results/input_archive/ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5/labels.jsonl",
+      "raw_sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+      "size_bytes": 41422
+    },
+    "data/verified_postpilot_regression/labels.jsonl": {
+      "sha256": "a054c3228d8b409d95bd146f89c894b283096942210ed2a93ae4c0ad1a3b02f3",
+      "storage": "shared_archive",
+      "path": "results/input_archive/a054c3228d8b409d95bd146f89c894b283096942210ed2a93ae4c0ad1a3b02f3/labels.jsonl",
+      "raw_sha256": "a054c3228d8b409d95bd146f89c894b283096942210ed2a93ae4c0ad1a3b02f3",
+      "size_bytes": 17948
+    },
+    "docs/BRAND_VOICE.md": {
+      "sha256": "407985aa09f67829e687d0663a897b59bf57f871b2789de0468bfa6677a44b74",
+      "storage": "shared_archive",
+      "path": "results/input_archive/407985aa09f67829e687d0663a897b59bf57f871b2789de0468bfa6677a44b74/BRAND_VOICE.md",
+      "raw_sha256": "407985aa09f67829e687d0663a897b59bf57f871b2789de0468bfa6677a44b74",
+      "size_bytes": 15989
+    },
+    "pyproject.toml": {
+      "sha256": "30320802f837e576156b8ee947e6f405ec0563c501aa4737c54d46cd86549e6a",
+      "storage": "shared_archive",
+      "path": "results/input_archive/30320802f837e576156b8ee947e6f405ec0563c501aa4737c54d46cd86549e6a/pyproject.toml",
+      "raw_sha256": "30320802f837e576156b8ee947e6f405ec0563c501aa4737c54d46cd86549e6a",
+      "size_bytes": 1181
+    },
+    "results/verified_postpilot_regression_v1/rubric.json": {
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+      "storage": "shared_archive",
+      "path": "results/input_archive/b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a/rubric.json",
+      "raw_sha256": "61ecdac91bfc872a370a83e46ba3fdd6a9881f150c7ea5bcadd44df0a2b94e0c",
+      "size_bytes": 2329
+    },
+    "scripts/25_verified_experiment.py": {
+      "sha256": "fd25c92da8bbcbded22fa5ed01982b17bd6627b6f0fc54fc446a3699ffdbe34c",
+      "storage": "source_snapshot"
+    },
+    "scripts/26_lock_verified_confirmation.py": {
+      "sha256": "cd1dec78a18e3ae152f907855a45c2c90a1d39c7bf4ffa700c055938fd3fbf69",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/__init__.py": {
+      "sha256": "0e28023683bcbfac1ae3102e8590e0412236ade02d3c65e74c1771ecc43ae25b",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/__init__.py": {
+      "sha256": "67204e5c974a270bec497a7345601218625edf9b47bef0367cac615be8147353",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/actions.py": {
+      "sha256": "b1dd0f5a5dbff90feef78bfe5fb423fcbba9982ca84dc966d90b7bfe615a123a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/balanced.py": {
+      "sha256": "140c085d959a976874f87045a37c312f040c465451667490b9b544b8ebddebc9",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/integrity.py": {
+      "sha256": "0ca5fb75543888f9e5eae8a236ccae8eefe68b9c02ea2ab2f9acf786369370e6",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/links.py": {
+      "sha256": "0c658aba015860933932ff76cb7779671b884a4234ab038a71163b702fd16ab6",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/models.py": {
+      "sha256": "a0033e2dc207611b115b1cb79ddc952035412e80ae8ac8073ee4acc550e6cb58",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/pipeline.py": {
+      "sha256": "ff905a9e56fb3d4248037ae94132115034f7df68c026b4bb4e518f71aeb7e50b",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/policy_v2.py": {
+      "sha256": "f2a742b52b39fbb3a74cdc37903934cd0e097b1d58b8d95ea1007cea14bc3904",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/prompts.py": {
+      "sha256": "52d6a9403eae0485a004b330a21bc0405aeeb6026c334985b88c779c27ffb30a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/quality.py": {
+      "sha256": "ddf6e8ffddb3a392d582dd6d35f50d00b194943c5d1d1b7528725f41954fca20",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/request_frame.py": {
+      "sha256": "4a1efa6c79ac4e660bd38b9dae216e2cd7f214bea1d05b7756a6fe5fa5edcc06",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/rules.py": {
+      "sha256": "5111ce3346cec40f22a0adf32e9b8f61ac2b530613326b34c2974c567d23178e",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/selective.py": {
+      "sha256": "a7d4966e5b12f9796a9269b3e2c1c67380daf5a25f18e3b7fba8254747f34909",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/agent/verified.py": {
+      "sha256": "2329dbd552ba0773bcacc6e49908d168673f3db289a617957dba59c8889c2a7e",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/__init__.py": {
+      "sha256": "98a39128c1ae9e038fb48d1415402b5db198b6cc7ca5066aabd4ce324c17a3bb",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/core.py": {
+      "sha256": "0bbe6661e669f5a5dce7deec23a3531148af76f611c82f0c22f443ab62bf4e85",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/decisions.py": {
+      "sha256": "c43daa6d416a459ecc19669edebaf4296f8e5208bb7e72a5ac8ce748000b8c65",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/merge.py": {
+      "sha256": "9afc0afa1844a7b85449074c04006c7c40257dca728a61e563eb089c86b14a30",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/rating_queue.py": {
+      "sha256": "7491616104091de54d82df16e73f9dac1bb6738de7f951993d9edeae336c6c87",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/server.py": {
+      "sha256": "0dfd4da06b45a09df6fec6e8cd89ce9e842b67a00ba89c3f8c84e871d6e11652",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/api/state.py": {
+      "sha256": "cd2224caf10590faa946f252da24f0eea30c1b3ba73192b5e2a6e8717bb61f5a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/__init__.py": {
+      "sha256": "4649c6b0e5fe1f023b5ed9223cedf934497c6dd36f74f6e86e9a0c3e2ce1a914",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/_common.py": {
+      "sha256": "96d1f4878768701eae7454d0f1a2948dbce02963d1220e05daf97a9f4f16fffd",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/nn_reply.py": {
+      "sha256": "533a6300024a70f4321822026634d36ba4d3b3256706b95d542b487dbb6616cd",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/runner.py": {
+      "sha256": "a81cffc63a9a751dc0037e482e9fed68c007812606f52eb0b6e269d8a3947b3b",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/simple.py": {
+      "sha256": "9929bdffcd1fe1f5faef073b800be98c950774465294db17aff78ea0e4aec84c",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/trivial.py": {
+      "sha256": "9286bfd4d0fb2cb64c99064bd1627bf397fb1812dcea239316d8f93fd8f5a1a7",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/baselines/zero_shot.py": {
+      "sha256": "aeef5d419505a04edfbf22ba1cfaf397c563bf478a23fd04797985172b8ad0a4",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/cli.py": {
+      "sha256": "35ada30ecfb4694e147271c7713737ba25217c4a1515ad67a22fd13ea7f34543",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/config.py": {
+      "sha256": "b6d496962c237133d20e0e750db997f069f20c6e920df5c132b3ad3d89c3c613",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/__init__.py": {
+      "sha256": "0de96ec1dd4c686e1f5e2da8e9fbcf18b48f134fbbd535fcbe11c559b210ed2a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/clean.py": {
+      "sha256": "58162dbc3891f02ee0755eccf620c61c803ec257d8b126ee818ea0639cf6a934",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/links.py": {
+      "sha256": "670ebe2505df4926f7acfcd3f037146acd03443d400958df519bfa5c9ab94715",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/load.py": {
+      "sha256": "3cfebf764d6f3d7fa9a08ebb0c2d51001cbebc89e35cff84babac6a7755a65df",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/sample.py": {
+      "sha256": "8aca6e0e5868f46460badde6edda6722051f1f313f2025d94301e89a17f9194a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/summarize.py": {
+      "sha256": "8ce31b3d474a71874216edf6f9566f63c385ef30919b627987cf403bc65370a9",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/data/threads.py": {
+      "sha256": "036adab92f86a66a723c7fcadd026d5edc529d635213469503ebe44cbd717082",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/__init__.py": {
+      "sha256": "246ee28b4b8d48c8d36e386bf6428292feb8c443fdf0c1d67fe98a649ca105fe",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/agreement.py": {
+      "sha256": "484bd1d69e70e84380407bcda560fefdcf7d3f4e71b0154c6d91e1b7bcbe0b5a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/archive.py": {
+      "sha256": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/blind_judge.py": {
+      "sha256": "ef1365124eb4a9086183f66eefb81871d3dd0a587b735f4b64bc1957adb0e565",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/bootstrap.py": {
+      "sha256": "a7eed3897c47fc0e814b1d9643c856a5aa693bc4d77595e3fdb1e9d792d15099",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/challenge.py": {
+      "sha256": "a8ebd7d194f3f0a272f87c714107c063d2732eeaf3edd6c57322d344af65f11e",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/failures.py": {
+      "sha256": "b6fff775523dd4897d0f78dba0f114200e6b4b2ac1c23b131e9b08a59e665221",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/figures.py": {
+      "sha256": "df49ce70edd9ff3c3439ce0aa8e548e11259b0298a3cc9bf0b5aae5ecbe9af32",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/judge.py": {
+      "sha256": "1a19121d6fa7317b049d61203d80cc38dcd24fe9f0d02fa247bb397331ad3bae",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/metrics.py": {
+      "sha256": "c6e7d5cfcca3b27f88cbf3466f62d3e7b7c0672576ec84d36deb1011155a2b43",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/paired.py": {
+      "sha256": "be6eff28c3b273bb84aa333ea175864286668bb0b34e387dce74289539a60c4f",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/provenance.py": {
+      "sha256": "e4a434976b1c65ef5ddf64859aaa233dbbdb9e24a8d99a0e7cabf62e3e20a7e4",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/review.py": {
+      "sha256": "dec15af7eaf592c6bb84edd8c4b61131ca7024609f9c8595f0ce6bbbcea26ac4",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/run_eval.py": {
+      "sha256": "13629ecd9b04098700720a87f7ddae165d19fab2f1035ccb21dd37865f0f7526",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/verified.py": {
+      "sha256": "a1e7ed1a6fe829685cfe00e8e6f0f085c4597d8986453a3ce2db1f4c00fd4cf2",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/eval/verified_ablations.py": {
+      "sha256": "5b7f7001c663091848d6baa62767d873496f43275c8a6e10b93213d97ada0ac8",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/knowledge/__init__.py": {
+      "sha256": "00d0724a607c5e1ef65ba81c5f2f7f6f144e360432eb2933f8c11de537e4a29e",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/knowledge/models.py": {
+      "sha256": "aa21dfa3ad37ea810442776f851ee0b2baeb31342d4ffa7375c813a77630f260",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/knowledge/store.py": {
+      "sha256": "5aa16dea452420d1b90cec784ba2c108855b800dcf1b3134563f37878e722021",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/llm/__init__.py": {
+      "sha256": "bee1e7b89d5f637b3165ecb7c2545df15f28bd5e0b6a866e400a21785aad6625",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/llm/base.py": {
+      "sha256": "6f7d2d18444de30438ed0b66e0fae5c2b35191d82ee8f9f2da5997b790c82199",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/llm/cache.py": {
+      "sha256": "0de20696138e5441a491cb97a17b4e2a076047b9f4fb9899aef7cbdb4c13e923",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/llm/gemini.py": {
+      "sha256": "8da398fb6abb1465c9c364c64c119dc61c8fff63c4c9d731e6749cb742eea771",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/llm/mock.py": {
+      "sha256": "bd330e349639310989b2c940cd3121c16b4295dac5591b4eec1052173f0255cc",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/llm/ratelimit.py": {
+      "sha256": "8d4f966abc8c73bcdfed4f9ead7dd8678d6cd2c945e98b279cd85612a87fc991",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/retrieval/__init__.py": {
+      "sha256": "cde7d983fba333a1b534dbd835d4eda41e1d7323408185e349ace20d6eb568f4",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/retrieval/bm25.py": {
+      "sha256": "5e91b79a17bc9a3868a7087bced3c9758f8a13251ac9490d3a2ecbeb01870745",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/retrieval/index.py": {
+      "sha256": "9771a29859b7b171a15cccbb6e7f81c7e48451d46891b6d363cc19f084716ef9",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/utils/__init__.py": {
+      "sha256": "d934b8e1d20ce3a09b0de316b3e36002fc1dcb33253d3520bf738d043b5b3962",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/utils/hashing.py": {
+      "sha256": "3055a3cc62623a4470c9ee4299b40224951fc4206360eb1395d5abc6381a1a91",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/utils/io.py": {
+      "sha256": "ea428fd60ff1044cad2cf216a2e4e5ecaf511ab59d8e2a463747c4f6719b8207",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/utils/log.py": {
+      "sha256": "8382275aa34e0c646690717e0a935f4c4e001bbe43b4e2a03043798e9ce95f4a",
+      "storage": "source_snapshot"
+    },
+    "src/cadence/utils/text.py": {
+      "sha256": "b81f1a84cd4a7dcb22424b9d6c6eec315889551d9767af1fddba70853648465b",
+      "storage": "source_snapshot"
+    }
+  }
+}

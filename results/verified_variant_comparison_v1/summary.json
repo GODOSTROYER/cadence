@@ -1,0 +1,2225 @@
+{
+  "version": "verified-variant-comparison-v1",
+  "phase": "development",
+  "n": 21,
+  "selected_ids": [
+    "b4_002",
+    "b4_008",
+    "b4_014",
+    "b4_017",
+    "b4_021",
+    "b4_023",
+    "b4_027",
+    "b4_028",
+    "b4_034",
+    "b4_037",
+    "b4_045",
+    "b4_053",
+    "b4_054",
+    "b4_056",
+    "b4_059",
+    "b4_061",
+    "b4_066",
+    "b4_067",
+    "b4_068",
+    "b4_069",
+    "b4_073"
+  ],
+  "source_population_n": {
+    "combined": 80,
+    "core": 21,
+    "full_context": 21,
+    "no_history": 21
+  },
+  "selection": {
+    "purpose": "Inspected development regressions selected before v3 inference, not representative or unseen accuracy",
+    "n": 21,
+    "ids": [
+      "b4_002",
+      "b4_008",
+      "b4_014",
+      "b4_017",
+      "b4_021",
+      "b4_023",
+      "b4_027",
+      "b4_028",
+      "b4_034",
+      "b4_037",
+      "b4_045",
+      "b4_053",
+      "b4_054",
+      "b4_056",
+      "b4_059",
+      "b4_061",
+      "b4_066",
+      "b4_067",
+      "b4_068",
+      "b4_069",
+      "b4_073"
+    ],
+    "criteria": [
+      "Vague-context routing mistakes",
+      "Missing social closure action",
+      "Generic-help vs human request",
+      "Feature proposals vs actual faults",
+      "Precise known-context clarification",
+      "Student bundle vs specialist",
+      "Existing current Connect authority",
+      "Public download how-to versus actual feature-change proposal"
+    ],
+    "original_labels_sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+    "subset_sha256": "dd96c00d962afbce30c78e5187d31518511af64fb9e65288361e3621eae326a7",
+    "labels_modified": false,
+    "human_review": false,
+    "selection_note": "b4_002 added before any v3 inference following completed blinded review of the initial candidate. This inspected subset supports diagnostic ablations only."
+  },
+  "execution_identity": {
+    "inputs": {
+      "analysis_tools/reproduce_verified.py": "affadbe92098bbc355acd845551d68f9e2eae1fde39837c398f2e807e6217b60",
+      "config/canonical_links.json": "dae079c367fe89924880911e7fc4f19d3f6ca83da226505aae67979668a3b5e2",
+      "config/escalation.yaml": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "config/intents.yaml": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+      "config/knowledge/README.md": "ec4f77ea6c0b2885cf42662577e221781f202461713ece4a0658e4c06351fd6d",
+      "config/knowledge/snapshots/2026-09-18/autoplay.txt": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+      "config/knowledge/snapshots/2026-09-18/collaborative-playlists.txt": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+      "config/knowledge/snapshots/2026-09-18/contact-us.txt": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+      "config/knowledge/snapshots/2026-09-18/create-playlists.txt": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+      "config/knowledge/snapshots/2026-09-18/explicit-content.txt": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+      "config/knowledge/snapshots/2026-09-18/family-plan.txt": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+      "config/knowledge/snapshots/2026-09-18/faulty-inaccurate-metadata.txt": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+      "config/knowledge/snapshots/2026-09-18/hulu-premium-bundle.txt": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+      "config/knowledge/snapshots/2026-09-18/listen-offline.txt": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+      "config/knowledge/snapshots/2026-09-18/missing-music-or-podcasts.txt": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+      "config/knowledge/snapshots/2026-09-18/reinstall-spotify.txt": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+      "config/knowledge/snapshots/2026-09-18/shuffle-play.txt": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+      "config/knowledge/snapshots/2026-09-18/sort-and-filter.txt": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+      "config/knowledge/snapshots/2026-09-18/spotify-connect.txt": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+      "config/knowledge/snapshots/2026-09-18/spotify-not-playing.txt": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+      "config/knowledge/snapshots/2026-09-18/spotify-wrapped.txt": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+      "config/knowledge/snapshots/2026-09-18/student-verification-not-working.txt": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+      "config/knowledge/snapshots/2026-09-18/suggest-feature.txt": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+      "config/knowledge/snapshots/2026-09-18/updating-spotify.txt": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+      "config/knowledge/snapshots/2026-09-18/username-and-display-name.txt": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+      "config/knowledge/snapshots/2026-09-18/where-spotify-is-available.txt": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+      "config/knowledge/v2.json": "c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39",
+      "config/models.yaml": "e8b815f727553f65a4fbe445439b6a14f783b91cfb16dd8de6b479d1e0f08530",
+      "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "data/processed/spotify_threads.jsonl.gz": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+      "data/verified_calibration/examples.jsonl": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+      "data/verified_challenge/examples.jsonl": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12",
+      "data/verified_confirmation/examples.jsonl": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+      "docs/BRAND_VOICE.md": "407985aa09f67829e687d0663a897b59bf57f871b2789de0468bfa6677a44b74",
+      "pyproject.toml": "30320802f837e576156b8ee947e6f405ec0563c501aa4737c54d46cd86549e6a",
+      "scripts/25_verified_experiment.py": "fd25c92da8bbcbded22fa5ed01982b17bd6627b6f0fc54fc446a3699ffdbe34c",
+      "scripts/26_lock_verified_confirmation.py": "cd1dec78a18e3ae152f907855a45c2c90a1d39c7bf4ffa700c055938fd3fbf69",
+      "src/cadence/__init__.py": "0e28023683bcbfac1ae3102e8590e0412236ade02d3c65e74c1771ecc43ae25b",
+      "src/cadence/agent/__init__.py": "67204e5c974a270bec497a7345601218625edf9b47bef0367cac615be8147353",
+      "src/cadence/agent/actions.py": "99671d787d1aeea8e9133407c0ba25cef3394e4c1994f4c68243e2d95614e21b",
+      "src/cadence/agent/balanced.py": "140c085d959a976874f87045a37c312f040c465451667490b9b544b8ebddebc9",
+      "src/cadence/agent/integrity.py": "0ca5fb75543888f9e5eae8a236ccae8eefe68b9c02ea2ab2f9acf786369370e6",
+      "src/cadence/agent/links.py": "0c658aba015860933932ff76cb7779671b884a4234ab038a71163b702fd16ab6",
+      "src/cadence/agent/models.py": "a0033e2dc207611b115b1cb79ddc952035412e80ae8ac8073ee4acc550e6cb58",
+      "src/cadence/agent/pipeline.py": "ff905a9e56fb3d4248037ae94132115034f7df68c026b4bb4e518f71aeb7e50b",
+      "src/cadence/agent/policy_v2.py": "553d9228f4f9a9ff2e00aa1e208501e9b59002ad3e9fbd1c3a1a5f825c0bba01",
+      "src/cadence/agent/prompts.py": "52d6a9403eae0485a004b330a21bc0405aeeb6026c334985b88c779c27ffb30a",
+      "src/cadence/agent/quality.py": "ddf6e8ffddb3a392d582dd6d35f50d00b194943c5d1d1b7528725f41954fca20",
+      "src/cadence/agent/request_frame.py": "7fc7c5488966ed77b1e5b9b099670c90d9c4746728db6135ba2dd0769ae2079b",
+      "src/cadence/agent/rules.py": "5111ce3346cec40f22a0adf32e9b8f61ac2b530613326b34c2974c567d23178e",
+      "src/cadence/agent/selective.py": "a7d4966e5b12f9796a9269b3e2c1c67380daf5a25f18e3b7fba8254747f34909",
+      "src/cadence/agent/verified.py": "c79429bfc034f8507af39088cd7058583dedc3a72042a76c2b1476b01236a2f2",
+      "src/cadence/api/__init__.py": "98a39128c1ae9e038fb48d1415402b5db198b6cc7ca5066aabd4ce324c17a3bb",
+      "src/cadence/api/core.py": "0bbe6661e669f5a5dce7deec23a3531148af76f611c82f0c22f443ab62bf4e85",
+      "src/cadence/api/decisions.py": "c43daa6d416a459ecc19669edebaf4296f8e5208bb7e72a5ac8ce748000b8c65",
+      "src/cadence/api/merge.py": "9afc0afa1844a7b85449074c04006c7c40257dca728a61e563eb089c86b14a30",
+      "src/cadence/api/rating_queue.py": "7491616104091de54d82df16e73f9dac1bb6738de7f951993d9edeae336c6c87",
+      "src/cadence/api/server.py": "0dfd4da06b45a09df6fec6e8cd89ce9e842b67a00ba89c3f8c84e871d6e11652",
+      "src/cadence/api/state.py": "cd2224caf10590faa946f252da24f0eea30c1b3ba73192b5e2a6e8717bb61f5a",
+      "src/cadence/baselines/__init__.py": "4649c6b0e5fe1f023b5ed9223cedf934497c6dd36f74f6e86e9a0c3e2ce1a914",
+      "src/cadence/baselines/_common.py": "96d1f4878768701eae7454d0f1a2948dbce02963d1220e05daf97a9f4f16fffd",
+      "src/cadence/baselines/nn_reply.py": "533a6300024a70f4321822026634d36ba4d3b3256706b95d542b487dbb6616cd",
+      "src/cadence/baselines/runner.py": "a81cffc63a9a751dc0037e482e9fed68c007812606f52eb0b6e269d8a3947b3b",
+      "src/cadence/baselines/simple.py": "9929bdffcd1fe1f5faef073b800be98c950774465294db17aff78ea0e4aec84c",
+      "src/cadence/baselines/trivial.py": "9286bfd4d0fb2cb64c99064bd1627bf397fb1812dcea239316d8f93fd8f5a1a7",
+      "src/cadence/baselines/zero_shot.py": "aeef5d419505a04edfbf22ba1cfaf397c563bf478a23fd04797985172b8ad0a4",
+      "src/cadence/cli.py": "35ada30ecfb4694e147271c7713737ba25217c4a1515ad67a22fd13ea7f34543",
+      "src/cadence/config.py": "b6d496962c237133d20e0e750db997f069f20c6e920df5c132b3ad3d89c3c613",
+      "src/cadence/data/__init__.py": "0de96ec1dd4c686e1f5e2da8e9fbcf18b48f134fbbd535fcbe11c559b210ed2a",
+      "src/cadence/data/clean.py": "58162dbc3891f02ee0755eccf620c61c803ec257d8b126ee818ea0639cf6a934",
+      "src/cadence/data/links.py": "670ebe2505df4926f7acfcd3f037146acd03443d400958df519bfa5c9ab94715",
+      "src/cadence/data/load.py": "3cfebf764d6f3d7fa9a08ebb0c2d51001cbebc89e35cff84babac6a7755a65df",
+      "src/cadence/data/sample.py": "8aca6e0e5868f46460badde6edda6722051f1f313f2025d94301e89a17f9194a",
+      "src/cadence/data/summarize.py": "8ce31b3d474a71874216edf6f9566f63c385ef30919b627987cf403bc65370a9",
+      "src/cadence/data/threads.py": "036adab92f86a66a723c7fcadd026d5edc529d635213469503ebe44cbd717082",
+      "src/cadence/eval/__init__.py": "246ee28b4b8d48c8d36e386bf6428292feb8c443fdf0c1d67fe98a649ca105fe",
+      "src/cadence/eval/agreement.py": "484bd1d69e70e84380407bcda560fefdcf7d3f4e71b0154c6d91e1b7bcbe0b5a",
+      "src/cadence/eval/archive.py": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee",
+      "src/cadence/eval/blind_judge.py": "ef1365124eb4a9086183f66eefb81871d3dd0a587b735f4b64bc1957adb0e565",
+      "src/cadence/eval/bootstrap.py": "a7eed3897c47fc0e814b1d9643c856a5aa693bc4d77595e3fdb1e9d792d15099",
+      "src/cadence/eval/challenge.py": "a8ebd7d194f3f0a272f87c714107c063d2732eeaf3edd6c57322d344af65f11e",
+      "src/cadence/eval/failures.py": "b6fff775523dd4897d0f78dba0f114200e6b4b2ac1c23b131e9b08a59e665221",
+      "src/cadence/eval/figures.py": "df49ce70edd9ff3c3439ce0aa8e548e11259b0298a3cc9bf0b5aae5ecbe9af32",
+      "src/cadence/eval/judge.py": "1a19121d6fa7317b049d61203d80cc38dcd24fe9f0d02fa247bb397331ad3bae",
+      "src/cadence/eval/metrics.py": "c6e7d5cfcca3b27f88cbf3466f62d3e7b7c0672576ec84d36deb1011155a2b43",
+      "src/cadence/eval/paired.py": "be6eff28c3b273bb84aa333ea175864286668bb0b34e387dce74289539a60c4f",
+      "src/cadence/eval/provenance.py": "e4a434976b1c65ef5ddf64859aaa233dbbdb9e24a8d99a0e7cabf62e3e20a7e4",
+      "src/cadence/eval/review.py": "dec15af7eaf592c6bb84edd8c4b61131ca7024609f9c8595f0ce6bbbcea26ac4",
+      "src/cadence/eval/run_eval.py": "13629ecd9b04098700720a87f7ddae165d19fab2f1035ccb21dd37865f0f7526",
+      "src/cadence/eval/verified.py": "a1e7ed1a6fe829685cfe00e8e6f0f085c4597d8986453a3ce2db1f4c00fd4cf2",
+      "src/cadence/eval/verified_ablations.py": "5b7f7001c663091848d6baa62767d873496f43275c8a6e10b93213d97ada0ac8",
+      "src/cadence/knowledge/__init__.py": "00d0724a607c5e1ef65ba81c5f2f7f6f144e360432eb2933f8c11de537e4a29e",
+      "src/cadence/knowledge/models.py": "aa21dfa3ad37ea810442776f851ee0b2baeb31342d4ffa7375c813a77630f260",
+      "src/cadence/knowledge/store.py": "5aa16dea452420d1b90cec784ba2c108855b800dcf1b3134563f37878e722021",
+      "src/cadence/llm/__init__.py": "bee1e7b89d5f637b3165ecb7c2545df15f28bd5e0b6a866e400a21785aad6625",
+      "src/cadence/llm/base.py": "6f7d2d18444de30438ed0b66e0fae5c2b35191d82ee8f9f2da5997b790c82199",
+      "src/cadence/llm/cache.py": "0de20696138e5441a491cb97a17b4e2a076047b9f4fb9899aef7cbdb4c13e923",
+      "src/cadence/llm/gemini.py": "8da398fb6abb1465c9c364c64c119dc61c8fff63c4c9d731e6749cb742eea771",
+      "src/cadence/llm/mock.py": "bd330e349639310989b2c940cd3121c16b4295dac5591b4eec1052173f0255cc",
+      "src/cadence/llm/ratelimit.py": "8d4f966abc8c73bcdfed4f9ead7dd8678d6cd2c945e98b279cd85612a87fc991",
+      "src/cadence/retrieval/__init__.py": "cde7d983fba333a1b534dbd835d4eda41e1d7323408185e349ace20d6eb568f4",
+      "src/cadence/retrieval/bm25.py": "5e91b79a17bc9a3868a7087bced3c9758f8a13251ac9490d3a2ecbeb01870745",
+      "src/cadence/retrieval/index.py": "9771a29859b7b171a15cccbb6e7f81c7e48451d46891b6d363cc19f084716ef9",
+      "src/cadence/utils/__init__.py": "d934b8e1d20ce3a09b0de316b3e36002fc1dcb33253d3520bf738d043b5b3962",
+      "src/cadence/utils/hashing.py": "3055a3cc62623a4470c9ee4299b40224951fc4206360eb1395d5abc6381a1a91",
+      "src/cadence/utils/io.py": "ea428fd60ff1044cad2cf216a2e4e5ecaf511ab59d8e2a463747c4f6719b8207",
+      "src/cadence/utils/log.py": "8382275aa34e0c646690717e0a935f4c4e001bbe43b4e2a03043798e9ce95f4a",
+      "src/cadence/utils/text.py": "b81f1a84cd4a7dcb22424b9d6c6eec315889551d9767af1fddba70853648465b"
+    },
+    "resources": {
+      "invocation_seconds": 45,
+      "max_network_attempts": 6,
+      "max_consecutive_failures": 3,
+      "retries_and_review_calls_additional": true
+    },
+    "policy": "config/policy_v2.json",
+    "policy_version": "v2",
+    "model": "gemini-3.5-flash-lite",
+    "source_as_of": "2026-09-18",
+    "rubric_version": "verified-support-review-v1",
+    "retrieval": {
+      "exclude_transitive_components": true,
+      "fuzzy_cutoff": 85
+    },
+    "seed": 2026091806,
+    "run_mode": "live",
+    "acceptance": {
+      "intent_f1_margin": 0.03,
+      "max_p95_ms": 7500,
+      "token_ratio_target": 1.25,
+      "human_reply_messages": 50,
+      "zero_required_route_failures": true,
+      "zero_flagged_automatic": true,
+      "positive_paired_useful_ci": true
+    },
+    "rubric_sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+  },
+  "retrieval_population": {
+    "development_labels": "data/verified_dev/labels.jsonl",
+    "development_labels_sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+    "other_reserved_samples": [
+      "data/verified_calibration/examples.jsonl",
+      "data/verified_challenge/examples.jsonl",
+      "data/verified_confirmation/examples.jsonl"
+    ],
+    "excluded_retrieval_threads": 402
+  },
+  "metrics": {
+    "combined": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 0,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 0,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 21,
+        "automatic": 9,
+        "escalated": 12,
+        "failed": 0,
+        "required": 5,
+        "missed_escalations": 1,
+        "auto_on_required": 1,
+        "unnecessary_escalations": 8,
+        "legacy_useful_automatic": 4,
+        "policy_compliant_useful_automatic": 3,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "rates": {
+        "automatic": 0.42857142857142855,
+        "legacy_useful_coverage": 0.19047619047619047,
+        "policy_compliant_useful_coverage": 0.14285714285714285,
+        "completion": 1.0,
+        "escalation_recall": 0.8
+      },
+      "miss_rate_upper95": 0.6574083180011386,
+      "automatic_error_upper95": 0.28312883556311347,
+      "per_reason": {
+        "none": {
+          "n": 16,
+          "required": 0,
+          "missed": 0,
+          "automatic": 8,
+          "miss_rate_upper95": null
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "ambiguous_or_media_only": {
+          "n": 3,
+          "required": 3,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.8646496378284161
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 9,
+          "automatic": 8,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 2,
+          "automatic": 1,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 10,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.7619047619047619,
+        "macro_f1": 0.5244708994708994,
+        "weighted_f1": 0.773620559334845,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "download_or_offline": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "content_or_availability": {
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "support": 1
+          },
+          "playback_or_app_bug": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8888888888888888,
+            "support": 4
+          },
+          "subscription_or_plan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "feature_request_or_feedback": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 4
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285714,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "n": 21
+      }
+    },
+    "core": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 0,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 0,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 21,
+        "automatic": 5,
+        "escalated": 16,
+        "failed": 0,
+        "required": 5,
+        "missed_escalations": 0,
+        "auto_on_required": 0,
+        "unnecessary_escalations": 11,
+        "legacy_useful_automatic": 3,
+        "policy_compliant_useful_automatic": 3,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "rates": {
+        "automatic": 0.23809523809523808,
+        "legacy_useful_coverage": 0.14285714285714285,
+        "policy_compliant_useful_coverage": 0.14285714285714285,
+        "completion": 1.0,
+        "escalation_recall": 1.0
+      },
+      "miss_rate_upper95": 0.45071972834694096,
+      "automatic_error_upper95": 0.45071972834694096,
+      "per_reason": {
+        "none": {
+          "n": 16,
+          "required": 0,
+          "missed": 0,
+          "automatic": 5,
+          "miss_rate_upper95": null
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "ambiguous_or_media_only": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 6,
+          "automatic": 5,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 2,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 13,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.7142857142857143,
+        "macro_f1": 0.4962962962962963,
+        "weighted_f1": 0.7121693121693121,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "download_or_offline": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.25,
+            "recall": 1.0,
+            "f1": 0.4,
+            "support": 1
+          },
+          "content_or_availability": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "playback_or_app_bug": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8888888888888888,
+            "support": 4
+          },
+          "subscription_or_plan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "feature_request_or_feedback": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 4
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.2,
+            "f1": 0.3333333333333333,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        "n": 21
+      }
+    },
+    "full_context": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 1,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 1,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 1,
+        "automatic_wrong_handoff": 0,
+        "n": 21,
+        "automatic": 8,
+        "escalated": 12,
+        "failed": 1,
+        "required": 5,
+        "missed_escalations": 2,
+        "auto_on_required": 1,
+        "unnecessary_escalations": 9,
+        "legacy_useful_automatic": 4,
+        "policy_compliant_useful_automatic": 3,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "rates": {
+        "automatic": 0.38095238095238093,
+        "legacy_useful_coverage": 0.19047619047619047,
+        "policy_compliant_useful_coverage": 0.14285714285714285,
+        "completion": 0.9523809523809523,
+        "escalation_recall": 0.6
+      },
+      "miss_rate_upper95": 0.8107446225622292,
+      "automatic_error_upper95": 0.47067940860113155,
+      "per_reason": {
+        "none": {
+          "n": 16,
+          "required": 0,
+          "missed": 0,
+          "automatic": 7,
+          "miss_rate_upper95": null
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 0,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "ambiguous_or_media_only": {
+          "n": 3,
+          "required": 3,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.8646496378284161
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 8,
+          "automatic": 7,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 1,
+          "automatic": false,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 12,
+          "automatic": 1,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 1,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.7619047619047619,
+        "macro_f1": 0.5367063492063492,
+        "weighted_f1": 0.7862811791383221,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "download_or_offline": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "content_or_availability": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "playback_or_app_bug": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "subscription_or_plan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other",
+            "<unknown>"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "n": 21
+      }
+    },
+    "no_history": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 0,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 0,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 21,
+        "automatic": 10,
+        "escalated": 11,
+        "failed": 0,
+        "required": 5,
+        "missed_escalations": 1,
+        "auto_on_required": 1,
+        "unnecessary_escalations": 7,
+        "legacy_useful_automatic": 5,
+        "policy_compliant_useful_automatic": 4,
+        "resolution": 1,
+        "clarification": 3
+      },
+      "rates": {
+        "automatic": 0.47619047619047616,
+        "legacy_useful_coverage": 0.23809523809523808,
+        "policy_compliant_useful_coverage": 0.19047619047619047,
+        "completion": 1.0,
+        "escalation_recall": 0.8
+      },
+      "miss_rate_upper95": 0.6574083180011386,
+      "automatic_error_upper95": 0.2588655508930522,
+      "per_reason": {
+        "none": {
+          "n": 16,
+          "required": 0,
+          "missed": 0,
+          "automatic": 9,
+          "miss_rate_upper95": null
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "ambiguous_or_media_only": {
+          "n": 3,
+          "required": 3,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.8646496378284161
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 10,
+          "automatic": 9,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 2,
+          "automatic": 1,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 9,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.8095238095238095,
+        "macro_f1": 0.548611111111111,
+        "weighted_f1": 0.8134920634920635,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "download_or_offline": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "content_or_availability": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "playback_or_app_bug": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "subscription_or_plan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        "n": 21
+      }
+    }
+  },
+  "runtime": {
+    "combined": {
+      "n_requests": 21,
+      "failures": 0,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 3927.770199999941,
+      "p95_end_to_end_ms": 5155.659599997307,
+      "fully_fresh_requests": 21,
+      "model_calls": 36,
+      "network_attempts_known": 36,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 87724,
+      "output_tokens_known": 14091,
+      "tokens_known": 101815,
+      "tokens_per_request_known": 4848.333333333333,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist.",
+      "cached_model_calls": 0,
+      "calls_with_unknown_cache_status": 0,
+      "requests_with_all_calls_observed_uncached": 21,
+      "requests_with_unknown_cache_status": 0,
+      "requests_without_observed_model_calls": 0,
+      "freshness_note": "The inherited fully_fresh_requests field means no observed cache hit; missing cache status is not proven fresh. Use requests_with_all_calls_observed_uncached for affirmative freshness.",
+      "tokens_per_policy_compliant_useful_reply_known": 33938.333333333336
+    },
+    "core": {
+      "n_requests": 21,
+      "failures": 0,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 4063.539500002662,
+      "p95_end_to_end_ms": 6052.277900002082,
+      "fully_fresh_requests": 21,
+      "model_calls": 34,
+      "network_attempts_known": 34,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 81824,
+      "output_tokens_known": 12870,
+      "tokens_known": 94694,
+      "tokens_per_request_known": 4509.238095238095,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist.",
+      "cached_model_calls": 0,
+      "calls_with_unknown_cache_status": 0,
+      "requests_with_all_calls_observed_uncached": 21,
+      "requests_with_unknown_cache_status": 0,
+      "requests_without_observed_model_calls": 0,
+      "freshness_note": "The inherited fully_fresh_requests field means no observed cache hit; missing cache status is not proven fresh. Use requests_with_all_calls_observed_uncached for affirmative freshness.",
+      "tokens_per_policy_compliant_useful_reply_known": 31564.666666666668
+    },
+    "full_context": {
+      "n_requests": 21,
+      "failures": 1,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 3862.901899999997,
+      "p95_end_to_end_ms": 6420.275500000571,
+      "fully_fresh_requests": 21,
+      "model_calls": 35,
+      "network_attempts_known": 36,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 93795,
+      "output_tokens_known": 13744,
+      "tokens_known": 107539,
+      "tokens_per_request_known": 5120.9047619047615,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist.",
+      "cached_model_calls": 0,
+      "calls_with_unknown_cache_status": 0,
+      "requests_with_all_calls_observed_uncached": 21,
+      "requests_with_unknown_cache_status": 0,
+      "requests_without_observed_model_calls": 0,
+      "freshness_note": "The inherited fully_fresh_requests field means no observed cache hit; missing cache status is not proven fresh. Use requests_with_all_calls_observed_uncached for affirmative freshness.",
+      "tokens_per_policy_compliant_useful_reply_known": 35846.333333333336
+    },
+    "no_history": {
+      "n_requests": 21,
+      "failures": 0,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 3826.1757000000216,
+      "p95_end_to_end_ms": 6194.195600000967,
+      "fully_fresh_requests": 21,
+      "model_calls": 35,
+      "network_attempts_known": 35,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 81687,
+      "output_tokens_known": 13309,
+      "tokens_known": 94996,
+      "tokens_per_request_known": 4523.619047619048,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist.",
+      "cached_model_calls": 0,
+      "calls_with_unknown_cache_status": 0,
+      "requests_with_all_calls_observed_uncached": 21,
+      "requests_with_unknown_cache_status": 0,
+      "requests_without_observed_model_calls": 0,
+      "freshness_note": "The inherited fully_fresh_requests field means no observed cache hit; missing cache status is not proven fresh. Use requests_with_all_calls_observed_uncached for affirmative freshness.",
+      "tokens_per_policy_compliant_useful_reply_known": 23749.0
+    }
+  },
+  "quality_review": {
+    "reviewer_type": "ai",
+    "reviewer_id": "GPT-6 Astra xhigh independent variant review",
+    "n_ratings": 84,
+    "n_messages": 21,
+    "note": "One joint matched review supplies every compared quality score. The separate combined80 review remains unchanged."
+  },
+  "runtime_scope": "Exactly the same 21 selected requests per arm, including failures; never all 80 combined requests.",
+  "all_observed_calls_uncached": true,
+  "all_matched_requests_observed_uncached": true,
+  "paired_useful_combined_minus_variant": {
+    "core": {
+      "estimate": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "n_messages": 21,
+      "bootstrap_resamples": 2000,
+      "seed": 2026091812,
+      "left_only_useful": 0,
+      "right_only_useful": 0
+    },
+    "full_context": {
+      "estimate": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "n_messages": 21,
+      "bootstrap_resamples": 2000,
+      "seed": 2026091812,
+      "left_only_useful": 0,
+      "right_only_useful": 0
+    },
+    "no_history": {
+      "estimate": -0.047619047619047616,
+      "ci95": [
+        -0.14285714285714285,
+        0.0
+      ],
+      "n_messages": 21,
+      "bootstrap_resamples": 2000,
+      "seed": 2026091812,
+      "left_only_useful": 0,
+      "right_only_useful": 1
+    }
+  },
+  "interval_scope": "Descriptive paired message bootstrap on selected cases; not confirmatory population inference.",
+  "human_review_pending": true,
+  "human_agreement": null,
+  "promote": false,
+  "new_model_calls": 0,
+  "limitation": "AI-only descriptive comparison on 21 inspected development regression cases, selected before v3 inference after earlier development review. Selection is not random or unseen. Paired intervals condition on these selected cases and omit AI judgment uncertainty; they do not establish population gains or superiority. Runtime comes from separate executions and can vary with provider conditions. Known usage is a lower bound when failed-call usage is unknown. No promotion.",
+  "bindings": {
+    "selected_labels": {
+      "path": "data/verified_dev/v3_regression_labels.jsonl",
+      "sha256": "dd96c00d962afbce30c78e5187d31518511af64fb9e65288361e3621eae326a7"
+    },
+    "selection": {
+      "path": "data/verified_dev/V3_REGRESSION_SELECTION.json",
+      "sha256": "0f91abd5618d318bd073653d62a3008fbf79ecb4b4e016d101eab5ef71ced1b8"
+    },
+    "analysis_tools/compare_verified_variants.py": {
+      "path": "analysis_tools/compare_verified_variants.py",
+      "sha256": "8aaa4698551c5b153abe3c2e3b0a6549f4ca58ce812f8edb1adfde76720d0404"
+    },
+    "analysis_tools/reproduce_verified.py": {
+      "path": "analysis_tools/reproduce_verified.py",
+      "sha256": "affadbe92098bbc355acd845551d68f9e2eae1fde39837c398f2e807e6217b60"
+    },
+    "src/cadence/config.py": {
+      "path": "src/cadence/config.py",
+      "sha256": "b6d496962c237133d20e0e750db997f069f20c6e920df5c132b3ad3d89c3c613"
+    },
+    "src/cadence/eval/verified.py": {
+      "path": "src/cadence/eval/verified.py",
+      "sha256": "a1e7ed1a6fe829685cfe00e8e6f0f085c4597d8986453a3ce2db1f4c00fd4cf2"
+    },
+    "src/cadence/eval/review.py": {
+      "path": "src/cadence/eval/review.py",
+      "sha256": "dec15af7eaf592c6bb84edd8c4b61131ca7024609f9c8595f0ce6bbbcea26ac4"
+    },
+    "src/cadence/eval/metrics.py": {
+      "path": "src/cadence/eval/metrics.py",
+      "sha256": "c6e7d5cfcca3b27f88cbf3466f62d3e7b7c0672576ec84d36deb1011155a2b43"
+    },
+    "src/cadence/eval/agreement.py": {
+      "path": "src/cadence/eval/agreement.py",
+      "sha256": "484bd1d69e70e84380407bcda560fefdcf7d3f4e71b0154c6d91e1b7bcbe0b5a"
+    },
+    "src/cadence/eval/archive.py": {
+      "path": "src/cadence/eval/archive.py",
+      "sha256": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee"
+    },
+    "src/cadence/eval/provenance.py": {
+      "path": "src/cadence/eval/provenance.py",
+      "sha256": "e4a434976b1c65ef5ddf64859aaa233dbbdb9e24a8d99a0e7cabf62e3e20a7e4"
+    },
+    "src/cadence/utils/io.py": {
+      "path": "src/cadence/utils/io.py",
+      "sha256": "ea428fd60ff1044cad2cf216a2e4e5ecaf511ab59d8e2a463747c4f6719b8207"
+    },
+    "joint/BLIND_REVIEW_V2.lock.json": {
+      "path": "results/verified_variant_comparison_v1/BLIND_REVIEW_V2.lock.json",
+      "sha256": "f8e33769afc6580007f0ee8d26aa0a6acb49b6ac13b87740fa223862f756c310"
+    },
+    "joint/sources/results/verified_variant_core_v1/blind_packet.jsonl": {
+      "path": "results/verified_variant_core_v1/blind_packet.jsonl",
+      "sha256": "fb5b2595b2439a481605064dea0ef0c7d65eb7617af24e1a96e19c13821dd675"
+    },
+    "joint/sources/results/verified_variant_core_v1/REVIEW.lock.json": {
+      "path": "results/verified_variant_core_v1/REVIEW.lock.json",
+      "sha256": "90b0c64ac2a9d4711daeda68e12321aef6d64fbf10069182a8cdfaab78ec88b7"
+    },
+    "joint/sources/results/verified_variant_core_v1/rubric.json": {
+      "path": "results/verified_variant_core_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "joint/sources/results/verified_variant_full_context_v1/blind_packet.jsonl": {
+      "path": "results/verified_variant_full_context_v1/blind_packet.jsonl",
+      "sha256": "f93603cf8fb4e12185bc62cdf98bb31ea91d5279d2d648221f1a59b0bc8248a5"
+    },
+    "joint/sources/results/verified_variant_full_context_v1/REVIEW.lock.json": {
+      "path": "results/verified_variant_full_context_v1/REVIEW.lock.json",
+      "sha256": "861283a466226597f7e1ee406c3212b4869ef42310908c482d84054584f23f6b"
+    },
+    "joint/sources/results/verified_variant_full_context_v1/rubric.json": {
+      "path": "results/verified_variant_full_context_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "joint/sources/results/verified_variant_no_history_v1/blind_packet.jsonl": {
+      "path": "results/verified_variant_no_history_v1/blind_packet.jsonl",
+      "sha256": "4ddd760dee7ef56e0aed1f4d96b28fbfe7a98095b107269ee315ab171dd157f3"
+    },
+    "joint/sources/results/verified_variant_no_history_v1/REVIEW.lock.json": {
+      "path": "results/verified_variant_no_history_v1/REVIEW.lock.json",
+      "sha256": "4beaf2581aacbf83cb29402f5369f6ce4d83c4f888f8b178efe397b05b8bd94e"
+    },
+    "joint/sources/results/verified_variant_no_history_v1/rubric.json": {
+      "path": "results/verified_variant_no_history_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "joint/sources/results/verified_dev_v4/blind_packet.jsonl": {
+      "path": "results/verified_dev_v4/blind_packet.jsonl",
+      "sha256": "28d29a5515d29051ada307f3cee64ef2487cc244b0985bba9079a8ae89b074ad"
+    },
+    "joint/sources/data/verified_dev/V3_REGRESSION_SELECTION.json": {
+      "path": "data/verified_dev/V3_REGRESSION_SELECTION.json",
+      "sha256": "0f91abd5618d318bd073653d62a3008fbf79ecb4b4e016d101eab5ef71ced1b8"
+    },
+    "joint/sources/results/verified_dev_v4/REVIEW.lock.json": {
+      "path": "results/verified_dev_v4/REVIEW.lock.json",
+      "sha256": "49954b42b071d427364e8834c5e2029469b22fd11e25038bb5253720fa99e713"
+    },
+    "joint/sources/results/verified_variant_comparison_v1/BLIND_REVIEW.lock.json": {
+      "path": "results/verified_variant_comparison_v1/BLIND_REVIEW.lock.json",
+      "sha256": "484dc97e309726ad68a2f0ebc92d6bb34e245dddd038973e0270a9a6d4e41044"
+    },
+    "joint/artifacts/blind_packet_v2.jsonl": {
+      "path": "results/verified_variant_comparison_v1/blind_packet_v2.jsonl",
+      "sha256": "4d895e4964d24fc17ad062538f5ede2d422ea893a15b0b28dbecf296daa0c52e"
+    },
+    "joint/artifacts/rubric.json": {
+      "path": "results/verified_variant_comparison_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "joint/blind_ai_ratings.jsonl": {
+      "path": "results/verified_variant_comparison_v1/blind_ai_ratings.jsonl",
+      "sha256": "ca10d5f4e5dc61a328e9d35cd4c20284b9e24241ac41258a422ce39ff99d51b8"
+    },
+    "joint/AI_REVIEW_NOTES.md": {
+      "path": "results/verified_variant_comparison_v1/AI_REVIEW_NOTES.md",
+      "sha256": "593be813bdab2871f44f45039bd3d517dab586e4fb53689314dd80cce75b6add"
+    },
+    "joint/AI_REVIEW.json": {
+      "path": "results/verified_variant_comparison_v1/AI_REVIEW.json",
+      "sha256": "b2e978122026a840047fb933e420693496ea8ec8526de36d96b9da46e549bc97"
+    },
+    "combined/EXECUTION.json": {
+      "path": "results/verified_dev_v4/EXECUTION.json",
+      "sha256": "3fd59686384ee143755aefacf2ac85b813f8677719bba5e05fdd618acad5991b"
+    },
+    "combined/manifest.json": {
+      "path": "results/verified_dev_v4/manifest.json",
+      "sha256": "a957f2d1d694ec6013e50ffb2cae56bbca89ac0abf412642cd28cc9d3b333886"
+    },
+    "combined/predictions.jsonl": {
+      "path": "results/verified_dev_v4/predictions.jsonl",
+      "sha256": "10947e902a87656898e9d834ac665b615c0cbe0a7722c64bf940ca5a2df4d32c"
+    },
+    "combined/status.json": {
+      "path": "results/verified_dev_v4/status.json",
+      "sha256": "45c60ae8f042df6809fda9cd351309704601d1e113e2e524a1ab1fe79a75de9a"
+    },
+    "combined/runtime.json": {
+      "path": "results/verified_dev_v4/runtime.json",
+      "sha256": "b6c71c01172de89ffbb863911ae6285e5aaf28934c7d1c1da12211cf68c504f7"
+    },
+    "combined/calls.sqlite": {
+      "path": "results/verified_dev_v4/calls.sqlite",
+      "sha256": "0420542482e8a662b5d90d42e933fa76b43872f8b0230e6581a7d6825f1d46ce"
+    },
+    "combined/invocations_started.jsonl": {
+      "path": "results/verified_dev_v4/invocations_started.jsonl",
+      "sha256": "b14c13c874e4caabd04d37b1ef01813fc2e0c02e73e02bc92356c1feab5443e6"
+    },
+    "combined/REVIEW.lock.json": {
+      "path": "results/verified_dev_v4/REVIEW.lock.json",
+      "sha256": "49954b42b071d427364e8834c5e2029469b22fd11e25038bb5253720fa99e713"
+    },
+    "combined/rubric.json": {
+      "path": "results/verified_dev_v4/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "combined/blind_packet.jsonl": {
+      "path": "results/verified_dev_v4/blind_packet.jsonl",
+      "sha256": "28d29a5515d29051ada307f3cee64ef2487cc244b0985bba9079a8ae89b074ad"
+    },
+    "combined/blind_mapping.json": {
+      "path": "results/verified_dev_v4/blind_mapping.json",
+      "sha256": "8970764704f947f7b2c413291c82611c40dde7254ff8c435b5ee39dfb1229bda"
+    },
+    "combined/human_reply_packet.jsonl": {
+      "path": "results/verified_dev_v4/human_reply_packet.jsonl",
+      "sha256": "67bb6bd13d413c579ef1b4f90416251b0de6f3aeb2bb897441fb5c5864ac8b2c"
+    },
+    "combined/AI_REVIEW.json": {
+      "path": "results/verified_dev_v4/AI_REVIEW.json",
+      "sha256": "bf5a5d10091ae9f088c99c3171125763679df2c7bf10bfea7f31824df01db356"
+    },
+    "combined/ai_review_submission.jsonl": {
+      "path": "results/verified_dev_v4/ai_review_submission.jsonl",
+      "sha256": "974a4783774c94fb4ed24cd895d971a20a4405baddef5880178b34e1018a240d"
+    },
+    "combined/ai_reviews.jsonl": {
+      "path": "results/verified_dev_v4/ai_reviews.jsonl",
+      "sha256": "21d0e3dc22429fa1582ad31ef02a72f9456c1b1f3712f81a0ee7d456cdf4827f"
+    },
+    "combined/INPUT_ARCHIVE.json": {
+      "path": "results/verified_dev_v4/INPUT_ARCHIVE.json",
+      "sha256": "a754deb90f7fe314c4981f5b1e68f6b9330b25920f0319e98c118ac293c81a85"
+    },
+    "core/EXECUTION.json": {
+      "path": "results/verified_variant_core_v1/EXECUTION.json",
+      "sha256": "6275b818140350a0fd9ab1b38d597c63241e25ec9b95e05f954579c83751d530"
+    },
+    "core/manifest.json": {
+      "path": "results/verified_variant_core_v1/manifest.json",
+      "sha256": "6351980c63f5548458d8d31866c0611d4000260a7ffacc804b5a1db509b72b88"
+    },
+    "core/predictions.jsonl": {
+      "path": "results/verified_variant_core_v1/predictions.jsonl",
+      "sha256": "4f4565357ea8db68af4e2a2a9868bf32344a265738f29cd5972b2db253a69595"
+    },
+    "core/status.json": {
+      "path": "results/verified_variant_core_v1/status.json",
+      "sha256": "d37a43c0f6bfc7f5bde753d223f033aae8d1652cd08ade5deff98c6796fa337d"
+    },
+    "core/runtime.json": {
+      "path": "results/verified_variant_core_v1/runtime.json",
+      "sha256": "fef7e60c75b03bc020798836651a57c92cab17cb2438d497c2cc1cc46b9417b8"
+    },
+    "core/calls.sqlite": {
+      "path": "results/verified_variant_core_v1/calls.sqlite",
+      "sha256": "be580237a3c24b43a51ff178e3689890dbee78f3b00a618027b30b9a824122e1"
+    },
+    "core/invocations_started.jsonl": {
+      "path": "results/verified_variant_core_v1/invocations_started.jsonl",
+      "sha256": "00dd199cbc21983030d41e9bdb81dc5df825a2212da3fa4fd4456a42369abd0d"
+    },
+    "core/REVIEW.lock.json": {
+      "path": "results/verified_variant_core_v1/REVIEW.lock.json",
+      "sha256": "90b0c64ac2a9d4711daeda68e12321aef6d64fbf10069182a8cdfaab78ec88b7"
+    },
+    "core/rubric.json": {
+      "path": "results/verified_variant_core_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "core/blind_packet.jsonl": {
+      "path": "results/verified_variant_core_v1/blind_packet.jsonl",
+      "sha256": "fb5b2595b2439a481605064dea0ef0c7d65eb7617af24e1a96e19c13821dd675"
+    },
+    "core/blind_mapping.json": {
+      "path": "results/verified_variant_core_v1/blind_mapping.json",
+      "sha256": "e46fb794097b60c709829ca64178d654a28dc71b77f234eaa2620993952d0390"
+    },
+    "core/human_reply_packet.jsonl": {
+      "path": "results/verified_variant_core_v1/human_reply_packet.jsonl",
+      "sha256": "fb5b2595b2439a481605064dea0ef0c7d65eb7617af24e1a96e19c13821dd675"
+    },
+    "core/AI_REVIEW.json": {
+      "path": "results/verified_variant_core_v1/AI_REVIEW.json",
+      "sha256": "0518aa4f0895137410ebc0a3a92da3a4a7a00a7f8723c5eb5b6aa79f7eb1d399"
+    },
+    "core/ai_review_submission.jsonl": {
+      "path": "results/verified_variant_core_v1/ai_review_submission.jsonl",
+      "sha256": "f74431afaafd308d2b6bcde096febe7e278f0eac26dc0939f9a437eb80d5d3ad"
+    },
+    "core/ai_reviews.jsonl": {
+      "path": "results/verified_variant_core_v1/ai_reviews.jsonl",
+      "sha256": "0591b9e3afc7d7c52b5c040ef093f8457538083d19db7b525f40404632051d48"
+    },
+    "core/INPUT_ARCHIVE.json": {
+      "path": "results/verified_variant_core_v1/INPUT_ARCHIVE.json",
+      "sha256": "4aeecbaa0c9108fe8db4036c663602182a1440922855d82b9c1a079ccfec2a21"
+    },
+    "full_context/EXECUTION.json": {
+      "path": "results/verified_variant_full_context_v1/EXECUTION.json",
+      "sha256": "807646dd7e34188b8d3e4f1cf91398df0c08443fb95653ee48c4665847b975f0"
+    },
+    "full_context/manifest.json": {
+      "path": "results/verified_variant_full_context_v1/manifest.json",
+      "sha256": "137a184469fa4b16d183194b3e9ff043aa9854e7a5e70399f265f768ba1bb7dd"
+    },
+    "full_context/predictions.jsonl": {
+      "path": "results/verified_variant_full_context_v1/predictions.jsonl",
+      "sha256": "1003c915fa59bc94b7ea93405826166fd9f0311fb5799323c715d3ef3bcbf425"
+    },
+    "full_context/status.json": {
+      "path": "results/verified_variant_full_context_v1/status.json",
+      "sha256": "d37a43c0f6bfc7f5bde753d223f033aae8d1652cd08ade5deff98c6796fa337d"
+    },
+    "full_context/runtime.json": {
+      "path": "results/verified_variant_full_context_v1/runtime.json",
+      "sha256": "d818904371bcef572f4dca54880558674492c3dcb30e7e0a943276a6c28f2972"
+    },
+    "full_context/calls.sqlite": {
+      "path": "results/verified_variant_full_context_v1/calls.sqlite",
+      "sha256": "772451b53e63e2f5fc5bc21771218470926fc3276297e011aea500a05bd5e7bb"
+    },
+    "full_context/invocations_started.jsonl": {
+      "path": "results/verified_variant_full_context_v1/invocations_started.jsonl",
+      "sha256": "f20ed1f8eeb21f78e75eb74169b242844080d0d027ce14ca16cf706afac4ecd9"
+    },
+    "full_context/REVIEW.lock.json": {
+      "path": "results/verified_variant_full_context_v1/REVIEW.lock.json",
+      "sha256": "861283a466226597f7e1ee406c3212b4869ef42310908c482d84054584f23f6b"
+    },
+    "full_context/rubric.json": {
+      "path": "results/verified_variant_full_context_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "full_context/blind_packet.jsonl": {
+      "path": "results/verified_variant_full_context_v1/blind_packet.jsonl",
+      "sha256": "f93603cf8fb4e12185bc62cdf98bb31ea91d5279d2d648221f1a59b0bc8248a5"
+    },
+    "full_context/blind_mapping.json": {
+      "path": "results/verified_variant_full_context_v1/blind_mapping.json",
+      "sha256": "82d26df088d4f36c3336d6a6b306d7cce994bd8301434a59e440a629c943d9db"
+    },
+    "full_context/human_reply_packet.jsonl": {
+      "path": "results/verified_variant_full_context_v1/human_reply_packet.jsonl",
+      "sha256": "f93603cf8fb4e12185bc62cdf98bb31ea91d5279d2d648221f1a59b0bc8248a5"
+    },
+    "full_context/AI_REVIEW.json": {
+      "path": "results/verified_variant_full_context_v1/AI_REVIEW.json",
+      "sha256": "c328531045b3f12031fe48fa3540f1875559606559591f34f9fc9407eddad9ec"
+    },
+    "full_context/ai_review_submission.jsonl": {
+      "path": "results/verified_variant_full_context_v1/ai_review_submission.jsonl",
+      "sha256": "ea38825477681cc15c4f8a59c98bd889ec93da09915ed422c5463ed1ab0c5e6f"
+    },
+    "full_context/ai_reviews.jsonl": {
+      "path": "results/verified_variant_full_context_v1/ai_reviews.jsonl",
+      "sha256": "c1f651dc9fdde5b238b0796f7b0af0092308ae7584c831c24dacc89d60b3e40f"
+    },
+    "full_context/INPUT_ARCHIVE.json": {
+      "path": "results/verified_variant_full_context_v1/INPUT_ARCHIVE.json",
+      "sha256": "c391188709271550ac3adf44a7a60e633cc3cbef6db21bc1f29a87bb2045797d"
+    },
+    "no_history/EXECUTION.json": {
+      "path": "results/verified_variant_no_history_v1/EXECUTION.json",
+      "sha256": "b76bc523f52785c5beee20bdfe11cabdd2dc20dbd84e3685e078b5d06379ca6a"
+    },
+    "no_history/manifest.json": {
+      "path": "results/verified_variant_no_history_v1/manifest.json",
+      "sha256": "694d515a850511d4277069e69318e60b0471e96c02e0a1263b52fd29cfa63aa9"
+    },
+    "no_history/predictions.jsonl": {
+      "path": "results/verified_variant_no_history_v1/predictions.jsonl",
+      "sha256": "b47480e0e5405017ef7c167d975e26bde48da6bfeb34c8be1e74bac0823b27ff"
+    },
+    "no_history/status.json": {
+      "path": "results/verified_variant_no_history_v1/status.json",
+      "sha256": "d37a43c0f6bfc7f5bde753d223f033aae8d1652cd08ade5deff98c6796fa337d"
+    },
+    "no_history/runtime.json": {
+      "path": "results/verified_variant_no_history_v1/runtime.json",
+      "sha256": "965bedb2483c44bf5b58835c382a6e25545b815680f65e592003982dec1d0118"
+    },
+    "no_history/calls.sqlite": {
+      "path": "results/verified_variant_no_history_v1/calls.sqlite",
+      "sha256": "c645465cb3fe21d5e1746e9738c2d84d83b405db98519f25760211779d5244dc"
+    },
+    "no_history/invocations_started.jsonl": {
+      "path": "results/verified_variant_no_history_v1/invocations_started.jsonl",
+      "sha256": "d0735253344902b4c66f75f39edba18c9fa488fea33a7664d424b98f22dd884c"
+    },
+    "no_history/REVIEW.lock.json": {
+      "path": "results/verified_variant_no_history_v1/REVIEW.lock.json",
+      "sha256": "4beaf2581aacbf83cb29402f5369f6ce4d83c4f888f8b178efe397b05b8bd94e"
+    },
+    "no_history/rubric.json": {
+      "path": "results/verified_variant_no_history_v1/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "no_history/blind_packet.jsonl": {
+      "path": "results/verified_variant_no_history_v1/blind_packet.jsonl",
+      "sha256": "4ddd760dee7ef56e0aed1f4d96b28fbfe7a98095b107269ee315ab171dd157f3"
+    },
+    "no_history/blind_mapping.json": {
+      "path": "results/verified_variant_no_history_v1/blind_mapping.json",
+      "sha256": "d8ab3114719cc8747078f349b3bc41a7ee08a81cac9a665d5fe4a86065fbce27"
+    },
+    "no_history/human_reply_packet.jsonl": {
+      "path": "results/verified_variant_no_history_v1/human_reply_packet.jsonl",
+      "sha256": "4ddd760dee7ef56e0aed1f4d96b28fbfe7a98095b107269ee315ab171dd157f3"
+    },
+    "no_history/AI_REVIEW.json": {
+      "path": "results/verified_variant_no_history_v1/AI_REVIEW.json",
+      "sha256": "1f4a45bd94d6473943a073d25eff2e74d6d7a45da9b178964e094ae574e528dc"
+    },
+    "no_history/ai_review_submission.jsonl": {
+      "path": "results/verified_variant_no_history_v1/ai_review_submission.jsonl",
+      "sha256": "90822e1f68188076cba1f23e757aa9fd0b83c8162fdae3fa59ee4bb449b389bc"
+    },
+    "no_history/ai_reviews.jsonl": {
+      "path": "results/verified_variant_no_history_v1/ai_reviews.jsonl",
+      "sha256": "8481bf7fd9302b08a9cb3ff245c9d4d174b948b9931e026012a14c54ac1aacba"
+    },
+    "no_history/INPUT_ARCHIVE.json": {
+      "path": "results/verified_variant_no_history_v1/INPUT_ARCHIVE.json",
+      "sha256": "479dd244d1a72296d1dc523b95227864a3ef0989d446588040928e3802142928"
+    }
+  }
+}

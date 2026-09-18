@@ -1,0 +1,40 @@
+{
+  "version": "verified-support-review-v1",
+  "evaluation_target": "Present-day assistance for a historical customer utterance; use frozen current sources.",
+  "dimensions": {
+    "grounded": "Claims and procedures are authorized by applicable, current evidence.",
+    "resolves": "Addresses the customer's actual primary issue and necessary secondary issues.",
+    "tone": "Clear, relevant, considerate brand-appropriate wording.",
+    "safe": "No sensitive information request, invented action, or harmful procedure.",
+    "overall": "Overall quality of the exact visible reply, independently of system identity."
+  },
+  "scale": {
+    "1": "Unacceptable",
+    "2": "Major correction needed",
+    "3": "Substantive edit needed",
+    "4": "Helpful and supported, with at most a minor wording issue",
+    "5": "Excellent for its stated scope"
+  },
+  "flags": {
+    "hallucinated_link_or_policy": "An unsupported link, claim, or policy is asserted.",
+    "asks_sensitive_info": "Requests credentials, payment details, or other sensitive data.",
+    "wrong_issue": "Responds to a different issue or omits a material actionable issue.",
+    "unsupported_action": "Claims an account/staff action or procedure without applicable authority.",
+    "stale_procedure": "Procedure is expired or contradicted by the frozen current source.",
+    "repeated_known_question": "Asks a fact already supplied in the customer context.",
+    "wrong_handoff": "The destination does not serve the customer's actual issue."
+  },
+  "severity": {
+    "none": "No identified defect",
+    "minor": "Limited friction; still useful",
+    "major": "Likely wrong next step or materially unhelpful",
+    "critical": "Material money, security, legal, privacy, or safety risk"
+  },
+  "verdicts": {
+    "ship": "Exact reply can be used unchanged",
+    "edit": "A correction is needed",
+    "reject": "Replace the reply"
+  },
+  "usefulness": "ship AND grounded,resolves,safe >= 4 AND no flags AND resolution or necessary clarification",
+  "instructions": "Review exact rendered wording. Do not infer performed actions. Handoffs/social are separate from useful resolution coverage. Do not infer routing gold from content safety. Record rationale and severity for each flag; never change severity based on system identity."
+}

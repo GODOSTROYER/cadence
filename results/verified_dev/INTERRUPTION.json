@@ -1,0 +1,18 @@
+{
+  "status": "interrupted",
+  "reason": "Network-restricted sandbox denied sockets (WinError 10013) before model responses; stopped on systemic failure.",
+  "completed_failures": 7,
+  "started_invocations": 8,
+  "expected_invocations": 80,
+  "successful_model_outputs": 0,
+  "unknown_inflight_invocations": [
+    "b4_008"
+  ],
+  "restart_policy": "Preserve artifacts; new run outside restricted sandbox after credential/network probe.",
+  "artifacts": {
+    "manifest.json": "6f6de9f1c24901f4f8bcdf1ceaedf0e2c16f125f6313a983b4591a6ebce0a9e9",
+    "predictions.jsonl": "b9e7c7a0080b97e9d3479fe37f6d2022ee7110a542fab7bb9114a5edb2211712",
+    "invocations_started.jsonl": "d4b74881d0fe03c55cf556878ebfa642f11ce30eb4e60eab0c4e53ca070d84a1",
+    "status.json": "c8c6a113c679662d06426273884164cb46f1430cc45f1106720c38fc2d8cbcfd"
+  }
+}

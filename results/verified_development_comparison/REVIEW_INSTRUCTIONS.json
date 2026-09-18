@@ -1,0 +1,11 @@
+{
+  "run_id": "verified-development-917d0e9bcbc5dafa",
+  "reviewer_type": "ai",
+  "rubric": "rubric.json",
+  "packet": "blind_packet.jsonl",
+  "current_sources": "context/config/knowledge/v2.json",
+  "source_as_of": "2026-09-18",
+  "instructions": "Read only this file, rubric, blind packet and current source snapshots. Rate every exact reply anew. Historical evidence supports tone, not current procedures. Use all seven flags, all five scores, verdict, response_kind, severity and rationale. Retain id, alias, run_id, reply_hash and rubric_version. Add reviewer_id, reviewer_type=ai and timezone-aware rated_at. Do not read mapping, labels, predictions, source runs, earlier ratings or implementation.",
+  "blinding_limit": "Identity, gold labels and old scores are hidden; reply style and evidence may reveal architecture.",
+  "failure_note": "Some replies may be safe fallback text; rate visible content only. Execution failures remain failures in metrics."
+}

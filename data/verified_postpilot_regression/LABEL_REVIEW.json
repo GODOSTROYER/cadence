@@ -1,0 +1,162 @@
+{
+  "dataset": "verified_postpilot_regression",
+  "split": "development",
+  "status": "frozen",
+  "frozen_at_utc": "2026-09-18T12:46:07.6558216Z",
+  "frozen_before_postpilot_regression_inference": true,
+  "label_source": "ai",
+  "annotator": "gpt-6-astra xhigh",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "human_reviewed": false,
+  "reviewed_count": 18,
+  "reused_original_ai_gold_count": 6,
+  "policy": {
+    "path": "config/policy_v2.json",
+    "id": "cadence-request-policy-v2",
+    "version": "2.0.0",
+    "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+  },
+  "labels": {
+    "path": "data/verified_postpilot_regression/labels.jsonl",
+    "sha256": "a054c3228d8b409d95bd146f89c894b283096942210ed2a93ae4c0ad1a3b02f3",
+    "rows": 18,
+    "escalate_count": 7,
+    "eligible_count": 11
+  },
+  "reused_source": {
+    "path": "data/verified_calibration/ai_labels.jsonl",
+    "sha256": "8523e075284993751300c2b00a24cdb1490b9837cfc5cb8a46dc2d2459fd289a",
+    "authorized_ids": [
+      "vc5_085",
+      "vc5_086",
+      "vc5_049",
+      "vc5_053",
+      "vc5_061",
+      "vc5_098"
+    ],
+    "source_split": "calibration",
+    "destination_split": "development",
+    "historical_customer_text": true,
+    "original_id_thread_id_text_gold_sentiment_and_annotator_preserved": true,
+    "annotation_origin": "Original independent AI gold for all six source cases copied unchanged; not relabeled or represented as newly independent observations.",
+    "prior_exposure": "All six reused calibration cases are explicitly inspected development regressions, not unseen data.",
+    "count": 6,
+    "all_reused_cases_previously_inspected": true,
+    "reuse_purpose": "development_regression"
+  },
+  "synthetic_source": {
+    "count": 12,
+    "ids": [
+      "pp6_001",
+      "pp6_002",
+      "pp6_003",
+      "pp6_004",
+      "pp6_005",
+      "pp6_006",
+      "pp6_007",
+      "pp6_008",
+      "pp6_009",
+      "pp6_010",
+      "pp6_011",
+      "pp6_012"
+    ],
+    "text_author": "root assistant",
+    "text_author_role": "root",
+    "source": "Twelve exact strings supplied in the parent task instruction.",
+    "text_preserved_exactly": true,
+    "annotations": "Independently authored by this child annotator under frozen policy v2 before the new regression inference.",
+    "historical_customer_examples": false,
+    "independent_sampling": false
+  },
+  "selection": {
+    "type": "Targeted post-pilot boundary regression",
+    "selected_by": "root assistant",
+    "why": "Exercise harm/safety, security-prevention versus incident, local negation, object-specific cancel/leave language, explicit churn, social gratitude, and attributed device-name boundaries.",
+    "random_sample": false,
+    "representative_sample": false,
+    "unseen_confirmation": false,
+    "development_only": true,
+    "statistical_generalization_claim": false
+  },
+  "independence": {
+    "inputs_used": [
+      "config/policy_v2.json",
+      "Intent identifiers extracted from docs/TAXONOMY.md",
+      "Only vc5_085, vc5_086, vc5_049, vc5_053, vc5_061, and vc5_098 from data/verified_calibration/ai_labels.jsonl",
+      "The twelve root-authored strings in the original parent instruction",
+      "The previously frozen 14-case packet and its review/README, preserved under revisions/v1"
+    ],
+    "candidate_implementation_inspected": false,
+    "model_inference_outputs_inspected": false,
+    "reply_scores_inspected": false,
+    "other_calibration_examples_surfaced_or_inspected": false,
+    "final200_texts_inspected": false,
+    "challenge80_texts_inspected": false,
+    "inference_run_by_annotator": false,
+    "external_model_api_calls": false,
+    "gold_changed_to_fit_implementation": false,
+    "statement": "Only the six authorized existing AI label records were surfaced and copied across revisions; the calibration file was otherwise hashed and programmatically filtered. All six retain their original gold and provenance and are explicitly inspected development regressions. The twelve synthetic labels were independently authored in revision 1 using the request text and frozen policy and retained unchanged in revision 2. Candidate code, predictions, reply scores, and other agents' evaluation outputs were not inspected. Inspection limitations here describe this post-pilot labeling task."
+  },
+  "verification": {
+    "unique_ids": true,
+    "all_rows_development": true,
+    "ai_provenance_on_every_row": true,
+    "origin_and_source_metadata_on_every_row": true,
+    "exact_reused_text_and_gold_match": true,
+    "exact_synthetic_text_match": true,
+    "supported_taxonomy_ids_and_schema_literals": true,
+    "notes_on_every_row": true,
+    "source_and_policy_hashes_unchanged_between_read_and_freeze": true,
+    "original_source_files_untouched": true,
+    "no_git_commit": true,
+    "original_14_text_and_gold_unchanged": true,
+    "six_reused_rows_match_original_text_gold_sentiment_and_annotator": true,
+    "original_v1_files_preserved_byte_for_byte": true,
+    "historical_snapshot_hashes_verified": true
+  },
+  "interpretation_notes": [
+    "Security intent does not itself mandate escalation: general prevention questions and explicitly negated incidents remain eligible.",
+    "Cancel/leave language is interpreted with its local object; a download or open playlist is not service cancellation or churn.",
+    "An attributed device name and figurative gratitude are not harm allegations.",
+    "Explicit ear/property harm and a material hearing-safety concern require human handling; injury need not already be confirmed.",
+    "An eligible label only removes the mandatory request-risk veto; a current, supported, independently validated reply is still required."
+  ],
+  "packet_revision": 2,
+  "independently_annotated_synthetic_count": 12,
+  "newly_annotated_in_this_revision_count": 0,
+  "revision_history": [
+    {
+      "revision": 1,
+      "rows": 14,
+      "reused_cases": 2,
+      "synthetic_cases": 12,
+      "frozen_at_utc": "2026-09-18T12:38:46.2547695Z",
+      "snapshot_directory": "data/verified_postpilot_regression/revisions/v1",
+      "files_preserved_byte_for_byte": true,
+      "file_sha256": {
+        "labels.jsonl": "14aad5ace94bd527cb0ae5c6691ea53c49c27ff61ec34cb11bff7c60d2df93d9",
+        "LABEL_REVIEW.json": "64bc9488258b0016015178526163a89918ea97e186ba83dfcb4264b4bd0f0a4b",
+        "README.md": "04b4d328c4dc3c5a88d7ad26c4d03566830e646e430173224eeb20db9a6ad895"
+      },
+      "inference_status_at_revision": "No post-pilot regression inference had begun, as confirmed by the parent before requesting revision 2."
+    },
+    {
+      "revision": 2,
+      "rows": 18,
+      "reused_cases": 6,
+      "synthetic_cases": 12,
+      "frozen_at_utc": "2026-09-18T12:46:07.6558216Z",
+      "added_ids": [
+        "vc5_049",
+        "vc5_053",
+        "vc5_061",
+        "vc5_098"
+      ],
+      "reason": "Parent explicitly requested four additional inspected calibration cases as development regressions before inference.",
+      "previous_14_text_and_gold_unchanged": true,
+      "change_scope": "Four exact source gold/text copies added; all six reused rows explicitly marked previously_inspected with development_regression purpose. Original v1 files retained as a byte-identical snapshot.",
+      "inference_status_at_freeze": "No inference run by the annotator; parent confirmed no new regression inference had begun."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "status": "pass",
+  "reviewer_type": "ai",
+  "reviewer": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "review_task": "/root/verified_ablation_tools/control_quality_acceptance",
+  "recorded_at": "2026-09-18T12:21:34.326067+00:00",
+  "scope": "Offline quality summarization and exact reproduction of frozen development veto controls; not promotion or human review",
+  "validation": {
+    "focused_tests_passed": 13,
+    "ruff": "pass",
+    "archived_dependencies_verified": 108,
+    "real_summary_write": "pass",
+    "real_summary_check": "pass",
+    "n_messages": 80,
+    "n_ratings": 320,
+    "no_original_artifact_changes": true
+  },
+  "independent_probes": [
+    "Missing reply remains failed and in the full routing denominator",
+    "Read-only --check preserves fixture file bytes and modification times",
+    "Original evaluator matches the frozen evaluator hash"
+  ],
+  "rating_receipt": {
+    "raw_sha256": "d72999615e221d6eb1947fd6e8ad5d585f3b60d369c0fdd2531f311477fae39a",
+    "matches_blind_reviewer_receipt": true,
+    "unique_complete_contexts_reported_by_reviewer": 97,
+    "duplicate_context_rows_reported_by_reviewer": 223,
+    "human_review": false
+  },
+  "limitations": [
+    "Already inspected development data with v2 routing labels",
+    "Original frozen v2 extraction frames retained; no retrospective current-candidate replay",
+    "AI-only reply review; no human attestation inferred",
+    "No fresh control latency or cost and no deployment authorization"
+  ],
+  "files": {
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "tests/test_summarize_verified_controls.py": "d4d45ee8d6521b6e1acb32ff780e323c9e6a52c5121816af19b1277a6dd90844"
+  },
+  "artifacts": {
+    "results/verified_ablation_v1/quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+    "results/verified_ablation_v1/ai_reviews.jsonl": "b73d724cd09c2fb49d5a2ebd469d174401d4b2edf155b12cd9665051bf51207e",
+    "results/verified_ablation_v1/AI_REVIEW.json": "9d149bb7bda83e4ddb5dafdbf8f219b3c13b38ccad40ba029d850c0bcea0e83c",
+    "results/verified_ablation_v1/blind_ai_ratings.jsonl": "d9a6b914daedd4e3145347cc6b6ecc3b875a0a853615f8167b2a3cdb54109973",
+    "results/verified_ablation_v1/AI_REVIEW_NOTES.md": "155b6d4313d119a29c701eda8f348f1eec096514dfb5c6a30e00c841f1e1adf1"
+  }
+}

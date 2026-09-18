@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "reviewer_type": "ai",
+  "reviewer": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "review_task": "/root/verified_ablation_tools/ablation_acceptance",
+  "recorded_at": "2026-09-18T11:32:15.542505+00:00",
+  "scope": "Development-only counterfactual ablation implementation and provenance; not behavioral promotion or human review",
+  "validation": {
+    "focused_tests_passed": 33,
+    "independent_reviewer_tests_passed": 32,
+    "ruff": "pass",
+    "cli_help": "pass"
+  },
+  "independent_review_exclusion": "Reviewer excluded compatibility test over already-inspected historical 80 examples; local run included it. No new held-out confirmation data inspected.",
+  "fixed_findings": [
+    "Archive manifest now uses frozen.inputs",
+    "Named device no longer masks known platform",
+    "Historical source seal and renderer/configuration identity required before replay"
+  ],
+  "limitations": [
+    "No live control latency or cost measured",
+    "Changed reply usefulness requires new blinded ratings",
+    "Controls cannot release prior escalations or authorize deployment"
+  ],
+  "files": {
+    "src/cadence/eval/verified_ablations.py": "5b7f7001c663091848d6baa62767d873496f43275c8a6e10b93213d97ada0ac8",
+    "scripts/27_verified_ablation.py": "215b5a1d4031110b9b5c02c1af781a7df74cd9da6030b43caf68789ddccfa238",
+    "tests/test_verified_ablations.py": "2cd80a8551f24af0002ebf10ee291c5c547bade7409e450a973e53c2ff66d202",
+    "docs/VERIFIED_ABLATIONS.md": "b4fdd7f16cb730a4e35823feecb5ae98d0339c5a4e51591efc7b10e869a82cab"
+  }
+}

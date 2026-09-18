@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-18T12:49:10.308154+00:00",
+  "scope": "18-case inspected development regression: six reused public Kaggle cases and twelve root-authored synthetic messages; two cleaned historical hits per request maximum",
+  "source": "Public Kaggle thoughtvector/customer-support-on-twitter corpus already in the public repository, plus synthetic messages authored in this task",
+  "destination": "Previously authorized Gemini API",
+  "n": 18,
+  "history_evidence_rows": 36,
+  "matched_patterns": {
+    "email": 0,
+    "card_like": 0,
+    "private_key": 0,
+    "api_key_like": 0,
+    "raw_person_handle": 0
+  },
+  "excluded_thread_count": 402,
+  "limitation": "Pattern scan is not a universal sensitive-data detector. No private workplace support records are used. Reserved final/challenge text is used only locally for exclusions, not submitted as inference input.",
+  "inputs": {
+    "data/verified_postpilot_regression/labels.jsonl": "a054c3228d8b409d95bd146f89c894b283096942210ed2a93ae4c0ad1a3b02f3",
+    "Z:/Projects/Hiver/data/processed/spotify_threads.jsonl.gz": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+    "data/verified_dev/labels.jsonl": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+    "data/verified_calibration/examples.jsonl": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+    "data/verified_confirmation/examples.jsonl": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+    "data/verified_challenge/examples.jsonl": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "cadence-request-policy-v2",
+  "version": "2.0.0",
+  "status": "experimental",
+  "as_of": "2026-09-18",
+  "evaluation_time": "present-day assistance for historical customer utterances",
+  "historical_labels": "Preserved under their original policy; this policy applies prospectively only.",
+  "risk_priority": ["legal_safety", "security", "money", "account_intervention", "directed_abuse", "churn", "repeated_contact", "support_requested"],
+  "risks": {
+    "legal_safety": {"reason_code": "legal_or_safety", "reason": "A legal or safety allegation requires a human response."},
+    "security": {"reason_code": "account_security", "reason": "Possible account compromise or exposed credentials require human handling."},
+    "money": {"reason_code": "billing_dispute", "reason": "An actual billing, payment or refund issue requires a human with account access."},
+    "account_intervention": {"reason_code": "needs_account_lookup", "reason": "The request needs account-specific recovery, verification or intervention."},
+    "directed_abuse": {"reason_code": "high_frustration_or_churn", "reason": "Abuse directed at the brand or support staff requires a human response."},
+    "churn": {"reason_code": "high_frustration_or_churn", "reason": "The customer explicitly intends or threatens to leave the service."},
+    "repeated_contact": {"reason_code": "high_frustration_or_churn", "reason": "Repeated unsuccessful support contact requires a human owner."},
+    "support_requested": {"reason_code": "needs_account_lookup", "reason": "The customer explicitly requests a human support contact."}
+  },
+  "boundaries": {
+    "public_howto": "Account mentions alone do not require escalation; public information needs approved current sources.",
+    "public_display_name": "Public visible-name guidance is eligible; identity verification, username intervention and recovery are not.",
+    "social_closure": "Pure gratitude or resolved closure may receive a bounded acknowledgment, excluded from useful support resolution.",
+    "intent_uncertainty": "A recognizable technical issue may receive a necessary clarification without a minimum intent-confidence threshold.",
+    "risk_uncertainty": "Missing or unknown material-risk assessments fail closed.",
+    "scope": "Unavailable media, uninterpretable requests and unsupported language require an honest handoff.",
+    "negation_quotation": "Negation and attributed titles are interpreted locally; quoted reported threats remain safety evidence.",
+    "repeated_contact": "Repeated unsuccessful support contact qualifies; repeated app failures, steps tried or UI changes alone do not.",
+    "abuse": "Insults aimed at staff or the brand qualify; ordinary criticism and incidental profanity alone do not.",
+    "money": "Actual transactions/disputes qualify; general public pricing or offer information alone does not."
+  }
+}

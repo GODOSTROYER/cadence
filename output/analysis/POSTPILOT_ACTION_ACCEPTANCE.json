@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "Bounded postpilot action contract fixes; no empirical improvement or promotion claim.",
+  "reviewed_at": "2026-09-18T12:51:17.816595+00:00",
+  "reviewer": {
+    "agent": "/root/action_registry_impl/postpilot_action_acceptance",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "reviewer_type": "ai",
+    "independent": true,
+    "read_only": true
+  },
+  "reviewed_files_sha256": {
+    "src/cadence/agent/actions.py": "b1dd0f5a5dbff90feef78bfe5fb423fcbba9982ca84dc966d90b7bfe615a123a",
+    "tests/test_verified_actions.py": "c65e42f532a8c9addc720406cabf1510f8f1a07cff03790c1d2b6c9bd1eae668"
+  },
+  "verification": {
+    "action_tests": {
+      "passed": 160,
+      "command": "python -m pytest tests/test_verified_actions.py -q -p no:cacheprovider"
+    },
+    "integrated_tests": {
+      "passed": 352,
+      "command": "python -m pytest tests/test_verified_agent.py tests/test_verified_actions.py tests/test_request_policy.py tests/test_knowledge.py -q -p no:cacheprovider"
+    },
+    "independent_quote_validated_contrasts": {
+      "passed": 14,
+      "authority": "config/knowledge/v3.json"
+    },
+    "ruff": "PASS",
+    "source_authority_integrity": "PASS; v3 source records match v2, and v2 matches frozen comparison copy."
+  },
+  "accepted_boundaries": [
+    "Connect device selection only for intentional public how-to; not unwanted takeover or a reported malfunction.",
+    "Catalog guidance requires a quoted service-wide absence claim and excludes playlist selections.",
+    "Audiobook resume-position problems receive targeted diagnosis without a generic feature proposal.",
+    "Direct feature proposals without capability authority are withheld; explicit feedback-submission workflows remain conditional.",
+    "Family account-usage clarification requires applicable current authority and unknown account-sharing state."
+  ],
+  "findings": [],
+  "preservation": {
+    "measured_studies_modified": false,
+    "v2_knowledge_modified": false,
+    "historical_comparators_modified": false,
+    "model_benchmark_rerun_by_reviewer": false
+  },
+  "limitation": "Accepts the bounded code contracts and synthetic regressions. Completed development/calibration failures remain evidence; no unseen confirmation claim follows."
+}

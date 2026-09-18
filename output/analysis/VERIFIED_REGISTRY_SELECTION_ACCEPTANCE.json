@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "recorded_at": "2026-09-18T12:48:25Z",
+  "scope": "Prospective experimental VerifiedAgent constructor selects registry v3; existing registry default, injected stores, and deployed SupportAgent remain unchanged.",
+  "reviewer_type": "ai",
+  "human_review_asserted": false,
+  "independent_review": {
+    "agent": "/root/verified_registry_selection/registry_selection_acceptance",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none",
+    "status": "pass",
+    "actionable_defects": [],
+    "findings": [
+      "VerifiedAgent explicitly loads config/knowledge/v3.json only when knowledge is None.",
+      "Caller-injected stores retain object identity.",
+      "KnowledgeStore.load() continues to default to registry v2.",
+      "The deployed API continues to construct SupportAgent.",
+      "Tests demonstrate scoped v3 Family authority, absence from v2, and explicit v2 injection preservation."
+    ]
+  },
+  "validation": [
+    {
+      "command": "python -B -m pytest -p no:cacheprovider tests/test_verified_agent.py tests/test_knowledge.py tests/test_knowledge_v3.py",
+      "status": "pass",
+      "passed": 56,
+      "warnings": "One existing google.genai dependency Pydantic deprecation warning."
+    },
+    {
+      "command": "ruff check --no-cache src/cadence/agent/verified.py tests/test_verified_agent.py",
+      "status": "pass"
+    }
+  ],
+  "knowledge_version": "spotify-current-v3-2026-09-18",
+  "knowledge_fingerprint": "0cebe891811d913badbe9fc54bc5aba9b8405d4eac2513401889ffd66b50e68f",
+  "knowledge_acceptance_record": "output/analysis/KNOWLEDGE_V3_ACCEPTANCE.json",
+  "hash_algorithm": "cadence.eval.provenance.sha256: SHA-256 with text newline normalization for supported text suffixes",
+  "files": {
+    "src/cadence/agent/verified.py": "2329dbd552ba0773bcacc6e49908d168673f3db289a617957dba59c8889c2a7e",
+    "tests/test_verified_agent.py": "45984204227118eb3d41a208fde03bc9d7571f02622fa5e7190c4b574c48747c",
+    "config/knowledge/v3.json": "aa7c03eeda9aeed44f0d5c29ddb594c5fbfa8c3741dc58c7530c220691ce119a"
+  },
+  "raw_observed_at_review": {
+    "hash_algorithm": "SHA-256 of exact file bytes without newline normalization",
+    "files": {
+      "config/knowledge/v3.json": "2af782a0cc838e193851434403f9663adf83cd94f437c13dc7b8afc17bc1ee2d"
+    }
+  },
+  "limitations": [
+    "Acceptance establishes registry selection behavior, not generalization or candidate promotion.",
+    "No live inference, historical artifact edits, or access to reserved final/challenge message text occurred during this review."
+  ]
+}

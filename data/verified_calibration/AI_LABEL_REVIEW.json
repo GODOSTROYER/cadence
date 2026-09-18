@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "status": "frozen",
+  "frozen": true,
+  "partition": "calibration",
+  "label_source": "ai",
+  "annotator": "GPT-6 Astra, extra-high reasoning",
+  "model_provenance": {
+    "model": "GPT-6 Astra",
+    "reasoning_effort": "extra-high",
+    "provenance_basis": "Parent-task assignment and user-authorized independent AI review",
+    "method": "Each of the 100 customer messages was read and individually reasoned by the annotating model. Code only joined manually reasoned annotations to source records, serialized them, validated schema and identity, and computed hashes and counts.",
+    "programmatic_or_keyword_classification": false,
+    "human_verified": false,
+    "independent_human_review_performed": false
+  },
+  "policy": {
+    "id": "cadence-request-policy-v2",
+    "version": "2.0.0",
+    "routing_authority": [
+      "config/policy_v2.json",
+      "docs/POLICY_V2.md"
+    ],
+    "intent_semantics_authority": "docs/TAXONOMY.md",
+    "precedence": "Policy v2 overrides historical taxonomy routing defaults.",
+    "time_contract": "Present-day assistance for historical customer utterances",
+    "reason_code_metadata": "Parent supplied schema metadata only: ambiguous_or_media_only for uninterpretable/media-only or unknown material risk, out_of_scope for unsupported language or non-support scope; explicit risk codes follow policy v2.",
+    "unknown_risk_rule": "Material-risk uncertainty fails closed; recognizable technical intent uncertainty alone does not require escalation.",
+    "secondary_intent_rule": "Secondary intent represents a separately expressed second issue rather than another description of the primary issue.",
+    "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+  },
+  "independence": {
+    "labeled_before_calibration_candidate_inference": true,
+    "candidate_outputs_seen": false,
+    "historical_reply_files_seen": false,
+    "prior_label_files_seen": false,
+    "review_files_seen": false,
+    "implementation_files_seen": false,
+    "confirmation_200_seen": false,
+    "other_annotator_labels_seen": false,
+    "own_annotations_consistency_review": true,
+    "source_exposure_disclosure": "The initial full read of the authorized docs/TAXONOMY.md also returned its embedded historical aggregate metrics and baseline description, outside the requested intent-only subsection. This was immediately disclosed to the parent. Only intent definitions and boundaries were used for annotations. No historical example-label file, candidate prediction, implementation file, review file, or confirmation record was accessed.",
+    "limitation": "Explicitly AI-only annotation, not independent human ground truth. Embedded historical aggregate information exposure is disclosed above. The sample lock documents additional historical-exposure and sampling limitations."
+  },
+  "source_access": {
+    "read_files": [
+      "config/policy_v2.json",
+      "docs/POLICY_V2.md",
+      "docs/TAXONOMY.md",
+      "data/verified_calibration/examples.jsonl",
+      "data/verified_calibration/SAMPLE.lock.json"
+    ],
+    "written_files": [
+      "data/verified_calibration/ai_labels.jsonl",
+      "data/verified_calibration/AI_LABEL_REVIEW.json"
+    ],
+    "human_labels_csv_read": false,
+    "human_labels_csv_modified": false,
+    "examples_modified": false,
+    "sample_lock_modified": false
+  },
+  "hash_convention": "Canonical sha256 hashes use UTF-8 after CRLF-to-LF normalization, matching the repository sample lock; raw_sha256 records actual local bytes.",
+  "adjudication_notes": [
+    "Public navigation, plan instructions, username capability questions, and recognizable technical errors were assessed independently from historical intent-level escalation defaults.",
+    "Actual transactions, recovery or identity intervention, concrete security incidents, safety concerns, and explicit private support follow-up were routed to humans.",
+    "Repeated failures or troubleshooting, incidental profanity, refusing an upgrade, and a locally negated preference against switching were not treated as mandatory risks by themselves.",
+    "Sentiment records affect separately from routing. Media-only includes generic wrappers whose substantive issue depends on unavailable linked material.",
+    "Each row has its own explanatory note. Labels were not inferred from answer availability or candidate behavior."
+  ],
+  "frozen_at": "2026-09-18T11:38:12.9573576Z",
+  "sources": {
+    "config/policy_v2.json": {
+      "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "raw_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+    },
+    "docs/POLICY_V2.md": {
+      "sha256": "b872ae99a6849971b8da3cbe6e634f1158c13f79fabfa74e0b3d41b0ead6a058",
+      "raw_sha256": "b872ae99a6849971b8da3cbe6e634f1158c13f79fabfa74e0b3d41b0ead6a058"
+    },
+    "docs/TAXONOMY.md": {
+      "sha256": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f",
+      "raw_sha256": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f"
+    },
+    "data/verified_calibration/examples.jsonl": {
+      "sha256": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+      "raw_sha256": "bd355dc4c82929cc157d01f30198ff425dae35859656583f98ab63e19307dd7a"
+    },
+    "data/verified_calibration/SAMPLE.lock.json": {
+      "sha256": "39b2ccd54b7607392f1e3abf1f962064789065e604aefb275badf7cc8ce5f2e1",
+      "raw_sha256": "130413950293f24fb576985661ea1f6cf5124c6c67f73dbc1007e63422cef1e7"
+    }
+  },
+  "sample_lock_verification": {
+    "passed": true,
+    "lock_example_sha256": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+    "canonical_example_sha256": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+    "raw_example_sha256": "bd355dc4c82929cc157d01f30198ff425dae35859656583f98ab63e19307dd7a",
+    "raw_difference_explanation": "Local examples use CRLF; canonical LF-normalized bytes match the frozen sample lock exactly."
+  },
+  "labels": {
+    "file": "data/verified_calibration/ai_labels.jsonl",
+    "sha256": "8523e075284993751300c2b00a24cdb1490b9837cfc5cb8a46dc2d2459fd289a",
+    "frozen": true,
+    "count": 100
+  },
+  "counts": {
+    "total": 100,
+    "should_escalate": 31,
+    "eligible": 69,
+    "media_only": 3,
+    "secondary_intent": 1,
+    "intents": {
+      "non_english": 0,
+      "account_hacked_or_security": 1,
+      "billing_or_charge": 8,
+      "login_or_password": 11,
+      "download_or_offline": 5,
+      "metadata_or_artist_issue": 2,
+      "playlist_or_library": 3,
+      "content_or_availability": 15,
+      "playback_or_app_bug": 13,
+      "subscription_or_plan": 15,
+      "feature_request_or_feedback": 18,
+      "other": 9
+    },
+    "escalation_reasons": {
+      "legal_or_safety": 2,
+      "account_security": 1,
+      "billing_dispute": 8,
+      "needs_account_lookup": 9,
+      "high_frustration_or_churn": 3,
+      "ambiguous_or_media_only": 7,
+      "out_of_scope": 1
+    },
+    "sentiments": {
+      "positive": 3,
+      "neutral": 51,
+      "frustrated": 40,
+      "angry": 6
+    }
+  },
+  "validation": {
+    "unique_ids": true,
+    "all_100_source_rows_covered": true,
+    "id_thread_id_text_preserved_exactly": true,
+    "source_order_preserved": true,
+    "valid_intents_reasons_sentiments_and_booleans": true,
+    "rationale_present_per_row": true,
+    "source_examples_unchanged": true,
+    "canonical_sample_hash_matches_lock": true,
+    "ai_provenance_per_row": true,
+    "no_human_verification_claim": true
+  }
+}

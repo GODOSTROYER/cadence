@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-09-18T11:31:55.941444+00:00",
+  "scope": "Worst-case exact customer/history text for 80-case combined development run, two historical hits per request",
+  "source": "Public Kaggle thoughtvector/customer-support-on-twitter data already committed in the public Cadence assignment repository",
+  "destination": "Gemini API via cadence.llm.gemini, the provider already authorized for the comparison",
+  "private_workplace_or_account_data": false,
+  "development_messages": 80,
+  "history_evidence_rows": 158,
+  "matched_patterns": {
+    "email": 0,
+    "card_like": 0,
+    "private_key": 0,
+    "api_key_like": 0,
+    "raw_person_handle": 0
+  },
+  "limitations": "Pattern scan is not a universal sensitive-data detector; all support data are public historical tweets, not private support records. No raw corpus rows or credentials are sent.",
+  "request_sources": [
+    "80 cleaned public customer texts",
+    "Up to two cleaned public historical support examples per eligible request",
+    "Public official Spotify guidance snapshots",
+    "Public repository prompts and schemas"
+  ],
+  "excluded_thread_count": 402,
+  "inputs": {
+    "data/verified_dev/labels.jsonl": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+    "Z:/Projects/Hiver/data/processed/spotify_threads.jsonl.gz": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+    "data/verified_calibration/examples.jsonl": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+    "data/verified_challenge/examples.jsonl": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12",
+    "data/verified_confirmation/examples.jsonl": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+    "src/cadence/agent/verified.py": "539baa741fc9834247d4c5224a4e583dcc67218cf9d3b76bbe98879e28224d82"
+  }
+}

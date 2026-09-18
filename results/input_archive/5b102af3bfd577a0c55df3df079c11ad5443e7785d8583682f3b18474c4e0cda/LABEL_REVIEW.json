@@ -1,0 +1,93 @@
+{
+  "status": "accepted_for_pre_inference_evaluation",
+  "review_type": "independent_ai_annotation_and_schema_review",
+  "reviewer": "confirmation_labels independent annotation agent",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "annotator": "gpt-6-astra xhigh",
+  "label_source": "ai",
+  "human_reviewed": false,
+  "reviewed_at_utc": "2026-09-17T03:44:41.412300+00:00",
+  "examples_path": "data/quality_confirmation/examples.jsonl",
+  "labels_path": "data/quality_confirmation/labels.jsonl",
+  "sample_sha256": "bae43ffbc0113c067270970a8a9742dce6dd67c3b52169791e2d4b5b407cbb97",
+  "labels_sha256": "4380780674b69127df8a15cd4a5430742bf01ac0852fef54d6e08d25db286a2b",
+  "hash_function": "cadence.eval.provenance.sha256",
+  "reference_policy_sha256": {
+    "config/intents.yaml": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+    "config/escalation.yaml": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+    "docs/TAXONOMY.md": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f"
+  },
+  "scope": "All 60 confirmation messages independently annotated from customer text before candidate predictions; routing_dev labels were used only to identify schema and allowed sentiment values.",
+  "independence": {
+    "candidate_code_inspected": false,
+    "candidate_predictions_inspected": false,
+    "agent_outputs_inspected": false,
+    "historical_thread_context_used": false,
+    "model_inference_run": false,
+    "existing_labels_used_as_annotation_examples": false
+  },
+  "schema_validation": {
+    "passed": true,
+    "row_count": 60,
+    "unique_ids": 60,
+    "unique_thread_ids": 60,
+    "root_and_gold_fields_match_routing_dev": true,
+    "source_id_thread_id_text_split_preserved": true,
+    "source_order_preserved": true,
+    "sample_unchanged_during_annotation": true,
+    "valid_intents_secondary_intents_reasons_sentiments_and_booleans": true,
+    "escalation_reason_present_if_and_only_if_escalating": true,
+    "individual_unique_rationales": 60,
+    "saved_jsonl_round_trip_validated": true
+  },
+  "coverage": {
+    "total": 60,
+    "should_escalate": 33,
+    "auto_handle": 27,
+    "primary_intents_present": 11,
+    "taxonomy_size": 12,
+    "primary_intent_counts": {
+      "account_hacked_or_security": 2,
+      "billing_or_charge": 6,
+      "content_or_availability": 6,
+      "download_or_offline": 1,
+      "feature_request_or_feedback": 6,
+      "login_or_password": 7,
+      "metadata_or_artist_issue": 5,
+      "other": 10,
+      "playback_or_app_bug": 9,
+      "playlist_or_library": 3,
+      "subscription_or_plan": 5
+    },
+    "absent_primary_intents": [
+      "non_english"
+    ],
+    "absent_intent_explanation": "No confirmation message is non-English; all 11 English-domain taxonomy intents are represented.",
+    "escalation_reason_counts": {
+      "account_security": 2,
+      "ambiguous_or_media_only": 6,
+      "billing_dispute": 6,
+      "high_frustration_or_churn": 6,
+      "needs_account_lookup": 10,
+      "out_of_scope": 3
+    },
+    "media_only": 3,
+    "sentiment_counts": {
+      "angry": 6,
+      "frustrated": 17,
+      "neutral": 35,
+      "positive": 2
+    }
+  },
+  "review_notes": [
+    "These are AI labels, not human labels or a claim of human acceptance.",
+    "Payment-detail failures and paid-but-Free complaints follow billing precedence; security evidence overrides access.",
+    "Actual account access and individual eligibility failures escalate; first-contact general plan guidance remains auto-handle when the issue is described.",
+    "Self-troubleshooting, recurring bugs, and repeated access failures are not assumed to be repeated support contact.",
+    "Linked media and prior conversations were not opened or inferred. Unexplained media, DM-only text, and undetailed venting are treated conservatively.",
+    "High frustration is judged from the whole message; mild frustration, emphasis, and temporary fallback are not automatically treated as churn.",
+    "The low_confidence reason is model-specific and was not invented from unobserved model confidence during annotation.",
+    "Coverage is descriptive; this English sample cannot validate the non_english class."
+  ]
+}

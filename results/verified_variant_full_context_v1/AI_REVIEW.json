@@ -1,0 +1,13 @@
+{
+  "reviewer_type": "ai",
+  "reviewer_id": "GPT-6 Astra xhigh independent variant review",
+  "n_messages": 21,
+  "n_ratings": 21,
+  "provenance": "AI-generated review; never treated as human",
+  "hash_convention": "SHA-256 with CRLF normalized to LF for JSON/JSONL; reply text hashes remain exact UTF-8",
+  "artifacts": {
+    "ai_review_submission.jsonl": "ea38825477681cc15c4f8a59c98bd889ec93da09915ed422c5463ed1ab0c5e6f",
+    "ai_reviews.jsonl": "c1f651dc9fdde5b238b0796f7b0af0092308ae7584c831c24dacc89d60b3e40f",
+    "REVIEW.lock.json": "861283a466226597f7e1ee406c3212b4869ef42310908c482d84054584f23f6b"
+  }
+}

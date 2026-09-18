@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-09-18T12:11:32.579870+00:00",
+  "scope": "21 public Kaggle messages and worst-case full_context historical context; pattern-only local scan, customer texts not displayed to root",
+  "source": "Public Kaggle thoughtvector/customer-support-on-twitter corpus already in the public repository",
+  "destination": "Previously authorized Gemini API",
+  "n": 21,
+  "history_evidence_rows": 126,
+  "matched_patterns": {
+    "email": 0,
+    "card_like": 0,
+    "private_key": 0,
+    "api_key_like": 0,
+    "raw_person_handle": 0
+  },
+  "excluded_thread_count": 226,
+  "limitation": "Pattern scan is not a universal sensitive-data detector; source is public historical tweets, not private workplace support records.",
+  "inputs": {
+    "data/verified_dev/v3_regression_labels.jsonl": "dd96c00d962afbce30c78e5187d31518511af64fb9e65288361e3621eae326a7",
+    "Z:/Projects/Hiver/data/processed/spotify_threads.jsonl.gz": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58",
+    "data/verified_confirmation/examples.jsonl": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+    "data/verified_challenge/examples.jsonl": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12"
+  }
+}

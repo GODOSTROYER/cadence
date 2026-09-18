@@ -1,0 +1,85 @@
+{
+  "dataset": "verified_dev",
+  "split": "development",
+  "status": "frozen",
+  "label_source": "ai",
+  "annotator": "gpt-6-astra xhigh",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "reviewed_count": 80,
+  "human_reviewed": false,
+  "frozen_at_utc": "2026-09-18T11:09:05.6074821Z",
+  "policy": {
+    "path": "config/policy_v2.json",
+    "id": "cadence-request-policy-v2",
+    "version": "2.0.0",
+    "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "document_path": "docs/POLICY_V2.md",
+    "document_sha256": "b872ae99a6849971b8da3cbe6e634f1158c13f79fabfa74e0b3d41b0ead6a058",
+    "supplemental_taxonomy_path": "docs/TAXONOMY.md",
+    "supplemental_taxonomy_sha256": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f",
+    "routing_precedence": "Policy v2 request-risk rules override legacy taxonomy routing defaults."
+  },
+  "sample": {
+    "path": "data/balanced_confirmation/examples.jsonl",
+    "sha256": "daf1ea4a00faf4c1411d3064fa1c6ad2e5617d2776d8b511c113870a50d4c138",
+    "count": 80,
+    "source_previously_inspected": true,
+    "new_unseen_confirmation": false,
+    "source_files_modified": false,
+    "id_thread_id_text_preserved": true
+  },
+  "labels": {
+    "path": "data/verified_dev/labels.jsonl",
+    "sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+    "total": 80,
+    "escalate_count": 28,
+    "eligible_count": 52
+  },
+  "independence": {
+    "permitted_inputs_read": [
+      "config/policy_v2.json",
+      "docs/POLICY_V2.md",
+      "docs/TAXONOMY.md",
+      "data/balanced_confirmation/examples.jsonl"
+    ],
+    "candidate_code_inspected": false,
+    "prior_labels_inspected": false,
+    "predictions_inspected": false,
+    "scores_inspected": false,
+    "other_agents_annotation_or_evaluation_outputs_inspected": false,
+    "external_model_api_calls": false,
+    "annotations_authored_before_new_candidate_inference": true,
+    "statement": "The annotator independently authored all 80 labels from the permitted policy, taxonomy, and customer messages. Parent communication supplied sentiment schema literals and confirmed ambiguity/scope reason codes; it supplied no predictions, previous labels, or evaluation outputs. These are AI-authored development labels, not human gold and not unseen confirmation evidence.",
+    "policy_document_timing": "POLICY_V2.md was initially absent, became available during final verification, and was read before the labels were frozen. Its explicit discrimination/harm boundaries were applied before freezing. No implementation code or outputs were inspected."
+  },
+  "conventions": {
+    "sentiments": [
+      "positive",
+      "neutral",
+      "frustrated",
+      "angry"
+    ],
+    "secondary_intent": "null unless a second substantive issue is recorded",
+    "no_escalation_reason": "null",
+    "media_only": "true when unavailable media is essential to understand the requested outcome; ordinary links accompanying a described issue do not suffice",
+    "scope_reason_codes": [
+      "ambiguous_or_media_only",
+      "out_of_scope"
+    ],
+    "scope_reason_code_basis": "Scope and ambiguity codes named by TAXONOMY.md and confirmed as compatible by the parent; mandatory-risk reason codes come from policy_v2.json.",
+    "uncertainty": "Per-row notes make boundary interpretations explicit. Risk is not inferred merely from an intent name, account mention, repeated app failure, incidental profanity, or missing device detail.",
+    "eligibility": "A false should_escalate label means the request has no mandatory policy veto under the authored interpretation. It does not guarantee that a candidate can produce an independently validated current supported answer."
+  },
+  "verification": {
+    "all_80_rows_reviewed": true,
+    "exact_source_identity_and_text_match": true,
+    "all_rows_development": true,
+    "ai_provenance_on_every_row": true,
+    "unique_ids": true,
+    "schema_fields_and_enums_checked": true,
+    "notes_on_every_row": true,
+    "source_files_left_untouched": true,
+    "no_git_commit": true
+  }
+}

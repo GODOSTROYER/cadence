@@ -1,0 +1,114 @@
+{
+  "dataset": "verified_postpilot_regression",
+  "split": "development",
+  "status": "frozen",
+  "frozen_at_utc": "2026-09-18T12:38:46.2547695Z",
+  "frozen_before_postpilot_regression_inference": true,
+  "label_source": "ai",
+  "annotator": "gpt-6-astra xhigh",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "human_reviewed": false,
+  "reviewed_count": 14,
+  "independently_newly_annotated_count": 12,
+  "reused_original_ai_gold_count": 2,
+  "policy": {
+    "path": "config/policy_v2.json",
+    "id": "cadence-request-policy-v2",
+    "version": "2.0.0",
+    "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+  },
+  "labels": {
+    "path": "data/verified_postpilot_regression/labels.jsonl",
+    "sha256": "14aad5ace94bd527cb0ae5c6691ea53c49c27ff61ec34cb11bff7c60d2df93d9",
+    "rows": 14,
+    "escalate_count": 7,
+    "eligible_count": 7
+  },
+  "reused_source": {
+    "path": "data/verified_calibration/ai_labels.jsonl",
+    "sha256": "8523e075284993751300c2b00a24cdb1490b9837cfc5cb8a46dc2d2459fd289a",
+    "authorized_ids": [
+      "vc5_085",
+      "vc5_086"
+    ],
+    "source_split": "calibration",
+    "destination_split": "development",
+    "historical_customer_text": true,
+    "original_id_thread_id_text_gold_sentiment_and_annotator_preserved": true,
+    "annotation_origin": "Original independent AI gold copied unchanged; not relabeled or represented as newly independent observations.",
+    "prior_exposure": "Previously inspected calibration cases explicitly reused as development regressions."
+  },
+  "synthetic_source": {
+    "count": 12,
+    "ids": [
+      "pp6_001",
+      "pp6_002",
+      "pp6_003",
+      "pp6_004",
+      "pp6_005",
+      "pp6_006",
+      "pp6_007",
+      "pp6_008",
+      "pp6_009",
+      "pp6_010",
+      "pp6_011",
+      "pp6_012"
+    ],
+    "text_author": "root assistant",
+    "text_author_role": "root",
+    "source": "Twelve exact strings supplied in the parent task instruction.",
+    "text_preserved_exactly": true,
+    "annotations": "Independently authored by this child annotator under frozen policy v2 before the new regression inference.",
+    "historical_customer_examples": false,
+    "independent_sampling": false
+  },
+  "selection": {
+    "type": "Targeted post-pilot boundary regression",
+    "selected_by": "root assistant",
+    "why": "Exercise harm/safety, security-prevention versus incident, local negation, object-specific cancel/leave language, explicit churn, social gratitude, and attributed device-name boundaries.",
+    "random_sample": false,
+    "representative_sample": false,
+    "unseen_confirmation": false,
+    "development_only": true,
+    "statistical_generalization_claim": false
+  },
+  "independence": {
+    "inputs_used": [
+      "config/policy_v2.json",
+      "Intent identifiers extracted from docs/TAXONOMY.md",
+      "Only vc5_085 and vc5_086 from data/verified_calibration/ai_labels.jsonl",
+      "The twelve root-authored strings in the parent instruction"
+    ],
+    "candidate_implementation_inspected": false,
+    "model_inference_outputs_inspected": false,
+    "reply_scores_inspected": false,
+    "other_calibration_examples_surfaced_or_inspected": false,
+    "final200_texts_inspected": false,
+    "challenge80_texts_inspected": false,
+    "inference_run_by_annotator": false,
+    "external_model_api_calls": false,
+    "gold_changed_to_fit_implementation": false,
+    "statement": "Only the two authorized existing AI label records were surfaced and copied; the source file was otherwise hashed and programmatically filtered. Synthetic labels were authored using the request text and frozen policy, without candidate code, predictions, reply scores, or other agents' evaluation outputs. Inspection limitations here describe this post-pilot labeling task."
+  },
+  "verification": {
+    "unique_ids": true,
+    "all_rows_development": true,
+    "ai_provenance_on_every_row": true,
+    "origin_and_source_metadata_on_every_row": true,
+    "exact_reused_text_and_gold_match": true,
+    "exact_synthetic_text_match": true,
+    "supported_taxonomy_ids_and_schema_literals": true,
+    "notes_on_every_row": true,
+    "source_and_policy_hashes_unchanged_between_read_and_freeze": true,
+    "original_source_files_untouched": true,
+    "no_git_commit": true
+  },
+  "interpretation_notes": [
+    "Security intent does not itself mandate escalation: general prevention questions and explicitly negated incidents remain eligible.",
+    "Cancel/leave language is interpreted with its local object; a download or open playlist is not service cancellation or churn.",
+    "An attributed device name and figurative gratitude are not harm allegations.",
+    "Explicit ear/property harm and a material hearing-safety concern require human handling; injury need not already be confirmed.",
+    "An eligible label only removes the mandatory request-risk veto; a current, supported, independently validated reply is still required."
+  ]
+}

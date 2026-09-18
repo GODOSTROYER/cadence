@@ -1,0 +1,35 @@
+# Gemini models used by Cadence (Google AI Studio free tier), probed on 2026-09-11 with five free keys:
+#   - gemini-2.5-* are "no longer available to new users" on new keys; gemini-3.1-pro-preview is quota-locked (429).
+#   - gemini-3.5-flash / 3.6-flash / 3.8-flash are thinking models; they work but return 503 under load AND carry a
+#     free-tier cap of ~20 requests per day per key per model (GenerateRequestsPerDayPerProjectPerModel-FreeTier),
+#     which cannot cover a 475-call evaluation. gemini-3.1-flash-lite / 3.5-flash-lite are fast, stable and
+#     have far higher daily headroom, so the evaluation runs on them.
+# Override with env CADENCE_AGENT_MODEL / CADENCE_JUDGE_MODEL / CADENCE_ZERO_SHOT_MODEL.
+# The judge deliberately uses a different model than the agent to reduce self-preference bias.
+agent_model: gemini-3.5-flash-lite
+judge_model: gemini-3.1-flash-lite
+zero_shot_model: gemini-3.5-flash-lite   # same model as the agent, no retrieval: isolates retrieval + policy
+
+temperature: 0.2
+judge_temperature: 0.0
+# Thinking tokens count against max_output_tokens on Gemini 3.x, so keep this generous.
+max_output_tokens: 4096
+# Cap thinking per model (tokens). Keys are model ids; missing -> API default.
+thinking_budget:
+  gemini-3.5-flash: 1024
+  gemini-3.6-flash: 1024
+  gemini-3.8-flash: 1024
+  gemini-3-flash-preview: 1024
+
+# Local per-key scheduling budgets only, not provider entitlements. Gemini enforces quotas per PROJECT.
+# Keys in one project share quotas; five keys do not imply five times the capacity. A 429 triggers cooldown.
+# Verify the actual free-tier project limits in AI Studio; these historical observations are not guarantees.
+limits:
+  gemini-3.5-flash:      { rpm: 5,  rpd: 20 }
+  gemini-3.6-flash:      { rpm: 5,  rpd: 20 }
+  gemini-3.8-flash:      { rpm: 5,  rpd: 20 }
+  gemini-3-flash-preview: { rpm: 5, rpd: 20 }
+  gemini-3.1-flash-lite: { rpm: 12, rpd: 800 }
+  gemini-3.5-flash-lite: { rpm: 12, rpd: 800 }
+  gemini-2.5-flash:      { rpm: 8,  rpd: 240 }
+  default:               { rpm: 5,  rpd: 100 }

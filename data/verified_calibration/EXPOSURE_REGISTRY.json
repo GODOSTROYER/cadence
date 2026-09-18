@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "inventory_scope": "All known recoverable named, reconstructed and conservative exclusions; unrecorded exposure remains possible.",
+  "exposure_limitations": [
+    "Inventory includes all recoverable named example sets plus documented seed42 reading sample, full-text/document-ID matches, and conservative exclusion of all corpus retrieval contexts in saved prediction JSONL files.",
+    "docs/TAXONOMY.md also records 8 inspected examples from each of 25 clusters and random per-keyword audits. Their selected IDs and sampling code were not retained, so absence of all historical manual/model exposure cannot be established.",
+    "Reconstructed sample follows documented pandas sample200 random_state42 on the saved English brand-replied opener table; original transient sample file was not retained.",
+    "Historical unsupervised corpus-wide feature analysis and retrieval indexing used this corpus. These packets are disjoint from recorded/reconstructed example exposures, not a new source or time period.",
+    "Near-duplicate rejection and conservative retrieval exclusions change population weights; results cannot be treated as natural traffic coverage."
+  ],
+  "created_at": "2026-09-18T11:21:19.763897+00:00",
+  "corpus": {
+    "path": "../processed/spotify_threads.jsonl.gz",
+    "sha256": "278e6bc23c9dd15ac0dda4cdfbe58f4f7d3b821fa9049300fc33bc618e0e6e58"
+  },
+  "exposures": [
+    {
+      "id": "original_candidates",
+      "path": "../golden/candidates.jsonl",
+      "sha256": "e1195f077271217ed9b80ad8cc8f450ee615e0e33a9577c73ec47fefdf2e3eee",
+      "n": 438,
+      "state": "locked"
+    },
+    {
+      "id": "golden",
+      "path": "../golden/golden_set.jsonl",
+      "sha256": "0b64d5fa83f26c0bbead5bb7f7ecadc0fd8d58cad089ce7bb40cb54e1ed18723",
+      "n": 250,
+      "state": "locked"
+    },
+    {
+      "id": "taxonomy_calibration",
+      "path": "../../docs/taxonomy_calibration.jsonl",
+      "sha256": "8dd4e58b9b075dbddbcd893fb559e7f810a7fd9018922ff58173e46d816e94c6",
+      "n": 150,
+      "state": "locked"
+    },
+    {
+      "id": "holdout",
+      "path": "../holdout/examples.jsonl",
+      "sha256": "dcb1a585e3ac0ae601895bc5bb8312d0b13432272d4e095dc0b538c21a7ee95d",
+      "n": 200,
+      "state": "locked"
+    },
+    {
+      "id": "routing_dev",
+      "path": "../routing_dev/examples.jsonl",
+      "sha256": "3976011ede55ca707d368f28fd294bb173760b3d6b653122713666b895b98fc1",
+      "n": 30,
+      "state": "locked"
+    },
+    {
+      "id": "quality_confirmation",
+      "path": "../quality_confirmation/examples.jsonl",
+      "sha256": "bae43ffbc0113c067270970a8a9742dce6dd67c3b52169791e2d4b5b407cbb97",
+      "n": 60,
+      "state": "locked"
+    },
+    {
+      "id": "balanced_confirmation",
+      "path": "../balanced_confirmation/examples.jsonl",
+      "sha256": "daf1ea4a00faf4c1411d3064fa1c6ad2e5617d2776d8b511c113870a50d4c138",
+      "n": 80,
+      "state": "locked"
+    },
+    {
+      "id": "taxonomy_reading_reconstructed",
+      "path": "../verified_sampling/taxonomy_reading_reconstructed.jsonl",
+      "sha256": "13156799fb745c6023da4b0bc7e2dfb5bf9c5046836beacf74ff28ef5264eac4",
+      "n": 200,
+      "state": "locked"
+    },
+    {
+      "id": "documented_quotations",
+      "path": "../verified_sampling/documented_quotations.jsonl",
+      "sha256": "caaf023c3ef11c2b50abd563f170e19cbcbf53aca42af54eea7482c356e2e3f9",
+      "n": 116,
+      "state": "locked"
+    },
+    {
+      "id": "historical_retrieval_contexts",
+      "path": "../verified_sampling/historical_retrieval_contexts.jsonl",
+      "sha256": "5762650ff8b514e5f68ede2d8380e38839930d8166b7e36c75b0f553f6c065fd",
+      "n": 3232,
+      "state": "locked"
+    }
+  ],
+  "known_exposure_inventory_complete": true
+}

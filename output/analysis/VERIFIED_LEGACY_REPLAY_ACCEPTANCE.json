@@ -1,0 +1,492 @@
+{
+  "status": "pass",
+  "started_at": "2026-09-18T12:28:32.786563+00:00",
+  "environment": {
+    "CADENCE_CACHE_ONLY": "1",
+    "PYTHONUTF8": "1"
+  },
+  "scope": "Historical offline compatibility; no new inference or human verification claim.",
+  "checks": [
+    {
+      "name": "original_recorded",
+      "command": [
+        "c:\\python312\\python.exe",
+        "-m",
+        "cadence.cli",
+        "reproduce"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 9.667,
+      "stdout": "==> reproduce-recorded\n[17:58:38] INFO     running reproduce_recorded.py                              \n{\n  \"kind\": \"historical_artifact_replay\",\n  \"headline\": {\n    \"intent_macro_f1\": 0.8214832060840876,\n    \"escalation_recall\": 0.9397590361445783,\n    \"auto_handle_rate\": 0.43,\n    \"judge_overall_mean\": 4.58,\n    \"judge_overall_mean_nn\": 3.315,\n    \"ci95\": {\n      \"intent_macro_f1\": [\n        0.7644447630230675,\n        0.86957258540509\n      ],\n      \"escalation_recall\": [\n        0.883686730506156,\n        0.9875\n      ],\n      \"auto_handle_rate\": [\n        0.365,\n        0.49512499999999987\n      ],\n      \"judge_overall_mean\": [\n        4.46,\n        4.685\n      ]\n    }\n  },\n  \"threshold_selection\": {\n    \"rule\": \"f2_fallback\",\n    \"constraint_met\": false,\n    \"min_recall\": 0.9,\n    \"selected_dev\": {\n      \"threshold\": 0.9,\n      \"recall\": 0.85,\n      \"precision\": 0.6071428571428571,\n      \"f1\": 0.7083333333333333,\n      \"auto_handle_rate\": 0.44,\n      \"missed_escalations\": 3,\n      \"unnecessary_escalations\": 11\n    },\n    \"dev_sweep\": [\n      {\n        \"threshold\": 0.0,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.05,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.1,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.15,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.2,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.25,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.3,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.35,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.4,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.45,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.5,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.55,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.6,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.65,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.7,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.75,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.8,\n        \"recall\": 0.75,\n        \"precision\": 0.7894736842105263,\n        \"f1\": 0.7692307692307692,\n        \"auto_handle_rate\": 0.62,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 4\n      },\n      {\n        \"threshold\": 0.85,\n        \"recall\": 0.75,\n        \"precision\": 0.75,\n        \"f1\": 0.75,\n        \"auto_handle_rate\": 0.6,\n        \"missed_escalations\": 5,\n        \"unnecessary_escalations\": 5\n      },\n      {\n        \"threshold\": 0.9,\n        \"recall\": 0.85,\n        \"precision\": 0.6071428571428571,\n        \"f1\": 0.7083333333333333,\n        \"auto_handle_rate\": 0.44,\n        \"missed_escalations\": 3,\n        \"unnecessary_escalations\": 11\n      },\n      {\n        \"threshold\": 0.95,\n        \"recall\": 0.85,\n        \"precision\": 0.5,\n        \"f1\": 0.6296296296296295,\n        \"auto_handle_rate\": 0.32,\n        \"missed_escalations\": 3,\n        \"unnecessary_escalations\": 17\n      },\n      {\n        \"threshold\": 1.0,\n        \"recall\": 1.0,\n        \"precision\": 0.4,\n        \"f1\": 0.5714285714285715,\n        \"auto_handle_rate\": 0.0,\n        \"missed_escalations\": 0,\n        \"unnecessary_escalations\": 30\n      }\n    ]\n  },\n  \"seconds\": 3.169,\n  \"model_calls\": 0,\n  \"cache_receipts_verified\": 1771\n}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/original_recorded.log",
+      "log_raw_sha256": "f2494cfba25a8c4d5c72aa219c2ac7ec87d53874a902512b1a6ea98c2abbeeda"
+    },
+    {
+      "name": "frozen_benchmark",
+      "command": [
+        "c:\\python312\\python.exe",
+        "analysis_tools/reproduce_benchmark.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 15.892,
+      "stdout": "{\n  \"status\": \"complete\",\n  \"counts\": {\n    \"agent\": 200,\n    \"agent_no_evidence\": 200,\n    \"trivial\": 200,\n    \"simple_keyword\": 200\n  },\n  \"judge\": \"complete\",\n  \"output\": \"Z:\\\\Projects\\\\Hiver\\\\results\\\\reproduced\\\\benchmark_summary.json\",\n  \"model_calls\": 0\n}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/frozen_benchmark.log",
+      "log_raw_sha256": "eab26b3dc9897b8202564c6d33c92c69285b3ba0f0cf1f2fa4faebe84d91f594"
+    },
+    {
+      "name": "routing_comparison",
+      "command": [
+        "c:\\python312\\python.exe",
+        "analysis_tools/reproduce_routing_comparison.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 7.417,
+      "stdout": "{'status': 'verified', 'messages': 30, 'predictions': 90, 'receipts': 71, 'new_model_calls': 0}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/routing_comparison.log",
+      "printed_facts": [
+        {
+          "status": "verified",
+          "messages": 30,
+          "predictions": 90,
+          "receipts": 71,
+          "new_model_calls": 0
+        }
+      ],
+      "log_raw_sha256": "dcc14430ed514518cc789b6c043a3f615a1fc6233cb1ab7d60a2819b165157c8"
+    },
+    {
+      "name": "quality_all_four",
+      "command": [
+        "c:\\python312\\python.exe",
+        "analysis_tools/reproduce_quality.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 10.301,
+      "stdout": "{'experiment': 'quality_dev', 'messages': 30, 'predictions': 60, 'receipts': 78, 'new_model_calls': 0}\n{'experiment': 'quality_dev_v2', 'messages': 30, 'predictions': 60, 'receipts': 78, 'new_model_calls': 0}\n{'experiment': 'quality_dev_v3', 'messages': 30, 'predictions': 60, 'receipts': 80, 'new_model_calls': 0}\n{'experiment': 'quality_confirmation', 'messages': 60, 'predictions': 120, 'receipts': 164, 'new_model_calls': 0}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/quality_all_four.log",
+      "printed_facts": [
+        {
+          "experiment": "quality_dev",
+          "messages": 30,
+          "predictions": 60,
+          "receipts": 78,
+          "new_model_calls": 0
+        },
+        {
+          "experiment": "quality_dev_v2",
+          "messages": 30,
+          "predictions": 60,
+          "receipts": 78,
+          "new_model_calls": 0
+        },
+        {
+          "experiment": "quality_dev_v3",
+          "messages": 30,
+          "predictions": 60,
+          "receipts": 80,
+          "new_model_calls": 0
+        },
+        {
+          "experiment": "quality_confirmation",
+          "messages": 60,
+          "predictions": 120,
+          "receipts": 164,
+          "new_model_calls": 0
+        }
+      ],
+      "log_raw_sha256": "2c6a8bc1865c5ab55cc5f849307b31f5dc110ccbdedd798060b47d2b33003a48"
+    },
+    {
+      "name": "balanced_all_four",
+      "command": [
+        "c:\\python312\\python.exe",
+        "analysis_tools/reproduce_balanced.py",
+        "--experiment",
+        "results/balanced_dev",
+        "--experiment",
+        "results/balanced_dev_v2",
+        "--experiment",
+        "results/balanced_dev_v3",
+        "--experiment",
+        "results/balanced_confirmation"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 17.231,
+      "stdout": "{'experiment': 'results/balanced_dev', 'predictions': 90, 'receipts': 121, 'technical_gates_pass': False, 'new_model_calls': 0}\n{'experiment': 'results/balanced_dev_v2', 'predictions': 90, 'receipts': 122, 'technical_gates_pass': False, 'new_model_calls': 0}\n{'experiment': 'results/balanced_dev_v3', 'predictions': 90, 'receipts': 120, 'technical_gates_pass': True, 'new_model_calls': 0}\n{'experiment': 'results/balanced_confirmation', 'predictions': 240, 'receipts': 329, 'technical_gates_pass': False, 'new_model_calls': 0}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/balanced_all_four.log",
+      "printed_facts": [
+        {
+          "experiment": "results/balanced_dev",
+          "predictions": 90,
+          "receipts": 121,
+          "technical_gates_pass": false,
+          "new_model_calls": 0
+        },
+        {
+          "experiment": "results/balanced_dev_v2",
+          "predictions": 90,
+          "receipts": 122,
+          "technical_gates_pass": false,
+          "new_model_calls": 0
+        },
+        {
+          "experiment": "results/balanced_dev_v3",
+          "predictions": 90,
+          "receipts": 120,
+          "technical_gates_pass": true,
+          "new_model_calls": 0
+        },
+        {
+          "experiment": "results/balanced_confirmation",
+          "predictions": 240,
+          "receipts": 329,
+          "technical_gates_pass": false,
+          "new_model_calls": 0
+        }
+      ],
+      "log_raw_sha256": "a2e9e71940b77b6f784ed7cbbcd841ff84dcd6389f57d5f8e434b1123a2745af"
+    },
+    {
+      "name": "post_audit_regression",
+      "command": [
+        "c:\\python312\\python.exe",
+        "-c",
+        "import importlib.util, sys\nfrom pathlib import Path\nsys.path.insert(0, str(Path('analysis_tools').resolve()))\nspec=importlib.util.spec_from_file_location('post_audit_regression_acceptance', 'analysis_tools/post_audit_regression.py')\nm=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)\nsource=m.Paths.RESULTS/'post_audit_regression'\ntarget=m.Paths.RESULTS/'reproduced/legacy_acceptance/post_audit_regression'\nfor name in ('write_json','write_jsonl'):\n    original=getattr(m,name)\n    def redirected(path, data, _writer=original):\n        return _writer(target / Path(path).relative_to(source), data)\n    setattr(m,name,redirected)\nm.main()\n"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 11.545,
+      "stdout": "[17:59:42] INFO     built BM25 index: 27427 threads, 18007 terms, 1.92s        \n{'cached': 200, 'model_calls': 0, 'changed': ['h_003', 'h_168', 'h_191'], 'newly_escalated': ['h_003', 'h_168', 'h_191']}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/post_audit_regression.log",
+      "execution_note": "Unmodified main() executed; only write_json/write_jsonl targets redirected to results/reproduced/legacy_acceptance/post_audit_regression to preserve published outputs.",
+      "printed_facts": [
+        {
+          "cached": 200,
+          "model_calls": 0,
+          "changed": [
+            "h_003",
+            "h_168",
+            "h_191"
+          ],
+          "newly_escalated": [
+            "h_003",
+            "h_168",
+            "h_191"
+          ]
+        }
+      ],
+      "log_raw_sha256": "41276c60e40d5356591f10d162da163fbf70163c63921af55e2a7fa3b1710604"
+    },
+    {
+      "name": "review_packet",
+      "command": [
+        "c:\\python312\\python.exe",
+        "scripts/17_prepare_review_study.py",
+        "--check"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 3.989,
+      "stdout": "Verified 50 matched messages, 100 exact frozen replies",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/review_packet.log",
+      "log_raw_sha256": "1946c378193c50c201069e0a21b64ec9180609eff4aa18912ca7b2e94ef6ba75"
+    },
+    {
+      "name": "astra_review_summary",
+      "command": [
+        "c:\\python312\\python.exe",
+        "scripts/14_review_study.py",
+        "--ratings",
+        "results/review_study/astra_ratings.jsonl",
+        "--out",
+        "results/reproduced/astra_summary.json"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 4.041,
+      "stdout": "{'astra-xhigh': {'reviewer_type': 'ai', 'status': 'complete', 'n': 100, 'verdicts': {'edit': 35, 'reject': 59, 'ship': 6}}}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/astra_review_summary.log",
+      "printed_facts": [
+        {
+          "astra-xhigh": {
+            "reviewer_type": "ai",
+            "status": "complete",
+            "n": 100,
+            "verdicts": {
+              "edit": 35,
+              "reject": 59,
+              "ship": 6
+            }
+          }
+        }
+      ],
+      "log_raw_sha256": "fb4b21765e25e31a543b2bc9d3009f5bca6963ba97737edb361c7907ba8d7a91"
+    },
+    {
+      "name": "arnav_verified_review_summary",
+      "command": [
+        "c:\\python312\\python.exe",
+        "scripts/14_review_study.py",
+        "--ratings",
+        "results/review_study/arnav_verified_ratings.jsonl",
+        "--confirmation",
+        "results/review_study/HUMAN_VERIFICATION.json",
+        "--out",
+        "results/reproduced/arnav_verified_summary.json"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 4.261,
+      "stdout": "{'Arnav Bule': {'reviewer_type': 'human', 'status': 'complete', 'n': 100, 'verdicts': {'edit': 35, 'reject': 59, 'ship': 6}}}",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/arnav_verified_review_summary.log",
+      "printed_facts": [
+        {
+          "Arnav Bule": {
+            "reviewer_type": "human",
+            "status": "complete",
+            "n": 100,
+            "verdicts": {
+              "edit": 35,
+              "reject": 59,
+              "ship": 6
+            }
+          }
+        }
+      ],
+      "log_raw_sha256": "d227e99b4e339f81fe921c513a8d0f50af3a17419113fa2cb2b238894a0ee2c1"
+    },
+    {
+      "name": "benchmark_publication",
+      "command": [
+        "c:\\python312\\python.exe",
+        "scripts/15_publish_benchmark.py",
+        "--check"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 3.938,
+      "stdout": "Verified holdout_final-b8317d6: report and public metrics match",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/benchmark_publication.log",
+      "log_raw_sha256": "cb8b0dcfd8f9de2092936153debbaa4fc4821ac2b1228b5e61c3e18bcb5bcef7"
+    },
+    {
+      "name": "quality_publication",
+      "command": [
+        "c:\\python312\\python.exe",
+        "analysis_tools/publish_quality.py",
+        "--check"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 0.239,
+      "stdout": "Verified quality acceptance documentation",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/quality_publication.log",
+      "log_raw_sha256": "5f76daed491ef598349895b4d1ab03a1e71ff9ff05e71749f80b8d7fb49ac128"
+    },
+    {
+      "name": "balanced_publication",
+      "command": [
+        "c:\\python312\\python.exe",
+        "analysis_tools/publish_balanced.py",
+        "--check"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "seconds": 4.249,
+      "stdout": "Balanced report and dashboard publication match the accepted evidence",
+      "stderr": "",
+      "log": "results/reproduced/legacy_acceptance/balanced_publication.log",
+      "log_raw_sha256": "1582c44740bf52fd25816e4ae5ac55608ba4db027e6a702cf9f956360db74619"
+    }
+  ],
+  "source_raw_sha256": {
+    "src/cadence/eval/archive.py": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee",
+    "src/cadence/llm/gemini.py": "8da398fb6abb1465c9c364c64c119dc61c8fff63c4c9d731e6749cb742eea771",
+    "src/cadence/agent/pipeline.py": "6ffaba846aa95e4cc1ac6d5d8932ec56016f8a4813a077eabd4ea60977180e23",
+    "src/cadence/agent/integrity.py": "c657e83aa2561f62fc092981c2e0de0381cb75fb7282ca207d1cbef8e27cdbc1",
+    "scripts/reproduce_recorded.py": "cfe4f14a65f043815335eccd021c71d8e07c44dd2e042bf478d5c777ec539aab",
+    "analysis_tools/reproduce_benchmark.py": "c7fd165a0134ca0ad327f806a03fb55797a28a98f02a437465fdabf865ae0f21",
+    "analysis_tools/reproduce_routing_comparison.py": "7fc6c78f62ef08cbdeda16ac2abb5f518b5a66bc9f32976678e04ff2ee37f031",
+    "analysis_tools/reproduce_quality.py": "dd2601a99edda8d65a11d17a1e846243e3c0de2deb9b873094e4ad1987f65723",
+    "analysis_tools/reproduce_balanced.py": "2d57e5ed8a269929463e283756807db51698a7a19a1b9cf96b5b73f21314df2b",
+    "analysis_tools/post_audit_regression.py": "8d026589304744b09f51473f308f80e4c6be3c3c08bdeeed59f0bb4fac800590",
+    "scripts/17_prepare_review_study.py": "f2d65d70ea49d2c97704e888f960653f3d9aaa390264cd2ecf4edce68f3eefc0",
+    "scripts/14_review_study.py": "68dcda983a0f111ee77c40290b0c2d3d62fa448642382f794b6e71cf9c7009d4",
+    "scripts/15_publish_benchmark.py": "c76894ffc2dfd17d51ee86f4115b76656e955da68fdd8359c59567ae6769f483",
+    "analysis_tools/publish_quality.py": "d1abf029619f25fa4526dc77a0c4ece5240a7340d8eb25e06aef396cf92d0870",
+    "analysis_tools/publish_balanced.py": "cd4223f468a871e3c62ccdab59135394c150fd5d0f22c0526b66d21546e96bb4"
+  },
+  "protected_artifact_count": 658,
+  "protected_artifacts_unchanged": true,
+  "protected_changed_paths": [],
+  "protected_input_hashes_sha256": "201dc2c6c6251fbe06b4c9bce27ca21d025c1a79610d059038ab88b50ec294e4",
+  "source_files_unchanged_during_checks": true,
+  "new_model_calls": 0,
+  "model_call_evidence": "All provider-capable replays enforced CADENCE_CACHE_ONLY=1; published artifacts and receipts replayed without fresh generation. Individual stdout records zero calls where exposed.",
+  "git_historical_diff": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "completed_at": "2026-09-18T12:30:06.224498+00:00",
+  "count_facts": {
+    "original_recorded": {
+      "prediction_rows": 1250,
+      "distinct_messages": 250,
+      "by_system": {
+        "agent": 250,
+        "llm_zero_shot": 250,
+        "simple": 250,
+        "simple_keyword": 250,
+        "trivial": 250
+      },
+      "judge_score_rows": 600,
+      "cache_receipts_verified": 1771
+    },
+    "frozen_benchmark": {
+      "prediction_rows": 800,
+      "distinct_messages": 200,
+      "by_system": {
+        "agent": 200,
+        "agent_no_evidence": 200,
+        "simple_keyword": 200,
+        "trivial": 200
+      },
+      "judge_order_rows": 800,
+      "saved_receipts": 800
+    },
+    "routing_comparison": {
+      "prediction_rows": 90,
+      "distinct_messages": 30,
+      "by_system": {
+        "agent": 30,
+        "selective": 30,
+        "trained_tfidf_lr": 30
+      },
+      "saved_receipts": 71
+    },
+    "quality": {
+      "quality_dev": {
+        "prediction_rows": 60,
+        "distinct_messages": 30,
+        "by_system": {
+          "agent": 30,
+          "quality": 30
+        },
+        "saved_receipts": 78
+      },
+      "quality_dev_v2": {
+        "prediction_rows": 60,
+        "distinct_messages": 30,
+        "by_system": {
+          "agent": 30,
+          "quality": 30
+        },
+        "saved_receipts": 78
+      },
+      "quality_dev_v3": {
+        "prediction_rows": 60,
+        "distinct_messages": 30,
+        "by_system": {
+          "agent": 30,
+          "quality": 30
+        },
+        "saved_receipts": 80
+      },
+      "quality_confirmation": {
+        "prediction_rows": 120,
+        "distinct_messages": 60,
+        "by_system": {
+          "agent": 60,
+          "quality": 60
+        },
+        "saved_receipts": 164
+      }
+    },
+    "balanced": {
+      "balanced_dev": {
+        "prediction_rows": 90,
+        "distinct_messages": 30,
+        "by_system": {
+          "agent": 30,
+          "balanced": 30,
+          "quality": 30
+        },
+        "saved_receipts": 121
+      },
+      "balanced_dev_v2": {
+        "prediction_rows": 90,
+        "distinct_messages": 30,
+        "by_system": {
+          "agent": 30,
+          "balanced": 30,
+          "quality": 30
+        },
+        "saved_receipts": 122
+      },
+      "balanced_dev_v3": {
+        "prediction_rows": 90,
+        "distinct_messages": 30,
+        "by_system": {
+          "agent": 30,
+          "balanced": 30,
+          "quality": 30
+        },
+        "saved_receipts": 120
+      },
+      "balanced_confirmation": {
+        "prediction_rows": 240,
+        "distinct_messages": 80,
+        "by_system": {
+          "agent": 80,
+          "balanced": 80,
+          "quality": 80
+        },
+        "saved_receipts": 329
+      }
+    },
+    "post_audit_regression": {
+      "model_calls": 0,
+      "cached_predictions": 200,
+      "changed_ids": [
+        "h_003",
+        "h_168",
+        "h_191"
+      ],
+      "newly_escalated_ids": [
+        "h_003",
+        "h_168",
+        "h_191"
+      ]
+    },
+    "review_packet": {
+      "matched_messages": 50,
+      "exact_reply_rows": 100
+    },
+    "astra_review": {
+      "ratings": 100,
+      "messages": 50
+    },
+    "existing_arnav_verified_review": {
+      "ratings": 100,
+      "messages": 50,
+      "scope": "Existing human verification record replayed; no new review performed or attested."
+    }
+  }
+}

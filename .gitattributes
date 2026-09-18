@@ -6,3 +6,6 @@
 *.pkl binary
 *.gz binary
 *.parquet binary
+# Human packets and submissions bind exact CSV bytes across platforms.
+data/verified_*/**/*.csv -text
+results/verified*/**/*.csv -text

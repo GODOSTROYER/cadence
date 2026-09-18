@@ -1,0 +1,42 @@
+{
+  "version": "verified-control-quality-v1",
+  "reviewer_type": "ai",
+  "reviewer_ids": [
+    "GPT-6 Astra xhigh independent controls review"
+  ],
+  "n_messages": 80,
+  "n_ratings": 320,
+  "human_review_complete": false,
+  "ratings_completed_at": "2026-09-18T12:16:37Z",
+  "provenance": "AI submission bound to sealed blinded customer/reply/evidence context; reviewer attribution is preserved, never human ratings.",
+  "score_reuse": "Any exact-context deduplication remains the reviewer's disclosed AI review method; no ratings synthesized here.",
+  "hash_convention": "SHA-256, CRLF normalized to LF for project text extensions; reply hashes are exact UTF-8.",
+  "inputs": {
+    "manifest.json": "054233e82a42ed6adcb001234d70a796a47b5aae56f4c35dcfa6bc7acd391416",
+    "predictions.jsonl": "ff31abacbb22c05b5538fdcf5bf925859aa6e85fc581a44237df66c31e7ab58d",
+    "routing_summary.json": "15f12e784f305b90a3d5796246bc7d5b2facdf134c787f0ee0f49a8587c65e0d",
+    "rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "blind_packet.jsonl": "42cc74819eff6323868a7267e2762ffe10e4992593d31b66cd512d9a06aebb37",
+    "blind_mapping.json": "90f3ff127809618bff4c5d114c6e606b1927d1bbcf8405c8dce0704a0dc353b4",
+    "EXECUTION.json": "dcbade0adb9a35a013fb13e6cfe19b03089505f0930e5002c687a5f1e9be8aef",
+    "INPUT_ARCHIVE.json": "f796a9749de7fa9ed59456f01ac23b52a417a13a3a8f05149482c4554a8b9725",
+    "blind_ai_ratings_submission": "d9a6b914daedd4e3145347cc6b6ecc3b875a0a853615f8167b2a3cdb54109973"
+  },
+  "analysis_sources": {
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "src/cadence/eval/verified.py": "a1e7ed1a6fe829685cfe00e8e6f0f085c4597d8986453a3ce2db1f4c00fd4cf2",
+    "src/cadence/eval/metrics.py": "c6e7d5cfcca3b27f88cbf3466f62d3e7b7c0672576ec84d36deb1011155a2b43",
+    "src/cadence/eval/agreement.py": "484bd1d69e70e84380407bcda560fefdcf7d3f4e71b0154c6d91e1b7bcbe0b5a",
+    "src/cadence/eval/review.py": "dec15af7eaf592c6bb84edd8c4b61131ca7024609f9c8595f0ce6bbbcea26ac4",
+    "src/cadence/eval/archive.py": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee",
+    "src/cadence/eval/provenance.py": "e4a434976b1c65ef5ddf64859aaa233dbbdb9e24a8d99a0e7cabf62e3e20a7e4",
+    "src/cadence/utils/io.py": "ea428fd60ff1044cad2cf216a2e4e5ecaf511ab59d8e2a463747c4f6719b8207",
+    "src/cadence/config.py": "b6d496962c237133d20e0e750db997f069f20c6e920df5c132b3ad3d89c3c613",
+    "pyproject.toml": "30320802f837e576156b8ee947e6f405ec0563c501aa4737c54d46cd86549e6a"
+  },
+  "promotion": false,
+  "artifacts": {
+    "quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+    "ai_reviews.jsonl": "b73d724cd09c2fb49d5a2ebd469d174401d4b2edf155b12cd9665051bf51207e"
+  }
+}

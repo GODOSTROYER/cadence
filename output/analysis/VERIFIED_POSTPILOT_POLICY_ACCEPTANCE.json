@@ -1,0 +1,49 @@
+{
+  "artifact_version": "verified-postpilot-policy-acceptance-v1",
+  "status": "accepted_for_fixed_implementation_scope",
+  "reviewed_at": "2026-09-18T12:50:04Z",
+  "reviewer": {
+    "type": "ai",
+    "identity": "Codex independent agent /root/request_policy_impl/postpilot_policy_review",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "context_mode": "fork_turns=none",
+    "reviewer_edited_files": false
+  },
+  "implementation_scope": [
+    "Recognize alleged product-caused physical, hearing and property harm, including questions and mitigated or conditional complaints, while distinguishing tested figurative, denied, preventive and unrelated-injury contexts.",
+    "Constrain person-change security assertions to account/security objects and recognize actual account takeover and access verb forms.",
+    "Constrain churn to service/subscription objects and first-person competitor migration, including contractions; distinguish app-state operations, dates and third-person questions.",
+    "Preserve the frozen password-reset/account-recovery boundary and every established mandatory-risk veto.",
+    "Add grounded request distinctions and quoted customer-fact slots needed by the separately reviewed postpilot action changes."
+  ],
+  "review_outcome": {
+    "all_reported_fixed_scope_findings_resolved": true,
+    "frozen_policy_configuration_unchanged": true,
+    "supporting_quote_grounding_preserved": true,
+    "immutable_hard_veto_preserved": true,
+    "notes": "The final independent pass confirmed the actual-access-after-incident and benign-access-after-logout contrasts. This is a bounded implementation acceptance, not an assertion of exhaustive natural-language risk coverage."
+  },
+  "validation": {
+    "command": "python -m pytest tests/test_request_policy.py -q",
+    "tests_passed": 142,
+    "targeted_ruff": "passed",
+    "ruff_files": [
+      "src/cadence/agent/policy_v2.py",
+      "src/cadence/agent/request_frame.py",
+      "tests/test_request_policy.py"
+    ],
+    "model_or_network_calls": false,
+    "reserved_calibration_or_confirmation_texts_read": false,
+    "completed_predictions_labels_or_study_artifacts_changed": false,
+    "verification_note": "Source and test files were frozen before the parent task's separately recorded postpilot regression run. Earlier completed results remain measurements of their archived earlier runtime."
+  },
+  "files": {
+    "src/cadence/agent/policy_v2.py": "f2a742b52b39fbb3a74cdc37903934cd0e097b1d58b8d95ea1007cea14bc3904",
+    "src/cadence/agent/request_frame.py": "4a1efa6c79ac4e660bd38b9dae216e2cd7f214bea1d05b7756a6fe5fa5edcc06",
+    "tests/test_request_policy.py": "13288e05b14fbea78d9d5990dfccd760ee063da2a35a6395b35cab6cb93fcbb6",
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+  },
+  "deployment_or_promotion_accepted": false,
+  "human_review_completed_by_this_record": false
+}

@@ -1,0 +1,14 @@
+{
+  "version": "verified-retrieval-review-v2",
+  "issue_relevance": "0=unrelated, 1=partly relevant, 2=same issue; blank means unrated",
+  "useful_diagnostic_pattern": "yes/no/uncertain; a useful question or diagnostic pattern, not proof of success",
+  "supports_proposed_action": "yes/no/uncertain; judge the exact proposed reply against the current request",
+  "current_authority": "yes/unsupported/uncertain; default is unsupported for historical material alone",
+  "current_authority_default": "unsupported",
+  "positive_authority_evidence": "A yes requires an official current source URL, checked_at, an actual local source snapshot, its SHA256, a verbatim source excerpt and a rationale connecting it to the proposed action. The validator checks provenance, not whether the source's claims are true.",
+  "missing_context": "Mark context_sufficient=no/uncertain if the available turns cannot support a judgment.",
+  "unavailable": "For an unavailable candidate use not_applicable for relevance/pattern/support/context; keep authority unsupported.",
+  "historical_limit": "A later brand reply is not an observed resolution. No outcome is inferred from position.",
+  "blinding": "No query arm, rank, score, label ID, primary gold, system identity or model frame is shown.",
+  "independence": "Independent human or AI reviewers supply judgments; this tool creates blank worksheets and no quality scores. AI review must be explicitly requested and labeled ai; AI ratings never count as human review."
+}

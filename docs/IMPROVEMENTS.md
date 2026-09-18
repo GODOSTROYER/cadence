@@ -1,5 +1,19 @@
 # Evaluation and routing improvements
 
+## Latest experimental follow-up: VerifiedAgent
+
+[Verified empirical status](VERIFIED_STATUS.md) is the current source for completed development/calibration measurements and remaining evidence gaps. [The implementation](VERIFIED_DESIGN.md) separates request and risk extraction from answer selection, applies policy v2 before rendering eligible actions, checks current-source authority and expiry, and preserves retry-inclusive failures and known usage. These are implemented mechanisms, not a measured guarantee of safe or useful replies.
+
+Completed development v4 and calibration v1 pilots produced 22/80 and 22/100 policy-compliant useful replies, respectively, but each missed two required routes and released four/six flagged automatic replies. The calibration misses were both legal/safety cases; all six flagged automatic replies were wrong-issue responses, with one also flagged for a stale procedure. These are AI-labelled, AI-reviewed pre-patch findings, not a passed safety result.
+
+The [joint variant review](VERIFIED_VARIANT_FINDINGS.md) covers 84 replies on 21 selected messages and establishes no winning variant. [Offline controls](VERIFIED_ABLATIONS.md) expose the useful-coverage cost of vetoes, and [retrieval review](VERIFIED_RETRIEVAL_FINDINGS.md) supports keeping raw-text BM25 for now. Identical Balanced outputs received different useful counts in separate AI review studies; comparisons must stay within one matched study and retain reviewer uncertainty.
+
+A later patch for harm/churn/security interpretation and action scope, with explicit knowledge v3, completed an 18-case inspected/synthetic regression. All 18 requests succeeded; four were automatic, no required routes were missed, and no automatic replies were flagged. Independent blinded AI review found **one useful clarification, no useful resolution, and seven unnecessary escalations**. This supports specific boundary checks, not restored useful coverage or fresh generalization. The pre-patch pilots remain unchanged.
+
+The new 200-case representative confirmation and 80-case synthetic challenge human-label packets remain untouched and blank. Their independent human labels and the later blinded human reply subset are still required by the [evaluation protocol](VERIFIED_EVALUATION.md); earlier human attestations below do not cover this new work. Code and targeted regression acceptance do not grant release acceptance.
+
+VerifiedAgent and policy v2 are not deployed or promoted. The reference `SupportAgent` remains the application default and hosted demo agent. No submission form is sent.
+
 ## What is implemented
 
 - **One published benchmark:** Overview and Evaluation default to the revised frozen 200-message, four-system comparison. Historical charts remain available explicitly. The report table and public JSON come from the same frozen summary; CI checks both for drift. The live deployment commit and frozen execution commit are shown separately.

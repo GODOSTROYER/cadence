@@ -150,6 +150,10 @@ def main():
     register_fonts()
     balanced_publication = read("results/published/balanced.json")
     balanced = balanced_publication["current"]
+    verified_dev = read("results/verified_dev_v4/summary.json")
+    verified_pilot = read("results/verified_calibration_v1/summary.json")
+    if any(study["status"] != "complete" for study in (verified_dev, verified_pilot)):
+        raise ValueError("VerifiedAgent report needs completed, reviewed development and pilot summaries")
     report = Report()
     r = report
     r.page("01 / the brief")
@@ -192,8 +196,8 @@ def main():
         394,
         546,
         str(balanced["n"]),
-        "Latest confirmation cases",
-        "Separated from inspected data; AI labels frozen before inference.",
+        "Completed confirmation cases",
+        "Balanced study; AI labels frozen before inference.",
     )
     r.para(
         "<b>The engineering question:</b> How much support can the system usefully handle automatically while missing as few necessary escalations as possible? Fluency and intent accuracy alone do not answer that question.",
@@ -386,7 +390,7 @@ def main():
         "The earlier quality candidate reduced missed escalations from 4 to 0, but automatic replies fell from 22/60 to 4/60. Useful replies rose only from 3/60 to 4/60. That coverage loss motivated a broader set of verified answers and joint routing. The reference and quality versions remain unchanged.",
         M, 199, size=9.4, leading=13,
     )
-    r.label(f"Now / {balanced['n']} new cases / all three arms / AI labels and review", 267)
+    r.label(f"Balanced / frozen {balanced['n']}-case study / three arms / AI review", 267)
     names = {"agent": "Reference", "quality": "Quality candidate", "balanced": "Balanced candidate"}
     r.table(
         ["System", "Auto", "Useful auto", "Resolution-style", "Misses"],
@@ -425,7 +429,7 @@ def main():
         + (" Failed: " + escape('; '.join(failed)) + "." if failed else "")
         + f" Balanced automatic replies flagged by review: {balanced['counts']['balanced']['flagged_automatic']}."
         + " " + escape(balanced_publication["review_note"])
-        + " Development iterations are preserved. Code was frozen before confirmation; no tuning followed these outcomes.",
+        + " Development iterations are preserved. Balanced was frozen before confirmation and remains unchanged.",
         M + 14, 661, CW - 28, size=9.2, leading=12.6,
     )
 
@@ -436,53 +440,80 @@ def main():
     )
     r.label("What is misleading about my headline number?", 177)
     caveats = [
-        "<b>Coverage hides utility.</b> An automatic decision can be irrelevant, obsolete or unsafe. Report useful coverage and missed escalations alongside recall.",
-        "<b>Confidence is not calibrated risk.</b> A 0.90 intent threshold is a policy setting. The original selector used its F2 fallback, not the claimed recall target.",
-        "<b>Labels and samples limit the claim.</b> Original AI labels were reviewed by Arnav; new confirmation labels are AI-only. De-duplication and English sampling change the population.",
-        "<b>Review independence matters.</b> Arnav verified visible Astra ratings. The later rubric is stricter than the original judge. Agreement does not establish independent hand-labeling.",
-        "<b>Replay is not a fresh model run.</b> Saved receipts prove what ran. Inspected examples are regressions; timing covers successful local requests, not a production SLA.",
+        "<b>Coverage hides utility.</b> Automatic replies can be irrelevant or unsafe; useful coverage and misses matter.",
+        "<b>Confidence is not calibrated risk.</b> The original 0.90 threshold used an F2 fallback, not the claimed recall target.",
+        "<b>Samples limit the claim.</b> Old AI labels had human review; 60/80-case labels were AI-only. Sampling is not traffic-weighted.",
+        "<b>Review is not independent.</b> Arnav verified visible Astra scores; the later stricter rubric changes agreement.",
+        "<b>Replay is not a fresh run.</b> Inspected cases are regressions. Successful-call timings are not a production SLA.",
     ]
     yy = 200
     for text in caveats:
-        yy = r.para(text, M, yy, CW, size=9.2, leading=12.6) + 10
-    r.label("With one more week", yy + 4)
-    yy = (
-        r.para(
-            "Obtain an independent blind human pass on the new replies; calibrate routing against useful coverage; broaden current-source coverage with expiry checks; run a larger locked benchmark and a small deployment canary. Keep account actions and autonomous posting outside this prototype.",
-            M,
-            yy + 27,
-            size=9.6,
-            leading=13.4,
-        )
-        + 23
+        yy = r.para(text, M, yy, CW, size=9.2, leading=12.6) + 6
+    r.label("VerifiedAgent / completed pre-patch studies / AI only", yy + 4)
+    yy = r.para(
+        "VerifiedAgent separates risk from answer selection, checks action prerequisites and uses expiring official sources. Exact replies are audited before release.",
+        M,
+        yy + 27,
+        size=9.2,
+        leading=12.6,
+    ) + 12
+    r.table(
+        ["Study / policy v2", "Auto", "Useful*", "Miss / need", "Flagged auto"],
+        [
+            (label, str(counts["automatic"]), str(counts["policy_compliant_useful_automatic"]),
+             f"{counts['missed_escalations']}/{counts['required']}", str(counts["flagged_automatic"]))
+            for label, counts in [
+                (f"Development / {verified_dev['n']}", verified_dev["metrics"]["verified"]["counts"]),
+                (f"Fresh AI pilot / {verified_pilot['n']}", verified_pilot["metrics"]["verified"]["counts"]),
+            ]
+        ],
+        M,
+        yy,
+        [155, 80, 80, 80, 116],
+        row_height=24,
     )
+    yy += 85
+    dev_runtime = verified_dev["runtime"]["verified"]
+    pilot_runtime = verified_pilot["runtime"]["verified"]
+    yy = r.para(
+        f"Development p95: {dev_runtime['p95_end_to_end_ms']/1000:.2f}s; {dev_runtime['tokens_known']:,} tokens. "
+        f"Pilot p95: {pilot_runtime['p95_end_to_end_ms']/1000:.2f}s; {pilot_runtime['tokens_known']:,} tokens. "
+        "<b>*Useful</b> requires an eligible automatic reply, ship and all quality gates. Development reuses inspected cases. Both studies use AI labels and review under a new policy/rubric; they are not directly comparable to page 5.",
+        M,
+        yy,
+        size=9.2,
+        leading=12.6,
+    ) + 8
+    yy = r.para(
+        "<b>The pilot exposed harm-routing failures.</b> The follow-up guard's 18 selected cases had 0/7 missed escalations and one useful reply. This is regression evidence, not restored coverage or independent confirmation; the table describes pre-patch code.",
+        M,
+        yy,
+        size=9.2,
+        leading=12.6,
+    ) + 12
+    r.label("With one more week / before promotion", yy)
+    yy = r.para(
+        "Complete human labels on <b>200 representative cases and 80 challenge cases</b> before confirmation inference, then matched blind reply review. Run a canary only if gates pass. Earlier human approvals retain their original scope. <b>The reference remains deployed.</b>",
+        M,
+        yy + 22,
+        size=9.2,
+        leading=12.6,
+    ) + 15
     r.label("Reproduce / Python 3.12 / zero new model calls", yy)
     yy += 25
     for command in [
         'python -m pip install -e ".[dev]"',
         "python analysis_tools/reproduce_benchmark.py",
         "python analysis_tools/reproduce_balanced.py",
-        "python -m pytest -q",
+        "python analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4",
     ]:
         r.text(command, M, yy, 8.5, "Mono", INK)
-        yy += 18
-    r.para(
-        "README documents the under-15-minute replay path. The repository contains the full rubric, per-example rationales, failures, cached receipts, input hashes and 15 non-obvious decisions. The hosted app is a demonstration; form submission is intentionally left to the author.",
-        M,
-        yy + 7,
-        size=9,
-        leading=12.5,
-    )
-    r.link("Evidence & decision log", REPO + "DECISION_LOG.md", M, 736)
+        yy += 16
+    r.link("VerifiedAgent study", REPO + "docs/VERIFIED_STATUS.md", M, 736)
+    r.link("Reproduction & decision log", REPO + "README.md", 312, 736)
     r.link(
-        "Dataset: Customer Support on Twitter",
+        "Dataset: Twitter customer support",
         "https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter",
-        252,
-        736,
-    )
-    r.link(
-        "Spotify: current playback guidance",
-        "https://support.spotify.com/us/article/spotify-not-playing/",
         M,
         756,
     )

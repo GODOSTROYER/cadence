@@ -1,0 +1,1637 @@
+{
+  "version": "verified-control-quality-v1",
+  "status": "complete",
+  "phase": "development",
+  "scoring_policy": "v2",
+  "n": 80,
+  "n_predictions": 320,
+  "n_ratings": 320,
+  "metrics": {
+    "balanced_replay": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 8,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 7,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 2,
+        "automatic_wrong_handoff": 2,
+        "n": 80,
+        "automatic": 30,
+        "escalated": 50,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 2,
+        "auto_on_required": 2,
+        "unnecessary_escalations": 24,
+        "legacy_useful_automatic": 14,
+        "policy_compliant_useful_automatic": 13,
+        "resolution": 10,
+        "clarification": 3
+      },
+      "rates": {
+        "automatic": 0.375,
+        "legacy_useful_coverage": 0.175,
+        "policy_compliant_useful_coverage": 0.1625,
+        "completion": 1.0,
+        "escalation_recall": 0.9285714285714286
+      },
+      "miss_rate_upper95": 0.20820471317941186,
+      "automatic_error_upper95": 0.429933933806293,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 28,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 23,
+          "automatic": 12,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 26,
+          "automatic": 11,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 31,
+          "automatic": 7,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 7,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 2
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.8125,
+        "macro_f1": 0.7641433239962652,
+        "weighted_f1": 0.8061922268907562,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8571428571428571,
+            "f1": 0.8571428571428571,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.42857142857142855,
+            "recall": 1.0,
+            "f1": 0.6,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7777777777777778,
+            "recall": 0.6363636363636364,
+            "f1": 0.7,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "f1": 0.8235294117647058,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.8461538461538461,
+            "recall": 1.0,
+            "f1": 0.9166666666666666,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9,
+            "recall": 0.6,
+            "f1": 0.72,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              7,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              1,
+              1,
+              9
+            ]
+          ]
+        },
+        "n": 80
+      }
+    },
+    "independent_policy_veto": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 7,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 6,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 2,
+        "automatic_wrong_handoff": 2,
+        "n": 80,
+        "automatic": 26,
+        "escalated": 54,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 0,
+        "auto_on_required": 0,
+        "unnecessary_escalations": 26,
+        "legacy_useful_automatic": 11,
+        "policy_compliant_useful_automatic": 11,
+        "resolution": 9,
+        "clarification": 2
+      },
+      "rates": {
+        "automatic": 0.325,
+        "legacy_useful_coverage": 0.1375,
+        "policy_compliant_useful_coverage": 0.1375,
+        "completion": 1.0,
+        "escalation_recall": 1.0
+      },
+      "miss_rate_upper95": 0.10146573557272469,
+      "automatic_error_upper95": 0.4467665364241776,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 26,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 21,
+          "automatic": 10,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 25,
+          "automatic": 10,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 34,
+          "automatic": 6,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 6,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 2
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.8125,
+        "macro_f1": 0.7641433239962652,
+        "weighted_f1": 0.8061922268907562,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8571428571428571,
+            "f1": 0.8571428571428571,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.42857142857142855,
+            "recall": 1.0,
+            "f1": 0.6,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7777777777777778,
+            "recall": 0.6363636363636364,
+            "f1": 0.7,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "f1": 0.8235294117647058,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.8461538461538461,
+            "recall": 1.0,
+            "f1": 0.9166666666666666,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9,
+            "recall": 0.6,
+            "f1": 0.72,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              7,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              1,
+              1,
+              9
+            ]
+          ]
+        },
+        "n": 80
+      }
+    },
+    "prerequisite_veto": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 0,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 0,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 80,
+        "automatic": 16,
+        "escalated": 64,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 1,
+        "auto_on_required": 1,
+        "unnecessary_escalations": 37,
+        "legacy_useful_automatic": 10,
+        "policy_compliant_useful_automatic": 9,
+        "resolution": 7,
+        "clarification": 2
+      },
+      "rates": {
+        "automatic": 0.2,
+        "legacy_useful_coverage": 0.125,
+        "policy_compliant_useful_coverage": 0.1125,
+        "completion": 1.0,
+        "escalation_recall": 0.9642857142857143
+      },
+      "miss_rate_upper95": 0.1585071743916358,
+      "automatic_error_upper95": 0.1707497229824809,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 15,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 19,
+          "automatic": 8,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 23,
+          "automatic": 8,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 38,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.8125,
+        "macro_f1": 0.7641433239962652,
+        "weighted_f1": 0.8061922268907562,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8571428571428571,
+            "f1": 0.8571428571428571,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.42857142857142855,
+            "recall": 1.0,
+            "f1": 0.6,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7777777777777778,
+            "recall": 0.6363636363636364,
+            "f1": 0.7,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "f1": 0.8235294117647058,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.8461538461538461,
+            "recall": 1.0,
+            "f1": 0.9166666666666666,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9,
+            "recall": 0.6,
+            "f1": 0.72,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              7,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              1,
+              1,
+              9
+            ]
+          ]
+        },
+        "n": 80
+      }
+    },
+    "combined_veto": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 0,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 0,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 80,
+        "automatic": 13,
+        "escalated": 67,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 0,
+        "auto_on_required": 0,
+        "unnecessary_escalations": 39,
+        "legacy_useful_automatic": 7,
+        "policy_compliant_useful_automatic": 7,
+        "resolution": 6,
+        "clarification": 1
+      },
+      "rates": {
+        "automatic": 0.1625,
+        "legacy_useful_coverage": 0.0875,
+        "policy_compliant_useful_coverage": 0.0875,
+        "completion": 1.0,
+        "escalation_recall": 1.0
+      },
+      "miss_rate_upper95": 0.10146573557272469,
+      "automatic_error_upper95": 0.20581666518655062,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 13,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 17,
+          "automatic": 6,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 22,
+          "automatic": 7,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 41,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.8125,
+        "macro_f1": 0.7641433239962652,
+        "weighted_f1": 0.8061922268907562,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8571428571428571,
+            "f1": 0.8571428571428571,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.42857142857142855,
+            "recall": 1.0,
+            "f1": 0.6,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7777777777777778,
+            "recall": 0.6363636363636364,
+            "f1": 0.7,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "f1": 0.8235294117647058,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.8461538461538461,
+            "recall": 1.0,
+            "f1": 0.9166666666666666,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9,
+            "recall": 0.6,
+            "f1": 0.72,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              7,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              1,
+              1,
+              9
+            ]
+          ]
+        },
+        "n": 80
+      }
+    }
+  },
+  "reviewer_type": "ai",
+  "reviewer_ids": [
+    "GPT-6 Astra xhigh independent controls review"
+  ],
+  "human_review_complete": false,
+  "human_agreement": null,
+  "promotion": false,
+  "fresh_model_calls": 0,
+  "fresh_latency_ms": null,
+  "fresh_cost": null,
+  "source_frames": {
+    "source_run": "results/verified_dev_v2",
+    "source_model": "gemini-3.5-flash-lite",
+    "source_frozen_at": "2026-09-18T11:32:39.071883+00:00",
+    "source_as_of": "2026-09-18",
+    "frames_sha256": "fe88d82301631699abc67178f715b81860fb6abf3ccb6e6cbc8de483180dd209"
+  },
+  "labels": {
+    "path": "data/verified_dev/labels.jsonl",
+    "sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5"
+  },
+  "inputs": {
+    "manifest.json": "054233e82a42ed6adcb001234d70a796a47b5aae56f4c35dcfa6bc7acd391416",
+    "predictions.jsonl": "ff31abacbb22c05b5538fdcf5bf925859aa6e85fc581a44237df66c31e7ab58d",
+    "routing_summary.json": "15f12e784f305b90a3d5796246bc7d5b2facdf134c787f0ee0f49a8587c65e0d",
+    "rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "blind_packet.jsonl": "42cc74819eff6323868a7267e2762ffe10e4992593d31b66cd512d9a06aebb37",
+    "blind_mapping.json": "90f3ff127809618bff4c5d114c6e606b1927d1bbcf8405c8dce0704a0dc353b4",
+    "EXECUTION.json": "dcbade0adb9a35a013fb13e6cfe19b03089505f0930e5002c687a5f1e9be8aef",
+    "INPUT_ARCHIVE.json": "f796a9749de7fa9ed59456f01ac23b52a417a13a3a8f05149482c4554a8b9725",
+    "blind_ai_ratings_submission": "d9a6b914daedd4e3145347cc6b6ecc3b875a0a853615f8167b2a3cdb54109973"
+  },
+  "analysis_sources": {
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "src/cadence/eval/verified.py": "a1e7ed1a6fe829685cfe00e8e6f0f085c4597d8986453a3ce2db1f4c00fd4cf2",
+    "src/cadence/eval/metrics.py": "c6e7d5cfcca3b27f88cbf3466f62d3e7b7c0672576ec84d36deb1011155a2b43",
+    "src/cadence/eval/agreement.py": "484bd1d69e70e84380407bcda560fefdcf7d3f4e71b0154c6d91e1b7bcbe0b5a",
+    "src/cadence/eval/review.py": "dec15af7eaf592c6bb84edd8c4b61131ca7024609f9c8595f0ce6bbbcea26ac4",
+    "src/cadence/eval/archive.py": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee",
+    "src/cadence/eval/provenance.py": "e4a434976b1c65ef5ddf64859aaa233dbbdb9e24a8d99a0e7cabf62e3e20a7e4",
+    "src/cadence/utils/io.py": "ea428fd60ff1044cad2cf216a2e4e5ecaf511ab59d8e2a463747c4f6719b8207",
+    "src/cadence/config.py": "b6d496962c237133d20e0e750db997f069f20c6e920df5c132b3ad3d89c3c613",
+    "pyproject.toml": "30320802f837e576156b8ee947e6f405ec0563c501aa4737c54d46cd86549e6a"
+  },
+  "limitations": [
+    "AI review of already inspected development cases; no independent human ratings or unseen confirmation.",
+    "Veto-only counterfactuals over fixed recorded outputs; cannot recover old escalations or prove a deployable optimum.",
+    "Original frame/policy/answer versions stay frozen; no replay with the current candidate or newer request frames.",
+    "No fresh end-to-end latency or cost; archived source runtime is not a new measurement."
+  ]
+}

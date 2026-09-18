@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-18",
+  "stage": "separate single-call diagnostic after interruption",
+  "network": "Sandbox socket denial resolved by authorized unsandboxed execution",
+  "provider_status": 400,
+  "provider_reason": "INVALID_ARGUMENT: additional_properties unsupported in generation_config.response_schema",
+  "successful_model_outputs": 0,
+  "known_token_usage": null,
+  "candidate_files": {
+    "src/cadence/llm/gemini.py": "c8f293dda5cd368f273c21e229e972832960754fc44ccfb01bd87bc2068bb644",
+    "src/cadence/agent/request_frame.py": "04e04609257379c2ae91360cdddddc52b2c7dd1e9106c5229d97619cedf85e70"
+  },
+  "resolution": "Use supported response_json_schema wire field for strict schemas, retain local validation; new frozen run required."
+}

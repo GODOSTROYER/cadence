@@ -1,0 +1,32 @@
+{
+  "run_id": "ab1bbdd04735bddb32c4eb96c7339a2f1c0aae06ca3eda542a23480a60565858",
+  "selection_lock_sha256": "c4567a0b9ddcdc140c2b1cf020ccb9851451fa5d694751fc2362ce7f553d73b5",
+  "source": {
+    "run": "Z:\\Projects\\Hiver\\results\\verified_dev_v2",
+    "manifest_raw_sha256": "78f26c45742c2200fa7361548776544ee487b5e07e2d394ac332f54cbb478fae",
+    "execution_raw_sha256": "6d6f8129c8954edecead7730d2b9ad7e3ae56fd38344d612565edc4979759d63",
+    "predictions_raw_sha256": "d046d77af80ca04beefbaf4fa01ec93da87b38358a60613fd85ed6fb1457de36",
+    "reserved_binding": {
+      "comparison": "exact",
+      "run_reserved_samples": [
+        "Z:\\Projects\\Hiver\\data\\verified_calibration\\examples.jsonl",
+        "Z:\\Projects\\Hiver\\data\\verified_challenge\\examples.jsonl",
+        "Z:\\Projects\\Hiver\\data\\verified_confirmation\\examples.jsonl"
+      ],
+      "diagnostic_only_reserved_samples": [],
+      "limitation": "Identical reserved inputs protected in source run and diagnostic."
+    }
+  },
+  "prepared_at": "2026-09-18T11:43:29.387370+00:00",
+  "n_selected": 20,
+  "n_review_items": 360,
+  "ratings_supplied": false,
+  "artifacts": {
+    "blind_packet.jsonl": "810e712c438535c1e45af407b1d9ad3aa8a1a8ee544307d9bcf12ad20929fb5c",
+    "private_mapping.jsonl": "e09ca82420e214c7c52cfd9b526f815cbf80eddb05c0e1d312f1195b69b346ab",
+    "private_diagnostics.json": "f8f7687d1a90ebaaccfa7756ab5c5713eee58580c1da86d78285ecf0bd2365fa",
+    "rubric.json": "ed6e7cbb6a5a36a360d9930b46720bda66e54d6d8343e992d46c6c9ebaeb0276",
+    "review_worksheet.jsonl": "b0283ae2b6e895b92e632d421b4a62e0d10abaf6016dda4a6e41d858a7211272",
+    "review_worksheet.csv": "82ae715ebaff1579d6469ba1461a99a0058253c3673b1945a9941d07b5d7f2a8"
+  }
+}

@@ -1,0 +1,2562 @@
+[
+  {
+    "id": "b4_001",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_001",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_001",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_001",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_002",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_002",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_002",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_002",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_003",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_003",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_003",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_003",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_004",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_004",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_004",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_004",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_005",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_005",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_005",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_005",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_006",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_006",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_006",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_006",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_007",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_007",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_007",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_007",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_008",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "3a003b034b905a82acb9382dca99817320a2a2d740349fee8c67615f28025399",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_008",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "3a003b034b905a82acb9382dca99817320a2a2d740349fee8c67615f28025399",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_008",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "3a003b034b905a82acb9382dca99817320a2a2d740349fee8c67615f28025399",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_008",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "3a003b034b905a82acb9382dca99817320a2a2d740349fee8c67615f28025399",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_009",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_009",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_009",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_009",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_010",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_010",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_010",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_010",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_011",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_011",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_011",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_011",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_012",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_012",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_012",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_012",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_013",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_013",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_013",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_013",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_014",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_014",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_014",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_014",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_015",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_015",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_015",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_015",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_016",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_016",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_016",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_016",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_017",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_017",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_017",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_017",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_018",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_018",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_018",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_018",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_019",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_019",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_019",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_019",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_020",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_020",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_020",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_020",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_021",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_021",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_021",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_021",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_022",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_022",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_022",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_022",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_023",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_023",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_023",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_023",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_024",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_024",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_024",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_024",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_025",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_025",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_025",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_025",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_026",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_026",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_026",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_026",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_027",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_027",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "c7e5d79f3b3a26f5bfb6aeea03f9faa9230b2f4f1088f97159ad25ecbd1a67d0",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_027",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_027",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_028",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_028",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_028",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_028",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_029",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_029",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_029",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_029",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_030",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_030",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_030",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_030",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_031",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_031",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_031",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_031",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_032",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_032",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_032",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_032",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_033",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_033",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_033",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_033",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_034",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_034",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_034",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_034",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_035",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_035",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_035",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_035",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_036",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_036",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_036",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_036",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_037",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_037",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_037",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_037",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_038",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_038",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_038",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_038",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_039",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_039",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_039",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_039",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_040",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_040",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_040",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_040",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_041",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_041",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_041",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_041",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_042",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_042",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_042",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_042",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_043",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_043",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_043",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_043",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_044",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_044",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_044",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_044",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_045",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_045",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_045",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_045",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_046",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_046",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_046",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_046",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_047",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_047",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_047",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_047",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_048",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_048",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_048",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_048",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_049",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_049",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_049",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_049",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_050",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_050",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_050",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_050",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_051",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_051",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_051",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_051",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_052",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bfbee8da9b5e9939ae9a902fd4147ab25685a68f52d971b498aca3653866f0fc",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_052",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bfbee8da9b5e9939ae9a902fd4147ab25685a68f52d971b498aca3653866f0fc",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_052",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bfbee8da9b5e9939ae9a902fd4147ab25685a68f52d971b498aca3653866f0fc",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_052",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bfbee8da9b5e9939ae9a902fd4147ab25685a68f52d971b498aca3653866f0fc",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_053",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "892620345b2fde64f00072ed7de3b24d85d6ce30d363654c2fd3ca49f8df4f0e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_053",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "892620345b2fde64f00072ed7de3b24d85d6ce30d363654c2fd3ca49f8df4f0e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_053",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "892620345b2fde64f00072ed7de3b24d85d6ce30d363654c2fd3ca49f8df4f0e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_053",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "892620345b2fde64f00072ed7de3b24d85d6ce30d363654c2fd3ca49f8df4f0e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_054",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_054",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_054",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_054",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_055",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_055",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_055",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_055",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_056",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_056",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_056",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_056",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_057",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_057",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_057",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_057",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_058",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_058",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_058",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_058",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_059",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_059",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_059",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_059",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_060",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_060",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_060",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_060",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_061",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_061",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_061",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_061",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_062",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_062",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_062",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_062",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_063",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_063",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_063",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_063",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_064",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_064",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_064",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_064",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_065",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_065",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_065",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_065",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_066",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_066",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_066",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_066",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_067",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_067",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_067",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_067",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_068",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_068",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_068",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_068",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_069",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_069",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_069",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_069",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_070",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_070",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_070",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_070",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_071",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_071",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_071",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_071",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_072",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_072",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_072",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_072",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_073",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_073",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_073",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_073",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_074",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_074",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_074",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_074",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_075",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_075",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_075",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_075",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_076",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_076",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_076",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_076",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_077",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_077",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_077",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_077",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_078",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_078",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_078",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_078",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_079",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_079",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_079",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  },
+  {
+    "id": "b4_079",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_080",
+    "alias": "A",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "independent_policy_veto"
+  },
+  {
+    "id": "b4_080",
+    "alias": "B",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "combined_veto"
+  },
+  {
+    "id": "b4_080",
+    "alias": "C",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced_replay"
+  },
+  {
+    "id": "b4_080",
+    "alias": "D",
+    "run_id": "ablation-054233e82a42ed6a",
+    "reply_hash": "f1b7aa84da5b2ad1a3b2a8a2235b56e01c6b57130aa3ebb112db15cb79e2dc77",
+    "rubric_version": "verified-support-review-v1",
+    "system": "prerequisite_veto"
+  }
+]

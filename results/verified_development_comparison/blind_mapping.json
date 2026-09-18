@@ -1,0 +1,2562 @@
+[
+  {
+    "id": "b4_001",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_001",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_001",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_001",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c6f0f614207da5143618620851c2a8be3b348d592b73c549d8697fcc6ee12bd7",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_002",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "022388a813742b1b05f215a225d3a3b4cba590d52de70c810723966730fa93d6",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_002",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_002",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_002",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_003",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_003",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_003",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_003",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "acddeb3c97563036530690e067e40f98ba9cf1fede67164bfa128b70ef0386b4",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_004",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_004",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "a7a31084ca534b150114b192d3e7424ccf7afc383338c29bc4f742b1764493ca",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_004",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "447928b61ca8138481eb769d0677207511ef12b049745e8329dee884c24e8de4",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_004",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_005",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_005",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_005",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_005",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_006",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_006",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_006",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b472184c7783c07b54b00c9be2da8fcae1a4908796fc9c5ef0048b3b3c5366ea",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_006",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_007",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9fbb80b99110acf82a89c599201cdf667f2199bf5e72273848a1be11c15880d7",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_007",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_007",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_007",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b81867dafd45d476a8d7fa1f6c9896fd58d01b6a51b651a2ff4ff9a80d9a869a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_008",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "3a003b034b905a82acb9382dca99817320a2a2d740349fee8c67615f28025399",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_008",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_008",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_008",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_009",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "def6bb251cef7fca021b0db289d31077dd44cd9e492d29562f1c074481c7af4b",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_009",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_009",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_009",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_010",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_010",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_010",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_010",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "608bc47bb4b505478f556aef854294515f2fd872dd8e56caca104a891e487cb5",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_011",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_011",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_011",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_011",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "82364e6066c76d9aca8074a71c71a0c117a196257b251d2b9e208746139f56e3",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_012",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_012",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "6fe48a176ac2e27982b976c6e59aaaaeb8a66628667e68c8a9d753b25f555bb5",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_012",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_012",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_013",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b6c1b96d0add90f4d69fb6acbc2f16c60a28ca8280df7edcd8fdcdc6156d4df3",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_013",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f87497a4ee69606b1a5a11688ecca3c31caa860bc2236c654fb35edc64ec2d9f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_013",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_013",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_014",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5d81741ed4a160ab7e189214468272a3bdd538ea86cb6e8a695f8c7423fc0cee",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_014",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9b2e4502893b60f0676d5a223f234aa0307f0639adaf64c34e8a3625bc387f7d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_014",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_014",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_015",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_015",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_015",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_015",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "3a1d3e3831c230bab873380379aa83606df7a70e1bb80b733e28a1a5ff1d6196",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_016",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_016",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b81867dafd45d476a8d7fa1f6c9896fd58d01b6a51b651a2ff4ff9a80d9a869a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_016",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_016",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8d6d0f7393e6dfcb39a72aa7a125a920297bb2f8a579ff5f000fbec8b3068380",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_017",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_017",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_017",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "e9706a5782871be19653180b67c8086385883951c9776e9424aeb5d7cfada9b9",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_017",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_018",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "79049b3765ff0e82fe3def5418cafc6d9374557d8931fe689866a8a55aa3d56c",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_018",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_018",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_018",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_019",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "578d3d128ee6d93caac4d82426296975556649d485da8738cc7ac99d54b789cb",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_019",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_019",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_019",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_020",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_020",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_020",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_020",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "607c93588d4e1902e54106c5cfaa4d6faebb8161ec31de1d91da962ae387c686",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_021",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_021",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ee8751b35b9bf17aeb06359741cc973fa9008365e876666cc4c366fe748bdf1e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_021",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_021",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_022",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_022",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "cf96a19860c500515b0c1206610836847dfabc36f37f0fcf7f1af48ceefc4f01",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_022",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_022",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_023",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efbb2189181daf0a0369b55501e69e40cd4100060dacec6e30007564c51d7bdf",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_023",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b29f40c6f19ce980b117999492d5bdc6e5985e22d28f69cac62935db7fb0f9f7",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_023",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_023",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_024",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_024",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_024",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "a8b7b5e3cb7c018230bdec531099ac93097698937c665251184c20ea7152ea96",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_024",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_025",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b81867dafd45d476a8d7fa1f6c9896fd58d01b6a51b651a2ff4ff9a80d9a869a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_025",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_025",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_025",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "46efbfeab30bc397101ce969624cc677f511119722a1d87d59b5512ed9ee9625",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_026",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "32db008de1436418f3d60f040597acf6ead51e4c840105d45ca70ef7b41c68ec",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_026",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_026",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_026",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "88c463d303408f6aea145eff715154a86eec9a53cccc7799769abd6e42427beb",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_027",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c7e5d79f3b3a26f5bfb6aeea03f9faa9230b2f4f1088f97159ad25ecbd1a67d0",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_027",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_027",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_027",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_028",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_028",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_028",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_028",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "e9fdadb3ac1138a8d3ca7ddd1f68562a30fa6aa2fac3277b755439cad82d6fb9",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_029",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "1320f564cf5485282d5ed4039abd7e56e647c17194829270ef1ab91ce0d6bf0b",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_029",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_029",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_029",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_030",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_030",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_030",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_030",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_031",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "fc063f41749446944c9b15bf36543c4bb5f7ac42c8a54268a0b96eab5e9c9a38",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_031",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_031",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_031",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_032",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_032",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_032",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b6a7a349f425124a7c06e530ea1d2298579cf4d06e69d4015c8a800e492443a0",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_032",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_033",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "66fc799edeb3c9a9b23235f98247ae4a2e3e02a0a43965321a24378058428b4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_033",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_033",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_033",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_034",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_034",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_034",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "89bac737340579d182c6b96ec9cc34be2f12cb39d771ca8bcff5e9933ad6d149",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_034",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_035",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_035",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_035",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_035",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "3eaa3f24d1b9ceaa890a4e4db695f0dd2f625367d39b715c0c30c1a3246319a6",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_036",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_036",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b81867dafd45d476a8d7fa1f6c9896fd58d01b6a51b651a2ff4ff9a80d9a869a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_036",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8294c13d97e4c601a153705d086550e564a6cac97f59e6b21f47d4aab56b40d3",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_036",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_037",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_037",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_037",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_037",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_038",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_038",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_038",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_038",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b81867dafd45d476a8d7fa1f6c9896fd58d01b6a51b651a2ff4ff9a80d9a869a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_039",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_039",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8a553206205c9d625a19a024f958fd9112dafeea7d8931ffc43c10dfa3b1d196",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_039",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_039",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_040",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_040",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_040",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_040",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "09b528813df2efd1b4f659a32284cbafd5417a6df371425cf98cc72a6952feae",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_041",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "000d930bdf343a0038b4377677cabd2fef648cba49527039d5cb39fed7499901",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_041",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_041",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_041",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_042",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "566928fed0f08a73c1692b90093c1380da398d1c2f552509131f84bafec2c4af",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_042",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_042",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_042",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "4b7d7bb4817d39c01f43f8dd76c17e0b6f654841a30e32e215fd3f6a6793910c",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_043",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_043",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_043",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_043",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "e7614828159aef233d7188a21ed7ac482eb5788dcc748f965b27e8bad9ed5c12",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_044",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_044",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_044",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_044",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9e589645f1f082ca62e0fdff12ba008ba2d0661d94b5688981591a6719389f3f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_045",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_045",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_045",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c9c07a89cec94981944d271bbe33db64728d5f2ca165dea972e9371323bb0049",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_045",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "fd78aeb7c3d369d28dbcb264621eaa74c683875faae72833851590b679ae085f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_046",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "0d682ea986e00e5762d2cddb347e09ef59995ef330f3543091f11c94d2c20ba4",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_046",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_046",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_046",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_047",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_047",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "719191179eb47da4562beeab4dd4a287a18dd9d830fb914e2ba4f4b0ad6c37ae",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_047",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "605f21f41d007fa87d1809b069bbb1ea1ec545aa4156512f0e2219272ce7ec5e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_047",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_048",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ac098ca21a5707502ec1ad3b34afc3c9b9ab713231fd251c6be3bbd5869f4f11",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_048",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_048",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_048",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_049",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "02dd8417c24b10adb4a31a667e16b1ce5209d8331d3a32eefb8a7cdd93d826d3",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_049",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_049",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_049",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_050",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f87497a4ee69606b1a5a11688ecca3c31caa860bc2236c654fb35edc64ec2d9f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_050",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_050",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_050",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "e7912ed03058072f908bcf7874096a64fea169ded57cea5173b9e138698996fd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_051",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efc18a49aa850fa515abe2c2b935f7017c435237a2fb6d5b857a8d9b2a89cd79",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_051",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_051",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_051",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_052",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_052",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "19cc4482d0573384a9aa078d169e0900555bc7889a3caab3380dea56c1baf0e5",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_052",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bfbee8da9b5e9939ae9a902fd4147ab25685a68f52d971b498aca3653866f0fc",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_052",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "a6684dd044c2e7a36b34abdaeac557aac271279e1d53f964176766530055db21",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_053",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_053",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "892620345b2fde64f00072ed7de3b24d85d6ce30d363654c2fd3ca49f8df4f0e",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_053",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "0d9143e4b49198006e5bdb45230066715dde527398d56c74dc95c56d601ccfed",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_053",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "25515d167b557bb60e1a2420dbbae39f745121ddeaff6eaab936a660b305bb33",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_054",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_054",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "db2c10ca482d3141743bd73ebc6e97127afd27211bc495dbb5a95b77d1392829",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_054",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_054",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_055",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "c0c74328d3a4cea8e455118b40b5b44db0f0ef731fcf1de64e913c193a189934",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_055",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_055",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_055",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_056",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "59e9b309eab0b78a187398e9d1bcd9f9d880b7d9bff101cdfa2cabd8dd0a6603",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_056",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9598443fac448640055e4577732582dfddf5f3dd2e00250a53f73d990e0ce495",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_056",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_056",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_057",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_057",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "d10d6c80999a30f1a7474f153697f9ba09237523c5cdd65bebb59fdbf4cc5c94",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_057",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_057",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_058",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_058",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_058",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_058",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_059",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ada3874ff48f76d0b8b4450d79dbb38d930ae0480deba004271e17b61f5a85ac",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_059",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_059",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_059",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_060",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_060",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_060",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5eb11ef69704f60fd66c7704b04d72114de397b28678ed1282c0255be8ebf6e0",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_060",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "9086aa865128cfa073cca61ab61646aa8ecec33a47adf3ab01683fcf87ca88dd",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_061",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efbb2189181daf0a0369b55501e69e40cd4100060dacec6e30007564c51d7bdf",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_061",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_061",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "a757228203206691ab92a705478d0200ec50cd5796386d8423e41980c20b7673",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_061",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_062",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_062",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_062",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_062",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_063",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_063",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_063",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efbb2189181daf0a0369b55501e69e40cd4100060dacec6e30007564c51d7bdf",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_063",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "e12df2c3b3388e4c14e4e6099ef836323a9d78883f305b76c737a351a9423fab",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_064",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_064",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_064",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efbb2189181daf0a0369b55501e69e40cd4100060dacec6e30007564c51d7bdf",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_064",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "843fd6960e25d3e8327137e8449db5fbcbe7e16a9e791df7993a2d2c1cf5dbbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_065",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_065",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_065",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_065",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ef005c6d6520f613575df47725a46410da70c038cac5f03465274b4583cf135c",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_066",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_066",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_066",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "a7a31084ca534b150114b192d3e7424ccf7afc383338c29bc4f742b1764493ca",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_066",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "50c9dc17bb163e20831ffa98cb2f2ac8b536d1b4bd5bf8647cf37ba546d16792",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_067",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "169460759d45576349ca8b1753327f0b302863eb2477a2537e7e7c621a6f6e93",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_067",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "beb8dd4611d69f8fc8957d6f37bf25d6e4774dee837ce1e1664ee98d07547013",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_067",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_067",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efbb2189181daf0a0369b55501e69e40cd4100060dacec6e30007564c51d7bdf",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_068",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_068",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_068",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "da53ea24c2c60496eccf821010c95a55c9d6cd98cb05e52d13a379c494aac64b",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_068",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_069",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_069",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_069",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "35ef1d08eb0402e8353e6d161c677a29117a8f1c2fe12b3f6e9ee9cd5b93c859",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_069",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_070",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "e3d2b0b3380a398302a8c813e342eeac6f98b383556dbbff365da26650485f9d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_070",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_070",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_070",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_071",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5bc6f6422f3169ea065026e22fc48bf71c757ce18ca228c82e4ade68a195f48a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_071",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_071",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_071",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_072",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "a5a6240ce6ccf0dd8ce92d752aaae94f7617a30cb5b7421265c68b02ccaf7a22",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_072",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "bd7ddd957cf824d10ce2cd2f56054a939a1fa6e99ade12220d6ad11d3a8e6cbe",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_072",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_072",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_073",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_073",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "33bd3f8ae131842f3a01a8f1f47ff0d38d8420fb09cfbf20314abb3a9b7e4bd9",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_073",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_073",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_074",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "759812cf8e796e572de36299897896bc357b0fc08d0112cd78486b7638d5cb4d",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_074",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "d3883a7e15bd55b473a5a77b63f986eb5ee8c86ff9d137a1ffae9106638cc356",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_074",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "efbb2189181daf0a0369b55501e69e40cd4100060dacec6e30007564c51d7bdf",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_074",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f830236867454edf2a586bc83d033f4397090b55e8cc157d4db71448f759849a",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_075",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "3d2d758215e70f94974125e808f5df00296a002e2b2e3092447b60f2b8040e3f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_075",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_075",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_075",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_076",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_076",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_076",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_076",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "71ea3166f037e2ba3b01b132cd739fa2de40b74ea25ac255af9576770d6bfa35",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_077",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_077",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8647d8116477c740343013f2f05f6c614062370c1b2c367c90b679092b497fd7",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_077",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_077",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_078",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f998cd86b65285796282c3396ca4503a181dcbaa5ae9b44d17706bd0113f858f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_078",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "86db578f06ece5b4110623ae862bef6889d7a33363b3efe825388113c2ed3ef7",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_078",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f87497a4ee69606b1a5a11688ecca3c31caa860bc2236c654fb35edc64ec2d9f",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_078",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_079",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "709e9d7f347e5a6f511512774481ee5f695b0cbf05f135572b92acb14a651248",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_079",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "5680c89b8ccc15069dd16a391a81e90294c7bebf0cc62739b3b782f6bbcf6292",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_079",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "ca9c9065fc139fb625da767061dedde30bb8ed311e77d0912be2966925717eb1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  },
+  {
+    "id": "b4_079",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_080",
+    "alias": "A",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "f0b571fa2d189e93ec471ab76e8098e30df45deccb9989a6812488e6b419caba",
+    "rubric_version": "verified-support-review-v1",
+    "system": "balanced"
+  },
+  {
+    "id": "b4_080",
+    "alias": "B",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "b0a1b344f69d7aaffef7a7bb2a10ff44b1dd8d247ee07e339690e33d5d2818c0",
+    "rubric_version": "verified-support-review-v1",
+    "system": "verified"
+  },
+  {
+    "id": "b4_080",
+    "alias": "C",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "8259ad43a2e54d164590cd00e322ddad7d4bee226342f6fe89a0ceb5677abbe1",
+    "rubric_version": "verified-support-review-v1",
+    "system": "agent"
+  },
+  {
+    "id": "b4_080",
+    "alias": "D",
+    "run_id": "verified-development-917d0e9bcbc5dafa",
+    "reply_hash": "7a49725131e7cc354bb2fcf858365439d170e7dbdd2b9be313501c12f5ecf813",
+    "rubric_version": "verified-support-review-v1",
+    "system": "quality"
+  }
+]

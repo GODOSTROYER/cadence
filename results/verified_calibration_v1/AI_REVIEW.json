@@ -1,0 +1,13 @@
+{
+  "reviewer_type": "ai",
+  "reviewer_id": "GPT-6 Astra xhigh independent calibration review",
+  "n_messages": 100,
+  "n_ratings": 100,
+  "provenance": "AI-generated review; never treated as human",
+  "hash_convention": "SHA-256 with CRLF normalized to LF for JSON/JSONL; reply text hashes remain exact UTF-8",
+  "artifacts": {
+    "ai_review_submission.jsonl": "2f84eee9266ba91cf023a7b3cdb500aa2acddf2b6a12bc1a19db8ef88e8858e7",
+    "ai_reviews.jsonl": "6dbade47f2e4fe796297f892828e0b5f3ebede45c2ba0857bb26ab0400fc462f",
+    "REVIEW.lock.json": "0cd0ad6f555c213413057209b37720fe1ec9eb8dbb6657c27dd11c6cf4d52a1c"
+  }
+}

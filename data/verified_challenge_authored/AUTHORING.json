@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "status": "authored; independent importer reported exposure checks passed and challenge locked; awaiting independent human labels before inference",
+  "author_id": "verified-challenge-author-astra-xhigh",
+  "author_type": "ai",
+  "model": "Astra",
+  "model_id": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "human_authored": false,
+  "human_labeled": false,
+  "independent_authoring_attested": true,
+  "provenance": "AI-only synthetic boundary-scenario authoring in a delegated task, using the authorized policy, taxonomy and import-schema sources. No human authorship or independent human labels are claimed.",
+  "n": 80,
+  "origin_counts": {
+    "synthetic": 80,
+    "real": 0
+  },
+  "category_counts": {
+    "risk_morphology": 10,
+    "mixed_intent": 10,
+    "missing_context": 10,
+    "known_context": 10,
+    "operational_failure": 10,
+    "negation": 10,
+    "unsupported_action": 10,
+    "stale_procedure": 10
+  },
+  "source_files_read": [
+    "config/policy_v2.json",
+    "docs/POLICY_V2.md",
+    "docs/TAXONOMY.md",
+    "scripts/26_lock_verified_confirmation.py"
+  ],
+  "source_use": {
+    "config/policy_v2.json": "prospective risk and scope boundaries",
+    "docs/POLICY_V2.md": "prospective policy semantics, including the policy's own illustrative acceptance examples",
+    "docs/TAXONOMY.md": "intent vocabulary and customer-request boundaries; this authorized document also contains historical aggregate methodology and metrics",
+    "scripts/26_lock_verified_confirmation.py": "case schema, category constants, supported fault-injection values, pair and overlap validation requirements"
+  },
+  "independence": {
+    "agent_implementation_read": false,
+    "prior_case_datasets_read": false,
+    "prior_predictions_read": false,
+    "prior_labels_read": false,
+    "prior_result_artifacts_read": false,
+    "future_confirmation_200_read": false,
+    "routing_labels_authored": false,
+    "expected_outputs_authored": false,
+    "inference_performed": false,
+    "prior_exposure_overlap_check": "deferred to parent import checker; author did not inspect prior case texts",
+    "post_authoring_coordination": "After cases were authored, hashed and sent for independent overlap checking, the execution implementer reported supported injection applicability and aggregate offline test status. No agent source, predictions, per-case outputs or labels were supplied, and no case text was changed in response."
+  },
+  "contrast_pairs": {
+    "renewal_entries": [
+      "vc_006",
+      "vc_053"
+    ],
+    "contact_resolution": [
+      "vc_009",
+      "vc_039"
+    ]
+  },
+  "operational_setup": {
+    "schema": "Each operational_failure row contains setup with the sole key inject and a supported control value.",
+    "execution_status": "specified only; no injection or inference executed",
+    "execution_requirement": "The runner must implement the selected control before claiming an operational case was tested. provider_error designates a provider failure such as an HTTP error; malformed_extraction and malformed_audit designate parse or schema failure scenarios."
+  },
+  "population": "Deliberately authored, oversampled synthetic Spotify support boundary scenarios",
+  "limitations": [
+    "This suite is not a sample of real held-out conversations or traffic prevalence.",
+    "Cases and contrast pairs are authored and dependent; category balance is deliberate.",
+    "Customer statements and named content are synthetic scenario details, not verified source facts.",
+    "No expected routing decisions or response texts are provided; all 80 cases require independent human labels before inference.",
+    "Self-audit cannot establish independence of future human reviewers or non-overlap with unread exposure datasets."
+  ],
+  "created_at": "2026-09-18T11:20:21.772107+00:00",
+  "cases_sha256": "6af554819ff6abddc41cec8c3074c13303c50174709858c3bd77554e4d9d44dc",
+  "source_sha256": {
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "docs/POLICY_V2.md": "b872ae99a6849971b8da3cbe6e634f1158c13f79fabfa74e0b3d41b0ead6a058",
+    "docs/TAXONOMY.md": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f",
+    "scripts/26_lock_verified_confirmation.py": "9348f1076b0433b764883665145f351d794521e132d58ca3dfef45d2a0789d62"
+  },
+  "self_audit": {
+    "passed": true,
+    "n": 80,
+    "unique_ids": 80,
+    "unique_casefold_texts": 80,
+    "category_counts": {
+      "risk_morphology": 10,
+      "mixed_intent": 10,
+      "missing_context": 10,
+      "known_context": 10,
+      "operational_failure": 10,
+      "negation": 10,
+      "unsupported_action": 10,
+      "stale_procedure": 10
+    },
+    "all_first_five_required_categories_present": true,
+    "all_rows_schema_valid": true,
+    "routing_labels_or_expected_outputs": 0,
+    "operational_rows": 10,
+    "operational_inject_counts": {
+      "provider_timeout": 1,
+      "provider_error": 2,
+      "malformed_extraction": 1,
+      "malformed_audit": 1,
+      "expired_knowledge": 1,
+      "missing_knowledge": 1,
+      "context_budget": 1,
+      "deadline_exhausted": 1,
+      "retrieval_error": 1
+    },
+    "pair_groups": {
+      "renewal_entries": 2,
+      "contact_resolution": 2
+    },
+    "text_pairs_compared": 3160,
+    "near_duplicate_threshold": 85,
+    "similarity_metric": "casefold normalized Indel similarity (200 * longest common subsequence length / combined length), equivalent to rapidfuzz.fuzz.ratio",
+    "near_duplicate_pairs": [
+      {
+        "ids": [
+          "vc_009",
+          "vc_039"
+        ],
+        "ratio": 88.050314
+      },
+      {
+        "ids": [
+          "vc_006",
+          "vc_053"
+        ],
+        "ratio": 87.096774
+      }
+    ],
+    "undeclared_near_duplicate_pairs": 0,
+    "prior_exposure_overlap_audit": "not performed by author; pending independent parent importer",
+    "knowledge_faults_executed": false,
+    "model_inference_on_cases_performed": false
+  },
+  "independent_import_report": {
+    "reported_at": "2026-09-18T11:26:50.833745+00:00",
+    "reported_by": "/root/verified_packet_prepare",
+    "verification_basis": "direct coordination message from independent packet-preparation agent; author did not inspect exposure datasets or imported packet",
+    "accepted_cases": 80,
+    "prior_conservative_exposed_corpus_threads": 4368,
+    "newly_locked_calibration_cases": 100,
+    "prior_or_calibration_near_duplicate_collisions": 0,
+    "similarity_threshold": 85,
+    "locked_challenge_directory": "data/verified_challenge",
+    "human_packet_blank": true,
+    "inference_performed": false,
+    "authored_case_bytes_unchanged": true,
+    "cases_sha256": "6af554819ff6abddc41cec8c3074c13303c50174709858c3bd77554e4d9d44dc"
+  }
+}

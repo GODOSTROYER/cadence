@@ -1,0 +1,212 @@
+{
+  "spotify-not-playing": {
+    "url": "https://support.spotify.com/us/article/spotify-not-playing/",
+    "final_url": "https://support.spotify.com/us/article/spotify-not-playing/",
+    "fetched_at": "2026-09-18T10:58:25.716001+00:00",
+    "response_sha256": "39a48d156dd7c207b5445b3e7c5d5e7dd3f6cc877f3b54b3e259cf4ad0834f66",
+    "normalized_sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/spotify-not-playing.txt",
+    "snapshot_sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45"
+  },
+  "updating-spotify": {
+    "url": "https://support.spotify.com/us/article/updating-spotify/",
+    "final_url": "https://support.spotify.com/us/article/updating-spotify/",
+    "fetched_at": "2026-09-18T10:58:25.615100+00:00",
+    "response_sha256": "ff76499b9207aae1c60e10547d2278701096436d2bd85a194ad8c7e82a3a5abd",
+    "normalized_sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/updating-spotify.txt",
+    "snapshot_sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02"
+  },
+  "reinstall-spotify": {
+    "url": "https://support.spotify.com/us/article/reinstall-spotify/",
+    "final_url": "https://support.spotify.com/us/article/reinstall-spotify/",
+    "fetched_at": "2026-09-18T10:58:25.746983+00:00",
+    "response_sha256": "503c3620f2aa645264cb4bc644c2c5c223b666d4b52bc92f5dc61d63b52a604a",
+    "normalized_sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/reinstall-spotify.txt",
+    "snapshot_sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c"
+  },
+  "spotify-connect": {
+    "url": "https://support.spotify.com/us/article/spotify-connect/",
+    "final_url": "https://support.spotify.com/us/article/spotify-connect/",
+    "fetched_at": "2026-09-18T10:58:25.531114+00:00",
+    "response_sha256": "88c9f360c68e6730d673b0d35d7b54609adb55f6913037b7494299e18e6c7387",
+    "normalized_sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/spotify-connect.txt",
+    "snapshot_sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed"
+  },
+  "listen-offline": {
+    "url": "https://support.spotify.com/us/article/listen-offline/",
+    "final_url": "https://support.spotify.com/us/article/listen-offline/",
+    "fetched_at": "2026-09-18T10:58:26.612920+00:00",
+    "response_sha256": "1129b82bf909dd6b464ba880d56034b6fe79c47c7f38bd121bbd6742250e5d44",
+    "normalized_sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/listen-offline.txt",
+    "snapshot_sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f"
+  },
+  "sort-and-filter": {
+    "url": "https://support.spotify.com/us/article/sort-and-filter/",
+    "final_url": "https://support.spotify.com/us/article/sort-and-filter/",
+    "fetched_at": "2026-09-18T10:58:26.190584+00:00",
+    "response_sha256": "bf1a0dc0c0a1b6ebc7e0049934c787d605c2226be63fec9a278f853c03ffdd12",
+    "normalized_sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/sort-and-filter.txt",
+    "snapshot_sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd"
+  },
+  "create-playlists": {
+    "url": "https://support.spotify.com/us/article/create-playlists/",
+    "final_url": "https://support.spotify.com/us/article/create-playlists/",
+    "fetched_at": "2026-09-18T10:58:26.644173+00:00",
+    "response_sha256": "431cd96b29c43732aa6b62a8d422bdf2e3dcb25e1525127a40416ff0567f8b70",
+    "normalized_sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/create-playlists.txt",
+    "snapshot_sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371"
+  },
+  "collaborative-playlists": {
+    "url": "https://support.spotify.com/us/article/collaborative-playlists/",
+    "final_url": "https://support.spotify.com/us/article/collaborative-playlists/",
+    "fetched_at": "2026-09-18T10:58:26.676452+00:00",
+    "response_sha256": "a54aff7e5bf7bc74bc1c6ca1625d14d2b1abedd833db413e9a3c7cc4163f267d",
+    "normalized_sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/collaborative-playlists.txt",
+    "snapshot_sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726"
+  },
+  "missing-music-or-podcasts": {
+    "url": "https://support.spotify.com/us/article/missing-music-or-podcasts/",
+    "final_url": "https://support.spotify.com/us/article/missing-music-or-podcasts/",
+    "fetched_at": "2026-09-18T10:58:26.766815+00:00",
+    "response_sha256": "386e3064d79a0e1850503d5fa213817f54e0b139126405a6377ac1d7fc211b47",
+    "normalized_sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/missing-music-or-podcasts.txt",
+    "snapshot_sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656"
+  },
+  "where-spotify-is-available": {
+    "url": "https://support.spotify.com/us/article/where-spotify-is-available/",
+    "final_url": "https://support.spotify.com/us/article/where-spotify-is-available/",
+    "fetched_at": "2026-09-18T10:58:27.351320+00:00",
+    "response_sha256": "30a58abb240cf919ab5925ff44d88ae1da72fd221d319d163021e69567802957",
+    "normalized_sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/where-spotify-is-available.txt",
+    "snapshot_sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509"
+  },
+  "faulty-inaccurate-metadata": {
+    "url": "https://support.spotify.com/us/article/faulty-inaccurate-metadata/",
+    "final_url": "https://support.spotify.com/us/article/faulty-inaccurate-metadata/",
+    "fetched_at": "2026-09-18T10:58:27.213165+00:00",
+    "response_sha256": "780b6a12c65f984bd173c43d4c04d755dc430759e0234d21763aca308c49a7bc",
+    "normalized_sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/faulty-inaccurate-metadata.txt",
+    "snapshot_sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae"
+  },
+  "student-verification-not-working": {
+    "url": "https://support.spotify.com/us/article/student-verification-not-working/",
+    "final_url": "https://support.spotify.com/us/article/student-verification-not-working/",
+    "fetched_at": "2026-09-18T10:58:27.315114+00:00",
+    "response_sha256": "5af2c46b18e1038e0981b2f47d57754c88b68e69476eef7c3ddad0df231609ec",
+    "normalized_sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/student-verification-not-working.txt",
+    "snapshot_sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e"
+  },
+  "hulu-premium-bundle": {
+    "url": "https://support.spotify.com/us/article/hulu-premium-bundle/",
+    "final_url": "https://support.spotify.com/us/article/hulu-premium-bundle/",
+    "fetched_at": "2026-09-18T10:58:27.277794+00:00",
+    "response_sha256": "8bd4a2e5e1d412a5f97a57c392a2ec24951d52fd97a792386a158ae2941e72c5",
+    "normalized_sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/hulu-premium-bundle.txt",
+    "snapshot_sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda"
+  },
+  "username-and-display-name": {
+    "url": "https://support.spotify.com/us/article/username-and-display-name/",
+    "final_url": "https://support.spotify.com/us/article/username-and-display-name/",
+    "fetched_at": "2026-09-18T10:58:27.845834+00:00",
+    "response_sha256": "ac0de990543efb8a65ecc810dffc742bedeffa395a6cdfd76faf79bb75e6a334",
+    "normalized_sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/username-and-display-name.txt",
+    "snapshot_sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474"
+  },
+  "suggest-feature": {
+    "url": "https://support.spotify.com/us/article/suggest-feature/",
+    "final_url": "https://support.spotify.com/us/article/suggest-feature/",
+    "fetched_at": "2026-09-18T10:58:27.871900+00:00",
+    "response_sha256": "7db509d1f22a8decbbac8e9bed26d4cf37d286a450b4353eca584aae95c752c9",
+    "normalized_sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/suggest-feature.txt",
+    "snapshot_sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6"
+  },
+  "contact-us": {
+    "url": "https://support.spotify.com/us/article/contact-us/",
+    "final_url": "https://support.spotify.com/us/article/contact-us/",
+    "fetched_at": "2026-09-18T10:58:28.036253+00:00",
+    "response_sha256": "724e4acb522e16aa0b3bac6f03b2c84ab767230c5ea15f7467d75e822fe33226",
+    "normalized_sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/contact-us.txt",
+    "snapshot_sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4"
+  },
+  "family-plan": {
+    "url": "https://support.spotify.com/us/article/family-plan/",
+    "final_url": "https://support.spotify.com/us/article/family-plan/",
+    "fetched_at": "2026-09-18T10:58:27.960462+00:00",
+    "response_sha256": "3199d5157de71000d44a0f9cf93a96ba0548d4499dd48512bf876ddb15f6a864",
+    "normalized_sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/family-plan.txt",
+    "snapshot_sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59"
+  },
+  "spotify-wrapped": {
+    "url": "https://support.spotify.com/us/article/spotify-wrapped/",
+    "final_url": "https://support.spotify.com/us/article/spotify-wrapped/",
+    "fetched_at": "2026-09-18T10:58:28.383489+00:00",
+    "response_sha256": "e169f9a3f57db0a11822d82b2559ad63f88283aae653446be9ed196c86a1f9c4",
+    "normalized_sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/spotify-wrapped.txt",
+    "snapshot_sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1"
+  },
+  "shuffle-play": {
+    "url": "https://support.spotify.com/us/article/shuffle-play/",
+    "final_url": "https://support.spotify.com/us/article/shuffle-play/",
+    "fetched_at": "2026-09-18T10:58:28.758034+00:00",
+    "response_sha256": "324a31f9e0dba31fc57062c782872beae3eed89268002215d0c4e757be6d0d4e",
+    "normalized_sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/shuffle-play.txt",
+    "snapshot_sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5"
+  },
+  "autoplay": {
+    "url": "https://support.spotify.com/us/article/autoplay/",
+    "final_url": "https://support.spotify.com/us/article/autoplay/",
+    "fetched_at": "2026-09-18T10:58:28.746560+00:00",
+    "response_sha256": "51af1a71654a6e8850f087dea19a3b281149936c6c00acc59b4d0b235e946a1c",
+    "normalized_sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/autoplay.txt",
+    "snapshot_sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47"
+  },
+  "explicit-content": {
+    "url": "https://support.spotify.com/us/article/explicit-content/",
+    "final_url": "https://support.spotify.com/us/article/explicit-content/",
+    "fetched_at": "2026-09-18T10:58:28.769917+00:00",
+    "response_sha256": "7ddb55e45a29700bd4a0403afc6bf5c976ec55e1f4ad63f9446f2b25374437c5",
+    "normalized_sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+    "extraction": "spotify-rendered-article-text-v1",
+    "snapshot": "snapshots/2026-09-18/explicit-content.txt",
+    "snapshot_sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07"
+  }
+}

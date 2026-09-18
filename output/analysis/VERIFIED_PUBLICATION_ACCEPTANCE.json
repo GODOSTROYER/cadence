@@ -1,0 +1,306 @@
+{
+  "version": "verified-publication-acceptance-v1",
+  "status": "pass",
+  "recorded_at": "2026-09-18T13:12:54.895789+00:00",
+  "reviewer": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "task": "/root/verified_publication_acceptance",
+    "selection": "Explicit model/reasoning dispatch confirmed by root; fork_turns=none",
+    "type": "ai"
+  },
+  "scope": "Independent acceptance of the frozen implementation/evidence/publication package and exact release hashes. This accepts faithful reporting and reproducibility, not candidate promotion, universal model correctness or completion of human confirmation.",
+  "limits": [
+    "No reserved final 200 or challenge 80 customer texts or labels were parsed, displayed or reviewed. Only their exact bytes were hashed against the original blank-packet acceptance; file-existence metadata was checked.",
+    "No new model/network calls, deployment, source/results/docs edits, rating creation or human attestation occurred in this acceptance task.",
+    "Prepatch development 80 and calibration 100 remain AI-labelled and AI-reviewed studies that fail zero-miss and zero-flagged-automatic criteria; they cannot be attributed to the postpilot candidate.",
+    "The 18-case postpilot study contains 6 inspected calibration cases and 12 synthetic contrasts. Its 0/7 misses and 0/4 flagged automatic replies are selected-regression observations; only 1/18 reply met useful coverage. No restored coverage, generalization or superiority follows.",
+    "All new judgments and this acceptance are AI work. Existing Arnav Bule attestations remain scoped to their original artifacts. Human labels for final 200/challenge 80 and subsequent prespecified human reply review remain incomplete.",
+    "This task independently reproduced the seven current study/diagnostic summaries and verified historical replay bindings. It did not repeat the 12 historical replays, full 1157-test suite or frontend build; those are explicitly recorded prior checks, not newly performed here.",
+    "Final artifacts are accepted only at the recorded hashes. Staged-index portability was reported by the root and is identified as such below; any future external publication is outside this record."
+  ],
+  "checks": {
+    "pilot_source_config_identity": {
+      "n": 99,
+      "mismatches": []
+    },
+    "regression_source_config_at_initial_audit": {
+      "n": 100,
+      "mismatches": []
+    },
+    "legacy_raw_source_bindings": {
+      "n": 15,
+      "mismatches": []
+    },
+    "historical_agent_api_git_diff": {
+      "exit_code": 0,
+      "paths": [
+        "src/cadence/agent/pipeline.py",
+        "src/cadence/agent/integrity.py",
+        "src/cadence/agent/quality.py",
+        "src/cadence/agent/balanced.py",
+        "src/cadence/api/state.py",
+        "src/cadence/api/core.py"
+      ]
+    },
+    "reserved_partitions": {
+      "confirmation": {
+        "n": 200,
+        "examples_sample_lock_and_blank_human_csv_hashes_match": true,
+        "human_label_review_exists": false,
+        "inference_started_exists": false,
+        "labels_jsonl_exists": false
+      },
+      "challenge": {
+        "n": 80,
+        "examples_sample_lock_and_blank_human_csv_hashes_match": true,
+        "human_label_review_exists": false,
+        "inference_started_exists": false,
+        "labels_jsonl_exists": false
+      }
+    },
+    "registry": {
+      "v2_claims": 26,
+      "v3_claims": 27,
+      "sources_each": 21,
+      "source_records_identical": true,
+      "policy_json_unchanged_across_pilots_and_regression": true
+    },
+    "regression": {
+      "independent_counts_match": true,
+      "exact_blind_identity_validation": true,
+      "reviewer_type": "ai",
+      "reviewer_id": "GPT-6 Astra xhigh independent postpilot regression review",
+      "n": 18,
+      "automatic": 4,
+      "escalated": 14,
+      "failed": 0,
+      "required": 7,
+      "missed_escalations": 0,
+      "flagged_automatic": 0,
+      "policy_compliant_useful_automatic": 1,
+      "resolution": 0,
+      "clarification": 1,
+      "unnecessary_escalations": 7,
+      "model_calls": 23,
+      "network_attempts": 23,
+      "tokens_known": 73901,
+      "input_tokens": 65490,
+      "output_tokens": 8411,
+      "p95_end_to_end_ms": 4897.595784997245,
+      "all_observed_calls_explicitly_uncached": true,
+      "all_labels_ai_development": true,
+      "knowledge_fingerprint": "0cebe891811d913badbe9fc54bc5aba9b8405d4eac2513401889ffd66b50e68f",
+      "chronology": {
+        "label_freeze": "2026-09-18T12:46:07.6558216Z",
+        "run_freeze": "2026-09-18T12:52:03.376704+00:00",
+        "first_inference": "2026-09-18T12:52:13.479391+00:00",
+        "last_completed": "2026-09-18T12:53:15.404950+00:00",
+        "ratings": "2026-09-18T13:00:40.0865844+00:00",
+        "strictly_ordered_and_not_future": true
+      },
+      "review_notes_raw_context_hashes_match": true
+    },
+    "pdf": {
+      "all_six_final_pngs_visually_inspected": true,
+      "clipping_overlap_unreadable_text": false,
+      "pages": 6,
+      "page_size": "A4",
+      "author": "Arnav Bule",
+      "sha256": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
+      "public_copy_identical": true,
+      "prepatch_metrics_correct": true,
+      "ai_provenance_preserved": true,
+      "selected_regression_and_low_coverage_disclosed": true,
+      "required_human_gates_and_deployed_reference_preserved": true,
+      "acceptance_record": "output/pdf/verified-report-acceptance.json",
+      "acceptance_record_sha256": "33942a4cf1e820f3461040b499e66269520d4afec29f9aec7501f79dc5acd801",
+      "acceptance_bound_files_verified": 9
+    },
+    "release": {
+      "path": "results/acceptance/release.json",
+      "sha256": "c52631ca07a767a28d5ec042a8588df4eb0b3610f466caf4b015da0cdb264324",
+      "bound_files_verified": 1659,
+      "missing_files": [],
+      "hash_mismatches": [],
+      "candidate_promotion": false,
+      "deployed_system": "SupportAgent",
+      "no_hash_cycle": true
+    },
+    "documentation": {
+      "record": "output/analysis/VERIFIED_DOCUMENTATION_ACCEPTANCE.json",
+      "sha256": "96f96a062b2cec0f841097e812ce7ae05ad24d0ca79f3d1391d15374c1578866",
+      "eight_document_record_and_report_crosschecked": true,
+      "prepatch_failures_and_postpatch_limits_consistent": true,
+      "ai_only_provenance_and_reviewer_variation_explicit": true,
+      "original_human_attestations_not_extended": true,
+      "current_v3_default_and_historical_v2_distinguished": true
+    },
+    "root_reported_staged_index_portability": {
+      "status": "pass",
+      "n_release_bindings": 1659,
+      "independently_repeated_by_this_reviewer": false,
+      "evidence": "Root reported all 1659 release input hashes match actual staged Git blob bytes using the declared hash convention after Git newline conversion."
+    },
+    "regression_frozen_dependency_note": "All 100 executable-source/config inputs matched the regression manifest during the initial audit. The later knowledge README-only clarification is explicitly documented in the knowledge acceptance migration; executable sources, registries and source snapshots stayed frozen, and offline regression reproduction still passed."
+  },
+  "commands": [
+    {
+      "command": "python -B analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4 --action verify",
+      "exit_code": 0,
+      "n": 80,
+      "new_model_calls": 0,
+      "promote": false
+    },
+    {
+      "command": "python -B analysis_tools/reproduce_verified.py --experiment results/verified_calibration_v1 --action verify",
+      "exit_code": 0,
+      "n": 100,
+      "new_model_calls": 0,
+      "promote": false
+    },
+    {
+      "command": "python -B analysis_tools/compare_verified_variants.py --check",
+      "exit_code": 0,
+      "n": 21,
+      "n_ratings": 84,
+      "new_model_calls": 0,
+      "promote": false
+    },
+    {
+      "command": "python -B analysis_tools/summarize_verified_controls.py --experiment results/verified_ablation_v1 --check",
+      "exit_code": 0,
+      "n": 80,
+      "n_ratings": 320,
+      "new_model_calls": 0,
+      "promotion": false
+    },
+    {
+      "command": "python -B analysis_tools/summarize_verified_retrieval.py --check",
+      "exit_code": 0,
+      "n": 20,
+      "n_rows": 360,
+      "provenance": "AI-only descriptive analysis"
+    },
+    {
+      "command": "python -B analysis_tools/compare_verified_development.py verify",
+      "exit_code": 0,
+      "new_model_calls": 0,
+      "promote": false
+    },
+    {
+      "command": "python -B analysis_tools/reproduce_verified.py --experiment results/verified_postpilot_regression_v1 --action verify",
+      "exit_code": 0,
+      "n": 18,
+      "new_model_calls": 0,
+      "promote": false
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "registry_selection_hash_convention",
+      "description": "Registry-selection acceptance declared canonical hashes while its v3 value was a raw byte hash.",
+      "resolution": "Owner corrected canonical hash and preserved the raw observation separately; all three listed files match the declared canonical convention."
+    },
+    {
+      "id": "knowledge_portable_bindings",
+      "description": "Knowledge acceptance initially bound raw Windows bytes without portable hashing.",
+      "resolution": "Owner added explicit portable bindings preserving raw history and documented the post-review README clarification. All28 files in both knowledge records match current canonical hashes."
+    }
+  ],
+  "actionable_findings": [],
+  "remaining_required_publication_validation": [],
+  "source_changes_made": false,
+  "new_model_calls": 0,
+  "human_review_complete": false,
+  "candidate_promotion": false,
+  "hash_convention": "files use cadence.eval.provenance.sha256: CRLF normalized to LF for .json/.jsonl/.txt/.md/.yaml/.py, exact bytes otherwise. raw_file_sha256 records exact local bytes. The final release record is deliberately not rewritten to bind this file, avoiding a hash cycle.",
+  "files": {
+    "results/acceptance/release.json": "c52631ca07a767a28d5ec042a8588df4eb0b3610f466caf4b015da0cdb264324",
+    "results/acceptance/release_pre_verified.json": "6b41cd21443680071471bbfb0137fc52da8e71e42d88a5cfe4e8463749315510",
+    "output/analysis/VERIFIED_DOCUMENTATION_ACCEPTANCE.json": "96f96a062b2cec0f841097e812ce7ae05ad24d0ca79f3d1391d15374c1578866",
+    "output/pdf/verified-report-acceptance.json": "33942a4cf1e820f3461040b499e66269520d4afec29f9aec7501f79dc5acd801",
+    "output/pdf/Cadence-Arnav-Bule-Report.pdf": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
+    "ui/public/Cadence-Arnav-Bule-Report.pdf": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
+    "REPORT.md": "6bed3ed54a01b14526959d7e968e99c6df978157e5d297d08483293b2609df0b",
+    "analysis_tools/build_submission_report.py": "6237327b1e6121c7f1dcb08d3bb1dc032e261d86d3fcc76ea08f2ea09faaebf6",
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "config/knowledge/v2.json": "c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39",
+    "config/knowledge/v3.json": "aa7c03eeda9aeed44f0d5c29ddb594c5fbfa8c3741dc58c7530c220691ce119a",
+    "config/knowledge/README.md": "9c27dae3ea1d4a7b829dcb31268cde03d266c90de32c650dc85572412662e202",
+    "src/cadence/agent/pipeline.py": "ff905a9e56fb3d4248037ae94132115034f7df68c026b4bb4e518f71aeb7e50b",
+    "src/cadence/api/state.py": "cd2224caf10590faa946f252da24f0eea30c1b3ba73192b5e2a6e8717bb61f5a",
+    "src/cadence/agent/verified.py": "2329dbd552ba0773bcacc6e49908d168673f3db289a617957dba59c8889c2a7e",
+    "src/cadence/agent/request_frame.py": "4a1efa6c79ac4e660bd38b9dae216e2cd7f214bea1d05b7756a6fe5fa5edcc06",
+    "src/cadence/agent/policy_v2.py": "f2a742b52b39fbb3a74cdc37903934cd0e097b1d58b8d95ea1007cea14bc3904",
+    "src/cadence/agent/actions.py": "b1dd0f5a5dbff90feef78bfe5fb423fcbba9982ca84dc966d90b7bfe615a123a",
+    "output/analysis/VERIFIED_POSTPILOT_POLICY_ACCEPTANCE.json": "53ed4b5da47fab97f9a3cb9e68ad452b541fc6151a549e0a64c3cbccdb9f5272",
+    "output/analysis/POSTPILOT_ACTION_ACCEPTANCE.json": "fbc093614370c99f3bebfd5a09d7ad4ca58e3d49a91613d6027d04936b0f00d5",
+    "output/analysis/VERIFIED_REGISTRY_SELECTION_ACCEPTANCE.json": "d91e86803dca2a68e78ddd5335372f50f2ad821dec058e38ef52199bd855f179",
+    "output/analysis/KNOWLEDGE_V3_ACCEPTANCE.json": "82f93d23d66deacd834a7f8516adb31607de474b564f957ab501d5b1b8e8bb98",
+    "output/analysis/VERIFIED_LEGACY_REPLAY_ACCEPTANCE.json": "7595dfa555035aa164a5a2594d12f0ac13a3f6b918ab569a2e4fc73c7c39cd5c",
+    "output/analysis/VERIFIED_FINAL_TOOLING_ACCEPTANCE.json": "dfbdd206a7da8cf47898613524220d1c762c99f8b15b3cf6dbafc32e5c9734ad",
+    "data/verified_sampling/PACKET_ACCEPTANCE.json": "f451339b7b62af8482799a07bc53e302b2577800f73d23d1bd942d7438c2126b",
+    "data/verified_postpilot_regression/LABEL_REVIEW.json": "8d0e4e595c9be41419a774afd760176e83de844063c9c6a1dd8bb894208469c4",
+    "results/verified_dev_v4/summary.json": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
+    "results/verified_calibration_v1/summary.json": "dd3f5303f810e65e28206e87dc0a1be4ccd93159a2e4bc411f7a168a325d3876",
+    "results/verified_variant_comparison_v1/summary.json": "6de10d89630a5834eae387edadf0db6984500a9cd51e66179066f6e2e76c6ebe",
+    "results/verified_ablation_v1/quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+    "results/verified_retrieval_dev_v2/summary.json": "7eea73f6bdad00ff8ebaf5a7b5ed15ec1f330858cff8ebaa4a7736a5e6811cee",
+    "results/verified_postpilot_regression_v1/manifest.json": "bad8e539d0b86e2496c39fe84b2a86545283bf96e73cc521988e985e8fc74e31",
+    "results/verified_postpilot_regression_v1/EXECUTION.json": "bfc8259bf0a4b3253dc877e00c39339a5c2c0a0bcb440e04feaf606c0e284264",
+    "results/verified_postpilot_regression_v1/REVIEW.lock.json": "d7f5ce7071bac75015230cf35e50ee9554e4dbf4eeba4fd2809c22a212be28f7",
+    "results/verified_postpilot_regression_v1/AI_REVIEW.json": "96875b08a99a01399a478e5841e289961dd79fb6586378c56d671278c83f911e",
+    "results/verified_postpilot_regression_v1/summary.json": "9161eb7d3a92be13732df7bdc0bdf41dcad763c3b57514bbfd6094c388d219c2",
+    "results/verified_postpilot_regression_v1/runtime.json": "8ba00cc4f0e1b2454e23475192bc4b260f10aa3cd50764b3744a3e307d0610c4",
+    "results/verified_postpilot_regression_v1/blind_ai_ratings.jsonl": "a2c123b2e902f97e7813f2d2adafd8ddcc081eb8773bf4d02847ce429fe57704",
+    "results/verified_postpilot_regression_v1/ai_review_submission.jsonl": "a2c123b2e902f97e7813f2d2adafd8ddcc081eb8773bf4d02847ce429fe57704",
+    "results/verified_postpilot_regression_v1/ai_reviews.jsonl": "040d7303280b4ae27e09235dd7ce01837194d625006b7f54a35afe8226f04af6",
+    "results/verified_postpilot_regression_v1/AI_REVIEW_NOTES.md": "91696ecae77cd9643d5b9eeaf36cbdff3a756461ba878250f87c4ab376c337fc",
+    "results/verified_postpilot_regression_v1/predictions.jsonl": "88a553c995fadda6a5f9c1c4346f6f3a55e8b12dc4aa1d784ee31b50d5113eb0"
+  },
+  "raw_file_sha256": {
+    "results/acceptance/release.json": "c52631ca07a767a28d5ec042a8588df4eb0b3610f466caf4b015da0cdb264324",
+    "results/acceptance/release_pre_verified.json": "34e05ed3c63f20aa73820a1fee1a85781dca7f0f5a3e2fee86874271fde190e4",
+    "output/analysis/VERIFIED_DOCUMENTATION_ACCEPTANCE.json": "96f96a062b2cec0f841097e812ce7ae05ad24d0ca79f3d1391d15374c1578866",
+    "output/pdf/verified-report-acceptance.json": "33942a4cf1e820f3461040b499e66269520d4afec29f9aec7501f79dc5acd801",
+    "output/pdf/Cadence-Arnav-Bule-Report.pdf": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
+    "ui/public/Cadence-Arnav-Bule-Report.pdf": "2719d5ab24227043e2cdbcae85a4ad21759535079fc8cd656140e52286638b35",
+    "REPORT.md": "6bed3ed54a01b14526959d7e968e99c6df978157e5d297d08483293b2609df0b",
+    "analysis_tools/build_submission_report.py": "6237327b1e6121c7f1dcb08d3bb1dc032e261d86d3fcc76ea08f2ea09faaebf6",
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "config/knowledge/v2.json": "9abe3912d763ebb8b58e3aaf913158ea8bab4a87142a5a95ea3a8480c9a5d478",
+    "config/knowledge/v3.json": "2af782a0cc838e193851434403f9663adf83cd94f437c13dc7b8afc17bc1ee2d",
+    "config/knowledge/README.md": "9c27dae3ea1d4a7b829dcb31268cde03d266c90de32c650dc85572412662e202",
+    "src/cadence/agent/pipeline.py": "6ffaba846aa95e4cc1ac6d5d8932ec56016f8a4813a077eabd4ea60977180e23",
+    "src/cadence/api/state.py": "c1e2d9872b5fea2773655a511fd82b7d9a4780260b3577459f96953f0b529916",
+    "src/cadence/agent/verified.py": "2329dbd552ba0773bcacc6e49908d168673f3db289a617957dba59c8889c2a7e",
+    "src/cadence/agent/request_frame.py": "4a1efa6c79ac4e660bd38b9dae216e2cd7f214bea1d05b7756a6fe5fa5edcc06",
+    "src/cadence/agent/policy_v2.py": "f2a742b52b39fbb3a74cdc37903934cd0e097b1d58b8d95ea1007cea14bc3904",
+    "src/cadence/agent/actions.py": "b1dd0f5a5dbff90feef78bfe5fb423fcbba9982ca84dc966d90b7bfe615a123a",
+    "output/analysis/VERIFIED_POSTPILOT_POLICY_ACCEPTANCE.json": "53ed4b5da47fab97f9a3cb9e68ad452b541fc6151a549e0a64c3cbccdb9f5272",
+    "output/analysis/POSTPILOT_ACTION_ACCEPTANCE.json": "f3811640afa61e5bdd8833f83ec525e0f183f8b0a51a8c0a996201373f86f76b",
+    "output/analysis/VERIFIED_REGISTRY_SELECTION_ACCEPTANCE.json": "d91e86803dca2a68e78ddd5335372f50f2ad821dec058e38ef52199bd855f179",
+    "output/analysis/KNOWLEDGE_V3_ACCEPTANCE.json": "82f93d23d66deacd834a7f8516adb31607de474b564f957ab501d5b1b8e8bb98",
+    "output/analysis/VERIFIED_LEGACY_REPLAY_ACCEPTANCE.json": "f4a5e38be397e0c594c94f0793124492833d4cee502ae7b3adcd2d5f05f04fe0",
+    "output/analysis/VERIFIED_FINAL_TOOLING_ACCEPTANCE.json": "dfbdd206a7da8cf47898613524220d1c762c99f8b15b3cf6dbafc32e5c9734ad",
+    "data/verified_sampling/PACKET_ACCEPTANCE.json": "8e28f9229174d8b647f24a33f8606b6bcd447c2388889bacf2317eef1ee064c4",
+    "data/verified_postpilot_regression/LABEL_REVIEW.json": "8d0e4e595c9be41419a774afd760176e83de844063c9c6a1dd8bb894208469c4",
+    "results/verified_dev_v4/summary.json": "7452b7de2caf7d341f618d562cee532f24c7deef2621b810fbea079bd75aeafc",
+    "results/verified_calibration_v1/summary.json": "c0ee4124659391b8eec1f8346cb121f37ea2adab2f2672789a5d74e733651c7f",
+    "results/verified_variant_comparison_v1/summary.json": "103e9131783eba90ac305b31e4021d46e3c3e276773f38e70cdafaeb56b9b576",
+    "results/verified_ablation_v1/quality_summary.json": "9e0455e08f2deb3a097bcb9be15208b12a5c87f70ee0210980bdd32f54c4db57",
+    "results/verified_retrieval_dev_v2/summary.json": "7eea73f6bdad00ff8ebaf5a7b5ed15ec1f330858cff8ebaa4a7736a5e6811cee",
+    "results/verified_postpilot_regression_v1/manifest.json": "62504892531ff6ccc32bb8de23f1e8e6fdade3ef4fe59c36ea4617fccaaa678e",
+    "results/verified_postpilot_regression_v1/EXECUTION.json": "d010ad5b032916d6367435c1241b6aa7be225b28e667bd404afcdecb49284ecf",
+    "results/verified_postpilot_regression_v1/REVIEW.lock.json": "41ad40c9d18e5bd2666b9615a1546e7d95c582be2148c66471edbbb7f96eaa12",
+    "results/verified_postpilot_regression_v1/AI_REVIEW.json": "a9af990ef017ca215ae9b972db3bd487c10641d2f31f432d4eca0b24c039010a",
+    "results/verified_postpilot_regression_v1/summary.json": "178f29ae4de95b0137d260cae71f680faa01a0958131804674cfb4bafbfe1f2b",
+    "results/verified_postpilot_regression_v1/runtime.json": "f2952445459ea0a8b5bfd7f283ede531ff05bfca2112f7788391bf8ee2ff4788",
+    "results/verified_postpilot_regression_v1/blind_ai_ratings.jsonl": "a2c123b2e902f97e7813f2d2adafd8ddcc081eb8773bf4d02847ce429fe57704",
+    "results/verified_postpilot_regression_v1/ai_review_submission.jsonl": "a2c123b2e902f97e7813f2d2adafd8ddcc081eb8773bf4d02847ce429fe57704",
+    "results/verified_postpilot_regression_v1/ai_reviews.jsonl": "cb1df7fa927625d5d48a025e82d29dc19e6ee485a6d905c5bcf81ce9bcbbcc07",
+    "results/verified_postpilot_regression_v1/AI_REVIEW_NOTES.md": "91696ecae77cd9643d5b9eeaf36cbdff3a756461ba878250f87c4ab376c337fc",
+    "results/verified_postpilot_regression_v1/predictions.jsonl": "b25267d63bdc72b9b7984b86ef2dfb5e0bca9262bfc5f44e056adc5daeac3572"
+  }
+}

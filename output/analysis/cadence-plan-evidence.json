@@ -1,0 +1,345 @@
+{
+  "purpose": "Post-confirmation diagnostic analysis for a future implementation plan; no new performance claim",
+  "n": 80,
+  "label_and_rating_provenance": "AI-authored; latest confirmation has no human verification record",
+  "routing_eligible": 42,
+  "required_escalations": 38,
+  "source_byte_sha256": {
+    "labels": "cfaad25718d0b8bc0890318365d99e9d2a82ca2e58c1d1d42d9bd945cd4818e3",
+    "predictions": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d",
+    "ratings": "17f75aa9d506c9f86c4c5cd54fe2407f57679a8bce1aee728a740fa854847a19"
+  },
+  "systems": {
+    "agent": {
+      "automatic": 28,
+      "useful_automatic_legacy": 6,
+      "policy_compliant_useful_automatic": 6,
+      "policy_compliant_useful_coverage": 0.075,
+      "policy_compliant_resolution": 0,
+      "policy_compliant_clarification": 6,
+      "missed_escalations": 4,
+      "missed_ids": [
+        "b4_012",
+        "b4_022",
+        "b4_072",
+        "b4_073"
+      ],
+      "flagged_automatic": 15,
+      "flagged_ids": [
+        "b4_002",
+        "b4_003",
+        "b4_004",
+        "b4_007",
+        "b4_009",
+        "b4_012",
+        "b4_018",
+        "b4_021",
+        "b4_022",
+        "b4_026",
+        "b4_029",
+        "b4_034",
+        "b4_042",
+        "b4_044",
+        "b4_056"
+      ],
+      "unnecessary_escalations": 18,
+      "unnecessary_escalation_reasons": {
+        "needs_account_lookup": 7,
+        "low_confidence": 11
+      },
+      "useful_ids": [
+        "b4_014",
+        "b4_023",
+        "b4_031",
+        "b4_054",
+        "b4_066",
+        "b4_069"
+      ],
+      "policy_compliant_useful_ids": [
+        "b4_014",
+        "b4_023",
+        "b4_031",
+        "b4_054",
+        "b4_066",
+        "b4_069"
+      ],
+      "useful_but_misrouted_ids": [],
+      "automatic_response_kinds": {
+        "resolution": 8,
+        "other": 7,
+        "clarification": 10,
+        "handoff": 3
+      }
+    },
+    "quality": {
+      "automatic": 7,
+      "useful_automatic_legacy": 6,
+      "policy_compliant_useful_automatic": 6,
+      "policy_compliant_useful_coverage": 0.075,
+      "policy_compliant_resolution": 1,
+      "policy_compliant_clarification": 5,
+      "missed_escalations": 0,
+      "missed_ids": [],
+      "flagged_automatic": 0,
+      "flagged_ids": [],
+      "unnecessary_escalations": 35,
+      "unnecessary_escalation_reasons": {
+        "needs_account_lookup": 27,
+        "high_frustration_or_churn": 4,
+        "low_confidence": 2,
+        "billing_dispute": 1,
+        "ambiguous_or_media_only": 1
+      },
+      "useful_ids": [
+        "b4_021",
+        "b4_047",
+        "b4_054",
+        "b4_064",
+        "b4_066",
+        "b4_074"
+      ],
+      "policy_compliant_useful_ids": [
+        "b4_021",
+        "b4_047",
+        "b4_054",
+        "b4_064",
+        "b4_066",
+        "b4_074"
+      ],
+      "useful_but_misrouted_ids": [],
+      "automatic_response_kinds": {
+        "clarification": 6,
+        "resolution": 1
+      }
+    },
+    "balanced": {
+      "automatic": 30,
+      "useful_automatic_legacy": 13,
+      "policy_compliant_useful_automatic": 11,
+      "policy_compliant_useful_coverage": 0.1375,
+      "policy_compliant_resolution": 9,
+      "policy_compliant_clarification": 2,
+      "missed_escalations": 4,
+      "missed_ids": [
+        "b4_008",
+        "b4_027",
+        "b4_052",
+        "b4_072"
+      ],
+      "flagged_automatic": 4,
+      "flagged_ids": [
+        "b4_023",
+        "b4_027",
+        "b4_028",
+        "b4_074"
+      ],
+      "unnecessary_escalations": 16,
+      "unnecessary_escalation_reasons": {
+        "low_confidence": 7,
+        "needs_account_lookup": 5,
+        "ambiguous_or_media_only": 3,
+        "billing_dispute": 1
+      },
+      "useful_ids": [
+        "b4_007",
+        "b4_016",
+        "b4_025",
+        "b4_031",
+        "b4_036",
+        "b4_038",
+        "b4_042",
+        "b4_052",
+        "b4_054",
+        "b4_064",
+        "b4_069",
+        "b4_072",
+        "b4_080"
+      ],
+      "policy_compliant_useful_ids": [
+        "b4_007",
+        "b4_016",
+        "b4_025",
+        "b4_031",
+        "b4_036",
+        "b4_038",
+        "b4_042",
+        "b4_054",
+        "b4_064",
+        "b4_069",
+        "b4_080"
+      ],
+      "useful_but_misrouted_ids": [
+        "b4_052",
+        "b4_072"
+      ],
+      "automatic_response_kinds": {
+        "handoff": 12,
+        "resolution": 13,
+        "clarification": 4,
+        "other": 1
+      }
+    }
+  },
+  "hindsight_selection": {
+    "warning": "Selects using labels and reviews unavailable at inference; only a diagnostic ceiling over existing automatic outputs",
+    "policy_compliant_useful_union": 17,
+    "coverage": 0.2125,
+    "ids": [
+      "b4_007",
+      "b4_014",
+      "b4_016",
+      "b4_021",
+      "b4_023",
+      "b4_025",
+      "b4_031",
+      "b4_036",
+      "b4_038",
+      "b4_042",
+      "b4_047",
+      "b4_054",
+      "b4_064",
+      "b4_066",
+      "b4_069",
+      "b4_074",
+      "b4_080"
+    ],
+    "additional_cases_not_won_by_balanced": [
+      "b4_014",
+      "b4_021",
+      "b4_023",
+      "b4_047",
+      "b4_066",
+      "b4_074"
+    ]
+  },
+  "intent_slices": [
+    {
+      "intent": "account_hacked_or_security",
+      "n": 3,
+      "routing_eligible": 0,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 0,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "billing_or_charge",
+      "n": 7,
+      "routing_eligible": 0,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 0,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "content_or_availability",
+      "n": 10,
+      "routing_eligible": 9,
+      "policy_compliant_useful": {
+        "agent": 1,
+        "quality": 1,
+        "balanced": 6
+      }
+    },
+    {
+      "intent": "download_or_offline",
+      "n": 4,
+      "routing_eligible": 3,
+      "policy_compliant_useful": {
+        "agent": 2,
+        "quality": 1,
+        "balanced": 1
+      }
+    },
+    {
+      "intent": "feature_request_or_feedback",
+      "n": 12,
+      "routing_eligible": 12,
+      "policy_compliant_useful": {
+        "agent": 1,
+        "quality": 1,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "login_or_password",
+      "n": 6,
+      "routing_eligible": 0,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 0,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "metadata_or_artist_issue",
+      "n": 1,
+      "routing_eligible": 1,
+      "policy_compliant_useful": {
+        "agent": 1,
+        "quality": 0,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "non_english",
+      "n": 1,
+      "routing_eligible": 0,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 0,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "other",
+      "n": 16,
+      "routing_eligible": 0,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 0,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "playback_or_app_bug",
+      "n": 10,
+      "routing_eligible": 9,
+      "policy_compliant_useful": {
+        "agent": 1,
+        "quality": 2,
+        "balanced": 4
+      }
+    },
+    {
+      "intent": "playlist_or_library",
+      "n": 3,
+      "routing_eligible": 3,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 1,
+        "balanced": 0
+      }
+    },
+    {
+      "intent": "subscription_or_plan",
+      "n": 7,
+      "routing_eligible": 5,
+      "policy_compliant_useful": {
+        "agent": 0,
+        "quality": 0,
+        "balanced": 0
+      }
+    }
+  ],
+  "zero_error_one_sided_95pct_upper_bound": {
+    "7": 0.3481636551311609,
+    "30": 0.09503385285530419,
+    "38": 0.07580765168296455,
+    "59": 0.049507609888227,
+    "149": 0.019904816220685073,
+    "299": 0.009969146792899286
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "status": "pass",
+  "scope": "v3 knowledge-only additions for prospective post-pilot candidate; v2 and recorded experiments unchanged",
+  "reviewed_at": "2026-09-18T12:51:27.848262+00:00",
+  "knowledge_version": "spotify-current-v3-2026-09-18",
+  "knowledge_fingerprint": "0cebe891811d913badbe9fc54bc5aba9b8405d4eac2513401889ffd66b50e68f",
+  "preserved_v2_fingerprint": "7960a43978f50fca787d4f163841ad47e05f7688943157a56e78aaf57b9c6cdd",
+  "source_count": 21,
+  "claim_count": 27,
+  "source_reviewer_type": "ai",
+  "changes": [
+    "Add family_separate_accounts from existing official Family snapshot, scoped US, premium_family, connect_unwanted_takeover; clarification only, no causal or account-action authorization.",
+    "Add feedback_submission to existing feature_ideas workflow scope; no feature-absence inference.",
+    "Explicitly include premium_family in four generic-Premium scopes to preserve eligibility after accurate plan subtype normalization."
+  ],
+  "validation": [
+    "python -m pytest tests/test_knowledge.py tests/test_knowledge_v3.py -q -p no:cacheprovider: 32 passed",
+    "python -m ruff check tests/test_knowledge_v3.py: passed",
+    "Explicit subtype test: premium_family cannot match premium_individual or an unexpanded premium-only scope."
+  ],
+  "limitations": [
+    "AI source review only; no human source verification asserted.",
+    "General claim authority does not establish customer-specific cause or replace action applicability checks."
+  ],
+  "files": {
+    "config/knowledge/v3.json": "aa7c03eeda9aeed44f0d5c29ddb594c5fbfa8c3741dc58c7530c220691ce119a",
+    "tests/test_knowledge_v3.py": "0beb78d95cc8c60b2f7436fc830ac99b95aeeafa336d30f4faaba3ce7be8ca96",
+    "config/knowledge/snapshots/2026-09-18/autoplay.txt": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+    "config/knowledge/snapshots/2026-09-18/collaborative-playlists.txt": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+    "config/knowledge/snapshots/2026-09-18/contact-us.txt": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+    "config/knowledge/snapshots/2026-09-18/create-playlists.txt": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+    "config/knowledge/snapshots/2026-09-18/explicit-content.txt": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+    "config/knowledge/snapshots/2026-09-18/family-plan.txt": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+    "config/knowledge/snapshots/2026-09-18/faulty-inaccurate-metadata.txt": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+    "config/knowledge/snapshots/2026-09-18/hulu-premium-bundle.txt": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+    "config/knowledge/snapshots/2026-09-18/listen-offline.txt": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+    "config/knowledge/snapshots/2026-09-18/missing-music-or-podcasts.txt": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+    "config/knowledge/snapshots/2026-09-18/reinstall-spotify.txt": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+    "config/knowledge/snapshots/2026-09-18/shuffle-play.txt": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+    "config/knowledge/snapshots/2026-09-18/sort-and-filter.txt": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+    "config/knowledge/snapshots/2026-09-18/spotify-connect.txt": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+    "config/knowledge/snapshots/2026-09-18/spotify-not-playing.txt": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+    "config/knowledge/snapshots/2026-09-18/spotify-wrapped.txt": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+    "config/knowledge/snapshots/2026-09-18/student-verification-not-working.txt": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+    "config/knowledge/snapshots/2026-09-18/suggest-feature.txt": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+    "config/knowledge/snapshots/2026-09-18/updating-spotify.txt": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+    "config/knowledge/snapshots/2026-09-18/username-and-display-name.txt": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+    "config/knowledge/snapshots/2026-09-18/where-spotify-is-available.txt": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+    "config/knowledge/v2.json": "c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39",
+    "src/cadence/knowledge/models.py": "aa21dfa3ad37ea810442776f851ee0b2baeb31342d4ffa7375c813a77630f260",
+    "src/cadence/knowledge/store.py": "5aa16dea452420d1b90cec784ba2c108855b800dcf1b3134563f37878e722021",
+    "tests/test_knowledge.py": "c340c5f40fb545bcbcea52f51a8e379b1ffabac51fb4ca0aebe72c50324439dd",
+    "config/knowledge/README.md": "9c27dae3ea1d4a7b829dcb31268cde03d266c90de32c650dc85572412662e202"
+  },
+  "earlier_independent_review": {
+    "agent": "official_claim_review",
+    "type": "ai",
+    "status": "pass",
+    "findings": [
+      "Family separate-account wording and scoped clarification supported by unchanged source.",
+      "Ideas workflow scope matches unchanged official submission guidance.",
+      "Premium Family subtype is supported for existing generic Premium claims; device restrictions and Free-user exclusions remain."
+    ],
+    "model": null,
+    "reasoning_effort": null,
+    "provenance_note": "Inherited settings were not explicitly selected or attested. This earlier review is not attributed to GPT-6 Astra xhigh."
+  },
+  "independent_review": {
+    "agent": "/root/knowledge_registry_impl/v3_astra_acceptance",
+    "type": "ai",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "selection": "Explicitly selected for this bounded review dispatch",
+    "status": "pass",
+    "reviewed_at": "2026-09-18T12:51:27.848262+00:00",
+    "findings": [
+      "All 21 source records and snapshots match v2, recorded acceptance baselines and archives.",
+      "V2 is byte-identical to its archive and retains SHA256 9abe3912d763ebb8b58e3aaf913158ea8bab4a87142a5a95ea3a8480c9a5d478.",
+      "Exact v3 claim delta is supported; Family clarification cannot assert cause, request credentials or bypass security routing.",
+      "Explicit feedback submission does not establish feature absence.",
+      "Family scope membership is explicit and cannot inherit Individual-only or unexpanded Premium scopes; mobile and Free restrictions remain.",
+      "get_current checks current official authority and integrity without asserting applicability; inspected procedural actions retain get_applicable and action-contract checks."
+    ],
+    "validation": [
+      "32 focused knowledge tests passed",
+      "Focused Ruff check passed",
+      "Independent byte/delta/freshness/device/Free/plan-inheritance assertions passed",
+      "All 27 v3 claims valid as of 2026-09-18"
+    ],
+    "limitations": [
+      "Read-only bounded review; no fresh online source retrieval or full end-to-end agent evaluation.",
+      "Preservation verified against recorded acceptance artifacts and archives, not Git history."
+    ],
+    "reviewed_v3_canonical_sha256": "aa7c03eeda9aeed44f0d5c29ddb594c5fbfa8c3741dc58c7530c220691ce119a",
+    "hash_conversion_note": "Canonical binding derived after review using cadence.eval.provenance.sha256. Original reviewer raw-byte hash is preserved under raw_observed_at_review; source/registry contents were not changed."
+  },
+  "raw_observed_at_review": {
+    "purpose": "Original raw-byte hashes observed during the original Windows review. Retained as historical evidence, not portable checkout bindings.",
+    "files": {
+      "config/knowledge/v3.json": "2af782a0cc838e193851434403f9663adf83cd94f437c13dc7b8afc17bc1ee2d",
+      "tests/test_knowledge_v3.py": "0beb78d95cc8c60b2f7436fc830ac99b95aeeafa336d30f4faaba3ce7be8ca96",
+      "config/knowledge/snapshots/2026-09-18/autoplay.txt": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47",
+      "config/knowledge/snapshots/2026-09-18/collaborative-playlists.txt": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726",
+      "config/knowledge/snapshots/2026-09-18/contact-us.txt": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4",
+      "config/knowledge/snapshots/2026-09-18/create-playlists.txt": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371",
+      "config/knowledge/snapshots/2026-09-18/explicit-content.txt": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07",
+      "config/knowledge/snapshots/2026-09-18/family-plan.txt": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59",
+      "config/knowledge/snapshots/2026-09-18/faulty-inaccurate-metadata.txt": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae",
+      "config/knowledge/snapshots/2026-09-18/hulu-premium-bundle.txt": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda",
+      "config/knowledge/snapshots/2026-09-18/listen-offline.txt": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f",
+      "config/knowledge/snapshots/2026-09-18/missing-music-or-podcasts.txt": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656",
+      "config/knowledge/snapshots/2026-09-18/reinstall-spotify.txt": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c",
+      "config/knowledge/snapshots/2026-09-18/shuffle-play.txt": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5",
+      "config/knowledge/snapshots/2026-09-18/sort-and-filter.txt": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd",
+      "config/knowledge/snapshots/2026-09-18/spotify-connect.txt": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed",
+      "config/knowledge/snapshots/2026-09-18/spotify-not-playing.txt": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45",
+      "config/knowledge/snapshots/2026-09-18/spotify-wrapped.txt": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1",
+      "config/knowledge/snapshots/2026-09-18/student-verification-not-working.txt": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e",
+      "config/knowledge/snapshots/2026-09-18/suggest-feature.txt": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6",
+      "config/knowledge/snapshots/2026-09-18/updating-spotify.txt": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02",
+      "config/knowledge/snapshots/2026-09-18/username-and-display-name.txt": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474",
+      "config/knowledge/snapshots/2026-09-18/where-spotify-is-available.txt": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509",
+      "config/knowledge/v2.json": "9abe3912d763ebb8b58e3aaf913158ea8bab4a87142a5a95ea3a8480c9a5d478",
+      "src/cadence/knowledge/models.py": "aa21dfa3ad37ea810442776f851ee0b2baeb31342d4ffa7375c813a77630f260",
+      "src/cadence/knowledge/store.py": "5aa16dea452420d1b90cec784ba2c108855b800dcf1b3134563f37878e722021",
+      "tests/test_knowledge.py": "c340c5f40fb545bcbcea52f51a8e379b1ffabac51fb4ca0aebe72c50324439dd",
+      "config/knowledge/README.md": "ec4f77ea6c0b2885cf42662577e221781f202461713ece4a0658e4c06351fd6d"
+    },
+    "review_record_archive": "output/analysis/knowledge_acceptance_history/KNOWLEDGE_V3_ACCEPTANCE.raw-review.json.gz",
+    "review_record_archive_sha256": "4310d8d57409f4539fc98f1a62398b0cf5e13bd9caa6d4a8a50b69f380ac81fa",
+    "original_review_record_raw_sha256": "59e2c0ebd1adb87b09ee5240ad97ef7f6b9c21091720a387d897756fba69d88b",
+    "archive_format": "gzip containing the exact original review-record bytes; independent of Git text newline conversion",
+    "reviewed_v3_sha256": "2af782a0cc838e193851434403f9663adf83cd94f437c13dc7b8afc17bc1ee2d"
+  },
+  "file_binding": {
+    "algorithm": "sha256",
+    "implementation": "cadence.eval.provenance.sha256",
+    "text_canonicalization": "CRLF bytes converted to LF for .json, .jsonl, .txt, .md, .yaml and .py; other bytes unchanged",
+    "purpose": "Portable bindings for review/publication content across Windows and Git LF checkouts. Historical raw observations remain separately preserved.",
+    "migration_at": "2026-09-18T12:57:53.596450+00:00",
+    "post_review_documentation_change": {
+      "path": "config/knowledge/README.md",
+      "description": "Clarified explicit VerifiedAgent v3 selection, KnowledgeStore default v2, and completed prepatch studies using their frozen v2. No executable source, registry or source-snapshot content changed.",
+      "previous_raw_sha256": "ec4f77ea6c0b2885cf42662577e221781f202461713ece4a0658e4c06351fd6d",
+      "current_canonical_sha256": "9c27dae3ea1d4a7b829dcb31268cde03d266c90de32c650dc85572412662e202"
+    }
+  },
+  "portability_review": {
+    "status": "pass",
+    "agent": "/root/knowledge_registry_impl/v3_astra_acceptance",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "reviewed_at": "2026-09-18T13:00:32.857129+00:00",
+    "scope": "Portable file bindings, preserved raw review records, and separately declared registry-selection documentation correction",
+    "checks": [
+      "All 28 file bindings match cadence.eval.provenance.sha256, including LF/CRLF equivalence.",
+      "Raw review-record gzip archives and decompressed original hashes verified; raw original file mappings preserved.",
+      "Original review findings, timestamps, attribution and raw v3 registry hash preserved with explicit conversion provenance.",
+      "Bound executable, registry, test and snapshot bytes unchanged; knowledge fingerprints match.",
+      "README version selection and completed-study statements match code and recorded studies."
+    ],
+    "limitations": [
+      "Read-only metadata/documentation verification; no new test runs, source retrieval or broader runtime review."
+    ]
+  }
+}

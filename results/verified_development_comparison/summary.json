@@ -1,0 +1,1694 @@
+{
+  "phase": "development",
+  "policy_version": "v2",
+  "n": 80,
+  "metrics": {
+    "agent": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 17,
+        "automatic_hallucinated_link_or_policy": 9,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 3,
+        "automatic_unsupported_action": 8,
+        "automatic_stale_procedure": 2,
+        "automatic_repeated_known_question": 1,
+        "automatic_wrong_handoff": 0,
+        "n": 80,
+        "automatic": 28,
+        "escalated": 52,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 2,
+        "auto_on_required": 2,
+        "unnecessary_escalations": 26,
+        "legacy_useful_automatic": 8,
+        "policy_compliant_useful_automatic": 8,
+        "resolution": 1,
+        "clarification": 7
+      },
+      "rates": {
+        "automatic": 0.35,
+        "legacy_useful_coverage": 0.1,
+        "policy_compliant_useful_coverage": 0.1,
+        "completion": 1.0,
+        "escalation_recall": 0.9285714285714286
+      },
+      "miss_rate_upper95": 0.20820471317941186,
+      "automatic_error_upper95": 0.7617286150541898,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 26,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.8646496378284161
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 21,
+          "automatic": 7,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 12,
+          "automatic": 6,
+          "hallucinated_link_or_policy": 1,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 1,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 47,
+          "automatic": 15,
+          "hallucinated_link_or_policy": 8,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 3,
+          "unsupported_action": 7,
+          "stale_procedure": 2,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.7875,
+        "macro_f1": 0.7519453585630056,
+        "weighted_f1": 0.7844377436289202,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "f1": 0.9230769230769231,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.8181818181818182,
+            "recall": 0.9,
+            "f1": 0.8571428571428571,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.8,
+            "recall": 0.7272727272727273,
+            "f1": 0.7619047619047619,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.5882352941176471,
+            "recall": 0.9090909090909091,
+            "f1": 0.7142857142857143,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.8888888888888888,
+            "recall": 0.5333333333333333,
+            "f1": 0.6666666666666666,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              5,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              8,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              10,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              2,
+              1,
+              2,
+              8
+            ]
+          ]
+        },
+        "n": 80
+      }
+    },
+    "quality": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 0,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 0,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 0,
+        "n": 80,
+        "automatic": 7,
+        "escalated": 73,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 0,
+        "auto_on_required": 0,
+        "unnecessary_escalations": 45,
+        "legacy_useful_automatic": 7,
+        "policy_compliant_useful_automatic": 7,
+        "resolution": 1,
+        "clarification": 6
+      },
+      "rates": {
+        "automatic": 0.0875,
+        "legacy_useful_coverage": 0.0875,
+        "policy_compliant_useful_coverage": 0.0875,
+        "completion": 1.0,
+        "escalation_recall": 1.0
+      },
+      "miss_rate_upper95": 0.10146573557272469,
+      "automatic_error_upper95": 0.3481636551311608,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 7,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 20,
+          "automatic": 5,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 33,
+          "automatic": 2,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 27,
+          "automatic": 0,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.775,
+        "macro_f1": 0.7166684030719117,
+        "weighted_f1": 0.7709312909312909,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.8,
+            "recall": 0.5714285714285714,
+            "f1": 0.6666666666666666,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727273,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.5,
+            "recall": 0.75,
+            "f1": 0.6,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285714,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1": 0.9,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.875,
+            "recall": 0.6363636363636364,
+            "f1": 0.7368421052631579,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.6363636363636364,
+            "recall": 0.875,
+            "f1": 0.7368421052631579,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.7333333333333333,
+            "recall": 1.0,
+            "f1": 0.8461538461538461,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9166666666666666,
+            "recall": 0.7333333333333333,
+            "f1": 0.8148148148148148,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              4,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1,
+              7,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              11
+            ]
+          ]
+        },
+        "n": 80
+      }
+    },
+    "balanced": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 7,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 6,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 1,
+        "automatic_wrong_handoff": 3,
+        "n": 80,
+        "automatic": 30,
+        "escalated": 50,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 2,
+        "auto_on_required": 2,
+        "unnecessary_escalations": 24,
+        "legacy_useful_automatic": 21,
+        "policy_compliant_useful_automatic": 20,
+        "resolution": 17,
+        "clarification": 3
+      },
+      "rates": {
+        "automatic": 0.375,
+        "legacy_useful_coverage": 0.2625,
+        "policy_compliant_useful_coverage": 0.25,
+        "completion": 1.0,
+        "escalation_recall": 0.9285714285714286
+      },
+      "miss_rate_upper95": 0.20820471317941186,
+      "automatic_error_upper95": 0.39394742252236326,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.22092219194555585
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 28,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 43,
+          "automatic": 20,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 11,
+          "automatic": 3,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 26,
+          "automatic": 7,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 6,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 3
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.8125,
+        "macro_f1": 0.7641433239962652,
+        "weighted_f1": 0.8061922268907562,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8571428571428571,
+            "f1": 0.8571428571428571,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.42857142857142855,
+            "recall": 1.0,
+            "f1": 0.6,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7777777777777778,
+            "recall": 0.6363636363636364,
+            "f1": 0.7,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "f1": 0.8235294117647058,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.8461538461538461,
+            "recall": 1.0,
+            "f1": 0.9166666666666666,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9,
+            "recall": 0.6,
+            "f1": 0.72,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              7,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              1,
+              1,
+              9
+            ]
+          ]
+        },
+        "n": 80
+      }
+    },
+    "verified": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 4,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 4,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 0,
+        "automatic_wrong_handoff": 2,
+        "n": 80,
+        "automatic": 27,
+        "escalated": 53,
+        "failed": 0,
+        "required": 28,
+        "missed_escalations": 3,
+        "auto_on_required": 3,
+        "unnecessary_escalations": 28,
+        "legacy_useful_automatic": 22,
+        "policy_compliant_useful_automatic": 22,
+        "resolution": 12,
+        "clarification": 10
+      },
+      "rates": {
+        "automatic": 0.3375,
+        "legacy_useful_coverage": 0.275,
+        "policy_compliant_useful_coverage": 0.275,
+        "completion": 1.0,
+        "escalation_recall": 0.8928571428571429
+      },
+      "miss_rate_upper95": 0.25416973645091434,
+      "automatic_error_upper95": 0.3076263442275549,
+      "per_reason": {
+        "ambiguous_or_media_only": {
+          "n": 12,
+          "required": 12,
+          "missed": 3,
+          "automatic": 3,
+          "miss_rate_upper95": 0.5273266035603439
+        },
+        "none": {
+          "n": 52,
+          "required": 0,
+          "missed": 0,
+          "automatic": 24,
+          "miss_rate_upper95": null
+        },
+        "account_security": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "legal_or_safety": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.776393202250021
+        },
+        "needs_account_lookup": {
+          "n": 3,
+          "required": 3,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.6315968501359612
+        },
+        "billing_dispute": {
+          "n": 5,
+          "required": 5,
+          "missed": 0,
+          "automatic": 0,
+          "miss_rate_upper95": 0.45071972834694096
+        },
+        "out_of_scope": {
+          "n": 1,
+          "required": true,
+          "missed": false,
+          "automatic": false,
+          "miss_rate_upper95": 0.95
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 42,
+          "automatic": 20,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 19,
+          "automatic": 4,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 2,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 19,
+          "automatic": 3,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 2,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 2
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.7625,
+        "macro_f1": 0.7061020120230648,
+        "weighted_f1": 0.7580676450742241,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "account_hacked_or_security": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "billing_or_charge": {
+            "precision": 0.6666666666666666,
+            "recall": 0.5714285714285714,
+            "f1": 0.6153846153846154,
+            "support": 7
+          },
+          "login_or_password": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "download_or_offline": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.75,
+            "support": 3
+          },
+          "content_or_availability": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8,
+            "f1": 0.8421052631578947,
+            "support": 10
+          },
+          "playback_or_app_bug": {
+            "precision": 0.7272727272727273,
+            "recall": 0.7272727272727273,
+            "f1": 0.7272727272727273,
+            "support": 11
+          },
+          "subscription_or_plan": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 8
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.6666666666666666,
+            "recall": 0.9090909090909091,
+            "f1": 0.7692307692307693,
+            "support": 11
+          },
+          "other": {
+            "precision": 0.9090909090909091,
+            "recall": 0.6666666666666666,
+            "f1": 0.7692307692307693,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              5,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              8,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              8,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              2,
+              10
+            ]
+          ]
+        },
+        "n": 80
+      }
+    }
+  },
+  "paired_content_usefulness": {
+    "agent": {
+      "estimate": 0.175,
+      "ci95": [
+        0.075,
+        0.2753124999999983
+      ],
+      "n_messages": 80,
+      "bootstrap_resamples": 2000,
+      "seed": 2026091811,
+      "left_only_useful": 18,
+      "right_only_useful": 4
+    },
+    "quality": {
+      "estimate": 0.1875,
+      "ci95": [
+        0.0875,
+        0.2875
+      ],
+      "n_messages": 80,
+      "bootstrap_resamples": 2000,
+      "seed": 2026091811,
+      "left_only_useful": 17,
+      "right_only_useful": 2
+    },
+    "balanced": {
+      "estimate": 0.025,
+      "ci95": [
+        -0.06281249999999998,
+        0.125
+      ],
+      "n_messages": 80,
+      "bootstrap_resamples": 2000,
+      "seed": 2026091811,
+      "left_only_useful": 8,
+      "right_only_useful": 6
+    }
+  },
+  "runtime": {
+    "verified_new_run": {
+      "n_requests": 80,
+      "failures": 0,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 4003.9949499987415,
+      "p95_end_to_end_ms": 5993.87676999995,
+      "fully_fresh_requests": 80,
+      "model_calls": 126,
+      "network_attempts_known": 126,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 205721,
+      "output_tokens_known": 49806,
+      "tokens_known": 255527,
+      "tokens_per_request_known": 3194.0875,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist."
+    },
+    "archived_original_runs": {
+      "agent": {
+        "n": 80,
+        "p50_ms": 1733.0,
+        "p95_ms": 4063.7999999999993,
+        "model_calls": 80,
+        "prompt_tokens": 190609,
+        "output_tokens": 14933,
+        "cached": 0,
+        "fresh_invocations": 80
+      },
+      "quality": {
+        "n": 80,
+        "p50_ms": 1564.5,
+        "p95_ms": 4532.9,
+        "model_calls": 138,
+        "prompt_tokens": 187996,
+        "output_tokens": 11051,
+        "cached": 0,
+        "fresh_invocations": 80
+      },
+      "balanced": {
+        "n": 80,
+        "p50_ms": 2035.5,
+        "p95_ms": 3855.149999999999,
+        "model_calls": 111,
+        "prompt_tokens": 369238,
+        "output_tokens": 17344,
+        "cached": 0,
+        "fresh_invocations": 80
+      }
+    },
+    "controlled_comparison": false,
+    "note": "Keep schemas separate: archived successful-call totals omit failed-attempt usage. The candidate retains its measured cache status; a new run is not necessarily fully fresh."
+  },
+  "historical_v0": {
+    "summary": {
+      "path": "results/balanced_confirmation/summary.json",
+      "sha256": "a22f4fd7f160a1a0110f88b070886933ec1663cd7ea084a06904303061701d96"
+    },
+    "acceptance": {
+      "path": "results/balanced_confirmation/ACCEPTANCE.json",
+      "sha256": "dbff4c482e5a5466554b2d002c70ca8c917059aa90d7bc5983bcf07988fd9f9e"
+    },
+    "note": "Original v0 results remain in their archived files; not comparable to v2 totals."
+  },
+  "human_agreement": null,
+  "human_review_pending": true,
+  "promote": false,
+  "limitation": "Inspected development messages; AI policy-v2 labels and new AI reply ratings. Three comparator outputs are reused unchanged from an earlier policy-v0 run. Re-scoring their decisions against v2 does not re-run their policy. Runtime and cost observations come from different runs and instrumentation; they do not establish a controlled speed or cost improvement. No human agreement or promotion.",
+  "new_model_calls": 0,
+  "input_hashes": {
+    "COMPARISON.lock.json": "27156b647ecee726235c85030db0db5986b3259c6bffa6cc3d13bd7b2b59deab",
+    "AI_REVIEW.json": "f45f8f064088b0354a2ff39640bfe32cd3bcfd13cadaa5b5e0ffa3c2ed2ad60b"
+  }
+}

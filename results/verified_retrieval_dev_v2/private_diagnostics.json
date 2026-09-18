@@ -1,0 +1,686 @@
+{
+  "source": {
+    "run": "Z:\\Projects\\Hiver\\results\\verified_dev_v2",
+    "manifest_raw_sha256": "78f26c45742c2200fa7361548776544ee487b5e07e2d394ac332f54cbb478fae",
+    "execution_raw_sha256": "6d6f8129c8954edecead7730d2b9ad7e3ae56fd38344d612565edc4979759d63",
+    "predictions_raw_sha256": "d046d77af80ca04beefbaf4fa01ec93da87b38358a60613fd85ed6fb1457de36",
+    "reserved_binding": {
+      "comparison": "exact",
+      "run_reserved_samples": [
+        "Z:\\Projects\\Hiver\\data\\verified_calibration\\examples.jsonl",
+        "Z:\\Projects\\Hiver\\data\\verified_challenge\\examples.jsonl",
+        "Z:\\Projects\\Hiver\\data\\verified_confirmation\\examples.jsonl"
+      ],
+      "diagnostic_only_reserved_samples": [],
+      "limitation": "Identical reserved inputs protected in source run and diagnostic."
+    }
+  },
+  "cases": [
+    {
+      "id": "b4_074",
+      "raw_query": "having a problem with all Katy Perry and Madonna songs. Say they are not available, but if I have the file I can import it.",
+      "frame_query": "catalog missing track unplayable local files artist Katy Perry and Madonna Make Katy Perry and Madonna songs available for playback.",
+      "frame_error": "",
+      "prediction_sha256": "843a91601ff3a0f13a8f60ac0a33828814755c093701ebe40efa701fd55a0fc1",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_784937",
+            "t_1839068",
+            "t_2066223"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_515452",
+            "t_783046",
+            "t_2234676"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_515452",
+            "t_2234676",
+            "t_2706986"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_004",
+      "raw_query": "hey guys I can access music I’ve downloaded but can’t search? <url>",
+      "frame_query": "offline playback playlist search The user wants to be able to use search functionality while they can currently only access downloaded music.",
+      "frame_error": "",
+      "prediction_sha256": "0a4019d9f8d09fa613ae36abf9e48d2747aebdcf8bfaef3c0d38fe22f563951f",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_483973",
+            "t_2920749",
+            "t_2828397"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2070347",
+            "t_2353930",
+            "t_91683"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2070347",
+            "t_2353930",
+            "t_707526"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_062",
+      "raw_query": "Spotify is ignoring my email address. Says there isn’t an account with that email but there is!",
+      "frame_query": "account identifier app problem The customer wants to be able to access their account using their email address and have Spotify recognize that an account exists with that email.",
+      "frame_error": "",
+      "prediction_sha256": "abf799e44987e83da230645479c4f48366d9d867e4008cdfcd06ff50c60ec927",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_921009",
+            "t_2321314",
+            "t_1293210"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2916580",
+            "t_1878380",
+            "t_1850814"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2916580",
+            "t_1823444",
+            "t_1927090"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_003",
+      "raw_query": "make Spotify on Apple Watch",
+      "frame_query": "feature request device Apple Watch Create a Spotify app for Apple Watch.",
+      "frame_error": "",
+      "prediction_sha256": "13602031be26cf1eff529c27c67328d50d50b85d844bb9e5da3538a686a89da4",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_389010",
+            "t_695452",
+            "t_2968470"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_695452",
+            "t_680593",
+            "t_2807576"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_695452",
+            "t_680593",
+            "t_2807576"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_052",
+      "raw_query": "I want to share a playlist online but i don't want ppl to know my full name. Is there a way to remedy this?",
+      "frame_query": "playlist collaboration public display name Find a way to share a playlist online without revealing the user's full name.",
+      "frame_error": "",
+      "prediction_sha256": "0a9fe215f0f9a330dd02a7c003e8f7b234039fa16d3078b8ce83ad5980f60258",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_573779",
+            "t_1287761",
+            "t_1878572"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2795624",
+            "t_1878736",
+            "t_1936824"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2795624",
+            "t_1878736",
+            "t_1936824"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_072",
+      "raw_query": "Why are you guys discriminating against my boys @user and @user. @user Should be uploaded",
+      "frame_query": "catalog missing artist @user and @user Have the missing artist music uploaded to the catalog and stop perceived discrimination.",
+      "frame_error": "",
+      "prediction_sha256": "8263aaa72de9bbbfd95a1f20259d058fe1b58226d11c52fec66b93fd6a67b301",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1702481",
+            "t_1247568",
+            "t_2028553"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2219846",
+            "t_2944912",
+            "t_930090"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2219846",
+            "t_2387472",
+            "t_515452"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_065",
+      "raw_query": "Why doesn't the filter functionality work on my phone like it does on my laptop? I'll filter for an artist on a playlist and it'll filter the display but continue playing through the entire playlist - been like this for ages",
+      "frame_query": "app problem device phone, laptop attempted steps filter for an artist on a playlist Fix the playlist filter functionality on mobile so that filtering for an artist restricts playback to the filtered tracks rather than playing through the entire playlist.",
+      "frame_error": "",
+      "prediction_sha256": "22e42d0aed0cf8989bd303cfeb97510e09ccf867727f4e32e4cf70bb37e0bf8f",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_774315",
+            "t_162242",
+            "t_2622847"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2653035",
+            "t_1989771",
+            "t_2912371"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2912371",
+            "t_2653035",
+            "t_2198195"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_050",
+      "raw_query": "Hey it'd be awesome if my account would not get hacked twice in three days 🖕.",
+      "frame_query": "account identifier Prevent the account from getting hacked repeatedly and secure the account.",
+      "frame_error": "",
+      "prediction_sha256": "7bfaeffeef2d512f5c5f5fc8757f8aa8d176b9f055dc3500c2d6dbb33dbf707c",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1461614",
+            "t_741873",
+            "t_1782701"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_944369",
+            "t_1286619",
+            "t_2190814"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_944369",
+            "t_1286619",
+            "t_2190814"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_060",
+      "raw_query": "Hi , after subscribing for a month, why am I not getting a 30 day free trial as I supposed to get because",
+      "frame_query": "subscription problem To receive the 30-day free trial that was supposed to be included with the subscription.",
+      "frame_error": "",
+      "prediction_sha256": "1fc2c7e78e5bcadad7e8fe4dd72dd1e2a2be89d482ba2cb78d79aeb59f04f5de",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1098955",
+            "t_1780674",
+            "t_2484423"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_1098955",
+            "t_1697990",
+            "t_1559481"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_1559481",
+            "t_1098955",
+            "t_1697990"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_018",
+      "raw_query": "Would you say it is possible to implement a pure black / black and white theme specifically designed to take advantage of OLEDs? A lot of people would probably love having this feature.",
+      "frame_query": "feature request feature pure black / black and white theme specifically designed to take advantage of OLEDs Implement a pure black or black-and-white theme designed for OLED screens.",
+      "frame_error": "",
+      "prediction_sha256": "ee8f5c5baf9e1d7a42e0f7870599fa2a8016f47b1f40d56b47061d516e0f6838",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_2302676",
+            "t_1225429",
+            "t_900911"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2302676",
+            "t_1566952",
+            "t_1809297"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2302676",
+            "t_1566952",
+            "t_1809297"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_006",
+      "raw_query": "I’m not getting a free Spotify trial (7 day) on my new device",
+      "frame_query": "plan information device new device Get the 7-day free Spotify trial on the new device",
+      "frame_error": "",
+      "prediction_sha256": "3cd57d101044bb301ded1769d087094dcbdfdfe79c63d4f8dc85c9cace4b8d54",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1098955",
+            "t_2066340",
+            "t_2813988"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_1098955",
+            "t_2066340",
+            "t_1780674"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_1098955",
+            "t_2066340",
+            "t_1780674"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_039",
+      "raw_query": "@user is there a way to get the student discount/combo deal, if I already have both, without having to delete my current accounts?",
+      "frame_query": "student bundle linking plan information Find out how to combine existing Spotify and student combo deals without deleting current accounts.",
+      "frame_error": "",
+      "prediction_sha256": "1b55557370e4b11990e4212b9ba35837f638f1b0e33266bd2e325322e0989755",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_622833",
+            "t_167763",
+            "t_2066510"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_167763",
+            "t_544568",
+            "t_1814232"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_167763",
+            "t_544568",
+            "t_1814232"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_030",
+      "raw_query": "it’d be sick if you could listen to songs with your friends at the exact time. I need to be in sync! /)",
+      "frame_query": "feature request Add a feature allowing users to listen to songs with friends at the exact same time in sync",
+      "frame_error": "",
+      "prediction_sha256": "e23abfd8698664fb36988bcba7632472496541fd52927e9b9ee2cbe4ce16b76e",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_2064256",
+            "t_2582661",
+            "t_2203838"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2203838",
+            "t_2715278",
+            "t_930008"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2715278",
+            "t_559959",
+            "t_2203838"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_007",
+      "raw_query": "Life would be so much easier if got7 had an official spotify. when is got7's discography going to be on Spotify?",
+      "frame_query": "catalog missing artist got7 Find out when GOT7's official discography will be available on Spotify.",
+      "frame_error": "",
+      "prediction_sha256": "b1e654a28c87550d4c7cb9ed15f9a1932561e99663b3ec935831d691d8ddf85d",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_989810",
+            "t_1447349",
+            "t_2547376"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_420127",
+            "t_574713",
+            "t_1595757"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_420127",
+            "t_574713",
+            "t_1595757"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_059",
+      "raw_query": "I can' t listen any track/album of rock band Queen. This happens in all my iOS devices (last Spotify versions). Some issues?",
+      "frame_query": "catalog missing track unplayable playback failure device iOS devices app version last Spotify versions artist Queen The customer wants to know why they cannot listen to any music by the band Queen and wants the issue resolved.",
+      "frame_error": "",
+      "prediction_sha256": "15a1bcc43791afc658958d9097f6979f8c4e657caf24fd01cae9b83f81a88e45",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_2504234",
+            "t_5017",
+            "t_1311652"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_36734",
+            "t_1752888",
+            "t_902383"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_36734",
+            "t_2317775",
+            "t_902383"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_037",
+      "raw_query": "hey love the service! Is there any way you could work on adding liner notes to your catalog of LPs? A Herculean undertaking to be sure, but would love to have digitized access. :)",
+      "frame_query": "feature request metadata attribution feature liner notes Add digitized liner notes to the catalog of LPs.",
+      "frame_error": "",
+      "prediction_sha256": "edd6a1d8b59299f199482a2002a8ac2155d96ccdc174132e6eda7bf7528fde7b",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1695017",
+            "t_2203709",
+            "t_497738"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2203709",
+            "t_2315383",
+            "t_2071067"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2203709",
+            "t_2315383",
+            "t_2071067"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_070",
+      "raw_query": "make a better app. Won't even load the page so I can update payment method 👌 real quality app here crashing every time I try..",
+      "frame_query": "app problem subscription problem Fix the app crashing issue so the user can load the page and update their payment method.",
+      "frame_error": "",
+      "prediction_sha256": "1ba0107223622c76129448006f9aebb8119e358385ee83a9ee6a4b32cfb6b4dd",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_2043835",
+            "t_2562462",
+            "t_2803542"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2961997",
+            "t_551296",
+            "t_2857442"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2912484",
+            "t_2961997",
+            "t_2562462"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_073",
+      "raw_query": "really helped me to get everything up and running again. Thanks guys!!",
+      "frame_query": "Express gratitude for assistance.",
+      "frame_error": "",
+      "prediction_sha256": "4942121d3f3f5d2c83aa0763cc87935559a1223daba8b332646404fe9ec34869",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_2912533",
+            "t_2912453",
+            "t_1315618"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_792541",
+            "t_450882",
+            "t_2136549"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_792541",
+            "t_450882",
+            "t_2136549"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_014",
+      "raw_query": "Can you guys help me out with a problem about which artist a few of my songs is under?",
+      "frame_query": "metadata attribution Get help with an artist attribution problem for a few songs",
+      "frame_error": "",
+      "prediction_sha256": "e5c0df184d89ccb4884cbf824a5517add2dee774ac9567ea482bc745828f5775",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1324014",
+            "t_1864676",
+            "t_2653189"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_2913851",
+            "t_1112286",
+            "t_1324014"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_2913851",
+            "t_1112286",
+            "t_1654768"
+          ]
+        }
+      }
+    },
+    {
+      "id": "b4_076",
+      "raw_query": "need help in deactivating card associated with account.",
+      "frame_query": "subscription problem Deactivate or remove the payment card associated with the account.",
+      "frame_error": "",
+      "prediction_sha256": "93579f9dfd82e1281bd8dc54df6c89ef339ce6286af3ccaf42983ba439e921d9",
+      "arms": {
+        "raw_text": {
+          "status": "available",
+          "thread_ids": [
+            "t_1983947",
+            "t_2528347",
+            "t_2495281"
+          ]
+        },
+        "request_frame": {
+          "status": "available",
+          "thread_ids": [
+            "t_1873390",
+            "t_508813",
+            "t_2959332"
+          ]
+        },
+        "request_frame_token_rerank": {
+          "status": "available",
+          "thread_ids": [
+            "t_1873390",
+            "t_508813",
+            "t_2959332"
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Development-only, no independent quality estimates.",
+    "Lexical reranking is heuristic; no semantic improvement claim.",
+    "No observed resolution inferred from historical reply position.",
+    "Missing/invalid frames and missing later replies remain explicit."
+  ]
+}

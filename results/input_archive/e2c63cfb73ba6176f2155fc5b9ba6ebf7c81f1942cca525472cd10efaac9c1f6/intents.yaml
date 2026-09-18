@@ -1,0 +1,1358 @@
+# Cadence intent taxonomy for @SpotifyCares — v1 (taxonomy pass; rationale and measurements in docs/TAXONOMY.md).
+#
+# Derived from 27,056 English conversation openers: TF-IDF + k-means clusters, 200 uniformly random openers read
+# end to end, and 250 hand-labelled openers (150 held-out calibration rows in docs/taxonomy_calibration.jsonl +
+# 100 dev rows used to tune the keywords). Ids are stable snake_case strings used everywhere in code and data.
+#
+# Field semantics
+#   default_decision     what the escalation policy expects when nothing else fires (rules/LLM can override).
+#   default_reason_code  primary reason code when default_decision is escalate (CONTRACT §5).
+#   examples             three verbatim customer openers (cleaned text) from the corpus.
+#   keywords             used ONLY by the simple_keyword baseline and by stratified sampling (never by the LLM).
+#                        Classifier: the intent with the most keyword hits wins; keywords shorter than five
+#                        characters match on word boundaries, longer ones as substrings; ties -> the earlier intent
+#                        in this file; no hit -> other. The order of intents is therefore deliberate: rare and
+#                        escalation-critical intents come first so that ties resolve towards the safer label, and
+#                        `other` is last so it only wins when it is the sole match. Apostrophe keywords appear in
+#                        both straight (') and curly (’) form because tweets use both. A few deliberately
+#                        overlapping keywords (e.g. "download" + "downloads") act as weights for decisive phrases.
+#   Descriptions are kept under 200 characters and the first example under 80 because cadence.agent.prompts embeds
+#   them verbatim in the system prompt; the full boundary rules live in docs/TAXONOMY.md §3.
+version: 1
+brand: SpotifyCares
+intents:
+- id: non_english
+  name: Non-English message
+  description: Not in English (Spanish, Portuguese, Indonesian, Tagalog, French, German, ...); a foreign song title
+    inside English doesn't count.
+  examples:
+  - hola, no puedo iniciar sesión en mi cuenta de spotify premium
+  - não consigo ouvir minhas músicas offline, o aplicativo diz que estou sem conexão
+  - kenapa spotify saya tidak bisa dibuka? padahal sudah bayar premium
+  default_decision: auto_handle
+  keywords:
+  - hola
+  - gracias
+  - por favor
+  - porque
+  - no puedo
+  - puedo
+  - tengo
+  - quiero
+  - estoy
+  - mi cuenta
+  - cuenta
+  - ayuda
+  - que
+  - pero
+  - para
+  - como
+  - una
+  - esta
+  - está
+  - también
+  - não
+  - nao
+  - obrigado
+  - obrigada
+  - minha conta
+  - minha
+  - meu
+  - consigo
+  - estou
+  - tenho
+  - você
+  - voce
+  - aplicativo
+  - ajuda
+  - isso
+  - muito
+  - saya
+  - tidak
+  - bisa
+  - tolong
+  - kenapa
+  - gimana
+  - sudah
+  - akun
+  - gak
+  - kok
+  - dong
+  - nya
+  - bonjour
+  - je ne
+  - pourquoi
+  - mon compte
+  - c'est
+  - c’est
+  - j'ai
+  - j’ai
+  - ich
+  - nicht
+  - warum
+  - bitte
+  - danke
+  - mein
+  - kann
+  - habe
+  - ik kan
+  - niet
+  - waarom
+  - mijn
+  - non riesco
+  - perché
+  - grazie
+  - ciao
+  - hesabım
+  - neden
+  - nasıl
+  - kasi
+  - naman
+  - bakit
+  - paano
+  - pano
+  - nyo
+  - niyo
+  - ako
+  - mga
+  - talaga
+  - walang
+  - nawala
+  - hindi ko
+  - ba yung
+  - lang
+- id: account_hacked_or_security
+  name: Account security
+  description: 'A third party is in the account: unknown device playing, playlists that aren''t theirs, email or
+    password changed by someone else.'
+  examples:
+  - A random phone I dont own was shown streaming on my account?
+  - My account has been hacked, email changed and I'm locked out. Can you help?
+  - something weird happened with my account. Had to change pw to login. Playlists there that aren't mine. Saved
+    music not mine.
+  default_decision: escalate
+  default_reason_code: account_security
+  enforce_default_decision: true   # policy: always a human, whatever the model proposes
+  keywords:
+  - hacked
+  - hack
+  - hacker
+  - hijack
+  - compromised
+  - someone else
+  - someone is
+  - someone has
+  - someone changed
+  - someone logged
+  - someone's
+  - someone’s
+  - somebody else
+  - somebody is
+  - somebody has
+  - somebody changed
+  - unauthorized
+  - unauthorised
+  - not me
+  - not mine
+  - aren't mine
+  - aren’t mine
+  - arent mine
+  - isn't mine
+  - isn’t mine
+  - isnt mine
+  - don't own
+  - don’t own
+  - dont own
+  - do not own
+  - security
+  - breach
+  - stolen
+  - random device
+  - unknown device
+  - another device
+  - a device i
+  - changed my email
+  - changed the email
+  - email changed
+  - email was changed
+  - email has been changed
+  - changed my password
+  - password changed
+  - password was changed
+  - suspicious
+  - logged in from
+  - logged into my
+  - playing on my account
+  - using my account
+  - russian
+- id: billing_or_charge
+  name: Billing / charges / refunds
+  description: 'Money moved or failed: unexpected, double or continued charge, paid but still Free, payment declined,
+    refund, wrong price.'
+  examples:
+  - I've been over charged on my bank account £9.99 instead £4.99!! Please help me
+  - I cancelled in January, yet I have still been charged £9.99 per month since then. 😳😳
+  - hi I subscribed and the payment was done on my credit card, but I still appear with a free account!
+  default_decision: escalate
+  default_reason_code: billing_dispute
+  enforce_default_decision: true   # policy: always a human, whatever the model proposes
+  keywords:
+  - charg
+  - charge
+  - charged
+  - charging
+  - charged me
+  - charging me
+  - been charged
+  - still charged
+  - still being charged
+  - keep charging
+  - keeps charging
+  - refund
+  - money back
+  - billed
+  - billing
+  - my bill
+  - the bill
+  - bill
+  - payment
+  - payments
+  - paid
+  - payed
+  - been paying
+  - payment made
+  - made a payment
+  - made the payment
+  - without the discount
+  - without discount
+  - paying full
+  - pay full
+  - paid full
+  - bought
+  - purchase
+  - invoice
+  - receipt
+  - credit card
+  - debit
+  - my card
+  - card was
+  - card is
+  - card has
+  - card got
+  - card declined
+  - double charge
+  - double billed
+  - charged double
+  - charged 2
+  - charged two
+  - twice
+  - two times
+  - 3 times
+  - three times
+  - money
+  - my money
+  - take my
+  - took my
+  - taken from
+  - gift card
+  - checkout
+  - paypal
+  - boku
+  - £
+  - $
+  - €
+  - '9.99'
+  - '4.99'
+  - '14.99'
+  - '0.99'
+  - transaction
+  - bank
+  - deducted
+  - overcharged
+  - over charged
+  - full price
+  - full amount
+  - cost
+  - still free
+  - still a free
+  - says free
+  - says i'm free
+  - says i’m free
+  - shows free
+  - still on free
+  - reverted to free
+  - back to free
+  - have a free account
+  - no premium
+  - not premium
+  - don't have premium
+  - don’t have premium
+  - dont have premium
+  - didn't have premium
+  - didn’t have premium
+  - didnt have premium
+  - not eligible
+  - not upgraded
+  - hasn't upgraded
+  - hasn’t upgraded
+  - hasnt upgraded
+- id: login_or_password
+  name: Login / password / account access
+  description: Cannot log in or sign up, forgot password or username, reset email missing, Facebook login broken,
+    logged out repeatedly, merge or close an account.
+  examples:
+  - I can't log in on my desktop or Android but can access the web app. Error 408.
+  - I deleted my Facebook account without realising my Spotify account was connected. Now I can't access my Spotify
+    account, How can I change this as it is a premium account.
+  - having login issues. tried to reset password but getting "The CSRF token is invalid"
+  default_decision: escalate
+  default_reason_code: needs_account_lookup
+  keywords:
+  - log in
+  - login
+  - can't log
+  - can’t log
+  - cant log
+  - can't login
+  - can’t login
+  - cant login
+  - unable to log
+  - couldn't log
+  - couldn’t log
+  - couldnt log
+  - can't sign
+  - can’t sign
+  - cant sign
+  - log into
+  - logging in
+  - logging into
+  - logged in
+  - logged out
+  - logs me out
+  - logging me out
+  - logged me out
+  - log out
+  - log back
+  - sign in
+  - signin
+  - signing in
+  - sign up
+  - signup
+  - signing up
+  - signed up
+  - password
+  - reset my password
+  - password reset
+  - reset password
+  - reset link
+  - reset email
+  - facebook
+  - fb
+  - username
+  - user name
+  - email address
+  - e-mail
+  - can't access
+  - can’t access
+  - cant access
+  - cannot access
+  - no access
+  - locked out
+  - verification email
+  - verification code
+  - forgot
+  - forgotten
+  - recover
+  - csrf
+  - credentials
+  - two accounts
+  - 2 accounts
+  - another account
+  - different account
+  - old account
+  - new account
+  - wrong account
+  - wrong password
+  - get into
+  - back into
+  - access my
+  - email i used
+  - no longer have access
+  - create an account
+  - make an account
+  - delete my account
+  - close my account
+  - deactivate
+  - change my email
+  - change my username
+  - change the email
+  - merge
+  - combine
+  - transfer my
+  - unlink
+  - linked to a different
+  - linked to another
+  - my email is
+  - email is not
+  - not associated
+  - doesn't recognise
+  - doesn’t recognise
+  - doesn't recognize
+  - doesn’t recognize
+  - doesnt recognise
+  - doesnt recognize
+  - new phone
+  - new device
+- id: download_or_offline
+  name: Downloads / offline mode
+  description: Downloads vanish or won't download, offline mode or "you're offline" errors, download limit, storage,
+    SD card, cache, mobile data use.
+  examples:
+  - Hi! Some of the songs I downloaded are disappearing, no idea why, help!
+  - why have all my downloaded albums suddenly been removed??? Version 8.4.23.784. Android 7.
+  - '"You''ve reached the maximum number of downloads", there''s always a catch right :('
+  default_decision: auto_handle
+  keywords:
+  - download
+  - downloads
+  - downloaded
+  - offline
+  - i'm offline
+  - i’m offline
+  - im offline
+  - am offline
+  - says offline
+  - you're offline
+  - you’re offline
+  - go online
+  - sd card
+  - storage
+  - cache
+  - mobile data
+  - data usage
+  - my data
+  - eating my data
+  - eats my data
+  - using data
+  - song limit
+  - download limit
+  - 3,333
+  - '3333'
+  - device limit
+  - memory card
+  - internal memory
+  - phone memory
+  - save to
+  - saved to
+- id: metadata_or_artist_issue
+  name: Wrong metadata / artist-side issue
+  description: Present but wrong content (wrong artist, misspelling, wrong cover/version/lyrics, duplicate pages)
+    or an artist about their own music or profile.
+  examples:
+  - This artist has a wrong name, it should be "Epidemic" (with no "The"). <url>
+  - hey looks like one of our songs were linked to the wrong artist. Would you be able to help us out?
+  - 'hey my new release has my artist name misspelled, can you please take good care of it? link here: <url>'
+  default_decision: auto_handle
+  keywords:
+  - wrong artist
+  - wrong name
+  - wrong song
+  - wrong album
+  - wrong cover
+  - wrong version
+  - wrong track
+  - wrong picture
+  - wrong photo
+  - wrong image
+  - wrong bio
+  - wrong artwork
+  - wrong info
+  - wrong title
+  - wrong lyrics
+  - misspell
+  - mispell
+  - spelled wrong
+  - spelt wrong
+  - spelling
+  - typo
+  - mislabel
+  - incorrectly
+  - incorrect artist
+  - incorrect name
+  - incorrect title
+  - incorrect album
+  - incorrect info
+  - credited
+  - attributed
+  - listed under
+  - shows up under
+  - showing under
+  - linked to the wrong
+  - linked to another artist
+  - linked to a different artist
+  - under the wrong
+  - under my
+  - under our
+  - our band
+  - my band
+  - our song
+  - our track
+  - our album
+  - our music
+  - our page
+  - our profile
+  - our artist
+  - my artist
+  - my song is
+  - my song has
+  - my song was
+  - my song on spotify
+  - my track is
+  - my track has
+  - my track was
+  - my track on spotify
+  - my release
+  - my new release
+  - our release
+  - our new release
+  - artist page
+  - artist profile
+  - artist name
+  - band name
+  - artist account
+  - artist verification
+  - get verified
+  - verified artist
+  - verified badge
+  - verify the
+  - verify these
+  - blue check
+  - spotify for artists
+  - s4a
+  - distributor
+  - distrokid
+  - cd baby
+  - cdbaby
+  - tunecore
+  - record label
+  - my label
+  - our label
+  - same name
+  - another artist
+  - different artist
+  - other artist
+  - duplicate
+  - two artist
+  - 2 artist
+  - separate page
+  - separate artist
+  - mixed up
+  - swapped
+  - cover art
+  - album art
+  - album cover
+  - artwork
+  - this cover
+  - the cover
+  - cover on
+  - cover is
+  - change the cover
+  - change this cover
+  - explicit tag
+  - tagged as
+  - songwriter
+  - producer credit
+  - featured artist
+  - not us
+  - not our
+  - isn't us
+  - isn’t us
+  - isnt us
+  - not affiliated
+  - affiliated
+  - impersonat
+  - fake artist
+  - fake account
+  - lyrics are wrong
+  - lyrics wrong
+  - lyric error
+  - sounds different
+  - different version
+  - unplugged version
+  - instead of the album
+  - not by
+  - isn't by
+  - isn’t by
+  - isnt by
+  - release date is
+  - release date has
+  - wrong date
+  - wrong year
+- id: playlist_or_library
+  name: Playlists / saved music / personalisation
+  description: Own playlists or saved music gone or changed, playlist how-tos, Discover Weekly, Daily Mix, Release
+    Radar, Wrapped, radio, recommendations.
+  examples:
+  - where has my Spotify playlists gone?!????
+  - Hello I forgot to save last weeks discover weekly playlist and I really liked it. Is there anyway for me to
+    get it back?
+  - how do I reset my Discover Weekly? I saved a few Latino songs and now that is all that is showing up in my playlist!
+  default_decision: auto_handle
+  keywords:
+  - playlist
+  - library
+  - your music
+  - saved songs
+  - saved music
+  - saved tracks
+  - liked songs
+  - songs i saved
+  - songs i've saved
+  - songs i’ve saved
+  - discover weekly
+  - daily mix
+  - release radar
+  - wrapped
+  - top songs
+  - year in music
+  - time capsule
+  - new music friday
+  - rapcaviar
+  - today's top hits
+  - today’s top hits
+  - recommend
+  - radio
+  - station
+  - follow
+  - followers
+  - following
+  - followed
+  - collaborative
+  - collab playlist
+  - algorithm
+  - my taste
+  - my likes
+- id: content_or_availability
+  name: Missing content / greyed-out / region
+  description: Missing, greyed-out, unavailable or region-locked artists, albums, songs or podcasts; requests to
+    add music; Spotify not in my country.
+  examples:
+  - 'Question: why is Honor Society''s best album Fashionably Late not on ???'
+  - When will Spotify be available on Croatia ?
+  - Is anyone else having problems playing @user on ? When I try in my computer it says "this song is not available"
+    ....
+  default_decision: auto_handle
+  keywords:
+  - not on spotify
+  - not in spotify
+  - isn't on spotify
+  - isn’t on spotify
+  - isnt on spotify
+  - on spotify
+  - available
+  - not available
+  - unavailable
+  - isn't available
+  - isn’t available
+  - isnt available
+  - available in
+  - available here
+  - greyed
+  - grayed
+  - greyed out
+  - grayed out
+  - grey out
+  - gray out
+  - missing
+  - removed from
+  - been removed
+  - were removed
+  - was removed
+  - taken down
+  - taken off
+  - took down
+  - took off
+  - gone from
+  - no longer on
+  - not showing up
+  - doesn't show up
+  - doesn’t show up
+  - doesnt show up
+  - not up yet
+  - not up on
+  - up yet
+  - up on spotify
+  - not on
+  - isn't on
+  - isn’t on
+  - isnt on
+  - on ?
+  - on here
+  - on there
+  - new album
+  - the album
+  - please release
+  - pls release
+  - album coming
+  - coming out
+  - come out
+  - gonna be on
+  - going to be on
+  - songs of
+  - this album
+  - his album
+  - her album
+  - their album
+  - album by
+  - album on
+  - album is
+  - album isn't
+  - album isn’t
+  - album isnt
+  - song by
+  - songs by
+  - music by
+  - this song
+  - the ep
+  - new ep
+  - his ep
+  - her ep
+  - mixtape
+  - soundtrack
+  - ost
+  - podcast
+  - discography
+  - catalog
+  - catalogue
+  - licens
+  - region
+  - my country
+  - in my country
+  - your country
+  - the country
+  - this country
+  - which country
+  - countries
+  - come to
+  - coming to
+  - launch in
+  - launching
+  - launched in
+  - launch spotify
+  - launch here
+  - launch your
+  - released
+  - be released
+  - release date
+  - release it
+  - release this
+  - the release
+  - release of
+  - where is
+  - where's
+  - where’s
+  - wheres
+  - where the
+  - why isn't
+  - why isn’t
+  - why isnt
+  - why doesn't
+  - why doesn’t
+  - why doesnt
+  - why don't you have
+  - why don’t you have
+  - why dont you have
+  - please add
+  - pls add
+  - plz add
+  - put it on
+  - put it up
+  - add it
+  - get it on
+  - be added
+  - get added
+  - added to spotify
+  - need this
+  - explicit version
+  - clean version
+  - censored
+  - edited version
+  - original version
+  - deluxe
+  - bonus track
+  - new song
+  - new music
+  - new release
+  - can't find
+  - can’t find
+  - cant find
+  - cannot find
+  - couldn't find
+  - couldn’t find
+  - couldnt find
+  - can't listen
+  - can’t listen
+  - cant listen
+  - what happened to
+  - reputation
+  - india
+  - south africa
+  - egypt
+  - korea
+  - pakistan
+  - romania
+  - croatia
+  - slovenia
+  - serbia
+  - russia
+  - nigeria
+  - vietnam
+  - israel
+  - ukraine
+  - middle east
+  - africa
+  - kpop
+  - k-pop
+- id: playback_or_app_bug
+  name: Playback / app malfunction
+  description: 'App, desktop or web player misbehaves: crashes, won''t play, skips or pauses, errors, no sound,
+    device/Bluetooth/console/TV problems.'
+  examples:
+  - Yo , the app keeps crashing every time I try to share a song on my pixel!
+  - Hey WTH is going on with your web player? Keep getting "Oooops, something went wrong with the playback. Reload"
+    every 2nd song?!?!
+  - '. no audio on my #Xbox, says it''s playing. Just reinstalled the app.'
+  default_decision: auto_handle
+  keywords:
+  - crash
+  - freez
+  - frozen
+  - won't play
+  - won’t play
+  - wont play
+  - will not play
+  - not playing
+  - isn't playing
+  - isn’t playing
+  - isnt playing
+  - doesn't play
+  - doesn’t play
+  - doesnt play
+  - stops playing
+  - stopped playing
+  - stop playing
+  - keeps stopping
+  - keeps pausing
+  - pausing
+  - pauses
+  - skipping
+  - skips
+  - buffer
+  - error
+  - glitch
+  - bug
+  - buggy
+  - broken
+  - broke
+  - not working
+  - isn't working
+  - isn’t working
+  - isnt working
+  - doesn't work
+  - doesn’t work
+  - doesnt work
+  - won't work
+  - won’t work
+  - wont work
+  - stopped working
+  - not loading
+  - won't load
+  - won’t load
+  - wont load
+  - keeps loading
+  - won't open
+  - won’t open
+  - wont open
+  - can't open
+  - can’t open
+  - cant open
+  - web player
+  - webplayer
+  - desktop app
+  - desktop client
+  - fix your
+  - fix the
+  - fix this
+  - fix it
+  - spotify connect
+  - can't connect
+  - can’t connect
+  - cant connect
+  - won't connect
+  - won’t connect
+  - wont connect
+  - connection
+  - sonos
+  - alexa
+  - echo
+  - chromecast
+  - google home
+  - carplay
+  - android auto
+  - xbox
+  - ps4
+  - playstation
+  - apple tv
+  - roku
+  - smart tv
+  - bluetooth
+  - airpods
+  - headphones
+  - speaker
+  - my car
+  - since the update
+  - after the update
+  - new update
+  - latest update
+  - last update
+  - the update
+  - updated
+  - ios 11
+  - ios11
+  - android 8
+  - oreo
+  - slow
+  - laggy
+  - lag
+  - lagging
+  - stutter
+  - no sound
+  - no audio
+  - sound
+  - audio
+  - volume
+  - cuts out
+  - cutting out
+  - cut out
+  - keeps cutting
+  - randomly
+  - restart
+  - reinstall
+  - uninstall
+  - black screen
+  - blank screen
+  - white screen
+  - search bar
+  - search is
+  - search isn't
+  - search isn’t
+  - search doesn't
+  - search doesn’t
+  - search broken
+  - search function
+  - can't search
+  - can’t search
+  - cant search
+  - search results
+  - lock screen
+  - shuffle isn't
+  - shuffle isn’t
+  - shuffle is not
+  - shuffle doesn't
+  - shuffle doesn’t
+  - repeat button
+  - crossfade
+  - equalizer
+  - won't let me
+  - won’t let me
+  - wont let me
+  - can't play
+  - can’t play
+  - cant play
+  - unable to play
+  - won't stop
+  - won’t stop
+  - keeps playing
+  - doesn't stop
+  - doesn’t stop
+  - won't pause
+  - won’t pause
+  - wrong with
+  - what's wrong
+  - what’s wrong
+  - whats wrong
+  - messed up
+  - acting up
+  - going on with
+  - not sharing
+  - can't share
+  - can’t share
+  - cant share
+  - won't share
+  - won’t share
+  - sharing links
+  - share a song
+  - keeps telling me
+  - keeps saying
+  - play at all
+  - play anything
+  - nothing plays
+  - nothing happens
+  - nothing is happening
+  - known bug
+  - known issue
+  - known problem
+  - a bug
+  - this bug
+  - gui
+- id: subscription_or_plan
+  name: Plans / eligibility / Free-tier limits
+  description: Premium, Student, Family, trial or bundle questions, eligibility, invites, upgrade/cancel, offers,
+    account country, Free-tier limits (ads, shuffle).
+  examples:
+  - how do I switch my Premium account to a Family Account!?
+  - my partner paid for a family account but I'm not receiving the invite! Nothing to do with email. It's not sending
+    it. Help!
+  - Wait what do you mean I can only listen to music on shuffle this is such bullshit <url>
+  default_decision: auto_handle
+  keywords:
+  - premium
+  - student
+  - family
+  - trial
+  - free trial
+  - bundle
+  - hulu
+  - unidays
+  - nus
+  - upgrade
+  - downgrade
+  - cancel
+  - subscription
+  - subscribe
+  - plan
+  - membership
+  - family member
+  - members
+  - discount
+  - eligib
+  - ads
+  - ad
+  - advert
+  - commercial
+  - shuffle only
+  - only shuffle
+  - only on shuffle
+  - on shuffle
+  - shuffle play
+  - just shuffle
+  - suggested
+  - suggested track
+  - suggested tracks
+  - suggested song
+  - aren't even in
+  - aren’t even in
+  - arent even in
+  - not even in
+  - not in my playlist
+  - playing songs that
+  - songs that aren't
+  - songs that aren’t
+  - songs that are not
+  - random songs
+  - skip limit
+  - 6 skips
+  - more skips
+  - unlimited skips
+  - free account
+  - free user
+  - free version
+  - free spotify
+  - spotify free
+  - free tier
+  - on free
+  - premium features
+  - offer
+  - promo
+  - 99 cents
+  - 3 months
+  - three months
+  - month free
+  - months free
+  - renew
+  - expire
+  - invite
+  - invitation
+  - add my
+  - add a member
+  - add member
+  - join
+  - same address
+  - home address
+  - different address
+  - address verification
+  - verify address
+  - my address
+  - household
+  - telco
+  - vodafone
+  - rogers
+  - verizon
+  - at&t
+  - sprint
+  - telkomsel
+  - carrier
+  - phone bill
+  - mobile bill
+  - how much
+  - price
+  - pricing
+  - get premium
+  - go premium
+  - buy premium
+  - want premium
+  - become premium
+  - voucher
+  - redeem
+  - country settings
+  - change my country
+  - change country
+  - account country
+  - country on my account
+  - country to
+- id: feature_request_or_feedback
+  name: Product feedback & suggestions
+  description: 'Nothing broken, but a change is wanted: features, UI/design complaints, platform requests (iPhone
+    X, Apple Watch, Siri), ad content.'
+  examples:
+  - any eta on iPhone X support? Or Apple Watch? :)
+  - please make it to where I can organize my playlist into folders I have tOO MANY PLAYLISTS
+  - is there a way to set up parental controls to block explicit music (premium account) for one device?
+  default_decision: auto_handle
+  keywords:
+  - feature
+  - suggestion
+  - suggest
+  - would be nice
+  - would be cool
+  - would be great
+  - would be awesome
+  - would love
+  - it would be
+  - i wish
+  - wish you
+  - wish there
+  - wish spotify
+  - wish the
+  - idea
+  - ui
+  - ux
+  - design
+  - layout
+  - interface
+  - dark mode
+  - night mode
+  - lyrics
+  - nintendo
+  - apple watch
+  - iwatch
+  - iphone x
+  - iphonex
+  - iphone 10
+  - for the iphone x
+  - for iphone x
+  - iphone x update
+  - iphone x support
+  - please make
+  - pls make
+  - plz make
+  - can you make
+  - could you make
+  - you should
+  - should be able
+  - should have
+  - should add
+  - should let
+  - should allow
+  - need to add
+  - need an option
+  - option to
+  - an option
+  - ability to
+  - allow us
+  - allow me
+  - let us
+  - let me choose
+  - any plans
+  - plans to
+  - plan to
+  - can you add
+  - could you add
+  - add a
+  - add an
+  - add the ability
+  - add the option
+  - bring back
+  - bringing back
+  - go back to
+  - old version
+  - old layout
+  - old design
+  - old ui
+  - new design
+  - new layout
+  - new ui
+  - new look
+  - why did you change
+  - why did you remove
+  - why did you get rid
+  - why change
+  - why remove
+  - get rid of
+  - take away
+  - took away
+  - taken away
+  - sleep timer
+  - siri
+  - google assistant
+  - cortana
+  - gapless
+  - hifi
+  - lossless
+  - flac
+  - 3d touch
+  - support for
+  - compatib
+  - optimi
+  - update for
+  - please consider
+  - consider adding
+  - feedback
+  - hate the
+  - hate that
+  - hate how
+  - stupid
+  - dumb
+  - terrible
+  - awful
+  - ugly
+  - sucks
+  - please stop
+  - stop putting
+  - stop showing
+  - stop asking
+  - stop sending
+  - every single
+  - genre
+  - block
+  - mute
+  - hide
+  - dislike button
+  - thumbs
+  - sort by
+  - filter
+  - folder
+  - separate
+  - introduce
+  - implement
+  - build a
+  - build an
+  - develop
+  - devs
+  - product team
+  - messaging
+  - organi
+  - categor
+  - explicit content
+  - explicit filter
+  - explicit music
+  - block explicit
+  - parental
+  - customize
+  - customise
+- id: other
+  name: Thanks, unclear, media-only, off-topic
+  description: Thanks or praise, "check your DMs", screenshot-only or bare "help", venting with no describable issue,
+    support-process complaints, off-topic.
+  examples:
+  - Check your DMs
+  - they actually care. thanks xoxo <url>
+  - Hey I need some help!
+  default_decision: escalate
+  default_reason_code: ambiguous_or_media_only
+  keywords:
+  - thanks
+  - thank you
+  - thank u
+  - thx
+  - cheers
+  - love you
+  - love u
+  - awesome
+  - amazing
+  - great job
+  - good job
+  - well done
+  - lol
+  - lmao
+  - haha
+  - check your dm
+  - check ur dm
+  - check dm
+  - your dms
+  - my dm
+  - the dm
+  - sent a dm
+  - sent you a dm
+  - sent u a dm
+  - sent dm
+  - dmed
+  - dm'd
+  - dm’d
+  - dm'ed
+  - dm’ed
+  - dm me
+  - dm you
+  - in dms
+  - via dm
+  - reply to my dm
+  - respond to my dm
+  - answer my dm
+  - my message
+  - pm me
+  - inboxed
+  - customer service
+  - customer support
+  - customer care
+  - phone number
+  - contact number
+  - real person
+  - actual person
+  - speak to someone
+  - talk to someone
+  - speak to a
+  - talk to a
+  - human
+  - live chat
+  - support email
+  - get in touch
+  - reach you
+  - presale
+  - pre-sale
+  - pre sale
+  - job
+  - jobs
+  - internship
+  - intern
+  - hiring
+  - career
+  - sponsor
+  - partnership
+  - advertise with
+  - interview
+  - explain
+  - wtf is this
+  - what is this
+  - what's this
+  - what’s this
+  - whats this

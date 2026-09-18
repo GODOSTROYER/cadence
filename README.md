@@ -6,6 +6,12 @@ An evaluated support-agent prototype for **@SpotifyCares**, built for the Hiver 
 
 **Live demo:** [www.arnavbule.in/hiver-assignment](https://www.arnavbule.in/hiver-assignment)
 
+**New experimental implementation:** [VerifiedAgent](docs/VERIFIED_DESIGN.md) separates risk assessment from answer selection, enforces action prerequisites and current-source expiry, and records retry-inclusive failures and known token usage. Read the [latest empirical status](docs/VERIFIED_STATUS.md) for measured development/calibration results and remaining gaps; implemented checks alone do not establish reply quality or safety.
+
+Completed AI-reviewed pilots found 22/80 policy-compliant useful replies in development and 22/100 in calibration, with two missed required routes in each and four/six flagged automatic replies respectively. Both fail the safety criteria; those pre-patch results remain unchanged.
+
+A subsequent policy/action-scope patch and knowledge v3 completed an 18-case targeted regression: no required-route misses or flagged automatic replies, but **only one useful clarification and seven unnecessary escalations**. That selected, AI-reviewed check does not establish restored useful coverage or generalization. The new 200-case confirmation and 80-case challenge human-label packets remain untouched and blank. [Evaluation commands and gates](docs/VERIFIED_EVALUATION.md) preserve that boundary. VerifiedAgent is not promoted; the hosted demo and application default remain the reference `SupportAgent`. The benchmark below describes the reference's frozen evaluation.
+
 ## What the evidence actually establishes
 
 - The frozen revised agent achieves **0.789 intent macro-F1, 0.938 escalation recall and 35% auto-handling** on 200 messages reviewed by Arnav Bule. It misses five required escalations among 70 automatic decisions. This is a measured prototype result, not a production safety certification.

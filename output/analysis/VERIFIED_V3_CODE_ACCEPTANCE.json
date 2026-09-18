@@ -1,0 +1,138 @@
+{
+  "artifact_version": "verified-v3-code-acceptance-v1",
+  "status": "pass",
+  "reviewed_at": "2026-09-18T12:06:15.737601+00:00",
+  "reviewer": {
+    "type": "ai",
+    "identity": "Codex independent agent /root/verified_code_acceptance",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "independent_of_implementation": true,
+    "human_review": false
+  },
+  "scope": "Independent acceptance of frozen V3 request-kind extraction, action applicability and clarification dependencies, source-authority introspection, and exact-policy response-audit integration.",
+  "previous_acceptance": {
+    "path": "output/analysis/VERIFIED_CODE_ACCEPTANCE.json",
+    "sha256": "fa5a03e750f91b43b7480f9ab928554c0bc5a67a8bbaa558dbe42248297a91e9",
+    "relationship": "Earlier-version acceptance remains preserved; this record covers the specified V3 follow-up changes."
+  },
+  "reviewed_changes": [
+    "Typed request_kind plus quoted observable_symptom and requested_change facts; extraction instructions distinguish technical failures, feature changes, content requests and public how-to.",
+    "Concrete nonplayback app diagnostics without invented playback wording; grounded feature-request eligibility; catalog clarification that preserves known entities.",
+    "Clarification dependencies use current official evidence, describe missing facts and a potential downstream action, and withhold the actual procedure until its full prerequisites are met.",
+    "Known conflicting device/plan/region or operation conditions and expired authority block scope-dependent questions; genuine diagnostic questions remain source-independent.",
+    "Spotify Connect uses its existing current claim, preserves mandatory security handling and excludes an explicitly completed selector step.",
+    "Social closure may use an empty issue list only when typed request/fact evidence contains no open need.",
+    "KnowledgeStore.get_current checks current official authority, freshness and integrity without treating missing applicability facts as known.",
+    "Response-audit payload includes the exact frozen policy boundaries, mandatory-risk rules, version and hash; valid audit risk rationale is recorded without weakening the risk veto."
+  ],
+  "findings_resolved": [
+    {
+      "id": "V3-01",
+      "priority": "P2",
+      "reported_by": "independent acceptance reviewer",
+      "finding": "A typed playlist-search failure with a quoted freezing symptom lost device diagnosis because the downstream public-how-to procedure could not apply.",
+      "resolution": "Separate diagnostic context from procedure eligibility; a grounded named-function failure permits missing-device/version diagnosis without a redundant app_problem issue or current procedure authority.",
+      "files": [
+        "src/cadence/agent/actions.py",
+        "tests/test_verified_actions.py"
+      ]
+    },
+    {
+      "id": "V3-02",
+      "priority": "P2",
+      "reported_by": "independent acceptance reviewer",
+      "finding": "Empty/social-only issues with social_closure=true could permit an acknowledgment despite a typed open request or quoted unresolved symptom/change.",
+      "resolution": "Social eligibility rejects typed open needs and observable_symptom/requested_change facts, including contradictory closure flags.",
+      "files": [
+        "src/cadence/agent/actions.py",
+        "tests/test_verified_actions.py"
+      ]
+    },
+    {
+      "id": "V3-03",
+      "priority": "P2",
+      "reported_by": "independent acceptance reviewer",
+      "finding": "The new Connect card could repeat an explicitly completed device-selector step.",
+      "resolution": "Add an already-tried selector/picker exclusion and a quoted attempted-step regression.",
+      "files": [
+        "src/cadence/agent/actions.py",
+        "tests/test_verified_actions.py"
+      ]
+    },
+    {
+      "id": "V3-04",
+      "priority": "P2",
+      "reported_by": "action implementation owner during acceptance follow-up; independently verified",
+      "finding": "Question-shaped technical failures could be reinterpreted as public how-to by the legacy lexical fallback.",
+      "resolution": "Typed technical_failure now vetoes that fallback; the final contrast preserves version-only diagnosis for a freezing playlist search and verified instructions for a genuine public how-to.",
+      "files": [
+        "src/cadence/agent/actions.py",
+        "tests/test_verified_actions.py"
+      ]
+    }
+  ],
+  "unresolved_findings": [],
+  "validation": [
+    {
+      "stage": "V3 after initial review fixes, before the final narrow typed-howto veto",
+      "command": "python -B -m pytest -p no:cacheprovider tests/test_verified_agent.py tests/test_verified_actions.py tests/test_request_policy.py tests/test_knowledge.py",
+      "passed": 265,
+      "failed": 0,
+      "exit_code": 0,
+      "warning": "One upstream google-genai/Pydantic deprecation warning."
+    },
+    {
+      "stage": "Final frozen actions revision, including the typed-howto veto",
+      "command": "python -B -m pytest -p no:cacheprovider tests/test_verified_actions.py",
+      "passed": 133,
+      "failed": 0,
+      "exit_code": 0
+    },
+    {
+      "stage": "Independent focused integration and counterexample checks",
+      "status": "pass",
+      "checks": [
+        "Audit payload boundaries and mandatory risk rules equal the frozen POLICY values and bind the exact version/SHA.",
+        "An audit that reports a new risk escalates even when it approves every exact alternative; its risk_reason is retained in the trace.",
+        "A quoted playlist-search failure receives local-policy-backed device diagnosis with fresh and expired procedure sources; its usage procedure stays withheld.",
+        "An unknown Connect device triggers the deterministic account-security route before response selection despite all-clear extracted risk flags.",
+        "At the final hashes, question-shaped playlist-search failure on a known iPhone receives missing-version diagnosis, while genuine public how-to retains verified search instructions."
+      ]
+    }
+  ],
+  "knowledge_fingerprint": "7960a43978f50fca787d4f163841ad47e05f7688943157a56e78aaf57b9c6cdd",
+  "review_constraints": {
+    "implementation_files_modified_by_reviewer": false,
+    "model_or_network_calls": false,
+    "calibration_texts_read": false,
+    "final200_texts_read": false,
+    "challenge_texts_read": false,
+    "test_inputs": "Synthetic unit-test cases and independently constructed local counterexamples only."
+  },
+  "limitations": [
+    "This accepts the stated V3 code/contracts at the recorded hashes; it is not a release or deployment approval.",
+    "Live reply quality, calibration outcomes, held-out evaluation, human annotation and promotion are outside this review.",
+    "Quote validation establishes span provenance, not semantic truth; extraction and exact-response review still require independent quality evaluation.",
+    "The 265-test run preceded the final narrow action change. That final change received the recorded 133-test affected-suite run and an actual-registry contrast check.",
+    "Separate wire-schema/provider changes and comprehensive experiment-runner acceptance are outside this V3 review scope.",
+    "Current official claim factual review is recorded separately; this review checks authority and applicability contracts."
+  ],
+  "live_quality_accepted": false,
+  "promotion_accepted": false,
+  "release_accepted": false,
+  "files": {
+    "src/cadence/agent/request_frame.py": "7fc7c5488966ed77b1e5b9b099670c90d9c4746728db6135ba2dd0769ae2079b",
+    "src/cadence/agent/actions.py": "99671d787d1aeea8e9133407c0ba25cef3394e4c1994f4c68243e2d95614e21b",
+    "src/cadence/agent/verified.py": "c79429bfc034f8507af39088cd7058583dedc3a72042a76c2b1476b01236a2f2",
+    "src/cadence/agent/policy_v2.py": "553d9228f4f9a9ff2e00aa1e208501e9b59002ad3e9fbd1c3a1a5f825c0bba01",
+    "src/cadence/knowledge/models.py": "aa21dfa3ad37ea810442776f851ee0b2baeb31342d4ffa7375c813a77630f260",
+    "src/cadence/knowledge/store.py": "5aa16dea452420d1b90cec784ba2c108855b800dcf1b3134563f37878e722021",
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "config/knowledge/v2.json": "9abe3912d763ebb8b58e3aaf913158ea8bab4a87142a5a95ea3a8480c9a5d478",
+    "tests/test_request_policy.py": "8571b9bff951ed8a17e27fc878f8b5511ae6184212970a41f9a015ae7e2735b9",
+    "tests/test_verified_actions.py": "0f29cc96e55dea22a9e8dba6a9e707a8fb1055479c085cca51cd5eabd5beddb7",
+    "tests/test_verified_agent.py": "2cfb8634e52ecadaa98486b26e4c9b3ee35d63072327bed3c4bb5732c755dd86",
+    "tests/test_knowledge.py": "c340c5f40fb545bcbcea52f51a8e379b1ffabac51fb4ca0aebe72c50324439dd"
+  }
+}

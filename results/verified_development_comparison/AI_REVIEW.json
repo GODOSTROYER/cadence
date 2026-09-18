@@ -1,0 +1,20 @@
+{
+  "run_id": "verified-development-917d0e9bcbc5dafa",
+  "reviewer_type": "ai",
+  "reviewer_ids": [
+    "GPT-6 Astra xhigh / blinded batch 1",
+    "GPT-6 Astra xhigh / blinded batch 2",
+    "GPT-6 Astra xhigh / blinded batch 3",
+    "GPT-6 Astra xhigh / blinded batch 4"
+  ],
+  "n_ratings": 320,
+  "provenance": "New external AI review of exact replies under one frozen rubric; human review pending.",
+  "artifacts": {
+    "ai_reviews.jsonl": "20f9d721dc374d74b528c23be5a807cb5588ccf8374739cf942da353023ee642",
+    "COMPARISON.lock.json": "27156b647ecee726235c85030db0db5986b3259c6bffa6cc3d13bd7b2b59deab",
+    "submissions/000.jsonl": "f10d79996fc73b8a07760c9a8f37217b0c5ec3fb6e8954cb13f64252d886834d",
+    "submissions/001.jsonl": "af75e571a453e4fa764266c1eb763c6f386f90d2143350d929319562fc59b0ed",
+    "submissions/002.jsonl": "68606b81d675683c2bdf7434e9b5157010d7eb6396977187e401465e1b3daef6",
+    "submissions/003.jsonl": "e38e33141143d50bd343d98b9c9c35a6d76718aecab8976030bbd318a0f9bb36"
+  }
+}

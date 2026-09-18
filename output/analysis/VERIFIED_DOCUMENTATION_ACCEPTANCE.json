@@ -1,0 +1,65 @@
+{
+  "status": "accepted",
+  "scope": "Final eight-document consistency review only; no candidate promotion or generalization acceptance",
+  "recorded_at": "2026-09-18T13:10:07.897512+00:00",
+  "reviewer": {
+    "agent": "/root/verified_docs_consistency/final_documentation_acceptance",
+    "reviewer_type": "ai",
+    "context": "fresh context; independent read-only review; reviewer edited no files"
+  },
+  "findings": [],
+  "checks": {
+    "aggregate_metrics_match_sealed_summaries": true,
+    "postpatch_one_useful_clarification_and_seven_unnecessary_escalations_prominent": true,
+    "selected_regression_does_not_claim_restored_coverage_or_generalization": true,
+    "prepatch_pilots_unchanged_and_separate": true,
+    "ai_reviewer_variability_and_within_study_comparisons_explicit": true,
+    "current_verified_v3_and_default_knowledge_store_v2_distinguished": true,
+    "support_agent_remains_default": true,
+    "historical_human_attestations_unchanged": true,
+    "new_human_labels_and_reply_review_remain_pending": true,
+    "no_promotion_claim": true,
+    "local_document_links_resolve": true,
+    "git_diff_whitespace_check_passed": true
+  },
+  "offline_checks_passed": [
+    "python analysis_tools/reproduce_verified.py --experiment results/verified_dev_v4 --action verify",
+    "python analysis_tools/reproduce_verified.py --experiment results/verified_calibration_v1 --action verify",
+    "python analysis_tools/reproduce_verified.py --experiment results/verified_postpilot_regression_v1 --action verify",
+    "python analysis_tools/compare_verified_variants.py --check",
+    "python analysis_tools/summarize_verified_controls.py --experiment results/verified_ablation_v1 --check",
+    "python analysis_tools/summarize_verified_retrieval.py --check",
+    "python scripts/15_publish_benchmark.py --check",
+    "python analysis_tools/publish_quality.py --check",
+    "python analysis_tools/publish_balanced.py --check"
+  ],
+  "hash_convention": "cadence.eval.provenance.sha256; LF-normalized supported text formats",
+  "files": {
+    "README.md": "6bebd3c1ea128a424660e7d2c42020e0f850f25116cd18896d9fb9b43a548ff1",
+    "docs/VERIFIED_STATUS.md": "ca3412d76c7e6a1f3668f021d2c1ce2452c8fa974b221aa60354ce32f2cfba24",
+    "docs/VERIFIED_EXPERIMENT_SEQUENCE.md": "962557f6e6aa1d0c04b1c0cd0f4330b8dfb24f6c2742a66a2a7949f8fe15598a",
+    "docs/VERIFIED_DESIGN.md": "1ea70fad4994d0e6c20b3d4889a4492af0ab941f2d66d1939064b7b9fd72d58b",
+    "docs/VERIFIED_EVALUATION.md": "5c69b1a20f6abe21a3614a5590ea1ef003a1a1afa188cf3ab7950c32cb5603fd",
+    "docs/EVALUATOR_GUIDE.md": "e2a7c08cc0ee3f205b3d40f0f04692f89c8b7dde4053c0946998cf81615bc427",
+    "docs/IMPROVEMENTS.md": "4063b1d33ea092c8545717bf8aa3a55f42478159ccab8e0e111ae53d36a27c79",
+    "docs/DEPLOYMENT.md": "89df7e0b4e8a942ab964c7a1106c3d6ee83b9494fbcc484b34f4b417b86e6a0f"
+  },
+  "evidence": {
+    "results/verified_dev_v4/summary.json": "6d663dafbd81b1f7148532302338fb6366abf515b3ca5dd70b0ff5d0cee6fa26",
+    "results/verified_calibration_v1/summary.json": "dd3f5303f810e65e28206e87dc0a1be4ccd93159a2e4bc411f7a168a325d3876",
+    "results/verified_postpilot_regression_v1/summary.json": "9161eb7d3a92be13732df7bdc0bdf41dcad763c3b57514bbfd6094c388d219c2",
+    "results/verified_postpilot_regression_v1/AI_REVIEW.json": "96875b08a99a01399a478e5841e289961dd79fb6586378c56d671278c83f911e",
+    "results/verified_variant_comparison_v1/summary.json": "6de10d89630a5834eae387edadf0db6984500a9cd51e66179066f6e2e76c6ebe",
+    "results/verified_ablation_v1/quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+    "results/verified_retrieval_dev_v2/summary.json": "7eea73f6bdad00ff8ebaf5a7b5ed15ec1f330858cff8ebaa4a7736a5e6811cee",
+    "config/knowledge/README.md": "9c27dae3ea1d4a7b829dcb31268cde03d266c90de32c650dc85572412662e202"
+  },
+  "limitations": [
+    "Documentation acceptance verifies faithful reporting, not model safety or universal correctness.",
+    "All new pilot, calibration and regression labels and reply ratings are AI-authored.",
+    "The selected 18-case regression does not establish generalization or restored useful coverage.",
+    "Reserved confirmation/challenge customer texts and labels were not inspected; pending human-work status was checked through metadata and parent task state."
+  ],
+  "promote": false,
+  "new_model_calls": 0
+}

@@ -1,0 +1,344 @@
+{
+  "version": "verified-development-comparison-v1",
+  "phase": "development",
+  "seed": 2026091811,
+  "run_id": "verified-development-917d0e9bcbc5dafa",
+  "n": 80,
+  "n_replies": 320,
+  "systems": [
+    "agent",
+    "quality",
+    "balanced",
+    "verified"
+  ],
+  "inputs": {
+    "labels": {
+      "path": "data/verified_dev/labels.jsonl",
+      "sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5"
+    },
+    "label_provenance": {
+      "path": "data/verified_dev/LABEL_REVIEW.json",
+      "sha256": "fa085f113714b7743a00c3931133df5b27e0f0a3be5b28c4962c7bbafa5740f0"
+    },
+    "archive/ACCEPTANCE.json": {
+      "path": "results/balanced_confirmation/ACCEPTANCE.json",
+      "sha256": "dbff4c482e5a5466554b2d002c70ca8c917059aa90d7bc5983bcf07988fd9f9e"
+    },
+    "candidate/EXECUTION.json": {
+      "path": "results/verified_dev_v2/EXECUTION.json",
+      "sha256": "a9f85030edf34ee244cce27e7ad083fd583a26b122128f8b3dd6c329e5aa68f2"
+    },
+    "candidate/manifest.json": {
+      "path": "results/verified_dev_v2/manifest.json",
+      "sha256": "5448ea765ec0d4e94b31c2f65eb096198a67c79be7645b360ea37d41f00f6aa1"
+    },
+    "candidate/predictions.jsonl": {
+      "path": "results/verified_dev_v2/predictions.jsonl",
+      "sha256": "33d9acaf5180db6ee016d3db2aabb3fa04f60a896f4b08c5aac95b6110b8922a"
+    },
+    "candidate/status.json": {
+      "path": "results/verified_dev_v2/status.json",
+      "sha256": "45c60ae8f042df6809fda9cd351309704601d1e113e2e524a1ab1fe79a75de9a"
+    },
+    "candidate/runtime.json": {
+      "path": "results/verified_dev_v2/runtime.json",
+      "sha256": "c0e804b7c5bad63a378a059d4ec6f9bf4124bc7d492f6c2f22bc57426de8b69e"
+    },
+    "candidate/calls.sqlite": {
+      "path": "results/verified_dev_v2/calls.sqlite",
+      "sha256": "9f0bed76d5f8bc4f57a8de949563395c2bcf261774e93497c7b44e1d0270a5c3"
+    },
+    "candidate/invocations_started.jsonl": {
+      "path": "results/verified_dev_v2/invocations_started.jsonl",
+      "sha256": "143c730fab8034c0050f072fdbd13dc0f4e74a7abd6e53e5602adcce27b5cccc"
+    },
+    "archive/VERIFICATION.json": {
+      "path": "results/balanced_confirmation/VERIFICATION.json",
+      "sha256": "7ac45aaca03beae9ebc1d7f1151d3215ca6bbe55dba3b909388daf26e6be63af"
+    },
+    "archive/manifest.json": {
+      "path": "results/balanced_confirmation/manifest.json",
+      "sha256": "f35238c020416a785aa86c032af3b7f9374247e3f1163de9b4c068691cbff451"
+    },
+    "archive/predictions.jsonl": {
+      "path": "results/balanced_confirmation/predictions.jsonl",
+      "sha256": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d"
+    },
+    "archive/summary.json": {
+      "path": "results/balanced_confirmation/summary.json",
+      "sha256": "a22f4fd7f160a1a0110f88b070886933ec1663cd7ea084a06904303061701d96"
+    },
+    "archive/status.json": {
+      "path": "results/balanced_confirmation/status.json",
+      "sha256": "5c57bbf35cf92e6b4d34bc09d5cc74d6f8fea21ff6751946c0f12a297f3c6864"
+    },
+    "archive/calls.sqlite": {
+      "path": "results/balanced_confirmation/calls.sqlite",
+      "sha256": "fdeed29b9383fe9fb7c34c653c40dda13410e782e4509508c1fde9f41b865fdb"
+    },
+    "config/intents.yaml": {
+      "path": "results/input_archive/e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6/intents.yaml",
+      "sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6"
+    },
+    "config/knowledge/README.md": {
+      "path": "results/input_archive/20ab1bca87f4f7b1255cee5f3d0e7ff282c916dbd6663a47e285ad9bebcc5697/README.md",
+      "sha256": "20ab1bca87f4f7b1255cee5f3d0e7ff282c916dbd6663a47e285ad9bebcc5697"
+    },
+    "config/knowledge/snapshots/2026-09-18/autoplay.txt": {
+      "path": "results/input_archive/9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47/autoplay.txt",
+      "sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47"
+    },
+    "config/knowledge/snapshots/2026-09-18/collaborative-playlists.txt": {
+      "path": "results/input_archive/1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726/collaborative-playlists.txt",
+      "sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726"
+    },
+    "config/knowledge/snapshots/2026-09-18/contact-us.txt": {
+      "path": "results/input_archive/895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4/contact-us.txt",
+      "sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4"
+    },
+    "config/knowledge/snapshots/2026-09-18/create-playlists.txt": {
+      "path": "results/input_archive/6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371/create-playlists.txt",
+      "sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371"
+    },
+    "config/knowledge/snapshots/2026-09-18/explicit-content.txt": {
+      "path": "results/input_archive/8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07/explicit-content.txt",
+      "sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07"
+    },
+    "config/knowledge/snapshots/2026-09-18/family-plan.txt": {
+      "path": "results/input_archive/03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59/family-plan.txt",
+      "sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59"
+    },
+    "config/knowledge/snapshots/2026-09-18/faulty-inaccurate-metadata.txt": {
+      "path": "results/input_archive/64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae/faulty-inaccurate-metadata.txt",
+      "sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae"
+    },
+    "config/knowledge/snapshots/2026-09-18/hulu-premium-bundle.txt": {
+      "path": "results/input_archive/b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda/hulu-premium-bundle.txt",
+      "sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda"
+    },
+    "config/knowledge/snapshots/2026-09-18/listen-offline.txt": {
+      "path": "results/input_archive/bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f/listen-offline.txt",
+      "sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f"
+    },
+    "config/knowledge/snapshots/2026-09-18/missing-music-or-podcasts.txt": {
+      "path": "results/input_archive/8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656/missing-music-or-podcasts.txt",
+      "sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656"
+    },
+    "config/knowledge/snapshots/2026-09-18/reinstall-spotify.txt": {
+      "path": "results/input_archive/86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c/reinstall-spotify.txt",
+      "sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c"
+    },
+    "config/knowledge/snapshots/2026-09-18/shuffle-play.txt": {
+      "path": "results/input_archive/159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5/shuffle-play.txt",
+      "sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5"
+    },
+    "config/knowledge/snapshots/2026-09-18/sort-and-filter.txt": {
+      "path": "results/input_archive/e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd/sort-and-filter.txt",
+      "sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd"
+    },
+    "config/knowledge/snapshots/2026-09-18/spotify-connect.txt": {
+      "path": "results/input_archive/dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed/spotify-connect.txt",
+      "sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed"
+    },
+    "config/knowledge/snapshots/2026-09-18/spotify-not-playing.txt": {
+      "path": "results/input_archive/ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45/spotify-not-playing.txt",
+      "sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45"
+    },
+    "config/knowledge/snapshots/2026-09-18/spotify-wrapped.txt": {
+      "path": "results/input_archive/a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1/spotify-wrapped.txt",
+      "sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1"
+    },
+    "config/knowledge/snapshots/2026-09-18/student-verification-not-working.txt": {
+      "path": "results/input_archive/3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e/student-verification-not-working.txt",
+      "sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e"
+    },
+    "config/knowledge/snapshots/2026-09-18/suggest-feature.txt": {
+      "path": "results/input_archive/eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6/suggest-feature.txt",
+      "sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6"
+    },
+    "config/knowledge/snapshots/2026-09-18/updating-spotify.txt": {
+      "path": "results/input_archive/528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02/updating-spotify.txt",
+      "sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02"
+    },
+    "config/knowledge/snapshots/2026-09-18/username-and-display-name.txt": {
+      "path": "results/input_archive/238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474/username-and-display-name.txt",
+      "sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474"
+    },
+    "config/knowledge/snapshots/2026-09-18/where-spotify-is-available.txt": {
+      "path": "results/input_archive/9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509/where-spotify-is-available.txt",
+      "sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509"
+    },
+    "config/knowledge/v2.json": {
+      "path": "results/input_archive/c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39/v2.json",
+      "sha256": "c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39"
+    },
+    "config/policy_v2.json": {
+      "path": "results/input_archive/cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0/policy_v2.json",
+      "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+    },
+    "candidate/rubric.json": {
+      "path": "results/verified_dev_v2/rubric.json",
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "analysis_tools/compare_verified_development.py": {
+      "path": "analysis_tools/compare_verified_development.py",
+      "sha256": "5577c1015c092792bb3398a3d401eef5d79981633de9442e3ba6350dbd3ad9d8"
+    },
+    "analysis_tools/reproduce_verified.py": {
+      "path": "analysis_tools/reproduce_verified.py",
+      "sha256": "affadbe92098bbc355acd845551d68f9e2eae1fde39837c398f2e807e6217b60"
+    },
+    "analysis_tools/reproduce_balanced.py": {
+      "path": "analysis_tools/reproduce_balanced.py",
+      "sha256": "2d57e5ed8a269929463e283756807db51698a7a19a1b9cf96b5b73f21314df2b"
+    },
+    "analysis_tools/reproduce_quality.py": {
+      "path": "analysis_tools/reproduce_quality.py",
+      "sha256": "250a5a4d7d0da608a5506bceed4e1d1d5f12805b2eced1d562c73ccbf24aa698"
+    },
+    "src/cadence/eval/verified.py": {
+      "path": "src/cadence/eval/verified.py",
+      "sha256": "a1e7ed1a6fe829685cfe00e8e6f0f085c4597d8986453a3ce2db1f4c00fd4cf2"
+    },
+    "src/cadence/eval/review.py": {
+      "path": "src/cadence/eval/review.py",
+      "sha256": "dec15af7eaf592c6bb84edd8c4b61131ca7024609f9c8595f0ce6bbbcea26ac4"
+    },
+    "src/cadence/eval/metrics.py": {
+      "path": "src/cadence/eval/metrics.py",
+      "sha256": "c6e7d5cfcca3b27f88cbf3466f62d3e7b7c0672576ec84d36deb1011155a2b43"
+    },
+    "src/cadence/eval/agreement.py": {
+      "path": "src/cadence/eval/agreement.py",
+      "sha256": "484bd1d69e70e84380407bcda560fefdcf7d3f4e71b0154c6d91e1b7bcbe0b5a"
+    },
+    "src/cadence/eval/archive.py": {
+      "path": "src/cadence/eval/archive.py",
+      "sha256": "af765b885a2edf753efab7bd10ecca57160ff63c2f91aebc2aacf2d35610e0ee"
+    },
+    "src/cadence/eval/provenance.py": {
+      "path": "src/cadence/eval/provenance.py",
+      "sha256": "e4a434976b1c65ef5ddf64859aaa233dbbdb9e24a8d99a0e7cabf62e3e20a7e4"
+    },
+    "src/cadence/config.py": {
+      "path": "src/cadence/config.py",
+      "sha256": "b6d496962c237133d20e0e750db997f069f20c6e920df5c132b3ad3d89c3c613"
+    },
+    "src/cadence/utils/io.py": {
+      "path": "src/cadence/utils/io.py",
+      "sha256": "ea428fd60ff1044cad2cf216a2e4e5ecaf511ab59d8e2a463747c4f6719b8207"
+    }
+  },
+  "artifacts": {
+    "blind_mapping.json": {
+      "sha256": "347c26d978ae472c8e4e1903f18e8707e5e47cd9ead40a3676575b3c050c670d"
+    },
+    "blind_packet.jsonl": {
+      "sha256": "d4ddfd87fe181b0e0d2620f06b71fc41d63adc60e3781e06cf0ad274edd41b7e"
+    },
+    "context/config/intents.yaml": {
+      "sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6"
+    },
+    "context/config/knowledge/README.md": {
+      "sha256": "20ab1bca87f4f7b1255cee5f3d0e7ff282c916dbd6663a47e285ad9bebcc5697"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/autoplay.txt": {
+      "sha256": "9f79e563c0ee11f44502a4593dec05229aade7036bf1664270fc94b6b0ebaa47"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/collaborative-playlists.txt": {
+      "sha256": "1a911eda306e44f77c50aee2871260b1dd3b7760019a3149141d4a239ada7726"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/contact-us.txt": {
+      "sha256": "895ac7a6f45c74e7c7b6a35b0c81c6f2fb779067ad5c0681c35dcbd8dd9528a4"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/create-playlists.txt": {
+      "sha256": "6190d197fb00dbd0b7c5677b55af249a31a0c8cd6e72346aedc045b2df3e2371"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/explicit-content.txt": {
+      "sha256": "8fa33201ca77fc12369b82328b53fb36984c067088c1efd3a21d3d51f01aca07"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/family-plan.txt": {
+      "sha256": "03a6cdcd1383420505e79a62e2f481bd980a7ca499603712a8b5146bfbe2dc59"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/faulty-inaccurate-metadata.txt": {
+      "sha256": "64c70340b130d450d11a0f2da3e9066775091a70e11a1e78de3b17ac0435a6ae"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/hulu-premium-bundle.txt": {
+      "sha256": "b17bd8a4a88ea9b9a7d8942bc620970842b5894f34008ff0816443eebf3dbfda"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/listen-offline.txt": {
+      "sha256": "bbfc2a49e94cb2fb0eaf2aa77995514a27f60a1649a5f1358eef432312bdcc2f"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/missing-music-or-podcasts.txt": {
+      "sha256": "8190de740d93bbd10c952c580630c1abb1676501407926dc7fa65f8b2428d656"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/reinstall-spotify.txt": {
+      "sha256": "86811ec2d793d3553377937f2e2cfc9a2db5f2c51536e5527b3b05280d4de62c"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/shuffle-play.txt": {
+      "sha256": "159290d71a6a159f2ab7191de8bbb40b5c0d39b5faf2c144aaacfabebce344f5"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/sort-and-filter.txt": {
+      "sha256": "e6190a8ce155de511ca2cc96d7c16f8b7d43e41e13e3d5979c1554ce243574fd"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/spotify-connect.txt": {
+      "sha256": "dad3b62f1512f534b4188dba462f4dcd6633d00fbbf860c55f6ba3704d36c3ed"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/spotify-not-playing.txt": {
+      "sha256": "ad0d797148d63aa6a5d5bca2a1783108649db2ff6f9a1fbf400e54dda0326e45"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/spotify-wrapped.txt": {
+      "sha256": "a3b9c6a050c80944b030e48ea8a02ab98f56532b7e2ea7af3453e0a1492aa4a1"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/student-verification-not-working.txt": {
+      "sha256": "3edf704f568846ed548424a2ef8bb394b09d4087e350b24c6c122783d966222e"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/suggest-feature.txt": {
+      "sha256": "eaec64ebf9ce662b387ead515318747061078ed40dac81696c2d479dab4870a6"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/updating-spotify.txt": {
+      "sha256": "528ef92b9703215a181d05738a8ae68643f99644bfcaab480ea1750568559b02"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/username-and-display-name.txt": {
+      "sha256": "238d91a21a4f2810ecadd260e68c685e32a527d78aefaafe073234c67881f474"
+    },
+    "context/config/knowledge/snapshots/2026-09-18/where-spotify-is-available.txt": {
+      "sha256": "9bb982bbd6bd6678bb4f28169481adddb8be20d8761ca8d64f4d10f217539509"
+    },
+    "context/config/knowledge/v2.json": {
+      "sha256": "c97664d1634be1152d5d0f68002ec57e428386ba9c41021fe4f983bf8e820a39"
+    },
+    "context/config/policy_v2.json": {
+      "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+    },
+    "labels.jsonl": {
+      "sha256": "5bb0648e5395795d4ce16d88ca8460740799b88851b9e6215bc3fd1f95c067d1"
+    },
+    "predictions.jsonl": {
+      "sha256": "f494d5911f5fe55b393bef4e386356f712cc989bcb6e8cab10d03a54e4e15363"
+    },
+    "REVIEW_INSTRUCTIONS.json": {
+      "sha256": "e74bbef3fb124fafeac3dee3b1b4564d9a80255a45863db1963e96308c330a15"
+    },
+    "rubric.json": {
+      "sha256": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+    },
+    "runtime.json": {
+      "sha256": "6061a0b453e0e2b7065a36db7c8d00cf42ed3a498e9ead9b3f77a78bb7fcd343"
+    }
+  },
+  "historical_v0": {
+    "summary": {
+      "path": "results/balanced_confirmation/summary.json",
+      "sha256": "a22f4fd7f160a1a0110f88b070886933ec1663cd7ea084a06904303061701d96"
+    },
+    "acceptance": {
+      "path": "results/balanced_confirmation/ACCEPTANCE.json",
+      "sha256": "dbff4c482e5a5466554b2d002c70ca8c917059aa90d7bc5983bcf07988fd9f9e"
+    },
+    "note": "Original v0 results remain in their archived files; not comparable to v2 totals."
+  },
+  "source_as_of": "2026-09-18",
+  "limitation": "Inspected development messages; AI policy-v2 labels and new AI reply ratings. Three comparator outputs are reused unchanged from an earlier policy-v0 run. Re-scoring their decisions against v2 does not re-run their policy. Runtime and cost observations come from different runs and instrumentation; they do not establish a controlled speed or cost improvement. No human agreement or promotion.",
+  "promote": false
+}

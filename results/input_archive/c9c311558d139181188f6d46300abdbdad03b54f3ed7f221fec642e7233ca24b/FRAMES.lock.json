@@ -1,0 +1,23 @@
+{
+  "version": "balanced-development-veto-v1",
+  "phase": "development",
+  "created_at": "2026-09-18T11:41:05.291113+00:00",
+  "source_run": "results/verified_dev_v2",
+  "source_frozen_at": "2026-09-18T11:32:39.071883+00:00",
+  "source_model": "gemini-3.5-flash-lite",
+  "source_policy": "v2",
+  "source_as_of": "2026-09-18",
+  "stage_isolation": "Request extraction receives customer text and policy, before actions/retrieval; AI only",
+  "inputs": {
+    "results/verified_dev_v2/manifest.json": "5448ea765ec0d4e94b31c2f65eb096198a67c79be7645b360ea37d41f00f6aa1",
+    "results/verified_dev_v2/predictions.jsonl": "33d9acaf5180db6ee016d3db2aabb3fa04f60a896f4b08c5aac95b6110b8922a",
+    "results/verified_dev_v2/EXECUTION.json": "a9f85030edf34ee244cce27e7ad083fd583a26b122128f8b3dd6c329e5aa68f2"
+  },
+  "labels_sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+  "frames_sha256": "fe88d82301631699abc67178f715b81860fb6abf3ccb6e6cbc8de483180dd209",
+  "valid": 80,
+  "n": 80,
+  "fresh_latency_available": false,
+  "new_model_calls": 0,
+  "promotion": false
+}

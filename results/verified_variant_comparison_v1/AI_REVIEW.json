@@ -1,0 +1,13 @@
+{
+  "reviewer_type": "ai",
+  "reviewer_id": "GPT-6 Astra xhigh independent variant review",
+  "n_ratings": 84,
+  "n_messages": 21,
+  "provenance": "Independent joint blinded AI review; unchanged scores across four original run identities. Not human verification.",
+  "hash_convention": "Canonical LF for text via cadence.eval.provenance.sha256; exact UTF-8 reply hashes preserved.",
+  "artifacts": {
+    "blind_ai_ratings.jsonl": "ca10d5f4e5dc61a328e9d35cd4c20284b9e24241ac41258a422ce39ff99d51b8",
+    "BLIND_REVIEW_V2.lock.json": "f8e33769afc6580007f0ee8d26aa0a6acb49b6ac13b87740fa223862f756c310",
+    "AI_REVIEW_NOTES.md": "593be813bdab2871f44f45039bd3d517dab586e4fb53689314dd80cce75b6add"
+  }
+}

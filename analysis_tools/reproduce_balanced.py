@@ -10,6 +10,7 @@ import numpy as np
 from reproduce_quality import verified_reviews
 
 from cadence.config import Paths
+from cadence.eval.archive import resolve_input
 from cadence.eval.paired import compare
 from cadence.eval.provenance import sha256
 from cadence.eval.review import RUBRIC_VERSION, reply_hash, validate_reviews
@@ -141,11 +142,10 @@ def verify(name, write=False):
         if sha256(directory / f) != digest:
             raise ValueError('Frozen output changed: ' + f)
     for f, digest in manifest['frozen']['inputs'].items():
-        file = directory / 'source_snapshot' / f if f.endswith('.py') else Paths.ROOT / f
-        if sha256(file) != digest:
-            raise ValueError('Frozen input changed: ' + f)
+        resolve_input(directory, f, digest, root=Paths.ROOT)
     label_file = next(f for f in manifest['frozen']['inputs'] if f.endswith('/labels.jsonl'))
-    labels = read_jsonl(Paths.ROOT / label_file)
+    labels = read_jsonl(resolve_input(directory, label_file,
+                                    manifest['frozen']['inputs'][label_file], root=Paths.ROOT))
     rows = read_jsonl(directory / 'predictions.jsonl')
     keys = {(r['id'], r['system']) for r in rows}
     if len(keys) != len(rows) or keys != {(r['id'], s) for r in labels for s in SYSTEMS}:

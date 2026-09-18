@@ -1,0 +1,53 @@
+{
+  "verified_new_run": {
+    "n_requests": 80,
+    "failures": 0,
+    "model_call_errors": 0,
+    "p50_end_to_end_ms": 4003.9949499987415,
+    "p95_end_to_end_ms": 5993.87676999995,
+    "fully_fresh_requests": 80,
+    "model_calls": 126,
+    "network_attempts_known": 126,
+    "calls_with_unknown_attempt_count": 0,
+    "input_tokens_known": 205721,
+    "output_tokens_known": 49806,
+    "tokens_known": 255527,
+    "tokens_per_request_known": 3194.0875,
+    "calls_with_unknown_usage": 0,
+    "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist."
+  },
+  "archived_original_runs": {
+    "agent": {
+      "n": 80,
+      "p50_ms": 1733.0,
+      "p95_ms": 4063.7999999999993,
+      "model_calls": 80,
+      "prompt_tokens": 190609,
+      "output_tokens": 14933,
+      "cached": 0,
+      "fresh_invocations": 80
+    },
+    "quality": {
+      "n": 80,
+      "p50_ms": 1564.5,
+      "p95_ms": 4532.9,
+      "model_calls": 138,
+      "prompt_tokens": 187996,
+      "output_tokens": 11051,
+      "cached": 0,
+      "fresh_invocations": 80
+    },
+    "balanced": {
+      "n": 80,
+      "p50_ms": 2035.5,
+      "p95_ms": 3855.149999999999,
+      "model_calls": 111,
+      "prompt_tokens": 369238,
+      "output_tokens": 17344,
+      "cached": 0,
+      "fresh_invocations": 80
+    }
+  },
+  "controlled_comparison": false,
+  "note": "Keep schemas separate: archived successful-call totals omit failed-attempt usage. The candidate retains its measured cache status; a new run is not necessarily fully fresh."
+}

@@ -1,0 +1,125 @@
+{
+  "version": "verified-final-tooling-acceptance-v1",
+  "status": "pass",
+  "reviewer_type": "ai",
+  "reviewer": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "review_task": "/root/verified_final_tooling_acceptance",
+  "recorded_at": "2026-09-18T12:31:46.204925+00:00",
+  "scope": {
+    "variant_helper": "Code and synthetic sealed-development fixtures only; joint real-artifact acceptance remains pending.",
+    "controls_helper": "Code, synthetic sealed-development fixtures and read-only reproduction of the existing 80-message / 320-rating historical control quality artifacts.",
+    "excluded": [
+      "No reserved 100/200/challenge customer texts or gold inspected or parsed.",
+      "No model inference, rating generation, source code edits, deployment or promotion."
+    ],
+    "dependency_hashing": "Existing reproduction checks verify archived dependency hashes; reserved dependency contents were not interpreted or displayed."
+  },
+  "validation": {
+    "focused_tests": {
+      "status": "pass",
+      "passed": 50,
+      "variant_tests": 37,
+      "control_tests": 13,
+      "duration_seconds": 35.5,
+      "warning": "Pytest could not write its optional .pytest_cache nodeids cache (WinError 5); all 50 tests passed."
+    },
+    "ruff": "pass",
+    "real_control_check": {
+      "status": "pass",
+      "n_messages": 80,
+      "n_ratings": 320,
+      "reviewer_type": "ai",
+      "new_model_calls": 0,
+      "promotion": false
+    },
+    "prior_control_acceptance_files_and_artifacts_still_match": true,
+    "variant_source_owner_freeze_confirmed": true,
+    "variant_joint_artifact_check": "pending"
+  },
+  "commands": [
+    {
+      "command": "python -m pytest tests/test_verified_variant_comparison.py tests/test_summarize_verified_controls.py",
+      "exit_code": 0,
+      "result": "50 passed, 1 optional-cache warning in 35.50s"
+    },
+    {
+      "command": "ruff check analysis_tools/compare_verified_variants.py analysis_tools/summarize_verified_controls.py tests/test_verified_variant_comparison.py tests/test_summarize_verified_controls.py",
+      "exit_code": 0,
+      "result": "All checks passed!"
+    },
+    {
+      "command": "python analysis_tools/summarize_verified_controls.py --experiment results/verified_ablation_v1 --check",
+      "exit_code": 0,
+      "result": "Exact reproduction passed for 80 messages / 320 AI ratings; 0 new model calls and promotion false."
+    },
+    {
+      "command": "Read-only cadence.eval.provenance.sha256 comparison of both helpers/tests and the earlier control acceptance files/artifacts",
+      "exit_code": 0,
+      "result": "All four reviewed file hashes frozen; all seven earlier control file/artifact hashes still match."
+    }
+  ],
+  "findings_resolved": [
+    {
+      "id": "freshness",
+      "status": "resolved",
+      "evidence": "Unknown cache status is reported separately; affirmative request freshness requires at least one observed call and every call explicitly cached=false. An explanatory note prevents treating inherited fully_fresh_requests as affirmative proof. The synthetic failed call remains in both runtime and quality denominators."
+    },
+    {
+      "id": "emitted_prediction_identity",
+      "status": "resolved",
+      "evidence": "When a prediction emits model or trace identity fields, contradictions to frozen model, variant, policy version/hash or source date are rejected, including resealed prediction mutations. The frozen manifest identity remains mandatory."
+    },
+    {
+      "id": "joint_review_comparability",
+      "status": "resolved",
+      "evidence": "Quality vectors for every compared arm use one complete 84-reply joint AI review, with exact original run/reply mappings and one reviewer. The synthetic combined-rating probe proves joint scores determine combined metrics while separate full80 reviews remain unchanged."
+    },
+    {
+      "id": "matched_population_and_provenance",
+      "status": "resolved",
+      "evidence": "Selected labels/selection hashes, all 21 IDs and text/gold match, run seals, rubric, model/source/config/resource identity, full development retrieval exclusions and excluded-thread counts are checked. Runtime only includes those 21 rows in every arm; saved summaries bind the helper/evaluator and all execution/review contexts."
+    },
+    {
+      "id": "historical_control_immutability",
+      "status": "resolved",
+      "evidence": "Controls reconstruct exact blinded context from frozen old outputs, use archived labels/inputs, retain failed cases and routing counts, preserve AI attribution, reject altered inputs/outputs/evaluator snapshots, and expose no fresh latency/cost or promotion claim. Existing real summary reproduces with all prior acceptance hashes unchanged."
+    }
+  ],
+  "actionable_findings": [],
+  "remaining_required_validation": [
+    "After the real joint 84-reply review is sealed and the comparison summary is created, independently run compare_verified_variants.py --check and bind the resulting real summary and review artifacts in a follow-up acceptance record."
+  ],
+  "limitations": [
+    "This pass accepts the variant helper code, not an as-yet unverified real joint comparison summary.",
+    "Variant inference concerns 21 already inspected selected development cases and cannot establish population gains or superiority.",
+    "Control results are AI-rated veto-only counterfactuals on historical outputs; no fresh end-to-end runtime/cost or deployable optimum is inferred.",
+    "AI acceptance is not independent human review; human agreement remains unavailable and promotion remains false."
+  ],
+  "hash_convention": "files/artifacts use cadence.eval.provenance.sha256: CRLF normalized to LF for project text extensions. raw_file_sha256 additionally records exact bytes.",
+  "files": {
+    "analysis_tools/compare_verified_variants.py": "8aaa4698551c5b153abe3c2e3b0a6549f4ca58ce812f8edb1adfde76720d0404",
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "tests/test_verified_variant_comparison.py": "8c48ec6cbc99f2cc381a92d5965e38cf73fd7c9d4279bf185a082995285ec2fc",
+    "tests/test_summarize_verified_controls.py": "d4d45ee8d6521b6e1acb32ff780e323c9e6a52c5121816af19b1277a6dd90844"
+  },
+  "raw_file_sha256": {
+    "analysis_tools/compare_verified_variants.py": "8aaa4698551c5b153abe3c2e3b0a6549f4ca58ce812f8edb1adfde76720d0404",
+    "analysis_tools/summarize_verified_controls.py": "aad4f36c2fadb93b16e5354c2a99742438a500931ec5b37473c6e47433fc75bd",
+    "tests/test_verified_variant_comparison.py": "8c48ec6cbc99f2cc381a92d5965e38cf73fd7c9d4279bf185a082995285ec2fc",
+    "tests/test_summarize_verified_controls.py": "d4d45ee8d6521b6e1acb32ff780e323c9e6a52c5121816af19b1277a6dd90844"
+  },
+  "control_artifacts": {
+    "results/verified_ablation_v1/quality_summary.json": "3e32997ddd2afd754a33b914a3a88c1896269f5487d335d17806636a5e39f790",
+    "results/verified_ablation_v1/ai_reviews.jsonl": "b73d724cd09c2fb49d5a2ebd469d174401d4b2edf155b12cd9665051bf51207e",
+    "results/verified_ablation_v1/AI_REVIEW.json": "9d149bb7bda83e4ddb5dafdbf8f219b3c13b38ccad40ba029d850c0bcea0e83c",
+    "results/verified_ablation_v1/blind_ai_ratings.jsonl": "d9a6b914daedd4e3145347cc6b6ecc3b875a0a853615f8167b2a3cdb54109973",
+    "results/verified_ablation_v1/AI_REVIEW_NOTES.md": "155b6d4313d119a29c701eda8f348f1eec096514dfb5c6a30e00c841f1e1adf1"
+  },
+  "supporting_acceptance": {
+    "path": "output/analysis/VERIFIED_CONTROL_QUALITY_ACCEPTANCE.json",
+    "sha256": "4c96c5d1741c3e8dde33447e7a00fbdcd457a3b34d1dc1499553fce4dce28556"
+  },
+  "source_changes_made": false,
+  "promotion": false
+}

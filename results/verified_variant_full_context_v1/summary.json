@@ -1,0 +1,433 @@
+{
+  "status": "complete",
+  "phase": "development",
+  "policy_version": "v2",
+  "n": 21,
+  "metrics": {
+    "verified": {
+      "metric_version": "policy-compliant-useful-v1",
+      "counts": {
+        "flagged_automatic": 1,
+        "automatic_hallucinated_link_or_policy": 0,
+        "automatic_asks_sensitive_info": 0,
+        "automatic_wrong_issue": 1,
+        "automatic_unsupported_action": 0,
+        "automatic_stale_procedure": 0,
+        "automatic_repeated_known_question": 1,
+        "automatic_wrong_handoff": 0,
+        "n": 21,
+        "automatic": 8,
+        "escalated": 12,
+        "failed": 1,
+        "required": 5,
+        "missed_escalations": 2,
+        "auto_on_required": 1,
+        "unnecessary_escalations": 9,
+        "legacy_useful_automatic": 4,
+        "policy_compliant_useful_automatic": 3,
+        "resolution": 1,
+        "clarification": 2
+      },
+      "rates": {
+        "automatic": 0.38095238095238093,
+        "legacy_useful_coverage": 0.19047619047619047,
+        "policy_compliant_useful_coverage": 0.14285714285714285,
+        "completion": 0.9523809523809523,
+        "escalation_recall": 0.6
+      },
+      "miss_rate_upper95": 0.8107446225622292,
+      "automatic_error_upper95": 0.47067940860113155,
+      "per_reason": {
+        "none": {
+          "n": 16,
+          "required": 0,
+          "missed": 0,
+          "automatic": 7,
+          "miss_rate_upper95": null
+        },
+        "high_frustration_or_churn": {
+          "n": 2,
+          "required": 2,
+          "missed": 1,
+          "automatic": 0,
+          "miss_rate_upper95": 0.9746794344808963
+        },
+        "ambiguous_or_media_only": {
+          "n": 3,
+          "required": 3,
+          "missed": 1,
+          "automatic": 1,
+          "miss_rate_upper95": 0.8646496378284161
+        }
+      },
+      "per_severity": {
+        "none": {
+          "reviewed": 8,
+          "automatic": 7,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "minor": {
+          "reviewed": 1,
+          "automatic": false,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 0,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 0,
+          "wrong_handoff": 0
+        },
+        "major": {
+          "reviewed": 12,
+          "automatic": 1,
+          "hallucinated_link_or_policy": 0,
+          "asks_sensitive_info": 0,
+          "wrong_issue": 1,
+          "unsupported_action": 0,
+          "stale_procedure": 0,
+          "repeated_known_question": 1,
+          "wrong_handoff": 0
+        },
+        "critical": {}
+      },
+      "intent": {
+        "accuracy": 0.7619047619047619,
+        "macro_f1": 0.5367063492063492,
+        "weighted_f1": 0.7862811791383221,
+        "per_class": {
+          "non_english": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "account_hacked_or_security": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "billing_or_charge": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "login_or_password": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "download_or_offline": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "support": 4
+          },
+          "metadata_or_artist_issue": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "playlist_or_library": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "content_or_availability": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 1
+          },
+          "playback_or_app_bug": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "subscription_or_plan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "feature_request_or_feedback": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "other": {
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "labels": [
+            "non_english",
+            "account_hacked_or_security",
+            "billing_or_charge",
+            "login_or_password",
+            "download_or_offline",
+            "metadata_or_artist_issue",
+            "playlist_or_library",
+            "content_or_availability",
+            "playback_or_app_bug",
+            "subscription_or_plan",
+            "feature_request_or_feedback",
+            "other",
+            "<unknown>"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "n": 21
+      }
+    }
+  },
+  "runtime": {
+    "verified": {
+      "n_requests": 21,
+      "failures": 1,
+      "model_call_errors": 0,
+      "p50_end_to_end_ms": 3862.901899999997,
+      "p95_end_to_end_ms": 6420.275500000571,
+      "fully_fresh_requests": 21,
+      "model_calls": 35,
+      "network_attempts_known": 36,
+      "calls_with_unknown_attempt_count": 0,
+      "input_tokens_known": 93795,
+      "output_tokens_known": 13744,
+      "tokens_known": 107539,
+      "tokens_per_request_known": 5120.9047619047615,
+      "calls_with_unknown_usage": 0,
+      "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist.",
+      "tokens_per_policy_compliant_useful_reply_known": 35846.333333333336
+    }
+  },
+  "paired_usefulness": {},
+  "human_labels_pre_inference": false,
+  "human_agreement": null,
+  "challenge_binding": null,
+  "acceptance": {
+    "eligible_for_release_review": false,
+    "promote": false,
+    "decision": "Development subset; full matched comparison required",
+    "gates": {
+      "all_four_arms": false
+    }
+  },
+  "inputs": {
+    "manifest.json": "137a184469fa4b16d183194b3e9ff043aa9854e7a5e70399f265f768ba1bb7dd",
+    "EXECUTION.json": "807646dd7e34188b8d3e4f1cf91398df0c08443fb95653ee48c4665847b975f0",
+    "REVIEW.lock.json": "861283a466226597f7e1ee406c3212b4869ef42310908c482d84054584f23f6b",
+    "AI_REVIEW.json": "c328531045b3f12031fe48fa3540f1875559606559591f34f9fc9407eddad9ec"
+  }
+}

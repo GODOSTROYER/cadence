@@ -1,0 +1,19 @@
+{
+  "verified": {
+    "n_requests": 100,
+    "failures": 0,
+    "model_call_errors": 0,
+    "p50_end_to_end_ms": 3312.986599999931,
+    "p95_end_to_end_ms": 5281.393529998968,
+    "fully_fresh_requests": 100,
+    "model_calls": 151,
+    "network_attempts_known": 152,
+    "calls_with_unknown_attempt_count": 0,
+    "input_tokens_known": 374276,
+    "output_tokens_known": 61030,
+    "tokens_known": 435306,
+    "tokens_per_request_known": 4353.06,
+    "calls_with_unknown_usage": 0,
+    "usage_note": "Provider usage of failed calls may be unknown. Known totals are lower bounds when unknown calls exist."
+  }
+}

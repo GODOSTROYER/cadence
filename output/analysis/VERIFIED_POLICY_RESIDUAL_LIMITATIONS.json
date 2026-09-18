@@ -1,0 +1,138 @@
+{
+  "artifact_version": "verified-policy-residual-limitations-v1",
+  "status": "residual_limitations_identified",
+  "reviewed_at": "2026-09-18T12:20:35.798899+00:00",
+  "reviewer": {
+    "type": "ai",
+    "identity": "Codex independent agent /root/verified_code_acceptance",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh"
+  },
+  "purpose": "Bounded supplementary check of reported deterministic policy boundaries; frozen runtime and earlier scoped acceptance records are unchanged.",
+  "publication_assessment": {
+    "blocks_clearly_experimental_code_publication": false,
+    "basis": "The confirmed false positives conservatively route to a human and do not relax an established mandatory risk. Incomplete pattern coverage already relies on semantic risk extraction and exact-response audit. Publishing the unpromoted experimental implementation with these limitations and preserved failures does not assert production readiness.",
+    "required_disclosure": "Known rule false positives and incomplete deterministic takeover coverage remain. Scoped code acceptance is not evidence of exhaustive policy correctness or release safety.",
+    "deployment_or_promotion_accepted": false,
+    "robust_or_exhaustive_boundary_coverage_accepted": false,
+    "runtime_changes_made": false
+  },
+  "observations": [
+    {
+      "id": "PRL-01",
+      "type": "confirmed_false_positive",
+      "priority": "P2",
+      "text": "Someone changed the layout again.",
+      "actual": {
+        "deterministic_risks": [
+          "security"
+        ],
+        "matched_span": "Someone changed",
+        "policy_requires_human": true,
+        "reason_code": "account_security"
+      },
+      "assessment": "The security pattern does not constrain what was changed. This ordinary product-layout complaint is hard-locked as an account-security incident even when all semantic risks are absent.",
+      "location": {
+        "file": "src/cadence/agent/policy_v2.py",
+        "line": 49
+      },
+      "impact": "Unnecessary escalation and misleading primary reason; useful automation can be lost."
+    },
+    {
+      "id": "PRL-02",
+      "type": "confirmed_false_positive",
+      "priority": "P2",
+      "texts": [
+        "I will cancel the download.",
+        "I will leave the playlist open."
+      ],
+      "actual": {
+        "deterministic_risks": [
+          "churn"
+        ],
+        "matched_spans": [
+          "I will cancel",
+          "I will leave"
+        ],
+        "policy_requires_human": true,
+        "reason_code": "high_frustration_or_churn"
+      },
+      "assessment": "The future-intent churn pattern does not constrain the object of cancel/leave/quit, so ordinary app operations are treated as intent to leave the service.",
+      "location": {
+        "file": "src/cadence/agent/policy_v2.py",
+        "line": 75
+      },
+      "impact": "Unnecessary escalation and incorrect churn rationale; later answer review cannot clear this hard rule."
+    },
+    {
+      "id": "PRL-03",
+      "type": "policy_boundary_ambiguity",
+      "priority": "P2",
+      "text": "How do I reset my password?",
+      "actual": {
+        "deterministic_risks": [
+          "account_intervention"
+        ],
+        "matched_span": "reset my password",
+        "policy_requires_human": true,
+        "reason_code": "needs_account_lookup"
+      },
+      "assessment": "The rule treats a self-service how-to as intervention. The frozen policy also reserves recovery for a human, so this is not labeled a definite policy violation without an explicit prospective distinction between routine password-reset instructions and account recovery.",
+      "location": {
+        "file": "src/cadence/agent/policy_v2.py",
+        "line": 64
+      },
+      "impact": "Conservative routing; clarify this boundary prospectively rather than silently altering frozen labels or results."
+    },
+    {
+      "id": "PRL-04",
+      "type": "incomplete_deterministic_coverage",
+      "priority": "P2",
+      "text": "I'd like a human to help with playlist search.",
+      "actual": {
+        "deterministic_risks": [],
+        "all_absent_semantic_frame_requires_human": false,
+        "correct_semantic_support_requested_requires_human": true,
+        "correct_semantic_reason_code": "needs_account_lookup"
+      },
+      "assessment": "This explicit takeover paraphrase has no deterministic match. A correct semantic risk finding still enforces escalation; coverage for this wording depends on semantic extraction or the later audit and must not be described as a deterministic guarantee.",
+      "location": {
+        "file": "src/cadence/agent/policy_v2.py",
+        "line": 87
+      },
+      "impact": "Residual routing risk if both semantic stages miss the request. This check does not measure its live frequency."
+    }
+  ],
+  "verification": {
+    "method": "Offline calls to deterministic_risks and evaluate_policy using the five synthetic utterances above; all-absent frame plus a correct semantic support_requested contrast.",
+    "synthetic_utterances_checked": 5,
+    "semantic_contrasts_checked": 1,
+    "model_or_network_calls": false,
+    "calibration_final200_or_challenge_texts_read": false,
+    "test_coverage_observation": "Existing policy tests include true security/churn/takeover cases and several benign contrasts, but the exact object-confusion and contracted takeover counterexamples above are not covered. No tests or runtime files were modified."
+  },
+  "follow_up_for_next_runtime_revision": [
+    "Constrain person-change security assertions to account/security objects while preserving genuine compromise paraphrases.",
+    "Constrain future cancel/leave/quit intent to service/subscription objects; retain neutral product-operation contrasts.",
+    "Prospectively decide and document the self-service password-reset versus account-recovery boundary.",
+    "Broaden takeover paraphrase contrasts without claiming a finite regex list is exhaustive.",
+    "Run the next changed policy through new development and boundary evaluation; do not overwrite frozen V4/variant outputs."
+  ],
+  "prior_reviews_preserved": [
+    {
+      "path": "output/analysis/VERIFIED_CODE_ACCEPTANCE.json",
+      "sha256": "fa5a03e750f91b43b7480f9ab928554c0bc5a67a8bbaa558dbe42248297a91e9"
+    },
+    {
+      "path": "output/analysis/VERIFIED_V3_CODE_ACCEPTANCE.json",
+      "sha256": "64254d1028152c2ca3f89d50c23bfd5dfa9528635f81f41359f87a53f5511f95"
+    }
+  ],
+  "files": {
+    "src/cadence/agent/policy_v2.py": "553d9228f4f9a9ff2e00aa1e208501e9b59002ad3e9fbd1c3a1a5f825c0bba01",
+    "src/cadence/agent/request_frame.py": "7fc7c5488966ed77b1e5b9b099670c90d9c4746728db6135ba2dd0769ae2079b",
+    "config/policy_v2.json": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+    "tests/test_request_policy.py": "8571b9bff951ed8a17e27fc878f8b5511ae6184212970a41f9a015ae7e2735b9",
+    "tests/test_verified_agent.py": "2cfb8634e52ecadaa98486b26e4c9b3ee35d63072327bed3c4bb5732c755dd86"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-09-18T11:21:19.779901+00:00",
+  "method": {
+    "taxonomy_reading": "pandas read_parquet; language=en and n_brand_replies>0; sample(n=200,random_state=42)",
+    "documented_quotations": "Complete customer text after HTML-unescape/whitespace/case normalization, or exact corpus thread-ID token, found in Markdown documentation/report sources. Partial snippets without IDs cannot always be recovered.",
+    "historical_retrieval_contexts": "Union of evidence.thread_id in every results/**/*predictions*.jsonl at registry construction, resolved to canonical corpus opener."
+  },
+  "sources": {
+    "data/processed/spotify_openers.parquet": "236bf7311ac17c57f86149bf073ae825378c2907d95b97631f10e7f4ececa2a5",
+    "DECISION_LOG.md": "fb739f6405caa2a8ad58b8011d0006e03ffaf093e47b33aee039a553e47cc5ca",
+    "docs/BALANCED_ACCEPTANCE.md": "977baa7407ce0368a61e7631dcd20d2b07a49a485ec9311505df1498dae474b5",
+    "docs/BALANCED_DESIGN.md": "9f5eb2abde8cab6c98c15d9e5f26f3596ea6995f6161d488189df6261c82e6f1",
+    "docs/BALANCED_FAILURES.md": "2ca9df79f586a1266e3a26c16b5c9486472d91e11fd7108194f5083f29fbcb8c",
+    "docs/BRAND_VOICE.md": "407985aa09f67829e687d0663a897b59bf57f871b2789de0468bfa6677a44b74",
+    "docs/DECISION_LOG_historical.md": "688b14d2880a691a5a83b3c7b54635efa9254ad016638f90e1a6552a393e44fb",
+    "docs/DEP_REQUESTS.md": "073218a6833b065a71ca85461602996c9094fafd2ed35389e60de0073482fe64",
+    "docs/DEPLOYMENT.md": "e8cdc93e0643038851ed52cb0ab618105c7814d1a5a3eb18387a5d54ab44865d",
+    "docs/EVALUATOR_GUIDE.md": "ffa5e1b1c29ec745cb171cc27038f77952390600a2806e7081c9908a2793ffac",
+    "docs/FAILURE_ANALYSIS.md": "552a913f70bdaa9f9bd82abd821383104c89c719296bcaef8ddbfd193472fe2a",
+    "docs/FAILURE_ANALYSIS_FRESH.md": "daa0344c46d6341e5008819570ad3dd24559498ebffac6d0b02570cf8eda1a7d",
+    "docs/FAILURE_ANALYSIS_v1.md": "d4f490b24bd3c0d1f5a55dd6191b7c379e33c75483ab4a2b5bfba22a22ee6f43",
+    "docs/FAILURE_ANALYSIS_v2.md": "ee08e5e9218e39041af8c9972387d4ae8b2e0bf053405affc06262f5b2392fd1",
+    "docs/HUMAN_REVIEW.md": "e04cce589e00a55af9e2df0266b8067bb9fdb28cb9a16e99e9b08473d2778bfb",
+    "docs/IMPLEMENTATION_AUDIT.md": "309ecdfbc9df503f98f68fc63610afcdccd1e61c3eb7f59f2462867952e00a9e",
+    "docs/IMPROVEMENTS.md": "64a791e1c5a8d1de72f366e4b8046d23827371b33ebcc24e13d1c3fe85205c46",
+    "docs/INPUT_ARCHIVES.md": "8c480f37e4f2571f4848b84ae9e1e7f19955d99c9c3a5bcd134c076d9ed86c4f",
+    "docs/POLICY_V2.md": "b872ae99a6849971b8da3cbe6e634f1158c13f79fabfa74e0b3d41b0ead6a058",
+    "docs/QUALITY_ACCEPTANCE.md": "cb0cb98583b5e1eba5357124f90ef5f986d89b91c8f89eae652ce2858dffc04d",
+    "docs/REPORT_historical.md": "5e796c94ace70a26fab935b5eb7627d4b334a9cafd18a77554ab2b8323dbf9dd",
+    "docs/SAMPLING_NOTE.md": "7535e469fb55e22703938a6dbb0c29c4cd3557f84d0f2b9adb9dd390b2af0de7",
+    "docs/TAXONOMY.md": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f",
+    "docs/VERIFIED_DESIGN.md": "b68e9707fc634a66167e06af6d726e1c6fed0ace018065da12a77b2381e476e4",
+    "output/analysis/Cadence-Implementation-Plan.md": "1b41ef8db7fa48cb3237dc9c5e3b1f98961d4faf2deaf05cd7cc89e38427e354",
+    "README.md": "30a1cf9bb9b1c6442880b26a39289363408b8fb0e67ccab11ec1baee7530f010",
+    "results/balanced_confirmation/predictions.jsonl": "f203629492ea19cf18f2244347cf83807afc75b4527ec3edaad52d7324f8cc0d",
+    "results/balanced_dev/predictions.jsonl": "5d3c72ddbe87aa81f3d551bbc3b7e166bc79922fa877f6660ae2314b12ea084a",
+    "results/balanced_dev_v2/predictions.jsonl": "96534e0b601f3d5e0272ea544d558de924122b90ecae704a90a4d6a6dc612cb1",
+    "results/balanced_dev_v3/predictions.jsonl": "39c0e242ec7034e064a6d3e1210d5428941530ea1843cfaf11ee01fc5bd2b9e3",
+    "results/dev_experiment/predictions.jsonl": "a998fb0e6ea6c2673a827f5fe572b9b4bed1f61cdf5d49b931ba70c5d0b80a39",
+    "results/holdout/predictions.jsonl": "36d3c679337c1e75931ca6c97055422e65f061795467f1cfa09880fcae13f792",
+    "results/holdout_final/predictions.jsonl": "ba8229b348f0750f80a913babe6c126e8255928fdf4d1ba3c4cb457efd716b81",
+    "results/post_audit_regression/predictions.jsonl": "761b71fcb713665457a824a3febca7227818c7e364d79ec57369dd2b1d09737d",
+    "results/predictions.jsonl": "fa27571fe8aadc7cbe03f482cf6829bd37efa203f2b9bf136c5f838725e57fcf",
+    "results/quality_confirmation/predictions.jsonl": "beb9afe8bfdecdbd8c39d7884a8257bc97dd66d1b2ddf747f2f526b585bf136a",
+    "results/quality_dev/predictions.jsonl": "c9d890e22ebe308a15ac1f9b6019795827fe902837753b004453bcc6986cf956",
+    "results/quality_dev_v2/predictions.jsonl": "ad19389bf576efeaaff0e2367ee9094146072d7de1327b9ea4e21628dcb9bf21",
+    "results/quality_dev_v3/predictions.jsonl": "4241b31cd11e30c72c8e67a0f4e0a52d24f2f45e62d22123915e52dcf70c819b",
+    "results/routing_dev/predictions.jsonl": "89b84b62713b29df6a0d46e4fe44846e40eb45070317b27b00a4fe42c68f1bf2",
+    "results/v1/predictions.jsonl": "64d2e65a5b87e20d68c0e8294876ba3f506c15f424bca60162f3200fb40603fc",
+    "results/v2/predictions.jsonl": "6865c2862a2dd8910df9dddca216d47d4a5669518ace9ca791a20d66623a9d23"
+  },
+  "counts": {
+    "original_candidates": 438,
+    "golden": 250,
+    "taxonomy_calibration": 150,
+    "holdout": 200,
+    "routing_dev": 30,
+    "quality_confirmation": 60,
+    "balanced_confirmation": 80,
+    "taxonomy_reading_reconstructed": 200,
+    "documented_quotations": 116,
+    "historical_retrieval_contexts": 3232
+  },
+  "exposure_limitations": [
+    "Inventory includes all recoverable named example sets plus documented seed42 reading sample, full-text/document-ID matches, and conservative exclusion of all corpus retrieval contexts in saved prediction JSONL files.",
+    "docs/TAXONOMY.md also records 8 inspected examples from each of 25 clusters and random per-keyword audits. Their selected IDs and sampling code were not retained, so absence of all historical manual/model exposure cannot be established.",
+    "Reconstructed sample follows documented pandas sample200 random_state42 on the saved English brand-replied opener table; original transient sample file was not retained.",
+    "Historical unsupervised corpus-wide feature analysis and retrieval indexing used this corpus. These packets are disjoint from recorded/reconstructed example exposures, not a new source or time period.",
+    "Near-duplicate rejection and conservative retrieval exclusions change population weights; results cannot be treated as natural traffic coverage."
+  ],
+  "source_archives": {
+    "DECISION_LOG.md": {
+      "path": "source_snapshot/DECISION_LOG.md",
+      "sha256": "fb739f6405caa2a8ad58b8011d0006e03ffaf093e47b33aee039a553e47cc5ca"
+    },
+    "docs/BALANCED_ACCEPTANCE.md": {
+      "path": "source_snapshot/docs/BALANCED_ACCEPTANCE.md",
+      "sha256": "977baa7407ce0368a61e7631dcd20d2b07a49a485ec9311505df1498dae474b5"
+    },
+    "docs/BALANCED_DESIGN.md": {
+      "path": "source_snapshot/docs/BALANCED_DESIGN.md",
+      "sha256": "9f5eb2abde8cab6c98c15d9e5f26f3596ea6995f6161d488189df6261c82e6f1"
+    },
+    "docs/BALANCED_FAILURES.md": {
+      "path": "source_snapshot/docs/BALANCED_FAILURES.md",
+      "sha256": "2ca9df79f586a1266e3a26c16b5c9486472d91e11fd7108194f5083f29fbcb8c"
+    },
+    "docs/BRAND_VOICE.md": {
+      "path": "source_snapshot/docs/BRAND_VOICE.md",
+      "sha256": "407985aa09f67829e687d0663a897b59bf57f871b2789de0468bfa6677a44b74"
+    },
+    "docs/DECISION_LOG_historical.md": {
+      "path": "source_snapshot/docs/DECISION_LOG_historical.md",
+      "sha256": "688b14d2880a691a5a83b3c7b54635efa9254ad016638f90e1a6552a393e44fb"
+    },
+    "docs/DEP_REQUESTS.md": {
+      "path": "source_snapshot/docs/DEP_REQUESTS.md",
+      "sha256": "073218a6833b065a71ca85461602996c9094fafd2ed35389e60de0073482fe64"
+    },
+    "docs/DEPLOYMENT.md": {
+      "path": "source_snapshot/docs/DEPLOYMENT.md",
+      "sha256": "e8cdc93e0643038851ed52cb0ab618105c7814d1a5a3eb18387a5d54ab44865d"
+    },
+    "docs/EVALUATOR_GUIDE.md": {
+      "path": "source_snapshot/docs/EVALUATOR_GUIDE.md",
+      "sha256": "ffa5e1b1c29ec745cb171cc27038f77952390600a2806e7081c9908a2793ffac"
+    },
+    "docs/FAILURE_ANALYSIS.md": {
+      "path": "source_snapshot/docs/FAILURE_ANALYSIS.md",
+      "sha256": "552a913f70bdaa9f9bd82abd821383104c89c719296bcaef8ddbfd193472fe2a"
+    },
+    "docs/FAILURE_ANALYSIS_FRESH.md": {
+      "path": "source_snapshot/docs/FAILURE_ANALYSIS_FRESH.md",
+      "sha256": "daa0344c46d6341e5008819570ad3dd24559498ebffac6d0b02570cf8eda1a7d"
+    },
+    "docs/FAILURE_ANALYSIS_v1.md": {
+      "path": "source_snapshot/docs/FAILURE_ANALYSIS_v1.md",
+      "sha256": "d4f490b24bd3c0d1f5a55dd6191b7c379e33c75483ab4a2b5bfba22a22ee6f43"
+    },
+    "docs/FAILURE_ANALYSIS_v2.md": {
+      "path": "source_snapshot/docs/FAILURE_ANALYSIS_v2.md",
+      "sha256": "ee08e5e9218e39041af8c9972387d4ae8b2e0bf053405affc06262f5b2392fd1"
+    },
+    "docs/HUMAN_REVIEW.md": {
+      "path": "source_snapshot/docs/HUMAN_REVIEW.md",
+      "sha256": "e04cce589e00a55af9e2df0266b8067bb9fdb28cb9a16e99e9b08473d2778bfb"
+    },
+    "docs/IMPLEMENTATION_AUDIT.md": {
+      "path": "source_snapshot/docs/IMPLEMENTATION_AUDIT.md",
+      "sha256": "309ecdfbc9df503f98f68fc63610afcdccd1e61c3eb7f59f2462867952e00a9e"
+    },
+    "docs/IMPROVEMENTS.md": {
+      "path": "source_snapshot/docs/IMPROVEMENTS.md",
+      "sha256": "64a791e1c5a8d1de72f366e4b8046d23827371b33ebcc24e13d1c3fe85205c46"
+    },
+    "docs/INPUT_ARCHIVES.md": {
+      "path": "source_snapshot/docs/INPUT_ARCHIVES.md",
+      "sha256": "8c480f37e4f2571f4848b84ae9e1e7f19955d99c9c3a5bcd134c076d9ed86c4f"
+    },
+    "docs/POLICY_V2.md": {
+      "path": "source_snapshot/docs/POLICY_V2.md",
+      "sha256": "b872ae99a6849971b8da3cbe6e634f1158c13f79fabfa74e0b3d41b0ead6a058"
+    },
+    "docs/QUALITY_ACCEPTANCE.md": {
+      "path": "source_snapshot/docs/QUALITY_ACCEPTANCE.md",
+      "sha256": "cb0cb98583b5e1eba5357124f90ef5f986d89b91c8f89eae652ce2858dffc04d"
+    },
+    "docs/REPORT_historical.md": {
+      "path": "source_snapshot/docs/REPORT_historical.md",
+      "sha256": "5e796c94ace70a26fab935b5eb7627d4b334a9cafd18a77554ab2b8323dbf9dd"
+    },
+    "docs/SAMPLING_NOTE.md": {
+      "path": "source_snapshot/docs/SAMPLING_NOTE.md",
+      "sha256": "7535e469fb55e22703938a6dbb0c29c4cd3557f84d0f2b9adb9dd390b2af0de7"
+    },
+    "docs/TAXONOMY.md": {
+      "path": "source_snapshot/docs/TAXONOMY.md",
+      "sha256": "a0fdfa9f9d4a988fbd392141c59b268c77138afc21dbd354ea6335346a5f738f"
+    },
+    "docs/VERIFIED_DESIGN.md": {
+      "path": "source_snapshot/docs/VERIFIED_DESIGN.md",
+      "sha256": "b68e9707fc634a66167e06af6d726e1c6fed0ace018065da12a77b2381e476e4"
+    },
+    "output/analysis/Cadence-Implementation-Plan.md": {
+      "path": "source_snapshot/output/analysis/Cadence-Implementation-Plan.md",
+      "sha256": "1b41ef8db7fa48cb3237dc9c5e3b1f98961d4faf2deaf05cd7cc89e38427e354"
+    },
+    "README.md": {
+      "path": "source_snapshot/README.md",
+      "sha256": "30a1cf9bb9b1c6442880b26a39289363408b8fb0e67ccab11ec1baee7530f010"
+    }
+  },
+  "source_archive_note": "Markdown inputs are byte-for-byte archived so later documentation changes cannot alter exposure reconstruction. Other source artifacts remain bound by recorded paths and hashes."
+}

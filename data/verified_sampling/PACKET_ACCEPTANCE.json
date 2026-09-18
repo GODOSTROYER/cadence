@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "status": "pass",
+  "scope": "Preparation and metadata acceptance of blank annotation packets, before any new human labels or inference",
+  "reviewed_at": "2026-09-18T11:31:09.620545+00:00",
+  "reviewer": {
+    "type": "ai",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh",
+    "task": "/root/verified_packet_prepare/packet_acceptance"
+  },
+  "human_review_complete": false,
+  "natural_message_texts_displayed_to_preparer_or_reviewer": false,
+  "sampler_sha256": "cd1dec78a18e3ae152f907855a45c2c90a1d39c7bf4ffa700c055938fd3fbf69",
+  "policy_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+  "registry_sha256": "de2dba0b9647c24dae9a84e597e52689c427084693728fff6962e9034fcce7be",
+  "reconstruction_sha256": "dd762b63764bff8268131b86de5cac5cbec56c5de94586e25a2d0b04e4f48092",
+  "shared_guide_sha256": "1009c5974210a97934e25aedc581403d0f2a573301fa85609d546aae8eb2f59f",
+  "partitions": {
+    "calibration": {
+      "directory": "data/verified_calibration",
+      "n": 100,
+      "examples_sha256": "bad712c0bf547595d9114598f5a84c32a77deba96d96abc7bbc8bf80e833917c",
+      "sample_lock_sha256": "39b2ccd54b7607392f1e3abf1f962064789065e604aefb275badf7cc8ce5f2e1",
+      "human_labels_csv_sha256": "5907f9a4c79bd758fc9a37b7a80c9e378e5226892d55b425df34c5180e7c9ee7",
+      "readme_sha256": "4415193d0cbe4b9e1fd3faf955925cadbe75265e7f7bddcbaa827bdc1ef29ba4",
+      "blank_label_rows": 100,
+      "labels_imported": false,
+      "inference_performed": false
+    },
+    "challenge": {
+      "directory": "data/verified_challenge",
+      "n": 80,
+      "examples_sha256": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12",
+      "sample_lock_sha256": "c305a53fa20769d70c4f0420fb73ab5838bb02bc3f4baf154bb6e21d6677aaf4",
+      "human_labels_csv_sha256": "c6acb148579edf674124d2c72cdac0dd6df9b87caac349d74b5b8ff188c032b4",
+      "readme_sha256": "f72d3369eef7edd7e293832c2968043812f9d5685638b3c4a93516de2d25227b",
+      "blank_label_rows": 80,
+      "labels_imported": false,
+      "inference_performed": false
+    },
+    "confirmation": {
+      "directory": "data/verified_confirmation",
+      "n": 200,
+      "examples_sha256": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+      "sample_lock_sha256": "2e54dbeb36adcb97aeef3e44c9d5178e5622bd9546eabb2ed75caf8e312823b8",
+      "human_labels_csv_sha256": "194e6a55f06b9e02d89c20d8ba6e84b7f964bfbc553c4c9f12ea93ab854fa0e8",
+      "readme_sha256": "4c4e23d916add29c0e71931b9896dfd8850258803253576a6c26feb07df7a2f1",
+      "blank_label_rows": 200,
+      "labels_imported": false,
+      "inference_performed": false
+    }
+  },
+  "checks": {
+    "all_380_answer_rows_blank": true,
+    "frozen_files_and_portable_registry_references": true,
+    "source_snapshots_match_bound_sources": true,
+    "both_natural_samples_reproduce_from_archived_registry_and_seed": true,
+    "cross_partition_thread_overlap": 0,
+    "cross_partition_transitive_conversation_overlap": 0,
+    "cross_partition_fuzzy_ratio_85_overlap": 0,
+    "challenge_prior_or_calibration_fuzzy_ratio_85_overlap": 0,
+    "blank_challenge_and_confirmation_human_validators_reject": true,
+    "no_label_review_prediction_or_inference_artifacts_at_acceptance": true,
+    "policy_v2_precedence_over_historical_snapshot_defaults_documented": true,
+    "runner_operational_setup_field_contract_reviewed": true
+  },
+  "exposure_inventory": {
+    "original_unique_real_threads": 4368,
+    "original_exposure_rows": 4756,
+    "original_named_or_reconstructed_sets": 10,
+    "corpus_rows": 27627,
+    "calibration_registry_sets": 10,
+    "challenge_registry_sets": 11,
+    "confirmation_registry_sets": 12,
+    "reconstructed_taxonomy_reading": 200,
+    "document_matches": 116,
+    "conservative_prior_retrieval_contexts": 3232,
+    "prior_prediction_files": 16,
+    "archived_markdown_input_files": 25
+  },
+  "challenge": {
+    "n": 80,
+    "origin": "synthetic",
+    "author_type": "ai",
+    "categories": 8,
+    "cases_per_category": 10,
+    "operational_controls": 9,
+    "operational_cases": 10,
+    "declared_contrast_groups": 2,
+    "cases_per_contrast_group": 2
+  },
+  "limitations": [
+    "Inventory includes all recoverable named example sets plus documented seed42 reading sample, full-text/document-ID matches, and conservative exclusion of all corpus retrieval contexts in saved prediction JSONL files.",
+    "docs/TAXONOMY.md also records 8 inspected examples from each of 25 clusters and random per-keyword audits. Their selected IDs and sampling code were not retained, so absence of all historical manual/model exposure cannot be established.",
+    "Reconstructed sample follows documented pandas sample200 random_state42 on the saved English brand-replied opener table; original transient sample file was not retained.",
+    "Historical unsupervised corpus-wide feature analysis and retrieval indexing used this corpus. These packets are disjoint from recorded/reconstructed example exposures, not a new source or time period.",
+    "Near-duplicate rejection and conservative retrieval exclusions change population weights; results cannot be treated as natural traffic coverage."
+  ],
+  "remaining_work": [
+    "Optional explicitly attributed calibration labels and development experiments.",
+    "Independent human intent/routing labels for all200 confirmation cases and80 challenge cases before inference.",
+    "Actual model comparisons and operational fault-injection execution.",
+    "Independent blinded reply-quality ratings after inference; annotation labels alone do not establish judge-human reply agreement."
+  ]
+}

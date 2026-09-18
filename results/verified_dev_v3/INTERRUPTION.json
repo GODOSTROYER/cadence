@@ -1,0 +1,22 @@
+{
+  "status": "interrupted",
+  "at": "2026-09-18T12:01:21.080593+00:00",
+  "reason": "Independent V3 code acceptance found two action-contract defects after inference began: contradictory social closure eligibility and lost diagnostic clarification for playlist-search malfunction. Process deliberately stopped; preserve partial evidence, no aggregate quality claim. Candidate changes require new run.",
+  "completed": 12,
+  "expected": 80,
+  "unknown_completion_or_usage": [
+    {
+      "id": "b4_013",
+      "system": "verified"
+    }
+  ],
+  "artifacts": {
+    "manifest.json": "181010285343d3b678ea7773e84bffe430c56268798e067e976f04a0953bd243",
+    "predictions.jsonl": "6141502811584d92653d9a3664b244b8f71a0fca1208aadc30905046ffc3a128",
+    "invocations_started.jsonl": "735235d517a751efb05e4ad697eb1dbfe9fe54dce16dd21f1ae1367c845f581f",
+    "calls.sqlite": "d405fbc2df562fce249630e4ce77beebfb8bfd930b23db6660d919028115b515",
+    "status.json": "c10c36355af68bf9e2ab93a2a3550be60017f7ebc57e011b0f2150c0c5b64c72"
+  },
+  "resume_allowed": false,
+  "promotion": false
+}

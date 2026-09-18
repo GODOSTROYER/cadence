@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-09-18T12:22:14.580324+00:00",
+  "n": 84,
+  "n_messages": 21,
+  "seed": 2026091819,
+  "reason": "Before variant ratings were completed or revealed, add matching combined outputs so all four variants receive the same blinded review. Preserve original63 packet; do not overwrite the separate full80 review.",
+  "sources": {
+    "results/verified_variant_core_v1/blind_packet.jsonl": "fb5b2595b2439a481605064dea0ef0c7d65eb7617af24e1a96e19c13821dd675",
+    "results/verified_variant_core_v1/REVIEW.lock.json": "90b0c64ac2a9d4711daeda68e12321aef6d64fbf10069182a8cdfaab78ec88b7",
+    "results/verified_variant_core_v1/rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "results/verified_variant_full_context_v1/blind_packet.jsonl": "f93603cf8fb4e12185bc62cdf98bb31ea91d5279d2d648221f1a59b0bc8248a5",
+    "results/verified_variant_full_context_v1/REVIEW.lock.json": "861283a466226597f7e1ee406c3212b4869ef42310908c482d84054584f23f6b",
+    "results/verified_variant_full_context_v1/rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "results/verified_variant_no_history_v1/blind_packet.jsonl": "4ddd760dee7ef56e0aed1f4d96b28fbfe7a98095b107269ee315ab171dd157f3",
+    "results/verified_variant_no_history_v1/REVIEW.lock.json": "4beaf2581aacbf83cb29402f5369f6ce4d83c4f888f8b178efe397b05b8bd94e",
+    "results/verified_variant_no_history_v1/rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "results/verified_dev_v4/blind_packet.jsonl": "28d29a5515d29051ada307f3cee64ef2487cc244b0985bba9079a8ae89b074ad",
+    "data/verified_dev/V3_REGRESSION_SELECTION.json": "0f91abd5618d318bd073653d62a3008fbf79ecb4b4e016d101eab5ef71ced1b8",
+    "results/verified_dev_v4/REVIEW.lock.json": "49954b42b071d427364e8834c5e2029469b22fd11e25038bb5253720fa99e713",
+    "results/verified_variant_comparison_v1/BLIND_REVIEW.lock.json": "484dc97e309726ad68a2f0ebc92d6bb34e245dddd038973e0270a9a6d4e41044"
+  },
+  "artifacts": {
+    "blind_packet_v2.jsonl": "4d895e4964d24fc17ad062538f5ede2d422ea893a15b0b28dbecf296daa0c52e",
+    "rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a"
+  },
+  "system_and_variant_identity_hidden": true,
+  "human_review": false
+}

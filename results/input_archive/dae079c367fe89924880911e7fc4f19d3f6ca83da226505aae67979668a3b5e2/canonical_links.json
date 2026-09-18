@@ -1,0 +1,5 @@
+[
+  {"id":"reinstall","phrases":["clean reinstall","reinstall"],"url":"https://support.spotify.com/us/article/reinstall-spotify/","title":"Reinstalling your Spotify app","verified_at":"2026-09-16","note":"Downloads must be downloaded again after reinstallation; link supplies current steps."},
+  {"id":"offline","phrases":["downloads unexpectedly removed","listen offline"],"url":"https://support.spotify.com/us/article/listen-offline/","title":"Listen offline","verified_at":"2026-09-16"},
+  {"id":"password","phrases":["reset your password","password reset"],"url":"https://support.spotify.com/us/article/reset-password/","title":"How to reset or change your Spotify password","verified_at":"2026-09-16"}
+]

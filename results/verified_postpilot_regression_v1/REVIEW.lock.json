@@ -1,0 +1,33 @@
+{
+  "run_id": "verified-bad8e539d0b86e24",
+  "rubric_version": "verified-support-review-v1",
+  "human_reply_ids": [
+    "pp6_004",
+    "vc5_098",
+    "pp6_005",
+    "pp6_012",
+    "pp6_011",
+    "vc5_049",
+    "pp6_008",
+    "pp6_006",
+    "vc5_085",
+    "pp6_002",
+    "vc5_086",
+    "pp6_003",
+    "vc5_061",
+    "pp6_010",
+    "pp6_007",
+    "vc5_053",
+    "pp6_001",
+    "pp6_009"
+  ],
+  "blinding": "Customer, exact reply and evidence; no identity, decisions, gold labels, or judge scores",
+  "artifacts": {
+    "manifest.json": "bad8e539d0b86e2496c39fe84b2a86545283bf96e73cc521988e985e8fc74e31",
+    "predictions.jsonl": "88a553c995fadda6a5f9c1c4346f6f3a55e8b12dc4aa1d784ee31b50d5113eb0",
+    "rubric.json": "b1bbf0b3c0807f5c348e33a64d7d68c3986e03ac0d74274eb4bf794368b1b11a",
+    "blind_packet.jsonl": "16a4713a362298690679251505026e11148c37dbef86cd9c0621f08b2923e0f6",
+    "blind_mapping.json": "a2810b7427b53869de937f72d2384c86132fc4f9c4ff91dcbb4c3f8767c29278",
+    "human_reply_packet.jsonl": "16a4713a362298690679251505026e11148c37dbef86cd9c0621f08b2923e0f6"
+  }
+}

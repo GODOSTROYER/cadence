@@ -1,0 +1,42 @@
+{
+  "purpose": "Inspected development regressions selected before v3 inference, not representative or unseen accuracy",
+  "n": 21,
+  "ids": [
+    "b4_002",
+    "b4_008",
+    "b4_014",
+    "b4_017",
+    "b4_021",
+    "b4_023",
+    "b4_027",
+    "b4_028",
+    "b4_034",
+    "b4_037",
+    "b4_045",
+    "b4_053",
+    "b4_054",
+    "b4_056",
+    "b4_059",
+    "b4_061",
+    "b4_066",
+    "b4_067",
+    "b4_068",
+    "b4_069",
+    "b4_073"
+  ],
+  "criteria": [
+    "Vague-context routing mistakes",
+    "Missing social closure action",
+    "Generic-help vs human request",
+    "Feature proposals vs actual faults",
+    "Precise known-context clarification",
+    "Student bundle vs specialist",
+    "Existing current Connect authority",
+    "Public download how-to versus actual feature-change proposal"
+  ],
+  "original_labels_sha256": "ba0415ef057e11af27d48c42ee6c3a4be0091803138130f93493e26efd1bb0b5",
+  "subset_sha256": "dd96c00d962afbce30c78e5187d31518511af64fb9e65288361e3621eae326a7",
+  "labels_modified": false,
+  "human_review": false,
+  "selection_note": "b4_002 added before any v3 inference following completed blinded review of the initial candidate. This inspected subset supports diagnostic ablations only."
+}
