@@ -1,0 +1,19 @@
+{
+  "count": 50,
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "timestamp": "2026-09-18T17:26:36.9410518Z",
+  "annotator": "/root/label_confirmation_02",
+  "label_source": "ai",
+  "reviewed_all_rows": true,
+  "escalated": 13,
+  "automatic": 37,
+  "needs_human_attention": 13,
+  "limitations_uncertainties": [
+    "AI draft annotations only; no human validation or approval asserted.",
+    "Only the frozen annotation guide and assigned source packet informed judgments; no implementation, predictions, historical replies, other batches or external sources were used.",
+    "Flagged rows identify unresolved taxonomy or policy boundaries: prospective payment how-to, relieved legal reference, unexplained acronym, unclear trial/library status, Family identity field, profile following, playlist search, console unlinking, mix controls, editorial refresh, truncated interruption, child-oriented content suitability and Premium shuffle.",
+    "All first-submitted judgments were preserved; review required no draft edits."
+  ],
+  "validation": "50 unique source IDs covered; exact required keys, routing reasons, timestamps and AI provenance checked."
+}

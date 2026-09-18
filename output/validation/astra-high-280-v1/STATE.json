@@ -1,0 +1,83 @@
+{
+  "saved_at": "2026-09-18T17:51:36.876410+00:00",
+  "status": "AI drafts; human validation pending; inference not run",
+  "progress": [
+    {
+      "batch": "confirmation_01",
+      "expected": 50,
+      "saved_rows": 50,
+      "complete_record": true,
+      "invalid_json_lines": []
+    },
+    {
+      "batch": "confirmation_02",
+      "expected": 50,
+      "saved_rows": 50,
+      "complete_record": true,
+      "invalid_json_lines": []
+    },
+    {
+      "batch": "confirmation_03",
+      "expected": 50,
+      "saved_rows": 50,
+      "complete_record": true,
+      "invalid_json_lines": []
+    },
+    {
+      "batch": "confirmation_04",
+      "expected": 50,
+      "saved_rows": 50,
+      "complete_record": true,
+      "invalid_json_lines": []
+    },
+    {
+      "batch": "challenge_01",
+      "expected": 40,
+      "saved_rows": 40,
+      "complete_record": true,
+      "invalid_json_lines": []
+    },
+    {
+      "batch": "challenge_02",
+      "expected": 40,
+      "saved_rows": 40,
+      "complete_record": true,
+      "invalid_json_lines": []
+    }
+  ],
+  "saved_rows": 280,
+  "independent_reviews": [
+    {
+      "file": "confirmation_001_150.json",
+      "stage": "initial",
+      "status": "needs_rework",
+      "reviewed_count": 150,
+      "findings": 4
+    },
+    {
+      "file": "confirmation_151_200_and_challenge.json",
+      "stage": "initial",
+      "status": "accepted_for_human_validation",
+      "reviewed_count": 130,
+      "findings": 2
+    },
+    {
+      "file": "confirmation_001_150.final.json",
+      "stage": "final",
+      "status": "accepted_for_human_validation",
+      "reviewed_count": 150,
+      "findings": 4
+    },
+    {
+      "file": "confirmation_151_200_and_challenge.final.json",
+      "stage": "final",
+      "status": "accepted_for_human_validation",
+      "reviewed_count": 130,
+      "findings": 2
+    }
+  ],
+  "consolidated_data_exists": true,
+  "workbook_exists": true,
+  "acceptance_exists": true,
+  "resume_instructions": "Read output/analysis/ACTIVE_LABELING_STATE.md; resume incomplete batches only. Preserve source samples, original draft judgments and all human-pending fields."
+}

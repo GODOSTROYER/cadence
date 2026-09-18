@@ -1,0 +1,17 @@
+{
+  "id": "v5_094",
+  "intent": "metadata_or_artist_issue",
+  "secondary_intent": "playlist_or_library",
+  "should_escalate": true,
+  "escalation_reason_code": "legal_or_safety",
+  "sentiment": "frustrated",
+  "notes": "Reports sexual-themed material in a children-oriented album and radio recommendations. Whether this constitutes a safety allegation remains unresolved; policy v2 requires fail-closed human routing for the unknown material safety risk.",
+  "confidence": "medium",
+  "needs_human_attention": true,
+  "validation_question": "Does sexual-themed material in children-oriented selections constitute a safety allegation or only content and recommendation feedback? Human routing applies pending an explicit safety-risk determination.",
+  "annotator": "/root/label_confirmation_02",
+  "label_source": "ai",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "labeled_at": "2026-09-18T17:34:47.0970094Z"
+}

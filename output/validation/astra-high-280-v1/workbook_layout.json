@@ -1,0 +1,39 @@
+{
+  "sheets": [
+    {
+      "sheet": "Confirmation",
+      "count": 200,
+      "table": "A10:R210",
+      "freeze": "C11",
+      "maxRowHeight": 138
+    },
+    {
+      "sheet": "Challenge",
+      "count": 80,
+      "table": "A10:R90",
+      "freeze": "C11",
+      "maxRowHeight": 138
+    }
+  ],
+  "total": 280,
+  "headers": [
+    "Case ID",
+    "Source text",
+    "Scenario setup",
+    "Review status",
+    "Intent",
+    "Secondary intent",
+    "Should escalate",
+    "Escalation reason code",
+    "Sentiment",
+    "Human notes",
+    "Astra rationale",
+    "Validation question",
+    "Confidence",
+    "Needs human attention",
+    "Annotator",
+    "Model",
+    "Reasoning effort",
+    "Labeled at (UTC)"
+  ]
+}

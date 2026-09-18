@@ -1,0 +1,5 @@
+{"kind":"workbook","id":"wb/vb9k54","sheets":2,"tables":2}
+{"kind":"sheet","id":"ws/jxcldu","name":"Confirmation","index":0,"range":"A1:R226","address":"A1:R226","tables":1}
+{"kind":"table","sheet":"Confirmation","address":"A1:R226","rows":226,"cols":18,"values":[[null,null,null],["Cadence label validation — Confirmation",null,null]],"valuesTruncated":true,"valuesPreviewRows":2,"valuesPreviewCols":3,"valuesPreviewAddress":"A1:C2"}
+{"kind":"sheet","id":"ws/gg53tu","name":"Challenge","index":1,"range":"A1:R106","address":"A1:R106","tables":1}
+{"kind":"table","sheet":"Challenge","address":"A1:R106","rows":106,"cols":18,"values":[[null,null,null],["Cadence label validation — Challenge",null,null]],"valuesTruncated":true,"valuesPreviewRows":2,"valuesPreviewCols":3,"valuesPreviewAddress":"A1:C2"}

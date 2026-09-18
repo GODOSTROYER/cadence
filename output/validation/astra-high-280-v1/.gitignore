@@ -1,0 +1,3 @@
+# Artifact Tool's full automatic inspection dump is redundant with the reviewed QA.
+*.xlsx.inspect.ndjson
+__pycache__/

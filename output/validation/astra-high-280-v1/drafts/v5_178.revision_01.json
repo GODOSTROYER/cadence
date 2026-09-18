@@ -1,0 +1,17 @@
+{
+  "id": "v5_178",
+  "intent": "account_hacked_or_security",
+  "secondary_intent": "login_or_password",
+  "should_escalate": true,
+  "escalation_reason_code": "legal_or_safety",
+  "sentiment": "frustrated",
+  "notes": "Describes another person controlling playback as harassment, plus a forgotten password and registration under an old email address whose accessibility is unstated; safety priority overrides security and recovery reasons for human handling.",
+  "confidence": "high",
+  "needs_human_attention": false,
+  "validation_question": "",
+  "annotator": "/root/label_confirmation_04",
+  "label_source": "ai",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "labeled_at": "2026-09-18T17:34:49.7471972Z"
+}

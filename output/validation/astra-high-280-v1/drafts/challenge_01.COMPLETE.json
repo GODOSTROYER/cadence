@@ -1,0 +1,34 @@
+{
+  "count": 40,
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "timestamp": "2026-09-18T17:25:59.6055192Z",
+  "annotator": "/root/label_challenge_01",
+  "label_source": "ai",
+  "uncertainties": [
+    {
+      "id": "vc_003",
+      "validation_question": "Should intimidation through shared-playlist edits be playlist_or_library, or other because safety reporting is the central issue?"
+    },
+    {
+      "id": "vc_008",
+      "validation_question": "Does the vague queue-behaviour complaint support feature_request_or_feedback, or should this be other because no specific issue is described?"
+    },
+    {
+      "id": "vc_018",
+      "validation_question": "Should a song-search request with no claim of missing availability use content_or_availability or other?"
+    },
+    {
+      "id": "vc_027",
+      "validation_question": "Does the unknown public-name versus login-identifier target require fail-closed handoff, or may a safe clarification establish eligibility before escalation?"
+    },
+    {
+      "id": "vc_028",
+      "validation_question": "Is speculative third-party involvement with unexplained settings changes enough for the security intent, while security routing remains required for the possible compromise?"
+    }
+  ],
+  "escalation_count": 19,
+  "automatic_count": 21,
+  "human_attention_count": 5,
+  "review": "All 40 individual judgments reviewed; schema, ID coverage, reason consistency, and AI provenance validated. First submitted judgments preserved."
+}

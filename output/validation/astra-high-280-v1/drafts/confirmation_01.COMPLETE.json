@@ -1,0 +1,27 @@
+{
+  "count": 50,
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "timestamp": "2026-09-18T17:25:33.9460165Z",
+  "annotator": "/root/label_confirmation_01",
+  "label_source": "ai",
+  "individually_reasoned": true,
+  "consistency_review_complete": true,
+  "schema_validation": "passed",
+  "escalated_count": 14,
+  "automatic_count": 36,
+  "needs_human_attention_count": 5,
+  "limitations": [
+    "AI draft labels await user validation; no human approval is implied.",
+    "Only the assigned source packet and frozen annotation guide informed judgments; linked media and private messages were unavailable.",
+    "Automatic routing denotes eligibility for supported guidance or clarification, not demonstrated resolution."
+  ],
+  "uncertainties": [
+    "Help-desk complaint may or may not be an explicit human-support request.",
+    "Negated reluctance to switch providers may be read as an implicit churn warning.",
+    "Unavailable notification prevents specific technical or billing classification.",
+    "Generic address-settings navigation lacks a dedicated intent.",
+    "Making music public may concern playlist visibility or publishing original recordings."
+  ],
+  "corrections_made": 0
+}

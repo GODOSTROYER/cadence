@@ -1,0 +1,103 @@
+{
+  "verified_at": "2026-09-18T17:36:56.709713+00:00",
+  "status": "AI drafts verified for human validation",
+  "counts": [
+    {
+      "batch": "confirmation_01",
+      "n": 50,
+      "escalate": 14,
+      "initial_escalate": 14,
+      "needs_human_attention": 5
+    },
+    {
+      "batch": "confirmation_02",
+      "n": 50,
+      "escalate": 14,
+      "initial_escalate": 13,
+      "needs_human_attention": 13
+    },
+    {
+      "batch": "confirmation_03",
+      "n": 50,
+      "escalate": 15,
+      "initial_escalate": 15,
+      "needs_human_attention": 4
+    },
+    {
+      "batch": "confirmation_04",
+      "n": 50,
+      "escalate": 9,
+      "initial_escalate": 9,
+      "needs_human_attention": 9
+    },
+    {
+      "batch": "challenge_01",
+      "n": 40,
+      "escalate": 19,
+      "initial_escalate": 19,
+      "needs_human_attention": 5
+    },
+    {
+      "batch": "challenge_02",
+      "n": 40,
+      "escalate": 23,
+      "initial_escalate": 23,
+      "needs_human_attention": 14
+    }
+  ],
+  "draft_bindings": {
+    "output/validation/astra-high-280-v1/drafts/confirmation_01.jsonl": "e9ea1b2b0d964ff6cbdd755ccbdfe22ffc05ccb6f6a92d8df502b37e8531df26",
+    "output/validation/astra-high-280-v1/drafts/confirmation_01.COMPLETE.json": "2f7efeded5b89b0911c5dfc23d61d2f7b41b937dc8c2437bf7bacc5f82251d5e",
+    "output/validation/astra-high-280-v1/drafts/v5_094.revision_01.json": "a00de0ad189ef036c754f040b6e437cb4ce131718fbc0d0805104b7f536ed656",
+    "output/validation/astra-high-280-v1/drafts/confirmation_02.jsonl": "9474142a352e625c503beacb1143985035d773bd4d3399f1b4da5867ad54dd6f",
+    "output/validation/astra-high-280-v1/drafts/confirmation_02.COMPLETE.json": "64d01e4d43f805c232cc034f8f1117ac6ff8ae05ccc4c183ca67f531ffb0c427",
+    "output/validation/astra-high-280-v1/drafts/confirmation_03.jsonl": "2f4a5703f983fd59831bcbd4d45d99fcbeb96f9107394c6823e5813c6f531fd4",
+    "output/validation/astra-high-280-v1/drafts/confirmation_03.COMPLETE.json": "df25a969c3c39e1faac9c64e25488d73f726c34f5ad0a81cb08a2b0a4f246ad2",
+    "output/validation/astra-high-280-v1/drafts/v5_178.revision_01.json": "e803927a9d46951234f508458ddee140ffa68d593585a1179e0eb88e2a148896",
+    "output/validation/astra-high-280-v1/drafts/confirmation_04.jsonl": "2f65d57b57b088a323399dbe6631c41f38d522243a25313e529e4ea1203f5cc1",
+    "output/validation/astra-high-280-v1/drafts/confirmation_04.COMPLETE.json": "e95b0c94d9507e7ef3dfae881ae1ed7d3066816c250ed248f21fbc577a12ea54",
+    "output/validation/astra-high-280-v1/drafts/challenge_01.jsonl": "78bbed438353d0997b4a9bf1bc8823e3b41be37410d9cadc75be269ee24cf0a7",
+    "output/validation/astra-high-280-v1/drafts/challenge_01.COMPLETE.json": "06bfda44d6b8325e64f95c5f56be56075792b4e89937be647447008bc1738e42",
+    "output/validation/astra-high-280-v1/drafts/challenge_02.jsonl": "76b0d9b4cf4b8f62245b7776fbd5062826d83b8860ca2b46d917c3f9460271bf",
+    "output/validation/astra-high-280-v1/drafts/challenge_02.COMPLETE.json": "a62051f633e52d07c6b83310837123a0a3f57b0f405262c1eb091df397d3a32d"
+  },
+  "ai_revisions": [
+    {
+      "id": "v5_094",
+      "path": "output/validation/astra-high-280-v1/drafts/v5_094.revision_01.json",
+      "sha256": "a00de0ad189ef036c754f040b6e437cb4ce131718fbc0d0805104b7f536ed656",
+      "changed_fields": [
+        "escalation_reason_code",
+        "labeled_at",
+        "notes",
+        "should_escalate",
+        "validation_question"
+      ]
+    },
+    {
+      "id": "v5_178",
+      "path": "output/validation/astra-high-280-v1/drafts/v5_178.revision_01.json",
+      "sha256": "e803927a9d46951234f508458ddee140ffa68d593585a1179e0eb88e2a148896",
+      "changed_fields": [
+        "labeled_at",
+        "notes"
+      ]
+    }
+  ],
+  "source_files_unchanged": true,
+  "raw_source_byte_differences": [],
+  "human_validation_complete": false,
+  "independent_human_labeling": false,
+  "candidate_inference_run": false,
+  "acceptance_review": {
+    "independently_reviewed_rows": 280,
+    "acceptance_review_findings": 6,
+    "rows_requiring_human_attention": 55,
+    "review_bindings": {
+      "output/validation/astra-high-280-v1/reviews/confirmation_001_150.final.json": "a2e444ca34f6fe410567306d57f2791805fb0aac7502d1219675bad552b5505d",
+      "output/validation/astra-high-280-v1/reviews/confirmation_151_200_and_challenge.final.json": "a9a9b2893aa5a1c9a520becba3ba6ec5cf1800ba3d2437f1f65452e7f4dda519"
+    },
+    "original_draft_files_unchanged": true,
+    "method": "Named, reviewed Astra-high revisions applied explicitly; original draft rows preserved in revision metadata. Acceptance questions remain visible; human approval pending."
+  }
+}

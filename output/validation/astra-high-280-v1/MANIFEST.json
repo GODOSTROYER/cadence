@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "prepared_at": "2026-09-18T17:21:04.611516+00:00",
+  "base_commit": "f19c9ca1db31d71652bc54182e00b8212048471f",
+  "status": "AI draft annotation in progress; human validation pending; no inference",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "guide_sha256": "dad77af23e8ffc60fda5cd9d4110847af7adc63914817aedf7b046dae8895e53",
+  "sources": {
+    "data/verified_confirmation/examples.jsonl": {
+      "sha256": "bf4e5c6b2013837fdeeac651f2e19faf4edd76ff9a88ee6dacea82177996dd33",
+      "raw_sha256": "25b88adadf32e0c5c50ce4dd1e85ac3e373214eb75d5ee9663ee32727568ea40"
+    },
+    "data/verified_confirmation/human_labels.csv": {
+      "sha256": "194e6a55f06b9e02d89c20d8ba6e84b7f964bfbc553c4c9f12ea93ab854fa0e8",
+      "raw_sha256": "194e6a55f06b9e02d89c20d8ba6e84b7f964bfbc553c4c9f12ea93ab854fa0e8"
+    },
+    "data/verified_confirmation/SAMPLE.lock.json": {
+      "sha256": "2e54dbeb36adcb97aeef3e44c9d5178e5622bd9546eabb2ed75caf8e312823b8",
+      "raw_sha256": "7d6d24116af09ba4832ca613f2c73349547d90734c8dcbdd10c5bb0b1fa78173"
+    },
+    "data/verified_confirmation/policy.snapshot.yaml": {
+      "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "raw_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+    },
+    "data/verified_confirmation/intents.snapshot.yaml": {
+      "sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+      "raw_sha256": "ca23203ab3f7fb0741fe78eebddd35139f748307674f0ada4dfb6d23a8fc902a"
+    },
+    "data/verified_confirmation/reasons.snapshot.yaml": {
+      "sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "raw_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae"
+    },
+    "data/verified_challenge/examples.jsonl": {
+      "sha256": "0f05f4215faaccb6560217eb25712a00f0ab195a7d318459e28d524e48c63a12",
+      "raw_sha256": "b6d21d33d995c397183a0526fa4de2a6c11dba1f681869be04b51c15bb04f6bd"
+    },
+    "data/verified_challenge/human_labels.csv": {
+      "sha256": "c6acb148579edf674124d2c72cdac0dd6df9b87caac349d74b5b8ff188c032b4",
+      "raw_sha256": "c6acb148579edf674124d2c72cdac0dd6df9b87caac349d74b5b8ff188c032b4"
+    },
+    "data/verified_challenge/SAMPLE.lock.json": {
+      "sha256": "c305a53fa20769d70c4f0420fb73ab5838bb02bc3f4baf154bb6e21d6677aaf4",
+      "raw_sha256": "d0d38f5e363bf8fe426846b7a2a655cf0cbe2d9ffe26ba1307e6fea2a1122659"
+    },
+    "data/verified_challenge/policy.snapshot.yaml": {
+      "sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0",
+      "raw_sha256": "cad5c7058e464d0f1d620b04868247df6fe5df25b2f4505b2c08c27fb0a2dae0"
+    },
+    "data/verified_challenge/intents.snapshot.yaml": {
+      "sha256": "e2c63cfb73ba6176f2155fc5b9ba6ebf7c81f1942cca525472cd10efaac9c1f6",
+      "raw_sha256": "ca23203ab3f7fb0741fe78eebddd35139f748307674f0ada4dfb6d23a8fc902a"
+    },
+    "data/verified_challenge/reasons.snapshot.yaml": {
+      "sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae",
+      "raw_sha256": "5c20a7ad97a6b091e07a271e51675b252fa69292d491a770220a4860c3905fae"
+    }
+  },
+  "batches": [
+    {
+      "name": "confirmation_01",
+      "partition": "confirmation",
+      "n": 50,
+      "input": "output/validation/astra-high-280-v1/inputs/confirmation_01.jsonl",
+      "input_sha256": "6d8d2b331a541b26d62301ece0c018209bb7ebb02f6c8abb96f838f3df4859d8",
+      "output": "output/validation/astra-high-280-v1/drafts/confirmation_01.jsonl"
+    },
+    {
+      "name": "confirmation_02",
+      "partition": "confirmation",
+      "n": 50,
+      "input": "output/validation/astra-high-280-v1/inputs/confirmation_02.jsonl",
+      "input_sha256": "857e02ec2183317fbc8a0978cf25bb75120f16b666911e60327de58b7315926e",
+      "output": "output/validation/astra-high-280-v1/drafts/confirmation_02.jsonl"
+    },
+    {
+      "name": "confirmation_03",
+      "partition": "confirmation",
+      "n": 50,
+      "input": "output/validation/astra-high-280-v1/inputs/confirmation_03.jsonl",
+      "input_sha256": "90b95ad394155a9d10af71346acc8cb799ed4763e94a370f37bc1bf1a16ce0f3",
+      "output": "output/validation/astra-high-280-v1/drafts/confirmation_03.jsonl"
+    },
+    {
+      "name": "confirmation_04",
+      "partition": "confirmation",
+      "n": 50,
+      "input": "output/validation/astra-high-280-v1/inputs/confirmation_04.jsonl",
+      "input_sha256": "dd1db598d8d3e9cca61d89c2ebcfb118445cfb7f390520204f42b33ce348b3a7",
+      "output": "output/validation/astra-high-280-v1/drafts/confirmation_04.jsonl"
+    },
+    {
+      "name": "challenge_01",
+      "partition": "challenge",
+      "n": 40,
+      "input": "output/validation/astra-high-280-v1/inputs/challenge_01.jsonl",
+      "input_sha256": "5937b892feb24e00ad96af98ac2819b66325b854f668aaef052178eb46ad9917",
+      "output": "output/validation/astra-high-280-v1/drafts/challenge_01.jsonl"
+    },
+    {
+      "name": "challenge_02",
+      "partition": "challenge",
+      "n": 40,
+      "input": "output/validation/astra-high-280-v1/inputs/challenge_02.jsonl",
+      "input_sha256": "4ea69225686626b2510c18d68a2d9802bbc1fd4383b0d8efe63a34e7c4fe6881",
+      "output": "output/validation/astra-high-280-v1/drafts/challenge_02.jsonl"
+    }
+  ],
+  "policy": "AI-assisted human validation after draft generation is not independent blind human labeling. Original sample locks and human worksheets are preserved."
+}

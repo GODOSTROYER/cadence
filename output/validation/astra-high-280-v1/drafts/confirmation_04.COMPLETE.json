@@ -1,0 +1,43 @@
+{
+  "count": 50,
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "timestamp": "2026-09-18T17:26:47.9952374Z",
+  "annotator": "/root/label_confirmation_04",
+  "label_source": "ai",
+  "status": "complete",
+  "should_escalate_count": 9,
+  "automatic_count": 41,
+  "needs_human_attention_count": 9,
+  "intent_counts": {
+    "account_hacked_or_security": 3,
+    "billing_or_charge": 1,
+    "content_or_availability": 7,
+    "download_or_offline": 1,
+    "feature_request_or_feedback": 13,
+    "login_or_password": 2,
+    "metadata_or_artist_issue": 1,
+    "other": 3,
+    "playback_or_app_bug": 6,
+    "playlist_or_library": 3,
+    "subscription_or_plan": 10
+  },
+  "escalation_reason_counts": {
+    "account_security": 2,
+    "ambiguous_or_media_only": 1,
+    "billing_dispute": 1,
+    "high_frustration_or_churn": 3,
+    "legal_or_safety": 1,
+    "needs_account_lookup": 1
+  },
+  "review": "All 50 first-submission judgments reviewed for policy and intent consistency. No amendments made. Schema, enums, ID coverage, attribution, timestamps and routing invariants passed.",
+  "limitations": [
+    "AI draft annotations await user validation; no human approval is claimed.",
+    "Only the frozen guide, assigned input packet and own draft were consulted; linked media and current public sources were not inspected.",
+    "Automatic routing indicates eligibility for supported guidance or clarification, not resolution or verified current product facts."
+  ],
+  "uncertainties": [
+    "Boundary flags cover seasonal playlist availability, Family subscription consolidation, library capacity, postal-code correction, editorial placement, concurrent streaming, phishing awareness, incorrect audio mapping and advertising-network traffic.",
+    "All row-specific questions are retained in validation_question; first-submission judgments are preserved."
+  ]
+}

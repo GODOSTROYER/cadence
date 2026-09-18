@@ -1,0 +1,70 @@
+{
+  "count": 40,
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "timestamp": "2026-09-18T17:26:41.5030990Z",
+  "annotator": "/root/label_challenge_02",
+  "label_source": "ai",
+  "review": "All 40 manually reasoned rows reviewed; schema, IDs, routing consistency and authorship validated. First submitted judgments preserved.",
+  "escalation_count": 23,
+  "automatic_count": 17,
+  "human_attention_count": 14,
+  "uncertainties": [
+    {
+      "id": "vc_042",
+      "validation_question": "Should general playback-setting guidance use playback_or_app_bug when no malfunction or requested feature change is present?"
+    },
+    {
+      "id": "vc_045",
+      "validation_question": "Confirm low_confidence is the intended operational-failure reason for expired knowledge; the policy does not explicitly map knowledge freshness failures to a reason code."
+    },
+    {
+      "id": "vc_046",
+      "validation_question": "Confirm low_confidence is the intended operational-failure reason for missing knowledge rather than out_of_scope."
+    },
+    {
+      "id": "vc_049",
+      "validation_question": "Confirm low_confidence is the intended operational-failure reason for retrieval failure when current public guidance cannot be supported."
+    },
+    {
+      "id": "vc_052",
+      "validation_question": "Should preventive login-security guidance without any compromise use login_or_password or account_hacked_or_security? The latter definition requires a third party in the account."
+    },
+    {
+      "id": "vc_055",
+      "validation_question": "Confirm feature_request_or_feedback for a navigation how-to accompanied by a UI visibility complaint, rather than playback_or_app_bug for queue controls."
+    },
+    {
+      "id": "vc_061",
+      "validation_question": "Confirm retaining the specific technical intent for another service, rather than labeling all explicitly non-Spotify requests as off-topic other."
+    },
+    {
+      "id": "vc_062",
+      "validation_question": "Confirm playlist_or_library for an explicitly third-party library issue, rather than the off-topic other category."
+    },
+    {
+      "id": "vc_063",
+      "validation_question": "Confirm Spanish is unsupported in this evaluation; the policy requires handoff for unsupported languages but does not enumerate supported languages."
+    },
+    {
+      "id": "vc_064",
+      "validation_question": "Confirm Hindi is unsupported in this evaluation; the policy does not enumerate supported languages."
+    },
+    {
+      "id": "vc_065",
+      "validation_question": "Confirm Japanese is unsupported in this evaluation; the policy does not enumerate supported languages."
+    },
+    {
+      "id": "vc_070",
+      "validation_question": "Confirm out_of_scope for direct music-distribution execution rather than needs_account_lookup; this request exceeds support capabilities, not merely public artist guidance."
+    },
+    {
+      "id": "vc_071",
+      "validation_question": "Confirm playback_or_app_bug as the nearest category for playback-settings navigation when no malfunction is alleged."
+    },
+    {
+      "id": "vc_077",
+      "validation_question": "Confirm playback_or_app_bug for current device-compatibility guidance when no definite malfunction is described."
+    }
+  ]
+}

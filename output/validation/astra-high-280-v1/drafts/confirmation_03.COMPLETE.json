@@ -1,0 +1,18 @@
+{
+  "count": 50,
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "timestamp": "2026-09-18T17:26:26.9819409Z",
+  "annotator": "/root/label_confirmation_03",
+  "label_source": "ai",
+  "review": "All 50 individually reasoned annotations reviewed for intent, independent routing, sentiment, ambiguity, and schema consistency. First submitted judgments preserved; no corrections made.",
+  "limitations_uncertainties": [
+    "AI drafts await user validation and are not human ground truth.",
+    "No unavailable linked media, current product sources, implementation, predictions, prior labels, or other batches were inspected.",
+    "Four rows flag taxonomy uncertainty concerning a missing purchase control, an absent artist biography, vague Free-tier behavior, and a feature-settings how-to.",
+    "Automatic routing means eligible for supported guidance or necessary clarification, not verified resolution."
+  ],
+  "escalation_count": 15,
+  "automatic_count": 35,
+  "human_attention_count": 4
+}

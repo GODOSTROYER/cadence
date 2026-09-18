@@ -1,0 +1,978 @@
+{
+  "checked_at": "2026-09-18T17:45:11.478394+00:00",
+  "source_file": "Z:\\Projects\\Hiver\\output\\validation\\astra-high-280-v1\\review_data.json",
+  "workbook_file": "Z:\\Projects\\Hiver\\output\\validation\\astra-high-280-v1\\Cadence-Label-Validation.xlsx",
+  "read_only": true,
+  "checks": [
+    {
+      "check": "source_cohorts",
+      "passed": true,
+      "details": {
+        "required": [
+          "confirmation",
+          "challenge"
+        ],
+        "present": [
+          "challenge",
+          "confirmation"
+        ]
+      }
+    },
+    {
+      "check": "source_confirmation_count",
+      "passed": true,
+      "details": {
+        "expected": 200,
+        "actual": 200
+      }
+    },
+    {
+      "check": "source_confirmation_fields",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "source_challenge_count",
+      "passed": true,
+      "details": {
+        "expected": 80,
+        "actual": 80
+      }
+    },
+    {
+      "check": "source_challenge_fields",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "source_ids_unique",
+      "passed": true,
+      "details": {
+        "total": 280,
+        "unique": 280
+      }
+    },
+    {
+      "check": "Confirmation:one_review_table",
+      "passed": true,
+      "details": [
+        "ConfirmationReview"
+      ]
+    },
+    {
+      "check": "Confirmation:source_ids_inside_review_table",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:recognizable_cohort",
+      "passed": true,
+      "details": {
+        "confirmation": 200,
+        "challenge": 0
+      }
+    },
+    {
+      "check": "Confirmation:cohort_once",
+      "passed": true,
+      "details": "confirmation"
+    },
+    {
+      "check": "Confirmation:all_source_headers",
+      "passed": true,
+      "details": {
+        "missing": [],
+        "ambiguous": {}
+      }
+    },
+    {
+      "check": "Confirmation:unique_source_headers",
+      "passed": true
+    },
+    {
+      "check": "Confirmation:record_count",
+      "passed": true,
+      "details": {
+        "expected": 200,
+        "actual": 200
+      }
+    },
+    {
+      "check": "Confirmation:ids_unique",
+      "passed": true
+    },
+    {
+      "check": "Confirmation:ids_exact",
+      "passed": true,
+      "details": {
+        "missing": [],
+        "extra": []
+      }
+    },
+    {
+      "check": "Confirmation:human_workflow_fields",
+      "passed": true,
+      "details": {
+        "row_fields": {
+          "status": [
+            "Review status"
+          ],
+          "review_notes": [
+            "Human notes"
+          ]
+        },
+        "sheet_fields": {
+          "reviewed_at": [
+            {
+              "label_cell": "A5",
+              "input_cell": "B5",
+              "blank": true
+            },
+            {
+              "label_cell": "C7",
+              "input_cell": "D7",
+              "blank": true
+            }
+          ],
+          "reviewer": [
+            {
+              "label_cell": "A7",
+              "input_cell": "B7",
+              "blank": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": "Confirmation:human_summary_fields_blank",
+      "passed": true,
+      "details": {
+        "reviewed_at": [
+          {
+            "label_cell": "A5",
+            "input_cell": "B5",
+            "blank": true
+          },
+          {
+            "label_cell": "C7",
+            "input_cell": "D7",
+            "blank": true
+          }
+        ],
+        "reviewer": [
+          {
+            "label_cell": "A7",
+            "input_cell": "B7",
+            "blank": true
+          }
+        ]
+      }
+    },
+    {
+      "check": "Confirmation:headers_classified",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "check": "Confirmation:source_values_exact",
+      "passed": true,
+      "details": {
+        "comparisons_by_field": {
+          "id": 200,
+          "text": 200,
+          "scenario_setup": 200,
+          "intent": 200,
+          "secondary_intent": 200,
+          "should_escalate": 200,
+          "escalation_reason_code": 200,
+          "sentiment": 200,
+          "notes": 200,
+          "confidence": 200,
+          "needs_human_attention": 200,
+          "validation_question": 200,
+          "annotator": 200,
+          "model": 200,
+          "reasoning_effort": 200,
+          "labeled_at": 200
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "check": "Confirmation:booleans_canonical_display",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:timestamps_literal_text",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:human_fields_blank",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:statuses_pending",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:special_prefixes_literal",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:freeze_id_text_headers",
+      "passed": true,
+      "details": {
+        "xSplit": "2",
+        "ySplit": "10",
+        "topLeftCell": "C11",
+        "activePane": "bottomRight",
+        "state": "frozen"
+      }
+    },
+    {
+      "check": "Confirmation:filter_all_columns_rows",
+      "passed": true,
+      "details": [
+        "A10:R210"
+      ]
+    },
+    {
+      "check": "Confirmation:table_all_columns_rows",
+      "passed": true,
+      "details": [
+        {
+          "name": "ConfirmationReview",
+          "ref": "A10:R210",
+          "filter_ref": "A10:R210",
+          "headers": [
+            "Case ID",
+            "Source text",
+            "Scenario setup",
+            "Review status",
+            "Intent",
+            "Secondary intent",
+            "Should escalate",
+            "Escalation reason code",
+            "Sentiment",
+            "Human notes",
+            "Astra rationale",
+            "Validation question",
+            "Confidence",
+            "Needs human attention",
+            "Annotator",
+            "Model",
+            "Reasoning effort",
+            "Labeled at (UTC)"
+          ]
+        }
+      ]
+    },
+    {
+      "check": "Confirmation:table_headers_match",
+      "passed": true
+    },
+    {
+      "check": "Confirmation:list_validation_coverage",
+      "passed": true,
+      "details": {
+        "categorical_columns": [
+          "Review status",
+          "Intent",
+          "Secondary intent",
+          "Should escalate",
+          "Escalation reason code",
+          "Sentiment"
+        ],
+        "failures": [],
+        "rules": [
+          {
+            "type": "list",
+            "sqref": "D11:D210",
+            "formula1": "\"Pending,Approved,Corrected,Needs discussion\"",
+            "resolved_options": [
+              "Pending",
+              "Approved",
+              "Corrected",
+              "Needs discussion"
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "E11:E210",
+            "formula1": "$B$215:$B$226",
+            "resolved_options": [
+              "non_english",
+              "account_hacked_or_security",
+              "billing_or_charge",
+              "login_or_password",
+              "download_or_offline",
+              "metadata_or_artist_issue",
+              "playlist_or_library",
+              "content_or_availability",
+              "playback_or_app_bug",
+              "subscription_or_plan",
+              "feature_request_or_feedback",
+              "other"
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "F11:F210",
+            "formula1": "$B$215:$B$227",
+            "resolved_options": [
+              "non_english",
+              "account_hacked_or_security",
+              "billing_or_charge",
+              "login_or_password",
+              "download_or_offline",
+              "metadata_or_artist_issue",
+              "playlist_or_library",
+              "content_or_availability",
+              "playback_or_app_bug",
+              "subscription_or_plan",
+              "feature_request_or_feedback",
+              "other",
+              ""
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "G11:G210",
+            "formula1": "\"true,false\"",
+            "resolved_options": [
+              "true",
+              "false"
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "H11:H210",
+            "formula1": "$C$215:$C$223",
+            "resolved_options": [
+              "billing_dispute",
+              "account_security",
+              "needs_account_lookup",
+              "high_frustration_or_churn",
+              "legal_or_safety",
+              "ambiguous_or_media_only",
+              "low_confidence",
+              "out_of_scope",
+              ""
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "I11:I210",
+            "formula1": "\"positive,neutral,frustrated,angry\"",
+            "resolved_options": [
+              "positive",
+              "neutral",
+              "frustrated",
+              "angry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "check": "Confirmation:initial_choices_valid",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Confirmation:review_inputs_editable",
+      "passed": true,
+      "details": {
+        "sheet_protected": false,
+        "review_input_count": 1403,
+        "locked_review_inputs": []
+      }
+    },
+    {
+      "check": "Challenge:one_review_table",
+      "passed": true,
+      "details": [
+        "ChallengeReview"
+      ]
+    },
+    {
+      "check": "Challenge:source_ids_inside_review_table",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:recognizable_cohort",
+      "passed": true,
+      "details": {
+        "confirmation": 0,
+        "challenge": 80
+      }
+    },
+    {
+      "check": "Challenge:cohort_once",
+      "passed": true,
+      "details": "challenge"
+    },
+    {
+      "check": "Challenge:all_source_headers",
+      "passed": true,
+      "details": {
+        "missing": [],
+        "ambiguous": {}
+      }
+    },
+    {
+      "check": "Challenge:unique_source_headers",
+      "passed": true
+    },
+    {
+      "check": "Challenge:record_count",
+      "passed": true,
+      "details": {
+        "expected": 80,
+        "actual": 80
+      }
+    },
+    {
+      "check": "Challenge:ids_unique",
+      "passed": true
+    },
+    {
+      "check": "Challenge:ids_exact",
+      "passed": true,
+      "details": {
+        "missing": [],
+        "extra": []
+      }
+    },
+    {
+      "check": "Challenge:human_workflow_fields",
+      "passed": true,
+      "details": {
+        "row_fields": {
+          "status": [
+            "Review status"
+          ],
+          "review_notes": [
+            "Human notes"
+          ]
+        },
+        "sheet_fields": {
+          "reviewed_at": [
+            {
+              "label_cell": "A5",
+              "input_cell": "B5",
+              "blank": true
+            },
+            {
+              "label_cell": "C7",
+              "input_cell": "D7",
+              "blank": true
+            }
+          ],
+          "reviewer": [
+            {
+              "label_cell": "A7",
+              "input_cell": "B7",
+              "blank": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": "Challenge:human_summary_fields_blank",
+      "passed": true,
+      "details": {
+        "reviewed_at": [
+          {
+            "label_cell": "A5",
+            "input_cell": "B5",
+            "blank": true
+          },
+          {
+            "label_cell": "C7",
+            "input_cell": "D7",
+            "blank": true
+          }
+        ],
+        "reviewer": [
+          {
+            "label_cell": "A7",
+            "input_cell": "B7",
+            "blank": true
+          }
+        ]
+      }
+    },
+    {
+      "check": "Challenge:headers_classified",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "check": "Challenge:source_values_exact",
+      "passed": true,
+      "details": {
+        "comparisons_by_field": {
+          "id": 80,
+          "text": 80,
+          "scenario_setup": 80,
+          "intent": 80,
+          "secondary_intent": 80,
+          "should_escalate": 80,
+          "escalation_reason_code": 80,
+          "sentiment": 80,
+          "notes": 80,
+          "confidence": 80,
+          "needs_human_attention": 80,
+          "validation_question": 80,
+          "annotator": 80,
+          "model": 80,
+          "reasoning_effort": 80,
+          "labeled_at": 80
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "check": "Challenge:booleans_canonical_display",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:timestamps_literal_text",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:human_fields_blank",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:statuses_pending",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:special_prefixes_literal",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:freeze_id_text_headers",
+      "passed": true,
+      "details": {
+        "xSplit": "2",
+        "ySplit": "10",
+        "topLeftCell": "C11",
+        "activePane": "bottomRight",
+        "state": "frozen"
+      }
+    },
+    {
+      "check": "Challenge:filter_all_columns_rows",
+      "passed": true,
+      "details": [
+        "A10:R90"
+      ]
+    },
+    {
+      "check": "Challenge:table_all_columns_rows",
+      "passed": true,
+      "details": [
+        {
+          "name": "ChallengeReview",
+          "ref": "A10:R90",
+          "filter_ref": "A10:R90",
+          "headers": [
+            "Case ID",
+            "Source text",
+            "Scenario setup",
+            "Review status",
+            "Intent",
+            "Secondary intent",
+            "Should escalate",
+            "Escalation reason code",
+            "Sentiment",
+            "Human notes",
+            "Astra rationale",
+            "Validation question",
+            "Confidence",
+            "Needs human attention",
+            "Annotator",
+            "Model",
+            "Reasoning effort",
+            "Labeled at (UTC)"
+          ]
+        }
+      ]
+    },
+    {
+      "check": "Challenge:table_headers_match",
+      "passed": true
+    },
+    {
+      "check": "Challenge:list_validation_coverage",
+      "passed": true,
+      "details": {
+        "categorical_columns": [
+          "Review status",
+          "Intent",
+          "Secondary intent",
+          "Should escalate",
+          "Escalation reason code",
+          "Sentiment"
+        ],
+        "failures": [],
+        "rules": [
+          {
+            "type": "list",
+            "sqref": "D11:D90",
+            "formula1": "\"Pending,Approved,Corrected,Needs discussion\"",
+            "resolved_options": [
+              "Pending",
+              "Approved",
+              "Corrected",
+              "Needs discussion"
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "E11:E90",
+            "formula1": "$B$95:$B$106",
+            "resolved_options": [
+              "non_english",
+              "account_hacked_or_security",
+              "billing_or_charge",
+              "login_or_password",
+              "download_or_offline",
+              "metadata_or_artist_issue",
+              "playlist_or_library",
+              "content_or_availability",
+              "playback_or_app_bug",
+              "subscription_or_plan",
+              "feature_request_or_feedback",
+              "other"
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "F11:F90",
+            "formula1": "$B$95:$B$107",
+            "resolved_options": [
+              "non_english",
+              "account_hacked_or_security",
+              "billing_or_charge",
+              "login_or_password",
+              "download_or_offline",
+              "metadata_or_artist_issue",
+              "playlist_or_library",
+              "content_or_availability",
+              "playback_or_app_bug",
+              "subscription_or_plan",
+              "feature_request_or_feedback",
+              "other",
+              ""
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "G11:G90",
+            "formula1": "\"true,false\"",
+            "resolved_options": [
+              "true",
+              "false"
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "H11:H90",
+            "formula1": "$C$95:$C$103",
+            "resolved_options": [
+              "billing_dispute",
+              "account_security",
+              "needs_account_lookup",
+              "high_frustration_or_churn",
+              "legal_or_safety",
+              "ambiguous_or_media_only",
+              "low_confidence",
+              "out_of_scope",
+              ""
+            ]
+          },
+          {
+            "type": "list",
+            "sqref": "I11:I90",
+            "formula1": "\"positive,neutral,frustrated,angry\"",
+            "resolved_options": [
+              "positive",
+              "neutral",
+              "frustrated",
+              "angry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "check": "Challenge:initial_choices_valid",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "Challenge:review_inputs_editable",
+      "passed": true,
+      "details": {
+        "sheet_protected": false,
+        "review_input_count": 563,
+        "locked_review_inputs": []
+      }
+    },
+    {
+      "check": "both_cohorts_present",
+      "passed": true,
+      "details": [
+        "challenge",
+        "confirmation"
+      ]
+    },
+    {
+      "check": "no_unexpected_worksheet_formulas",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "no_excel_error_cells",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "inputs_unchanged",
+      "passed": true
+    }
+  ],
+  "sheets": [
+    {
+      "sheet": "Confirmation",
+      "role": "confirmation",
+      "state": "visible",
+      "header_row": 10,
+      "record_count": 200,
+      "source_columns": {
+        "id": [
+          "A"
+        ],
+        "text": [
+          "B"
+        ],
+        "scenario_setup": [
+          "C"
+        ],
+        "intent": [
+          "E"
+        ],
+        "secondary_intent": [
+          "F"
+        ],
+        "should_escalate": [
+          "G"
+        ],
+        "escalation_reason_code": [
+          "H"
+        ],
+        "sentiment": [
+          "I"
+        ],
+        "notes": [
+          "K"
+        ],
+        "validation_question": [
+          "L"
+        ],
+        "confidence": [
+          "M"
+        ],
+        "needs_human_attention": [
+          "N"
+        ],
+        "annotator": [
+          "O"
+        ],
+        "model": [
+          "P"
+        ],
+        "reasoning_effort": [
+          "Q"
+        ],
+        "labeled_at": [
+          "R"
+        ]
+      },
+      "human_columns": {
+        "status": [
+          "D"
+        ],
+        "review_notes": [
+          "J"
+        ]
+      },
+      "tables": [
+        {
+          "name": "ConfirmationReview",
+          "ref": "A10:R210",
+          "filter_ref": "A10:R210",
+          "headers": [
+            "Case ID",
+            "Source text",
+            "Scenario setup",
+            "Review status",
+            "Intent",
+            "Secondary intent",
+            "Should escalate",
+            "Escalation reason code",
+            "Sentiment",
+            "Human notes",
+            "Astra rationale",
+            "Validation question",
+            "Confidence",
+            "Needs human attention",
+            "Annotator",
+            "Model",
+            "Reasoning effort",
+            "Labeled at (UTC)"
+          ]
+        }
+      ],
+      "pane": {
+        "xSplit": "2",
+        "ySplit": "10",
+        "topLeftCell": "C11",
+        "activePane": "bottomRight",
+        "state": "frozen"
+      },
+      "list_validation_count": 6
+    },
+    {
+      "sheet": "Challenge",
+      "role": "challenge",
+      "state": "visible",
+      "header_row": 10,
+      "record_count": 80,
+      "source_columns": {
+        "id": [
+          "A"
+        ],
+        "text": [
+          "B"
+        ],
+        "scenario_setup": [
+          "C"
+        ],
+        "intent": [
+          "E"
+        ],
+        "secondary_intent": [
+          "F"
+        ],
+        "should_escalate": [
+          "G"
+        ],
+        "escalation_reason_code": [
+          "H"
+        ],
+        "sentiment": [
+          "I"
+        ],
+        "notes": [
+          "K"
+        ],
+        "validation_question": [
+          "L"
+        ],
+        "confidence": [
+          "M"
+        ],
+        "needs_human_attention": [
+          "N"
+        ],
+        "annotator": [
+          "O"
+        ],
+        "model": [
+          "P"
+        ],
+        "reasoning_effort": [
+          "Q"
+        ],
+        "labeled_at": [
+          "R"
+        ]
+      },
+      "human_columns": {
+        "status": [
+          "D"
+        ],
+        "review_notes": [
+          "J"
+        ]
+      },
+      "tables": [
+        {
+          "name": "ChallengeReview",
+          "ref": "A10:R90",
+          "filter_ref": "A10:R90",
+          "headers": [
+            "Case ID",
+            "Source text",
+            "Scenario setup",
+            "Review status",
+            "Intent",
+            "Secondary intent",
+            "Should escalate",
+            "Escalation reason code",
+            "Sentiment",
+            "Human notes",
+            "Astra rationale",
+            "Validation question",
+            "Confidence",
+            "Needs human attention",
+            "Annotator",
+            "Model",
+            "Reasoning effort",
+            "Labeled at (UTC)"
+          ]
+        }
+      ],
+      "pane": {
+        "xSplit": "2",
+        "ySplit": "10",
+        "topLeftCell": "C11",
+        "activePane": "bottomRight",
+        "state": "frozen"
+      },
+      "list_validation_count": 6
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "Saved OOXML inspection does not prove rendering or interactive behavior in Microsoft Excel."
+  ],
+  "source_sha256": "12cd2cdeb568b27391aea76b130b2443997ab2713c214fc385b2161a01b11028",
+  "workbook_sha256": "6c0cb1f0909280c1f0230f0630a4906feece910117150c6b2078b31d57629afe",
+  "ignored_root_metadata_keys": [],
+  "special_prefix_source_values_checked": 6,
+  "passed": true,
+  "summary": {
+    "total_checks": 60,
+    "passed_checks": 60,
+    "failed_checks": 0
+  }
+}
